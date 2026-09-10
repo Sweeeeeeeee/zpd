@@ -1,0 +1,35 @@
+# FROM nvidia/cuda:12.1.1-cudnn8-devel-ubuntu22.04
+FROM ubuntu:22.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+ENV PYTHONUNBUFFERED=1
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+	python3.10 python3.10-dev python3-pip \
+	git wget curl ca-certificates build-essential cmake && \
+	rm -rf /var/lib/apt/lists/*
+
+RUN ln -s /usr/bin/python3.10 /usr/bin/python # && \
+#	ln -s /usr/bin/pip3 /usr/bin/pip
+
+WORKDIR /workspace
+
+RUN pip install --no-cache-dir "setuptools<70.0.0" "setuptools-scm<8.0.0" wheel
+RUN pip install --no-cache-dir torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu # cu121
+RUN pip install --no-cache-dir jax jaxlib flax sentencepiece
+
+RUN git clone https://github.com/LMCRC/Newclid_Transformer.git /workspace/Newclid_Transformer
+WORKDIR /workspace/Newclid_Transformer
+RUN pip install --no-cache-dir --no-build-isolation -e .[download]
+
+RUN mkdir -p ag_ckpt_vocab && \
+	wget -qO ag_ckpt_vocab/checkpoint_10999999 https://huggingface.co/Wauplin/alphageometry/resolve/main/checkpoint_10999999 && \
+	wget -qO ag_ckpt_vocab/geometry.757.model https://huggingface.co/Wauplin/alphageometry/resolve/main/geometry.757.model && \
+	wget -qO ag_ckpt_vocab/geometry.757.vocab https://huggingface.co/Wauplin/alphageometry/resolve/main/geometry.757.vocab
+# RUN python common_folder_downloader.py \
+#     --region cn-southwest-2 \
+#     --app_token 82aaeb97-6bbb-4a9a-a164-07268a0a6d0b \
+#     --bucket_name bucket-pangu-green-guiyang \
+#     --path philipjg/pt_ckpt/
+
+CMD ["/bin/bash"]

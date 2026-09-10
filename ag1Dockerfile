@@ -1,0 +1,34 @@
+FROM python:3.10.9-slim-bullseye
+RUN echo "deb http://archive.debian.org/debian bullseye main" > /etc/apt/sources.list
+RUN echo "Acquire::Check-Valid-Until false;" > /etc/apt/apt.conf.d/99archive
+
+ENV PYTHONUNBUFFERED=1 DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential cmake git wget curl ca-certificates
+RUN rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+RUN git clone https://github.com/google-deepmind/alphageometry.git .
+
+RUN mkdir -p meliad_lib/meliad && \
+	git clone https://github.com/google-research/meliad meliad_lib/meliad && \
+	cd meliad_lib/meliad && \
+	git checkout $(git rev-list -n 1 --before="2024-02-01" HEAD)
+
+ENV PYTHONPATH="/app:/app/meliad_lib/meliad:${PYTHONPATH}"
+
+RUN pip install --upgrade pip "setuptools<70.0.0" wheel
+RUN pip install --no-cache-dir \
+    --find-links https://storage.googleapis.com/jax-releases/jax_releases.html \
+	--require-hashes -r requirements.txt
+
+RUN mkdir -p ag_ckpt_vocab && \
+	wget -qO ag_ckpt_vocab/checkpoint_10999999 https://huggingface.co/Wauplin/alphageometry/resolve/main/checkpoint_10999999 && \
+	wget -qO ag_ckpt_vocab/geometry.757.model https://huggingface.co/Wauplin/alphageometry/resolve/main/geometry.757.model && \
+	wget -qO ag_ckpt_vocab/geometry.757.vocab https://huggingface.co/Wauplin/alphageometry/resolve/main/geometry.757.vocab
+
+RUN sed -i "s/TkAgg/Agg/gi" numericals.py
+
+CMD ["bash"]
