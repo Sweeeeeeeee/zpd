@@ -1,1 +1,4 @@
 *.tar
+.venv-newclid/
+third_party/
+__pycache__/

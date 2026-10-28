@@ -1,0 +1,645 @@
+[
+  {
+    "name": "orthocenter",
+    "success": true,
+    "build_time": 0.011,
+    "run_time": 0.042,
+    "levels": 1,
+    "facts": 13,
+    "fired": {
+      "AR:Angle Chasing": 4,
+      "r43": 1
+    },
+    "rules_loaded": 58,
+    "wall": 3.28
+  },
+  {
+    "name": "orthocenter_aux",
+    "success": false,
+    "error": "    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+    "wall": 4.61
+  },
+  {
+    "name": "incenter_excenter",
+    "success": true,
+    "build_time": 0.054,
+    "run_time": 0.0,
+    "levels": 0,
+    "facts": 23,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 5.07
+  },
+  {
+    "name": "orthocenter_consequence",
+    "success": true,
+    "build_time": 0.011,
+    "run_time": 0.071,
+    "levels": 1,
+    "facts": 23,
+    "fired": {
+      "AR:Angle Chasing": 12,
+      "r43": 1
+    },
+    "rules_loaded": 58,
+    "wall": 3.15
+  },
+  {
+    "name": "orthocenter_consequence_aux",
+    "success": false,
+    "error": "    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+    "wall": 4.92
+  },
+  {
+    "name": "not_always_good",
+    "success": false,
+    "error": "TypeError: cannot unpack non-iterable Symbol object",
+    "wall": 3.63
+  },
+  {
+    "name": "rule_r29_not_found_disguise",
+    "success": false,
+    "error": "TypeError: cannot unpack non-iterable Symbol object",
+    "wall": 3.2
+  },
+  {
+    "name": "rule_r29_not_found_explicit",
+    "success": false,
+    "error": "TypeError: cannot unpack non-iterable Symbol object",
+    "wall": 2.94
+  },
+  {
+    "name": "find_r22",
+    "success": false,
+    "error": "TypeError: cannot unpack non-iterable Symbol object",
+    "wall": 2.98
+  },
+  {
+    "name": "two_paths_problem_aux",
+    "success": true,
+    "build_time": 0.013,
+    "run_time": 0.001,
+    "levels": 0,
+    "facts": 7,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 2.85
+  },
+  {
+    "name": "two_paths_problem",
+    "success": true,
+    "build_time": 0.012,
+    "run_time": 0.0,
+    "levels": 0,
+    "facts": 3,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 3.05
+  },
+  {
+    "name": "b23_may_need_BUILT_IN_FNS",
+    "success": false,
+    "error": "TypeError: cannot unpack non-iterable Symbol object",
+    "wall": 3.12
+  },
+  {
+    "name": "ratio_chase_incorrect_on_step_one",
+    "success": false,
+    "error": "TypeError: cannot unpack non-iterable Symbol object",
+    "wall": 3.19
+  },
+  {
+    "name": "forcing_ratio",
+    "success": false,
+    "error": "TypeError: cannot unpack non-iterable Symbol object",
+    "wall": 2.85
+  },
+  {
+    "name": "check_r00",
+    "success": true,
+    "build_time": 0.011,
+    "run_time": 0.0,
+    "levels": 0,
+    "facts": 3,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 2.82
+  },
+  {
+    "name": "angles_in_triangle",
+    "success": true,
+    "build_time": 0.014,
+    "run_time": 0.0,
+    "levels": 0,
+    "facts": 3,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 3.05
+  },
+  {
+    "name": "testing_aline0",
+    "success": true,
+    "build_time": 0.013,
+    "run_time": 0.0,
+    "levels": 0,
+    "facts": 2,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 2.86
+  },
+  {
+    "name": "testing_iso_triangle_vertex_angle",
+    "success": false,
+    "error": "TypeError: cannot unpack non-iterable Symbol object",
+    "wall": 2.86
+  },
+  {
+    "name": "numerical_check_npara",
+    "success": true,
+    "build_time": 0.016,
+    "run_time": 0.0,
+    "levels": 0,
+    "facts": 1,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 2.78
+  },
+  {
+    "name": "numerical_check_ncoll",
+    "success": true,
+    "build_time": 0.009,
+    "run_time": 0.0,
+    "levels": 0,
+    "facts": 1,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 2.7
+  },
+  {
+    "name": "angles_eq_triangle",
+    "success": true,
+    "build_time": 0.011,
+    "run_time": 0.0,
+    "levels": 0,
+    "facts": 5,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 2.98
+  },
+  {
+    "name": "angles_double_eq_triangle",
+    "success": false,
+    "error": "TypeError: cannot unpack non-iterable Symbol object",
+    "wall": 2.79
+  },
+  {
+    "name": "suplementary_angles",
+    "success": true,
+    "build_time": 0.011,
+    "run_time": 0.0,
+    "levels": 0,
+    "facts": 2,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 3.19
+  },
+  {
+    "name": "geometric_ratios",
+    "success": false,
+    "error": "TypeError: cannot unpack non-iterable Symbol object",
+    "wall": 2.64
+  },
+  {
+    "name": "concatenating_ratios",
+    "success": true,
+    "build_time": 0.011,
+    "run_time": 0.001,
+    "levels": 0,
+    "facts": 4,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 2.87
+  },
+  {
+    "name": "test_get_two_intersections",
+    "success": false,
+    "error": "TypeError: cannot unpack non-iterable Symbol object",
+    "wall": 2.58
+  },
+  {
+    "name": "ar_two_triangles_angle_chasing",
+    "success": true,
+    "build_time": 0.011,
+    "run_time": 0.001,
+    "levels": 0,
+    "facts": 7,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 3.18
+  },
+  {
+    "name": "ar_three_triangles_angle_chasing",
+    "success": true,
+    "build_time": 0.012,
+    "run_time": 0.0,
+    "levels": 0,
+    "facts": 10,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 2.82
+  },
+  {
+    "name": "cong2_problem",
+    "success": true,
+    "build_time": 0.013,
+    "run_time": 0.0,
+    "levels": 0,
+    "facts": 5,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 2.84
+  },
+  {
+    "name": "point_on_circle_eqdistant_from_center",
+    "success": false,
+    "error": "TypeError: cannot unpack non-iterable Symbol object",
+    "wall": 2.79
+  },
+  {
+    "name": "midpoint_splits_in_two",
+    "success": false,
+    "error": "TypeError: cannot unpack non-iterable Symbol object",
+    "wall": 2.65
+  },
+  {
+    "name": "central_angle_vs_internal_angle",
+    "success": false,
+    "error": "TypeError: cannot unpack non-iterable Symbol object",
+    "wall": 2.88
+  },
+  {
+    "name": "checking_rconst2",
+    "success": true,
+    "build_time": 0.022,
+    "run_time": 0.0,
+    "levels": 0,
+    "facts": 2,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 3.01
+  },
+  {
+    "name": "frac1_cong",
+    "success": true,
+    "build_time": 0.01,
+    "run_time": 0.0,
+    "levels": 0,
+    "facts": 2,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 2.78
+  },
+  {
+    "name": "eqratio_lconst_check",
+    "success": true,
+    "build_time": 0.013,
+    "run_time": 0.001,
+    "levels": 0,
+    "facts": 7,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 2.92
+  },
+  {
+    "name": "cong_lconst_check",
+    "success": true,
+    "build_time": 0.01,
+    "run_time": 0.0,
+    "levels": 0,
+    "facts": 3,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 2.84
+  },
+  {
+    "name": "lconst_cong_check",
+    "success": true,
+    "build_time": 0.011,
+    "run_time": 0.0,
+    "levels": 0,
+    "facts": 2,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 2.91
+  },
+  {
+    "name": "lconst_eqratio_check",
+    "success": true,
+    "build_time": 0.014,
+    "run_time": 0.001,
+    "levels": 0,
+    "facts": 4,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 2.84
+  },
+  {
+    "name": "rconst_lconst_check",
+    "success": true,
+    "build_time": 0.019,
+    "run_time": 0.0,
+    "levels": 0,
+    "facts": 3,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 2.91
+  },
+  {
+    "name": "lconst_rconst_check",
+    "success": true,
+    "build_time": 0.01,
+    "run_time": 0.001,
+    "levels": 0,
+    "facts": 2,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 2.88
+  },
+  {
+    "name": "pyt_test_formula_to_perp",
+    "success": false,
+    "error": "TypeError: cannot unpack non-iterable Symbol object",
+    "wall": 2.91
+  },
+  {
+    "name": "pyt_test_perp_to_formula",
+    "success": false,
+    "error": "TypeError: cannot unpack non-iterable Symbol object",
+    "wall": 2.93
+  },
+  {
+    "name": "two_goals_cong_aconst",
+    "success": false,
+    "error": "TypeError: cannot unpack non-iterable Symbol object",
+    "wall": 2.72
+  },
+  {
+    "name": "acompute_test",
+    "success": false,
+    "error": "ValueError: Cannot justify predicate \u2220(AB,BC) = 2pi/3 through AR",
+    "wall": 2.88
+  },
+  {
+    "name": "tangents_to_circle",
+    "success": false,
+    "error": "TypeError: cannot unpack non-iterable Symbol object",
+    "wall": 2.77
+  },
+  {
+    "name": "miquel_theorem",
+    "success": false,
+    "error": "KeyError: '1/1'",
+    "wall": 3.12
+  },
+  {
+    "name": "two_perps_at_point_are_collinear",
+    "success": true,
+    "build_time": 0.01,
+    "run_time": 0.011,
+    "levels": 1,
+    "facts": 8,
+    "fired": {
+      "AR:Angle Chasing": 3,
+      "r28": 1
+    },
+    "rules_loaded": 58,
+    "wall": 2.64
+  },
+  {
+    "name": "pappus",
+    "success": true,
+    "build_time": 0.015,
+    "run_time": 0.031,
+    "levels": 1,
+    "facts": 17,
+    "fired": {
+      "r44": 1
+    },
+    "rules_loaded": 58,
+    "wall": 2.84
+  },
+  {
+    "name": "ar_construction_tester",
+    "success": true,
+    "build_time": 0.013,
+    "run_time": 0.0,
+    "levels": 0,
+    "facts": 10,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 3.05
+  },
+  {
+    "name": "basic_cc_tangent",
+    "success": true,
+    "build_time": 0.028,
+    "run_time": 0.0,
+    "levels": 0,
+    "facts": 23,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 3.12
+  },
+  {
+    "name": "breaking_cc_tangent",
+    "success": false,
+    "error": "ValueError: Failed to build a valid problem setup for breaking_cc_tangent after 100 attempts. Last error: Failed to add ",
+    "wall": 2.94
+  },
+  {
+    "name": "breaking_cc_tangent_by_kiss",
+    "success": false,
+    "error": "ValueError: Failed to build a valid problem setup for breaking_cc_tangent_by_kiss after 100 attempts. Last error: Failed",
+    "wall": 3.1
+  },
+  {
+    "name": "basic_cc_itangent",
+    "success": true,
+    "build_time": 0.163,
+    "run_time": 0.0,
+    "levels": 0,
+    "facts": 23,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 2.95
+  },
+  {
+    "name": "breaking_cc_itangent",
+    "success": false,
+    "error": "ValueError: Failed to build a valid problem setup for breaking_cc_itangent after 100 attempts. Last error: Failed to add",
+    "wall": 2.87
+  },
+  {
+    "name": "breaking_cc_itangent_by_kiss",
+    "success": false,
+    "error": "ValueError: Failed to build a valid problem setup for breaking_cc_itangent_by_kiss after 100 attempts. Last error: Faile",
+    "wall": 3.02
+  },
+  {
+    "name": "repro_example_1",
+    "success": false,
+    "error": "    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+    "wall": 3.97
+  },
+  {
+    "name": "testing_on_aline0",
+    "success": true,
+    "build_time": 0.01,
+    "run_time": 0.0,
+    "levels": 0,
+    "facts": 2,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 2.67
+  },
+  {
+    "name": "testing_circumcenter",
+    "success": false,
+    "error": "TypeError: cannot unpack non-iterable Symbol object",
+    "wall": 2.7
+  },
+  {
+    "name": "menelaus_test",
+    "success": false,
+    "error": "TypeError: cannot unpack non-iterable Symbol object",
+    "wall": 2.84
+  },
+  {
+    "name": "menelaus_frac1_test",
+    "success": false,
+    "error": "TypeError: cannot unpack non-iterable Symbol object",
+    "wall": 2.58
+  },
+  {
+    "name": "menelaus_crossed_cong_test",
+    "success": false,
+    "error": "TypeError: cannot unpack non-iterable Symbol object",
+    "wall": 2.68
+  },
+  {
+    "name": "ar_example_paper_angle_chasing",
+    "success": true,
+    "build_time": 0.034,
+    "run_time": 0.146,
+    "levels": 1,
+    "facts": 36,
+    "fired": {
+      "AR:Angle Chasing": 16,
+      "r03": 6
+    },
+    "rules_loaded": 58,
+    "wall": 3.12
+  },
+  {
+    "name": "ar_example_paper_ratio_chasing",
+    "success": false,
+    "error": "TypeError: cannot unpack non-iterable Symbol object",
+    "wall": 2.79
+  },
+  {
+    "name": "regular_triangle_side",
+    "success": false,
+    "error": "TypeError: cannot unpack non-iterable Symbol object",
+    "wall": 2.8
+  },
+  {
+    "name": "testing_problem",
+    "success": true,
+    "build_time": 0.032,
+    "run_time": 0.001,
+    "levels": 0,
+    "facts": 7,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 2.87
+  },
+  {
+    "name": "test_between_coll",
+    "success": true,
+    "build_time": 0.008,
+    "run_time": 0.0,
+    "levels": 0,
+    "facts": 2,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 2.63
+  },
+  {
+    "name": "test_between_bound_coll",
+    "success": true,
+    "build_time": 0.01,
+    "run_time": 0.0,
+    "levels": 0,
+    "facts": 3,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 2.59
+  },
+  {
+    "name": "test_between_obtuse",
+    "success": true,
+    "build_time": 0.01,
+    "run_time": 0.0,
+    "levels": 0,
+    "facts": 2,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 2.58
+  },
+  {
+    "name": "test_between_bound_obtuse",
+    "success": true,
+    "build_time": 0.018,
+    "run_time": 0.0,
+    "levels": 0,
+    "facts": 3,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 2.52
+  },
+  {
+    "name": "test_simtri_numerical",
+    "success": false,
+    "error": "TypeError: cannot unpack non-iterable Symbol object",
+    "wall": 2.13
+  },
+  {
+    "name": "test_eqratio_numercial",
+    "success": true,
+    "build_time": 0.006,
+    "run_time": 0.0,
+    "levels": 0,
+    "facts": 5,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 1.68
+  },
+  {
+    "name": "test_contri_numerical",
+    "success": false,
+    "error": "TypeError: cannot unpack non-iterable Symbol object",
+    "wall": 1.75
+  },
+  {
+    "name": "test_r2const",
+    "success": false,
+    "error": "TypeError: cannot unpack non-iterable Symbol object",
+    "wall": 2.55
+  },
+  {
+    "name": "test_l2const",
+    "success": false,
+    "error": "TypeError: cannot unpack non-iterable Symbol object",
+    "wall": 1.65
+  }
+]
