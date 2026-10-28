@@ -1,0 +1,11 @@
+{
+  "_comment": "~11M params. Trains on a 4-8 GB GPU; CPU works but is slow.",
+  "vocab_size": 1024,
+  "context_length": 512,
+  "n_layer": 6,
+  "n_head": 6,
+  "n_embd": 384,
+  "dropout": 0.1,
+  "bias": false,
+  "tie_weights": true
+}
