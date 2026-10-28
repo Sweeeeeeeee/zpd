@@ -1,0 +1,7 @@
+{
+  "name": "no_orthocenter",
+  "engine": "python",
+  "enabled_rules": "default",
+  "disabled_rules": ["r43"],
+  "ar": true
+}

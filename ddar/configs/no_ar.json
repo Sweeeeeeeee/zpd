@@ -1,0 +1,6 @@
+{
+  "name": "no_ar",
+  "engine": "python",
+  "enabled_rules": "default",
+  "ar": false
+}

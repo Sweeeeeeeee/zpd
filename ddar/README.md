@@ -8,10 +8,12 @@ pure-Python engine in this release is broken.
 ```bash
 PYTHON=/usr/local/python/3.13.8/bin/python3 ddar/setup_newclid.sh   # Python >= 3.11 required
 source .venv-newclid/bin/activate         # needed: yuclid is found through PATH
-python ddar/run_examples.py               # 74 example problems, yuclid engine
-python ddar/run_examples.py --engine python            # pure-Python DDARN + SymPy AR
-python ddar/run_examples.py --file third_party/Newclid/newclid/problems_datasets/imo.txt
+python -m ddar.run_examples               # 74 example problems, yuclid engine
+python -m ddar.run_examples --config ddar/configs/default.json   # pure-Python DDARN + SymPy AR
+python -m ddar.run_examples --file third_party/Newclid/newclid/problems_datasets/imo.txt
 ```
+
+Run these from the repo root.
 
 Each problem runs in its own subprocess with a timeout (`--timeout`, default 60 s).
 Results are saved to `ddar/results/`.
@@ -30,7 +32,7 @@ Install notes:
 | engine | solved | crashed | unsolved | typical time |
 |---|---|---|---|---|
 | yuclid (default) | **60** | 7 | 7 | 0.01–0.25 s per problem |
-| python (DDARN + SymPy AR, with the `diff` fix below) | 37 | 37 | 0 | ≤ 0.15 s when it works |
+| python (DDARN + SymPy AR, with only fix 1 below) | 37 | 37 | 0 | ≤ 0.15 s when it works |
 
 Full tables: `results/examples_yuclid.txt` and `results/examples_python.txt`.
 
@@ -47,16 +49,17 @@ Full tables: `results/examples_yuclid.txt` and `results/examples_python.txt`.
 **Python-engine bugs in 3.0.1** (also present on GitHub `main`, commit `ac65507`):
 1. `predicate_from_construction` builds `diff` with exactly 2 points, but rules
    r34–r37, r52, r53 and r60–r63 have `diff A B C` premises. Every problem that
-   reaches those rules crashes. `run_examples.py` patches this at runtime
-   (`--no-fix` disables the patch).
+   reaches those rules crashes.
 2. `ar_predicates.enumerate_lconsts` crashes with `cannot unpack non-iterable Symbol`
    as soon as ratio chasing finds a constant length. This causes most of the
    remaining crashes.
 3. The r52/r53 conclusion builder creates degenerate `simtri e a d e a d`, which
    pydantic then rejects.
 
-This code path looks unmaintained since the move to yuclid. **For the rest of the
-project, use yuclid as DDAR.** The Python engine is only useful as a reference.
+All three are fixed at runtime in `ddar/patches.py` (step 2). The step 1 table
+above was measured with only fix 1 applied. This code path looks unmaintained
+since the move to yuclid, but it is the only engine that can switch rules off,
+so step 2 uses it.
 
 ## How rules are loaded
 
@@ -119,19 +122,83 @@ There are two separate rule sets, and only the Python one is configurable.
 | Predicates | `predicates/_index.py` | 33 predicate types (`coll`, `cong`, `eqangle`, `simtri`, ...) |
 | RNG | `JGEXProblemBuilder(rng=...)` | random coordinates; pass a seed for reproducible runs |
 
+## Step 2: Rule toggling
+
+A DDAR config is a small JSON file (`ddar/configs/*.json`):
+
+```json
+{
+  "name": "no_similarity",
+  "engine": "python",
+  "enabled_rules": "default",
+  "disabled_rules": ["r34", "r35", "r52", "r53", "r60", "r61", "r62", "r63", "r68", "r69"],
+  "ar": true
+}
+```
+
+| key | meaning |
+|---|---|
+| `enabled_rules` | list of rule ids, or `"default"` (Newclid's 58) or `"all"` (all 87) |
+| `disabled_rules` | optional; removed from `enabled_rules` afterwards |
+| `ar` | angle and ratio chasing on or off |
+| `engine` | `"python"` (honours every setting) or `"yuclid"` (stock rules and AR only, otherwise the config is rejected) |
+
+Rules are filtered at load time (`DDARConfig.rules()` is passed to
+`GeometricSolverBuilder.with_rules`), so the engine never sees disabled rules.
+Unknown rule ids are an error.
+
+**Warnings.** `load_config` compares the config with what it would give without
+disabling anything (Newclid's defaults plus any extra rules it lists), and warns
+(`RuleCoverageWarning`) when:
+* a predicate that constructions put into hypotheses (e.g. `simtri` from the
+  `simtri` construction, `midp` from `midpoint`) is no longer a premise of any
+  enabled rule, so those hypotheses become dead weight;
+* a predicate can no longer be concluded by any enabled rule, so goals of that
+  type can only be proven if they are hypotheses;
+* AR is off.
+
+Predicates handled by AR (`coll para perp eqangle aconst cong eqratio rconst lconst`,
+when AR is on) or checked numerically (`diff ncoll sameclock ...`) are not
+reported. The check is static: it says a predicate cannot be used, not that a
+particular problem becomes unsolvable.
+
+**Comparing configs on one problem:**
+
+```bash
+python -m ddar.compare_rules -p orthocenter_consequence_aux ddar/configs/*.json
+python -m ddar.compare_rules -s "a b c = triangle a b c; h = on_tline h b a c, on_tline h c a b ? perp a h b c" ddar/configs/*.json
+```
+
+```
+config                 rules  AR solved   time  rules in proof / rules fired
+alphageometry_r00_r42     38  on     no   3.23  proof: -
+                                               fired: AR:anglex246 r34x1
+default                   58  on    yes   1.12  proof: AR:anglex1 r43x1
+                                               fired: AR:anglex246 r34x1 r43x1
+no_ar                     58 off     no   0.04  proof: -
+                                               fired: r43x1 r82x6
+no_orthocenter            57  on     no   3.69  proof: -
+                                               fired: AR:anglex246 r34x1 r52x3
+no_similarity             48  on    yes   0.99  proof: AR:anglex1 r43x1
+                                               fired: AR:anglex246 r43x1
+yuclid                    58  on    yes   0.01  proof: AR:anglex1 r43x1
+                                               fired: AR:anglex1 r43x1
+```
+
+"fired" counts every new fact a rule produced during the search; "proof" counts
+the steps of the final proof. Each config runs in its own subprocess
+(`--timeout`, default 60 s). For `yuclid`, the rules column shows the configured
+58, but the binary actually uses its own 37 rules.
+
+Code: `rule_config.py` (config, filtering, warnings), `patches.py` (Newclid
+fixes), `runner.py` (solve one problem, count fired rules, subprocess wrapper),
+`compare_rules.py` (the script above).
+
 ## What this means for later steps
 
-* **Step 2 (rule toggling):** with yuclid, rules cannot be switched off inside the
-  search. The workable approach is to run yuclid in saturate mode (no goal, so
-  `all_deductions` is returned), drop every deduction made by a disabled rule or
-  by AR, and propagate the removal. Then check whether the goal is still
-  derivable from what remains. This is exact for "which facts follow without
-  rule X", because yuclid records the premises of each deduction. The other
-  option is the Python engine with all three bugs fixed, which supports true
-  in-search toggling, but it is slower and less trusted.
-* The "defs.txt predicate" check in step 2 becomes: compare the predicates that
-  the 88 construction definitions produce with the premises and conclusions of
-  each rule.
+* **Rule-toggling experiments** use the patched Python engine (done in step 2).
+  It is much slower than yuclid (1.1 s vs 0.01 s on the example above), so large runs with
+  stock rules should still use yuclid.
 * **Step 4 (data):** the Newclid repo includes `ncdgen`, a generator that uses
   `yuclid --mode datagen` and has an option to emit only sub-problems that need
   an auxiliary construction (`emit_only_double_checked_aux_subproblems`). This
