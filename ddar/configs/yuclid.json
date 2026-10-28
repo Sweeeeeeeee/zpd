@@ -1,0 +1,6 @@
+{
+  "name": "yuclid",
+  "engine": "yuclid",
+  "enabled_rules": "default",
+  "ar": true
+}

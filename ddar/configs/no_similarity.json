@@ -1,0 +1,7 @@
+{
+  "name": "no_similarity",
+  "engine": "python",
+  "enabled_rules": "default",
+  "disabled_rules": ["r34", "r35", "r52", "r53", "r60", "r61", "r62", "r63", "r68", "r69"],
+  "ar": true
+}
