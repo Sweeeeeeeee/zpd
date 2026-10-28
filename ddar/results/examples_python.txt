@@ -1,0 +1,77 @@
+problem                                      ok    time  lvl  facts  fired
+orthocenter                                 yes    0.04    1     13  AR:Angle Chasingx4 r43x1
+orthocenter_aux                             ERR    4.61      For further information visit https://errors.pydantic.dev/2.14/v/value_error
+incenter_excenter                           yes    0.00    -     23  
+orthocenter_consequence                     yes    0.07    1     23  AR:Angle Chasingx12 r43x1
+orthocenter_consequence_aux                 ERR    4.92      For further information visit https://errors.pydantic.dev/2.14/v/value_error
+not_always_good                             ERR    3.63  TypeError: cannot unpack non-iterable Symbol object
+rule_r29_not_found_disguise                 ERR    3.20  TypeError: cannot unpack non-iterable Symbol object
+rule_r29_not_found_explicit                 ERR    2.94  TypeError: cannot unpack non-iterable Symbol object
+find_r22                                    ERR    2.98  TypeError: cannot unpack non-iterable Symbol object
+two_paths_problem_aux                       yes    0.00    -      7  
+two_paths_problem                           yes    0.00    -      3  
+b23_may_need_BUILT_IN_FNS                   ERR    3.12  TypeError: cannot unpack non-iterable Symbol object
+ratio_chase_incorrect_on_step_one           ERR    3.19  TypeError: cannot unpack non-iterable Symbol object
+forcing_ratio                               ERR    2.85  TypeError: cannot unpack non-iterable Symbol object
+check_r00                                   yes    0.00    -      3  
+angles_in_triangle                          yes    0.00    -      3  
+testing_aline0                              yes    0.00    -      2  
+testing_iso_triangle_vertex_angle           ERR    2.86  TypeError: cannot unpack non-iterable Symbol object
+numerical_check_npara                       yes    0.00    -      1  
+numerical_check_ncoll                       yes    0.00    -      1  
+angles_eq_triangle                          yes    0.00    -      5  
+angles_double_eq_triangle                   ERR    2.79  TypeError: cannot unpack non-iterable Symbol object
+suplementary_angles                         yes    0.00    -      2  
+geometric_ratios                            ERR    2.64  TypeError: cannot unpack non-iterable Symbol object
+concatenating_ratios                        yes    0.00    -      4  
+test_get_two_intersections                  ERR    2.58  TypeError: cannot unpack non-iterable Symbol object
+ar_two_triangles_angle_chasing              yes    0.00    -      7  
+ar_three_triangles_angle_chasing            yes    0.00    -     10  
+cong2_problem                               yes    0.00    -      5  
+point_on_circle_eqdistant_from_center       ERR    2.79  TypeError: cannot unpack non-iterable Symbol object
+midpoint_splits_in_two                      ERR    2.65  TypeError: cannot unpack non-iterable Symbol object
+central_angle_vs_internal_angle             ERR    2.88  TypeError: cannot unpack non-iterable Symbol object
+checking_rconst2                            yes    0.00    -      2  
+frac1_cong                                  yes    0.00    -      2  
+eqratio_lconst_check                        yes    0.00    -      7  
+cong_lconst_check                           yes    0.00    -      3  
+lconst_cong_check                           yes    0.00    -      2  
+lconst_eqratio_check                        yes    0.00    -      4  
+rconst_lconst_check                         yes    0.00    -      3  
+lconst_rconst_check                         yes    0.00    -      2  
+pyt_test_formula_to_perp                    ERR    2.91  TypeError: cannot unpack non-iterable Symbol object
+pyt_test_perp_to_formula                    ERR    2.93  TypeError: cannot unpack non-iterable Symbol object
+two_goals_cong_aconst                       ERR    2.72  TypeError: cannot unpack non-iterable Symbol object
+acompute_test                               ERR    2.88  ValueError: Cannot justify predicate ∠(AB,BC) = 2pi/3 through AR
+tangents_to_circle                          ERR    2.77  TypeError: cannot unpack non-iterable Symbol object
+miquel_theorem                              ERR    3.12  KeyError: '1/1'
+two_perps_at_point_are_collinear            yes    0.01    1      8  AR:Angle Chasingx3 r28x1
+pappus                                      yes    0.03    1     17  r44x1
+ar_construction_tester                      yes    0.00    -     10  
+basic_cc_tangent                            yes    0.00    -     23  
+breaking_cc_tangent                         ERR    2.94  ValueError: Failed to build a valid problem setup for breaking_cc_tangent after 100 attempts. Last error: Failed to add 
+breaking_cc_tangent_by_kiss                 ERR    3.10  ValueError: Failed to build a valid problem setup for breaking_cc_tangent_by_kiss after 100 attempts. Last error: Failed
+basic_cc_itangent                           yes    0.00    -     23  
+breaking_cc_itangent                        ERR    2.87  ValueError: Failed to build a valid problem setup for breaking_cc_itangent after 100 attempts. Last error: Failed to add
+breaking_cc_itangent_by_kiss                ERR    3.02  ValueError: Failed to build a valid problem setup for breaking_cc_itangent_by_kiss after 100 attempts. Last error: Faile
+repro_example_1                             ERR    3.97      For further information visit https://errors.pydantic.dev/2.14/v/value_error
+testing_on_aline0                           yes    0.00    -      2  
+testing_circumcenter                        ERR    2.70  TypeError: cannot unpack non-iterable Symbol object
+menelaus_test                               ERR    2.84  TypeError: cannot unpack non-iterable Symbol object
+menelaus_frac1_test                         ERR    2.58  TypeError: cannot unpack non-iterable Symbol object
+menelaus_crossed_cong_test                  ERR    2.68  TypeError: cannot unpack non-iterable Symbol object
+ar_example_paper_angle_chasing              yes    0.15    1     36  AR:Angle Chasingx16 r03x6
+ar_example_paper_ratio_chasing              ERR    2.79  TypeError: cannot unpack non-iterable Symbol object
+regular_triangle_side                       ERR    2.80  TypeError: cannot unpack non-iterable Symbol object
+testing_problem                             yes    0.00    -      7  
+test_between_coll                           yes    0.00    -      2  
+test_between_bound_coll                     yes    0.00    -      3  
+test_between_obtuse                         yes    0.00    -      2  
+test_between_bound_obtuse                   yes    0.00    -      3  
+test_simtri_numerical                       ERR    2.13  TypeError: cannot unpack non-iterable Symbol object
+test_eqratio_numercial                      yes    0.00    -      5  
+test_contri_numerical                       ERR    1.75  TypeError: cannot unpack non-iterable Symbol object
+test_r2const                                ERR    2.55  TypeError: cannot unpack non-iterable Symbol object
+test_l2const                                ERR    1.65  TypeError: cannot unpack non-iterable Symbol object
+
+solved 37/74  (engine python, AR on, seed 0)

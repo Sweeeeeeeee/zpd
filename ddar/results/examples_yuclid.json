@@ -1,0 +1,961 @@
+[
+  {
+    "name": "orthocenter",
+    "success": true,
+    "build_time": 0.01,
+    "run_time": 0.009,
+    "levels": null,
+    "facts": 5,
+    "fired": {
+      "r43": 1
+    },
+    "rules_loaded": 58,
+    "wall": 3.27
+  },
+  {
+    "name": "orthocenter_aux",
+    "success": true,
+    "build_time": 0.017,
+    "run_time": 0.014,
+    "levels": null,
+    "facts": 8,
+    "fired": {
+      "r43": 1
+    },
+    "rules_loaded": 58,
+    "wall": 3.15
+  },
+  {
+    "name": "incenter_excenter",
+    "success": true,
+    "build_time": 0.03,
+    "run_time": 0.228,
+    "levels": null,
+    "facts": 24,
+    "fired": {
+      "AR:Angle Chasing": 1
+    },
+    "rules_loaded": 58,
+    "wall": 3.93
+  },
+  {
+    "name": "orthocenter_consequence",
+    "success": true,
+    "build_time": 0.011,
+    "run_time": 0.01,
+    "levels": null,
+    "facts": 8,
+    "fired": {
+      "AR:Angle Chasing": 1,
+      "r43": 1
+    },
+    "rules_loaded": 58,
+    "wall": 4.19
+  },
+  {
+    "name": "orthocenter_consequence_aux",
+    "success": true,
+    "build_time": 0.014,
+    "run_time": 0.024,
+    "levels": null,
+    "facts": 11,
+    "fired": {
+      "AR:Angle Chasing": 1,
+      "r43": 1
+    },
+    "rules_loaded": 58,
+    "wall": 2.93
+  },
+  {
+    "name": "not_always_good",
+    "success": true,
+    "build_time": 0.013,
+    "run_time": 0.023,
+    "levels": null,
+    "facts": 17,
+    "fired": {
+      "AR:Angle Chasing": 1,
+      "AR:Ratio Chasing": 1,
+      "r53": 1,
+      "r63": 1
+    },
+    "rules_loaded": 58,
+    "wall": 3.19
+  },
+  {
+    "name": "rule_r29_not_found_disguise",
+    "success": true,
+    "build_time": 0.01,
+    "run_time": 0.019,
+    "levels": null,
+    "facts": 7,
+    "fired": {
+      "AR:Ratio Chasing": 1,
+      "r51": 2
+    },
+    "rules_loaded": 58,
+    "wall": 3.22
+  },
+  {
+    "name": "rule_r29_not_found_explicit",
+    "success": true,
+    "build_time": 0.01,
+    "run_time": 0.016,
+    "levels": null,
+    "facts": 7,
+    "fired": {
+      "AR:Ratio Chasing": 1,
+      "r51": 2
+    },
+    "rules_loaded": 58,
+    "wall": 2.95
+  },
+  {
+    "name": "find_r22",
+    "success": true,
+    "build_time": 0.024,
+    "run_time": 0.054,
+    "levels": null,
+    "facts": 16,
+    "fired": {
+      "AR:Angle Chasing": 1,
+      "AR:Ratio Chasing": 2,
+      "r51": 2,
+      "r53": 1,
+      "r56": 1,
+      "r63": 1,
+      "r82": 2
+    },
+    "rules_loaded": 58,
+    "wall": 3.25
+  },
+  {
+    "name": "two_paths_problem_aux",
+    "success": true,
+    "build_time": 0.013,
+    "run_time": 0.008,
+    "levels": null,
+    "facts": 8,
+    "fired": {
+      "AR:Angle Chasing": 1
+    },
+    "rules_loaded": 58,
+    "wall": 2.74
+  },
+  {
+    "name": "two_paths_problem",
+    "success": true,
+    "build_time": 0.012,
+    "run_time": 0.007,
+    "levels": null,
+    "facts": 4,
+    "fired": {
+      "AR:Angle Chasing": 1
+    },
+    "rules_loaded": 58,
+    "wall": 2.75
+  },
+  {
+    "name": "b23_may_need_BUILT_IN_FNS",
+    "success": true,
+    "build_time": 0.012,
+    "run_time": 0.024,
+    "levels": null,
+    "facts": 11,
+    "fired": {
+      "AR:Ratio Chasing": 1,
+      "r51": 3
+    },
+    "rules_loaded": 58,
+    "wall": 2.62
+  },
+  {
+    "name": "ratio_chase_incorrect_on_step_one",
+    "success": true,
+    "build_time": 0.01,
+    "run_time": 0.012,
+    "levels": null,
+    "facts": 5,
+    "fired": {
+      "AR:Ratio Chasing": 1,
+      "r51": 1
+    },
+    "rules_loaded": 58,
+    "wall": 2.75
+  },
+  {
+    "name": "forcing_ratio",
+    "success": true,
+    "build_time": 0.011,
+    "run_time": 0.013,
+    "levels": null,
+    "facts": 5,
+    "fired": {
+      "AR:Ratio Chasing": 1,
+      "r51": 1
+    },
+    "rules_loaded": 58,
+    "wall": 2.75
+  },
+  {
+    "name": "check_r00",
+    "success": true,
+    "build_time": 0.011,
+    "run_time": 0.007,
+    "levels": null,
+    "facts": 4,
+    "fired": {
+      "AR:Angle Chasing": 1
+    },
+    "rules_loaded": 58,
+    "wall": 2.81
+  },
+  {
+    "name": "angles_in_triangle",
+    "success": true,
+    "build_time": 0.01,
+    "run_time": 0.006,
+    "levels": null,
+    "facts": 4,
+    "fired": {
+      "AR:Angle Chasing": 1
+    },
+    "rules_loaded": 58,
+    "wall": 2.67
+  },
+  {
+    "name": "testing_aline0",
+    "success": true,
+    "build_time": 0.011,
+    "run_time": 0.005,
+    "levels": null,
+    "facts": 2,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 2.58
+  },
+  {
+    "name": "testing_iso_triangle_vertex_angle",
+    "success": true,
+    "build_time": 0.01,
+    "run_time": 0.012,
+    "levels": null,
+    "facts": 4,
+    "fired": {
+      "r14": 1
+    },
+    "rules_loaded": 58,
+    "wall": 2.75
+  },
+  {
+    "name": "numerical_check_npara",
+    "success": false,
+    "error": "Application Error: Unknown statement npara",
+    "wall": 2.62
+  },
+  {
+    "name": "numerical_check_ncoll",
+    "success": false,
+    "error": "Application Error: Unknown statement ncoll",
+    "wall": 2.57
+  },
+  {
+    "name": "angles_eq_triangle",
+    "success": true,
+    "build_time": 0.014,
+    "run_time": 0.018,
+    "levels": null,
+    "facts": 6,
+    "fired": {
+      "AR:Angle Chasing": 1
+    },
+    "rules_loaded": 58,
+    "wall": 2.72
+  },
+  {
+    "name": "angles_double_eq_triangle",
+    "success": true,
+    "build_time": 0.022,
+    "run_time": 0.059,
+    "levels": null,
+    "facts": 15,
+    "fired": {
+      "AR:Angle Chasing": 1,
+      "AR:Ratio Chasing": 2,
+      "r52": 2,
+      "r60": 1
+    },
+    "rules_loaded": 58,
+    "wall": 2.9
+  },
+  {
+    "name": "suplementary_angles",
+    "success": true,
+    "build_time": 0.01,
+    "run_time": 0.005,
+    "levels": null,
+    "facts": 3,
+    "fired": {
+      "AR:Angle Chasing": 1
+    },
+    "rules_loaded": 58,
+    "wall": 2.61
+  },
+  {
+    "name": "geometric_ratios",
+    "success": true,
+    "build_time": 0.011,
+    "run_time": 0.016,
+    "levels": null,
+    "facts": 7,
+    "fired": {
+      "AR:Ratio Chasing": 1,
+      "r51": 2
+    },
+    "rules_loaded": 58,
+    "wall": 2.65
+  },
+  {
+    "name": "concatenating_ratios",
+    "success": true,
+    "build_time": 0.031,
+    "run_time": 0.008,
+    "levels": null,
+    "facts": 5,
+    "fired": {
+      "AR:Ratio Chasing": 1
+    },
+    "rules_loaded": 58,
+    "wall": 2.88
+  },
+  {
+    "name": "test_get_two_intersections",
+    "success": true,
+    "build_time": 0.011,
+    "run_time": 0.063,
+    "levels": null,
+    "facts": 22,
+    "fired": {
+      "AR:Angle Chasing": 2,
+      "AR:Ratio Chasing": 4,
+      "r52": 2,
+      "r53": 2,
+      "r60": 1,
+      "r63": 2
+    },
+    "rules_loaded": 58,
+    "wall": 2.64
+  },
+  {
+    "name": "ar_two_triangles_angle_chasing",
+    "success": true,
+    "build_time": 0.011,
+    "run_time": 0.008,
+    "levels": null,
+    "facts": 8,
+    "fired": {
+      "AR:Angle Chasing": 1
+    },
+    "rules_loaded": 58,
+    "wall": 2.66
+  },
+  {
+    "name": "ar_three_triangles_angle_chasing",
+    "success": true,
+    "build_time": 0.012,
+    "run_time": 0.012,
+    "levels": null,
+    "facts": 11,
+    "fired": {
+      "AR:Angle Chasing": 1
+    },
+    "rules_loaded": 58,
+    "wall": 2.74
+  },
+  {
+    "name": "cong2_problem",
+    "success": true,
+    "build_time": 0.012,
+    "run_time": 0.006,
+    "levels": null,
+    "facts": 6,
+    "fired": {
+      "AR:Ratio Chasing": 1
+    },
+    "rules_loaded": 58,
+    "wall": 2.84
+  },
+  {
+    "name": "point_on_circle_eqdistant_from_center",
+    "success": true,
+    "build_time": 0.012,
+    "run_time": 0.017,
+    "levels": null,
+    "facts": 7,
+    "fired": {
+      "AR:Ratio Chasing": 1,
+      "r49": 1,
+      "r72": 2
+    },
+    "rules_loaded": 58,
+    "wall": 2.69
+  },
+  {
+    "name": "midpoint_splits_in_two",
+    "success": true,
+    "build_time": 0.009,
+    "run_time": 0.016,
+    "levels": null,
+    "facts": 3,
+    "fired": {
+      "r51": 1
+    },
+    "rules_loaded": 58,
+    "wall": 2.75
+  },
+  {
+    "name": "central_angle_vs_internal_angle",
+    "success": true,
+    "build_time": 0.01,
+    "run_time": 0.02,
+    "levels": null,
+    "facts": 16,
+    "fired": {
+      "AR:Angle Chasing": 1,
+      "AR:Ratio Chasing": 2,
+      "r53": 2,
+      "r63": 2
+    },
+    "rules_loaded": 58,
+    "wall": 2.66
+  },
+  {
+    "name": "checking_rconst2",
+    "success": true,
+    "build_time": 0.009,
+    "run_time": 0.008,
+    "levels": null,
+    "facts": 2,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 2.84
+  },
+  {
+    "name": "frac1_cong",
+    "success": true,
+    "build_time": 0.01,
+    "run_time": 0.005,
+    "levels": null,
+    "facts": 3,
+    "fired": {
+      "AR:Ratio Chasing": 1
+    },
+    "rules_loaded": 58,
+    "wall": 2.72
+  },
+  {
+    "name": "eqratio_lconst_check",
+    "success": true,
+    "build_time": 0.011,
+    "run_time": 0.006,
+    "levels": null,
+    "facts": 8,
+    "fired": {
+      "AR:Ratio Chasing": 1
+    },
+    "rules_loaded": 58,
+    "wall": 2.63
+  },
+  {
+    "name": "cong_lconst_check",
+    "success": true,
+    "build_time": 0.012,
+    "run_time": 0.005,
+    "levels": null,
+    "facts": 4,
+    "fired": {
+      "AR:Ratio Chasing": 1
+    },
+    "rules_loaded": 58,
+    "wall": 2.63
+  },
+  {
+    "name": "lconst_cong_check",
+    "success": true,
+    "build_time": 0.009,
+    "run_time": 0.005,
+    "levels": null,
+    "facts": 3,
+    "fired": {
+      "AR:Ratio Chasing": 1
+    },
+    "rules_loaded": 58,
+    "wall": 2.87
+  },
+  {
+    "name": "lconst_eqratio_check",
+    "success": true,
+    "build_time": 0.013,
+    "run_time": 0.006,
+    "levels": null,
+    "facts": 5,
+    "fired": {
+      "AR:Ratio Chasing": 1
+    },
+    "rules_loaded": 58,
+    "wall": 2.7
+  },
+  {
+    "name": "rconst_lconst_check",
+    "success": true,
+    "build_time": 0.01,
+    "run_time": 0.005,
+    "levels": null,
+    "facts": 4,
+    "fired": {
+      "AR:Ratio Chasing": 1
+    },
+    "rules_loaded": 58,
+    "wall": 2.69
+  },
+  {
+    "name": "lconst_rconst_check",
+    "success": true,
+    "build_time": 0.01,
+    "run_time": 0.005,
+    "levels": null,
+    "facts": 3,
+    "fired": {
+      "AR:Ratio Chasing": 1
+    },
+    "rules_loaded": 58,
+    "wall": 2.8
+  },
+  {
+    "name": "pyt_test_formula_to_perp",
+    "success": false,
+    "build_time": 0.02,
+    "run_time": 0.004,
+    "levels": null,
+    "facts": 3,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 2.71
+  },
+  {
+    "name": "pyt_test_perp_to_formula",
+    "success": false,
+    "build_time": 0.01,
+    "run_time": 0.004,
+    "levels": null,
+    "facts": 4,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 2.56
+  },
+  {
+    "name": "two_goals_cong_aconst",
+    "success": true,
+    "build_time": 0.011,
+    "run_time": 0.033,
+    "levels": null,
+    "facts": 22,
+    "fired": {
+      "AR:Angle Chasing": 2,
+      "AR:Ratio Chasing": 2,
+      "r03": 2,
+      "r14": 1,
+      "r53": 2,
+      "r63": 2
+    },
+    "rules_loaded": 58,
+    "wall": 2.71
+  },
+  {
+    "name": "acompute_test",
+    "success": false,
+    "error": "Application Error: Unknown statement acompute",
+    "wall": 2.8
+  },
+  {
+    "name": "tangents_to_circle",
+    "success": true,
+    "build_time": 0.011,
+    "run_time": 0.016,
+    "levels": null,
+    "facts": 13,
+    "fired": {
+      "AR:Angle Chasing": 1,
+      "AR:Ratio Chasing": 1,
+      "r14": 1,
+      "r53": 1,
+      "r63": 1
+    },
+    "rules_loaded": 58,
+    "wall": 2.69
+  },
+  {
+    "name": "miquel_theorem",
+    "success": true,
+    "build_time": 0.012,
+    "run_time": 0.02,
+    "levels": null,
+    "facts": 24,
+    "fired": {
+      "AR:Angle Chasing": 1,
+      "r03": 2,
+      "r04": 1,
+      "r82": 3
+    },
+    "rules_loaded": 58,
+    "wall": 2.68
+  },
+  {
+    "name": "two_perps_at_point_are_collinear",
+    "success": true,
+    "build_time": 0.01,
+    "run_time": 0.011,
+    "levels": null,
+    "facts": 6,
+    "fired": {
+      "AR:Angle Chasing": 1,
+      "r28": 1
+    },
+    "rules_loaded": 58,
+    "wall": 2.65
+  },
+  {
+    "name": "pappus",
+    "success": false,
+    "build_time": 0.024,
+    "run_time": 0.017,
+    "levels": null,
+    "facts": 16,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 2.89
+  },
+  {
+    "name": "ar_construction_tester",
+    "success": true,
+    "build_time": 0.013,
+    "run_time": 0.006,
+    "levels": null,
+    "facts": 11,
+    "fired": {
+      "AR:Angle Chasing": 1
+    },
+    "rules_loaded": 58,
+    "wall": 2.56
+  },
+  {
+    "name": "basic_cc_tangent",
+    "success": true,
+    "build_time": 0.027,
+    "run_time": 0.115,
+    "levels": null,
+    "facts": 23,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 2.73
+  },
+  {
+    "name": "breaking_cc_tangent",
+    "success": false,
+    "error": "ValueError: Failed to build a valid problem setup for breaking_cc_tangent after 100 attempts. Last error: Failed to add ",
+    "wall": 2.88
+  },
+  {
+    "name": "breaking_cc_tangent_by_kiss",
+    "success": false,
+    "error": "ValueError: Failed to build a valid problem setup for breaking_cc_tangent_by_kiss after 100 attempts. Last error: Failed",
+    "wall": 3.21
+  },
+  {
+    "name": "basic_cc_itangent",
+    "success": true,
+    "build_time": 0.166,
+    "run_time": 0.122,
+    "levels": null,
+    "facts": 23,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 2.92
+  },
+  {
+    "name": "breaking_cc_itangent",
+    "success": false,
+    "error": "ValueError: Failed to build a valid problem setup for breaking_cc_itangent after 100 attempts. Last error: Failed to add",
+    "wall": 3.3
+  },
+  {
+    "name": "breaking_cc_itangent_by_kiss",
+    "success": false,
+    "error": "ValueError: Failed to build a valid problem setup for breaking_cc_itangent_by_kiss after 100 attempts. Last error: Faile",
+    "wall": 3.09
+  },
+  {
+    "name": "repro_example_1",
+    "success": true,
+    "build_time": 0.025,
+    "run_time": 0.011,
+    "levels": null,
+    "facts": 8,
+    "fired": {
+      "r43": 1
+    },
+    "rules_loaded": 58,
+    "wall": 2.64
+  },
+  {
+    "name": "testing_on_aline0",
+    "success": true,
+    "build_time": 0.01,
+    "run_time": 0.005,
+    "levels": null,
+    "facts": 3,
+    "fired": {
+      "AR:Angle Chasing": 1
+    },
+    "rules_loaded": 58,
+    "wall": 2.52
+  },
+  {
+    "name": "testing_circumcenter",
+    "success": true,
+    "build_time": 0.011,
+    "run_time": 0.07,
+    "levels": null,
+    "facts": 38,
+    "fired": {
+      "AR:Angle Chasing": 5,
+      "AR:Ratio Chasing": 2,
+      "r03": 8,
+      "r04": 5,
+      "r49": 3,
+      "r72": 2,
+      "r73": 2
+    },
+    "rules_loaded": 58,
+    "wall": 2.73
+  },
+  {
+    "name": "menelaus_test",
+    "success": false,
+    "build_time": 0.014,
+    "run_time": 0.009,
+    "levels": null,
+    "facts": 10,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 2.65
+  },
+  {
+    "name": "menelaus_frac1_test",
+    "success": false,
+    "build_time": 0.012,
+    "run_time": 0.009,
+    "levels": null,
+    "facts": 9,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 2.64
+  },
+  {
+    "name": "menelaus_crossed_cong_test",
+    "success": false,
+    "build_time": 0.012,
+    "run_time": 0.009,
+    "levels": null,
+    "facts": 10,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 2.59
+  },
+  {
+    "name": "ar_example_paper_angle_chasing",
+    "success": true,
+    "build_time": 0.013,
+    "run_time": 0.021,
+    "levels": null,
+    "facts": 29,
+    "fired": {
+      "AR:Angle Chasing": 1,
+      "r03": 1,
+      "r82": 5
+    },
+    "rules_loaded": 58,
+    "wall": 2.57
+  },
+  {
+    "name": "ar_example_paper_ratio_chasing",
+    "success": true,
+    "build_time": 0.012,
+    "run_time": 0.028,
+    "levels": null,
+    "facts": 39,
+    "fired": {
+      "AR:Angle Chasing": 4,
+      "AR:Ratio Chasing": 1,
+      "r12": 1,
+      "r28": 1,
+      "r34": 1,
+      "r51": 2,
+      "r52": 1,
+      "r56": 1,
+      "r71": 1,
+      "r82": 6
+    },
+    "rules_loaded": 58,
+    "wall": 2.65
+  },
+  {
+    "name": "regular_triangle_side",
+    "success": true,
+    "build_time": 0.011,
+    "run_time": 0.022,
+    "levels": null,
+    "facts": 12,
+    "fired": {
+      "AR:Angle Chasing": 1,
+      "AR:Ratio Chasing": 2,
+      "r34": 1,
+      "r52": 1,
+      "r53": 1,
+      "r63": 1
+    },
+    "rules_loaded": 58,
+    "wall": 2.65
+  },
+  {
+    "name": "testing_problem",
+    "success": true,
+    "build_time": 0.029,
+    "run_time": 0.006,
+    "levels": null,
+    "facts": 7,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 2.64
+  },
+  {
+    "name": "test_between_coll",
+    "success": true,
+    "build_time": 0.009,
+    "run_time": 0.005,
+    "levels": null,
+    "facts": 2,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 2.63
+  },
+  {
+    "name": "test_between_bound_coll",
+    "success": true,
+    "build_time": 0.009,
+    "run_time": 0.005,
+    "levels": null,
+    "facts": 3,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 2.69
+  },
+  {
+    "name": "test_between_obtuse",
+    "success": true,
+    "build_time": 0.008,
+    "run_time": 0.006,
+    "levels": null,
+    "facts": 2,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 2.62
+  },
+  {
+    "name": "test_between_bound_obtuse",
+    "success": true,
+    "build_time": 0.011,
+    "run_time": 0.005,
+    "levels": null,
+    "facts": 3,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 2.63
+  },
+  {
+    "name": "test_simtri_numerical",
+    "success": true,
+    "build_time": 0.016,
+    "run_time": 0.016,
+    "levels": null,
+    "facts": 7,
+    "fired": {
+      "AR:Ratio Chasing": 1,
+      "r63": 1
+    },
+    "rules_loaded": 58,
+    "wall": 2.56
+  },
+  {
+    "name": "test_eqratio_numercial",
+    "success": true,
+    "build_time": 0.011,
+    "run_time": 0.009,
+    "levels": null,
+    "facts": 6,
+    "fired": {
+      "AR:Ratio Chasing": 1
+    },
+    "rules_loaded": 58,
+    "wall": 2.73
+  },
+  {
+    "name": "test_contri_numerical",
+    "success": true,
+    "build_time": 0.01,
+    "run_time": 0.01,
+    "levels": null,
+    "facts": 8,
+    "fired": {
+      "AR:Ratio Chasing": 1,
+      "r63": 1,
+      "r69": 1
+    },
+    "rules_loaded": 58,
+    "wall": 2.63
+  },
+  {
+    "name": "test_r2const",
+    "success": true,
+    "build_time": 0.013,
+    "run_time": 0.231,
+    "levels": null,
+    "facts": 42,
+    "fired": {
+      "AR:Angle Chasing": 4,
+      "AR:Ratio Chasing": 4,
+      "r12": 1,
+      "r14": 1,
+      "r51": 1,
+      "r52": 1,
+      "r53": 1,
+      "r54": 1,
+      "r62": 1,
+      "r63": 1,
+      "r82": 3
+    },
+    "rules_loaded": 58,
+    "wall": 2.91
+  },
+  {
+    "name": "test_l2const",
+    "success": false,
+    "build_time": 0.008,
+    "run_time": 0.004,
+    "levels": null,
+    "facts": 1,
+    "fired": {},
+    "rules_loaded": 58,
+    "wall": 2.62
+  }
+]

@@ -1,0 +1,77 @@
+problem                                      ok    time  lvl  facts  fired
+orthocenter                                 yes    0.01    -      5  r43x1
+orthocenter_aux                             yes    0.01    -      8  r43x1
+incenter_excenter                           yes    0.23    -     24  AR:Angle Chasingx1
+orthocenter_consequence                     yes    0.01    -      8  AR:Angle Chasingx1 r43x1
+orthocenter_consequence_aux                 yes    0.02    -     11  AR:Angle Chasingx1 r43x1
+not_always_good                             yes    0.02    -     17  AR:Angle Chasingx1 AR:Ratio Chasingx1 r53x1 r63x1
+rule_r29_not_found_disguise                 yes    0.02    -      7  AR:Ratio Chasingx1 r51x2
+rule_r29_not_found_explicit                 yes    0.02    -      7  AR:Ratio Chasingx1 r51x2
+find_r22                                    yes    0.05    -     16  AR:Angle Chasingx1 AR:Ratio Chasingx2 r51x2 r53x1 r56x1 r63x1 r82x2
+two_paths_problem_aux                       yes    0.01    -      8  AR:Angle Chasingx1
+two_paths_problem                           yes    0.01    -      4  AR:Angle Chasingx1
+b23_may_need_BUILT_IN_FNS                   yes    0.02    -     11  AR:Ratio Chasingx1 r51x3
+ratio_chase_incorrect_on_step_one           yes    0.01    -      5  AR:Ratio Chasingx1 r51x1
+forcing_ratio                               yes    0.01    -      5  AR:Ratio Chasingx1 r51x1
+check_r00                                   yes    0.01    -      4  AR:Angle Chasingx1
+angles_in_triangle                          yes    0.01    -      4  AR:Angle Chasingx1
+testing_aline0                              yes    0.01    -      2  
+testing_iso_triangle_vertex_angle           yes    0.01    -      4  r14x1
+numerical_check_npara                       ERR    2.62  Application Error: Unknown statement npara
+numerical_check_ncoll                       ERR    2.57  Application Error: Unknown statement ncoll
+angles_eq_triangle                          yes    0.02    -      6  AR:Angle Chasingx1
+angles_double_eq_triangle                   yes    0.06    -     15  AR:Angle Chasingx1 AR:Ratio Chasingx2 r52x2 r60x1
+suplementary_angles                         yes    0.01    -      3  AR:Angle Chasingx1
+geometric_ratios                            yes    0.02    -      7  AR:Ratio Chasingx1 r51x2
+concatenating_ratios                        yes    0.01    -      5  AR:Ratio Chasingx1
+test_get_two_intersections                  yes    0.06    -     22  AR:Angle Chasingx2 AR:Ratio Chasingx4 r52x2 r53x2 r60x1 r63x2
+ar_two_triangles_angle_chasing              yes    0.01    -      8  AR:Angle Chasingx1
+ar_three_triangles_angle_chasing            yes    0.01    -     11  AR:Angle Chasingx1
+cong2_problem                               yes    0.01    -      6  AR:Ratio Chasingx1
+point_on_circle_eqdistant_from_center       yes    0.02    -      7  AR:Ratio Chasingx1 r49x1 r72x2
+midpoint_splits_in_two                      yes    0.02    -      3  r51x1
+central_angle_vs_internal_angle             yes    0.02    -     16  AR:Angle Chasingx1 AR:Ratio Chasingx2 r53x2 r63x2
+checking_rconst2                            yes    0.01    -      2  
+frac1_cong                                  yes    0.01    -      3  AR:Ratio Chasingx1
+eqratio_lconst_check                        yes    0.01    -      8  AR:Ratio Chasingx1
+cong_lconst_check                           yes    0.01    -      4  AR:Ratio Chasingx1
+lconst_cong_check                           yes    0.01    -      3  AR:Ratio Chasingx1
+lconst_eqratio_check                        yes    0.01    -      5  AR:Ratio Chasingx1
+rconst_lconst_check                         yes    0.01    -      4  AR:Ratio Chasingx1
+lconst_rconst_check                         yes    0.01    -      3  AR:Ratio Chasingx1
+pyt_test_formula_to_perp                     no    0.00    -      3  
+pyt_test_perp_to_formula                     no    0.00    -      4  
+two_goals_cong_aconst                       yes    0.03    -     22  AR:Angle Chasingx2 AR:Ratio Chasingx2 r03x2 r14x1 r53x2 r63x2
+acompute_test                               ERR    2.80  Application Error: Unknown statement acompute
+tangents_to_circle                          yes    0.02    -     13  AR:Angle Chasingx1 AR:Ratio Chasingx1 r14x1 r53x1 r63x1
+miquel_theorem                              yes    0.02    -     24  AR:Angle Chasingx1 r03x2 r04x1 r82x3
+two_perps_at_point_are_collinear            yes    0.01    -      6  AR:Angle Chasingx1 r28x1
+pappus                                       no    0.02    -     16  
+ar_construction_tester                      yes    0.01    -     11  AR:Angle Chasingx1
+basic_cc_tangent                            yes    0.12    -     23  
+breaking_cc_tangent                         ERR    2.88  ValueError: Failed to build a valid problem setup for breaking_cc_tangent after 100 attempts. Last error: Failed to add 
+breaking_cc_tangent_by_kiss                 ERR    3.21  ValueError: Failed to build a valid problem setup for breaking_cc_tangent_by_kiss after 100 attempts. Last error: Failed
+basic_cc_itangent                           yes    0.12    -     23  
+breaking_cc_itangent                        ERR    3.30  ValueError: Failed to build a valid problem setup for breaking_cc_itangent after 100 attempts. Last error: Failed to add
+breaking_cc_itangent_by_kiss                ERR    3.09  ValueError: Failed to build a valid problem setup for breaking_cc_itangent_by_kiss after 100 attempts. Last error: Faile
+repro_example_1                             yes    0.01    -      8  r43x1
+testing_on_aline0                           yes    0.01    -      3  AR:Angle Chasingx1
+testing_circumcenter                        yes    0.07    -     38  AR:Angle Chasingx5 AR:Ratio Chasingx2 r03x8 r04x5 r49x3 r72x2 r73x2
+menelaus_test                                no    0.01    -     10  
+menelaus_frac1_test                          no    0.01    -      9  
+menelaus_crossed_cong_test                   no    0.01    -     10  
+ar_example_paper_angle_chasing              yes    0.02    -     29  AR:Angle Chasingx1 r03x1 r82x5
+ar_example_paper_ratio_chasing              yes    0.03    -     39  AR:Angle Chasingx4 AR:Ratio Chasingx1 r12x1 r28x1 r34x1 r51x2 r52x1 r56x1 r71x1 r82x6
+regular_triangle_side                       yes    0.02    -     12  AR:Angle Chasingx1 AR:Ratio Chasingx2 r34x1 r52x1 r53x1 r63x1
+testing_problem                             yes    0.01    -      7  
+test_between_coll                           yes    0.01    -      2  
+test_between_bound_coll                     yes    0.01    -      3  
+test_between_obtuse                         yes    0.01    -      2  
+test_between_bound_obtuse                   yes    0.01    -      3  
+test_simtri_numerical                       yes    0.02    -      7  AR:Ratio Chasingx1 r63x1
+test_eqratio_numercial                      yes    0.01    -      6  AR:Ratio Chasingx1
+test_contri_numerical                       yes    0.01    -      8  AR:Ratio Chasingx1 r63x1 r69x1
+test_r2const                                yes    0.23    -     42  AR:Angle Chasingx4 AR:Ratio Chasingx4 r12x1 r14x1 r51x1 r52x1 r53x1 r54x1 r62x1 r63x1 r82x3
+test_l2const                                 no    0.00    -      1  
+
+solved 60/74  (engine yuclid, AR on, seed 0)
