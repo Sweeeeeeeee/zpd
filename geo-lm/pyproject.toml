@@ -1,0 +1,20 @@
+[project]
+name = "geo_lm"
+version = "0.1.0"
+description = "Small from-scratch transformer that proposes auxiliary constructions for Newclid geometry problems"
+requires-python = ">=3.9"
+dependencies = ["torch>=2.0"]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["geo_lm"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

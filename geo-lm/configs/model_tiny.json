@@ -1,0 +1,11 @@
+{
+  "_comment": "~0.1M params. For smoke tests on CPU.",
+  "vocab_size": 512,
+  "context_length": 128,
+  "n_layer": 2,
+  "n_head": 2,
+  "n_embd": 64,
+  "dropout": 0.0,
+  "bias": false,
+  "tie_weights": true
+}
