@@ -2,23 +2,28 @@
 
 ## The one-minute version
 
-> Olympiad geometry proofs often hinge on a single clever extra point, such as a
-> midpoint, a foot of an altitude, or a reflection. AlphaGeometry (DeepMind, 2024)
-> showed that a language model can suggest those points while a strict logic
-> engine does the actual proving. We rebuilt that setup at a size that runs on a
-> laptop. Every ingredient can be switched on or off: individual geometry
-> theorems, algebraic reasoning, the model, and the human heuristics. That lets
-> us measure what each "piece of knowledge" contributes, which is the
-> starting point for comparing curricula.
+> We built a scanner for olympiad geometry problems. You choose one geometry
+> domain, meaning a set of theorems such as "circles and inscribed angles, no
+> similar triangles". For every problem in a folder, the tool tells you whether
+> it has an *easy* solution in that domain: one that uses only those theorems
+> and at most one extra point. It shows the solution step by step, names the
+> key extra point, and reports how much time and memory it took. Under the hood
+> it is a laptop-sized AlphaGeometry: a strict logic engine (Newclid's DDAR)
+> does the proving, while heuristics and a small transformer suggest extra
+> points.
 
 ## Why it is interesting
 
 * **Proofs are checkable.** DDAR only applies known theorems, so every proof it
   outputs is correct. Neither the model nor the heuristics can make a false
   claim; they can only suggest points.
-* **Knowledge is modular.** A "curriculum" can be modelled as a set of rules
-  (theorems a student knows), whether AR (algebra) is allowed, and which kinds
-  of constructions are considered. All three are JSON switches here.
+* **A domain is just a switch.** A geometry domain is a set of rules (the
+  theorems allowed), whether AR (algebra) is allowed, and which kinds of extra
+  points may be added. All three are JSON switches, so the same problems can be
+  scanned in many domains.
+* **"Easy" is measurable.** It is defined as solved within the domain, with at
+  most one extra point, inside a small budget. Proof length, number of rules
+  used, time and memory then rank how easy each solution is.
 * **It is small.** It runs on a CPU, the data is public, and the model is
   written from scratch, so results are reproducible without a datacenter.
 
@@ -127,20 +132,25 @@ What to point out:
 
 ## How this connects to the research question
 
-The plan (`apraksts.txt`) is to evaluate *educational programs*: which
-knowledge, given in which order, lets a solver handle which problems. Here that
-becomes concrete:
-* a **program** = a DDAR config (rules, AR), a set of enabled tools and heuristic
-  kinds, and later, models trained on chosen subsets of the data;
-* a **test** = a folder of translated problems run with `pipeline.run_folder`;
-* a **score** = solved count plus time, depth and rules used, taken from the
-  results JSON.
+The project description (`apraksts.txt`) is a scanner that finds problems with
+easy solutions in one geometry domain. Here that becomes concrete:
+* a **domain** = a DDAR config (rules, AR) plus the allowed sources of extra
+  points (heuristic kinds, the model);
+* **easy** = solved with search depth 0 or 1 under a small budget, for example
+  `"search": {"max_depth": 1}` and `--time 60`;
+* a **scan** = `python -m bench run <folder> --config <domain>.json`, then
+  `python -m bench table <folder>`, giving one column per domain;
+* the **evidence** = the stored records: proof, key extra point, rules used,
+  time and memory.
+
+Comparing domains shows which theorem makes which problems easy. That is
+also the long-term route to comparing curricula.
 
 The next steps are:
 1. Train the model.
 2. Translate the 10 benchmark problems.
-3. Sweep rule subsets, for example "only the original AlphaGeometry rules r00–r42"
-   against the defaults, and compare the tables.
+3. Define 2–3 domains as configs (for example circle theorems only, or no
+   similarity) and scan the problems in each one.
 
 ## Likely questions
 

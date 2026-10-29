@@ -1,10 +1,19 @@
-# Geometry prover toolbox: DDAR + small transformer + heuristics
+# Olympiad geometry scanner: easy solutions in one geometry domain
 
-This is a small, CPU-friendly reimplementation of the AlphaGeometry idea. A
-deductive engine (Newclid's DDAR) proves everything it can. When it gets stuck,
-other tools propose auxiliary points (a transformer written from scratch, or
-simple human heuristics), and DDAR tries again. Every part can be switched off
-or swapped from JSON configs, including individual deduction rules.
+This tool scans a folder of olympiad geometry problems and finds the ones with
+an easy solution in a chosen geometry domain. A domain is a set of theorems,
+with or without algebraic reasoning. An easy solution uses only those theorems
+and at most one auxiliary point, within a small time and memory budget. For
+each problem, the tool stores the proof, the key auxiliary point, the rules
+used, and the resources used. The project description is in
+[apraksts.txt](apraksts.txt).
+
+Under the hood it is a small, CPU-friendly reimplementation of the
+AlphaGeometry idea. A deductive engine (Newclid's DDAR) proves everything it
+can. When it gets stuck, other tools propose auxiliary points (a transformer
+written from scratch, or simple human heuristics), and DDAR tries again. Every
+part can be switched off or swapped from JSON configs, including individual
+deduction rules.
 
 | folder | what | step |
 |---|---|---|
