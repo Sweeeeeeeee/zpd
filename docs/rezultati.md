@@ -4,16 +4,17 @@ Stāvoklis uz 2026. gada 29. oktobri.
 
 ## Pārskats
 
-DD-AR dzinējs yuclid pierāda 60 no 74 Newclid piemēru uzdevumiem, bet Python
-dzinējs tikai 37. Pilnais konveijers atrisina 4 no 5 parauga uzdevumiem, katru
-aptuveni 2 s laikā. Piektais uzdevums ir apzināti nepareizs tulkojums, un tas
-tiek pareizi noraidīts.
+Kad DD-AR iestrēgst, palīgpunkti no heiristikām atrisina abus pārbaudītos
+uzdevumus aptuveni 3 s laikā, bet ar LLM (transformeri) neviens netiek
+atrisināts 15 s laikā. Pilnais konveijers atrisina 4 no 5 parauga uzdevumiem,
+katru aptuveni 2 s laikā; piektais ir apzināti nepareizs tulkojums, un tas tiek
+pareizi noraidīts.
 
 Skeneris meklē olimpiāžu ģeometrijas uzdevumus, kuriem ir viegls risinājums
 vienā izvēlētā jomā: ar fiksētu likumu kopu, ne vairāk kā vienu palīgpunktu un
 nelieliem laika un atmiņas resursiem. DD-AR pierāda, ko var; kad tas apstājas,
 palīgpunktus piedāvā transformeris vai vienkāršas heiristikas. Visi skaitļi
-šajā dokumentā ņemti no repozitorija failiem: `ddar/results/`,
+šajā dokumentā ņemti no repozitorija failiem: `results/jgex_ag_231/`,
 `results/examples/` un `geo-lm/runs/`.
 
 ## Konveijers
@@ -37,21 +38,33 @@ un 80 DD-AR izsaukumus; uzraugs aptur darbu, kad beidzas laiks vai atmiņa.
 
 ## Rezultāti
 
-### Deduktīvais dzinējs
+### Ar LLM un bez tā
 
-yuclid pierāda 60 no 74 Newclid piemēriem, Python dzinējs pierāda 37. Abi
-dzinēji risināja tos pašus 74 uzdevumus ar noklusētajiem likumiem, sēkla 0.
+Salīdzinātas trīs konfigurācijas uz pirmajiem 73 no 231 JGEX uzdevuma
+(`jgex_ag_231` no Newclid). Pilns skrējiens tika apturēts laika dēļ.
 
-| Dzinējs | Pierādīts | Nav pierādīts | Kļūda | Kopā |
-| --- | --- | --- | --- | --- |
-| yuclid (C++) | **60** | 7 | 7 | 60/74 |
-| Python | **37** | 0 | 37 | 37/74 |
+1. Tikai DD-AR (`ddar_only`) uz visiem 73 uzdevumiem, budžets 30 s.
+2. Uz tiem 2 uzdevumiem, kur DD-AR iestrēga: DD-AR + heiristikas
+   (`heuristics_only`) un DD-AR + LLM + heiristikas (`quick_model`), budžets 15 s.
 
-Avots: `ddar/results/examples_yuclid.txt` un `examples_python.txt`.
+**Tikai DD-AR:** atrisināti 71 no 73 (97%), mediāna 1,9 s, 180 MB un 17 likumu
+pielietojumi pierādījumā. Palīgpunkts nevienam no tiem nebija vajadzīgs.
 
-Lielākā daļa Python dzinēja kļūdu (28 no 37) ir viena un tā pati avārija
-(`cannot unpack non-iterable Symbol object`), tāpēc tā atpalicība ir kļūda
-kodā, nevis vājāks pierādītājs.
+**Uzdevumi, kur DD-AR iestrēga:**
+
+| Uzdevums | Tikai DD-AR | DD-AR + heiristikas | DD-AR + LLM |
+| --- | --- | --- | --- |
+| `L053-1` | nē, iestrēga | **jā**, 3,3 s, 1 palīgpunkts (`foot`), 5 DD-AR izsaukumi | nē, 15 s limits |
+| `L058-9` | nē, iestrēga | **jā**, 2,8 s, 2 palīgpunkti (`circle`, `circle`), 19 DD-AR izsaukumi | nē, 15 s limits |
+
+Ar heiristikām `L053-1` atbilst "vieglā risinājuma" definīcijai (viens
+palīgpunkts), bet `L058-9` prasa divus. LLM konfigurācija abos gadījumos
+iztērēja visu laiku, pirms tika līdz pierādījumam: modeļa ielāde un staru
+meklēšana (beam search) uz CPU ir lēna, un tā darbojās paralēli heiristiku
+skrējienam uz tiem pašiem 2 CPU kodoliem. Ar ilgāku budžetu rezultāts var
+mainīties, bet šis modelis vēl nav apmācīts (skat. zemāk).
+
+Avots: `results/jgex_ag_231/*.jsonl`, skripts `bench/sweep.py`.
 
 ### Parauga uzdevumi caur `solve()`
 
@@ -92,19 +105,17 @@ Validācija pie 100. soļa: zudums 1,67, precīzā sakritība 0%. Avots:
 
 ## Secinājumi un nākamie soļi
 
-- **Par noklusēto dzinēju izmantot yuclid.** Tas atrisina par 23 piemēriem
-  vairāk nekā Python dzinējs. Tā 7 kļūdas ir neatbalstīti apgalvojumi
-  (`npara`, `ncoll`, `acompute`) un 4 uzdevumi, kuriem neizdevās izveidot
-  zīmējumu.
-- **Palīgpunktu rīki vēl nav pārbaudīti tur, kur tie ir svarīgi.** Visi 4
-  atrisinātie piemēri tika pierādīti tikai ar DD-AR dziļumā 0, tāpēc ne
-  transformerim, ne heiristikām nebija jāpiedāvā neviens punkts.
-- **Transformeris vēl nav noderīgs.** Pēc 200 soļiem uz CPU tā precīzā
-  sakritība ir 0%, un tā ielāde divkāršo risināšanas laiku un trīskāršo
-  atmiņas patēriņu.
+- **Heiristikas jau strādā.** Abos uzdevumos, kur DD-AR iestrēga, tās atrada
+  palīgpunktus, kas noveda pie pierādījuma, mazāk nekā 4 s laikā.
+- **LLM vēl nepalīdz.** Pēc 200 soļiem uz CPU tā precīzā sakritība ir 0%,
+  tā ielāde divkāršo risināšanas laiku un trīskāršo atmiņas patēriņu, un
+  15 s budžetā tas neatrisināja nevienu iestrēgušo uzdevumu.
+- **Salīdzinājums ir mazs.** Tikai 2 iestrēguši uzdevumi; ticamam
+  secinājumam vajag visus 231 JGEX uzdevumus un apmācītu modeli.
 
 Nākamie soļi:
 
+- [ ] Pabeigt `bench/sweep.py` skrējienu uz visiem 231 JGEX uzdevumiem
 - [ ] Pievienot mapē `problems/` uzdevumus, kuriem vajag tieši vienu palīgpunktu
 - [ ] Pilnībā apmācīt `train_small` uz GPU un vēlreiz pārbaudīt precīzo sakritību
 - [ ] Palaist saglabātos piemērus ar apmācīto modeli un salīdzināt ar `heuristics_only`

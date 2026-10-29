@@ -214,6 +214,6 @@ All documents are in `docs/`:
 | [pipeline.md](pipeline.md) | step 6: tools and search |
 | [translation_guide.md](translation_guide.md) | step 8: writing problems in Newclid syntax |
 | [present.md](present.md) | step 10: how to explain and present the project |
-| [rezultati.md](rezultati.md) | current results in Latvian: engines, worked examples, transformer training |
+| [rezultati.md](rezultati.md) | current results in Latvian: with and without the LLM, worked examples, transformer training |
 | [atsauces.md](atsauces.md) | references |
 | [apraksts.md](apraksts.md), [tasks](tasks) | project description and task list |

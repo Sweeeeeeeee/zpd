@@ -1,0 +1,2 @@
+{"name": "examples/complete2/014/complete_008_7_Book_LLL_L053-1.gex", "solved": false, "wall": 15.051, "mem": 321.2, "depth": 0, "aux": [], "ddar_calls": 0, "tool_calls": {}, "reason": "time limit (15s)", "n_rules": 0}
+{"name": "examples/complete2/014/complete_007_7_Book_LLL_L058-9.gex", "solved": false, "wall": 15.088, "mem": 482.6, "depth": 0, "aux": [], "ddar_calls": 0, "tool_calls": {}, "reason": "time limit (15s)", "n_rules": 0}
