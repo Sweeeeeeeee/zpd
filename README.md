@@ -32,7 +32,7 @@ Nothing is compiled: yuclid, Newclid's C++ engine, comes as a prebuilt wheel. A
 GPU is optional and only used for training.
 
 ```bash
-python -m pytest -q          # 39 tests, about 15 s
+python -m pytest -q          # 64 tests (project + model), about 15 s
 ```
 
 ## Solve a problem
@@ -180,7 +180,13 @@ python -m geo_lm.train --config configs/train_small.json --max_steps 5000 --batc
   * Its outputs are converted to Newclid constructions for `coll`, `perp`,
     `para`, `cong` and `cyclic`.
   * Proposals that use `eqangle` or `aconst` are dropped.
-* The real model has not been trained yet; only the smoke-test checkpoint exists.
+* The real model has not been trained yet; only a smoke-test checkpoint and a
+  10-minute checkpoint (`runs/quick`) exist. Checkpoints are not in git (134 MB each).
+* The figure for each solve is drawn with one fixed seed (the `seed` option of
+  the `ddar` tool, default 0). Use `pipeline.check_figure` to test several
+  drawings.
+* `pipeline/configs/default.json` needs `geo-lm/runs/small/best.pt`. Until it
+  exists, the transformer tool is switched off with a warning.
 
 Details for each step are in `ddar/README.md`, `datagen/README.md`,
 `pipeline/README.md` and `geo-lm/README.md`.
