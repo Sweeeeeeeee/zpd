@@ -1,0 +1,4 @@
+# Tangent-chord angle: the tangent at A to the circumcircle makes with AB the angle ACB.
+# source: classical
+# tags: tangent, angles, circle
+a b c = triangle a b c; o = circle o a b c; t = on_tline t a o a ? eqangle a t a b c a c b

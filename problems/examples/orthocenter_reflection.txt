@@ -1,0 +1,4 @@
+# Reflection of the orthocenter H over BC lies on the circumcircle of ABC.
+# source: classical
+# tags: orthocenter, reflection, circle
+a b c = triangle a b c; h = orthocenter h a b c; d = reflect d h b c ? cyclic a b c d

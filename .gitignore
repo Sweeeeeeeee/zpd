@@ -3,3 +3,4 @@
 third_party/
 __pycache__/
 data/
+problems/**/results_*.json

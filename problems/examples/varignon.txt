@@ -1,0 +1,4 @@
+# Varignon: the midpoints of the sides of any quadrilateral form a parallelogram.
+# source: classical
+# tags: midpoints, parallel
+a b c d = quadrangle a b c d; e = midpoint e a b; f = midpoint f b c; g = midpoint g c d; h = midpoint h d a ? para e f g h

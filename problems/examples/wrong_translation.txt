@@ -1,0 +1,4 @@
+# WRONG on purpose: H built with on_line instead of on_tline, so it is not the orthocenter.
+# source: deliberately wrong translation (for the numerical check)
+# tags: invalid
+a b c = triangle a b c; h = on_line h b a, on_tline h c a b ? perp a h b c

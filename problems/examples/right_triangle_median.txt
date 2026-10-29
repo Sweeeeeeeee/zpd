@@ -1,0 +1,4 @@
+# Midpoint of the hypotenuse of a right triangle is equidistant from all vertices.
+# source: classical
+# tags: right triangle, midpoint
+a b c = r_triangle a b c; m = midpoint m b c ? cong m a m b

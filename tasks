@@ -7,3 +7,5 @@ Toolbox and pipeline. Define one small abstract class: a tool takes the current 
 The solve function. solve(problem, config, budget) takes a problem, a config, and limits on time, memory and CPU. It returns a result with: solved (yes/no), the proof text, wall time, peak memory, search depth, rules fired, tools used, and the failure reason if unsolved. Enforce limits by running the solve in a subprocess.
 Problem translation. Write a short guide with worked examples on translating olympiad problems by hand into Newclid’s syntax. Include a numerical check of the translated figure to catch mistakes. Then provide a runner that solves a folder of 10 translated problems (I will supply them) under a chosen config and prints a results table.
 Docs and tests. A README with CPU-friendly installation, config examples, how to add a tool, how to disable a rule, and how to train. Basic tests for config loading, each tool, and solve().
+Make a guide how to understand it and tell others about it - present.md, up to 200 lines
+make framework for problems and information about them(stored on github), information being return values of solve on diferent params
