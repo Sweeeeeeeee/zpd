@@ -6,7 +6,7 @@ with or without algebraic reasoning. An easy solution uses only those theorems
 and at most one auxiliary point, within a small time and memory budget. For
 each problem, the tool stores the proof, the key auxiliary point, the rules
 used, and the resources used. The project description is in
-[apraksts.txt](apraksts.txt).
+[apraksts.md](apraksts.md).
 
 Under the hood it is a small, CPU-friendly reimplementation of the
 AlphaGeometry idea. A deductive engine (Newclid's DDAR) proves everything it
@@ -214,5 +214,6 @@ All documents are in `docs/`:
 | [pipeline.md](pipeline.md) | step 6: tools and search |
 | [translation_guide.md](translation_guide.md) | step 8: writing problems in Newclid syntax |
 | [present.md](present.md) | step 10: how to explain and present the project |
+| [rezultati.md](rezultati.md) | current results in Latvian: engines, worked examples, transformer training |
 | [atsauces.md](atsauces.md) | references |
-| [apraksts.txt](apraksts.txt), [tasks](tasks) | project description and task list |
+| [apraksts.md](apraksts.md), [tasks](tasks) | project description and task list |
