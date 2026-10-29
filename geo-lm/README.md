@@ -76,3 +76,37 @@ for _ in range(100):
 
 save_checkpoint("runs/demo.pt", model, tok, opt, step=100)
 ```
+## Training (step 5)
+
+```bash
+# from geo-lm/, data from step 4 in ../data/genesisgeo/
+python -m geo_lm.train --config configs/train_tiny.json     # end-to-end smoke run, ~1 min CPU
+python -m geo_lm.train --config configs/train_small.json    # ~11M params, 100k examples
+python -m geo_lm.train --config configs/train_small.json --lr 1e-3 --batch_size 64 --max_steps 5000
+```
+
+Every field of `TrainConfig` (in `geo_lm/train.py`) can be set in the JSON file
+and overridden on the command line:
+
+| group | fields |
+|---|---|
+| data | `train_data`, `val_data`, `max_examples` |
+| model | `model_config`, which points to a model JSON: layers, heads, embedding size, context length, vocab, dropout |
+| optimisation | `lr`, `min_lr`, `warmup_steps`, `weight_decay`, `grad_clip`, `batch_size`, `grad_accum` |
+| run length and logging | `max_steps`, `log_every`, `eval_every`, `ckpt_every`, `eval_generate` |
+| hardware and resuming | `device`, `num_threads`, `seed`, `resume` |
+
+Relative paths in the JSON file are resolved against the file's own directory.
+
+* The loss covers only the auxiliary construction and `<eos>`.
+* The learning rate warms up linearly, then follows a cosine decay.
+* Batches are bucketed by length to reduce padding.
+* bf16 autocast is used on GPUs that support it.
+* On limited memory, use `grad_accum` to keep the effective batch size.
+* `out_dir` gets `last.pt` (resumed automatically), `best.pt` (lowest
+  validation loss), `log.jsonl` and `config.json`.
+* Evaluation reports validation loss and greedy exact-match accuracy on
+  `eval_generate` held-out examples.
+
+The tokenizer is built from the training data on the first run and stored in
+the checkpoint. On the step 4 data it has 76 tokens.

@@ -1,0 +1,18 @@
+{
+  "_comment": "End-to-end smoke run on CPU (~1 min): tiny model, 2000 examples, 60 steps.",
+  "model_config": "model_tiny.json",
+  "train_data": "../../data/genesisgeo/train.txt",
+  "val_data": "../../data/genesisgeo/val.txt",
+  "out_dir": "../runs/tiny",
+  "lr": 3e-3,
+  "min_lr": 3e-4,
+  "warmup_steps": 10,
+  "batch_size": 16,
+  "max_steps": 60,
+  "log_every": 10,
+  "eval_every": 30,
+  "ckpt_every": 30,
+  "eval_generate": 20,
+  "max_examples": 2000,
+  "resume": false
+}

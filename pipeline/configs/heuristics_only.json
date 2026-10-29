@@ -1,0 +1,9 @@
+{
+  "tools": {
+    "ddar": {"enabled": true, "options": {"config": "ddar/configs/yuclid.json", "seed": 0}},
+    "transformer": {"enabled": false},
+    "heuristics": {"enabled": true, "options": {"kinds": ["midpoint", "circumcenter", "foot"], "max_candidates": 8}}
+  },
+  "proposer_order": ["heuristics"],
+  "search": {"max_depth": 2, "branching": 8, "max_frontier": 6, "max_ddar_calls": 80, "time_limit": 0}
+}
