@@ -9,96 +9,167 @@
  "records": [
   {
    "config": "ddar_only",
-   "config_sha": "b9a2d25181",
-   "budget": {
-    "time_s": 60.0,
-    "memory_mb": 2048.0,
-    "cpu_s": 0.0
-   },
-   "date": "2026-10-29T00:39:36+00:00",
-   "git_commit": "83b37eb",
-   "result": {
-    "solved": false,
-    "proof": null,
-    "wall_time": 2.021,
-    "peak_memory_mb": 176.7,
-    "cpu_time": 2.06,
-    "depth": 0,
-    "rules_fired": {},
-    "rules_in_proof": {},
-    "tools_used": [
+   "settings": {
+    "tools": [
      "ddar"
     ],
-    "tool_calls": {
-     "ddar": 1
+    "proposer_order": [],
+    "ddar": {
+     "config": "yuclid",
+     "engine": "yuclid",
+     "ar": true,
+     "n_rules": 37,
+     "rules": "r03 r04 r11 r12 r13 r14 r19 r28 r34 r35 r41 r42 r43 r46 r49 r50 r51 r52 r53 r54 r55 r56 r60 r61 r62 r63 r68 r69 r71 r72 r73 r74 r77 r78 r80 r82 r91"
     },
-    "aux": [],
-    "ddar_calls": 1,
-    "failure_reason": "problem could not be built: ValueError: Failed to build a valid problem setup for problem after 100 attempts. Last error: Did not even try to build a valid problem setup for problem."
-   }
+    "search": {
+     "max_depth": 0
+    }
+   },
+   "resources": {
+    "available": {
+     "time_s": 60.0,
+     "memory_mb": 2048.0,
+     "cpu_s": 0.0
+    },
+    "used": {
+     "wall_time_s": 2.192,
+     "peak_memory_mb": 176.4,
+     "cpu_time_s": 2.18,
+     "ddar_calls": 1
+    }
+   },
+   "solved": false,
+   "failure_reason": "problem could not be built: ValueError: Failed to build a valid problem setup for problem after 100 attempts. Last error: Did not even try to build a valid problem setup for problem.",
+   "depth": 0,
+   "aux": [],
+   "tools_used": [
+    "ddar"
+   ],
+   "rules_in_proof": {},
+   "rules_fired": {},
+   "proof": null
   },
   {
    "config": "heuristics_only",
-   "config_sha": "2c85201b0f",
-   "budget": {
-    "time_s": 60.0,
-    "memory_mb": 2048.0,
-    "cpu_s": 0.0
-   },
-   "date": "2026-10-29T00:39:46+00:00",
-   "git_commit": "83b37eb",
-   "result": {
-    "solved": false,
-    "proof": null,
-    "wall_time": 1.979,
-    "peak_memory_mb": 176.8,
-    "cpu_time": 2.05,
-    "depth": 0,
-    "rules_fired": {},
-    "rules_in_proof": {},
-    "tools_used": [
-     "ddar"
+   "settings": {
+    "tools": [
+     "ddar",
+     "heuristics"
     ],
-    "tool_calls": {
-     "ddar": 1,
-     "heuristics": 0
+    "proposer_order": [
+     "heuristics"
+    ],
+    "ddar": {
+     "config": "yuclid",
+     "engine": "yuclid",
+     "ar": true,
+     "n_rules": 37,
+     "rules": "r03 r04 r11 r12 r13 r14 r19 r28 r34 r35 r41 r42 r43 r46 r49 r50 r51 r52 r53 r54 r55 r56 r60 r61 r62 r63 r68 r69 r71 r72 r73 r74 r77 r78 r80 r82 r91"
     },
-    "aux": [],
-    "ddar_calls": 1,
-    "failure_reason": "problem could not be built: ValueError: Failed to build a valid problem setup for problem after 100 attempts. Last error: Did not even try to build a valid problem setup for problem."
-   }
+    "heuristics": {
+     "kinds": [
+      "midpoint",
+      "circumcenter",
+      "foot"
+     ],
+     "max_candidates": 8
+    },
+    "search": {
+     "max_depth": 2,
+     "branching": 8,
+     "max_frontier": 6,
+     "max_ddar_calls": 80,
+     "time_limit": 0
+    }
+   },
+   "resources": {
+    "available": {
+     "time_s": 60.0,
+     "memory_mb": 2048.0,
+     "cpu_s": 0.0
+    },
+    "used": {
+     "wall_time_s": 2.241,
+     "peak_memory_mb": 176.7,
+     "cpu_time_s": 2.21,
+     "ddar_calls": 1
+    }
+   },
+   "solved": false,
+   "failure_reason": "problem could not be built: ValueError: Failed to build a valid problem setup for problem after 100 attempts. Last error: Did not even try to build a valid problem setup for problem.",
+   "depth": 0,
+   "aux": [],
+   "tools_used": [
+    "ddar"
+   ],
+   "rules_in_proof": {},
+   "rules_fired": {},
+   "proof": null
   },
   {
    "config": "quick_model",
-   "config_sha": "3493f28b70",
-   "budget": {
-    "time_s": 60.0,
-    "memory_mb": 2048.0,
-    "cpu_s": 0.0
-   },
-   "date": "2026-10-29T00:40:08+00:00",
-   "git_commit": "83b37eb",
-   "result": {
-    "solved": false,
-    "proof": null,
-    "wall_time": 4.474,
-    "peak_memory_mb": 535.3,
-    "cpu_time": 4.24,
-    "depth": 0,
-    "rules_fired": {},
-    "rules_in_proof": {},
-    "tools_used": [
-     "ddar"
+   "settings": {
+    "tools": [
+     "ddar",
+     "transformer",
+     "heuristics"
     ],
-    "tool_calls": {
-     "ddar": 1,
-     "transformer": 0,
-     "heuristics": 0
+    "proposer_order": [
+     "transformer",
+     "heuristics"
+    ],
+    "ddar": {
+     "config": "yuclid",
+     "engine": "yuclid",
+     "ar": true,
+     "n_rules": 37,
+     "rules": "r03 r04 r11 r12 r13 r14 r19 r28 r34 r35 r41 r42 r43 r46 r49 r50 r51 r52 r53 r54 r55 r56 r60 r61 r62 r63 r68 r69 r71 r72 r73 r74 r77 r78 r80 r82 r91"
     },
-    "aux": [],
-    "ddar_calls": 1,
-    "failure_reason": "problem could not be built: ValueError: Failed to build a valid problem setup for problem after 100 attempts. Last error: Did not even try to build a valid problem setup for problem."
-   }
+    "transformer": {
+     "checkpoint": "geo-lm/runs/quick/best.pt",
+     "beam_size": 4,
+     "max_candidates": 4,
+     "max_new_tokens": 64
+    },
+    "heuristics": {
+     "kinds": [
+      "midpoint",
+      "circumcenter",
+      "foot"
+     ],
+     "max_candidates": 8
+    },
+    "search": {
+     "max_depth": 2,
+     "branching": 8,
+     "max_frontier": 6,
+     "max_ddar_calls": 80,
+     "time_limit": 0
+    }
+   },
+   "resources": {
+    "available": {
+     "time_s": 60.0,
+     "memory_mb": 2048.0,
+     "cpu_s": 0.0
+    },
+    "used": {
+     "wall_time_s": 4.255,
+     "peak_memory_mb": 535.5,
+     "cpu_time_s": 4.13,
+     "ddar_calls": 1
+    }
+   },
+   "solved": false,
+   "failure_reason": "problem could not be built: ValueError: Failed to build a valid problem setup for problem after 100 attempts. Last error: Did not even try to build a valid problem setup for problem.",
+   "depth": 0,
+   "aux": [],
+   "tools_used": [
+    "ddar"
+   ],
+   "rules_in_proof": {},
+   "rules_fired": {},
+   "proof": null
   }
  ]
 }

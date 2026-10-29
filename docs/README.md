@@ -8,14 +8,13 @@ or swapped from JSON configs, including individual deduction rules.
 
 | folder | what | step |
 |---|---|---|
-| `ddar/` | Newclid setup, example runner, rule toggling (`rule_config.py`), Newclid fixes | 1, 2 |
+| `ddar/` | Newclid setup, example runner, rule toggling (`rule_config.py`), solver construction (`engine.py`) | 1, 2 |
 | `geo-lm/` | the transformer, its tokenizer, and the training script | 3, 5 |
 | `datagen/` | 100k training examples subsampled from GenesisGeo | 4 |
 | `pipeline/` | tools, search, `solve()`, figure check, folder runner | 6, 7, 8 |
-| `docs/translation_guide.md` | how to write olympiad problems in Newclid syntax | 8 |
+| `docs/` | all documentation (this file, one file per part, references) | all |
 | `problems/examples/` | worked example problems | 8 |
 | `tests/` | tests for config loading, each tool, and `solve()` | 9 |
-| `present.md` | a guide for explaining the project to others | 10 |
 | `bench/`, `results/` | problem collection, with every stored `solve()` result kept in git | 11 |
 
 ## Installation (CPU only, Linux, Python ≥ 3.11)
@@ -53,7 +52,7 @@ process tree when the wall time, memory (RSS) or CPU time goes over the budget.
 The failure reason then says which limit was hit.
 
 For a folder of problems, one per `*.txt` file, see
-[docs/translation_guide.md](docs/translation_guide.md):
+[translation_guide.md](translation_guide.md):
 
 ```bash
 python -m pipeline.check_figure -f problems/examples/varignon.txt     # numerical check of a translation
@@ -74,14 +73,17 @@ python -m bench show problems/examples/varignon
 python -m bench list problems/examples
 ```
 
-Each record holds:
-* the full `solve()` result;
-* the config name and a hash of its contents, including the DDAR rule file it
-  uses and the model checkpoint's timestamp;
-* the budget, the date and the git commit.
+Each problem file keeps one record per config and budget, with:
+* **settings:** the enabled tools and their order, the DDAR engine, rule list
+  and AR switch, the model and heuristic options, and the search limits;
+* **resources:** available (time, memory, CPU budget) and used (wall time,
+  peak memory, CPU time, DDAR calls);
+* **outcome:** solved, failure reason, depth, auxiliary points, tools used,
+  rules in the proof, rules fired, and the proof text.
 
-A combination that is already stored is skipped, unless you pass `--force`.
-After running, commit `results/` to keep the history.
+Nothing about the particular run (date, commit, machine) is stored. A
+combination that is already stored is skipped; `--force` replaces it. After
+running, commit `results/`.
 
 ## Configs
 
@@ -174,8 +176,9 @@ python -m geo_lm.train --config configs/train_small.json --max_steps 5000 --batc
 
 ## Known limitations
 
-* Newclid 3.0.1's Python engine needed three runtime fixes (`ddar/patches.py`).
-  It is also much slower than yuclid.
+* Newclid 3.0.1's Python engine has bugs. Three are handled in `ddar/engine.py`
+  (without modifying Newclid); others remain (see [ddar.md](ddar.md)). It is
+  also much slower than yuclid.
 * The model speaks GenesisGeo's predicate format.
   * Its outputs are converted to Newclid constructions for `coll`, `perp`,
     `para`, `cong` and `cyclic`.
@@ -188,5 +191,19 @@ python -m geo_lm.train --config configs/train_small.json --max_steps 5000 --batc
 * `pipeline/configs/default.json` needs `geo-lm/runs/small/best.pt`. Until it
   exists, the transformer tool is switched off with a warning.
 
-Details for each step are in `ddar/README.md`, `datagen/README.md`,
-`pipeline/README.md` and `geo-lm/README.md`.
+## Documentation
+
+All documents are in `docs/`:
+
+| file | content |
+|---|---|
+| [README.md](README.md) | this overview |
+| [ddar.md](ddar.md) | steps 1–2: Newclid on CPU, how rules and AR load, rule toggling |
+| [rules.md](rules.md) | every rule with premises and conclusions, and where rules are stored |
+| [geo-lm.md](geo-lm.md) | steps 3, 5: the transformer, tokenizer and training |
+| [datagen.md](datagen.md) | step 4: the GenesisGeo training data |
+| [pipeline.md](pipeline.md) | step 6: tools and search |
+| [translation_guide.md](translation_guide.md) | step 8: writing problems in Newclid syntax |
+| [present.md](present.md) | step 10: how to explain and present the project |
+| [atsauces.md](atsauces.md) | references |
+| [apraksts.txt](apraksts.txt), [tasks](tasks) | project description and task list |

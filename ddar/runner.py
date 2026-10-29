@@ -15,27 +15,8 @@ from collections import Counter
 from dataclasses import asdict
 from pathlib import Path
 
+from ddar.engine import build_solver  # noqa: F401  (re-exported)
 from ddar.rule_config import DDARConfig
-
-
-def build_solver(problem_setup, config: DDARConfig, seed: int = 0):
-    """GeometricSolver for `problem_setup`, using only the enabled rules."""
-    from newclid.api import GeometricSolverBuilder, PythonDefault
-
-    if config.engine == "yuclid":
-        from py_yuclid.api_default import HEDefault
-
-        api_default = HEDefault()
-    else:
-        from ddar.patches import apply_patches
-
-        apply_patches()
-        api_default = PythonDefault(use_sympy_ar=config.ar)
-    return (
-        GeometricSolverBuilder(rng=seed, api_default=api_default)
-        .with_rules(config.rules())
-        .build(problem_setup)
-    )
 
 
 def justification_label(justification) -> str | None:

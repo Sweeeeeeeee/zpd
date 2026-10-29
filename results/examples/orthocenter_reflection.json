@@ -9,144 +9,215 @@
  "records": [
   {
    "config": "ddar_only",
-   "config_sha": "b9a2d25181",
-   "budget": {
-    "time_s": 60.0,
-    "memory_mb": 2048.0,
-    "cpu_s": 0.0
-   },
-   "date": "2026-10-29T00:39:28+00:00",
-   "git_commit": "83b37eb",
-   "result": {
-    "solved": true,
-    "proof": "# Problem setup:\n\n## Points\n\n- A(0.4127, 0.5303)\n- B(0.9202, 0.6639)\n- C(0.5468, 1.2823)\n- D(0.9882, 0.8778)\n- H(0.6992, 0.7034)\n\n## Assumptions:\n\n[C0] : BH = BD\n[C1] : AH ⟂ BC\n[C2] : BC ⟂ DH\n[C3] : AC ⟂ BH\n\n## Numerical checks\n\n[N0] : ▲BDH has the same orientation as ▲BDH\n[N1] : A ≠ D\n[N2] : A ≠ H\n[N3] : D ≠ H\n[N4] : B, C, D are not collinear\n\n\n# Goals\n\nABCD are cyclic : Proved [7]\n\n\n# Proof:\n\n000. | BH = BD [C0] =(AR Deduction)> BD:BH = BH:BD [0]\n001. | ∠(BD,BH) = ∠(BD,BH) [T0], BD:BH = BH:BD [0], ▲BDH has the same orientation as ▲BDH [N0] =(r63 SAS Similarity of triangles (Reverse))> ▲BDH ≅ ▲BHD [1]\n002. | ▲BDH has the same orientation as ▲BDH [N0], ▲BDH ≅ ▲BHD [1] =(r53 Properties of similar triangles (Reverse))> ∠(BD,DH) = ∠(DH,BH) [2]\n003. | AH ⟂ BC [C1], BC ⟂ DH [C2] =(AR Deduction)> DH ∥ AH [3]\n004. | DH ∥ AH [3] =(r28 Overlapping parallels)> A, D, H are collinear [4]\n005. | A, D, H are collinear [4], A ≠ D [N1], A ≠ H [N2], D ≠ H [N3] =(r82 Parallel from collinear)> AD ∥ AH [5]\n006. | ∠(BD,DH) = ∠(DH,BH) [2], AD ∥ AH [5], AC ⟂ BH [C3], AH ⟂ BC [C1], BC ⟂ DH [C2] =(AR Deduction)> ∠(AC,AD) = ∠(BC,BD) [6]\n007. | ∠(AC,AD) = ∠(BC,BD) [6], B, C, D are not collinear [N4] =(r04 Congruent angles are in a cyclic)> ABCD are cyclic [7]\n\n\n# Appendix: AR deductions:\n\n\n\n000. | Ratio Chasing to prove BD:BH = BH:BD:\n| Premise BH = BD gives a linear equation with coefficients {BD²: 1, BH²: -1}\nWe are left with a linear equation with coefficients {BD²: 2, BH²: -2} that gives BD:BH = BH:BD\n\n\n\n003. | Angle Chasing to prove DH ∥ AH:\n| Premise AH ⟂ BC gives a linear equation with coefficients {AH: 1, BC: -1}\n| Premise BC ⟂ DH gives a linear equation with coefficients {BC: 1, DH: -1}\n| Then {AH: 1, BC: -1} + 1 x {BC: 1, DH: -1}\n|    = {AH: 1, DH: -1}\nWe are left with a linear equation with coefficients {AH: 1, DH: -1} that gives DH ∥ AH\n\n\n\n006. | Angle Chasing to prove ∠(AC,AD) = ∠(BC,BD):\n| Premise ∠(BD,DH) = ∠(DH,BH) gives a linear equation with coefficients {BD: -1, BH: -1, DH: 2}\n| Premise AD ∥ AH gives a linear equation with coefficients {AD: 1, AH: -1}\n| Then {BD: -1, BH: -1, DH: 2} + 1 x {AD: 1, AH: -1}\n|    = {BD: -1, BH: -1, DH: 2, AD: 1, AH: -1}\n| Premise AC ⟂ BH gives a linear equation with coefficients {AC: 1, BH: -1}\n| Then {BD: -1, BH: -1, DH: 2, AD: 1, AH: -1} + -1 x {AC: 1, BH: -1}\n|    = {BD: -1, DH: 2, AD: 1, AH: -1, AC: -1}\n| Premise AH ⟂ BC gives a linear equation with coefficients {AH: 1, BC: -1}\n| Then {BD: -1, DH: 2, AD: 1, AH: -1, AC: -1} + 1 x {AH: 1, BC: -1}\n|    = {BD: -1, DH: 2, AD: 1, AC: -1, BC: -1}\n| Premise BC ⟂ DH gives a linear equation with coefficients {BC: 1, DH: -1}\n| Then {BD: -1, DH: 2, AD: 1, AC: -1, BC: -1} + 2 x {BC: 1, DH: -1}\n|    = {BD: -1, AD: 1, AC: -1, BC: 1}\nWe are left with a linear equation with coefficients {BD: -1, AD: 1, AC: -1, BC: 1} that gives ∠(AC,AD) = ∠(BC,BD)\n\nEnd of proof.",
-    "wall_time": 2.989,
-    "peak_memory_mb": 177.7,
-    "cpu_time": 2.19,
-    "depth": 0,
-    "rules_fired": {
-     "AR:ratio": 1,
-     "r63": 1,
-     "r53": 1,
-     "AR:angle": 2,
-     "r28": 1,
-     "r82": 1,
-     "r04": 1
-    },
-    "rules_in_proof": {
-     "AR:ratio": 1,
-     "r63": 1,
-     "r53": 1,
-     "AR:angle": 2,
-     "r28": 1,
-     "r82": 1,
-     "r04": 1
-    },
-    "tools_used": [
+   "settings": {
+    "tools": [
      "ddar"
     ],
-    "tool_calls": {
-     "ddar": 1
+    "proposer_order": [],
+    "ddar": {
+     "config": "yuclid",
+     "engine": "yuclid",
+     "ar": true,
+     "n_rules": 37,
+     "rules": "r03 r04 r11 r12 r13 r14 r19 r28 r34 r35 r41 r42 r43 r46 r49 r50 r51 r52 r53 r54 r55 r56 r60 r61 r62 r63 r68 r69 r71 r72 r73 r74 r77 r78 r80 r82 r91"
     },
-    "aux": [],
-    "ddar_calls": 1,
-    "failure_reason": null
-   }
+    "search": {
+     "max_depth": 0
+    }
+   },
+   "resources": {
+    "available": {
+     "time_s": 60.0,
+     "memory_mb": 2048.0,
+     "cpu_s": 0.0
+    },
+    "used": {
+     "wall_time_s": 2.03,
+     "peak_memory_mb": 177.7,
+     "cpu_time_s": 2.08,
+     "ddar_calls": 1
+    }
+   },
+   "solved": true,
+   "failure_reason": null,
+   "depth": 0,
+   "aux": [],
+   "tools_used": [
+    "ddar"
+   ],
+   "rules_in_proof": {
+    "AR:ratio": 1,
+    "r63": 1,
+    "r53": 1,
+    "AR:angle": 2,
+    "r28": 1,
+    "r82": 1,
+    "r04": 1
+   },
+   "rules_fired": {
+    "AR:ratio": 1,
+    "r63": 1,
+    "r53": 1,
+    "AR:angle": 2,
+    "r28": 1,
+    "r82": 1,
+    "r04": 1
+   },
+   "proof": "# Problem setup:\n\n## Points\n\n- A(0.4127, 0.5303)\n- B(0.9202, 0.6639)\n- C(0.5468, 1.2823)\n- D(0.9882, 0.8778)\n- H(0.6992, 0.7034)\n\n## Assumptions:\n\n[C0] : BH = BD\n[C1] : AH ⟂ BC\n[C2] : BC ⟂ DH\n[C3] : AC ⟂ BH\n\n## Numerical checks\n\n[N0] : ▲BDH has the same orientation as ▲BDH\n[N1] : A ≠ D\n[N2] : A ≠ H\n[N3] : D ≠ H\n[N4] : B, C, D are not collinear\n\n\n# Goals\n\nABCD are cyclic : Proved [7]\n\n\n# Proof:\n\n000. | BH = BD [C0] =(AR Deduction)> BD:BH = BH:BD [0]\n001. | ∠(BD,BH) = ∠(BD,BH) [T0], BD:BH = BH:BD [0], ▲BDH has the same orientation as ▲BDH [N0] =(r63 SAS Similarity of triangles (Reverse))> ▲BDH ≅ ▲BHD [1]\n002. | ▲BDH has the same orientation as ▲BDH [N0], ▲BDH ≅ ▲BHD [1] =(r53 Properties of similar triangles (Reverse))> ∠(BD,DH) = ∠(DH,BH) [2]\n003. | AH ⟂ BC [C1], BC ⟂ DH [C2] =(AR Deduction)> DH ∥ AH [3]\n004. | DH ∥ AH [3] =(r28 Overlapping parallels)> A, D, H are collinear [4]\n005. | A, D, H are collinear [4], A ≠ D [N1], A ≠ H [N2], D ≠ H [N3] =(r82 Parallel from collinear)> AD ∥ AH [5]\n006. | ∠(BD,DH) = ∠(DH,BH) [2], AD ∥ AH [5], AC ⟂ BH [C3], AH ⟂ BC [C1], BC ⟂ DH [C2] =(AR Deduction)> ∠(AC,AD) = ∠(BC,BD) [6]\n007. | ∠(AC,AD) = ∠(BC,BD) [6], B, C, D are not collinear [N4] =(r04 Congruent angles are in a cyclic)> ABCD are cyclic [7]\n\n\n# Appendix: AR deductions:\n\n\n\n000. | Ratio Chasing to prove BD:BH = BH:BD:\n| Premise BH = BD gives a linear equation with coefficients {BD²: 1, BH²: -1}\nWe are left with a linear equation with coefficients {BD²: 2, BH²: -2} that gives BD:BH = BH:BD\n\n\n\n003. | Angle Chasing to prove DH ∥ AH:\n| Premise AH ⟂ BC gives a linear equation with coefficients {AH: 1, BC: -1}\n| Premise BC ⟂ DH gives a linear equation with coefficients {BC: 1, DH: -1}\n| Then {AH: 1, BC: -1} + 1 x {BC: 1, DH: -1}\n|    = {AH: 1, DH: -1}\nWe are left with a linear equation with coefficients {AH: 1, DH: -1} that gives DH ∥ AH\n\n\n\n006. | Angle Chasing to prove ∠(AC,AD) = ∠(BC,BD):\n| Premise ∠(BD,DH) = ∠(DH,BH) gives a linear equation with coefficients {BD: -1, BH: -1, DH: 2}\n| Premise AD ∥ AH gives a linear equation with coefficients {AD: 1, AH: -1}\n| Then {BD: -1, BH: -1, DH: 2} + 1 x {AD: 1, AH: -1}\n|    = {BD: -1, BH: -1, DH: 2, AD: 1, AH: -1}\n| Premise AC ⟂ BH gives a linear equation with coefficients {AC: 1, BH: -1}\n| Then {BD: -1, BH: -1, DH: 2, AD: 1, AH: -1} + -1 x {AC: 1, BH: -1}\n|    = {BD: -1, DH: 2, AD: 1, AH: -1, AC: -1}\n| Premise AH ⟂ BC gives a linear equation with coefficients {AH: 1, BC: -1}\n| Then {BD: -1, DH: 2, AD: 1, AH: -1, AC: -1} + 1 x {AH: 1, BC: -1}\n|    = {BD: -1, DH: 2, AD: 1, AC: -1, BC: -1}\n| Premise BC ⟂ DH gives a linear equation with coefficients {BC: 1, DH: -1}\n| Then {BD: -1, DH: 2, AD: 1, AC: -1, BC: -1} + 2 x {BC: 1, DH: -1}\n|    = {BD: -1, AD: 1, AC: -1, BC: 1}\nWe are left with a linear equation with coefficients {BD: -1, AD: 1, AC: -1, BC: 1} that gives ∠(AC,AD) = ∠(BC,BD)\n\nEnd of proof."
   },
   {
    "config": "heuristics_only",
-   "config_sha": "2c85201b0f",
-   "budget": {
-    "time_s": 60.0,
-    "memory_mb": 2048.0,
-    "cpu_s": 0.0
-   },
-   "date": "2026-10-29T00:39:38+00:00",
-   "git_commit": "83b37eb",
-   "result": {
-    "solved": true,
-    "proof": "# Problem setup:\n\n## Points\n\n- A(0.4127, 0.5303)\n- B(0.9202, 0.6639)\n- C(0.5468, 1.2823)\n- D(0.9882, 0.8778)\n- H(0.6992, 0.7034)\n\n## Assumptions:\n\n[C0] : BD = BH\n[C1] : AH ⟂ BC\n[C2] : BC ⟂ DH\n[C3] : AC ⟂ BH\n\n## Numerical checks\n\n[N0] : ▲BDH has the same orientation as ▲BDH\n[N1] : A ≠ D\n[N2] : A ≠ H\n[N3] : D ≠ H\n[N4] : B, C, D are not collinear\n\n\n# Goals\n\nABCD are cyclic : Proved [7]\n\n\n# Proof:\n\n000. | BD = BH [C0] =(AR Deduction)> BD:BH = BH:BD [0]\n001. | ∠(BD,BH) = ∠(BD,BH) [T0], BD:BH = BH:BD [0], ▲BDH has the same orientation as ▲BDH [N0] =(r63 SAS Similarity of triangles (Reverse))> ▲BDH ≅ ▲BHD [1]\n002. | ▲BDH has the same orientation as ▲BDH [N0], ▲BDH ≅ ▲BHD [1] =(r53 Properties of similar triangles (Reverse))> ∠(BD,DH) = ∠(DH,BH) [2]\n003. | AH ⟂ BC [C1], BC ⟂ DH [C2] =(AR Deduction)> DH ∥ AH [3]\n004. | DH ∥ AH [3] =(r28 Overlapping parallels)> A, D, H are collinear [4]\n005. | A, D, H are collinear [4], A ≠ D [N1], A ≠ H [N2], D ≠ H [N3] =(r82 Parallel from collinear)> AD ∥ AH [5]\n006. | ∠(BD,DH) = ∠(DH,BH) [2], AD ∥ AH [5], AC ⟂ BH [C3], AH ⟂ BC [C1], BC ⟂ DH [C2] =(AR Deduction)> ∠(AC,AD) = ∠(BC,BD) [6]\n007. | ∠(AC,AD) = ∠(BC,BD) [6], B, C, D are not collinear [N4] =(r04 Congruent angles are in a cyclic)> ABCD are cyclic [7]\n\n\n# Appendix: AR deductions:\n\n\n\n000. | Ratio Chasing to prove BD:BH = BH:BD:\n| Premise BD = BH gives a linear equation with coefficients {BD²: 1, BH²: -1}\nWe are left with a linear equation with coefficients {BD²: 2, BH²: -2} that gives BD:BH = BH:BD\n\n\n\n003. | Angle Chasing to prove DH ∥ AH:\n| Premise AH ⟂ BC gives a linear equation with coefficients {AH: 1, BC: -1}\n| Premise BC ⟂ DH gives a linear equation with coefficients {BC: 1, DH: -1}\n| Then {AH: 1, BC: -1} + 1 x {BC: 1, DH: -1}\n|    = {AH: 1, DH: -1}\nWe are left with a linear equation with coefficients {AH: 1, DH: -1} that gives DH ∥ AH\n\n\n\n006. | Angle Chasing to prove ∠(AC,AD) = ∠(BC,BD):\n| Premise ∠(BD,DH) = ∠(DH,BH) gives a linear equation with coefficients {BD: -1, BH: -1, DH: 2}\n| Premise AD ∥ AH gives a linear equation with coefficients {AD: 1, AH: -1}\n| Then {BD: -1, BH: -1, DH: 2} + 1 x {AD: 1, AH: -1}\n|    = {BD: -1, BH: -1, DH: 2, AD: 1, AH: -1}\n| Premise AC ⟂ BH gives a linear equation with coefficients {AC: 1, BH: -1}\n| Then {BD: -1, BH: -1, DH: 2, AD: 1, AH: -1} + -1 x {AC: 1, BH: -1}\n|    = {BD: -1, DH: 2, AD: 1, AH: -1, AC: -1}\n| Premise AH ⟂ BC gives a linear equation with coefficients {AH: 1, BC: -1}\n| Then {BD: -1, DH: 2, AD: 1, AH: -1, AC: -1} + 1 x {AH: 1, BC: -1}\n|    = {BD: -1, DH: 2, AD: 1, AC: -1, BC: -1}\n| Premise BC ⟂ DH gives a linear equation with coefficients {BC: 1, DH: -1}\n| Then {BD: -1, DH: 2, AD: 1, AC: -1, BC: -1} + 2 x {BC: 1, DH: -1}\n|    = {BD: -1, AD: 1, AC: -1, BC: 1}\nWe are left with a linear equation with coefficients {BD: -1, AD: 1, AC: -1, BC: 1} that gives ∠(AC,AD) = ∠(BC,BD)\n\nEnd of proof.",
-    "wall_time": 2.305,
-    "peak_memory_mb": 177.8,
-    "cpu_time": 2.16,
-    "depth": 0,
-    "rules_fired": {
-     "AR:ratio": 1,
-     "r63": 1,
-     "r53": 1,
-     "AR:angle": 2,
-     "r28": 1,
-     "r82": 1,
-     "r04": 1
-    },
-    "rules_in_proof": {
-     "AR:ratio": 1,
-     "r63": 1,
-     "r53": 1,
-     "AR:angle": 2,
-     "r28": 1,
-     "r82": 1,
-     "r04": 1
-    },
-    "tools_used": [
-     "ddar"
+   "settings": {
+    "tools": [
+     "ddar",
+     "heuristics"
     ],
-    "tool_calls": {
-     "ddar": 1,
-     "heuristics": 0
+    "proposer_order": [
+     "heuristics"
+    ],
+    "ddar": {
+     "config": "yuclid",
+     "engine": "yuclid",
+     "ar": true,
+     "n_rules": 37,
+     "rules": "r03 r04 r11 r12 r13 r14 r19 r28 r34 r35 r41 r42 r43 r46 r49 r50 r51 r52 r53 r54 r55 r56 r60 r61 r62 r63 r68 r69 r71 r72 r73 r74 r77 r78 r80 r82 r91"
     },
-    "aux": [],
-    "ddar_calls": 1,
-    "failure_reason": null
-   }
+    "heuristics": {
+     "kinds": [
+      "midpoint",
+      "circumcenter",
+      "foot"
+     ],
+     "max_candidates": 8
+    },
+    "search": {
+     "max_depth": 2,
+     "branching": 8,
+     "max_frontier": 6,
+     "max_ddar_calls": 80,
+     "time_limit": 0
+    }
+   },
+   "resources": {
+    "available": {
+     "time_s": 60.0,
+     "memory_mb": 2048.0,
+     "cpu_s": 0.0
+    },
+    "used": {
+     "wall_time_s": 2.186,
+     "peak_memory_mb": 178.1,
+     "cpu_time_s": 2.1,
+     "ddar_calls": 1
+    }
+   },
+   "solved": true,
+   "failure_reason": null,
+   "depth": 0,
+   "aux": [],
+   "tools_used": [
+    "ddar"
+   ],
+   "rules_in_proof": {
+    "AR:ratio": 1,
+    "r63": 1,
+    "r53": 1,
+    "AR:angle": 2,
+    "r28": 1,
+    "r82": 1,
+    "r04": 1
+   },
+   "rules_fired": {
+    "AR:ratio": 1,
+    "r63": 1,
+    "r53": 1,
+    "AR:angle": 2,
+    "r28": 1,
+    "r82": 1,
+    "r04": 1
+   },
+   "proof": "# Problem setup:\n\n## Points\n\n- A(0.4127, 0.5303)\n- B(0.9202, 0.6639)\n- C(0.5468, 1.2823)\n- D(0.9882, 0.8778)\n- H(0.6992, 0.7034)\n\n## Assumptions:\n\n[C0] : BD = BH\n[C1] : AH ⟂ BC\n[C2] : BC ⟂ DH\n[C3] : AC ⟂ BH\n\n## Numerical checks\n\n[N0] : ▲BDH has the same orientation as ▲BDH\n[N1] : A ≠ D\n[N2] : A ≠ H\n[N3] : D ≠ H\n[N4] : B, C, D are not collinear\n\n\n# Goals\n\nABCD are cyclic : Proved [7]\n\n\n# Proof:\n\n000. | BD = BH [C0] =(AR Deduction)> BD:BH = BH:BD [0]\n001. | ∠(BD,BH) = ∠(BD,BH) [T0], BD:BH = BH:BD [0], ▲BDH has the same orientation as ▲BDH [N0] =(r63 SAS Similarity of triangles (Reverse))> ▲BDH ≅ ▲BHD [1]\n002. | ▲BDH has the same orientation as ▲BDH [N0], ▲BDH ≅ ▲BHD [1] =(r53 Properties of similar triangles (Reverse))> ∠(BD,DH) = ∠(DH,BH) [2]\n003. | AH ⟂ BC [C1], BC ⟂ DH [C2] =(AR Deduction)> AH ∥ DH [3]\n004. | AH ∥ DH [3] =(r28 Overlapping parallels)> A, D, H are collinear [4]\n005. | A, D, H are collinear [4], A ≠ D [N1], A ≠ H [N2], D ≠ H [N3] =(r82 Parallel from collinear)> AH ∥ AD [5]\n006. | ∠(BD,DH) = ∠(DH,BH) [2], AH ∥ AD [5], AC ⟂ BH [C3], AH ⟂ BC [C1], BC ⟂ DH [C2] =(AR Deduction)> ∠(AC,AD) = ∠(BC,BD) [6]\n007. | ∠(AC,AD) = ∠(BC,BD) [6], B, C, D are not collinear [N4] =(r04 Congruent angles are in a cyclic)> ABCD are cyclic [7]\n\n\n# Appendix: AR deductions:\n\n\n\n000. | Ratio Chasing to prove BD:BH = BH:BD:\n| Premise BD = BH gives a linear equation with coefficients {BD²: 1, BH²: -1}\nWe are left with a linear equation with coefficients {BD²: 2, BH²: -2} that gives BD:BH = BH:BD\n\n\n\n003. | Angle Chasing to prove AH ∥ DH:\n| Premise AH ⟂ BC gives a linear equation with coefficients {AH: 1, BC: -1}\n| Premise BC ⟂ DH gives a linear equation with coefficients {BC: 1, DH: -1}\n| Then {AH: 1, BC: -1} + 1 x {BC: 1, DH: -1}\n|    = {AH: 1, DH: -1}\nWe are left with a linear equation with coefficients {AH: 1, DH: -1} that gives AH ∥ DH\n\n\n\n006. | Angle Chasing to prove ∠(AC,AD) = ∠(BC,BD):\n| Premise ∠(BD,DH) = ∠(DH,BH) gives a linear equation with coefficients {BD: -1, BH: -1, DH: 2}\n| Premise AH ∥ AD gives a linear equation with coefficients {AD: 1, AH: -1}\n| Then {BD: -1, BH: -1, DH: 2} + 1 x {AD: 1, AH: -1}\n|    = {BD: -1, BH: -1, DH: 2, AD: 1, AH: -1}\n| Premise AC ⟂ BH gives a linear equation with coefficients {AC: 1, BH: -1}\n| Then {BD: -1, BH: -1, DH: 2, AD: 1, AH: -1} + -1 x {AC: 1, BH: -1}\n|    = {BD: -1, DH: 2, AD: 1, AH: -1, AC: -1}\n| Premise AH ⟂ BC gives a linear equation with coefficients {AH: 1, BC: -1}\n| Then {BD: -1, DH: 2, AD: 1, AH: -1, AC: -1} + 1 x {AH: 1, BC: -1}\n|    = {BD: -1, DH: 2, AD: 1, AC: -1, BC: -1}\n| Premise BC ⟂ DH gives a linear equation with coefficients {BC: 1, DH: -1}\n| Then {BD: -1, DH: 2, AD: 1, AC: -1, BC: -1} + 2 x {BC: 1, DH: -1}\n|    = {BD: -1, AD: 1, AC: -1, BC: 1}\nWe are left with a linear equation with coefficients {BD: -1, AD: 1, AC: -1, BC: 1} that gives ∠(AC,AD) = ∠(BC,BD)\n\nEnd of proof."
   },
   {
    "config": "quick_model",
-   "config_sha": "3493f28b70",
-   "budget": {
-    "time_s": 60.0,
-    "memory_mb": 2048.0,
-    "cpu_s": 0.0
-   },
-   "date": "2026-10-29T00:39:51+00:00",
-   "git_commit": "83b37eb",
-   "result": {
-    "solved": true,
-    "proof": "# Problem setup:\n\n## Points\n\n- A(0.4127, 0.5303)\n- B(0.9202, 0.6639)\n- C(0.5468, 1.2823)\n- D(0.9882, 0.8778)\n- H(0.6992, 0.7034)\n\n## Assumptions:\n\n[C0] : BH = BD\n[C1] : AH ⟂ BC\n[C2] : BC ⟂ DH\n[C3] : AC ⟂ BH\n\n## Numerical checks\n\n[N0] : ▲BDH has the same orientation as ▲BDH\n[N1] : A ≠ D\n[N2] : A ≠ H\n[N3] : D ≠ H\n[N4] : B, C, D are not collinear\n\n\n# Goals\n\nABCD are cyclic : Proved [7]\n\n\n# Proof:\n\n000. | BH = BD [C0] =(AR Deduction)> BD:BH = BH:BD [0]\n001. | ∠(BD,BH) = ∠(BD,BH) [T0], BD:BH = BH:BD [0], ▲BDH has the same orientation as ▲BDH [N0] =(r63 SAS Similarity of triangles (Reverse))> ▲BDH ≅ ▲BHD [1]\n002. | ▲BDH has the same orientation as ▲BDH [N0], ▲BDH ≅ ▲BHD [1] =(r53 Properties of similar triangles (Reverse))> ∠(BD,DH) = ∠(DH,BH) [2]\n003. | AH ⟂ BC [C1], BC ⟂ DH [C2] =(AR Deduction)> AH ∥ DH [3]\n004. | AH ∥ DH [3] =(r28 Overlapping parallels)> A, D, H are collinear [4]\n005. | A, D, H are collinear [4], A ≠ D [N1], A ≠ H [N2], D ≠ H [N3] =(r82 Parallel from collinear)> AH ∥ AD [5]\n006. | ∠(BD,DH) = ∠(DH,BH) [2], AH ∥ AD [5], AC ⟂ BH [C3], AH ⟂ BC [C1], BC ⟂ DH [C2] =(AR Deduction)> ∠(AC,AD) = ∠(BC,BD) [6]\n007. | ∠(AC,AD) = ∠(BC,BD) [6], B, C, D are not collinear [N4] =(r04 Congruent angles are in a cyclic)> ABCD are cyclic [7]\n\n\n# Appendix: AR deductions:\n\n\n\n000. | Ratio Chasing to prove BD:BH = BH:BD:\n| Premise BH = BD gives a linear equation with coefficients {BD²: 1, BH²: -1}\nWe are left with a linear equation with coefficients {BD²: 2, BH²: -2} that gives BD:BH = BH:BD\n\n\n\n003. | Angle Chasing to prove AH ∥ DH:\n| Premise AH ⟂ BC gives a linear equation with coefficients {AH: 1, BC: -1}\n| Premise BC ⟂ DH gives a linear equation with coefficients {BC: 1, DH: -1}\n| Then {AH: 1, BC: -1} + 1 x {BC: 1, DH: -1}\n|    = {AH: 1, DH: -1}\nWe are left with a linear equation with coefficients {AH: 1, DH: -1} that gives AH ∥ DH\n\n\n\n006. | Angle Chasing to prove ∠(AC,AD) = ∠(BC,BD):\n| Premise ∠(BD,DH) = ∠(DH,BH) gives a linear equation with coefficients {BD: -1, BH: -1, DH: 2}\n| Premise AH ∥ AD gives a linear equation with coefficients {AD: 1, AH: -1}\n| Then {BD: -1, BH: -1, DH: 2} + 1 x {AD: 1, AH: -1}\n|    = {BD: -1, BH: -1, DH: 2, AD: 1, AH: -1}\n| Premise AC ⟂ BH gives a linear equation with coefficients {AC: 1, BH: -1}\n| Then {BD: -1, BH: -1, DH: 2, AD: 1, AH: -1} + -1 x {AC: 1, BH: -1}\n|    = {BD: -1, DH: 2, AD: 1, AH: -1, AC: -1}\n| Premise AH ⟂ BC gives a linear equation with coefficients {AH: 1, BC: -1}\n| Then {BD: -1, DH: 2, AD: 1, AH: -1, AC: -1} + 1 x {AH: 1, BC: -1}\n|    = {BD: -1, DH: 2, AD: 1, AC: -1, BC: -1}\n| Premise BC ⟂ DH gives a linear equation with coefficients {BC: 1, DH: -1}\n| Then {BD: -1, DH: 2, AD: 1, AC: -1, BC: -1} + 2 x {BC: 1, DH: -1}\n|    = {BD: -1, AD: 1, AC: -1, BC: 1}\nWe are left with a linear equation with coefficients {BD: -1, AD: 1, AC: -1, BC: 1} that gives ∠(AC,AD) = ∠(BC,BD)\n\nEnd of proof.",
-    "wall_time": 4.977,
-    "peak_memory_mb": 535.4,
-    "cpu_time": 4.13,
-    "depth": 0,
-    "rules_fired": {
-     "AR:ratio": 1,
-     "r63": 1,
-     "r53": 1,
-     "AR:angle": 2,
-     "r28": 1,
-     "r82": 1,
-     "r04": 1
-    },
-    "rules_in_proof": {
-     "AR:ratio": 1,
-     "r63": 1,
-     "r53": 1,
-     "AR:angle": 2,
-     "r28": 1,
-     "r82": 1,
-     "r04": 1
-    },
-    "tools_used": [
-     "ddar"
+   "settings": {
+    "tools": [
+     "ddar",
+     "transformer",
+     "heuristics"
     ],
-    "tool_calls": {
-     "ddar": 1,
-     "transformer": 0,
-     "heuristics": 0
+    "proposer_order": [
+     "transformer",
+     "heuristics"
+    ],
+    "ddar": {
+     "config": "yuclid",
+     "engine": "yuclid",
+     "ar": true,
+     "n_rules": 37,
+     "rules": "r03 r04 r11 r12 r13 r14 r19 r28 r34 r35 r41 r42 r43 r46 r49 r50 r51 r52 r53 r54 r55 r56 r60 r61 r62 r63 r68 r69 r71 r72 r73 r74 r77 r78 r80 r82 r91"
     },
-    "aux": [],
-    "ddar_calls": 1,
-    "failure_reason": null
-   }
+    "transformer": {
+     "checkpoint": "geo-lm/runs/quick/best.pt",
+     "beam_size": 4,
+     "max_candidates": 4,
+     "max_new_tokens": 64
+    },
+    "heuristics": {
+     "kinds": [
+      "midpoint",
+      "circumcenter",
+      "foot"
+     ],
+     "max_candidates": 8
+    },
+    "search": {
+     "max_depth": 2,
+     "branching": 8,
+     "max_frontier": 6,
+     "max_ddar_calls": 80,
+     "time_limit": 0
+    }
+   },
+   "resources": {
+    "available": {
+     "time_s": 60.0,
+     "memory_mb": 2048.0,
+     "cpu_s": 0.0
+    },
+    "used": {
+     "wall_time_s": 4.219,
+     "peak_memory_mb": 535.8,
+     "cpu_time_s": 4.12,
+     "ddar_calls": 1
+    }
+   },
+   "solved": true,
+   "failure_reason": null,
+   "depth": 0,
+   "aux": [],
+   "tools_used": [
+    "ddar"
+   ],
+   "rules_in_proof": {
+    "AR:ratio": 1,
+    "r63": 1,
+    "r53": 1,
+    "AR:angle": 2,
+    "r28": 1,
+    "r82": 1,
+    "r04": 1
+   },
+   "rules_fired": {
+    "AR:ratio": 1,
+    "r63": 1,
+    "r53": 1,
+    "AR:angle": 2,
+    "r28": 1,
+    "r82": 1,
+    "r04": 1
+   },
+   "proof": "# Problem setup:\n\n## Points\n\n- A(0.4127, 0.5303)\n- B(0.9202, 0.6639)\n- C(0.5468, 1.2823)\n- D(0.9882, 0.8778)\n- H(0.6992, 0.7034)\n\n## Assumptions:\n\n[C0] : BH = BD\n[C1] : AH ⟂ BC\n[C2] : BC ⟂ DH\n[C3] : AC ⟂ BH\n\n## Numerical checks\n\n[N0] : ▲BDH has the same orientation as ▲BDH\n[N1] : A ≠ D\n[N2] : A ≠ H\n[N3] : D ≠ H\n[N4] : B, C, D are not collinear\n\n\n# Goals\n\nABCD are cyclic : Proved [7]\n\n\n# Proof:\n\n000. | BH = BD [C0] =(AR Deduction)> BD:BH = BH:BD [0]\n001. | ∠(BD,BH) = ∠(BD,BH) [T0], BD:BH = BH:BD [0], ▲BDH has the same orientation as ▲BDH [N0] =(r63 SAS Similarity of triangles (Reverse))> ▲BDH ≅ ▲BHD [1]\n002. | ▲BDH has the same orientation as ▲BDH [N0], ▲BDH ≅ ▲BHD [1] =(r53 Properties of similar triangles (Reverse))> ∠(BD,DH) = ∠(DH,BH) [2]\n003. | AH ⟂ BC [C1], BC ⟂ DH [C2] =(AR Deduction)> DH ∥ AH [3]\n004. | DH ∥ AH [3] =(r28 Overlapping parallels)> A, D, H are collinear [4]\n005. | A, D, H are collinear [4], A ≠ D [N1], A ≠ H [N2], D ≠ H [N3] =(r82 Parallel from collinear)> AH ∥ AD [5]\n006. | ∠(BD,DH) = ∠(DH,BH) [2], AH ∥ AD [5], AC ⟂ BH [C3], AH ⟂ BC [C1], BC ⟂ DH [C2] =(AR Deduction)> ∠(AC,AD) = ∠(BC,BD) [6]\n007. | ∠(AC,AD) = ∠(BC,BD) [6], B, C, D are not collinear [N4] =(r04 Congruent angles are in a cyclic)> ABCD are cyclic [7]\n\n\n# Appendix: AR deductions:\n\n\n\n000. | Ratio Chasing to prove BD:BH = BH:BD:\n| Premise BH = BD gives a linear equation with coefficients {BD²: 1, BH²: -1}\nWe are left with a linear equation with coefficients {BD²: 2, BH²: -2} that gives BD:BH = BH:BD\n\n\n\n003. | Angle Chasing to prove DH ∥ AH:\n| Premise AH ⟂ BC gives a linear equation with coefficients {AH: 1, BC: -1}\n| Premise BC ⟂ DH gives a linear equation with coefficients {BC: 1, DH: -1}\n| Then {AH: 1, BC: -1} + 1 x {BC: 1, DH: -1}\n|    = {AH: 1, DH: -1}\nWe are left with a linear equation with coefficients {AH: 1, DH: -1} that gives DH ∥ AH\n\n\n\n006. | Angle Chasing to prove ∠(AC,AD) = ∠(BC,BD):\n| Premise ∠(BD,DH) = ∠(DH,BH) gives a linear equation with coefficients {BD: -1, BH: -1, DH: 2}\n| Premise AH ∥ AD gives a linear equation with coefficients {AD: 1, AH: -1}\n| Then {BD: -1, BH: -1, DH: 2} + 1 x {AD: 1, AH: -1}\n|    = {BD: -1, BH: -1, DH: 2, AD: 1, AH: -1}\n| Premise AC ⟂ BH gives a linear equation with coefficients {AC: 1, BH: -1}\n| Then {BD: -1, BH: -1, DH: 2, AD: 1, AH: -1} + -1 x {AC: 1, BH: -1}\n|    = {BD: -1, DH: 2, AD: 1, AH: -1, AC: -1}\n| Premise AH ⟂ BC gives a linear equation with coefficients {AH: 1, BC: -1}\n| Then {BD: -1, DH: 2, AD: 1, AH: -1, AC: -1} + 1 x {AH: 1, BC: -1}\n|    = {BD: -1, DH: 2, AD: 1, AC: -1, BC: -1}\n| Premise BC ⟂ DH gives a linear equation with coefficients {BC: 1, DH: -1}\n| Then {BD: -1, DH: 2, AD: 1, AC: -1, BC: -1} + 2 x {BC: 1, DH: -1}\n|    = {BD: -1, AD: 1, AC: -1, BC: 1}\nWe are left with a linear equation with coefficients {BD: -1, AD: 1, AC: -1, BC: 1} that gives ∠(AC,AD) = ∠(BC,BD)\n\nEnd of proof."
   }
  ]
 }

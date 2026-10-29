@@ -2,10 +2,7 @@
 
 from __future__ import annotations
 
-import datetime as dt
-import hashlib
 import json
-import subprocess
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 
@@ -77,57 +74,76 @@ def _resolve(path: str | Path) -> Path:
     return path if path.is_absolute() else ROOT / path
 
 
-def config_fingerprint(config_path: str | Path) -> tuple[dict, str]:
-    """(config dict, short hash of it and of the DDAR config file it uses)."""
+def settings_summary(config_path: str | Path) -> dict:
+    """The parameters that matter for interpreting a result."""
+    from ddar.rule_config import DDARConfig
+
     config = json.loads(_resolve(config_path).read_text())
-    parts = [json.dumps(config, sort_keys=True)]
-    ddar = config.get("tools", {}).get("ddar", {}).get("options", {}).get("config")
-    if ddar and _resolve(ddar).exists():
-        parts.append(json.dumps(json.loads(_resolve(ddar).read_text()), sort_keys=True))
-    checkpoint = config.get("tools", {}).get("transformer", {})
-    if checkpoint.get("enabled", True) and (ck := checkpoint.get("options", {}).get("checkpoint")):
-        if _resolve(ck).exists():  # a retrained model is a different setting
-            parts.append(str(_resolve(ck).stat().st_mtime_ns))
-    return config, hashlib.sha1("\n".join(parts).encode()).hexdigest()[:10]
+    tools = config.get("tools", {})
+    enabled = [n for n, spec in tools.items() if spec.get("enabled", True)]
+    summary: dict = {"tools": enabled, "proposer_order": [
+        n for n in config.get("proposer_order", enabled) if n in enabled and n != "ddar"]}
+    ddar_path = tools.get("ddar", {}).get("options", {}).get("config")
+    if "ddar" in enabled and ddar_path:
+        ddar = DDARConfig.from_json(_resolve(ddar_path))
+        if ddar.engine == "yuclid":  # its rules are compiled in; report those
+            from py_yuclid.yuclid_adapter import YUCLID_RULES
+
+            rule_ids = sorted(r.id for r in YUCLID_RULES)
+        else:
+            rule_ids = ddar.rule_ids()
+        summary["ddar"] = {"config": ddar.name, "engine": ddar.engine, "ar": ddar.ar,
+                           "n_rules": len(rule_ids), "rules": " ".join(rule_ids)}
+    for name in ("transformer", "heuristics"):
+        if name in enabled:
+            summary[name] = tools[name].get("options", {})
+    summary["search"] = config.get("search", {})
+    return summary
 
 
-def _git_commit() -> str | None:
-    try:
-        out = subprocess.run(["git", "rev-parse", "--short", "HEAD"], cwd=ROOT,
-                             capture_output=True, text=True, timeout=10)
-        commit = out.stdout.strip()
-        if not commit:
-            return None
-        # Uncommitted code changes (stored results themselves don't count).
-        dirty = subprocess.run(["git", "status", "--porcelain", "--", ".", ":!results"],
-                               cwd=ROOT, capture_output=True, text=True, timeout=10)
-        return commit + ("+dirty" if dirty.stdout.strip() else "")
-    except (OSError, subprocess.TimeoutExpired):
-        return None
+def make_record(config_name: str, settings: dict, budget: Budget, result) -> dict:
+    """What is worth keeping about one solve: settings, resources, outcome."""
+    r = asdict(result)
+    return {
+        "config": config_name,
+        "settings": settings,
+        "resources": {
+            "available": asdict(budget),
+            "used": {"wall_time_s": r["wall_time"], "peak_memory_mb": r["peak_memory_mb"],
+                     "cpu_time_s": r["cpu_time"], "ddar_calls": r["ddar_calls"]},
+        },
+        "solved": r["solved"],
+        "failure_reason": r["failure_reason"],
+        "depth": r["depth"],
+        "aux": r["aux"],
+        "tools_used": r["tools_used"],
+        "rules_in_proof": r["rules_in_proof"],
+        "rules_fired": r["rules_fired"],
+        "proof": r["proof"],
+    }
 
 
 def run(problems: list[Problem], config_paths: list[str | Path], budget: Budget,
         force: bool = False, on_result=None) -> list[dict]:
-    """Solve every problem under every config; append new records to the store."""
-    commit = _git_commit()
+    """Solve every problem under every config and store the results.
+
+    A problem keeps one record per (config, available resources); running the
+    same combination again is skipped, or replaces the record with --force.
+    """
     new_records = []
     for config_path in config_paths:
-        config, sha = config_fingerprint(config_path)
         name = Path(config_path).stem
+        settings = settings_summary(config_path)
         for problem in problems:
             records = load_records(problem)
-            same = [r for r in records if r["config_sha"] == sha and r["budget"] == asdict(budget)]
+            same = [r for r in records
+                    if r["config"] == name and r["resources"]["available"] == asdict(budget)]
             if same and not force:
                 if on_result:
                     on_result(problem, name, same[-1], skipped=True)
                 continue
-            result = solve(problem.text, config, budget)
-            record = {
-                "config": name, "config_sha": sha, "budget": asdict(budget),
-                "date": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
-                "git_commit": commit, "result": asdict(result),
-            }
-            records.append(record)
+            record = make_record(name, settings, budget, solve(problem.text, _resolve(config_path), budget))
+            records = [r for r in records if r not in same] + [record]
             _save_records(problem, records)
             new_records.append(record)
             if on_result:
@@ -136,7 +152,7 @@ def run(problems: list[Problem], config_paths: list[str | Path], budget: Budget,
 
 
 def latest_by_config(problem: Problem) -> dict[str, dict]:
-    """Most recent record per config name."""
+    """Last stored record per config name."""
     out: dict[str, dict] = {}
     for r in load_records(problem):
         out[r["config"]] = r

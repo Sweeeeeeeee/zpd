@@ -13,9 +13,7 @@ from __future__ import annotations
 import itertools
 import logging
 import math
-import os
 import string
-import sys
 import time
 from abc import ABC, abstractmethod
 from collections import Counter
@@ -24,10 +22,6 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
-# py_yuclid finds its binary through PATH; make it work without an activated venv.
-_venv_bin = str(Path(sys.executable).parent)
-if _venv_bin not in os.environ.get("PATH", "").split(os.pathsep):
-    os.environ["PATH"] = _venv_bin + os.pathsep + os.environ.get("PATH", "")
 
 
 @dataclass(frozen=True)

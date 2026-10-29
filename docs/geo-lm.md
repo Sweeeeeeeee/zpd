@@ -9,6 +9,8 @@ Everything runs on CPU; a modest GPU is used automatically when present.
 It is step 3 of a larger project: Newclid's DDAR engine does the deduction, and
 this model suggests a new point when DDAR gets stuck.
 
+The code is in `geo-lm/`. Commands in this file run from that folder.
+
 ## Install
 
 # CPU-only PyTorch (much smaller download):

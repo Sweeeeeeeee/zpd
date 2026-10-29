@@ -20,15 +20,12 @@ def test_problem_file_metadata(tmp_path):
     assert p.description.startswith("Varignon")
 
 
-def test_fingerprint_follows_ddar_config(tmp_path):
-    def pipeline(ddar):
-        path = tmp_path / f"pipe_{ddar.split('/')[-1]}"
-        path.write_text(json.dumps({"tools": {"ddar": {"options": {"config": ddar}}}}))
-        return path
-
-    _, a = store.config_fingerprint(pipeline("ddar/configs/default.json"))
-    _, b = store.config_fingerprint(pipeline("ddar/configs/no_orthocenter.json"))
-    assert a != b
+def test_settings_summary_describes_rules_and_tools():
+    s = store.settings_summary("pipeline/configs/heuristics_only.json")
+    assert s["tools"] == ["ddar", "heuristics"]
+    assert s["ddar"]["engine"] == "yuclid" and s["ddar"]["ar"] is True
+    assert "r43" in s["ddar"]["rules"].split() and s["ddar"]["n_rules"] == 37
+    assert s["search"]["max_depth"] == 2
 
 
 def test_run_stores_and_skips_repeats(tmp_path, monkeypatch):
@@ -44,5 +41,9 @@ def test_run_stores_and_skips_repeats(tmp_path, monkeypatch):
     again = store.run(problems, ["pipeline/configs/ddar_only.json"], budget)
     assert len(first) == 1 and again == []
     (record,) = store.load_records(problems[0])
-    assert record["config"] == "ddar_only" and record["result"]["solved"]
-    assert set(record) >= {"config_sha", "budget", "date", "git_commit", "result"}
+    assert record["config"] == "ddar_only" and record["solved"] and record["proof"]
+    assert record["resources"]["available"]["time_s"] == 60
+    assert record["resources"]["used"]["peak_memory_mb"] > 0
+    assert not {"date", "git_commit", "config_sha"} & set(record)
+    replaced = store.run(problems, ["pipeline/configs/ddar_only.json"], budget, force=True)
+    assert len(replaced) == 1 and len(store.load_records(problems[0])) == 1

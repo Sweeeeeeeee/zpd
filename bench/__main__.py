@@ -5,10 +5,11 @@
     python -m bench show problems/examples/varignon
     python -m bench list problems/examples
 
-`run` solves each problem under each config and stores the solve() result in
-results/<set>/<problem>.json. Runs already stored with the same config
-contents and budget are skipped (--force to redo). Commit the results folder
-to keep the history on GitHub.
+`run` solves each problem under each config and stores, in
+results/<set>/<problem>.json, one record per config and budget: the settings,
+the resources available and used, and the outcome with the proof. Stored
+combinations are skipped (--force to replace them). Commit the results folder
+to keep them on GitHub.
 """
 
 from __future__ import annotations
@@ -22,10 +23,9 @@ from pipeline.solve import Budget
 
 
 def _cell(record: dict) -> str:
-    r = record["result"]
-    if r["solved"]:
-        return f"yes {r['wall_time']:.1f}s d{r['depth']}"
-    reason = r["failure_reason"] or ""
+    if record["solved"]:
+        return f"yes {record['resources']['used']['wall_time_s']:.1f}s d{record['depth']}"
+    reason = record["failure_reason"] or ""
     for prefix, label in SHORT_REASONS:
         if reason.startswith(prefix):
             return f"no ({label})"
@@ -64,7 +64,7 @@ def cmd_table(args) -> None:
     for p in problems:
         cells = [_cell(latest[p.name][c]) if c in latest[p.name] else "-" for c in configs]
         print(f"{p.name:28s} " + " ".join(f"{c:{width}s}" for c in cells))
-    solved = [sum(latest[p.name].get(c, {}).get("result", {}).get("solved", False) for p in problems)
+    solved = [sum(latest[p.name].get(c, {}).get("solved", False) for p in problems)
               for c in configs]
     print(f"{'solved':28s} " + " ".join(f"{f'{s}/{len(problems)}':{width}s}" for s in solved))
 
@@ -78,11 +78,11 @@ def cmd_show(args) -> None:
         print(f"  {k}: {v}")
     print(f"  {problem.text}")
     for r in load_records(problem):
-        res = r["result"]
-        extra = res["failure_reason"] or ", ".join(sorted(res["rules_in_proof"]))
-        print(f"  [{r['date']} {r['git_commit']}] {r['config']} ({r['config_sha']}) "
-              f"budget {r['budget']['time_s']:.0f}s: {_cell(r)}  "
-              f"{res['peak_memory_mb']:.0f} MB  tools {','.join(res['tools_used'])}  {extra[:60]}")
+        avail, used = r["resources"]["available"], r["resources"]["used"]
+        extra = r["failure_reason"] or ", ".join(sorted(r["rules_in_proof"]))
+        print(f"  {r['config']:18s} budget {avail['time_s']:.0f}s/{avail['memory_mb']:.0f} MB: "
+              f"{_cell(r):16s} used {used['peak_memory_mb']:.0f} MB, {used['cpu_time_s']:.1f} s CPU, "
+              f"{used['ddar_calls']} DDAR calls  tools {','.join(r['tools_used'])}  {extra[:50]}")
     if args.json:
         print(json.dumps(load_records(problem), indent=1))
 

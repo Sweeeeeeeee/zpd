@@ -12,16 +12,17 @@ Problem file:
 
 `# key: value` lines are metadata; other `#` lines form the description.
 
-A result record holds the solve() return value plus what produced it: config
-name, a hash of the config contents (including the DDAR rule config it
-points to), the budget, the git commit and the date. Running the same
-problem with the same config hash and budget again is skipped unless forced,
-so the results files only grow when something changed.
+A result record holds what is worth knowing about the problem under one
+setting: the config name and its settings (tools, DDAR rules and AR, search
+limits), the resources available and used (time, memory, CPU, DDAR calls),
+and the outcome (solved, failure reason, depth, auxiliary points, tools and
+rules used, proof). There is one record per config and budget; nothing about
+the particular run (date, commit, machine) is stored.
 """
 
 from bench.store import (  # noqa: F401
     Problem,
-    config_fingerprint,
+    settings_summary,
     load_problems,
     load_records,
     run,

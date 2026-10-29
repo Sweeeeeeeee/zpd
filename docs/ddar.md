@@ -56,8 +56,13 @@ Full tables: `results/examples_yuclid.txt` and `results/examples_python.txt`.
 3. The r52/r53 conclusion builder creates degenerate `simtri e a d e a d`, which
    pydantic then rejects.
 
-All three are fixed at runtime in `ddar/patches.py` (step 2). The step 1 table
-above was measured with only fix 1 applied. This code path looks unmaintained
+All three are handled in `ddar/engine.py` without modifying Newclid: `diff A B C`
+premises are rewritten as pairwise `diff`s when rules are loaded, the AR
+deductor is a subclass with a corrected length enumerator, and the rule matcher
+skips degenerate mappings. The step 1 table above was measured with only fix 1
+applied. Other Python-engine failures remain and are not fixed: unsupported
+`contri` predicates (`CONTRI_CLOCK`, `CONTRI_REFLECT`), an AR premise error on
+`miquel_theorem`, and weaker ratio chasing than yuclid (e.g. `forcing_ratio`). This code path looks unmaintained
 since the move to yuclid, but it is the only engine that can switch rules off,
 so step 2 uses it.
 
@@ -190,8 +195,8 @@ the steps of the final proof. Each config runs in its own subprocess
 (`--timeout`, default 60 s). For `yuclid`, the rules column shows the configured
 58, but the binary actually uses its own 37 rules.
 
-Code: `rule_config.py` (config, filtering, warnings), `patches.py` (Newclid
-fixes), `runner.py` (solve one problem, count fired rules, subprocess wrapper),
+Code: `rule_config.py` (config, filtering, warnings), `engine.py` (solver
+construction and the Newclid fixes), `runner.py` (solve one problem, count fired rules, subprocess wrapper),
 `compare_rules.py` (the script above).
 
 ## What this means for later steps

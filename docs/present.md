@@ -46,7 +46,7 @@ and time, memory and CPU for the whole solve. There is no random guessing.
 
 | # | Part | One sentence | Where |
 |---|---|---|---|
-| 1 | DDAR | Newclid, the open-source AlphaGeometry engine, runs on CPU. Its C++ core (yuclid) solves 60/74 examples in 0.01–0.25 s. | `ddar/README.md` |
+| 1 | DDAR | Newclid, the open-source AlphaGeometry engine, runs on CPU. Its C++ core (yuclid) solves 60/74 examples in 0.01–0.25 s. | `docs/ddar.md` |
 | 2 | Rule toggling | A JSON list of enabled rules plus an AR switch, warnings when a rule set can't use some hypotheses, and a side-by-side comparison script. | `ddar/rule_config.py`, `ddar/compare_rules.py` |
 | 3 | Transformer | A from-scratch GPT-style decoder with a geometry tokenizer, greedy and beam decoding, and save/load. | `geo-lm/` |
 | 4 | Data | 100k problems that need an extra point, subsampled from GenesisGeo's 21.8M (public, Apache-2.0). | `datagen/` |
@@ -54,7 +54,7 @@ and time, memory and CPU for the whole solve. There is no random guessing.
 | 6 | Toolbox | One `Tool` interface, three tools (DDAR, model, heuristics), and the DDAR → propose → DDAR search. | `pipeline/` |
 | 7 | `solve()` | One call that returns a result with proof, time, memory, depth, rules, tools and failure reason, with limits enforced from a separate process. | `pipeline/solve.py` |
 | 8 | Translation | A guide for writing olympiad problems by hand, a numerical check that catches wrong translations, and a runner that prints a results table. | `docs/translation_guide.md` |
-| 9 | Docs and tests | README and 64 tests (about 15 s). | `README.md`, `tests/` |
+| 9 | Docs and tests | README and 64 tests (about 15 s). | `docs/README.md`, `tests/` |
 | 11 | Problem store | Problems with metadata, plus every `solve()` result for each config and budget, kept in git and shown as a table. | `bench/`, `results/` |
 
 ## Key ideas, explained simply

@@ -9,144 +9,215 @@
  "records": [
   {
    "config": "ddar_only",
-   "config_sha": "b9a2d25181",
-   "budget": {
-    "time_s": 60.0,
-    "memory_mb": 2048.0,
-    "cpu_s": 0.0
-   },
-   "date": "2026-10-29T00:39:34+00:00",
-   "git_commit": "83b37eb",
-   "result": {
-    "solved": true,
-    "proof": "# Problem setup:\n\n## Points\n\n- A(-0.1184, 1.3490)\n- B(-0.3897, 0.6476)\n- C(0.6053, -0.3744)\n- D(0.7559, 0.2139)\n- E(-0.2540, 0.9983)\n- F(0.1078, 0.1366)\n- G(0.6806, -0.0803)\n- H(0.3188, 0.7814)\n\n## Assumptions:\n\n[C0] : H is the midpoint of AD\n[C1] : G is the midpoint of CD\n[C2] : E is the midpoint of AB\n[C3] : F is the midpoint of BC\n\n## Numerical checks\n\n[N0] : ▲ACD has the same orientation as ▲DHG\n[N1] : A ≠ D\n[N2] : A ≠ H\n[N3] : D ≠ H\n[N4] : C ≠ D\n[N5] : C ≠ G\n[N6] : D ≠ G\n[N7] : ▲ABC has the same orientation as ▲BFE\n[N8] : A ≠ B\n[N9] : A ≠ E\n[N10] : B ≠ E\n[N11] : B ≠ C\n[N12] : B ≠ F\n[N13] : C ≠ F\n\n\n# Goals\n\nEF ∥ GH : Proved [23]\n\n\n# Proof:\n\n000. | H is the midpoint of AD [C0] =(r56 Properties of midpoint (coll))> A, D, H are collinear [0]\n001. | A, D, H are collinear [0], A ≠ D [N1], A ≠ H [N2], D ≠ H [N3] =(r82 Parallel from collinear)> AD ∥ AH [1]\n002. | G is the midpoint of CD [C1] =(r56 Properties of midpoint (coll))> C, D, G are collinear [2]\n003. | C, D, G are collinear [2], C ≠ D [N4], C ≠ G [N5], D ≠ G [N6] =(r82 Parallel from collinear)> CD ∥ CG [3]\n004. | C, D, G are collinear [2], C ≠ D [N4], C ≠ G [N5], D ≠ G [N6] =(r82 Parallel from collinear)> DG ∥ CG [4]\n005. | A, D, H are collinear [0], A ≠ D [N1], A ≠ H [N2], D ≠ H [N3] =(r82 Parallel from collinear)> DH ∥ AH [5]\n006. | AD ∥ AH [1], CD ∥ CG [3], DG ∥ CG [4], DH ∥ AH [5] =(AR Deduction)> ∠(AD,CD) = ∠(DH,DG) [6]\n007. | H is the midpoint of AD [C0] =(r51 Midpoint splits in two)> AD:DH = 2/1 [7]\n008. | G is the midpoint of CD [C1] =(r51 Midpoint splits in two)> CD:DG = 2/1 [8]\n009. | AD:DH = 2/1 [7], CD:DG = 2/1 [8] =(AR Deduction)> AD:CD = DH:DG [9]\n010. | ∠(AD,CD) = ∠(DH,DG) [6], AD:CD = DH:DG [9], ▲ACD has the same orientation as ▲DHG [N0] =(r62 SAS Similarity of triangles (Direct))> ▲ACD ≅ ▲HGD [10]\n011. | ▲ACD has the same orientation as ▲DHG [N0], ▲ACD ≅ ▲HGD [10] =(r52 Properties of similar triangles (Direct))> ∠(AC,AD) = ∠(GH,DH) [11]\n012. | E is the midpoint of AB [C2] =(r56 Properties of midpoint (coll))> A, B, E are collinear [12]\n013. | A, B, E are collinear [12], A ≠ B [N8], A ≠ E [N9], B ≠ E [N10] =(r82 Parallel from collinear)> AE ∥ AB [13]\n014. | A, B, E are collinear [12], A ≠ B [N8], A ≠ E [N9], B ≠ E [N10] =(r82 Parallel from collinear)> AE ∥ BE [14]\n015. | F is the midpoint of BC [C3] =(r56 Properties of midpoint (coll))> B, C, F are collinear [15]\n016. | B, C, F are collinear [15], B ≠ C [N11], B ≠ F [N12], C ≠ F [N13] =(r82 Parallel from collinear)> BC ∥ BF [16]\n017. | AE ∥ AB [13], AE ∥ BE [14], BC ∥ BF [16] =(AR Deduction)> ∠(AB,BC) = ∠(BE,BF) [17]\n018. | E is the midpoint of AB [C2] =(r51 Midpoint splits in two)> AB:BE = 2/1 [18]\n019. | F is the midpoint of BC [C3] =(r51 Midpoint splits in two)> BC:BF = 2/1 [19]\n020. | AB:BE = 2/1 [18], BC:BF = 2/1 [19] =(AR Deduction)> AB:BC = BE:BF [20]\n021. | ∠(AB,BC) = ∠(BE,BF) [17], AB:BC = BE:BF [20], ▲ABC has the same orientation as ▲BFE [N7] =(r62 SAS Similarity of triangles (Direct))> ▲ABC ≅ ▲EBF [21]\n022. | ▲ABC has the same orientation as ▲BFE [N7], ▲ABC ≅ ▲EBF [21] =(r52 Properties of similar triangles (Direct))> ∠(AC,BC) = ∠(EF,BF) [22]\n023. | ∠(AC,AD) = ∠(GH,DH) [11], ∠(AC,BC) = ∠(EF,BF) [22], AD ∥ AH [1], BC ∥ BF [16], DH ∥ AH [5] =(AR Deduction)> EF ∥ GH [23]\n\n\n# Appendix: AR deductions:\n\n\n\n006. | Angle Chasing to prove ∠(AD,CD) = ∠(DH,DG):\n| Premise AD ∥ AH gives a linear equation with coefficients {AD: 1, AH: -1}\n| Premise CD ∥ CG gives a linear equation with coefficients {CD: 1, CG: -1}\n| Then {AD: -1, AH: 1} + 1 x {CD: 1, CG: -1}\n|    = {AD: -1, AH: 1, CD: 1, CG: -1}\n| Premise DG ∥ CG gives a linear equation with coefficients {CG: 1, DG: -1}\n| Then {AD: -1, AH: 1, CD: 1, CG: -1} + 1 x {CG: 1, DG: -1}\n|    = {AD: -1, AH: 1, CD: 1, DG: -1}\n| Premise DH ∥ AH gives a linear equation with coefficients {AH: 1, DH: -1}\n| Then {AD: -1, AH: 1, CD: 1, DG: -1} + -1 x {AH: 1, DH: -1}\n|    = {AD: -1, CD: 1, DG: -1, DH: 1}\nWe are left with a linear equation with coefficients {AD: -1, CD: 1, DG: -1, DH: 1} that gives ∠(AD,CD) = ∠(DH,DG)\n\n\n\n009. | Ratio Chasing to prove AD:CD = DH:DG:\n| Premise AD:DH = 2/1 gives a linear equation with coefficients {AD²: 1, DH²: -1}\n| Premise CD:DG = 2/1 gives a linear equation with coefficients {CD²: 1, DG²: -1}\n| Then {AD²: 1, DH²: -1} + -1 x {CD²: 1, DG²: -1}\n|    = {AD²: 1, DH²: -1, CD²: -1, DG²: 1}\nWe are left with a linear equation with coefficients {AD²: 1, DH²: -1, CD²: -1, DG²: 1} that gives AD:CD = DH:DG\n\n\n\n017. | Angle Chasing to prove ∠(AB,BC) = ∠(BE,BF):\n| Premise AE ∥ AB gives a linear equation with coefficients {AB: 1, AE: -1}\n| Premise AE ∥ BE gives a linear equation with coefficients {AE: 1, BE: -1}\n| Then {AB: -1, AE: 1} + -1 x {AE: 1, BE: -1}\n|    = {AB: -1, BE: 1}\n| Premise BC ∥ BF gives a linear equation with coefficients {BC: 1, BF: -1}\n| Then {AB: -1, BE: 1} + 1 x {BC: 1, BF: -1}\n|    = {AB: -1, BE: 1, BC: 1, BF: -1}\nWe are left with a linear equation with coefficients {AB: -1, BE: 1, BC: 1, BF: -1} that gives ∠(AB,BC) = ∠(BE,BF)\n\n\n\n020. | Ratio Chasing to prove AB:BC = BE:BF:\n| Premise AB:BE = 2/1 gives a linear equation with coefficients {AB²: 1, BE²: -1}\n| Premise BC:BF = 2/1 gives a linear equation with coefficients {BC²: 1, BF²: -1}\n| Then {AB²: 1, BE²: -1} + -1 x {BC²: 1, BF²: -1}\n|    = {AB²: 1, BE²: -1, BC²: -1, BF²: 1}\nWe are left with a linear equation with coefficients {AB²: 1, BE²: -1, BC²: -1, BF²: 1} that gives AB:BC = BE:BF\n\n\n\n023. | Angle Chasing to prove EF ∥ GH:\n| Premise ∠(AC,AD) = ∠(GH,DH) gives a linear equation with coefficients {AC: -1, AD: 1, DH: -1, GH: 1}\n| Premise ∠(AC,BC) = ∠(EF,BF) gives a linear equation with coefficients {AC: -1, BC: 1, BF: -1, EF: 1}\n| Then {AC: 1, AD: -1, DH: 1, GH: -1} + 1 x {AC: -1, BC: 1, BF: -1, EF: 1}\n|    = {AD: -1, DH: 1, GH: -1, BC: 1, BF: -1, EF: 1}\n| Premise AD ∥ AH gives a linear equation with coefficients {AD: 1, AH: -1}\n| Then {AD: -1, DH: 1, GH: -1, BC: 1, BF: -1, EF: 1} + 1 x {AD: 1, AH: -1}\n|    = {DH: 1, GH: -1, BC: 1, BF: -1, EF: 1, AH: -1}\n| Premise BC ∥ BF gives a linear equation with coefficients {BC: 1, BF: -1}\n| Then {DH: 1, GH: -1, BC: 1, BF: -1, EF: 1, AH: -1} + -1 x {BC: 1, BF: -1}\n|    = {DH: 1, GH: -1, EF: 1, AH: -1}\n| Premise DH ∥ AH gives a linear equation with coefficients {AH: 1, DH: -1}\n| Then {DH: 1, GH: -1, EF: 1, AH: -1} + 1 x {AH: 1, DH: -1}\n|    = {GH: -1, EF: 1}\nWe are left with a linear equation with coefficients {GH: -1, EF: 1} that gives EF ∥ GH\n\nEnd of proof.",
-    "wall_time": 1.928,
-    "peak_memory_mb": 181.4,
-    "cpu_time": 2.0,
-    "depth": 0,
-    "rules_fired": {
-     "r51": 4,
-     "r56": 4,
-     "AR:ratio": 2,
-     "r82": 7,
-     "AR:angle": 3,
-     "r62": 2,
-     "r52": 2
-    },
-    "rules_in_proof": {
-     "r56": 4,
-     "r82": 7,
-     "AR:angle": 3,
-     "r51": 4,
-     "AR:ratio": 2,
-     "r62": 2,
-     "r52": 2
-    },
-    "tools_used": [
+   "settings": {
+    "tools": [
      "ddar"
     ],
-    "tool_calls": {
-     "ddar": 1
+    "proposer_order": [],
+    "ddar": {
+     "config": "yuclid",
+     "engine": "yuclid",
+     "ar": true,
+     "n_rules": 37,
+     "rules": "r03 r04 r11 r12 r13 r14 r19 r28 r34 r35 r41 r42 r43 r46 r49 r50 r51 r52 r53 r54 r55 r56 r60 r61 r62 r63 r68 r69 r71 r72 r73 r74 r77 r78 r80 r82 r91"
     },
-    "aux": [],
-    "ddar_calls": 1,
-    "failure_reason": null
-   }
+    "search": {
+     "max_depth": 0
+    }
+   },
+   "resources": {
+    "available": {
+     "time_s": 60.0,
+     "memory_mb": 2048.0,
+     "cpu_s": 0.0
+    },
+    "used": {
+     "wall_time_s": 2.242,
+     "peak_memory_mb": 180.3,
+     "cpu_time_s": 2.2,
+     "ddar_calls": 1
+    }
+   },
+   "solved": true,
+   "failure_reason": null,
+   "depth": 0,
+   "aux": [],
+   "tools_used": [
+    "ddar"
+   ],
+   "rules_in_proof": {
+    "r56": 4,
+    "r82": 7,
+    "AR:angle": 3,
+    "r51": 4,
+    "AR:ratio": 2,
+    "r62": 2,
+    "r52": 2
+   },
+   "rules_fired": {
+    "r51": 4,
+    "r56": 4,
+    "AR:ratio": 2,
+    "r82": 7,
+    "AR:angle": 3,
+    "r62": 2,
+    "r52": 2
+   },
+   "proof": "# Problem setup:\n\n## Points\n\n- A(-0.1184, 1.3490)\n- B(-0.3897, 0.6476)\n- C(0.6053, -0.3744)\n- D(0.7559, 0.2139)\n- E(-0.2540, 0.9983)\n- F(0.1078, 0.1366)\n- G(0.6806, -0.0803)\n- H(0.3188, 0.7814)\n\n## Assumptions:\n\n[C0] : H is the midpoint of AD\n[C1] : G is the midpoint of CD\n[C2] : E is the midpoint of AB\n[C3] : F is the midpoint of BC\n\n## Numerical checks\n\n[N0] : ▲ACD has the same orientation as ▲DHG\n[N1] : A ≠ D\n[N2] : A ≠ H\n[N3] : D ≠ H\n[N4] : C ≠ D\n[N5] : C ≠ G\n[N6] : D ≠ G\n[N7] : ▲ABC has the same orientation as ▲BFE\n[N8] : A ≠ B\n[N9] : A ≠ E\n[N10] : B ≠ E\n[N11] : B ≠ C\n[N12] : B ≠ F\n[N13] : C ≠ F\n\n\n# Goals\n\nGH ∥ EF : Proved [23]\n\n\n# Proof:\n\n000. | H is the midpoint of AD [C0] =(r56 Properties of midpoint (coll))> A, D, H are collinear [0]\n001. | A, D, H are collinear [0], A ≠ D [N1], A ≠ H [N2], D ≠ H [N3] =(r82 Parallel from collinear)> AH ∥ AD [1]\n002. | A, D, H are collinear [0], A ≠ D [N1], A ≠ H [N2], D ≠ H [N3] =(r82 Parallel from collinear)> AH ∥ DH [2]\n003. | G is the midpoint of CD [C1] =(r56 Properties of midpoint (coll))> C, D, G are collinear [3]\n004. | C, D, G are collinear [3], C ≠ D [N4], C ≠ G [N5], D ≠ G [N6] =(r82 Parallel from collinear)> CG ∥ CD [4]\n005. | C, D, G are collinear [3], C ≠ D [N4], C ≠ G [N5], D ≠ G [N6] =(r82 Parallel from collinear)> CG ∥ DG [5]\n006. | AH ∥ AD [1], AH ∥ DH [2], CG ∥ CD [4], CG ∥ DG [5] =(AR Deduction)> ∠(AD,CD) = ∠(DH,DG) [6]\n007. | H is the midpoint of AD [C0] =(r51 Midpoint splits in two)> AD:DH = 2/1 [7]\n008. | G is the midpoint of CD [C1] =(r51 Midpoint splits in two)> CD:DG = 2/1 [8]\n009. | AD:DH = 2/1 [7], CD:DG = 2/1 [8] =(AR Deduction)> AD:CD = DH:DG [9]\n010. | ∠(AD,CD) = ∠(DH,DG) [6], AD:CD = DH:DG [9], ▲ACD has the same orientation as ▲DHG [N0] =(r62 SAS Similarity of triangles (Direct))> ▲ACD ≅ ▲HGD [10]\n011. | ▲ACD has the same orientation as ▲DHG [N0], ▲ACD ≅ ▲HGD [10] =(r52 Properties of similar triangles (Direct))> ∠(AC,AD) = ∠(GH,DH) [11]\n012. | E is the midpoint of AB [C2] =(r56 Properties of midpoint (coll))> A, B, E are collinear [12]\n013. | A, B, E are collinear [12], A ≠ B [N8], A ≠ E [N9], B ≠ E [N10] =(r82 Parallel from collinear)> AE ∥ AB [13]\n014. | A, B, E are collinear [12], A ≠ B [N8], A ≠ E [N9], B ≠ E [N10] =(r82 Parallel from collinear)> AE ∥ BE [14]\n015. | F is the midpoint of BC [C3] =(r56 Properties of midpoint (coll))> B, C, F are collinear [15]\n016. | B, C, F are collinear [15], B ≠ C [N11], B ≠ F [N12], C ≠ F [N13] =(r82 Parallel from collinear)> BC ∥ BF [16]\n017. | AE ∥ AB [13], AE ∥ BE [14], BC ∥ BF [16] =(AR Deduction)> ∠(AB,BC) = ∠(BE,BF) [17]\n018. | E is the midpoint of AB [C2] =(r51 Midpoint splits in two)> AB:BE = 2/1 [18]\n019. | F is the midpoint of BC [C3] =(r51 Midpoint splits in two)> BC:BF = 2/1 [19]\n020. | AB:BE = 2/1 [18], BC:BF = 2/1 [19] =(AR Deduction)> AB:BC = BE:BF [20]\n021. | ∠(AB,BC) = ∠(BE,BF) [17], AB:BC = BE:BF [20], ▲ABC has the same orientation as ▲BFE [N7] =(r62 SAS Similarity of triangles (Direct))> ▲ABC ≅ ▲EBF [21]\n022. | ▲ABC has the same orientation as ▲BFE [N7], ▲ABC ≅ ▲EBF [21] =(r52 Properties of similar triangles (Direct))> ∠(AC,BC) = ∠(EF,BF) [22]\n023. | ∠(AC,AD) = ∠(GH,DH) [11], ∠(AC,BC) = ∠(EF,BF) [22], AH ∥ AD [1], AH ∥ DH [2], BC ∥ BF [16] =(AR Deduction)> GH ∥ EF [23]\n\n\n# Appendix: AR deductions:\n\n\n\n006. | Angle Chasing to prove ∠(AD,CD) = ∠(DH,DG):\n| Premise AH ∥ AD gives a linear equation with coefficients {AD: 1, AH: -1}\n| Premise AH ∥ DH gives a linear equation with coefficients {AH: 1, DH: -1}\n| Then {AD: -1, AH: 1} + -1 x {AH: 1, DH: -1}\n|    = {AD: -1, DH: 1}\n| Premise CG ∥ CD gives a linear equation with coefficients {CD: 1, CG: -1}\n| Then {AD: -1, DH: 1} + 1 x {CD: 1, CG: -1}\n|    = {AD: -1, DH: 1, CD: 1, CG: -1}\n| Premise CG ∥ DG gives a linear equation with coefficients {CG: 1, DG: -1}\n| Then {AD: -1, DH: 1, CD: 1, CG: -1} + 1 x {CG: 1, DG: -1}\n|    = {AD: -1, DH: 1, CD: 1, DG: -1}\nWe are left with a linear equation with coefficients {AD: -1, DH: 1, CD: 1, DG: -1} that gives ∠(AD,CD) = ∠(DH,DG)\n\n\n\n009. | Ratio Chasing to prove AD:CD = DH:DG:\n| Premise AD:DH = 2/1 gives a linear equation with coefficients {AD²: 1, DH²: -1}\n| Premise CD:DG = 2/1 gives a linear equation with coefficients {CD²: 1, DG²: -1}\n| Then {AD²: 1, DH²: -1} + -1 x {CD²: 1, DG²: -1}\n|    = {AD²: 1, DH²: -1, CD²: -1, DG²: 1}\nWe are left with a linear equation with coefficients {AD²: 1, DH²: -1, CD²: -1, DG²: 1} that gives AD:CD = DH:DG\n\n\n\n017. | Angle Chasing to prove ∠(AB,BC) = ∠(BE,BF):\n| Premise AE ∥ AB gives a linear equation with coefficients {AB: 1, AE: -1}\n| Premise AE ∥ BE gives a linear equation with coefficients {AE: 1, BE: -1}\n| Then {AB: -1, AE: 1} + -1 x {AE: 1, BE: -1}\n|    = {AB: -1, BE: 1}\n| Premise BC ∥ BF gives a linear equation with coefficients {BC: 1, BF: -1}\n| Then {AB: -1, BE: 1} + 1 x {BC: 1, BF: -1}\n|    = {AB: -1, BE: 1, BC: 1, BF: -1}\nWe are left with a linear equation with coefficients {AB: -1, BE: 1, BC: 1, BF: -1} that gives ∠(AB,BC) = ∠(BE,BF)\n\n\n\n020. | Ratio Chasing to prove AB:BC = BE:BF:\n| Premise AB:BE = 2/1 gives a linear equation with coefficients {AB²: 1, BE²: -1}\n| Premise BC:BF = 2/1 gives a linear equation with coefficients {BC²: 1, BF²: -1}\n| Then {AB²: 1, BE²: -1} + -1 x {BC²: 1, BF²: -1}\n|    = {AB²: 1, BE²: -1, BC²: -1, BF²: 1}\nWe are left with a linear equation with coefficients {AB²: 1, BE²: -1, BC²: -1, BF²: 1} that gives AB:BC = BE:BF\n\n\n\n023. | Angle Chasing to prove GH ∥ EF:\n| Premise ∠(AC,AD) = ∠(GH,DH) gives a linear equation with coefficients {AC: -1, AD: 1, DH: -1, GH: 1}\n| Premise ∠(AC,BC) = ∠(EF,BF) gives a linear equation with coefficients {AC: -1, BC: 1, BF: -1, EF: 1}\n| Then {AC: 1, AD: -1, DH: 1, GH: -1} + 1 x {AC: -1, BC: 1, BF: -1, EF: 1}\n|    = {AD: -1, DH: 1, GH: -1, BC: 1, BF: -1, EF: 1}\n| Premise AH ∥ AD gives a linear equation with coefficients {AD: 1, AH: -1}\n| Then {AD: -1, DH: 1, GH: -1, BC: 1, BF: -1, EF: 1} + 1 x {AD: 1, AH: -1}\n|    = {DH: 1, GH: -1, BC: 1, BF: -1, EF: 1, AH: -1}\n| Premise AH ∥ DH gives a linear equation with coefficients {AH: 1, DH: -1}\n| Then {DH: 1, GH: -1, BC: 1, BF: -1, EF: 1, AH: -1} + 1 x {AH: 1, DH: -1}\n|    = {GH: -1, BC: 1, BF: -1, EF: 1}\n| Premise BC ∥ BF gives a linear equation with coefficients {BC: 1, BF: -1}\n| Then {GH: -1, BC: 1, BF: -1, EF: 1} + -1 x {BC: 1, BF: -1}\n|    = {GH: -1, EF: 1}\nWe are left with a linear equation with coefficients {GH: -1, EF: 1} that gives GH ∥ EF\n\nEnd of proof."
   },
   {
    "config": "heuristics_only",
-   "config_sha": "2c85201b0f",
-   "budget": {
-    "time_s": 60.0,
-    "memory_mb": 2048.0,
-    "cpu_s": 0.0
-   },
-   "date": "2026-10-29T00:39:44+00:00",
-   "git_commit": "83b37eb",
-   "result": {
-    "solved": true,
-    "proof": "# Problem setup:\n\n## Points\n\n- A(-0.1184, 1.3490)\n- B(-0.3897, 0.6476)\n- C(0.6053, -0.3744)\n- D(0.7559, 0.2139)\n- E(-0.2540, 0.9983)\n- F(0.1078, 0.1366)\n- G(0.6806, -0.0803)\n- H(0.3188, 0.7814)\n\n## Assumptions:\n\n[C0] : H is the midpoint of AD\n[C1] : G is the midpoint of CD\n[C2] : E is the midpoint of AB\n[C3] : F is the midpoint of BC\n\n## Numerical checks\n\n[N0] : ▲ACD has the same orientation as ▲DHG\n[N1] : A ≠ D\n[N2] : A ≠ H\n[N3] : D ≠ H\n[N4] : C ≠ D\n[N5] : C ≠ G\n[N6] : D ≠ G\n[N7] : ▲ABC has the same orientation as ▲BFE\n[N8] : A ≠ B\n[N9] : A ≠ E\n[N10] : B ≠ E\n[N11] : B ≠ C\n[N12] : B ≠ F\n[N13] : C ≠ F\n\n\n# Goals\n\nGH ∥ EF : Proved [23]\n\n\n# Proof:\n\n000. | H is the midpoint of AD [C0] =(r56 Properties of midpoint (coll))> A, D, H are collinear [0]\n001. | A, D, H are collinear [0], A ≠ D [N1], A ≠ H [N2], D ≠ H [N3] =(r82 Parallel from collinear)> AD ∥ AH [1]\n002. | G is the midpoint of CD [C1] =(r56 Properties of midpoint (coll))> C, D, G are collinear [2]\n003. | C, D, G are collinear [2], C ≠ D [N4], C ≠ G [N5], D ≠ G [N6] =(r82 Parallel from collinear)> CG ∥ CD [3]\n004. | C, D, G are collinear [2], C ≠ D [N4], C ≠ G [N5], D ≠ G [N6] =(r82 Parallel from collinear)> CG ∥ DG [4]\n005. | A, D, H are collinear [0], A ≠ D [N1], A ≠ H [N2], D ≠ H [N3] =(r82 Parallel from collinear)> DH ∥ AH [5]\n006. | AD ∥ AH [1], CG ∥ CD [3], CG ∥ DG [4], DH ∥ AH [5] =(AR Deduction)> ∠(AD,CD) = ∠(DH,DG) [6]\n007. | H is the midpoint of AD [C0] =(r51 Midpoint splits in two)> AD:DH = 2/1 [7]\n008. | G is the midpoint of CD [C1] =(r51 Midpoint splits in two)> CD:DG = 2/1 [8]\n009. | AD:DH = 2/1 [7], CD:DG = 2/1 [8] =(AR Deduction)> AD:CD = DH:DG [9]\n010. | ∠(AD,CD) = ∠(DH,DG) [6], AD:CD = DH:DG [9], ▲ACD has the same orientation as ▲DHG [N0] =(r62 SAS Similarity of triangles (Direct))> ▲ACD ≅ ▲HGD [10]\n011. | ▲ACD has the same orientation as ▲DHG [N0], ▲ACD ≅ ▲HGD [10] =(r52 Properties of similar triangles (Direct))> ∠(AC,AD) = ∠(GH,DH) [11]\n012. | E is the midpoint of AB [C2] =(r56 Properties of midpoint (coll))> A, B, E are collinear [12]\n013. | A, B, E are collinear [12], A ≠ B [N8], A ≠ E [N9], B ≠ E [N10] =(r82 Parallel from collinear)> AB ∥ AE [13]\n014. | A, B, E are collinear [12], A ≠ B [N8], A ≠ E [N9], B ≠ E [N10] =(r82 Parallel from collinear)> BE ∥ AE [14]\n015. | F is the midpoint of BC [C3] =(r56 Properties of midpoint (coll))> B, C, F are collinear [15]\n016. | B, C, F are collinear [15], B ≠ C [N11], B ≠ F [N12], C ≠ F [N13] =(r82 Parallel from collinear)> BF ∥ BC [16]\n017. | AB ∥ AE [13], BE ∥ AE [14], BF ∥ BC [16] =(AR Deduction)> ∠(AB,BC) = ∠(BE,BF) [17]\n018. | E is the midpoint of AB [C2] =(r51 Midpoint splits in two)> AB:BE = 2/1 [18]\n019. | F is the midpoint of BC [C3] =(r51 Midpoint splits in two)> BC:BF = 2/1 [19]\n020. | AB:BE = 2/1 [18], BC:BF = 2/1 [19] =(AR Deduction)> AB:BC = BE:BF [20]\n021. | ∠(AB,BC) = ∠(BE,BF) [17], AB:BC = BE:BF [20], ▲ABC has the same orientation as ▲BFE [N7] =(r62 SAS Similarity of triangles (Direct))> ▲ABC ≅ ▲EBF [21]\n022. | ▲ABC has the same orientation as ▲BFE [N7], ▲ABC ≅ ▲EBF [21] =(r52 Properties of similar triangles (Direct))> ∠(AC,BC) = ∠(EF,BF) [22]\n023. | ∠(AC,AD) = ∠(GH,DH) [11], ∠(AC,BC) = ∠(EF,BF) [22], AD ∥ AH [1], BF ∥ BC [16], DH ∥ AH [5] =(AR Deduction)> GH ∥ EF [23]\n\n\n# Appendix: AR deductions:\n\n\n\n006. | Angle Chasing to prove ∠(AD,CD) = ∠(DH,DG):\n| Premise AD ∥ AH gives a linear equation with coefficients {AD: 1, AH: -1}\n| Premise CG ∥ CD gives a linear equation with coefficients {CD: 1, CG: -1}\n| Then {AD: -1, AH: 1} + 1 x {CD: 1, CG: -1}\n|    = {AD: -1, AH: 1, CD: 1, CG: -1}\n| Premise CG ∥ DG gives a linear equation with coefficients {CG: 1, DG: -1}\n| Then {AD: -1, AH: 1, CD: 1, CG: -1} + 1 x {CG: 1, DG: -1}\n|    = {AD: -1, AH: 1, CD: 1, DG: -1}\n| Premise DH ∥ AH gives a linear equation with coefficients {AH: 1, DH: -1}\n| Then {AD: -1, AH: 1, CD: 1, DG: -1} + -1 x {AH: 1, DH: -1}\n|    = {AD: -1, CD: 1, DG: -1, DH: 1}\nWe are left with a linear equation with coefficients {AD: -1, CD: 1, DG: -1, DH: 1} that gives ∠(AD,CD) = ∠(DH,DG)\n\n\n\n009. | Ratio Chasing to prove AD:CD = DH:DG:\n| Premise AD:DH = 2/1 gives a linear equation with coefficients {AD²: 1, DH²: -1}\n| Premise CD:DG = 2/1 gives a linear equation with coefficients {CD²: 1, DG²: -1}\n| Then {AD²: 1, DH²: -1} + -1 x {CD²: 1, DG²: -1}\n|    = {AD²: 1, DH²: -1, CD²: -1, DG²: 1}\nWe are left with a linear equation with coefficients {AD²: 1, DH²: -1, CD²: -1, DG²: 1} that gives AD:CD = DH:DG\n\n\n\n017. | Angle Chasing to prove ∠(AB,BC) = ∠(BE,BF):\n| Premise AB ∥ AE gives a linear equation with coefficients {AB: 1, AE: -1}\n| Premise BE ∥ AE gives a linear equation with coefficients {AE: 1, BE: -1}\n| Then {AB: -1, AE: 1} + -1 x {AE: 1, BE: -1}\n|    = {AB: -1, BE: 1}\n| Premise BF ∥ BC gives a linear equation with coefficients {BC: 1, BF: -1}\n| Then {AB: -1, BE: 1} + 1 x {BC: 1, BF: -1}\n|    = {AB: -1, BE: 1, BC: 1, BF: -1}\nWe are left with a linear equation with coefficients {AB: -1, BE: 1, BC: 1, BF: -1} that gives ∠(AB,BC) = ∠(BE,BF)\n\n\n\n020. | Ratio Chasing to prove AB:BC = BE:BF:\n| Premise AB:BE = 2/1 gives a linear equation with coefficients {AB²: 1, BE²: -1}\n| Premise BC:BF = 2/1 gives a linear equation with coefficients {BC²: 1, BF²: -1}\n| Then {AB²: 1, BE²: -1} + -1 x {BC²: 1, BF²: -1}\n|    = {AB²: 1, BE²: -1, BC²: -1, BF²: 1}\nWe are left with a linear equation with coefficients {AB²: 1, BE²: -1, BC²: -1, BF²: 1} that gives AB:BC = BE:BF\n\n\n\n023. | Angle Chasing to prove GH ∥ EF:\n| Premise ∠(AC,AD) = ∠(GH,DH) gives a linear equation with coefficients {AC: -1, AD: 1, DH: -1, GH: 1}\n| Premise ∠(AC,BC) = ∠(EF,BF) gives a linear equation with coefficients {AC: -1, BC: 1, BF: -1, EF: 1}\n| Then {AC: 1, AD: -1, DH: 1, GH: -1} + 1 x {AC: -1, BC: 1, BF: -1, EF: 1}\n|    = {AD: -1, DH: 1, GH: -1, BC: 1, BF: -1, EF: 1}\n| Premise AD ∥ AH gives a linear equation with coefficients {AD: 1, AH: -1}\n| Then {AD: -1, DH: 1, GH: -1, BC: 1, BF: -1, EF: 1} + 1 x {AD: 1, AH: -1}\n|    = {DH: 1, GH: -1, BC: 1, BF: -1, EF: 1, AH: -1}\n| Premise BF ∥ BC gives a linear equation with coefficients {BC: 1, BF: -1}\n| Then {DH: 1, GH: -1, BC: 1, BF: -1, EF: 1, AH: -1} + -1 x {BC: 1, BF: -1}\n|    = {DH: 1, GH: -1, EF: 1, AH: -1}\n| Premise DH ∥ AH gives a linear equation with coefficients {AH: 1, DH: -1}\n| Then {DH: 1, GH: -1, EF: 1, AH: -1} + 1 x {AH: 1, DH: -1}\n|    = {GH: -1, EF: 1}\nWe are left with a linear equation with coefficients {GH: -1, EF: 1} that gives GH ∥ EF\n\nEnd of proof.",
-    "wall_time": 1.974,
-    "peak_memory_mb": 181.1,
-    "cpu_time": 2.08,
-    "depth": 0,
-    "rules_fired": {
-     "r51": 4,
-     "r56": 4,
-     "AR:ratio": 2,
-     "r82": 7,
-     "AR:angle": 3,
-     "r62": 2,
-     "r52": 2
-    },
-    "rules_in_proof": {
-     "r56": 4,
-     "r82": 7,
-     "AR:angle": 3,
-     "r51": 4,
-     "AR:ratio": 2,
-     "r62": 2,
-     "r52": 2
-    },
-    "tools_used": [
-     "ddar"
+   "settings": {
+    "tools": [
+     "ddar",
+     "heuristics"
     ],
-    "tool_calls": {
-     "ddar": 1,
-     "heuristics": 0
+    "proposer_order": [
+     "heuristics"
+    ],
+    "ddar": {
+     "config": "yuclid",
+     "engine": "yuclid",
+     "ar": true,
+     "n_rules": 37,
+     "rules": "r03 r04 r11 r12 r13 r14 r19 r28 r34 r35 r41 r42 r43 r46 r49 r50 r51 r52 r53 r54 r55 r56 r60 r61 r62 r63 r68 r69 r71 r72 r73 r74 r77 r78 r80 r82 r91"
     },
-    "aux": [],
-    "ddar_calls": 1,
-    "failure_reason": null
-   }
+    "heuristics": {
+     "kinds": [
+      "midpoint",
+      "circumcenter",
+      "foot"
+     ],
+     "max_candidates": 8
+    },
+    "search": {
+     "max_depth": 2,
+     "branching": 8,
+     "max_frontier": 6,
+     "max_ddar_calls": 80,
+     "time_limit": 0
+    }
+   },
+   "resources": {
+    "available": {
+     "time_s": 60.0,
+     "memory_mb": 2048.0,
+     "cpu_s": 0.0
+    },
+    "used": {
+     "wall_time_s": 2.189,
+     "peak_memory_mb": 180.2,
+     "cpu_time_s": 2.23,
+     "ddar_calls": 1
+    }
+   },
+   "solved": true,
+   "failure_reason": null,
+   "depth": 0,
+   "aux": [],
+   "tools_used": [
+    "ddar"
+   ],
+   "rules_in_proof": {
+    "r56": 4,
+    "r82": 7,
+    "AR:angle": 3,
+    "r51": 4,
+    "AR:ratio": 2,
+    "r62": 2,
+    "r52": 2
+   },
+   "rules_fired": {
+    "r51": 4,
+    "r56": 4,
+    "AR:ratio": 2,
+    "r82": 7,
+    "AR:angle": 3,
+    "r62": 2,
+    "r52": 2
+   },
+   "proof": "# Problem setup:\n\n## Points\n\n- A(-0.1184, 1.3490)\n- B(-0.3897, 0.6476)\n- C(0.6053, -0.3744)\n- D(0.7559, 0.2139)\n- E(-0.2540, 0.9983)\n- F(0.1078, 0.1366)\n- G(0.6806, -0.0803)\n- H(0.3188, 0.7814)\n\n## Assumptions:\n\n[C0] : H is the midpoint of AD\n[C1] : G is the midpoint of CD\n[C2] : E is the midpoint of AB\n[C3] : F is the midpoint of BC\n\n## Numerical checks\n\n[N0] : ▲ACD has the same orientation as ▲DHG\n[N1] : A ≠ D\n[N2] : A ≠ H\n[N3] : D ≠ H\n[N4] : C ≠ D\n[N5] : C ≠ G\n[N6] : D ≠ G\n[N7] : ▲ABC has the same orientation as ▲BFE\n[N8] : A ≠ B\n[N9] : A ≠ E\n[N10] : B ≠ E\n[N11] : B ≠ C\n[N12] : B ≠ F\n[N13] : C ≠ F\n\n\n# Goals\n\nGH ∥ EF : Proved [23]\n\n\n# Proof:\n\n000. | H is the midpoint of AD [C0] =(r56 Properties of midpoint (coll))> A, D, H are collinear [0]\n001. | A, D, H are collinear [0], A ≠ D [N1], A ≠ H [N2], D ≠ H [N3] =(r82 Parallel from collinear)> AD ∥ AH [1]\n002. | A, D, H are collinear [0], A ≠ D [N1], A ≠ H [N2], D ≠ H [N3] =(r82 Parallel from collinear)> AH ∥ DH [2]\n003. | G is the midpoint of CD [C1] =(r56 Properties of midpoint (coll))> C, D, G are collinear [3]\n004. | C, D, G are collinear [3], C ≠ D [N4], C ≠ G [N5], D ≠ G [N6] =(r82 Parallel from collinear)> CG ∥ CD [4]\n005. | C, D, G are collinear [3], C ≠ D [N4], C ≠ G [N5], D ≠ G [N6] =(r82 Parallel from collinear)> DG ∥ CG [5]\n006. | AD ∥ AH [1], AH ∥ DH [2], CG ∥ CD [4], DG ∥ CG [5] =(AR Deduction)> ∠(AD,CD) = ∠(DH,DG) [6]\n007. | H is the midpoint of AD [C0] =(r51 Midpoint splits in two)> AD:DH = 2/1 [7]\n008. | G is the midpoint of CD [C1] =(r51 Midpoint splits in two)> CD:DG = 2/1 [8]\n009. | AD:DH = 2/1 [7], CD:DG = 2/1 [8] =(AR Deduction)> AD:CD = DH:DG [9]\n010. | ∠(AD,CD) = ∠(DH,DG) [6], AD:CD = DH:DG [9], ▲ACD has the same orientation as ▲DHG [N0] =(r62 SAS Similarity of triangles (Direct))> ▲ACD ≅ ▲HGD [10]\n011. | ▲ACD has the same orientation as ▲DHG [N0], ▲ACD ≅ ▲HGD [10] =(r52 Properties of similar triangles (Direct))> ∠(AC,AD) = ∠(GH,DH) [11]\n012. | E is the midpoint of AB [C2] =(r56 Properties of midpoint (coll))> A, B, E are collinear [12]\n013. | A, B, E are collinear [12], A ≠ B [N8], A ≠ E [N9], B ≠ E [N10] =(r82 Parallel from collinear)> AB ∥ AE [13]\n014. | F is the midpoint of BC [C3] =(r56 Properties of midpoint (coll))> B, C, F are collinear [14]\n015. | B, C, F are collinear [14], B ≠ C [N11], B ≠ F [N12], C ≠ F [N13] =(r82 Parallel from collinear)> BC ∥ BF [15]\n016. | A, B, E are collinear [12], A ≠ B [N8], A ≠ E [N9], B ≠ E [N10] =(r82 Parallel from collinear)> BE ∥ AE [16]\n017. | AB ∥ AE [13], BC ∥ BF [15], BE ∥ AE [16] =(AR Deduction)> ∠(AB,BC) = ∠(BE,BF) [17]\n018. | E is the midpoint of AB [C2] =(r51 Midpoint splits in two)> AB:BE = 2/1 [18]\n019. | F is the midpoint of BC [C3] =(r51 Midpoint splits in two)> BC:BF = 2/1 [19]\n020. | AB:BE = 2/1 [18], BC:BF = 2/1 [19] =(AR Deduction)> AB:BC = BE:BF [20]\n021. | ∠(AB,BC) = ∠(BE,BF) [17], AB:BC = BE:BF [20], ▲ABC has the same orientation as ▲BFE [N7] =(r62 SAS Similarity of triangles (Direct))> ▲ABC ≅ ▲EBF [21]\n022. | ▲ABC has the same orientation as ▲BFE [N7], ▲ABC ≅ ▲EBF [21] =(r52 Properties of similar triangles (Direct))> ∠(AC,BC) = ∠(EF,BF) [22]\n023. | ∠(AC,AD) = ∠(GH,DH) [11], ∠(AC,BC) = ∠(EF,BF) [22], AD ∥ AH [1], AH ∥ DH [2], BC ∥ BF [15] =(AR Deduction)> GH ∥ EF [23]\n\n\n# Appendix: AR deductions:\n\n\n\n006. | Angle Chasing to prove ∠(AD,CD) = ∠(DH,DG):\n| Premise AD ∥ AH gives a linear equation with coefficients {AD: 1, AH: -1}\n| Premise AH ∥ DH gives a linear equation with coefficients {AH: 1, DH: -1}\n| Then {AD: -1, AH: 1} + -1 x {AH: 1, DH: -1}\n|    = {AD: -1, DH: 1}\n| Premise CG ∥ CD gives a linear equation with coefficients {CD: 1, CG: -1}\n| Then {AD: -1, DH: 1} + 1 x {CD: 1, CG: -1}\n|    = {AD: -1, DH: 1, CD: 1, CG: -1}\n| Premise DG ∥ CG gives a linear equation with coefficients {CG: 1, DG: -1}\n| Then {AD: -1, DH: 1, CD: 1, CG: -1} + 1 x {CG: 1, DG: -1}\n|    = {AD: -1, DH: 1, CD: 1, DG: -1}\nWe are left with a linear equation with coefficients {AD: -1, DH: 1, CD: 1, DG: -1} that gives ∠(AD,CD) = ∠(DH,DG)\n\n\n\n009. | Ratio Chasing to prove AD:CD = DH:DG:\n| Premise AD:DH = 2/1 gives a linear equation with coefficients {AD²: 1, DH²: -1}\n| Premise CD:DG = 2/1 gives a linear equation with coefficients {CD²: 1, DG²: -1}\n| Then {AD²: 1, DH²: -1} + -1 x {CD²: 1, DG²: -1}\n|    = {AD²: 1, DH²: -1, CD²: -1, DG²: 1}\nWe are left with a linear equation with coefficients {AD²: 1, DH²: -1, CD²: -1, DG²: 1} that gives AD:CD = DH:DG\n\n\n\n017. | Angle Chasing to prove ∠(AB,BC) = ∠(BE,BF):\n| Premise AB ∥ AE gives a linear equation with coefficients {AB: 1, AE: -1}\n| Premise BC ∥ BF gives a linear equation with coefficients {BC: 1, BF: -1}\n| Then {AB: -1, AE: 1} + 1 x {BC: 1, BF: -1}\n|    = {AB: -1, AE: 1, BC: 1, BF: -1}\n| Premise BE ∥ AE gives a linear equation with coefficients {AE: 1, BE: -1}\n| Then {AB: -1, AE: 1, BC: 1, BF: -1} + -1 x {AE: 1, BE: -1}\n|    = {AB: -1, BC: 1, BF: -1, BE: 1}\nWe are left with a linear equation with coefficients {AB: -1, BC: 1, BF: -1, BE: 1} that gives ∠(AB,BC) = ∠(BE,BF)\n\n\n\n020. | Ratio Chasing to prove AB:BC = BE:BF:\n| Premise AB:BE = 2/1 gives a linear equation with coefficients {AB²: 1, BE²: -1}\n| Premise BC:BF = 2/1 gives a linear equation with coefficients {BC²: 1, BF²: -1}\n| Then {AB²: 1, BE²: -1} + -1 x {BC²: 1, BF²: -1}\n|    = {AB²: 1, BE²: -1, BC²: -1, BF²: 1}\nWe are left with a linear equation with coefficients {AB²: 1, BE²: -1, BC²: -1, BF²: 1} that gives AB:BC = BE:BF\n\n\n\n023. | Angle Chasing to prove GH ∥ EF:\n| Premise ∠(AC,AD) = ∠(GH,DH) gives a linear equation with coefficients {AC: -1, AD: 1, DH: -1, GH: 1}\n| Premise ∠(AC,BC) = ∠(EF,BF) gives a linear equation with coefficients {AC: -1, BC: 1, BF: -1, EF: 1}\n| Then {AC: 1, AD: -1, DH: 1, GH: -1} + 1 x {AC: -1, BC: 1, BF: -1, EF: 1}\n|    = {AD: -1, DH: 1, GH: -1, BC: 1, BF: -1, EF: 1}\n| Premise AD ∥ AH gives a linear equation with coefficients {AD: 1, AH: -1}\n| Then {AD: -1, DH: 1, GH: -1, BC: 1, BF: -1, EF: 1} + 1 x {AD: 1, AH: -1}\n|    = {DH: 1, GH: -1, BC: 1, BF: -1, EF: 1, AH: -1}\n| Premise AH ∥ DH gives a linear equation with coefficients {AH: 1, DH: -1}\n| Then {DH: 1, GH: -1, BC: 1, BF: -1, EF: 1, AH: -1} + 1 x {AH: 1, DH: -1}\n|    = {GH: -1, BC: 1, BF: -1, EF: 1}\n| Premise BC ∥ BF gives a linear equation with coefficients {BC: 1, BF: -1}\n| Then {GH: -1, BC: 1, BF: -1, EF: 1} + -1 x {BC: 1, BF: -1}\n|    = {GH: -1, EF: 1}\nWe are left with a linear equation with coefficients {GH: -1, EF: 1} that gives GH ∥ EF\n\nEnd of proof."
   },
   {
    "config": "quick_model",
-   "config_sha": "3493f28b70",
-   "budget": {
-    "time_s": 60.0,
-    "memory_mb": 2048.0,
-    "cpu_s": 0.0
-   },
-   "date": "2026-10-29T00:40:03+00:00",
-   "git_commit": "83b37eb",
-   "result": {
-    "solved": true,
-    "proof": "# Problem setup:\n\n## Points\n\n- A(-0.1184, 1.3490)\n- B(-0.3897, 0.6476)\n- C(0.6053, -0.3744)\n- D(0.7559, 0.2139)\n- E(-0.2540, 0.9983)\n- F(0.1078, 0.1366)\n- G(0.6806, -0.0803)\n- H(0.3188, 0.7814)\n\n## Assumptions:\n\n[C0] : H is the midpoint of AD\n[C1] : G is the midpoint of CD\n[C2] : E is the midpoint of AB\n[C3] : F is the midpoint of BC\n\n## Numerical checks\n\n[N0] : ▲ACD has the same orientation as ▲DHG\n[N1] : A ≠ D\n[N2] : A ≠ H\n[N3] : D ≠ H\n[N4] : C ≠ D\n[N5] : C ≠ G\n[N6] : D ≠ G\n[N7] : ▲ABC has the same orientation as ▲BFE\n[N8] : A ≠ B\n[N9] : A ≠ E\n[N10] : B ≠ E\n[N11] : B ≠ C\n[N12] : B ≠ F\n[N13] : C ≠ F\n\n\n# Goals\n\nGH ∥ EF : Proved [23]\n\n\n# Proof:\n\n000. | H is the midpoint of AD [C0] =(r56 Properties of midpoint (coll))> A, D, H are collinear [0]\n001. | A, D, H are collinear [0], A ≠ D [N1], A ≠ H [N2], D ≠ H [N3] =(r82 Parallel from collinear)> AD ∥ AH [1]\n002. | G is the midpoint of CD [C1] =(r56 Properties of midpoint (coll))> C, D, G are collinear [2]\n003. | C, D, G are collinear [2], C ≠ D [N4], C ≠ G [N5], D ≠ G [N6] =(r82 Parallel from collinear)> CG ∥ CD [3]\n004. | C, D, G are collinear [2], C ≠ D [N4], C ≠ G [N5], D ≠ G [N6] =(r82 Parallel from collinear)> CG ∥ DG [4]\n005. | A, D, H are collinear [0], A ≠ D [N1], A ≠ H [N2], D ≠ H [N3] =(r82 Parallel from collinear)> DH ∥ AH [5]\n006. | AD ∥ AH [1], CG ∥ CD [3], CG ∥ DG [4], DH ∥ AH [5] =(AR Deduction)> ∠(AD,CD) = ∠(DH,DG) [6]\n007. | H is the midpoint of AD [C0] =(r51 Midpoint splits in two)> AD:DH = 2/1 [7]\n008. | G is the midpoint of CD [C1] =(r51 Midpoint splits in two)> CD:DG = 2/1 [8]\n009. | AD:DH = 2/1 [7], CD:DG = 2/1 [8] =(AR Deduction)> AD:CD = DH:DG [9]\n010. | ∠(AD,CD) = ∠(DH,DG) [6], AD:CD = DH:DG [9], ▲ACD has the same orientation as ▲DHG [N0] =(r62 SAS Similarity of triangles (Direct))> ▲ACD ≅ ▲HGD [10]\n011. | ▲ACD has the same orientation as ▲DHG [N0], ▲ACD ≅ ▲HGD [10] =(r52 Properties of similar triangles (Direct))> ∠(AC,AD) = ∠(GH,DH) [11]\n012. | E is the midpoint of AB [C2] =(r56 Properties of midpoint (coll))> A, B, E are collinear [12]\n013. | A, B, E are collinear [12], A ≠ B [N8], A ≠ E [N9], B ≠ E [N10] =(r82 Parallel from collinear)> AE ∥ AB [13]\n014. | A, B, E are collinear [12], A ≠ B [N8], A ≠ E [N9], B ≠ E [N10] =(r82 Parallel from collinear)> AE ∥ BE [14]\n015. | F is the midpoint of BC [C3] =(r56 Properties of midpoint (coll))> B, C, F are collinear [15]\n016. | B, C, F are collinear [15], B ≠ C [N11], B ≠ F [N12], C ≠ F [N13] =(r82 Parallel from collinear)> BF ∥ BC [16]\n017. | AE ∥ AB [13], AE ∥ BE [14], BF ∥ BC [16] =(AR Deduction)> ∠(AB,BC) = ∠(BE,BF) [17]\n018. | E is the midpoint of AB [C2] =(r51 Midpoint splits in two)> AB:BE = 2/1 [18]\n019. | F is the midpoint of BC [C3] =(r51 Midpoint splits in two)> BC:BF = 2/1 [19]\n020. | AB:BE = 2/1 [18], BC:BF = 2/1 [19] =(AR Deduction)> AB:BC = BE:BF [20]\n021. | ∠(AB,BC) = ∠(BE,BF) [17], AB:BC = BE:BF [20], ▲ABC has the same orientation as ▲BFE [N7] =(r62 SAS Similarity of triangles (Direct))> ▲ABC ≅ ▲EBF [21]\n022. | ▲ABC has the same orientation as ▲BFE [N7], ▲ABC ≅ ▲EBF [21] =(r52 Properties of similar triangles (Direct))> ∠(AC,BC) = ∠(EF,BF) [22]\n023. | ∠(AC,AD) = ∠(GH,DH) [11], ∠(AC,BC) = ∠(EF,BF) [22], AD ∥ AH [1], BF ∥ BC [16], DH ∥ AH [5] =(AR Deduction)> GH ∥ EF [23]\n\n\n# Appendix: AR deductions:\n\n\n\n006. | Angle Chasing to prove ∠(AD,CD) = ∠(DH,DG):\n| Premise AD ∥ AH gives a linear equation with coefficients {AD: 1, AH: -1}\n| Premise CG ∥ CD gives a linear equation with coefficients {CD: 1, CG: -1}\n| Then {AD: -1, AH: 1} + 1 x {CD: 1, CG: -1}\n|    = {AD: -1, AH: 1, CD: 1, CG: -1}\n| Premise CG ∥ DG gives a linear equation with coefficients {CG: 1, DG: -1}\n| Then {AD: -1, AH: 1, CD: 1, CG: -1} + 1 x {CG: 1, DG: -1}\n|    = {AD: -1, AH: 1, CD: 1, DG: -1}\n| Premise DH ∥ AH gives a linear equation with coefficients {AH: 1, DH: -1}\n| Then {AD: -1, AH: 1, CD: 1, DG: -1} + -1 x {AH: 1, DH: -1}\n|    = {AD: -1, CD: 1, DG: -1, DH: 1}\nWe are left with a linear equation with coefficients {AD: -1, CD: 1, DG: -1, DH: 1} that gives ∠(AD,CD) = ∠(DH,DG)\n\n\n\n009. | Ratio Chasing to prove AD:CD = DH:DG:\n| Premise AD:DH = 2/1 gives a linear equation with coefficients {AD²: 1, DH²: -1}\n| Premise CD:DG = 2/1 gives a linear equation with coefficients {CD²: 1, DG²: -1}\n| Then {AD²: 1, DH²: -1} + -1 x {CD²: 1, DG²: -1}\n|    = {AD²: 1, DH²: -1, CD²: -1, DG²: 1}\nWe are left with a linear equation with coefficients {AD²: 1, DH²: -1, CD²: -1, DG²: 1} that gives AD:CD = DH:DG\n\n\n\n017. | Angle Chasing to prove ∠(AB,BC) = ∠(BE,BF):\n| Premise AE ∥ AB gives a linear equation with coefficients {AB: 1, AE: -1}\n| Premise AE ∥ BE gives a linear equation with coefficients {AE: 1, BE: -1}\n| Then {AB: -1, AE: 1} + -1 x {AE: 1, BE: -1}\n|    = {AB: -1, BE: 1}\n| Premise BF ∥ BC gives a linear equation with coefficients {BC: 1, BF: -1}\n| Then {AB: -1, BE: 1} + 1 x {BC: 1, BF: -1}\n|    = {AB: -1, BE: 1, BC: 1, BF: -1}\nWe are left with a linear equation with coefficients {AB: -1, BE: 1, BC: 1, BF: -1} that gives ∠(AB,BC) = ∠(BE,BF)\n\n\n\n020. | Ratio Chasing to prove AB:BC = BE:BF:\n| Premise AB:BE = 2/1 gives a linear equation with coefficients {AB²: 1, BE²: -1}\n| Premise BC:BF = 2/1 gives a linear equation with coefficients {BC²: 1, BF²: -1}\n| Then {AB²: 1, BE²: -1} + -1 x {BC²: 1, BF²: -1}\n|    = {AB²: 1, BE²: -1, BC²: -1, BF²: 1}\nWe are left with a linear equation with coefficients {AB²: 1, BE²: -1, BC²: -1, BF²: 1} that gives AB:BC = BE:BF\n\n\n\n023. | Angle Chasing to prove GH ∥ EF:\n| Premise ∠(AC,AD) = ∠(GH,DH) gives a linear equation with coefficients {AC: -1, AD: 1, DH: -1, GH: 1}\n| Premise ∠(AC,BC) = ∠(EF,BF) gives a linear equation with coefficients {AC: -1, BC: 1, BF: -1, EF: 1}\n| Then {AC: 1, AD: -1, DH: 1, GH: -1} + 1 x {AC: -1, BC: 1, BF: -1, EF: 1}\n|    = {AD: -1, DH: 1, GH: -1, BC: 1, BF: -1, EF: 1}\n| Premise AD ∥ AH gives a linear equation with coefficients {AD: 1, AH: -1}\n| Then {AD: -1, DH: 1, GH: -1, BC: 1, BF: -1, EF: 1} + 1 x {AD: 1, AH: -1}\n|    = {DH: 1, GH: -1, BC: 1, BF: -1, EF: 1, AH: -1}\n| Premise BF ∥ BC gives a linear equation with coefficients {BC: 1, BF: -1}\n| Then {DH: 1, GH: -1, BC: 1, BF: -1, EF: 1, AH: -1} + -1 x {BC: 1, BF: -1}\n|    = {DH: 1, GH: -1, EF: 1, AH: -1}\n| Premise DH ∥ AH gives a linear equation with coefficients {AH: 1, DH: -1}\n| Then {DH: 1, GH: -1, EF: 1, AH: -1} + 1 x {AH: 1, DH: -1}\n|    = {GH: -1, EF: 1}\nWe are left with a linear equation with coefficients {GH: -1, EF: 1} that gives GH ∥ EF\n\nEnd of proof.",
-    "wall_time": 4.153,
-    "peak_memory_mb": 535.7,
-    "cpu_time": 4.13,
-    "depth": 0,
-    "rules_fired": {
-     "r51": 4,
-     "r56": 4,
-     "AR:ratio": 2,
-     "r82": 7,
-     "AR:angle": 3,
-     "r62": 2,
-     "r52": 2
-    },
-    "rules_in_proof": {
-     "r56": 4,
-     "r82": 7,
-     "AR:angle": 3,
-     "r51": 4,
-     "AR:ratio": 2,
-     "r62": 2,
-     "r52": 2
-    },
-    "tools_used": [
-     "ddar"
+   "settings": {
+    "tools": [
+     "ddar",
+     "transformer",
+     "heuristics"
     ],
-    "tool_calls": {
-     "ddar": 1,
-     "transformer": 0,
-     "heuristics": 0
+    "proposer_order": [
+     "transformer",
+     "heuristics"
+    ],
+    "ddar": {
+     "config": "yuclid",
+     "engine": "yuclid",
+     "ar": true,
+     "n_rules": 37,
+     "rules": "r03 r04 r11 r12 r13 r14 r19 r28 r34 r35 r41 r42 r43 r46 r49 r50 r51 r52 r53 r54 r55 r56 r60 r61 r62 r63 r68 r69 r71 r72 r73 r74 r77 r78 r80 r82 r91"
     },
-    "aux": [],
-    "ddar_calls": 1,
-    "failure_reason": null
-   }
+    "transformer": {
+     "checkpoint": "geo-lm/runs/quick/best.pt",
+     "beam_size": 4,
+     "max_candidates": 4,
+     "max_new_tokens": 64
+    },
+    "heuristics": {
+     "kinds": [
+      "midpoint",
+      "circumcenter",
+      "foot"
+     ],
+     "max_candidates": 8
+    },
+    "search": {
+     "max_depth": 2,
+     "branching": 8,
+     "max_frontier": 6,
+     "max_ddar_calls": 80,
+     "time_limit": 0
+    }
+   },
+   "resources": {
+    "available": {
+     "time_s": 60.0,
+     "memory_mb": 2048.0,
+     "cpu_s": 0.0
+    },
+    "used": {
+     "wall_time_s": 4.314,
+     "peak_memory_mb": 535.5,
+     "cpu_time_s": 4.18,
+     "ddar_calls": 1
+    }
+   },
+   "solved": true,
+   "failure_reason": null,
+   "depth": 0,
+   "aux": [],
+   "tools_used": [
+    "ddar"
+   ],
+   "rules_in_proof": {
+    "r56": 4,
+    "r82": 7,
+    "AR:angle": 3,
+    "r51": 4,
+    "AR:ratio": 2,
+    "r62": 2,
+    "r52": 2
+   },
+   "rules_fired": {
+    "r51": 4,
+    "r56": 4,
+    "AR:ratio": 2,
+    "r82": 7,
+    "AR:angle": 3,
+    "r62": 2,
+    "r52": 2
+   },
+   "proof": "# Problem setup:\n\n## Points\n\n- A(-0.1184, 1.3490)\n- B(-0.3897, 0.6476)\n- C(0.6053, -0.3744)\n- D(0.7559, 0.2139)\n- E(-0.2540, 0.9983)\n- F(0.1078, 0.1366)\n- G(0.6806, -0.0803)\n- H(0.3188, 0.7814)\n\n## Assumptions:\n\n[C0] : H is the midpoint of AD\n[C1] : G is the midpoint of CD\n[C2] : E is the midpoint of AB\n[C3] : F is the midpoint of BC\n\n## Numerical checks\n\n[N0] : ▲ACD has the same orientation as ▲DHG\n[N1] : A ≠ D\n[N2] : A ≠ H\n[N3] : D ≠ H\n[N4] : C ≠ D\n[N5] : C ≠ G\n[N6] : D ≠ G\n[N7] : ▲ABC has the same orientation as ▲BFE\n[N8] : A ≠ B\n[N9] : A ≠ E\n[N10] : B ≠ E\n[N11] : B ≠ C\n[N12] : B ≠ F\n[N13] : C ≠ F\n\n\n# Goals\n\nEF ∥ GH : Proved [23]\n\n\n# Proof:\n\n000. | H is the midpoint of AD [C0] =(r56 Properties of midpoint (coll))> A, D, H are collinear [0]\n001. | A, D, H are collinear [0], A ≠ D [N1], A ≠ H [N2], D ≠ H [N3] =(r82 Parallel from collinear)> AD ∥ AH [1]\n002. | G is the midpoint of CD [C1] =(r56 Properties of midpoint (coll))> C, D, G are collinear [2]\n003. | C, D, G are collinear [2], C ≠ D [N4], C ≠ G [N5], D ≠ G [N6] =(r82 Parallel from collinear)> CG ∥ CD [3]\n004. | C, D, G are collinear [2], C ≠ D [N4], C ≠ G [N5], D ≠ G [N6] =(r82 Parallel from collinear)> CG ∥ DG [4]\n005. | A, D, H are collinear [0], A ≠ D [N1], A ≠ H [N2], D ≠ H [N3] =(r82 Parallel from collinear)> DH ∥ AH [5]\n006. | AD ∥ AH [1], CG ∥ CD [3], CG ∥ DG [4], DH ∥ AH [5] =(AR Deduction)> ∠(AD,CD) = ∠(DH,DG) [6]\n007. | H is the midpoint of AD [C0] =(r51 Midpoint splits in two)> AD:DH = 2/1 [7]\n008. | G is the midpoint of CD [C1] =(r51 Midpoint splits in two)> CD:DG = 2/1 [8]\n009. | AD:DH = 2/1 [7], CD:DG = 2/1 [8] =(AR Deduction)> AD:CD = DH:DG [9]\n010. | ∠(AD,CD) = ∠(DH,DG) [6], AD:CD = DH:DG [9], ▲ACD has the same orientation as ▲DHG [N0] =(r62 SAS Similarity of triangles (Direct))> ▲ACD ≅ ▲HGD [10]\n011. | ▲ACD has the same orientation as ▲DHG [N0], ▲ACD ≅ ▲HGD [10] =(r52 Properties of similar triangles (Direct))> ∠(AC,AD) = ∠(GH,DH) [11]\n012. | E is the midpoint of AB [C2] =(r56 Properties of midpoint (coll))> A, B, E are collinear [12]\n013. | A, B, E are collinear [12], A ≠ B [N8], A ≠ E [N9], B ≠ E [N10] =(r82 Parallel from collinear)> AB ∥ AE [13]\n014. | A, B, E are collinear [12], A ≠ B [N8], A ≠ E [N9], B ≠ E [N10] =(r82 Parallel from collinear)> AE ∥ BE [14]\n015. | F is the midpoint of BC [C3] =(r56 Properties of midpoint (coll))> B, C, F are collinear [15]\n016. | B, C, F are collinear [15], B ≠ C [N11], B ≠ F [N12], C ≠ F [N13] =(r82 Parallel from collinear)> BF ∥ BC [16]\n017. | AB ∥ AE [13], AE ∥ BE [14], BF ∥ BC [16] =(AR Deduction)> ∠(AB,BC) = ∠(BE,BF) [17]\n018. | E is the midpoint of AB [C2] =(r51 Midpoint splits in two)> AB:BE = 2/1 [18]\n019. | F is the midpoint of BC [C3] =(r51 Midpoint splits in two)> BC:BF = 2/1 [19]\n020. | AB:BE = 2/1 [18], BC:BF = 2/1 [19] =(AR Deduction)> AB:BC = BE:BF [20]\n021. | ∠(AB,BC) = ∠(BE,BF) [17], AB:BC = BE:BF [20], ▲ABC has the same orientation as ▲BFE [N7] =(r62 SAS Similarity of triangles (Direct))> ▲ABC ≅ ▲EBF [21]\n022. | ▲ABC has the same orientation as ▲BFE [N7], ▲ABC ≅ ▲EBF [21] =(r52 Properties of similar triangles (Direct))> ∠(AC,BC) = ∠(EF,BF) [22]\n023. | ∠(AC,AD) = ∠(GH,DH) [11], ∠(AC,BC) = ∠(EF,BF) [22], AD ∥ AH [1], BF ∥ BC [16], DH ∥ AH [5] =(AR Deduction)> EF ∥ GH [23]\n\n\n# Appendix: AR deductions:\n\n\n\n006. | Angle Chasing to prove ∠(AD,CD) = ∠(DH,DG):\n| Premise AD ∥ AH gives a linear equation with coefficients {AD: 1, AH: -1}\n| Premise CG ∥ CD gives a linear equation with coefficients {CD: 1, CG: -1}\n| Then {AD: -1, AH: 1} + 1 x {CD: 1, CG: -1}\n|    = {AD: -1, AH: 1, CD: 1, CG: -1}\n| Premise CG ∥ DG gives a linear equation with coefficients {CG: 1, DG: -1}\n| Then {AD: -1, AH: 1, CD: 1, CG: -1} + 1 x {CG: 1, DG: -1}\n|    = {AD: -1, AH: 1, CD: 1, DG: -1}\n| Premise DH ∥ AH gives a linear equation with coefficients {AH: 1, DH: -1}\n| Then {AD: -1, AH: 1, CD: 1, DG: -1} + -1 x {AH: 1, DH: -1}\n|    = {AD: -1, CD: 1, DG: -1, DH: 1}\nWe are left with a linear equation with coefficients {AD: -1, CD: 1, DG: -1, DH: 1} that gives ∠(AD,CD) = ∠(DH,DG)\n\n\n\n009. | Ratio Chasing to prove AD:CD = DH:DG:\n| Premise AD:DH = 2/1 gives a linear equation with coefficients {AD²: 1, DH²: -1}\n| Premise CD:DG = 2/1 gives a linear equation with coefficients {CD²: 1, DG²: -1}\n| Then {AD²: 1, DH²: -1} + -1 x {CD²: 1, DG²: -1}\n|    = {AD²: 1, DH²: -1, CD²: -1, DG²: 1}\nWe are left with a linear equation with coefficients {AD²: 1, DH²: -1, CD²: -1, DG²: 1} that gives AD:CD = DH:DG\n\n\n\n017. | Angle Chasing to prove ∠(AB,BC) = ∠(BE,BF):\n| Premise AB ∥ AE gives a linear equation with coefficients {AB: 1, AE: -1}\n| Premise AE ∥ BE gives a linear equation with coefficients {AE: 1, BE: -1}\n| Then {AB: -1, AE: 1} + -1 x {AE: 1, BE: -1}\n|    = {AB: -1, BE: 1}\n| Premise BF ∥ BC gives a linear equation with coefficients {BC: 1, BF: -1}\n| Then {AB: -1, BE: 1} + 1 x {BC: 1, BF: -1}\n|    = {AB: -1, BE: 1, BC: 1, BF: -1}\nWe are left with a linear equation with coefficients {AB: -1, BE: 1, BC: 1, BF: -1} that gives ∠(AB,BC) = ∠(BE,BF)\n\n\n\n020. | Ratio Chasing to prove AB:BC = BE:BF:\n| Premise AB:BE = 2/1 gives a linear equation with coefficients {AB²: 1, BE²: -1}\n| Premise BC:BF = 2/1 gives a linear equation with coefficients {BC²: 1, BF²: -1}\n| Then {AB²: 1, BE²: -1} + -1 x {BC²: 1, BF²: -1}\n|    = {AB²: 1, BE²: -1, BC²: -1, BF²: 1}\nWe are left with a linear equation with coefficients {AB²: 1, BE²: -1, BC²: -1, BF²: 1} that gives AB:BC = BE:BF\n\n\n\n023. | Angle Chasing to prove EF ∥ GH:\n| Premise ∠(AC,AD) = ∠(GH,DH) gives a linear equation with coefficients {AC: -1, AD: 1, DH: -1, GH: 1}\n| Premise ∠(AC,BC) = ∠(EF,BF) gives a linear equation with coefficients {AC: -1, BC: 1, BF: -1, EF: 1}\n| Then {AC: 1, AD: -1, DH: 1, GH: -1} + 1 x {AC: -1, BC: 1, BF: -1, EF: 1}\n|    = {AD: -1, DH: 1, GH: -1, BC: 1, BF: -1, EF: 1}\n| Premise AD ∥ AH gives a linear equation with coefficients {AD: 1, AH: -1}\n| Then {AD: -1, DH: 1, GH: -1, BC: 1, BF: -1, EF: 1} + 1 x {AD: 1, AH: -1}\n|    = {DH: 1, GH: -1, BC: 1, BF: -1, EF: 1, AH: -1}\n| Premise BF ∥ BC gives a linear equation with coefficients {BC: 1, BF: -1}\n| Then {DH: 1, GH: -1, BC: 1, BF: -1, EF: 1, AH: -1} + -1 x {BC: 1, BF: -1}\n|    = {DH: 1, GH: -1, EF: 1, AH: -1}\n| Premise DH ∥ AH gives a linear equation with coefficients {AH: 1, DH: -1}\n| Then {DH: 1, GH: -1, EF: 1, AH: -1} + 1 x {AH: 1, DH: -1}\n|    = {GH: -1, EF: 1}\nWe are left with a linear equation with coefficients {GH: -1, EF: 1} that gives EF ∥ GH\n\nEnd of proof."
   }
  ]
 }
