@@ -1,0 +1,116 @@
+{
+ "problem": "examples/right_triangle_median",
+ "text": "a b c = r_triangle a b c; m = midpoint m b c ? cong m a m b",
+ "description": "Midpoint of the hypotenuse of a right triangle is equidistant from all vertices.",
+ "meta": {
+  "source": "classical",
+  "tags": "right triangle, midpoint"
+ },
+ "records": [
+  {
+   "config": "ddar_only",
+   "config_sha": "b9a2d25181",
+   "budget": {
+    "time_s": 60.0,
+    "memory_mb": 2048.0,
+    "cpu_s": 0.0
+   },
+   "date": "2026-10-29T00:39:30+00:00",
+   "git_commit": "83b37eb",
+   "result": {
+    "solved": true,
+    "proof": "# Problem setup:\n\n## Points\n\n- A(0.5383, 0.5390)\n- B(0.3439, 1.2776)\n- C(0.9974, 0.6599)\n- M(0.6706, 0.9688)\n\n## Assumptions:\n\n[C0] : M is the midpoint of BC\n[C1] : AB ⟂ AC\n\n\n# Goals\n\nAM = BM : Proved [0]\n\n\n# Proof:\n\n000. | M is the midpoint of BC [C0], AB ⟂ AC [C1] =(r19 Hypotenuse is diameter)> AM = BM [0]\n\n\n# Appendix: AR deductions:\n\nEnd of proof.",
+    "wall_time": 1.975,
+    "peak_memory_mb": 177.5,
+    "cpu_time": 2.01,
+    "depth": 0,
+    "rules_fired": {
+     "r19": 1
+    },
+    "rules_in_proof": {
+     "r19": 1
+    },
+    "tools_used": [
+     "ddar"
+    ],
+    "tool_calls": {
+     "ddar": 1
+    },
+    "aux": [],
+    "ddar_calls": 1,
+    "failure_reason": null
+   }
+  },
+  {
+   "config": "heuristics_only",
+   "config_sha": "2c85201b0f",
+   "budget": {
+    "time_s": 60.0,
+    "memory_mb": 2048.0,
+    "cpu_s": 0.0
+   },
+   "date": "2026-10-29T00:39:40+00:00",
+   "git_commit": "83b37eb",
+   "result": {
+    "solved": true,
+    "proof": "# Problem setup:\n\n## Points\n\n- A(0.5383, 0.5390)\n- B(0.3439, 1.2776)\n- C(0.9974, 0.6599)\n- M(0.6706, 0.9688)\n\n## Assumptions:\n\n[C0] : M is the midpoint of BC\n[C1] : AB ⟂ AC\n\n\n# Goals\n\nAM = BM : Proved [0]\n\n\n# Proof:\n\n000. | M is the midpoint of BC [C0], AB ⟂ AC [C1] =(r19 Hypotenuse is diameter)> AM = BM [0]\n\n\n# Appendix: AR deductions:\n\nEnd of proof.",
+    "wall_time": 1.978,
+    "peak_memory_mb": 177.4,
+    "cpu_time": 2.01,
+    "depth": 0,
+    "rules_fired": {
+     "r19": 1
+    },
+    "rules_in_proof": {
+     "r19": 1
+    },
+    "tools_used": [
+     "ddar"
+    ],
+    "tool_calls": {
+     "ddar": 1,
+     "heuristics": 0
+    },
+    "aux": [],
+    "ddar_calls": 1,
+    "failure_reason": null
+   }
+  },
+  {
+   "config": "quick_model",
+   "config_sha": "3493f28b70",
+   "budget": {
+    "time_s": 60.0,
+    "memory_mb": 2048.0,
+    "cpu_s": 0.0
+   },
+   "date": "2026-10-29T00:39:55+00:00",
+   "git_commit": "83b37eb",
+   "result": {
+    "solved": true,
+    "proof": "# Problem setup:\n\n## Points\n\n- A(0.5383, 0.5390)\n- B(0.3439, 1.2776)\n- C(0.9974, 0.6599)\n- M(0.6706, 0.9688)\n\n## Assumptions:\n\n[C0] : M is the midpoint of BC\n[C1] : AB ⟂ AC\n\n\n# Goals\n\nBM = AM : Proved [0]\n\n\n# Proof:\n\n000. | M is the midpoint of BC [C0], AB ⟂ AC [C1] =(r19 Hypotenuse is diameter)> BM = AM [0]\n\n\n# Appendix: AR deductions:\n\nEnd of proof.",
+    "wall_time": 4.081,
+    "peak_memory_mb": 535.6,
+    "cpu_time": 4.04,
+    "depth": 0,
+    "rules_fired": {
+     "r19": 1
+    },
+    "rules_in_proof": {
+     "r19": 1
+    },
+    "tools_used": [
+     "ddar"
+    ],
+    "tool_calls": {
+     "ddar": 1,
+     "transformer": 0,
+     "heuristics": 0
+    },
+    "aux": [],
+    "ddar_calls": 1,
+    "failure_reason": null
+   }
+  }
+ ]
+}

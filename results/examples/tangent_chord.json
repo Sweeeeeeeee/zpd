@@ -1,0 +1,146 @@
+{
+ "problem": "examples/tangent_chord",
+ "text": "a b c = triangle a b c; o = circle o a b c; t = on_tline t a o a ? eqangle a t a b c a c b",
+ "description": "Tangent-chord angle: the tangent at A to the circumcircle makes with AB the angle ACB.",
+ "meta": {
+  "source": "classical",
+  "tags": "tangent, angles, circle"
+ },
+ "records": [
+  {
+   "config": "ddar_only",
+   "config_sha": "b9a2d25181",
+   "budget": {
+    "time_s": 60.0,
+    "memory_mb": 2048.0,
+    "cpu_s": 0.0
+   },
+   "date": "2026-10-29T00:39:32+00:00",
+   "git_commit": "83b37eb",
+   "result": {
+    "solved": true,
+    "proof": "# Problem setup:\n\n## Points\n\n- A(0.4127, 0.5303)\n- B(0.9202, 0.6639)\n- C(0.5468, 1.2823)\n- O(0.5902, 0.8866)\n- T(0.8508, 0.3120)\n\n## Assumptions:\n\n[C0] : O is the circumcenter of the circle ●ABC\n[C1] : AO ⟂ AT\n\n## Numerical checks\n\n[N0] : ▲BCO has the same orientation as ▲BCO\n\n\n# Goals\n\n∠(AB,AT) = ∠(BC,AC) : Proved [8]\n\n\n# Proof:\n\n000. | O is the circumcenter of the circle ●ABC [C0] =(r72 Disassembling a circle)> BO = AO [0]\n001. | BO = AO [0] =(r13 Isosceles triangle equal angles)> ∠(AB,AO) = ∠(BO,AB) [1]\n002. | O is the circumcenter of the circle ●ABC [C0] =(r72 Disassembling a circle)> BO = CO [2]\n003. | BO = AO [0], BO = CO [2] =(AR Deduction)> AO = CO [3]\n004. | AO = CO [3] =(r13 Isosceles triangle equal angles)> ∠(AC,AO) = ∠(CO,AC) [4]\n005. | BO = CO [2] =(AR Deduction)> BO:CO = CO:BO [5]\n006. | ∠(BO,CO) = ∠(BO,CO) [T0], BO:CO = CO:BO [5], ▲BCO has the same orientation as ▲BCO [N0] =(r63 SAS Similarity of triangles (Reverse))> ▲BCO ≅ ▲CBO [6]\n007. | ▲BCO has the same orientation as ▲BCO [N0], ▲BCO ≅ ▲CBO [6] =(r53 Properties of similar triangles (Reverse))> ∠(BC,BO) = ∠(CO,BC) [7]\n008. | ∠(AB,AO) = ∠(BO,AB) [1], ∠(AC,AO) = ∠(CO,AC) [4], ∠(BC,BO) = ∠(CO,BC) [7], AO ⟂ AT [C1] =(AR Deduction)> ∠(AB,AT) = ∠(BC,AC) [8]\n\n\n# Appendix: AR deductions:\n\n\n\n003. | Ratio Chasing to prove AO = CO:\n| Premise BO = AO gives a linear equation with coefficients {AO²: 1, BO²: -1}\n| Premise BO = CO gives a linear equation with coefficients {BO²: 1, CO²: -1}\n| Then {AO²: 1, BO²: -1} + 1 x {BO²: 1, CO²: -1}\n|    = {AO²: 1, CO²: -1}\nWe are left with a linear equation with coefficients {AO²: 1, CO²: -1} that gives AO = CO\n\n\n\n005. | Ratio Chasing to prove BO:CO = CO:BO:\n| Premise BO = CO gives a linear equation with coefficients {BO²: 1, CO²: -1}\nWe are left with a linear equation with coefficients {BO²: 2, CO²: -2} that gives BO:CO = CO:BO\n\n\n\n008. | Angle Chasing to prove ∠(AB,AT) = ∠(BC,AC):\n| Premise ∠(AB,AO) = ∠(BO,AB) gives a linear equation with coefficients {AB: -2, AO: 1, BO: 1}\n| Premise ∠(AC,AO) = ∠(CO,AC) gives a linear equation with coefficients {AC: -2, AO: 1, CO: 1}\n| Then {AB: -1, AO: 1/2, BO: 1/2} + 1/2 x {AC: -2, AO: 1, CO: 1}\n|    = {AB: -1, AO: 1, BO: 1/2, AC: -1, CO: 1/2}\n| Premise ∠(BC,BO) = ∠(CO,BC) gives a linear equation with coefficients {BC: -2, BO: 1, CO: 1}\n| Then {AB: -1, AO: 1, BO: 1/2, AC: -1, CO: 1/2} + -1/2 x {BC: -2, BO: 1, CO: 1}\n|    = {AB: -1, AO: 1, AC: -1, BC: 1}\n| Premise AO ⟂ AT gives a linear equation with coefficients {AO: 1, AT: -1}\n| Then {AB: -1, AO: 1, AC: -1, BC: 1} + -1 x {AO: 1, AT: -1}\n|    = {AB: -1, AC: -1, BC: 1, AT: 1}\nWe are left with a linear equation with coefficients {AB: -1, AC: -1, BC: 1, AT: 1} that gives ∠(AB,AT) = ∠(BC,AC)\n\nEnd of proof.",
+    "wall_time": 2.037,
+    "peak_memory_mb": 177.6,
+    "cpu_time": 1.97,
+    "depth": 0,
+    "rules_fired": {
+     "r72": 2,
+     "AR:ratio": 2,
+     "r13": 2,
+     "r63": 1,
+     "r53": 1,
+     "AR:angle": 1
+    },
+    "rules_in_proof": {
+     "r72": 2,
+     "r13": 2,
+     "AR:ratio": 2,
+     "r63": 1,
+     "r53": 1,
+     "AR:angle": 1
+    },
+    "tools_used": [
+     "ddar"
+    ],
+    "tool_calls": {
+     "ddar": 1
+    },
+    "aux": [],
+    "ddar_calls": 1,
+    "failure_reason": null
+   }
+  },
+  {
+   "config": "heuristics_only",
+   "config_sha": "2c85201b0f",
+   "budget": {
+    "time_s": 60.0,
+    "memory_mb": 2048.0,
+    "cpu_s": 0.0
+   },
+   "date": "2026-10-29T00:39:42+00:00",
+   "git_commit": "83b37eb",
+   "result": {
+    "solved": true,
+    "proof": "# Problem setup:\n\n## Points\n\n- A(0.4127, 0.5303)\n- B(0.9202, 0.6639)\n- C(0.5468, 1.2823)\n- O(0.5902, 0.8866)\n- T(0.8508, 0.3120)\n\n## Assumptions:\n\n[C0] : O is the circumcenter of the circle ●ABC\n[C1] : AO ⟂ AT\n\n## Numerical checks\n\n[N0] : ▲BCO has the same orientation as ▲BCO\n\n\n# Goals\n\n∠(AB,AT) = ∠(BC,AC) : Proved [8]\n\n\n# Proof:\n\n000. | O is the circumcenter of the circle ●ABC [C0] =(r72 Disassembling a circle)> BO = AO [0]\n001. | BO = AO [0] =(r13 Isosceles triangle equal angles)> ∠(AB,AO) = ∠(BO,AB) [1]\n002. | O is the circumcenter of the circle ●ABC [C0] =(r72 Disassembling a circle)> CO = BO [2]\n003. | BO = AO [0], CO = BO [2] =(AR Deduction)> CO = AO [3]\n004. | CO = AO [3] =(r13 Isosceles triangle equal angles)> ∠(AC,AO) = ∠(CO,AC) [4]\n005. | CO = BO [2] =(AR Deduction)> BO:CO = CO:BO [5]\n006. | ∠(BO,CO) = ∠(BO,CO) [T0], BO:CO = CO:BO [5], ▲BCO has the same orientation as ▲BCO [N0] =(r63 SAS Similarity of triangles (Reverse))> ▲BCO ≅ ▲CBO [6]\n007. | ▲BCO has the same orientation as ▲BCO [N0], ▲BCO ≅ ▲CBO [6] =(r53 Properties of similar triangles (Reverse))> ∠(BC,BO) = ∠(CO,BC) [7]\n008. | ∠(AB,AO) = ∠(BO,AB) [1], ∠(AC,AO) = ∠(CO,AC) [4], ∠(BC,BO) = ∠(CO,BC) [7], AO ⟂ AT [C1] =(AR Deduction)> ∠(AB,AT) = ∠(BC,AC) [8]\n\n\n# Appendix: AR deductions:\n\n\n\n003. | Ratio Chasing to prove CO = AO:\n| Premise BO = AO gives a linear equation with coefficients {AO²: 1, BO²: -1}\n| Premise CO = BO gives a linear equation with coefficients {BO²: 1, CO²: -1}\n| Then {AO²: 1, BO²: -1} + 1 x {BO²: 1, CO²: -1}\n|    = {AO²: 1, CO²: -1}\nWe are left with a linear equation with coefficients {AO²: 1, CO²: -1} that gives CO = AO\n\n\n\n005. | Ratio Chasing to prove BO:CO = CO:BO:\n| Premise CO = BO gives a linear equation with coefficients {BO²: 1, CO²: -1}\nWe are left with a linear equation with coefficients {BO²: 2, CO²: -2} that gives BO:CO = CO:BO\n\n\n\n008. | Angle Chasing to prove ∠(AB,AT) = ∠(BC,AC):\n| Premise ∠(AB,AO) = ∠(BO,AB) gives a linear equation with coefficients {AB: -2, AO: 1, BO: 1}\n| Premise ∠(AC,AO) = ∠(CO,AC) gives a linear equation with coefficients {AC: -2, AO: 1, CO: 1}\n| Then {AB: -1, AO: 1/2, BO: 1/2} + 1/2 x {AC: -2, AO: 1, CO: 1}\n|    = {AB: -1, AO: 1, BO: 1/2, AC: -1, CO: 1/2}\n| Premise ∠(BC,BO) = ∠(CO,BC) gives a linear equation with coefficients {BC: -2, BO: 1, CO: 1}\n| Then {AB: -1, AO: 1, BO: 1/2, AC: -1, CO: 1/2} + -1/2 x {BC: -2, BO: 1, CO: 1}\n|    = {AB: -1, AO: 1, AC: -1, BC: 1}\n| Premise AO ⟂ AT gives a linear equation with coefficients {AO: 1, AT: -1}\n| Then {AB: -1, AO: 1, AC: -1, BC: 1} + -1 x {AO: 1, AT: -1}\n|    = {AB: -1, AC: -1, BC: 1, AT: 1}\nWe are left with a linear equation with coefficients {AB: -1, AC: -1, BC: 1, AT: 1} that gives ∠(AB,AT) = ∠(BC,AC)\n\nEnd of proof.",
+    "wall_time": 2.078,
+    "peak_memory_mb": 177.7,
+    "cpu_time": 2.08,
+    "depth": 0,
+    "rules_fired": {
+     "r72": 2,
+     "AR:ratio": 2,
+     "r13": 2,
+     "r63": 1,
+     "r53": 1,
+     "AR:angle": 1
+    },
+    "rules_in_proof": {
+     "r72": 2,
+     "r13": 2,
+     "AR:ratio": 2,
+     "r63": 1,
+     "r53": 1,
+     "AR:angle": 1
+    },
+    "tools_used": [
+     "ddar"
+    ],
+    "tool_calls": {
+     "ddar": 1,
+     "heuristics": 0
+    },
+    "aux": [],
+    "ddar_calls": 1,
+    "failure_reason": null
+   }
+  },
+  {
+   "config": "quick_model",
+   "config_sha": "3493f28b70",
+   "budget": {
+    "time_s": 60.0,
+    "memory_mb": 2048.0,
+    "cpu_s": 0.0
+   },
+   "date": "2026-10-29T00:39:59+00:00",
+   "git_commit": "83b37eb",
+   "result": {
+    "solved": true,
+    "proof": "# Problem setup:\n\n## Points\n\n- A(0.4127, 0.5303)\n- B(0.9202, 0.6639)\n- C(0.5468, 1.2823)\n- O(0.5902, 0.8866)\n- T(0.8508, 0.3120)\n\n## Assumptions:\n\n[C0] : O is the circumcenter of the circle ●ABC\n[C1] : AO ⟂ AT\n\n## Numerical checks\n\n[N0] : ▲BCO has the same orientation as ▲BCO\n\n\n# Goals\n\n∠(AB,AT) = ∠(BC,AC) : Proved [8]\n\n\n# Proof:\n\n000. | O is the circumcenter of the circle ●ABC [C0] =(r72 Disassembling a circle)> BO = AO [0]\n001. | BO = AO [0] =(r13 Isosceles triangle equal angles)> ∠(AB,AO) = ∠(BO,AB) [1]\n002. | O is the circumcenter of the circle ●ABC [C0] =(r72 Disassembling a circle)> CO = BO [2]\n003. | BO = AO [0], CO = BO [2] =(AR Deduction)> CO = AO [3]\n004. | CO = AO [3] =(r13 Isosceles triangle equal angles)> ∠(AC,AO) = ∠(CO,AC) [4]\n005. | CO = BO [2] =(AR Deduction)> BO:CO = CO:BO [5]\n006. | ∠(BO,CO) = ∠(BO,CO) [T0], BO:CO = CO:BO [5], ▲BCO has the same orientation as ▲BCO [N0] =(r63 SAS Similarity of triangles (Reverse))> ▲BCO ≅ ▲CBO [6]\n007. | ▲BCO has the same orientation as ▲BCO [N0], ▲BCO ≅ ▲CBO [6] =(r53 Properties of similar triangles (Reverse))> ∠(BC,BO) = ∠(CO,BC) [7]\n008. | ∠(AB,AO) = ∠(BO,AB) [1], ∠(AC,AO) = ∠(CO,AC) [4], ∠(BC,BO) = ∠(CO,BC) [7], AO ⟂ AT [C1] =(AR Deduction)> ∠(AB,AT) = ∠(BC,AC) [8]\n\n\n# Appendix: AR deductions:\n\n\n\n003. | Ratio Chasing to prove CO = AO:\n| Premise BO = AO gives a linear equation with coefficients {AO²: 1, BO²: -1}\n| Premise CO = BO gives a linear equation with coefficients {BO²: 1, CO²: -1}\n| Then {AO²: 1, BO²: -1} + 1 x {BO²: 1, CO²: -1}\n|    = {AO²: 1, CO²: -1}\nWe are left with a linear equation with coefficients {AO²: 1, CO²: -1} that gives CO = AO\n\n\n\n005. | Ratio Chasing to prove BO:CO = CO:BO:\n| Premise CO = BO gives a linear equation with coefficients {BO²: 1, CO²: -1}\nWe are left with a linear equation with coefficients {BO²: 2, CO²: -2} that gives BO:CO = CO:BO\n\n\n\n008. | Angle Chasing to prove ∠(AB,AT) = ∠(BC,AC):\n| Premise ∠(AB,AO) = ∠(BO,AB) gives a linear equation with coefficients {AB: -2, AO: 1, BO: 1}\n| Premise ∠(AC,AO) = ∠(CO,AC) gives a linear equation with coefficients {AC: -2, AO: 1, CO: 1}\n| Then {AB: -1, AO: 1/2, BO: 1/2} + 1/2 x {AC: -2, AO: 1, CO: 1}\n|    = {AB: -1, AO: 1, BO: 1/2, AC: -1, CO: 1/2}\n| Premise ∠(BC,BO) = ∠(CO,BC) gives a linear equation with coefficients {BC: -2, BO: 1, CO: 1}\n| Then {AB: -1, AO: 1, BO: 1/2, AC: -1, CO: 1/2} + -1/2 x {BC: -2, BO: 1, CO: 1}\n|    = {AB: -1, AO: 1, AC: -1, BC: 1}\n| Premise AO ⟂ AT gives a linear equation with coefficients {AO: 1, AT: -1}\n| Then {AB: -1, AO: 1, AC: -1, BC: 1} + -1 x {AO: 1, AT: -1}\n|    = {AB: -1, AC: -1, BC: 1, AT: 1}\nWe are left with a linear equation with coefficients {AB: -1, AC: -1, BC: 1, AT: 1} that gives ∠(AB,AT) = ∠(BC,AC)\n\nEnd of proof.",
+    "wall_time": 4.123,
+    "peak_memory_mb": 535.5,
+    "cpu_time": 4.04,
+    "depth": 0,
+    "rules_fired": {
+     "r72": 2,
+     "AR:ratio": 2,
+     "r13": 2,
+     "r63": 1,
+     "r53": 1,
+     "AR:angle": 1
+    },
+    "rules_in_proof": {
+     "r72": 2,
+     "r13": 2,
+     "AR:ratio": 2,
+     "r63": 1,
+     "r53": 1,
+     "AR:angle": 1
+    },
+    "tools_used": [
+     "ddar"
+    ],
+    "tool_calls": {
+     "ddar": 1,
+     "transformer": 0,
+     "heuristics": 0
+    },
+    "aux": [],
+    "ddar_calls": 1,
+    "failure_reason": null
+   }
+  }
+ ]
+}

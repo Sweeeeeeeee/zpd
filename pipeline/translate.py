@@ -62,8 +62,11 @@ def problem_to_model_text(state: ProofState) -> tuple[str, dict[str, str]]:
                 continue
             for pred in _expand([pc.predicate_type.value, *map(str, pc.args)]):
                 preds.append(" ".join(to_model.get(t, t) for t in pred))
-        points = " ".join(to_model[str(p)] for p in clause.points)
-        parts.append(f"{points} : {', '.join(preds)}".rstrip())
+        points = [to_model[str(p)] for p in clause.points]
+        if preds:
+            parts.append(f"{' '.join(points)} : {', '.join(preds)}")
+        else:  # free points are listed one by one in the training data: "a :; b :"
+            parts.extend(f"{p} :" for p in points)
     goals = []
     for goal in formulation.goals:
         goals.append(" ".join([goal.predicate_type.value, *(to_model.get(str(a), str(a)) for a in goal.args)]))

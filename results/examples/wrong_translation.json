@@ -1,0 +1,104 @@
+{
+ "problem": "examples/wrong_translation",
+ "text": "a b c = triangle a b c; h = on_line h b a, on_tline h c a b ? perp a h b c",
+ "description": "WRONG on purpose: H built with on_line instead of on_tline, so it is not the orthocenter.",
+ "meta": {
+  "source": "deliberately wrong translation (for the numerical check)",
+  "tags": "invalid"
+ },
+ "records": [
+  {
+   "config": "ddar_only",
+   "config_sha": "b9a2d25181",
+   "budget": {
+    "time_s": 60.0,
+    "memory_mb": 2048.0,
+    "cpu_s": 0.0
+   },
+   "date": "2026-10-29T00:39:36+00:00",
+   "git_commit": "83b37eb",
+   "result": {
+    "solved": false,
+    "proof": null,
+    "wall_time": 2.021,
+    "peak_memory_mb": 176.7,
+    "cpu_time": 2.06,
+    "depth": 0,
+    "rules_fired": {},
+    "rules_in_proof": {},
+    "tools_used": [
+     "ddar"
+    ],
+    "tool_calls": {
+     "ddar": 1
+    },
+    "aux": [],
+    "ddar_calls": 1,
+    "failure_reason": "problem could not be built: ValueError: Failed to build a valid problem setup for problem after 100 attempts. Last error: Did not even try to build a valid problem setup for problem."
+   }
+  },
+  {
+   "config": "heuristics_only",
+   "config_sha": "2c85201b0f",
+   "budget": {
+    "time_s": 60.0,
+    "memory_mb": 2048.0,
+    "cpu_s": 0.0
+   },
+   "date": "2026-10-29T00:39:46+00:00",
+   "git_commit": "83b37eb",
+   "result": {
+    "solved": false,
+    "proof": null,
+    "wall_time": 1.979,
+    "peak_memory_mb": 176.8,
+    "cpu_time": 2.05,
+    "depth": 0,
+    "rules_fired": {},
+    "rules_in_proof": {},
+    "tools_used": [
+     "ddar"
+    ],
+    "tool_calls": {
+     "ddar": 1,
+     "heuristics": 0
+    },
+    "aux": [],
+    "ddar_calls": 1,
+    "failure_reason": "problem could not be built: ValueError: Failed to build a valid problem setup for problem after 100 attempts. Last error: Did not even try to build a valid problem setup for problem."
+   }
+  },
+  {
+   "config": "quick_model",
+   "config_sha": "3493f28b70",
+   "budget": {
+    "time_s": 60.0,
+    "memory_mb": 2048.0,
+    "cpu_s": 0.0
+   },
+   "date": "2026-10-29T00:40:08+00:00",
+   "git_commit": "83b37eb",
+   "result": {
+    "solved": false,
+    "proof": null,
+    "wall_time": 4.474,
+    "peak_memory_mb": 535.3,
+    "cpu_time": 4.24,
+    "depth": 0,
+    "rules_fired": {},
+    "rules_in_proof": {},
+    "tools_used": [
+     "ddar"
+    ],
+    "tool_calls": {
+     "ddar": 1,
+     "transformer": 0,
+     "heuristics": 0
+    },
+    "aux": [],
+    "ddar_calls": 1,
+    "failure_reason": "problem could not be built: ValueError: Failed to build a valid problem setup for problem after 100 attempts. Last error: Did not even try to build a valid problem setup for problem."
+   }
+  }
+ ]
+}
