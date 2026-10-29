@@ -95,7 +95,13 @@ def _git_commit() -> str | None:
     try:
         out = subprocess.run(["git", "rev-parse", "--short", "HEAD"], cwd=ROOT,
                              capture_output=True, text=True, timeout=10)
-        return out.stdout.strip() or None
+        commit = out.stdout.strip()
+        if not commit:
+            return None
+        # Uncommitted code changes (stored results themselves don't count).
+        dirty = subprocess.run(["git", "status", "--porcelain", "--", ".", ":!results"],
+                               cwd=ROOT, capture_output=True, text=True, timeout=10)
+        return commit + ("+dirty" if dirty.stdout.strip() else "")
     except (OSError, subprocess.TimeoutExpired):
         return None
 

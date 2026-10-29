@@ -93,4 +93,5 @@ The wiring has been run end to end with the 60-step smoke model: DDAR → propos
 → DDAR, including proposals rejected because they break the figure. The real
 model (`geo-lm/configs/train_small.json`) still has to be trained before the
 transformer tool proposes anything useful. When the search fails, the result
-shows the first state of the last frontier.
+reports the deepest level searched, the tools that were called, and no auxiliary
+points. A tool whose model file is missing is switched off with a warning.

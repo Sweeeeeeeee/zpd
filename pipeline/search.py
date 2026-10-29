@@ -29,6 +29,7 @@ implementation of the Tool interface.
 from __future__ import annotations
 
 import argparse
+import sys
 import importlib
 import json
 import time
@@ -90,7 +91,14 @@ def load_tools(config: dict) -> tuple[Tool | None, list[Tool]]:
     unknown = set(order) - set(specs)
     if unknown:
         raise ValueError(f"proposer_order names unknown tools {sorted(unknown)}")
-    proposers = [load_tool(n, enabled[n]) for n in order if n in enabled]
+    proposers = []
+    for n in order:
+        if n not in enabled:
+            continue
+        try:
+            proposers.append(load_tool(n, enabled[n]))
+        except FileNotFoundError as e:  # e.g. a model that has not been trained yet
+            print(f"warning: tool '{n}' switched off: {e}", file=sys.stderr)
     return ddar, proposers
 
 
@@ -98,13 +106,21 @@ def search(problem: str, ddar: Tool | None, proposers: list[Tool], limits: Searc
     t0 = time.time()
     rejected: Counter = Counter()
 
+    explored = 0  # deepest search level that was run
+    tools = ([ddar] if ddar else []) + proposers
+
     def finish(state: ProofState, reason: str | None) -> SearchResult:
-        used = sorted({a.source for a in state.aux} | ({ddar.name} if ddar and state.checked else set()))
+        if state.solved:  # tools on the solving path
+            used = sorted({a.source for a in state.aux} | {ddar.name})
+        else:  # report the search as a whole, not an arbitrary unsolved branch
+            state = ProofState(setup=root.setup, goal=root.goal, rules_fired=root.rules_fired)
+            used = [t.name for t in tools if t.calls]
         return SearchResult(
-            solved=state.solved, proof=state.proof, depth=state.depth,
+            solved=state.solved, proof=state.proof,
+            depth=state.depth if state.solved else explored,
             aux=[{"clauses": list(a.clauses), "source": a.source, "note": a.note} for a in state.aux],
             rules_fired=dict(state.rules_fired), rules_in_proof=dict(state.rules_in_proof),
-            tool_calls={t.name: t.calls for t in ([ddar] if ddar else []) + proposers},
+            tool_calls={t.name: t.calls for t in tools},
             tools_used=used, ddar_calls=ddar.calls if ddar else 0,
             wall_time=round(time.time() - t0, 3), failure_reason=None if state.solved else reason,
             rejected=dict(rejected),
@@ -121,7 +137,7 @@ def search(problem: str, ddar: Tool | None, proposers: list[Tool], limits: Searc
     if not proposers:
         return finish(root, "DDAR saturated and no proposer tools are enabled")
 
-    frontier, best = [root], root
+    frontier = [root]
 
     def out_of_budget() -> str | None:
         if limits.max_ddar_calls and ddar.calls >= limits.max_ddar_calls:
@@ -130,7 +146,8 @@ def search(problem: str, ddar: Tool | None, proposers: list[Tool], limits: Searc
             return f"budget: {limits.time_limit:.0f}s"
         return None
 
-    for _depth in range(1, limits.max_depth + 1):
+    for depth in range(1, limits.max_depth + 1):
+        explored = depth
         children: list[ProofState] = []
         for state in frontier:
             proposals, seen = [], set()
@@ -141,7 +158,7 @@ def search(problem: str, ddar: Tool | None, proposers: list[Tool], limits: Searc
                         proposals.append(p)
             for proposal in proposals[: limits.branching]:
                 if reason := out_of_budget():
-                    return finish(best, reason)
+                    return finish(root, reason)
                 child = state.child(proposal)
                 ddar.run(child)
                 if child.error:
@@ -151,10 +168,9 @@ def search(problem: str, ddar: Tool | None, proposers: list[Tool], limits: Searc
                     return finish(child, None)
                 children.append(child)
         if not children:
-            return finish(best, "no usable proposals")
+            return finish(root, "no usable proposals")
         frontier = children[: limits.max_frontier]
-        best = frontier[0]
-    return finish(best, f"not solved within depth {limits.max_depth}")
+    return finish(root, f"not solved within depth {limits.max_depth}")
 
 
 def load_config(path: str | Path) -> dict:

@@ -30,6 +30,7 @@ def test_unsolved_problem_reports_reason():
     }
     r = solve(ORTHOCENTER, config, Budget(time_s=60))
     assert not r.solved and r.failure_reason and r.proof is None
+    assert r.depth == 0 and r.aux == [] and r.tools_used == ["ddar"]
 
 
 def test_time_limit_is_enforced():

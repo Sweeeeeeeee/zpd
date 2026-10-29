@@ -93,3 +93,17 @@ def test_shipped_pipeline_configs_parse():
     for path in sorted((ROOT / "pipeline/configs").glob("*.json")):
         config = json.loads(path.read_text())
         assert "ddar" in config["tools"]
+
+
+def test_tool_with_missing_model_is_switched_off(capsys):
+    config = {
+        "tools": {
+            "ddar": {"options": {"config": "ddar/configs/yuclid.json"}},
+            "transformer": {"options": {"checkpoint": "no/such/model.pt"}},
+            "heuristics": {},
+        },
+        "proposer_order": ["transformer", "heuristics"],
+    }
+    _, proposers = load_tools(config)
+    assert [type(t) for t in proposers] == [HeuristicsTool]
+    assert "switched off" in capsys.readouterr().err
