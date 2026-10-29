@@ -38,7 +38,7 @@ def build_solver(problem_setup, config: DDARConfig, seed: int = 0):
     )
 
 
-def _label(justification) -> str | None:
+def justification_label(justification) -> str | None:
     from newclid.justifications.justification import ARDeduction, RuleApplication
 
     if isinstance(justification, RuleApplication):
@@ -79,13 +79,13 @@ def solve_jgex(
     state = solver.proof_state
 
     fired = Counter(
-        label for j in state.graph.hyper_graph.values() if (label := _label(j))
+        label for j in state.graph.hyper_graph.values() if (label := justification_label(j))
     )
     in_proof: Counter[str] = Counter()
     if success:
         goals = [predicate_to_construction(g) for g in state.goals]
         for step in proof_data_from_state(goals, state).proof_steps:
-            if label := _label(step.justification):
+            if label := justification_label(step.justification):
                 in_proof[label] += 1
 
     return {

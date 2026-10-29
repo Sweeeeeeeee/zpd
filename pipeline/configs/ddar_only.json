@@ -1,0 +1,9 @@
+{
+  "tools": {
+    "ddar": {"enabled": true, "options": {"config": "ddar/configs/yuclid.json", "seed": 0}},
+    "transformer": {"enabled": false},
+    "heuristics": {"enabled": false}
+  },
+  "proposer_order": [],
+  "search": {"max_depth": 0}
+}

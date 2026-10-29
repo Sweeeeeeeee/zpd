@@ -2,3 +2,4 @@
 .venv-newclid/
 third_party/
 __pycache__/
+data/
