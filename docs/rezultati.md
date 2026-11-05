@@ -1,21 +1,24 @@
 # ZPD ģeometrijas risinātājs: rezultāti
 
-Stāvoklis uz 2026. gada 29. oktobri.
+Stāvoklis uz 2026. gada 5. novembri.
 
 ## Pārskats
 
-Kad DD-AR iestrēgst, palīgpunkti no heiristikām atrisina abus pārbaudītos
-uzdevumus aptuveni 3 s laikā, bet ar LLM (transformeri) neviens netiek
-atrisināts 15 s laikā. Pilnais konveijers atrisina 4 no 5 parauga uzdevumiem,
-katru aptuveni 2 s laikā; piektais ir apzināti nepareizs tulkojums, un tas tiek
-pareizi noraidīts.
+Pēc 14 minūšu apmācības uz CPU mazais transformeris (2,1 milj. parametru)
+atrisina abus JGEX uzdevumus, kuros DD-AR iestrēgst, ar vienu palīgpunktu
+katrā (apmēram 8 s). Heiristikas tos atrisina ātrāk (apmēram 3 s), bet
+vienam uzdevumam tām vajag divus palīgpunktus. Uz 200 neredzētiem GenesisGeo
+uzdevumiem 92% modeļa piedāvājumu ir pārvēršami Newclid konstrukcijās, un 21%
+gadījumu viens no 4 piedāvājumiem precīzi sakrīt ar atsauces palīgpunktu.
+Pilnais konveijers atrisina 4 no 5 parauga uzdevumiem, katru aptuveni 2 s
+laikā; piektais ir apzināti nepareizs tulkojums, un tas tiek pareizi noraidīts.
 
 Skeneris meklē olimpiāžu ģeometrijas uzdevumus, kuriem ir viegls risinājums
 vienā izvēlētā jomā: ar fiksētu likumu kopu, ne vairāk kā vienu palīgpunktu un
 nelieliem laika un atmiņas resursiem. DD-AR pierāda, ko var; kad tas apstājas,
 palīgpunktus piedāvā transformeris vai vienkāršas heiristikas. Visi skaitļi
 šajā dokumentā ņemti no repozitorija failiem: `results/jgex_ag_231/`,
-`results/examples/` un `geo-lm/runs/`.
+`results/examples/`, `results/transformer/` un `geo-lm/runs/`.
 
 ## Konveijers
 
@@ -40,31 +43,37 @@ un 80 DD-AR izsaukumus; uzraugs aptur darbu, kad beidzas laiks vai atmiņa.
 
 ### Ar LLM un bez tā
 
-Salīdzinātas trīs konfigurācijas uz pirmajiem 73 no 231 JGEX uzdevuma
+Salīdzinātas konfigurācijas uz pirmajiem 73 no 231 JGEX uzdevuma
 (`jgex_ag_231` no Newclid). Pilns skrējiens tika apturēts laika dēļ.
 
 1. Tikai DD-AR (`ddar_only`) uz visiem 73 uzdevumiem, budžets 30 s.
 2. Uz tiem 2 uzdevumiem, kur DD-AR iestrēga: DD-AR + heiristikas
-   (`heuristics_only`) un DD-AR + LLM + heiristikas (`quick_model`), budžets 15 s.
+   (`heuristics_only`, 15 s), DD-AR + vecais 200 soļu modelis un heiristikas
+   (`quick_model`, 15 s) un DD-AR + jaunais modelis bez heiristikām
+   (`mini_model`, 60 s).
 
 **Tikai DD-AR:** atrisināti 71 no 73 (97%), mediāna 1,9 s, 180 MB un 17 likumu
 pielietojumi pierādījumā. Palīgpunkts nevienam no tiem nebija vajadzīgs.
 
 **Uzdevumi, kur DD-AR iestrēga:**
 
-| Uzdevums | Tikai DD-AR | DD-AR + heiristikas | DD-AR + LLM |
-| --- | --- | --- | --- |
-| `L053-1` | nē, iestrēga | **jā**, 3,3 s, 1 palīgpunkts (`foot`), 5 DD-AR izsaukumi | nē, 15 s limits |
-| `L058-9` | nē, iestrēga | **jā**, 2,8 s, 2 palīgpunkti (`circle`, `circle`), 19 DD-AR izsaukumi | nē, 15 s limits |
+| Uzdevums | Tikai DD-AR | DD-AR + heiristikas | DD-AR + vecais modelis (200 soļi) | DD-AR + jaunais modelis (1600 soļi) |
+| --- | --- | --- | --- | --- |
+| `L053-1` | nē, iestrēga | **jā**, 3,3 s, 1 palīgpunkts (`foot`), 5 DD-AR izsaukumi | nē, 15 s limits | **jā**, 8,3 s, 1 palīgpunkts (viduspunkts), 5 DD-AR izsaukumi |
+| `L058-9` | nē, iestrēga | **jā**, 2,8 s, 2 palīgpunkti (`circle`, `circle`), 19 DD-AR izsaukumi | nē, 15 s limits | **jā**, 8,6 s, 1 palīgpunkts (viduspunkts), 2 DD-AR izsaukumi |
 
-Ar heiristikām `L053-1` atbilst "vieglā risinājuma" definīcijai (viens
-palīgpunkts), bet `L058-9` prasa divus. LLM konfigurācija abos gadījumos
-iztērēja visu laiku, pirms tika līdz pierādījumam: modeļa ielāde un staru
-meklēšana (beam search) uz CPU ir lēna, un tā darbojās paralēli heiristiku
-skrējienam uz tiem pašiem 2 CPU kodoliem. Ar ilgāku budžetu rezultāts var
-mainīties, bet šis modelis vēl nav apmācīts (skat. zemāk).
+Jaunais modelis abos uzdevumos atrada palīgpunktu ar pirmo piedāvājumu, tātad
+abi risinājumi atbilst "vieglā risinājuma" definīcijai (viens palīgpunkts).
+Ar heiristikām tā ir tikai `L053-1`. Modeļa piedāvājums `L058-9` ir hordas
+`ab` viduspunkts (`f : coll a b f, cong a f b f`), un ar to pierādījumā
+pietiek ar 8 likumu pielietojumiem. Modelis ir lēnāks: apmēram 5 s aiziet
+uz tā ielādi un staru meklēšanu, un atmiņas patēriņš ir 410 MB pret 180 MB.
 
-Avots: `results/jgex_ag_231/*.jsonl`, skripts `bench/sweep.py`.
+Divi uzdevumi ir pārāk maz secinājumiem; tas rāda, ka modelis strādā, bet
+neļauj teikt, ka tas ir labāks par heiristikām.
+
+Avots: `results/jgex_ag_231/*.jsonl`, skripts `bench/sweep.py`, konfigurācija
+`pipeline/configs/mini_model.json`.
 
 ### Parauga uzdevumi caur `solve()`
 
@@ -85,37 +94,67 @@ palīgpunkts nevienam nebija vajadzīgs.
 
 ### Transformera apmācība
 
-Apmācības zudums samazinājās no 3,54 līdz 1,42, bet precīzā sakritība joprojām
-ir 0%. Modelis: transformeris ar 11,2 milj. parametru, 98 000 GenesisGeo
-piemēru, 200 soļi uz CPU.
+Modelis: transformeris ar 2,1 milj. parametru (4 slāņi, 4 galvas, 192
+dimensijas; `geo-lm/configs/model_mini.json`), 98 008 GenesisGeo piemēri,
+1600 soļi pa 32 piemēriem (apmēram puse epohas), 14 minūtes uz 2 CPU kodoliem.
+Lielais modelis (11 milj. parametru) 20 minūtēs paspētu tikai apmēram 550
+soļus, tāpēc īsai apmācībai izvēlēts mazāks.
 
 ```mermaid
 xychart-beta
-    title "Apmācības zudums (vidējais pa 20 soļiem)"
-    x-axis "Apmācības solis" [20, 40, 60, 80, 100, 120, 140, 160, 180]
-    y-axis "Zudums" 0 --> 4
-    line [3.54, 2.21, 1.97, 1.86, 1.70, 1.60, 1.49, 1.40, 1.42]
+    title "Apmācības zudums (vidējais pa 25 soļiem)"
+    x-axis "Apmācības solis" [200, 400, 600, 800, 1000, 1200, 1400, 1600]
+    y-axis "Zudums" 0 --> 1.6
+    line [1.46, 1.15, 0.89, 0.82, 0.74, 0.64, 0.57, 0.56]
 ```
 
-Validācija pie 100. soļa: zudums 1,67, precīzā sakritība 0%. Avots:
-`geo-lm/runs/quick/log.jsonl`.
+| Solis | Validācijas zudums | Precīzā sakritība (100 uzdevumi, alkatīgā dekodēšana) |
+| --- | --- | --- |
+| 400 | 1,17 | 0% |
+| 800 | 0,85 | 2% |
+| 1200 | 0,66 | 8% |
+| 1600 | 0,57 | 6% |
 
-Šis ātrais palaidiens ir tikai pārbaude, nevis apmācīts modelis. Pilnā
-`train_small` konfigurācija vēl nav palaista.
+Zudums vēl krītas, tātad ilgāka apmācība (pilnā, apmēram 14 h) vēl uzlabotu
+modeli. Iepriekšējais 200 soļu skrējiens ar lielo modeli sasniedza
+validācijas zudumu 1,67 un 0% sakritību. Avots: `geo-lm/runs/mini/log.jsonl`.
+
+### Modeļa piedāvājumu pārbaude
+
+200 neredzēti GenesisGeo uzdevumi, staru meklēšana ar 4 hipotēzēm, 50 s uz CPU
+(skripts `geo-lm/scripts/eval_aux.py`):
+
+| Rādītājs | Vērtība |
+| --- | --- |
+| Pabeigtas hipotēzes (ar `<eos>`) | 100% |
+| Hipotēzes, kas pārvēršamas Newclid konstrukcijās | 91,6% |
+| Uzdevumi ar vismaz vienu pārvēršamu piedāvājumu | 96% |
+| Pirmais piedāvājums precīzi sakrīt ar atsauci | 6% |
+| Kāds no 4 piedāvājumiem precīzi sakrīt ar atsauci | 21% |
+
+Noraidīto 67 hipotēžu iemesli: atsauce uz neesošu punktu (35), predikāts bez
+Newclid konstrukcijas, piemēram `eqangle` (25), pārējie (7). Precīza sakritība
+ir stingrs mērs: arī atšķirīgs palīgpunkts var derēt, kā rāda `L058-9`.
+Avots: `results/transformer/eval_mini_val200.json`.
 
 ## Secinājumi un nākamie soļi
 
-- **Heiristikas jau strādā.** Abos uzdevumos, kur DD-AR iestrēga, tās atrada
-  palīgpunktus, kas noveda pie pierādījuma, mazāk nekā 4 s laikā.
-- **LLM vēl nepalīdz.** Pēc 200 soļiem uz CPU tā precīzā sakritība ir 0%,
-  tā ielāde divkāršo risināšanas laiku un trīskāršo atmiņas patēriņu, un
-  15 s budžetā tas neatrisināja nevienu iestrēgušo uzdevumu.
+- **Heiristikas strādā un ir ātras.** Abos uzdevumos, kur DD-AR iestrēga, tās
+  atrada palīgpunktus mazāk nekā 4 s laikā.
+- **Arī īsi apmācīts LLM jau palīdz.** Pēc 14 minūtēm uz CPU tā piedāvājumi
+  gandrīz vienmēr ir derīgas konstrukcijas, un abos iestrēgušajos uzdevumos
+  tas atrada vienu palīgpunktu, kas noved pie pierādījuma; `L058-9` tas deva
+  vieglāku risinājumu nekā heiristikas.
+- **Cena ir laiks un atmiņa.** Ar modeli risināšana ilgst apmēram 8 s, nevis
+  3 s, un prasa 410 MB, nevis 180 MB; 60 s un 2 GB budžetā tas iekļaujas.
 - **Salīdzinājums ir mazs.** Tikai 2 iestrēguši uzdevumi; ticamam
-  secinājumam vajag visus 231 JGEX uzdevumus un apmācītu modeli.
+  secinājumam vajag visus 231 JGEX uzdevumus un Latvijas olimpiāžu uzdevumus.
 
 Nākamie soļi:
 
-- [ ] Pabeigt `bench/sweep.py` skrējienu uz visiem 231 JGEX uzdevumiem
+- [ ] Pilnā apmācība (8.1, apmēram 14 h), jo zudums vēl krītas
+- [ ] Pabeigt `bench/sweep.py` skrējienu uz visiem 231 JGEX uzdevumiem ar
+      `heuristics_only` un `mini_model`
+- [ ] Jomu konfigurācijas ar transformeri (`pipeline/configs/domains_transformer/`)
+      palaist uz parauga un izmēģinājuma uzdevumiem (8.3)
 - [ ] Pievienot mapē `problems/` uzdevumus, kuriem vajag tieši vienu palīgpunktu
-- [ ] Pilnībā apmācīt `train_small` uz GPU un vēlreiz pārbaudīt precīzo sakritību
-- [ ] Palaist saglabātos piemērus ar apmācīto modeli un salīdzināt ar `heuristics_only`

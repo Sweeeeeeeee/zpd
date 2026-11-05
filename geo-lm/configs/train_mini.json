@@ -1,0 +1,18 @@
+{
+  "_comment": "~1.8M-param model on the 100k GenesisGeo set, sized for a 20-minute CPU run.",
+  "model_config": "model_mini.json",
+  "train_data": "../../data/genesisgeo/train.txt",
+  "val_data": "../../data/genesisgeo/val.txt",
+  "out_dir": "../runs/mini",
+  "lr": 2e-3,
+  "min_lr": 2e-4,
+  "warmup_steps": 50,
+  "weight_decay": 0.1,
+  "batch_size": 32,
+  "grad_accum": 1,
+  "max_steps": 1600,
+  "log_every": 25,
+  "eval_every": 400,
+  "ckpt_every": 200,
+  "eval_generate": 100
+}
