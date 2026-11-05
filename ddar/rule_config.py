@@ -64,6 +64,7 @@ class DDARConfig:
 
     @classmethod
     def from_dict(cls, data: dict) -> DDARConfig:
+        data = {k: v for k, v in data.items() if not k.startswith("_")}  # "_comment" etc.
         unknown = set(data) - set(cls.__dataclass_fields__)
         if unknown:
             raise ValueError(f"Unknown config keys: {sorted(unknown)}")

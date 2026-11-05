@@ -57,12 +57,28 @@ class SolveResult:
     failure_reason: str | None = None
 
 
-def solve(problem: str, config: str | Path | dict, budget: Budget | None = None) -> SolveResult:
-    """Solve a JGEX problem with the pipeline config, inside `budget`."""
-    budget = budget or Budget()
+def config_budget(config: str | Path | dict, time_s: float | None = None, memory_mb: float | None = None,
+                  cpu_s: float | None = None) -> Budget:
+    """The budget a config asks for (its optional "budget" block), with explicit values taking precedence.
+
+    A config without a "budget" block gets the defaults: 60 s, 2048 MB, no CPU limit.
+    """
     if not isinstance(config, dict):
         path = Path(config)
         config = json.loads((path if path.is_absolute() else ROOT / path).read_text())
+    budget = Budget(**config.get("budget", {}))
+    for name, value in (("time_s", time_s), ("memory_mb", memory_mb), ("cpu_s", cpu_s)):
+        if value is not None:
+            setattr(budget, name, value)
+    return budget
+
+
+def solve(problem: str, config: str | Path | dict, budget: Budget | None = None) -> SolveResult:
+    """Solve a JGEX problem with the pipeline config, inside `budget` (default: the config's own budget)."""
+    if not isinstance(config, dict):
+        path = Path(config)
+        config = json.loads((path if path.is_absolute() else ROOT / path).read_text())
+    budget = budget or config_budget(config)
     cpu_limit = budget.cpu_s
     request = json.dumps({"problem": problem, "config": config})
 
@@ -174,16 +190,16 @@ def main() -> None:
     ap.add_argument("--_child", help=argparse.SUPPRESS)
     ap.add_argument("--config", default="pipeline/configs/default.json")
     ap.add_argument("-s", "--problem")
-    ap.add_argument("--time", type=float, default=60.0, help="wall-clock limit, seconds")
-    ap.add_argument("--memory", type=float, default=2048.0, help="memory limit, MB (0 = none)")
-    ap.add_argument("--cpu", type=float, default=0.0, help="CPU limit, seconds (0 = none)")
+    ap.add_argument("--time", type=float, help="wall-clock limit, seconds (default: the config's budget, else 60)")
+    ap.add_argument("--memory", type=float, help="memory limit, MB, 0 = none (default: the config's budget, else 2048)")
+    ap.add_argument("--cpu", type=float, help="CPU limit, seconds, 0 = none (default: the config's budget, else none)")
     args = ap.parse_args()
     if args._child:
         _child(args._child)
         return
     if not args.problem:
         ap.error("-s/--problem is required")
-    result = solve(args.problem, args.config, Budget(args.time, args.memory, args.cpu))
+    result = solve(args.problem, args.config, config_budget(args.config, args.time, args.memory, args.cpu))
     print(json.dumps(asdict(result), indent=2))
 
 

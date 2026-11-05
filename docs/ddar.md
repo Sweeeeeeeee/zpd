@@ -62,7 +62,9 @@ deductor is a subclass with a corrected length enumerator, and the rule matcher
 skips degenerate mappings. The step 1 table above was measured with only fix 1
 applied. Other Python-engine failures remain and are not fixed: unsupported
 `contri` predicates (`CONTRI_CLOCK`, `CONTRI_REFLECT`), an AR premise error on
-`miquel_theorem`, and weaker ratio chasing than yuclid (e.g. `forcing_ratio`). This code path looks unmaintained
+`miquel_theorem`, and weaker ratio chasing than yuclid (e.g. `forcing_ratio`).
+Step 6 fixes the `contri` matching and the AR premise error too (fixes 4 and 5
+in [domains.md](domains.md)). This code path looks unmaintained
 since the move to yuclid, but it is the only engine that can switch rules off,
 so step 2 uses it.
 

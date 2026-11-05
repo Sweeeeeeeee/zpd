@@ -6,7 +6,7 @@ import json
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 
-from pipeline.solve import ROOT, Budget, solve
+from pipeline.solve import ROOT, Budget, config_budget, solve
 
 RESULTS_ROOT = ROOT / "results"
 
@@ -98,6 +98,8 @@ def settings_summary(config_path: str | Path) -> dict:
         if name in enabled:
             summary[name] = tools[name].get("options", {})
     summary["search"] = config.get("search", {})
+    if "budget" in config:
+        summary["budget"] = config["budget"]
     return summary
 
 
@@ -123,26 +125,31 @@ def make_record(config_name: str, settings: dict, budget: Budget, result) -> dic
     }
 
 
-def run(problems: list[Problem], config_paths: list[str | Path], budget: Budget,
+def run(problems: list[Problem], config_paths: list[str | Path], budget: Budget | dict | None = None,
         force: bool = False, on_result=None) -> list[dict]:
     """Solve every problem under every config and store the results.
 
+    `budget` is a Budget for every config, or None to use each config's own
+    "budget" block, or a dict of overrides ({"time_s": 120}) on top of it.
     A problem keeps one record per (config, available resources); running the
     same combination again is skipped, or replaces the record with --force.
     """
     new_records = []
+    overrides = budget if isinstance(budget, dict) else {}
     for config_path in config_paths:
         name = Path(config_path).stem
         settings = settings_summary(config_path)
+        budget_here = budget if isinstance(budget, Budget) else config_budget(_resolve(config_path), **overrides)
         for problem in problems:
             records = load_records(problem)
             same = [r for r in records
-                    if r["config"] == name and r["resources"]["available"] == asdict(budget)]
+                    if r["config"] == name and r["resources"]["available"] == asdict(budget_here)]
             if same and not force:
                 if on_result:
                     on_result(problem, name, same[-1], skipped=True)
                 continue
-            record = make_record(name, settings, budget, solve(problem.text, _resolve(config_path), budget))
+            record = make_record(name, settings, budget_here,
+                                 solve(problem.text, _resolve(config_path), budget_here))
             records = [r for r in records if r not in same] + [record]
             _save_records(problem, records)
             new_records.append(record)

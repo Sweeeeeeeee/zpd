@@ -21,6 +21,7 @@ deduction rules.
 | `geo-lm/` | the transformer, its tokenizer, and the training script | 3, 5 |
 | `datagen/` | 100k training examples subsampled from GenesisGeo | 4 |
 | `pipeline/` | tools, search, `solve()`, figure check, folder runner | 6, 7, 8 |
+| `ddar/configs/domains/`, `pipeline/configs/domains/` | geometry domains (rule sets, with and without AR) in the easy setting ([domains.md](domains.md)) | 6 |
 | `docs/` | all documentation (this file, one file per part, references) | all |
 | `problems/examples/` | worked example problems | 8 |
 | `problems/latvia/` | all Latvian olympiad problems from the NMS archive, the geometry subset, and its translations ([README](../problems/latvia/README.md)); built by `bench/latvia/` | 4.1 |
@@ -41,7 +42,7 @@ Nothing is compiled: yuclid, Newclid's C++ engine, comes as a prebuilt wheel. A
 GPU is optional and only used for training.
 
 ```bash
-python -m pytest -q          # 74 tests (project + model), about 15 s
+python -m pytest -q          # 85 tests (project + model), about 30 s
 ```
 
 ## Solve a problem

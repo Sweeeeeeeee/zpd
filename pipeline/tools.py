@@ -131,7 +131,7 @@ class DDARTool(Tool):
         self.seed = seed
 
     def run(self, state: ProofState) -> None:
-        from ddar.runner import build_solver, justification_label
+        from ddar.runner import build_solver, complete_ar_traceback, justification_label
         from newclid.jgex.problem_builder import JGEXProblemBuilder
         from newclid.problem import predicate_to_construction
         from newclid.proof_data import proof_data_from_state
@@ -145,6 +145,7 @@ class DDARTool(Tool):
             setup = builder.build()
             solver = build_solver(setup, self.ddar_config, self.seed)
             state.solved = solver.run()
+            complete_ar_traceback(solver)
         except Exception as e:  # unbuildable figure, engine error, ...
             state.error = f"{type(e).__name__}: {str(e)[:200]}"
             state.ddar_time = time.time() - t0

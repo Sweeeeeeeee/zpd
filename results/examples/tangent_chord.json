@@ -212,6 +212,402 @@
     "AR:angle": 1
    },
    "proof": "# Problem setup:\n\n## Points\n\n- A(0.4127, 0.5303)\n- B(0.9202, 0.6639)\n- C(0.5468, 1.2823)\n- O(0.5902, 0.8866)\n- T(0.8508, 0.3120)\n\n## Assumptions:\n\n[C0] : O is the circumcenter of the circle ●ABC\n[C1] : AO ⟂ AT\n\n## Numerical checks\n\n[N0] : ▲BCO has the same orientation as ▲BCO\n\n\n# Goals\n\n∠(AB,AT) = ∠(BC,AC) : Proved [8]\n\n\n# Proof:\n\n000. | O is the circumcenter of the circle ●ABC [C0] =(r72 Disassembling a circle)> BO = AO [0]\n001. | BO = AO [0] =(r13 Isosceles triangle equal angles)> ∠(AB,AO) = ∠(BO,AB) [1]\n002. | O is the circumcenter of the circle ●ABC [C0] =(r72 Disassembling a circle)> CO = BO [2]\n003. | BO = AO [0], CO = BO [2] =(AR Deduction)> CO = AO [3]\n004. | CO = AO [3] =(r13 Isosceles triangle equal angles)> ∠(AC,AO) = ∠(CO,AC) [4]\n005. | CO = BO [2] =(AR Deduction)> BO:CO = CO:BO [5]\n006. | ∠(BO,CO) = ∠(BO,CO) [T0], BO:CO = CO:BO [5], ▲BCO has the same orientation as ▲BCO [N0] =(r63 SAS Similarity of triangles (Reverse))> ▲BCO ≅ ▲CBO [6]\n007. | ▲BCO has the same orientation as ▲BCO [N0], ▲BCO ≅ ▲CBO [6] =(r53 Properties of similar triangles (Reverse))> ∠(BC,BO) = ∠(CO,BC) [7]\n008. | ∠(AB,AO) = ∠(BO,AB) [1], ∠(AC,AO) = ∠(CO,AC) [4], ∠(BC,BO) = ∠(CO,BC) [7], AO ⟂ AT [C1] =(AR Deduction)> ∠(AB,AT) = ∠(BC,AC) [8]\n\n\n# Appendix: AR deductions:\n\n\n\n003. | Ratio Chasing to prove CO = AO:\n| Premise BO = AO gives a linear equation with coefficients {AO²: 1, BO²: -1}\n| Premise CO = BO gives a linear equation with coefficients {BO²: 1, CO²: -1}\n| Then {AO²: 1, BO²: -1} + 1 x {BO²: 1, CO²: -1}\n|    = {AO²: 1, CO²: -1}\nWe are left with a linear equation with coefficients {AO²: 1, CO²: -1} that gives CO = AO\n\n\n\n005. | Ratio Chasing to prove BO:CO = CO:BO:\n| Premise CO = BO gives a linear equation with coefficients {BO²: 1, CO²: -1}\nWe are left with a linear equation with coefficients {BO²: 2, CO²: -2} that gives BO:CO = CO:BO\n\n\n\n008. | Angle Chasing to prove ∠(AB,AT) = ∠(BC,AC):\n| Premise ∠(AB,AO) = ∠(BO,AB) gives a linear equation with coefficients {AB: -2, AO: 1, BO: 1}\n| Premise ∠(AC,AO) = ∠(CO,AC) gives a linear equation with coefficients {AC: -2, AO: 1, CO: 1}\n| Then {AB: -1, AO: 1/2, BO: 1/2} + 1/2 x {AC: -2, AO: 1, CO: 1}\n|    = {AB: -1, AO: 1, BO: 1/2, AC: -1, CO: 1/2}\n| Premise ∠(BC,BO) = ∠(CO,BC) gives a linear equation with coefficients {BC: -2, BO: 1, CO: 1}\n| Then {AB: -1, AO: 1, BO: 1/2, AC: -1, CO: 1/2} + -1/2 x {BC: -2, BO: 1, CO: 1}\n|    = {AB: -1, AO: 1, AC: -1, BC: 1}\n| Premise AO ⟂ AT gives a linear equation with coefficients {AO: 1, AT: -1}\n| Then {AB: -1, AO: 1, AC: -1, BC: 1} + -1 x {AO: 1, AT: -1}\n|    = {AB: -1, AC: -1, BC: 1, AT: 1}\nWe are left with a linear equation with coefficients {AB: -1, AC: -1, BC: 1, AT: 1} that gives ∠(AB,AT) = ∠(BC,AC)\n\nEnd of proof."
+  },
+  {
+   "config": "circles",
+   "settings": {
+    "tools": [
+     "ddar",
+     "heuristics"
+    ],
+    "proposer_order": [
+     "heuristics"
+    ],
+    "ddar": {
+     "config": "circles",
+     "engine": "python",
+     "ar": true,
+     "n_rules": 29,
+     "rules": "r03 r04 r13 r14 r15 r16 r17 r18 r19 r20 r21 r24 r28 r49 r50 r51 r54 r55 r56 r58 r59 r72 r73 r74 r80 r81 r82 r91 r92"
+    },
+    "heuristics": {
+     "kinds": [
+      "midpoint",
+      "circumcenter",
+      "foot"
+     ],
+     "max_candidates": 8
+    },
+    "search": {
+     "max_depth": 1,
+     "branching": 8,
+     "max_frontier": 8,
+     "max_ddar_calls": 20,
+     "time_limit": 0
+    },
+    "budget": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0
+    }
+   },
+   "resources": {
+    "available": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0
+    },
+    "used": {
+     "wall_time_s": 2.439,
+     "peak_memory_mb": 182.3,
+     "cpu_time_s": 2.45,
+     "ddar_calls": 1
+    }
+   },
+   "solved": true,
+   "failure_reason": null,
+   "depth": 0,
+   "aux": [],
+   "tools_used": [
+    "ddar"
+   ],
+   "rules_in_proof": {
+    "r15": 1
+   },
+   "rules_fired": {
+    "r15": 2
+   },
+   "proof": "# Problem setup:\n\n## Points\n\n- A(0.4127, 0.5303)\n- B(0.9202, 0.6639)\n- C(0.5468, 1.2823)\n- O(0.5902, 0.8866)\n- T(0.8508, 0.3120)\n\n## Assumptions:\n\n[C0] : O is the circumcenter of the circle ●ABC\n[C1] : AO ⟂ AT\n\n\n# Goals\n\n∠(AB,AT) = ∠(BC,AC) : Proved [0]\n\n\n# Proof:\n\n000. | O is the circumcenter of the circle ●ABC [C0], AO ⟂ AT [C1] =(r15 Arc determines inscribed angles (tangent))> ∠(AB,AT) = ∠(BC,AC) [0]\n\n\n# Appendix: AR deductions:\n\nEnd of proof."
+  },
+  {
+   "config": "circles_no_ar",
+   "settings": {
+    "tools": [
+     "ddar",
+     "heuristics"
+    ],
+    "proposer_order": [
+     "heuristics"
+    ],
+    "ddar": {
+     "config": "circles_no_ar",
+     "engine": "python",
+     "ar": false,
+     "n_rules": 29,
+     "rules": "r03 r04 r13 r14 r15 r16 r17 r18 r19 r20 r21 r24 r28 r49 r50 r51 r54 r55 r56 r58 r59 r72 r73 r74 r80 r81 r82 r91 r92"
+    },
+    "heuristics": {
+     "kinds": [
+      "midpoint",
+      "circumcenter",
+      "foot"
+     ],
+     "max_candidates": 8
+    },
+    "search": {
+     "max_depth": 1,
+     "branching": 8,
+     "max_frontier": 8,
+     "max_ddar_calls": 20,
+     "time_limit": 0
+    },
+    "budget": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0
+    }
+   },
+   "resources": {
+    "available": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0
+    },
+    "used": {
+     "wall_time_s": 2.14,
+     "peak_memory_mb": 176.9,
+     "cpu_time_s": 2.08,
+     "ddar_calls": 1
+    }
+   },
+   "solved": true,
+   "failure_reason": null,
+   "depth": 0,
+   "aux": [],
+   "tools_used": [
+    "ddar"
+   ],
+   "rules_in_proof": {
+    "r15": 1
+   },
+   "rules_fired": {
+    "r15": 2
+   },
+   "proof": "# Problem setup:\n\n## Points\n\n- A(0.4127, 0.5303)\n- B(0.9202, 0.6639)\n- C(0.5468, 1.2823)\n- O(0.5902, 0.8866)\n- T(0.8508, 0.3120)\n\n## Assumptions:\n\n[C0] : O is the circumcenter of the circle ●ABC\n[C1] : AO ⟂ AT\n\n\n# Goals\n\n∠(AB,AT) = ∠(BC,AC) : Proved [0]\n\n\n# Proof:\n\n000. | O is the circumcenter of the circle ●ABC [C0], AO ⟂ AT [C1] =(r15 Arc determines inscribed angles (tangent))> ∠(AB,AT) = ∠(BC,AC) [0]\n\n\n# Appendix: AR deductions:\n\nEnd of proof."
+  },
+  {
+   "config": "full",
+   "settings": {
+    "tools": [
+     "ddar",
+     "heuristics"
+    ],
+    "proposer_order": [
+     "heuristics"
+    ],
+    "ddar": {
+     "config": "full",
+     "engine": "python",
+     "ar": true,
+     "n_rules": 70,
+     "rules": "r03 r04 r06 r07 r11 r12 r13 r14 r15 r16 r17 r18 r19 r20 r21 r24 r25 r26 r27 r28 r34 r35 r36 r37 r41 r42 r43 r44 r46 r49 r50 r51 r52 r53 r54 r55 r56 r58 r59 r60 r61 r62 r63 r64 r65 r66 r67 r68 r69 r70 r71 r72 r73 r74 r77 r78 r79 r80 r81 r82 r83 r84 r85 r86 r87 r88 r89 r90 r91 r92"
+    },
+    "heuristics": {
+     "kinds": [
+      "midpoint",
+      "circumcenter",
+      "foot"
+     ],
+     "max_candidates": 8
+    },
+    "search": {
+     "max_depth": 1,
+     "branching": 8,
+     "max_frontier": 8,
+     "max_ddar_calls": 20,
+     "time_limit": 0
+    },
+    "budget": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0
+    }
+   },
+   "resources": {
+    "available": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0
+    },
+    "used": {
+     "wall_time_s": 2.393,
+     "peak_memory_mb": 182.1,
+     "cpu_time_s": 2.32,
+     "ddar_calls": 1
+    }
+   },
+   "solved": true,
+   "failure_reason": null,
+   "depth": 0,
+   "aux": [],
+   "tools_used": [
+    "ddar"
+   ],
+   "rules_in_proof": {
+    "r15": 1
+   },
+   "rules_fired": {
+    "r15": 2
+   },
+   "proof": "# Problem setup:\n\n## Points\n\n- A(0.4127, 0.5303)\n- B(0.9202, 0.6639)\n- C(0.5468, 1.2823)\n- O(0.5902, 0.8866)\n- T(0.8508, 0.3120)\n\n## Assumptions:\n\n[C0] : O is the circumcenter of the circle ●ABC\n[C1] : AO ⟂ AT\n\n\n# Goals\n\n∠(AB,AT) = ∠(BC,AC) : Proved [0]\n\n\n# Proof:\n\n000. | O is the circumcenter of the circle ●ABC [C0], AO ⟂ AT [C1] =(r15 Arc determines inscribed angles (tangent))> ∠(AB,AT) = ∠(BC,AC) [0]\n\n\n# Appendix: AR deductions:\n\nEnd of proof."
+  },
+  {
+   "config": "full_no_ar",
+   "settings": {
+    "tools": [
+     "ddar",
+     "heuristics"
+    ],
+    "proposer_order": [
+     "heuristics"
+    ],
+    "ddar": {
+     "config": "full_no_ar",
+     "engine": "python",
+     "ar": false,
+     "n_rules": 70,
+     "rules": "r03 r04 r06 r07 r11 r12 r13 r14 r15 r16 r17 r18 r19 r20 r21 r24 r25 r26 r27 r28 r34 r35 r36 r37 r41 r42 r43 r44 r46 r49 r50 r51 r52 r53 r54 r55 r56 r58 r59 r60 r61 r62 r63 r64 r65 r66 r67 r68 r69 r70 r71 r72 r73 r74 r77 r78 r79 r80 r81 r82 r83 r84 r85 r86 r87 r88 r89 r90 r91 r92"
+    },
+    "heuristics": {
+     "kinds": [
+      "midpoint",
+      "circumcenter",
+      "foot"
+     ],
+     "max_candidates": 8
+    },
+    "search": {
+     "max_depth": 1,
+     "branching": 8,
+     "max_frontier": 8,
+     "max_ddar_calls": 20,
+     "time_limit": 0
+    },
+    "budget": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0
+    }
+   },
+   "resources": {
+    "available": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0
+    },
+    "used": {
+     "wall_time_s": 2.187,
+     "peak_memory_mb": 177.0,
+     "cpu_time_s": 2.21,
+     "ddar_calls": 1
+    }
+   },
+   "solved": true,
+   "failure_reason": null,
+   "depth": 0,
+   "aux": [],
+   "tools_used": [
+    "ddar"
+   ],
+   "rules_in_proof": {
+    "r15": 1
+   },
+   "rules_fired": {
+    "r15": 2
+   },
+   "proof": "# Problem setup:\n\n## Points\n\n- A(0.4127, 0.5303)\n- B(0.9202, 0.6639)\n- C(0.5468, 1.2823)\n- O(0.5902, 0.8866)\n- T(0.8508, 0.3120)\n\n## Assumptions:\n\n[C0] : O is the circumcenter of the circle ●ABC\n[C1] : AO ⟂ AT\n\n\n# Goals\n\n∠(AB,AT) = ∠(BC,AC) : Proved [0]\n\n\n# Proof:\n\n000. | O is the circumcenter of the circle ●ABC [C0], AO ⟂ AT [C1] =(r15 Arc determines inscribed angles (tangent))> ∠(AB,AT) = ∠(BC,AC) [0]\n\n\n# Appendix: AR deductions:\n\nEnd of proof."
+  },
+  {
+   "config": "no_similarity",
+   "settings": {
+    "tools": [
+     "ddar",
+     "heuristics"
+    ],
+    "proposer_order": [
+     "heuristics"
+    ],
+    "ddar": {
+     "config": "no_similarity",
+     "engine": "python",
+     "ar": true,
+     "n_rules": 59,
+     "rules": "r03 r04 r06 r11 r12 r13 r14 r15 r16 r17 r18 r19 r20 r21 r24 r25 r26 r27 r28 r36 r37 r41 r42 r43 r44 r46 r49 r50 r51 r54 r55 r56 r58 r59 r64 r65 r66 r67 r70 r71 r72 r73 r74 r77 r78 r79 r80 r81 r82 r83 r84 r85 r86 r87 r88 r89 r90 r91 r92"
+    },
+    "heuristics": {
+     "kinds": [
+      "midpoint",
+      "circumcenter",
+      "foot"
+     ],
+     "max_candidates": 8
+    },
+    "search": {
+     "max_depth": 1,
+     "branching": 8,
+     "max_frontier": 8,
+     "max_ddar_calls": 20,
+     "time_limit": 0
+    },
+    "budget": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0
+    }
+   },
+   "resources": {
+    "available": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0
+    },
+    "used": {
+     "wall_time_s": 2.494,
+     "peak_memory_mb": 182.1,
+     "cpu_time_s": 2.49,
+     "ddar_calls": 1
+    }
+   },
+   "solved": true,
+   "failure_reason": null,
+   "depth": 0,
+   "aux": [],
+   "tools_used": [
+    "ddar"
+   ],
+   "rules_in_proof": {
+    "r15": 1
+   },
+   "rules_fired": {
+    "r15": 2
+   },
+   "proof": "# Problem setup:\n\n## Points\n\n- A(0.4127, 0.5303)\n- B(0.9202, 0.6639)\n- C(0.5468, 1.2823)\n- O(0.5902, 0.8866)\n- T(0.8508, 0.3120)\n\n## Assumptions:\n\n[C0] : O is the circumcenter of the circle ●ABC\n[C1] : AO ⟂ AT\n\n\n# Goals\n\n∠(AB,AT) = ∠(BC,AC) : Proved [0]\n\n\n# Proof:\n\n000. | O is the circumcenter of the circle ●ABC [C0], AO ⟂ AT [C1] =(r15 Arc determines inscribed angles (tangent))> ∠(AB,AT) = ∠(BC,AC) [0]\n\n\n# Appendix: AR deductions:\n\nEnd of proof."
+  },
+  {
+   "config": "no_similarity_no_ar",
+   "settings": {
+    "tools": [
+     "ddar",
+     "heuristics"
+    ],
+    "proposer_order": [
+     "heuristics"
+    ],
+    "ddar": {
+     "config": "no_similarity_no_ar",
+     "engine": "python",
+     "ar": false,
+     "n_rules": 59,
+     "rules": "r03 r04 r06 r11 r12 r13 r14 r15 r16 r17 r18 r19 r20 r21 r24 r25 r26 r27 r28 r36 r37 r41 r42 r43 r44 r46 r49 r50 r51 r54 r55 r56 r58 r59 r64 r65 r66 r67 r70 r71 r72 r73 r74 r77 r78 r79 r80 r81 r82 r83 r84 r85 r86 r87 r88 r89 r90 r91 r92"
+    },
+    "heuristics": {
+     "kinds": [
+      "midpoint",
+      "circumcenter",
+      "foot"
+     ],
+     "max_candidates": 8
+    },
+    "search": {
+     "max_depth": 1,
+     "branching": 8,
+     "max_frontier": 8,
+     "max_ddar_calls": 20,
+     "time_limit": 0
+    },
+    "budget": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0
+    }
+   },
+   "resources": {
+    "available": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0
+    },
+    "used": {
+     "wall_time_s": 2.023,
+     "peak_memory_mb": 177.0,
+     "cpu_time_s": 2.07,
+     "ddar_calls": 1
+    }
+   },
+   "solved": true,
+   "failure_reason": null,
+   "depth": 0,
+   "aux": [],
+   "tools_used": [
+    "ddar"
+   ],
+   "rules_in_proof": {
+    "r15": 1
+   },
+   "rules_fired": {
+    "r15": 2
+   },
+   "proof": "# Problem setup:\n\n## Points\n\n- A(0.4127, 0.5303)\n- B(0.9202, 0.6639)\n- C(0.5468, 1.2823)\n- O(0.5902, 0.8866)\n- T(0.8508, 0.3120)\n\n## Assumptions:\n\n[C0] : O is the circumcenter of the circle ●ABC\n[C1] : AO ⟂ AT\n\n\n# Goals\n\n∠(AB,AT) = ∠(BC,AC) : Proved [0]\n\n\n# Proof:\n\n000. | O is the circumcenter of the circle ●ABC [C0], AO ⟂ AT [C1] =(r15 Arc determines inscribed angles (tangent))> ∠(AB,AT) = ∠(BC,AC) [0]\n\n\n# Appendix: AR deductions:\n\nEnd of proof."
   }
  ]
 }

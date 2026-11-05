@@ -15,7 +15,7 @@ from collections import Counter
 from dataclasses import asdict
 from pathlib import Path
 
-from ddar.engine import build_solver  # noqa: F401  (re-exported)
+from ddar.engine import build_solver, complete_ar_traceback  # noqa: F401  (re-exported)
 from ddar.rule_config import DDARConfig
 
 
@@ -56,6 +56,7 @@ def solve_jgex(
 
     solver = build_solver(setup, config, seed)
     success = solver.run()
+    complete_ar_traceback(solver)
     infos = solver.run_infos
     state = solver.proof_state
 

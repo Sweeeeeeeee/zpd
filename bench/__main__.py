@@ -19,7 +19,6 @@ import json
 from pathlib import Path
 
 from bench.store import ROOT, latest_by_config, load_problems, load_records, parse_problem_file, run
-from pipeline.solve import Budget
 
 
 def _cell(record: dict) -> str:
@@ -42,7 +41,9 @@ SHORT_REASONS = [
 
 def cmd_run(args) -> None:
     problems = load_problems(args.folder)
-    budget = Budget(args.time, args.memory, args.cpu)
+    # each config's own "budget" block, with any --time/--memory/--cpu given on top
+    budget = {k: v for k, v in (("time_s", args.time), ("memory_mb", args.memory), ("cpu_s", args.cpu))
+              if v is not None}
 
     def show(problem, config, record, skipped):
         tag = "stored " if skipped else "new    "
@@ -99,9 +100,9 @@ def main() -> None:
     r = sub.add_parser("run", help="solve problems under configs and store the results")
     r.add_argument("folder")
     r.add_argument("--config", nargs="+", required=True)
-    r.add_argument("--time", type=float, default=60.0)
-    r.add_argument("--memory", type=float, default=2048.0)
-    r.add_argument("--cpu", type=float, default=0.0)
+    r.add_argument("--time", type=float, help="wall-clock limit, s (default: the config's budget, else 60)")
+    r.add_argument("--memory", type=float, help="memory limit, MB (default: the config's budget, else 2048)")
+    r.add_argument("--cpu", type=float, help="CPU limit, s (default: the config's budget, else none)")
     r.add_argument("--force", action="store_true")
     r.set_defaults(func=cmd_run)
     t = sub.add_parser("table", help="latest result per problem and config")

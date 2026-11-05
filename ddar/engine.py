@@ -13,6 +13,9 @@ modifying or monkeypatching Newclid:
 3. Rules that allow repeated points (r52, r53, ...) produce degenerate
    mappings such as `simtri e a d e a d`, which abort the whole rule.
    `SkipDegenerateMapper` skips them.
+4. AR facts are stored without their premises; writing the proof then fails
+   with "Could not find premises for AR deduction" when the cached fact is
+   looked up. `complete_ar_traceback` makes the lookup fill them in.
 """
 
 from __future__ import annotations
@@ -47,11 +50,25 @@ def prepare_rule(rule: Rule) -> Rule:
     return rule.model_copy(update={"premises_txt": tuple(premises)})
 
 
+_TRIANGLE_FACTS = {"contri", "contrir"}
+
+
 class SkipDegenerateMapper(FilterMapper):
-    """FilterMapper that drops mappings giving an invalid premise or conclusion."""
+    """FilterMapper that drops mappings giving an invalid premise or conclusion.
+
+    It also matches rules whose only symbolic premise is a congruent-triangle
+    fact (r77, r78), which Newclid's matcher cannot index (it raises
+    "Unknown predicate: CONTRI_REFLECT"): each stored `contri A B C P Q R` is
+    mapped directly, under the 6 ways of relabelling both triangles together.
+    """
 
     def mappings(self, rule, points, proof):
-        for mapping in super().mappings(rule, points, proof):
+        names = [p.name for p in rule.premises]
+        if any(n in _TRIANGLE_FACTS for n in names):
+            candidates = self._triangle_mappings(rule, proof)
+        else:
+            candidates = super().mappings(rule, points, proof)
+        for mapping in candidates:
             try:
                 for part in rule.premises + rule.conclusions:
                     PredicateConstruction.from_predicate_type_and_args(
@@ -60,6 +77,22 @@ class SkipDegenerateMapper(FilterMapper):
             except (ValueError, KeyError):
                 continue
             yield mapping
+
+    @staticmethod
+    def _triangle_mappings(rule, proof):
+        triangle = [p for p in rule.premises if p.name in _TRIANGLE_FACTS]
+        if len(triangle) != 1 or len(rule.premises) != 1:
+            return  # no such rule in Newclid 3.0.1 besides r77/r78
+        premise = triangle[0]
+        wanted = PredicateType(premise.name)
+        for predicate in list(proof.graph.hyper_graph):
+            if predicate.predicate_type != wanted:
+                continue
+            tokens = predicate.to_tokens()
+            first, second = tokens[:3], tokens[3:6]
+            for order in itertools.permutations(range(3)):
+                values = [first[i] for i in order] + [second[i] for i in order]
+                yield dict(zip(premise.variables, values))
 
 
 def enumerate_lconsts(table):
@@ -91,6 +124,40 @@ class ARDeductor(SympyARDeductor):
             enumerate_lconsts if f is ar_predicates.enumerate_lconsts else f
             for f in self.ratio_enumerators
         ]
+
+
+class _ARTracebackGraph(dict):
+    """The predicate -> justification map, filling in AR premises when a fact is looked up."""
+
+    def __init__(self, data, deductor, symbols):
+        super().__init__(data)
+        self._deductor, self._symbols = deductor, symbols
+
+    def _complete(self, justification):
+        from newclid.justifications.justification import ARDeduction
+
+        if isinstance(justification, ARDeduction) and justification.ar_premises is None:
+            try:
+                justification.ar_premises = self._deductor.justify_predicate(
+                    justification.predicate, self._symbols).ar_premises
+            except ValueError:
+                pass  # leave it; Newclid reports the missing premises as before
+        return justification
+
+    def get(self, key, default=None):
+        return self._complete(super().get(key, default))
+
+    def __getitem__(self, key):
+        return self._complete(super().__getitem__(key))
+
+
+def complete_ar_traceback(solver) -> None:
+    """Call after solver.run() and before writing the proof (Python engine with AR)."""
+    state = solver.proof_state
+    deductor = next((d for d in getattr(state, "deductors", []) if isinstance(d, SympyARDeductor)), None)
+    graph = state.graph
+    if deductor is not None and not isinstance(graph.hyper_graph, _ARTracebackGraph):
+        graph.hyper_graph = _ARTracebackGraph(graph.hyper_graph, deductor, state.symbols)
 
 
 def build_solver(problem_setup, config: DDARConfig, seed: int = 0):

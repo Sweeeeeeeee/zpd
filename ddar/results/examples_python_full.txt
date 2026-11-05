@@ -1,0 +1,77 @@
+problem                                      ok    time  lvl  facts  fired
+orthocenter                                 yes    0.02    1     13  AR:anglex4 r43x1
+orthocenter_aux                             yes    1.01    1    215  AR:anglex194 r34x1 r43x1
+incenter_excenter                           yes    0.00    -     24  
+orthocenter_consequence                     yes    0.04    1     24  AR:anglex12 r43x1
+orthocenter_consequence_aux                 yes    1.09    1    270  AR:anglex246 r34x1 r43x1
+not_always_good                             yes    0.07    1     35  AR:anglex8 AR:ratiox10 r13x3
+rule_r29_not_found_disguise                 ERR    2.61  TypeError: unhashable type: 'LineMerge'
+rule_r29_not_found_explicit                 yes    4.80    2    131  AR:anglex51 AR:ratiox4 r55x2 r56x2 r71x4 r79x44 r82x6
+find_r22                                     no    0.80    2     38  AR:anglex17 AR:ratiox1 r55x1 r56x1 r79x7 r82x3
+two_paths_problem_aux                       yes    0.00    -      8  
+two_paths_problem                           yes    0.00    -      4  
+b23_may_need_BUILT_IN_FNS                   ERR   22.38  TypeError: unhashable type: 'LineMerge'
+ratio_chase_incorrect_on_step_one            no    0.94    2     24  AR:anglex3 AR:ratiox1 r55x1 r56x1 r79x7 r82x3
+forcing_ratio                                no    0.77    2     25  AR:anglex3 AR:ratiox1 r55x1 r56x1 r79x8 r82x3
+check_r00                                   yes    0.00    -      4  
+angles_in_triangle                          yes    0.00    -      4  
+testing_aline0                              yes    0.00    -      2  
+testing_iso_triangle_vertex_angle           yes    0.01    1      4  r14x1
+numerical_check_npara                       yes    0.00    -      1  
+numerical_check_ncoll                       yes    0.00    -      1  
+angles_eq_triangle                          yes    0.00    -      6  
+angles_double_eq_triangle                   yes    0.04    1    109  AR:anglex1 AR:ratiox91 r13x5
+suplementary_angles                         yes    0.00    -      3  
+geometric_ratios                            yes    0.04    1      7  r55x2
+concatenating_ratios                        yes    0.00    -      5  
+test_get_two_intersections                  yes    0.18    1    109  AR:ratiox91 r13x8
+ar_two_triangles_angle_chasing              yes    0.00    -      8  
+ar_three_triangles_angle_chasing            yes    0.00    -     11  
+cong2_problem                               yes    0.00    -      6  
+point_on_circle_eqdistant_from_center       yes    0.19    1     12  r03x6 r49x3
+midpoint_splits_in_two                       no    0.36    2     17  AR:anglex3 AR:ratiox1 r55x1 r56x1 r79x4 r82x3
+central_angle_vs_internal_angle             yes    0.04    1     21  AR:ratiox10 r13x3
+checking_rconst2                            yes    0.00    -      2  
+frac1_cong                                  yes    0.00    -      3  
+eqratio_lconst_check                        yes    0.00    -      8  
+cong_lconst_check                           yes    0.00    -      4  
+lconst_cong_check                           yes    0.00    -      3  
+lconst_eqratio_check                        yes    0.00    -      5  
+rconst_lconst_check                         yes    0.00    -      4  
+lconst_rconst_check                         yes    0.00    -      3  
+pyt_test_formula_to_perp                     no    0.01    1      6  AR:ratiox3
+pyt_test_perp_to_formula                     no    0.01    1      5  AR:ratiox1
+two_goals_cong_aconst                       yes    1.76    2    125  AR:anglex42 AR:ratiox10 r03x6 r13x2 r14x2 r35x2 r37x2 r53x6 r78x2 r79x27 r80x2 r81x2
+acompute_test                               ERR    2.19  ValueError: Cannot justify predicate ∠(AB,BC) = 2pi/3 through AR
+tangents_to_circle                          yes    0.73    2     45  AR:anglex5 AR:ratiox3 r03x4 r04x1 r13x1 r14x1 r35x1 r37x1 r53x4 r78x1 r79x10
+miquel_theorem                              yes    1.65    2    369  AR:anglex336 r03x12 r04x1 r82x9
+two_perps_at_point_are_collinear            yes    0.01    1      8  AR:anglex3 r28x1
+pappus                                      yes    0.07    1     17  r44x1
+ar_construction_tester                      yes    0.00    -     11  
+basic_cc_tangent                            yes    0.00    -     23  
+breaking_cc_tangent                         ERR    2.11  ValueError: Failed to build a valid problem setup for breaking_cc_tangent after 100 attempts. Last error: Failed to add clause to problem problem after 5 attemp
+breaking_cc_tangent_by_kiss                 ERR    2.19  ValueError: Failed to build a valid problem setup for breaking_cc_tangent_by_kiss after 100 attempts. Last error: Failed to add clause to problem problem after 
+basic_cc_itangent                           yes    0.00    -     23  
+breaking_cc_itangent                        ERR    2.21  ValueError: Failed to build a valid problem setup for breaking_cc_itangent after 100 attempts. Last error: Failed to add clause to problem problem after 5 attem
+breaking_cc_itangent_by_kiss                ERR    2.19  ValueError: Failed to build a valid problem setup for breaking_cc_itangent_by_kiss after 100 attempts. Last error: Failed to add clause to problem problem after
+repro_example_1                             yes    1.02    1    215  AR:anglex194 r34x1 r43x1
+testing_on_aline0                           yes    0.00    -      3  
+testing_circumcenter                        yes    0.64    1    124  r03x90 r49x9
+menelaus_test                                no    4.32    2    305  AR:anglex282 AR:ratiox1 r82x12
+menelaus_frac1_test                          no    8.79    2    332  AR:anglex282 AR:ratiox5 r54x1 r79x15 r82x12
+menelaus_crossed_cong_test                   no   12.86    2    441  AR:anglex361 AR:ratiox5 r13x1 r35x1 r37x1 r53x3 r78x1 r79x34 r82x12
+ar_example_paper_angle_chasing              ERR   60.06  timeout 60s
+ar_example_paper_ratio_chasing              ERR    4.29  TypeError: unhashable type: 'LineMerge'
+regular_triangle_side                       yes    0.23    2     25  AR:anglex3 AR:ratiox2 r13x1 r14x2 r35x1 r37x1 r53x2 r78x1 r79x5
+testing_problem                             yes    0.00    -      7  
+test_between_coll                           yes    0.00    -      2  
+test_between_bound_coll                     yes    0.00    -      3  
+test_between_obtuse                         yes    0.00    -      2  
+test_between_bound_obtuse                   yes    0.00    -      3  
+test_simtri_numerical                       yes    0.01    1      9  AR:ratiox1 r35x1
+test_eqratio_numercial                      yes    0.00    -      6  
+test_contri_numerical                       yes    0.01    1     10  AR:ratiox1 r35x1 r37x1
+test_r2const                                ERR   60.05  timeout 60s
+test_l2const                                 no    0.01    1      1  
+
+solved 54/74  (config full, seed 0)

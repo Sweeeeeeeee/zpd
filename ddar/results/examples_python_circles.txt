@@ -1,0 +1,97 @@
+/workspaces/zpd/ddar/run_examples.py:41: RuleCoverageWarning: [circles] no enabled rule uses 'contri' as a premise (enable one of ['r77']); hypotheses from constructions [contri] will be ignored by the deduction
+  config = load_config(args.config)
+/workspaces/zpd/ddar/run_examples.py:41: RuleCoverageWarning: [circles] no enabled rule uses 'contrir' as a premise (enable one of ['r78']); hypotheses from constructions [contrir] will be ignored by the deduction
+  config = load_config(args.config)
+/workspaces/zpd/ddar/run_examples.py:41: RuleCoverageWarning: [circles] no enabled rule uses 'simtri' as a premise (enable one of ['r52']); hypotheses from constructions [simtri] will be ignored by the deduction
+  config = load_config(args.config)
+/workspaces/zpd/ddar/run_examples.py:41: RuleCoverageWarning: [circles] no enabled rule uses 'simtrir' as a premise (enable one of ['r53']); hypotheses from constructions [simtrir] will be ignored by the deduction
+  config = load_config(args.config)
+/workspaces/zpd/ddar/run_examples.py:41: RuleCoverageWarning: [circles] no enabled rule concludes 'aequation' (enable one of ['r88']); goals of that type can only hold if they are hypotheses
+  config = load_config(args.config)
+/workspaces/zpd/ddar/run_examples.py:41: RuleCoverageWarning: [circles] no enabled rule concludes 'contri' (enable one of ['r36', 'r64', 'r66', 'r68']); goals of that type can only hold if they are hypotheses
+  config = load_config(args.config)
+/workspaces/zpd/ddar/run_examples.py:41: RuleCoverageWarning: [circles] no enabled rule concludes 'contrir' (enable one of ['r37', 'r65', 'r67', 'r69']); goals of that type can only hold if they are hypotheses
+  config = load_config(args.config)
+/workspaces/zpd/ddar/run_examples.py:41: RuleCoverageWarning: [circles] no enabled rule concludes 'lequation' (enable one of ['r83', 'r85', 'r89', 'r90']); goals of that type can only hold if they are hypotheses
+  config = load_config(args.config)
+/workspaces/zpd/ddar/run_examples.py:41: RuleCoverageWarning: [circles] no enabled rule concludes 'simtri' (enable one of ['r07', 'r34', 'r60', 'r62', 'r77']); goals of that type can only hold if they are hypotheses
+  config = load_config(args.config)
+/workspaces/zpd/ddar/run_examples.py:41: RuleCoverageWarning: [circles] no enabled rule concludes 'simtrir' (enable one of ['r35', 'r61', 'r63', 'r78']); goals of that type can only hold if they are hypotheses
+  config = load_config(args.config)
+problem                                      ok    time  lvl  facts  fired
+orthocenter                                  no    0.01    1      8  AR:anglex4
+orthocenter_aux                              no    1.58    1    201  AR:anglex194
+incenter_excenter                           yes    0.00    -     24  
+orthocenter_consequence                      no    0.02    1     18  AR:anglex12
+orthocenter_consequence_aux                  no    1.48    1    255  AR:anglex246
+not_always_good                             yes    0.06    1     35  AR:anglex8 AR:ratiox10 r13x3
+rule_r29_not_found_disguise                 ERR    2.05  TypeError: unhashable type: 'LineMerge'
+rule_r29_not_found_explicit                  no    0.67    2     77  AR:anglex51 AR:ratiox12 r55x2 r56x2 r82x6
+find_r22                                     no    0.05    2     28  AR:anglex17 AR:ratiox3 r55x1 r56x1 r82x3
+two_paths_problem_aux                       yes    0.00    -      8  
+two_paths_problem                           yes    0.00    -      4  
+b23_may_need_BUILT_IN_FNS                   ERR    2.21  TypeError: unhashable type: 'LineMerge'
+ratio_chase_incorrect_on_step_one            no    0.03    2     14  AR:anglex3 AR:ratiox3 r55x1 r56x1 r82x3
+forcing_ratio                                no    0.03    2     14  AR:anglex3 AR:ratiox3 r55x1 r56x1 r82x3
+check_r00                                   yes    0.00    -      4  
+angles_in_triangle                          yes    0.00    -      4  
+testing_aline0                              yes    0.00    -      2  
+testing_iso_triangle_vertex_angle           yes    0.01    1      4  r14x1
+numerical_check_npara                       yes    0.00    -      1  
+numerical_check_ncoll                       yes    0.00    -      1  
+angles_eq_triangle                          yes    0.00    -      6  
+angles_double_eq_triangle                   yes    0.04    1    109  AR:anglex1 AR:ratiox91 r13x5
+suplementary_angles                         yes    0.00    -      3  
+geometric_ratios                            yes    0.03    1      7  r55x2
+concatenating_ratios                        yes    0.00    -      5  
+test_get_two_intersections                  yes    0.15    1    109  AR:ratiox91 r13x8
+ar_two_triangles_angle_chasing              yes    0.00    -      8  
+ar_three_triangles_angle_chasing            yes    0.00    -     11  
+cong2_problem                               yes    0.00    -      6  
+point_on_circle_eqdistant_from_center       yes    0.19    1     12  r03x6 r49x3
+midpoint_splits_in_two                       no    0.06    2     12  AR:anglex3 AR:ratiox2 r55x1 r56x1 r82x3
+central_angle_vs_internal_angle             yes    0.03    1     21  AR:ratiox10 r13x3
+checking_rconst2                            yes    0.00    -      2  
+frac1_cong                                  yes    0.00    -      3  
+eqratio_lconst_check                        yes    0.00    -      8  
+cong_lconst_check                           yes    0.00    -      4  
+lconst_cong_check                           yes    0.00    -      3  
+lconst_eqratio_check                        yes    0.00    -      5  
+rconst_lconst_check                         yes    0.00    -      4  
+lconst_rconst_check                         yes    0.00    -      3  
+pyt_test_formula_to_perp                     no    0.01    1      6  AR:ratiox3
+pyt_test_perp_to_formula                     no    0.01    1      5  AR:ratiox1
+two_goals_cong_aconst                       yes    0.20    2     82  AR:anglex42 AR:ratiox13 r03x6 r13x2 r14x2 r80x2 r81x2
+acompute_test                               ERR    2.14  ValueError: Cannot justify predicate ∠(AB,BC) = 2pi/3 through AR
+tangents_to_circle                          yes    0.16    2     23  AR:anglex5 AR:ratiox3 r03x4 r04x1 r13x1 r14x1
+miquel_theorem                              yes    1.59    2    369  AR:anglex336 r03x12 r04x1 r82x9
+two_perps_at_point_are_collinear            yes    0.01    1      8  AR:anglex3 r28x1
+pappus                                       no   17.72    2   1324  AR:anglex1284 r82x24
+ar_construction_tester                      yes    0.00    -     11  
+basic_cc_tangent                            yes    0.00    -     23  
+breaking_cc_tangent                         ERR    2.13  ValueError: Failed to build a valid problem setup for breaking_cc_tangent after 100 attempts. Last error: Failed to add clause to problem problem after 5 attemp
+breaking_cc_tangent_by_kiss                 ERR    2.16  ValueError: Failed to build a valid problem setup for breaking_cc_tangent_by_kiss after 100 attempts. Last error: Failed to add clause to problem problem after 
+basic_cc_itangent                           yes    0.00    -     23  
+breaking_cc_itangent                        ERR    2.17  ValueError: Failed to build a valid problem setup for breaking_cc_itangent after 100 attempts. Last error: Failed to add clause to problem problem after 5 attem
+breaking_cc_itangent_by_kiss                ERR    2.20  ValueError: Failed to build a valid problem setup for breaking_cc_itangent_by_kiss after 100 attempts. Last error: Failed to add clause to problem problem after
+repro_example_1                              no    1.39    1    201  AR:anglex194
+testing_on_aline0                           yes    0.00    -      3  
+testing_circumcenter                        yes    0.48    1    124  r03x90 r49x9
+menelaus_test                                no    3.63    2    305  AR:anglex282 AR:ratiox1 r82x12
+menelaus_frac1_test                          no    3.63    2    309  AR:anglex282 AR:ratiox5 r54x1 r82x12
+menelaus_crossed_cong_test                   no    5.21    2    391  AR:anglex362 AR:ratiox5 r13x1 r82x12
+ar_example_paper_angle_chasing              yes    0.08    1     37  AR:anglex16 r03x6
+ar_example_paper_ratio_chasing              ERR    2.35  TypeError: unhashable type: 'LineMerge'
+regular_triangle_side                       yes    0.03    2     12  AR:anglex3 AR:ratiox2 r13x1 r14x2
+testing_problem                             yes    0.00    -      7  
+test_between_coll                           yes    0.00    -      2  
+test_between_bound_coll                     yes    0.00    -      3  
+test_between_obtuse                         yes    0.00    -      2  
+test_between_bound_obtuse                   yes    0.00    -      3  
+test_simtri_numerical                        no    0.01    1      4  AR:ratiox1
+test_eqratio_numercial                      yes    0.00    -      6  
+test_contri_numerical                        no    0.01    1      4  AR:ratiox1
+test_r2const                                 no    6.24    4    776  AR:anglex488 AR:ratiox248 r04x1 r13x4 r14x4 r21x4 r54x2 r73x4
+test_l2const                                 no    0.00    1      1  
+
+solved 46/74  (config circles, seed 0)
