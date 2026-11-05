@@ -13,7 +13,7 @@ Ar roku šādu analīzi veikt simtiem uzdevumu ir lēni un neprecīzi. AlphaGeom
 Mērķis:
 Izveidot un pārbaudīt rīku, kas olimpiāžu ģeometrijas uzdevumu kopā izvēlētai ģeometrijas jomai atrod uzdevumus ar vieglu risinājumu, parāda šos risinājumus un izmērāmi raksturo to vieglumu.
 
-Uzdevumi (tā pati numerācija kā failā tasks):
+Uzdevumi (tā pati numerācija kā failā docs/tasks.md):
 Izstrāde (izpildīts):
 	1. DD-AR dzinējs un jomas: Newclid DD-AR darbojas uz CPU; joma ir JSON konfigurācija ar ieslēgtajiem likumiem un AR slēdzi, ar brīdinājumiem, ja likumu kopa nevar izmantot vai pierādīt kādu predikātu.
 	2. Palīgpunktu avoti: cilvēka heiristikas (viduspunkti, apvilktās riņķa līnijas centri, augstumu pamati) un mazs, no nulles uzrakstīts transformeris ar apmācības skriptu un 100 000 GenesisGeo piemēriem.

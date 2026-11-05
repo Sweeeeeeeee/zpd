@@ -1,0 +1,122 @@
+% ZPD veidne pēc "Vadlīnijas skolēnu zinātniskās pētniecības darbu izstrādei un vērtēšanai" (2026).
+% Kompilē: latexmk -pdf template.tex   (vai: make template no mapes zpd_darbs/)
+% Sarkanās piezīmes [ ... ] paskaidro, kas katrā vietā jāraksta. Gatavam darbam: \documentclass[nolabels]{zpd}
+\documentclass{zpd}
+\graphicspath{{./}{../figures/}}
+
+\skola{[Izglītības iestādes nosaukums]}
+\nosaukums{[Darba nosaukums, ne vairāk kā 5 vārdi]}
+\nozaru{[zinātnes nozaru grupas nosaukums]}
+\autors[Darba autors]{[Vārds Uzvārds]}
+\vaditajs[Darba vadītājs]{[Vārds Uzvārds]}
+\konsultants[Darba konsultants]{[Vārds Uzvārds]}
+\pilseta{[Pilsēta]}
+\gads{[Gads]}
+
+\begin{document}
+
+\titullapa
+
+% ------------------------------------------------------------------ anotācijas: abas vienā lapā
+\anotacijulapa
+\begin{anotacija}{Anotācija}
+\zpdlabel{Autors un darba nosaukums}[Vārds Uzvārds]. [Darba nosaukums].
+
+\zpdlabel{Darba saturs}[Darba mērķis, kā veikts pētījums, galvenie rezultāti un secinājumi. Kopā ne vairāk par pusi lappuses.]
+
+\atslegvardi{[ne vairāk kā 5 atslēgvārdi, kas neatkārto nosaukumu]}
+\end{anotacija}
+
+\begin{anotacija}{Abstract}
+\zpdlabel{Anotācijas precīzs tulkojums svešvalodā}[Author]. [Title].
+
+[Translation of the annotation.]
+
+\atslegvardi[Keywords]{[up to five keywords]}
+\end{anotacija}
+
+% ------------------------------------------------------------------ saturs
+\saturs
+
+% ------------------------------------------------------------------ ievads: no šejienes redzami lappušu numuri
+\pamatteksts
+\nenumuretanodala{Ievads}
+\zpdlabel{Temata izvēles pamatojums}[Kāpēc izvēlēts šis temats.]
+
+\zpdlabel{Pētījuma problēma un aktualitāte}[Kāda problēma tiek risināta un kāpēc tā ir aktuāla.]
+
+\zpdlabel{Darba mērķis}[Viens mērķis, īsi un precīzi.]
+
+\zpdlabel{Darba uzdevumi (3--5)}
+\begin{enumerate}
+  \item {}[Uzdevums.]
+  \item {}[Uzdevums.]
+  \item {}[Uzdevums.]
+\end{enumerate}
+
+\zpdlabel{Hipotēze vai pētījuma jautājums}[Hipotēze apgalvojuma formā vai atvērts jautājums (nesākas ar "vai").]
+
+\zpdlabel{Pētījuma metodes}[Izmantotās metodes.]
+
+% ------------------------------------------------------------------ satura nodaļas
+\section{[Literatūras apskats]}
+\zpdnote{Teorētiskā daļa: vismaz divu zinātnieku darbi šajā jomā, salīdzināti un kritiski izvērtēti. Ne vairāk kā 1/3 no darba teksta. Nodaļai nevar būt tikai viena apakšnodaļa.}
+\subsection{[Apakšnodaļa]}
+[Teksts ar atsauci \atsauce{Uzvārds, 2024, 5}.]
+\subsection{[Apakšnodaļa]}
+[Teksts.]
+
+\zpdlabel{Nodaļas kopsavilkums}[Viena vai divas rindkopas un pāreja uz nākamo nodaļu.]
+
+\section{[Metodes]}
+\zpdnote{Datu vākšanas un analīzes metodes, to izvēles pamatojums, rīki, procedūra un ierobežojumi.}
+[Teksts.]
+
+\begin{equation}
+  [formula] \label{eq:piemers}
+\end{equation}
+
+\section{[Rezultāti un analīze]}
+\zpdnote{Visu iegūto datu apkopojums tabulās un attēlos, to analīze un salīdzinājums ar citu autoru datiem. Uz katru attēlu un tabulu tekstā ir vismaz viena norāde; vienā lappusē ne vairāk kā divi.}
+[Teksts, sk. \ref{tab:piemers}~tabulu un \ref{fig:piemers}~attēlu.]
+
+\begin{table}[H]
+  \caption{[Tabulas nosaukums, saprotams bez teksta]}\label{tab:piemers}
+  \centering
+  \begin{tabular}{lrr}
+    \toprule
+    {}[Kolonna] & [Kolonna] & [Kolonna] \\
+    \midrule
+    {}[a] & [1] & [2] \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure}[H]
+  \centering
+  \fbox{\parbox[c][3cm][c]{8cm}{\centering [attēls]}}
+  \caption{[Attēla nosaukums, saprotams bez teksta]}\label{fig:piemers}
+\end{figure}
+
+% ------------------------------------------------------------------ secinājumi
+\nenumuretanodala{Secinājumi}
+\zpdnote{Tēžu veidā, numurēti, ne vairāk kā uzdevumu; atbild uz pētījuma jautājumu vai apstiprina/noraida hipotēzi.}
+\begin{secinajumi}
+  \item {}[Secinājums par 1. uzdevumu.]
+  \item {}[Secinājums par 2. uzdevumu.]
+  \item {}[Secinājums par 3. uzdevumu.]
+\end{secinajumi}
+
+% ------------------------------------------------------------------ avoti (5. pielikums vadlīnijās)
+\begin{avoti}
+  \avots Uzvārds, I. (Gads). \textit{Grāmatas nosaukums}. Vieta: Izdevējs. 100 lpp.
+  \avots Uzvārds, I., Uzvārds, I. (Gads). Raksta nosaukums. \textit{Žurnāla nosaukums}, Vol. 1, pp. 1--10.
+  \avots Uzvārds, I. (Gads). \textit{Nosaukums} [tiešsaiste]. Vietne [skatīts 2026. gada 1. novembrī]. Pieejams: \url{https://example.org}
+  \avots Izstrādātājs. (Gads, datums). \textit{Rīka nosaukums, versija un sarunas nosaukums} [tiešsaiste]. [skatīts ...]. Pieejams: \url{https://example.org}
+\end{avoti}
+
+% ------------------------------------------------------------------ pielikumi (ne vairāk kā 1/3 no darba apjoma)
+\pielikums{[Pielikuma nosaukums]}
+[Saturs, uz kuru ir norāde tekstā.]
+
+\end{document}
