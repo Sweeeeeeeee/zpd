@@ -1,0 +1,34 @@
+{
+  "tools": {
+    "ddar": {
+      "enabled": true,
+      "options": {
+        "config": "ddar/configs/yuclid.json",
+        "seed": 0
+      }
+    },
+    "transformer": {
+      "enabled": true,
+      "options": {
+        "checkpoint": "geo-lm/runs/mini_long/best.pt",
+        "beam_size": 4,
+        "max_candidates": 4,
+        "max_new_tokens": 64
+      }
+    },
+    "heuristics": {
+      "enabled": false
+    }
+  },
+  "proposer_order": [
+    "transformer"
+  ],
+  "search": {
+    "max_depth": 2,
+    "branching": 8,
+    "max_frontier": 6,
+    "max_ddar_calls": 80,
+    "time_limit": 0
+  },
+  "_comment": "Mini model, longer run (geo-lm runs/mini_long, ~75 min CPU) as the only source of auxiliary points; otherwise as heuristics_only."
+}

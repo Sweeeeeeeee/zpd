@@ -1,0 +1,18 @@
+{
+  "checkpoint": "geo-lm/runs/mini_long/best.pt",
+  "problems": 200,
+  "beam": 4,
+  "hypotheses": 800,
+  "finished_rate": 1.0,
+  "translatable_rate": 0.943,
+  "problems_with_translatable": 0.98,
+  "exact_at_1": 0.115,
+  "exact_at_4": 0.32,
+  "rejected": {
+    "unknown point": 36,
+    "no construction for": 7,
+    "empty construction": 2,
+    "does not involve": 1
+  },
+  "seconds": 46.2
+}

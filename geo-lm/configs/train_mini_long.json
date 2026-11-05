@@ -1,0 +1,18 @@
+{
+  "_comment": "~2M-param model, longer CPU run (~75 min on 2 cores): 9000 steps of 32 examples (~3 epochs).",
+  "model_config": "model_mini.json",
+  "train_data": "../../data/genesisgeo/train.txt",
+  "val_data": "../../data/genesisgeo/val.txt",
+  "out_dir": "../runs/mini_long",
+  "lr": 0.002,
+  "min_lr": 0.0002,
+  "warmup_steps": 100,
+  "weight_decay": 0.1,
+  "batch_size": 32,
+  "grad_accum": 1,
+  "max_steps": 9000,
+  "log_every": 50,
+  "eval_every": 1500,
+  "ckpt_every": 250,
+  "eval_generate": 100
+}
