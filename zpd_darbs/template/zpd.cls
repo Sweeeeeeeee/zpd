@@ -8,7 +8,7 @@
 %%
 %% Klases opcijas:
 %%   labels   / nolabels  -- rādīt / slēpt sarkanās piezīmes \zpdlabel{...} (noklusēti: labels)
-%%   logo     / nologo    -- rādīt / slēpt logotipu titullapā (noklusēti: logo)
+%%   logo     / nologo    -- rādīt / slēpt skolas logotipu titullapā (noklusēti: logo; fails \logotips{...})
 %%   draft                -- nodod tālāk article klasei
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{zpd}[2026/11/05 ZPD darba klase pec 2026. gada vadlinijam]
@@ -95,12 +95,16 @@
   \clearpage}
 
 %% ---------------------------------------------------------------- attēli un tabulas
-%% "1. attēls. Nosaukums" zem attēla; "1. tabula. Nosaukums" virs tabulas.
+%% Kā RTU IZV paraugā: numurēti pa nodaļām, slīprakstā, numurs treknrakstā:
+%% "4.1. attēls Nosaukums" zem attēla; "4.1. tabula Nosaukums" virs tabulas.
 \addto\captionslatvian{\renewcommand{\figurename}{attēls}\renewcommand{\tablename}{tabula}}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+\AtBeginDocument{\renewcommand{\thefigure}{\arabic{section}.\arabic{figure}.}\renewcommand{\thetable}{\arabic{section}.\arabic{table}.}}
 \DeclareCaptionLabelFormat{lvnum}{#2~#1}
-\captionsetup{labelformat=lvnum,labelsep=period,font=normalsize,labelfont=bf,justification=centering}
-\captionsetup[table]{position=top,skip=6pt}
-\captionsetup[figure]{skip=6pt}
+\captionsetup{labelformat=lvnum,labelsep=space,font={small,it},labelfont={bf,it},justification=centering}
+\captionsetup[table]{position=top,skip=4pt}
+\captionsetup[figure]{skip=4pt}
 \renewcommand{\arraystretch}{1.15}
 
 %% ---------------------------------------------------------------- saraksti un secinājumi
@@ -133,36 +137,34 @@
 \newcommand{\logotips}[1]{\def\zpd@logofile{#1}}
 \skola{\aizpildit{Izglītības iestādes nosaukums}}
 \nosaukums{\aizpildit{Darba nosaukums}}
-\nozaru{\aizpildit{zinātnes nozaru grupas nosaukums}}
+\nozaru{\aizpildit{zinātnes nozaru grupas / nozares nosaukums} nozarē}
 \autors{\aizpildit{Vārds Uzvārds}}
 \vaditajs{\aizpildit{Vārds Uzvārds}}
 \let\zpd@konsultants\relax
 \pilseta{\aizpildit{Pilsēta}}
 \gads{\the\year}
-\logotips{logo.png}
+\logotips{logo_rtu_izv.png}
 
+%% Izkārtojums kā RTU IZV paraugā (zpd_darbs/vadlinijas/example_rtu_izv.pdf) un vadlīniju 3. pielikumā.
 \newcommand{\titullapa}{%
   \begin{titlepage}
     \centering
     \ifzpd@logo
-      \IfFileExists{\zpd@logofile}{\includegraphics[width=6.5cm]{\zpd@logofile}\par\vspace{0.6cm}}{}
+      \IfFileExists{\zpd@logofile}{\vspace*{1.2cm}\includegraphics[height=4.2cm]{\zpd@logofile}\par\vspace{0.8cm}}{}
     \fi
-    \zpdlabel{Izglītības iestāde}{\fontsize{14}{17}\selectfont\zpd@skola\par}
-    \vspace{\stretch{3}}
+    \zpdlabel{Izglītības iestāde}\zpd@skola\par
+    \vspace{2.6cm}
     \zpdlabel{Darba nosaukums}\par
-    {\fontsize{16}{20}\selectfont\bfseries\zpd@nosaukums\par}
-    \vspace{0.9cm}
-    {\fontsize{14}{17}\selectfont Zinātniskās pētniecības darbs\par}
-    \zpdlabel{Zinātnes nozaru grupa}{\fontsize{14}{17}\selectfont\zpd@nozaru\par}
-    \vspace{\stretch{4}}
+    {\fontsize{16}{19}\selectfont\bfseries\zpd@nosaukums\par}
+    \vspace{1.0cm}
+    \zpdlabel{Zinātnes nozaru grupa / nozare}Zinātniskās pētniecības darbs \zpd@nozaru\par
+    \vspace{1.0cm}
     \begin{flushright}
-      \begin{tabular}{@{}r@{}}
-        \textbf{\zpd@autorsl:} \zpd@autors\\[2pt]
-        \textbf{\zpd@vaditajsl:} \zpd@vaditajs\\[2pt]
-        \ifx\zpd@konsultants\relax\else\textbf{\zpd@konsultantsl:} \zpd@konsultants\\\fi
-      \end{tabular}
+      \textbf{\zpd@autorsl:}\\ \zpd@autors\par\vspace{0.5cm}
+      \textbf{\zpd@vaditajsl:}\\ \zpd@vaditajs\par
+      \ifx\zpd@konsultants\relax\else\vspace{0.5cm}\textbf{\zpd@konsultantsl:}\\ \zpd@konsultants\par\fi
     \end{flushright}
-    \vspace{\stretch{3}}
+    \vfill
     \zpdlabel{Pilsēta un gads}\zpd@pilseta{} \zpd@gads\par
   \end{titlepage}
   \setcounter{page}{2}}

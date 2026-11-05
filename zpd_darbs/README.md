@@ -7,9 +7,10 @@ content, and the scripts that build its figures and tables from `results/`.
 | path | what |
 |---|---|
 | `vadlinijas/vadlinijas_zpd_2026_2027.pdf` | official VIAA guidelines (2026), the source of every formatting rule |
+| `vadlinijas/example_rtu_izv.pdf` | example RTU IZV paper, the source of the look (logo, title page, captions) |
 | `template/zpd.cls` | document class: A4, 2.5 cm margins, Times 12 pt, single spacing, 16/14 pt bold headings, indented justified paragraphs, page numbers bottom centre from the introduction |
 | `template/template.tex` | empty template in the structure of guidelines section 2 (title page, both abstracts, contents, introduction, chapters, conclusions, sources, appendices) |
-| `template/logo.png` | logo strip from the guidelines' cover (ESF+, Latvija 2027, VIAA) |
+| `template/logo_rtu_izv.png` | RTU Inženierzinātņu vidusskola logo, taken from `zpd_darbs/vadlinijas/example_rtu_izv.pdf` (the reference for the look: title page, captions); change with `\logotips{...}` |
 | `preliminary/template_preliminary.tex` | preliminary paper: the template filled with the project's aim, tasks, method and current results |
 | `scripts/make_figures.py` | builds `figures/*.pdf` and `tables/*.tex` from `results/` |
 | `figures/`, `tables/` | generated; rebuild with `make figures` |
