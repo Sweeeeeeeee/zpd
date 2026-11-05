@@ -50,7 +50,7 @@ Every config in `pipeline/configs/domains/` uses the same search and budget:
 * **Depth at most 1.** DDAR runs on the problem as stated. If that fails, it
   runs once more for each proposed auxiliary point (up to 8).
 * **Auxiliary points** come from the human heuristics only, until the
-  transformer is trained (step 7). To compare sources of points, copy a config
+  transformer is trained (task 8). To compare sources of points, copy a config
   and switch `transformer` on.
 * **Budget.** The `budget` block is new: a pipeline config can now carry its
   own limits. `python -m bench run` and `python -m pipeline.solve` use it

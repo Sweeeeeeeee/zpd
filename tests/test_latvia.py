@@ -1,4 +1,4 @@
-"""Latvian olympiad import (task 4.1): text extraction, problem splitting, geometry tags, catalogue."""
+"""Latvian olympiad import (task 7.1): text extraction, problem splitting, geometry tags, catalogue."""
 
 import zipfile
 

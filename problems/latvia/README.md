@@ -6,13 +6,13 @@ from 1973/74 to 2025/26, plus the Latvian team selection tests for Baltic Way
 and the IMO
 ([international archive](https://www.nms.lu.lv/arhivs-un-materali/uzdevumu-arhivs/starptautisko-sacensibu-uzdevumu-arhivs/)).
 There is one file per problem, in Latvian as published. The problems are not
-translated into Newclid yet (that is task 4.2).
+translated into Newclid yet (that is task 7.5).
 
 | folder | what |
 |---|---|
 | `all/` | every problem: algebra, number theory, combinatorics, geometry |
 | `geometry/` | the geometry problems only (plane and solid), same paths as in `all/` |
-| `geometry_translated/` | Newclid translations of `geometry/` problems, same paths, `.txt` (task 4.2) |
+| `geometry_translated/` | Newclid translations of `geometry/` problems, same paths, `.txt` (task 7.5) |
 | `index.csv` | one row per problem: id, path, competition, season, grade, number, geometry tag, review flags, source |
 | `geometry_overrides.csv` | hand corrections of the geometry tag; kept across rebuilds |
 

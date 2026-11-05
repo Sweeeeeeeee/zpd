@@ -18,15 +18,36 @@ Izstrāde (izpildīts):
 	1. DD-AR dzinējs un jomas: Newclid DD-AR darbojas uz CPU; joma ir JSON konfigurācija ar ieslēgtajiem likumiem un AR slēdzi, ar brīdinājumiem, ja likumu kopa nevar izmantot vai pierādīt kādu predikātu.
 	2. Palīgpunktu avoti: cilvēka heiristikas (viduspunkti, apvilktās riņķa līnijas centri, augstumu pamati) un mazs, no nulles uzrakstīts transformeris ar apmācības skriptu un 100 000 GenesisGeo piemēriem.
 	3. Risinātājs: meklēšana "DD-AR, tad palīgpunkts, tad atkal DD-AR" ar dziļuma un zarošanās ierobežojumiem; funkcija solve(uzdevums, konfigurācija, resursi) atsevišķā procesā ar laika, atmiņas un CPU ierobežojumiem.
-	4. Tulkošana un uzdevumu krātuve: vadlīnijas olimpiāžu uzdevumu tulkošanai Newclid sintaksē ar skaitlisku zīmējuma pārbaudi; krātuve ar katra uzdevuma rezultātiem dažādās jomās un ar dažādiem resursiem.
+	4. Tulkošanas vadlīnijas un uzdevumu krātuve: olimpiāžu uzdevumu tulkošana Newclid sintaksē ar skaitlisku zīmējuma pārbaudi; krātuve ar katra uzdevuma rezultātiem dažādās jomās un ar dažādiem resursiem.
 	5. Dokumentācija, testi un prezentācija.
-Pētījums (vēl jāizpilda):
-	6. Definēt 2-3 jomas (piemēram, tikai riņķa līnijas un ievilktie leņķi; viss, izņemot līdzīgos trijstūrus; ar AR un bez tā) un "viegluma" iestatījumu: dziļums ne vairāk kā 1, resursi 60 s un 2 GB.
-	7. Pilnībā apmācīt transformeri un izmērīt, cik bieži tā piedāvātie palīgpunkti ir izmantojami un palīdz atrisināt uzdevumus.
-	8. Savākt un pārtulkot olimpiāžu uzdevumus (piemēram, valsts olimpiādes, Baltic Way, IMO shortlist), pārbaudīt tos skaitliski un pierakstīt metadatus: avots, gads, tēma, oficiālā grūtība.
-	9. Noskenēt visus uzdevumus visās jomās un saglabāt rezultātus.
-	10. Analīze: katrā jomā noteikt uzdevumus ar vieglu risinājumu, atslēgas palīgkonstrukciju un viegluma rādītājus; salīdzināt jomas un palīgpunktu avotus; salīdzināt ar oficiālo grūtību un oficiālajiem risinājumiem; izpētīt uzdevumus, kuriem viegls risinājums netika atrasts.
-	11. Noformēt rezultātus darbā un atjaunināt prezentāciju ar reāliem skaitļiem.
+Pētījuma sagatavošana:
+	6. Jomas (izpildīts): full, circles (riņķa līnijas un ievilktie leņķi) un no_similarity (bez līdzīgajiem trijstūriem), katra ar AR un bez tā, un "viegluma" iestatījums: dziļums ne vairāk kā 1, resursi 60 s un 2 GB.
+	7. Uzdevumu kopa:
+		7.1. Savākt Latvijas olimpiāžu uzdevumus no NMS arhīva (izpildīts: 6333 uzdevumi, no tiem 1499 ģeometrijā).
+		7.2. Sašķirot ģeometrijas uzdevumus: kurus Newclid var izteikt un kurus ne (telpiskā ģeometrija, aprēķini, nevienādības, konstrukcijas), ar iemeslu.
+		7.3. Izvēlēties darba kopu (50–100 uzdevumu no dažādām olimpiādēm, klasēm un gadiem).
+		7.4. Pārtulkot izmēģinājuma partiju (~10 uzdevumu), noskenēt to un uzlabot vadlīnijas.
+		7.5. Pārtulkot pārējo darba kopu; katram uzdevumam jāiztur skaitliskā pārbaude.
+		7.6. Metadati: avots, gads, klase, tēma, oficiālā grūtība, oficiālā risinājuma esamība.
+	8. Transformeris (var darīt paralēli 7. uzdevumam):
+		8.1. Pilna apmācība uz 100 000 piemēriem (apmēram 14 h uz CPU).
+		8.2. Pārbaude bez risinātāja: validācijas zudumi un cik bieži piedāvājumi ir derīgas Newclid konstrukcijas.
+		8.3. Konfigurācijas ar ieslēgtu transformeri; cik bieži tā palīgpunkti ir izmantojami un palīdz atrisināt uzdevumus.
+Pētījums:
+	9. Skenēšana:
+		9.1. Nofiksēt konfigurācijas (6 jomas × palīgpunktu avoti), resursus un dzinēja versiju.
+		9.2. Noskenēt visus darba kopas uzdevumus visās konfigurācijās un saglabāt rezultātus.
+		9.3. Atkārtot avārijas un laika pārsniegumus; klasificēt atlikušās kļūmes.
+	10. Analīze:
+		10.1. Katrā jomā: uzdevumi ar vieglu risinājumu, atslēgas palīgkonstrukcija, viegluma rādītāji.
+		10.2. Jomu salīdzinājums: kura teorēma vai AR padara kurus uzdevumus vieglus.
+		10.3. Palīgpunktu avotu salīdzinājums: bez tiem, heiristikas, transformeris.
+		10.4. Salīdzinājums ar oficiālo grūtību un oficiālajiem risinājumiem.
+		10.5. Uzdevumi bez atrasta viegla risinājuma: kāpēc.
+	11. Noformējums:
+		11.1. Metodes un rezultātu apraksts darbā.
+		11.2. Prezentācijas atjaunināšana ar reāliem skaitļiem.
+		11.3. Gala pārbaude: testi, atkārtojamība, rezultāti repozitorijā.
 
 "Viegla risinājuma" definīcija:
 Risinājums ir viegls izvēlētajā jomā, ja:

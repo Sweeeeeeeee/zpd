@@ -1,6 +1,6 @@
 # Newclid translations of the Latvian geometry problems
 
-Task 4.2. Empty for now.
+Tasks 7.2–7.5. Empty for now.
 
 Each translation goes at the same path as its problem in `../geometry/`, with
 `.txt` in place of `.md`:
