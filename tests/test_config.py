@@ -1,4 +1,4 @@
-"""Config loading: DDAR rule configs (step 2) and pipeline tool configs (step 6)."""
+"""Config loading: DDAR rule configs (task 1) and pipeline tool configs (task 3)."""
 
 import json
 

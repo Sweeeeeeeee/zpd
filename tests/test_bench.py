@@ -1,4 +1,4 @@
-"""The problem store (step 11): problem files, config fingerprints, stored runs."""
+"""The problem store (task 4): problem files, config fingerprints, stored runs."""
 
 import json
 

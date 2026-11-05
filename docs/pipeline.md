@@ -1,4 +1,4 @@
-# Step 6: Toolbox and the first pipeline
+# Toolbox and the pipeline
 
 ## The tool interface (`tools.py`)
 
@@ -15,7 +15,7 @@ a score.
 
 | tool | class | returns |
 |---|---|---|
-| DDAR | `tools.DDARTool` | nothing. It runs Newclid's DDAR on the state and records solved, proof, rules fired and the numeric figure. Its options are a step 2 DDAR config, so rule toggling and AR on/off apply here too. |
+| DDAR | `tools.DDARTool` | nothing. It runs Newclid's DDAR on the state and records solved, proof, rules fired and the numeric figure. Its options are a DDAR config ([ddar.md](ddar.md)), so rule toggling and AR on/off apply here too. |
 | transformer | `transformer_tool.TransformerTool` | the model's beam-search hypotheses (deterministic), translated to JGEX clauses |
 | heuristics | `tools.HeuristicsTool` | midpoints, circumcenters and feet of altitudes. Candidates touching more goal points come first, ties are broken alphabetically, and points that coincide with existing ones are skipped |
 
@@ -68,7 +68,7 @@ Limits: `max_depth`, `branching`, `max_frontier`, `max_ddar_calls` and
 * `"class": "my_pkg.my_module:MyTool"` replaces a tool with any `Tool`
   subclass. Its `options` are passed to the class constructor.
 * Configs provided: `default.json` (needs a trained model), `heuristics_only.json`,
-  `ddar_only.json`, and `tiny_model.json` (uses the step 5 smoke checkpoint).
+  `ddar_only.json`, and `tiny_model.json` (uses the smoke-test checkpoint).
 
 ## Adding a tool
 

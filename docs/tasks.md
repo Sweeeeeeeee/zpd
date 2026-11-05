@@ -10,9 +10,10 @@
 
 ## Research setup
 
+### 6. Domains
 - [x] 6. Define domains. Three domains, each with and without AR: full (Newclid's default rules plus the circle rules it leaves out and the midline theorem), circles (circles and inscribed angles only) and no_similarity (full without similar triangles). Each comes with the "easy" setting: search depth at most 1, auxiliary points from the heuristics, budget 60 s and 2 GB, stored in the config. (docs/domains.md, ddar/configs/domains/, pipeline/configs/domains/)
 
-### 7. Problem set (use agent scheme - make a guide with eamples and givi it to an agent so token credits werent used that much)
+### 7. Problem set (use an agent scheme: write a guide with examples and give it to an agent, so fewer tokens are used)
 - [x] 7.1. Collect Latvian olympiad problems. Pull every problem (all topics) from the NMS archive (nms.lu.lv: national, regional, school and open olympiads since 1973/74, and the Baltic Way and IMO selection tests) into problems/latvia/: all/ holds every problem, one file per problem, under <competition>/<season>_<olympiad>/grade<NN>/; geometry/ holds the geometry problems with the same paths; geometry_translated/ is ready for the translations. AoPS (Latvia contests) blocks automated downloads and draws on the same olympiads, so it is not used. 6333 problems, 1499 of them geometry. (problems/latvia/README.md, bench/latvia/)
 - [ ] 7.2. Sort the geometry problems. For each of the 1499, decide whether Newclid can state it: plane geometry with a provable goal (yes), or solid geometry, computing a length or angle, inequality, construction, "find all" (no). Record the untranslatable ones with the reason in geometry_translated/untranslatable.csv.
 - [ ] 7.3. Pick the working set. From the statable problems choose 50-100 to translate first, spread over competitions, grades and decades (start with the national olympiad and the selection tests). List them in a file so the choice is reproducible.
@@ -24,6 +25,8 @@
 - [ ] 8.1. Full training run on the 100k examples (about 14 h on CPU); keep the log and the best checkpoint. Short run done: 2.1M-param model (configs/train_mini.json), 1600 steps in 14 min, val loss 0.57; loss still falling.
 - [x] 8.2. Offline check: validation loss, and how often its proposals parse into valid Newclid constructions on held-out GenesisGeo problems. (geo-lm/scripts/eval_aux.py; mini model: 92% translatable, exact match 6% top-1, 21% top-4; results/transformer/)
 - [ ] 8.3. Pipeline configs with the transformer switched on for each domain; measure on the examples and the pilot batch how often its points are usable and help prove the goal.
+
+## Research
 
 ### 9. Scan
 - [ ] 9.1. Freeze the scan: list the configs (6 domains x aux sources: none, heuristics, heuristics + transformer), the budget and the engine version.

@@ -14,7 +14,7 @@ Rules:
 Decoding is deterministic and produces canonical text, so
 decode(encode(x)) == normalize(x) for any x without unknown tokens.
 
-Training / inference format (shared with step 5 and the pipeline):
+Training / inference format (shared with training and the pipeline):
     <bos> PROBLEM <aux> AUX_CONSTRUCTION <eos>
 The model is prompted with "<bos> PROBLEM <aux>" and must produce the rest.
 """

@@ -1,4 +1,4 @@
-# Step 4: Training data for auxiliary constructions
+# Training data for auxiliary constructions
 
 ## Source: GenesisGeo (reused, not regenerated)
 

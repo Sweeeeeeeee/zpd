@@ -116,7 +116,7 @@
 %% Ar klases opciju "nolabels" visas piezīmes pazūd, un darbs ir gatavs iesniegšanai.
 \definecolor{zpdlabel}{RGB}{200,16,16}
 \ifzpd@labels
-  \newcommand{\zpdlabel}[1]{{\color{zpdlabel}\sffamily\footnotesize\bfseries[#1]}\hspace{0.4em}}
+  \newcommand{\zpdlabel}[1]{{\color{zpdlabel}\sffamily\footnotesize\bfseries[#1]}\hspace{0.4em plus 1em}\allowbreak}
   \newcommand{\zpdnote}[1]{\par{\color{zpdlabel}\sffamily\footnotesize #1}\par}
 \else
   \newcommand{\zpdlabel}[1]{}

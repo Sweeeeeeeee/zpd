@@ -1,4 +1,4 @@
-"""The step 3 transformer as a tool: beam search for auxiliary constructions.
+"""The geo-lm transformer (task 2) as a tool: beam search for auxiliary constructions.
 
 Deterministic: beam search, no sampling. Each beam hypothesis is translated
 into JGEX clauses (pipeline.translate); hypotheses that cannot be translated

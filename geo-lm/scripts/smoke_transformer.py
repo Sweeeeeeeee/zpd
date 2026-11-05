@@ -1,4 +1,4 @@
-"""End-to-end smoke test for step 3, CPU-only, ~1 minute.
+"""End-to-end smoke test for the transformer, CPU-only, ~1 minute.
 
 Builds a tokenizer from a few hand-written problems, trains a tiny model to
 memorise their auxiliary constructions, checks greedy decoding and beam search,

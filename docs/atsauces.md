@@ -29,7 +29,7 @@
 | what | where | used for |
 |---|---|---|
 | Newclid 3.0.1 + py-yuclid 3.0.0 | https://github.com/Newclid/Newclid (formerly LMCRC/Newclid), PyPI `newclid[yuclid]` | DDAR engine, rules, constructions, example problems |
-| GenesisGeo dataset | https://huggingface.co/datasets/ZJUVAI/GenesisGeo (Apache-2.0) | 100k training examples (step 4) |
+| GenesisGeo dataset | https://huggingface.co/datasets/ZJUVAI/GenesisGeo (Apache-2.0) | 100k training examples (task 2) |
 | GenesisGeo code | https://github.com/ZJUVAI/GenesisGeo | checked for reusable generation code |
 | AlphaGeometry (DeepMind) | https://github.com/google-deepmind/alphageometry | original DDAR; not used (needs Meliad) |
 | PyTorch | https://pytorch.org | model and training |

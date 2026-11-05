@@ -1,4 +1,4 @@
-# Step 1: Running Newclid DDAR on CPU
+# Running Newclid DDAR on CPU
 
 Newclid 3.0.1 works on CPU. Use it with its C++ engine **yuclid**, though: the
 pure-Python engine in this release is broken.
@@ -34,7 +34,7 @@ Install notes:
 | yuclid (default) | **60** | 7 | 7 | 0.01–0.25 s per problem |
 | python (DDARN + SymPy AR, with only fix 1 below) | 37 | 37 | 0 | ≤ 0.15 s when it works |
 
-Full tables: `results/examples_yuclid.txt` and `results/examples_python.txt`.
+Full tables: `ddar/results/examples_yuclid.txt` and `ddar/results/examples_python.txt`.
 
 **Yuclid failures:**
 * 4 problems (`breaking_cc_*`) fail on both engines. Their figures cannot be built
@@ -59,14 +59,14 @@ Full tables: `results/examples_yuclid.txt` and `results/examples_python.txt`.
 All three are handled in `ddar/engine.py` without modifying Newclid: `diff A B C`
 premises are rewritten as pairwise `diff`s when rules are loaded, the AR
 deductor is a subclass with a corrected length enumerator, and the rule matcher
-skips degenerate mappings. The step 1 table above was measured with only fix 1
+skips degenerate mappings. The first table above was measured with only fix 1
 applied. Other Python-engine failures remain and are not fixed: unsupported
 `contri` predicates (`CONTRI_CLOCK`, `CONTRI_REFLECT`), an AR premise error on
 `miquel_theorem`, and weaker ratio chasing than yuclid (e.g. `forcing_ratio`).
-Step 6 fixes the `contri` matching and the AR premise error too (fixes 4 and 5
+Task 6 (domains) fixes the `contri` matching and the AR premise error too (fixes 4 and 5
 in [domains.md](domains.md)). This code path looks unmaintained
 since the move to yuclid, but it is the only engine that can switch rules off,
-so step 2 uses it.
+so rule toggling uses it.
 
 ## How rules are loaded
 
@@ -129,7 +129,7 @@ There are two separate rule sets, and only the Python one is configurable.
 | Predicates | `predicates/_index.py` | 33 predicate types (`coll`, `cong`, `eqangle`, `simtri`, ...) |
 | RNG | `JGEXProblemBuilder(rng=...)` | random coordinates; pass a seed for reproducible runs |
 
-## Step 2: Rule toggling
+## Rule toggling
 
 A DDAR config is a small JSON file (`ddar/configs/*.json`):
 
@@ -203,10 +203,10 @@ construction and the Newclid fixes), `runner.py` (solve one problem, count fired
 
 ## What this means for later steps
 
-* **Rule-toggling experiments** use the patched Python engine (done in step 2).
+* **Rule-toggling experiments** use the patched Python engine (see Rule toggling above).
   It is much slower than yuclid (1.1 s vs 0.01 s on the example above), so large runs with
   stock rules should still use yuclid.
-* **Step 4 (data):** the Newclid repo includes `ncdgen`, a generator that uses
+* **Training data:** the Newclid repo includes `ncdgen`, a generator that uses
   `yuclid --mode datagen` and has an option to emit only sub-problems that need
   an auxiliary construction (`emit_only_double_checked_aux_subproblems`). This
   looks directly reusable.

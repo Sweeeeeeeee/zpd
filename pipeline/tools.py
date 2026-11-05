@@ -116,7 +116,7 @@ class DDARTool(Tool):
     """Newclid's deductive engine. Proves what it can and records it in the state.
 
     options:
-        config: path to a DDAR config JSON (step 2), default ddar/configs/yuclid.json
+        config: path to a DDAR config JSON (task 1), default ddar/configs/yuclid.json
         seed:   RNG seed for drawing the figure (default 0)
     """
 

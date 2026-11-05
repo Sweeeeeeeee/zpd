@@ -1,4 +1,4 @@
-# Step 6: Geometry domains and the easy setting
+# Geometry domains and the easy setting
 
 A **domain** is a set of theorems: a DDAR rule list, with algebraic reasoning
 (AR: angle and ratio chasing) on or off. A problem has an **easy solution** in
@@ -104,7 +104,7 @@ about 2 s of process start-up.
 
 | rules | solved | crashed | unsolved |
 |---|---|---|---|
-| Newclid default, Python engine, step 1 (fix 1 only) | 37 | 37 | 0 |
+| Newclid default, Python engine, fix 1 only | 37 | 37 | 0 |
 | Newclid default, Python engine, fixes 1–5 | 50 | 10 | 14 |
 | `full` | 54 | 10 | 10 |
 | `no_similarity` | 54 | 10 | 10 |

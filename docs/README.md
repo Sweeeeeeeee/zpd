@@ -15,18 +15,19 @@ written from scratch, or simple human heuristics), and DDAR tries again. Every
 part can be switched off or swapped from JSON configs, including individual
 deduction rules.
 
-| folder | what | step |
+| folder | what | task ([tasks.md](tasks.md)) |
 |---|---|---|
-| `ddar/` | Newclid setup, example runner, rule toggling (`rule_config.py`), solver construction (`engine.py`) | 1, 2 |
-| `geo-lm/` | the transformer, its tokenizer, and the training script | 3, 5 |
-| `datagen/` | 100k training examples subsampled from GenesisGeo | 4 |
-| `pipeline/` | tools, search, `solve()`, figure check, folder runner | 6, 7, 8 |
-| `ddar/configs/domains/`, `pipeline/configs/domains/` | geometry domains (rule sets, with and without AR) in the easy setting ([domains.md](domains.md)) | 6 |
+| `ddar/` | Newclid setup, example runner, rule toggling (`rule_config.py`), solver construction (`engine.py`) | 1 |
+| `geo-lm/` | the transformer, its tokenizer, training script and evaluation (`scripts/eval_aux.py`) | 2, 8 |
+| `datagen/` | 100k training examples subsampled from GenesisGeo | 2 |
+| `pipeline/` | tools, search, `solve()`, figure check, folder runner | 3 |
+| `ddar/configs/domains/`, `pipeline/configs/domains/` | geometry domains (rule sets, with and without AR) in the easy setting ([domains.md](domains.md)); `pipeline/configs/domains_transformer/` adds the transformer | 6, 8 |
 | `docs/` | all documentation (this file, one file per part, references) | all |
-| `problems/examples/` | worked example problems | 8 |
-| `problems/latvia/` | all Latvian olympiad problems from the NMS archive, the geometry subset, and its translations ([README](../problems/latvia/README.md)); built by `bench/latvia/` | 4.1 |
-| `tests/` | tests for config loading, each tool, and `solve()` | 9 |
-| `bench/`, `results/` | problem collection, with every stored `solve()` result kept in git | 11 |
+| `problems/examples/` | worked example problems | 4 |
+| `problems/latvia/` | all Latvian olympiad problems from the NMS archive, the geometry subset, and its translations ([README](../problems/latvia/README.md)); built by `bench/latvia/` | 7 |
+| `tests/` | tests for config loading, each tool, `solve()`, domains and the Latvian import | 5 |
+| `bench/`, `results/` | problem store and sweeps, with every stored `solve()` result kept in git | 4, 9 |
+| `zpd_darbs/` | the written ZPD paper: LaTeX template after the guidelines, preliminary version, figure scripts ([README](../zpd_darbs/README.md)) | 12 |
 
 ## Installation (CPU only, Linux, Python ≥ 3.11)
 
@@ -209,13 +210,16 @@ All documents are in `docs/`:
 | file | content |
 |---|---|
 | [README.md](README.md) | this overview |
-| [ddar.md](ddar.md) | steps 1–2: Newclid on CPU, how rules and AR load, rule toggling |
+| [ddar.md](ddar.md) | task 1: Newclid on CPU, how rules and AR load, rule toggling, engine fixes |
 | [rules.md](rules.md) | every rule with premises and conclusions, and where rules are stored |
-| [geo-lm.md](geo-lm.md) | steps 3, 5: the transformer, tokenizer and training |
-| [datagen.md](datagen.md) | step 4: the GenesisGeo training data |
-| [pipeline.md](pipeline.md) | step 6: tools and search |
-| [translation_guide.md](translation_guide.md) | step 8: writing problems in Newclid syntax |
-| [present.md](present.md) | step 10: how to explain and present the project |
-| [rezultati.md](rezultati.md) | current results in Latvian: with and without the LLM, worked examples, transformer training |
+| [geo-lm.md](geo-lm.md) | task 2: the transformer, tokenizer and training |
+| [datagen.md](datagen.md) | task 2: the GenesisGeo training data |
+| [pipeline.md](pipeline.md) | task 3: tools, search and `solve()` |
+| [translation_guide.md](translation_guide.md) | task 4: writing problems in Newclid syntax |
+| [domains.md](domains.md) | task 6: the geometry domains and the easy setting |
+| [present.md](present.md) | task 5: how to explain and present the project |
+| [rezultati.md](rezultati.md) | current results in Latvian: domains, auxiliary point sources, transformer training and evaluation |
 | [atsauces.md](atsauces.md) | references |
-| [apraksts.md](apraksts.md), [tasks](tasks) | project description and task list |
+| [apraksts.md](apraksts.md), [tasks.md](tasks.md) | project description (Latvian) and task list |
+| [../problems/latvia/README.md](../problems/latvia/README.md) | task 7: the Latvian olympiad problems |
+| [../zpd_darbs/README.md](../zpd_darbs/README.md) | task 12: the written ZPD paper (LaTeX template, preliminary version, figures) |

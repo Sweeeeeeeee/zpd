@@ -6,7 +6,7 @@ AlphaGeometry syntax. It ships with a tokenizer for that syntax, greedy decoding
 deterministic beam search, and checkpoint save/load. No pretrained weights are used.
 Everything runs on CPU; a modest GPU is used automatically when present.
 
-It is step 3 of a larger project: Newclid's DDAR engine does the deduction, and
+It is part of task 2 of a larger project: Newclid's DDAR engine does the deduction, and
 this model suggests a new point when DDAR gets stuck.
 
 The code is in `geo-lm/`. Commands in this file run from that folder.
@@ -78,11 +78,17 @@ for _ in range(100):
 
 save_checkpoint("runs/demo.pt", model, tok, opt, step=100)
 ```
-## Training (step 5)
+## Training
+
+The current model is `runs/mini` (configs/train_mini.json): validation loss 0.57 after 14 minutes on 2 CPU cores.
+Check its proposals on held-out problems with
+`../.venv-newclid/bin/python scripts/eval_aux.py runs/mini/best.pt --n 200 --beam 4`
+(results in `results/transformer/`, written up in [rezultati.md](rezultati.md)).
 
 ```bash
-# from geo-lm/, data from step 4 in ../data/genesisgeo/
+# from geo-lm/, data from datagen.md in ../data/genesisgeo/
 python -m geo_lm.train --config configs/train_tiny.json     # end-to-end smoke run, ~1 min CPU
+python -m geo_lm.train --config configs/train_mini.json     # ~2M params, 100k examples, 1600 steps in ~14 min CPU (runs/mini)
 python -m geo_lm.train --config configs/train_small.json    # ~11M params, 100k examples
 python -m geo_lm.train --config configs/train_small.json --lr 1e-3 --batch_size 64 --max_steps 5000
 ```
@@ -111,4 +117,4 @@ Relative paths in the JSON file are resolved against the file's own directory.
   `eval_generate` held-out examples.
 
 The tokenizer is built from the training data on the first run and stored in
-the checkpoint. On the step 4 data it has 76 tokens.
+the checkpoint. On the GenesisGeo data it has 76 tokens.

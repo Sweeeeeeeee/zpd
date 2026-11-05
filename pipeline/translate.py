@@ -1,6 +1,6 @@
 """Translate between Newclid (JGEX) problems and the model's text format.
 
-The model (trained on GenesisGeo, step 4) reads problems where each point is
+The model (trained on GenesisGeo, task 2) reads problems where each point is
 defined by the predicates it satisfies, with points named a, b, c, ... in
 construction order:
 

@@ -83,7 +83,7 @@ def domains_table(ex: dict[str, dict[str, dict]]) -> None:
                 cells.append(r"\textbf{jā} " + lv(r["resources"]["used"]["wall_time_s"]) + r"~s")
             else:
                 reason = (r.get("failure_reason") or "").lower()
-                cells.append("nē (laiks)" if "time" in reason else "nē (zīm.)" if "figure" in reason or "numer" in reason
+                cells.append("nē (laiks)" if "time" in reason else "nē (zīm.)" if "built" in reason or "figure" in reason
                              else "nē (dziļ.)" if "depth" in reason or "exhaust" in reason or "no proposals" in reason
                              else "nē")
         rows.append(PROBLEM_LV.get(name, tex_escape(name)) + " & " + " & ".join(cells) + r" \\")
