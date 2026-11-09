@@ -1,0 +1,14 @@
+{
+  // Same image as a Codespace without a config; setup.sh installs the project on creation.
+  // The idle timeout cannot be set here: it comes from github.com/settings/codespaces
+  // at the moment the Codespace is created (see claude/LOG.md).
+  "name": "zpd",
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "postCreateCommand": "bash setup.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python", "James-Yu.latex-workshop"],
+      "settings": { "python.defaultInterpreterPath": ".venv-newclid/bin/python" }
+    }
+  }
+}

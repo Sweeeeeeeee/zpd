@@ -1,6 +1,6 @@
 # ZPD ģeometrijas risinātājs: rezultāti
 
-Stāvoklis uz 2026. gada 5. novembri.
+Stāvoklis uz 2026. gada 9. novembri.
 
 ## Pārskats
 
@@ -10,6 +10,8 @@ katrā (apmēram 8 s). Heiristikas tos atrisina ātrāk (apmēram 3 s), bet
 vienam uzdevumam tām vajag divus palīgpunktus. Uz 200 neredzētiem GenesisGeo
 uzdevumiem 92% modeļa piedāvājumu ir pārvēršami Newclid konstrukcijās, un 21%
 gadījumu viens no 4 piedāvājumiem precīzi sakrīt ar atsauces palīgpunktu.
+Ilgāk apmācīts tas pats modelis (`mini_long`, 3000 soļi) šos rādītājus
+uzlabo līdz 94% un 32%.
 Pilnais konveijers atrisina 4 no 5 parauga uzdevumiem, katru aptuveni 2 s
 laikā; piektais ir apzināti nepareizs tulkojums, un tas tiek pareizi noraidīts.
 
@@ -119,23 +121,40 @@ Zudums vēl krītas, tātad ilgāka apmācība (pilnā, apmēram 14 h) vēl uzla
 modeli. Iepriekšējais 200 soļu skrējiens ar lielo modeli sasniedza
 validācijas zudumu 1,67 un 0% sakritību. Avots: `geo-lm/runs/mini/log.jsonl`.
 
+**Ilgāks skrējiens (`mini_long`).** Tas pats modelis, plānoti 9000 soļi
+(apmēram 3 epohas, `geo-lm/configs/train_mini_long.json`). Codespace pēc
+30 minūtēm bez lietotāja ievades apstājās, tāpēc skrējiens beidzās pie
+3200. soļa; labākais kontrolpunkts ir no 3000. soļa.
+
+| Solis | Validācijas zudums | Precīzā sakritība |
+| --- | --- | --- |
+| 1500 | 0,76 | 3% |
+| 3000 | 0,49 | 11% |
+
+Zudums joprojām krītas. Avots: `results/transformer/mini_long_train_log.jsonl`;
+kontrolpunkti `geo-lm/runs/mini/` un `geo-lm/runs/mini_long/` ir gitā, tāpēc
+`mini_long` skrējienu var turpināt no `last.pt` ar to pašu konfigurāciju.
+
 ### Modeļa piedāvājumu pārbaude
 
 200 neredzēti GenesisGeo uzdevumi, staru meklēšana ar 4 hipotēzēm, 50 s uz CPU
 (skripts `geo-lm/scripts/eval_aux.py`):
 
-| Rādītājs | Vērtība |
-| --- | --- |
-| Pabeigtas hipotēzes (ar `<eos>`) | 100% |
-| Hipotēzes, kas pārvēršamas Newclid konstrukcijās | 91,6% |
-| Uzdevumi ar vismaz vienu pārvēršamu piedāvājumu | 96% |
-| Pirmais piedāvājums precīzi sakrīt ar atsauci | 6% |
-| Kāds no 4 piedāvājumiem precīzi sakrīt ar atsauci | 21% |
+| Rādītājs | `mini` (1600 soļi) | `mini_long` (3000 soļi) |
+| --- | --- | --- |
+| Pabeigtas hipotēzes (ar `<eos>`) | 100% | 100% |
+| Hipotēzes, kas pārvēršamas Newclid konstrukcijās | 91,6% | 94,3% |
+| Uzdevumi ar vismaz vienu pārvēršamu piedāvājumu | 96% | 98% |
+| Pirmais piedāvājums precīzi sakrīt ar atsauci | 6% | 11,5% |
+| Kāds no 4 piedāvājumiem precīzi sakrīt ar atsauci | 21% | 32% |
 
-Noraidīto 67 hipotēžu iemesli: atsauce uz neesošu punktu (35), predikāts bez
-Newclid konstrukcijas, piemēram `eqangle` (25), pārējie (7). Precīza sakritība
+`mini` noraidīto 67 hipotēžu iemesli: atsauce uz neesošu punktu (35), predikāts
+bez Newclid konstrukcijas, piemēram `eqangle` (25), pārējie (7). `mini_long`
+noraidīja 46: neesošs punkts (36), nav konstrukcijas (7), pārējie (3); tātad
+ilgāka apmācība gandrīz novērš predikātus bez konstrukcijas. Precīza sakritība
 ir stingrs mērs: arī atšķirīgs palīgpunkts var derēt, kā rāda `L058-9`.
-Avots: `results/transformer/eval_mini_val200.json`.
+Avoti: `results/transformer/eval_mini_val200.json`,
+`results/transformer/eval_mini_long_val200.json`.
 
 ## Secinājumi un nākamie soļi
 
@@ -152,7 +171,9 @@ Avots: `results/transformer/eval_mini_val200.json`.
 
 Nākamie soļi:
 
-- [ ] Pilnā apmācība (8.1, apmēram 14 h), jo zudums vēl krītas
+- [ ] Pilnā apmācība (8.1, apmēram 14 h), jo zudums vēl krītas; tā neiekļaujas 2-4 h Codespace dīkstāves
+      limitā, tāpēc vai nu vairākās sesijās ar `last.pt`, vai Kaggle
+- [ ] `mini_long` uz abiem iestrēgušajiem JGEX uzdevumiem (palaišana tika pārtraukta)
 - [ ] Pabeigt `bench/sweep.py` skrējienu uz visiem 231 JGEX uzdevumiem ar
       `heuristics_only` un `mini_model`
 - [ ] Jomu konfigurācijas ar transformeri (`pipeline/configs/domains_transformer/`)

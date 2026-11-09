@@ -1,0 +1,30 @@
+{
+  "source": "https://huggingface.co/datasets/ZJUVAI/GenesisGeo (Apache-2.0)",
+  "format": "PROBLEM <aux> AUX, one per line; model sees <bos> PROBLEM <aux> AUX <eos>",
+  "args": {
+    "size": "100000",
+    "val_frac": "0.02",
+    "max_tokens": "512",
+    "max_per_setup": "3",
+    "shards": "1",
+    "oversample": "3.0",
+    "max_rows": "0",
+    "seed": "0",
+    "raw_dir": "/workspaces/zpd/data/genesisgeo/raw",
+    "out_dir": "/workspaces/zpd/data/genesisgeo"
+  },
+  "stats": {
+    "rows": 2756559,
+    "aux_rows": 298178,
+    "too_long": 0,
+    "unparsed": 0,
+    "duplicate": 0,
+    "setup_cap": 162170,
+    "candidates": 136008
+  },
+  "train": 98008,
+  "val": 1992,
+  "tokens_median": 100,
+  "tokens_max": 239,
+  "seconds": 134
+}

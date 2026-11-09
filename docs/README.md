@@ -31,6 +31,11 @@ deduction rules.
 
 ## Installation (CPU only, Linux, Python ≥ 3.11)
 
+In a new Codespace this happens automatically (`.devcontainer/` runs
+`setup.sh`); elsewhere run `bash setup.sh` once. It does the steps below,
+unpacks the training split from `data/genesisgeo/*.txt.gz`, installs TeX Live
+and runs the tests. By hand:
+
 ```bash
 PYTHON=python3.13 ddar/setup_newclid.sh       # .venv-newclid with newclid[yuclid] 3.0.1 + pyyaml,
                                               # and the Newclid repo in third_party/ (example problems)
@@ -171,6 +176,7 @@ To replace a built-in tool, set `class` on its entry.
 
 ```bash
 python -m datagen.genesisgeo --size 100000                          # data: data/genesisgeo/{train,val}.txt
+                                                                    # (already in git as .txt.gz; setup.sh unpacks it)
 cd geo-lm
 python -m geo_lm.train --config configs/train_tiny.json             # 1-minute end-to-end check
 python -m geo_lm.train --config configs/train_small.json            # ~11M params
@@ -195,8 +201,13 @@ python -m geo_lm.train --config configs/train_small.json --max_steps 5000 --batc
   * Its outputs are converted to Newclid constructions for `coll`, `perp`,
     `para`, `cong` and `cyclic`.
   * Proposals that use `eqangle` or `aconst` are dropped.
-* The real model has not been trained yet; only a smoke-test checkpoint and a
-  10-minute checkpoint (`runs/quick`) exist. Checkpoints are not in git (134 MB each).
+* The full model has not been trained yet. The 2.1M-parameter checkpoints
+  `runs/mini` (1600 steps) and `runs/mini_long` (3000 steps, resumable from
+  `last.pt`) are in git (25 MB each, force-added past `geo-lm/.gitignore`);
+  other runs, such as the 134 MB `runs/quick`, are not.
+* A Codespace stops after its idle timeout (counted from your last input, not
+  from running jobs), and the timeout is fixed when the Codespace is created.
+  Long training belongs on Kaggle or in several resumed sessions.
 * The figure for each solve is drawn with one fixed seed (the `seed` option of
   the `ddar` tool, default 0). Use `pipeline.check_figure` to test several
   drawings.
@@ -217,7 +228,6 @@ All documents are in `docs/`:
 | [pipeline.md](pipeline.md) | task 3: tools, search and `solve()` |
 | [translation_guide.md](translation_guide.md) | task 4: writing problems in Newclid syntax |
 | [domains.md](domains.md) | task 6: the geometry domains and the easy setting |
-| [present.md](present.md) | task 5: how to explain and present the project |
 | [rezultati.md](rezultati.md) | current results in Latvian: domains, auxiliary point sources, transformer training and evaluation |
 | [atsauces.md](atsauces.md) | references |
 | [apraksts.md](apraksts.md), [tasks.md](tasks.md) | project description (Latvian) and task list |

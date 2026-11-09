@@ -6,7 +6,7 @@
 - [x] 2. Sources of auxiliary points. Human heuristics (midpoints, circumcenters, feet of altitudes) and a small transformer written from scratch, with a tokenizer, training script and 100k training examples from GenesisGeo. (docs/geo-lm.md, docs/datagen.md)
 - [x] 3. Solver. Search "DD-AR, then an auxiliary point, then DD-AR again" with depth and branching limits and no random guessing; tools switched and swapped in JSON. solve(problem, config, budget) runs in a separate process under time, memory and CPU limits and returns the proof, resources used, rules, tools and failure reason. (docs/pipeline.md)
 - [x] 4. Translation guide and problem store. Guide for translating olympiad problems into Newclid syntax, with a numerical check of the figure. Problem store with per-problem results for each config and budget, and a scanner table. (docs/translation_guide.md, docs/README.md)
-- [x] 5. Documentation, tests, presentation. (docs/README.md, tests/, docs/present.md)
+- [x] 5. Documentation, tests, presentation. (docs/README.md, tests/; the presentation draft docs/present.md was dropped and is redone in 11.2)
 
 ## Research setup
 
@@ -22,7 +22,7 @@
 - [ ] 7.6. Metadata. For each translated problem record source, year, grade, topic (tags) and official difficulty (grade and problem number as a proxy, plus scores where published), and whether an official solution exists.
 
 ### 8. Transformer (independent of 7; can run in the background meanwhile)
-- [ ] 8.1. Full training run on the 100k examples (about 14 h on CPU); keep the log and the best checkpoint. Short run done: 2.1M-param model (configs/train_mini.json), 1600 steps in 14 min, val loss 0.57; loss still falling.
+- [ ] 8.1. Full training run on the 100k examples (about 14 h on CPU); keep the log and the best checkpoint. Short run done: 2.1M-param model (configs/train_mini.json), 1600 steps in 14 min, val loss 0.57; loss still falling. Longer run (configs/train_mini_long.json): stopped by the Codespace idle timeout at step 3200 of 9000; best checkpoint step 3000, val loss 0.49, 94% translatable, exact 11.5% top-1 / 32% top-4; resumable from runs/mini_long/last.pt (in git).
 - [x] 8.2. Offline check: validation loss, and how often its proposals parse into valid Newclid constructions on held-out GenesisGeo problems. (geo-lm/scripts/eval_aux.py; mini model: 92% translatable, exact match 6% top-1, 21% top-4; results/transformer/)
 - [ ] 8.3. Pipeline configs with the transformer switched on for each domain; measure on the examples and the pilot batch how often its points are usable and help prove the goal.
 
@@ -42,7 +42,7 @@
 
 ### 11. Report
 - [ ] 11.1. Write up the method and results (docs/apraksts.md, docs/rezultati.md) with the tables and examples of easy solutions.
-- [ ] 11.2. Update the presentation (docs/present.md) with real numbers.
+- [ ] 11.2. Write the presentation with real numbers.
 - [ ] 11.3. Final check: tests pass, the scan can be reproduced from the README, results committed.
 
 ## Paper

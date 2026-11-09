@@ -80,7 +80,7 @@ save_checkpoint("runs/demo.pt", model, tok, opt, step=100)
 ```
 ## Training
 
-The current model is `runs/mini` (configs/train_mini.json): validation loss 0.57 after 14 minutes on 2 CPU cores.
+The current model is `runs/mini` (configs/train_mini.json): validation loss 0.57 after 14 minutes on 2 CPU cores. The best so far is `runs/mini_long` (configs/train_mini_long.json): the same model, stopped at step 3200 of 9000 by the Codespace idle timeout, best checkpoint at step 3000 with validation loss 0.49. Rerunning `python -m geo_lm.train --config configs/train_mini_long.json` resumes it from `runs/mini_long/last.pt`.
 Check its proposals on held-out problems with
 `../.venv-newclid/bin/python scripts/eval_aux.py runs/mini/best.pt --n 200 --beam 4`
 (results in `results/transformer/`, written up in [rezultati.md](rezultati.md)).
