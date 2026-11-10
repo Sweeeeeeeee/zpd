@@ -111,8 +111,9 @@ ilga 23 minūtes.
 AG1 skaitļi ņemti no Trinh et al., *Nature* 625 (2024): IMO-AG-30 tabulā arī
 DD+AR ar cilvēku heiristikām 18. AG1 izmantoja simtiem reižu lielāku modeli un
 daudz plašāku meklēšanu uz jaudīgas aparatūras; šeit ir 2,1 milj. parametru
-modelis un 60 s uz 2 CPU kodoliem. Pirms citēšanas darbā JGEX skaitļi (198, 228)
-jāpārbauda pēc raksta tabulas.
+modelis un 60 s uz 2 CPU kodoliem. Skaitļi 198 / 228 (JGEX) un 14 / 25 (IMO-AG-30)
+sakrīt ar rezultātu tabulu oficiālajā AG1 repozitorijā
+(<https://github.com/google-deepmind/alphageometry>, README); pārbaudīts 2026-11-10.
 
 **Ko tas rāda.**
 

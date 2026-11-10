@@ -6,6 +6,33 @@ verified. Newest first. Times are UTC. The current state and next steps are in
 
 ---
 
+## 2026-11-10 16:32-16:50 · Cleanup and correctness check (15 min, user asked)
+
+- `check.sh`: no warnings, nothing running. Tests: 85 passed (86 s).
+- Recounted every `results/*/*.jsonl` against `docs/rezultati.md`: JGEX 205/231
+  +5, `imo` 34 problems = 29 IMO-AG-30 (15 solved) + 5 others (2), imo_102 3/101.
+  No duplicates. Docs match. Markdown links: none broken.
+- AG1 numbers verified: 198/228 JGEX, 14/25 IMO-AG-30 match the results table
+  in the official google-deepmind/alphageometry README. Note in rezultati.md updated.
+- **Bug fixed:** `make` in `zpd_darbs/` regenerated the paper's tables from the
+  full 231-problem `ddar_only.jsonl` (205/231 and 24 empty "--" rows in the
+  stuck table), while the paper text describes the first 73-problem run.
+  `make_figures.py` now uses the first `PAPER_JGEX_N = 73` rows; rebuild gives
+  byte-identical tables. Figure PDFs differed only in timestamps: reverted.
+- Paper builds (latexmk exit 0, no undefined refs in the final pass).
+- **Bug fixed:** `pipeline/configs/default.json` (default for `solve.py`,
+  `run_folder.py`, `search.py`) pointed at `geo-lm/runs/small/best.pt`, which
+  was never trained, so default runs silently dropped the model. Now
+  `mini_long`; docs/README.md updated. Smoke solve with default config: solved,
+  no warning. Tests 85 passed after the change.
+- Second 10 min: docs/README.md and docs/pipeline.md config lists now match
+  the configs (`mini*`, `quick`/`tiny` need checkpoints not in git).
+  `bench/sweep.py` resume no longer crashes on a line cut off by a killed job
+  (drops it, reruns that problem); tested with a truncated file.
+- `docs/geo-lm.md`: `mini_long` is the current model. `docs/tasks.md`: added
+  done item 8.2a for the 11-10 standard benchmarks.
+- Not committed (user did not ask).
+
 ## 2026-11-10 10:24-11:05 · Standard benchmarks: DDAR vs DDAR + mini_long, vs AG1
 
 - User asked for DDAR and DDAR+LLM on the standard sets, estimate first,

@@ -24,6 +24,7 @@
 ### 8. Transformer (independent of 7; can run in the background meanwhile)
 - [ ] 8.1. Full training run on the 100k examples (about 14 h on CPU); keep the log and the best checkpoint. Short run done: 2.1M-param model (configs/train_mini.json), 1600 steps in 14 min, val loss 0.57; loss still falling. Longer run (configs/train_mini_long.json): 9000 steps (~1.5 h in three resumed parts), val loss 0.27, 91% translatable, exact 33% top-1 / 49.5% top-4; solves 1 of the 2 stuck JGEX problems (the 1600-step model solved both). Checkpoint runs/mini_long/best.pt (in git).
 - [x] 8.2. Offline check: validation loss, and how often its proposals parse into valid Newclid constructions on held-out GenesisGeo problems. (geo-lm/scripts/eval_aux.py; mini model: 92% translatable, exact match 6% top-1, 21% top-4; results/transformer/)
+- [x] 8.2a. Standard benchmarks (added 2026-11-10): DDAR alone and DDAR + mini_long on Newclid's jgex_ag_231, imo, imo_102_requires_aux, compared with AG1. JGEX 205 / 210 (AG1 198 / 228), IMO-AG-30 15 / 15 (AG1 14 / 25), imo_102 0 / 3. (bench/run_benchmarks.sh, results/, docs/rezultati.md)
 - [ ] 8.3. Pipeline configs with the transformer switched on for each domain; measure on the examples and the pilot batch how often its points are usable and help prove the goal.
 
 ## Research

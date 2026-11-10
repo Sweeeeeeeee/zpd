@@ -20,7 +20,14 @@ if a.only:
     problems = [p for p in problems if p[0] in keep]
 done = set()
 if Path(a.out).exists():
-    done = {json.loads(l)["name"] for l in Path(a.out).read_text().splitlines()}
+    text = Path(a.out).read_text()
+    for l in text.splitlines():
+        try:
+            done.add(json.loads(l)["name"])
+        except (json.JSONDecodeError, KeyError):
+            pass  # a line cut off by a killed job: that problem is rerun
+    if text and not text.endswith("\n"):
+        Path(a.out).write_text(text[: text.rfind("\n") + 1])  # drop the partial line
 
 with open(a.out, "a") as f:
     for i, (name, text) in enumerate(problems):

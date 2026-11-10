@@ -67,8 +67,9 @@ Limits: `max_depth`, `branching`, `max_frontier`, `max_ddar_calls` and
 * `enabled: false` switches a tool off.
 * `"class": "my_pkg.my_module:MyTool"` replaces a tool with any `Tool`
   subclass. Its `options` are passed to the class constructor.
-* Configs provided: `default.json` (needs a trained model), `heuristics_only.json`,
-  `ddar_only.json`, and `tiny_model.json` (uses the smoke-test checkpoint).
+* Configs provided: `ddar_only.json`, `heuristics_only.json`, `default.json`
+  (heuristics + `mini_long`), `mini_model.json`, `mini_long_model.json`, and
+  `quick_model.json` / `tiny_model.json` (their checkpoints are not in git).
 
 ## Adding a tool
 

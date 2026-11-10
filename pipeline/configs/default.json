@@ -1,7 +1,7 @@
 {
   "tools": {
     "ddar": {"enabled": true, "options": {"config": "ddar/configs/yuclid.json", "seed": 0}},
-    "transformer": {"enabled": true, "options": {"checkpoint": "geo-lm/runs/small/best.pt", "beam_size": 4, "max_candidates": 4, "max_new_tokens": 96}},
+    "transformer": {"enabled": true, "options": {"checkpoint": "geo-lm/runs/mini_long/best.pt", "beam_size": 4, "max_candidates": 4, "max_new_tokens": 96}},
     "heuristics": {"enabled": true, "options": {"kinds": ["midpoint", "circumcenter", "foot"], "max_candidates": 8}}
   },
   "proposer_order": ["transformer", "heuristics"],

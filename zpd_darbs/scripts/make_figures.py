@@ -108,10 +108,15 @@ def domains_table(ex: dict[str, dict[str, dict]]) -> None:
 
 
 # ------------------------------------------------------------------ 2. JGEX: kur DD-AR iestrēgst
+PAPER_JGEX_N = 73
 def jgex_table() -> None:
     cfgs = [("ddar_only", "Tikai DD-AR"), ("heuristics_only", "Heiristikas"),
             ("quick_model", "Modelis, 200 soļi"), ("mini_model", "Modelis, 1600 soļi")]
     data = {c: {r["name"]: r for r in load_jsonl(RES / "jgex_ag_231" / f"{c}.jsonl")} for c, _ in cfgs}
+    # The paper describes the first JGEX run (first PAPER_JGEX_N rows of ddar_only.jsonl,
+    # 30 s budget). The file now also holds the full 231-problem benchmark; switching the
+    # paper to it (and to mini_long) is the user's decision, see docs/rezultati.md.
+    data["ddar_only"] = dict(list(data["ddar_only"].items())[:PAPER_JGEX_N])
     stuck = [n for n, r in data["ddar_only"].items() if not r["solved"]]
     rows = []
     for name in stuck:

@@ -110,7 +110,7 @@ running, commit `results/`.
 {
   "tools": {
     "ddar":        {"enabled": true,  "options": {"config": "ddar/configs/yuclid.json"}},
-    "transformer": {"enabled": true,  "options": {"checkpoint": "geo-lm/runs/small/best.pt", "beam_size": 4}},
+    "transformer": {"enabled": true,  "options": {"checkpoint": "geo-lm/runs/mini_long/best.pt", "beam_size": 4}},
     "heuristics":  {"enabled": true,  "options": {"kinds": ["midpoint", "circumcenter", "foot"], "max_candidates": 8}}
   },
   "proposer_order": ["transformer", "heuristics"],
@@ -120,8 +120,11 @@ running, commit `results/`.
 
 Provided configs:
 * `ddar_only.json`, `heuristics_only.json`
-* `default.json`, which needs a trained model
-* `tiny_model.json`, which uses the smoke-test model
+* `default.json`: heuristics + `mini_long` (the best model)
+* `mini_model.json`, `mini_long_model.json`: the model without heuristics
+  (`runs/mini`, 1600 steps; `runs/mini_long`, 9000 steps), both in git
+* `quick_model.json`, `tiny_model.json`: need `runs/quick` (200 steps) or the
+  smoke-test `runs/tiny`, which are not in git; retrain to use them
 
 **DDAR** (`ddar/configs/*.json`): which rules are on, and whether AR is on.
 
@@ -189,8 +192,8 @@ python -m geo_lm.train --config configs/train_small.json --max_steps 5000 --batc
 * Each evaluation prints validation loss and exact-match accuracy.
 * On the 2-core CPU used here, the small model runs at about 2.6 s per step,
   so 20k steps take about 14 h. A modest GPU does it in well under an hour.
-* Once `geo-lm/runs/small/best.pt` exists, `pipeline/configs/default.json`
-  uses it.
+* `pipeline/configs/default.json` uses `geo-lm/runs/mini_long/best.pt`
+  (the best model, 9000 steps). The planned `small` run was never trained.
 
 ## Known limitations
 
@@ -210,8 +213,8 @@ python -m geo_lm.train --config configs/train_small.json --max_steps 5000 --batc
 * The figure for each solve is drawn with one fixed seed (the `seed` option of
   the `ddar` tool, default 0). Use `pipeline.check_figure` to test several
   drawings.
-* `pipeline/configs/default.json` needs `geo-lm/runs/small/best.pt`. Until it
-  exists, the transformer tool is switched off with a warning.
+* `pipeline/configs/default.json` needs `geo-lm/runs/mini_long/best.pt`
+  (committed). Without it the transformer tool is switched off with a warning.
 
 ## Documentation
 
