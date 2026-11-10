@@ -44,11 +44,32 @@ WATCH=$!
 ( while sleep 1800; do backup; done ) &
 PERIODIC=$!
 
+MAX_STEPS=$("$PY" -c "import json; print(json.load(open('geo-lm/configs/train_mid.json'))['max_steps'])")
+step_now() { "$PY" -c "import json,sys
+s=0
+for l in open(sys.argv[1]):
+    try: s=max(s, json.loads(l).get('step', 0))
+    except Exception: pass
+print(s)" $RUN/log.jsonl 2>/dev/null || echo 0; }
+
+# Training restarts from last.pt if it is killed early (on 11-10 a stray SIGTERM
+# stopped it at step 350), until max_steps or the deadline.
 log "1/4 train until $(date -ud @"$TRAIN_END" +%H:%M)"
-( cd geo-lm/configs && timeout "$(left "$TRAIN_END")" "$PY" -m geo_lm.train --config train_mid.json )
-log "train exit=$?"
+for attempt in $(seq 1 20); do
+  ( cd geo-lm/configs && timeout "$(left "$TRAIN_END")" "$PY" -m geo_lm.train --config train_mid.json )
+  rc=$?; s=$(step_now)
+  log "train attempt $attempt exit=$rc step=$s"
+  [ "$s" -ge "$MAX_STEPS" ] && break
+  [ "$(left "$TRAIN_END")" -le 60 ] && { log "training deadline reached at step $s"; break; }
+  sleep 10
+done
 cp $RUN/log.jsonl results/transformer/mid_train_log.jsonl
 backup
+if [ ! -f $RUN/best.pt ]; then
+  log "no best.pt (no evaluation reached): skipping eval and benchmarks"
+  echo "FAILED: no best.pt $(date -u '+%Y-%m-%d %H:%M:%S')" > "$DONE"
+  kill $PERIODIC 2>/dev/null; wait $WATCH; exit 1
+fi
 
 log "2/4 offline eval on 200 held-out problems"
 ( cd geo-lm && timeout 1200 "$PY" scripts/eval_aux.py runs/mid/best.pt --n 200 --beam 4 \

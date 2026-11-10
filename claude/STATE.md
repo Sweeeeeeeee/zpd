@@ -11,7 +11,7 @@ holds what a command cannot tell.
 
 | | |
 |---|---|
-| Bigger model | **RUNNING (started 2026-11-10 ~17:15 UTC, user approved):** `geo-lm/scripts/run_mid_pipeline.sh` via `claude/job.sh mid-pipeline` (detached). Train `runs/mid` (5.1M, 9000 steps, `train_mid.json`) until 20:12 → eval_aux 200 → `LLM=mid_model bench/run_benchmarks.sh` until 20:45 → commit+push to main → `claude/jobs/mid-pipeline.done`. Backups every 30 min to branch `backup-mid` (force-pushed). Hard stop 21:00: backup + `gh codespace stop`. Output `claude/jobs/mid-pipeline.out`. If interrupted: rerun the same command with new times, it resumes |
+| Bigger model | **RUNNING since 17:30 UTC (2nd start)**: `geo-lm/scripts/run_mid_pipeline.sh` via `setsid -f claude/job.sh mid-pipeline` (own session). Train `runs/mid` (5.1M, 9000 steps) until 20:20, restarts from `last.pt` if killed → eval_aux 200 → `LLM=mid_model bench/run_benchmarks.sh` until 20:55 → commit+push main → `claude/jobs/mid-pipeline.done`. Backups every 30 min to branch `backup-mid`. Hard stop 21:10: backup + `gh codespace stop`. 1st start (17:11) lost to a SIGTERM at 17:19 (sender unknown); its bogus bench output is in `claude/jobs/broken_mid_run_1711/` |
 | Done | tasks 1-6, 7.1, 8.2, 8.2a (benchmarks), 12.1-12.3 ([docs/tasks.md](../docs/tasks.md)) |
 | Best model | `geo-lm/runs/mini_long/best.pt`: 2.1M params, **step 9000 (finished)**, val loss 0.271, exact 33% top-1 / 49.5% top-4, 90.6% translatable on 200 held-out problems |
 | Stuck JGEX problems | `mini_long` solves L058-9 but **not L053-1**; `mini` (1600 steps) solved both. Better exact match did not mean better help here |
@@ -19,6 +19,7 @@ holds what a command cannot tell.
 | Docs | `docs/rezultati.md`, `tasks.md`, `geo-lm.md`, `README.md` have the 9000-step numbers |
 | Paper | `zpd_darbs/preliminary` still describes only the 1600-step `mini` model and the first 73-JGEX run. Not updated on purpose: ask the user whether the paper should switch to `mini_long` and the 231 benchmark. `make_figures.py` pins the JGEX tables to the first 73 rows (`PAPER_JGEX_N`); change that together with the text |
 | Blocker | the problem set (7.2-7.6): the scan (9-11) cannot start without it |
+| Other models | `pipeline/hf_tool.py` (HFLMTool: any Hugging Face causal LM, prompts genesisgeo / genesisgeo_x00 / fewshot). GenesisGeo (Qwen3-0.6B) downloaded to `models/hf/GenesisGeo` (1.5 GB, gitignored). transformers 4.52.4 installed in .venv-newclid (not yet in setup.sh). Untested on real problems: test after training |
 | Codespace budget | user, 2026-11-10 ~16:50 UTC: **35 h left** on 2 cores (70 core-h) this billing month. Free plan 120 core-h/month. Stop the Codespace when idle; no long training here (use Kaggle) |
 | Machine | Codespace `glowing-barnacle-69499rgp76525wvr`, 2 cores, 8 GB, idle timeout 240 min |
 

@@ -17,6 +17,14 @@ verified. Newest first. Times are UTC. The current state and next steps are in
   Tested: backup push to `backup-mid`, eval_aux and pipeline with the 40-step
   scratch checkpoint. Started ~17:15, deadlines 20:12 / 20:45 / 21:00
   (idle timeout ~21:08 from the user's last input at ~17:08).
+- 1st mid start 17:11: training got SIGTERM at 17:19:00 (exit 143, sender not
+  found; not timeout, no kernel OOM). The script then ran eval (no best.pt) and the
+  benchmark with the model switched off: those outputs moved to
+  `claude/jobs/broken_mid_run_1711/`, not used. Script fixed (train retry loop,
+  no eval/bench without best.pt); restarted 17:30 with `setsid -f` from step 250.
+- User wants several proposer models compared, lightweight + 1-2 big, judged on
+  fast one-domain solutions (not IMO). Added `pipeline/hf_tool.py`; GenesisGeo
+  weights in `models/hf/` (gitignored); transformers 4.52.4 installed.
 - Speed of 40 training steps (scratchpad, not kept): mini 2.1M ~1000 target
   tok/s; mid (6 layers, 256 dim) 5.1M ~440; small 11.2M ~200. Estimates in
   STATE. **Bigger model not started: user must approve.**
