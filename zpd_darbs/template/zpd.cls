@@ -54,6 +54,9 @@
 \RequirePackage{enumitem}
 \RequirePackage{caption}
 \RequirePackage{float}
+% titlesec 2.13 (TeX Live 2019, e.g. the Ubuntu 20.04 Codespace image) reads
+% \c@chapter even in article; a zero counter keeps it happy. No effect on newer TeX Live.
+\ifdefined\c@chapter\else\newcount\c@chapter\fi
 \RequirePackage{titlesec}
 \RequirePackage{titletoc}
 \AtBeginDocument{\renewcommand{\theHsection}{\arabic{section}}}  % article: hyperref enkuri bez nodaļu skaitītāja

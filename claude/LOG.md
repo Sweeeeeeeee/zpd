@@ -1,18 +1,49 @@
 # Work log
 
-What was done in each working session with Claude Code, why things are the way
-they are, and where to pick up. Newest first. Times are UTC.
-
-**Current state (2026-11-09)**
-
-| | |
-|---|---|
-| Done | tasks 1-6, 7.1, 8.2, 12.1-12.3 ([docs/tasks.md](../docs/tasks.md)) |
-| Best model | `geo-lm/runs/mini_long/best.pt`, 2.1M params, step 3000, val loss 0.49, top-4 exact 32% |
-| Blocker | the problem set (7.2-7.6): nothing in the scan (9-11) can start without it |
-| Machine | moving to a new Codespace (the old one has a fixed 30-min idle timeout) |
+What was done in each working session with Claude Code, why, and what was
+verified. Newest first. Times are UTC. The current state and next steps are in
+[STATE.md](STATE.md); this file is history.
 
 ---
+
+## 2026-11-10 08:00 · Why the 11-09 run stopped; logging system
+
+- The 11-09 run was not covered in this log. From the session transcript
+  (`~/.claude/projects/-workspaces-zpd/66ffca9c-….jsonl`): `mini_long` resumed at
+  08:55 from step 3000; SIGTERM at 09:09:37 (step ~4600); restarted detached from
+  `last.pt` (4500) at 09:10; the Claude session ended at 09:10; last log line and
+  checkpoint step 5000 at 09:14:30; machine down until 11-10 06:17. Step-4500
+  eval: val loss 0.406, exact 16% (best so far, saved as `best.pt`).
+- Not the idle timeout: the API says 240 min, the stop came 20 min after the
+  last input. Cause unknown (no stop reason in the API, no logs after the browser
+  disconnect at 08:55:32); likely the free quota. Billing API returns 403 to
+  this token. Details in STATE.md, Open problems.
+- The job output of that run was in `/tmp` and was lost with the restart.
+- New: `CLAUDE.md` (session rules), `claude/STATE.md` (current state, replaces
+  the state table and "Next" list that were in this file), `claude/check.sh`
+  (facts + warnings, run by a SessionStart hook in `.claude/settings.json`),
+  `claude/job.sh` (long jobs with START/END lines and heartbeats on the
+  persistent disk). Tested: normal exit, SIGTERM, and a job with no END line.
+
+## 2026-11-09 08:30 · New Codespace set up
+
+- New Codespace `glowing-barnacle-69499rgp76525wvr`, idle timeout **240 min**
+  (checked with `gh api /user/codespaces/$CODESPACE_NAME`). 2 cores, 8 GB RAM.
+- The automatic `setup.sh` failed halfway: the universal image's Yarn apt repo
+  has an expired key, so `apt-get update` exits 100 (Python env was already
+  done; TeX Live and tests were not). `setup.sh` now disables
+  `/etc/apt/sources.list.d/yarn.list` before `apt-get update`. Rerun: 85 passed.
+- The image has TeX Live 2019, whose titlesec 2.13 reads `\c@chapter` under
+  `article` ("Undefined control sequence" at the first `\section`).
+  `zpd.cls` now defines a zero `\c@chapter` if it is missing; `make` in
+  `zpd_darbs/` builds both PDFs, numbering checked.
+- Verified: `git pull` up to date; figure check on `varignon` OK; `run_folder`
+  with `mini_long_model.json` solves 4/5 examples (the 5th is the deliberate
+  `wrong_translation`); `eval_aux.py` on 20 val problems: exact 10% top-1,
+  40% top-4 (in line with the 200-problem numbers). LaTeX aux files and caches
+  removed.
+- `gh api /user/codespaces` lists only the new Codespace; the old
+  `cold-hobgoblin-…` is gone or not visible to this token. Check github.com/codespaces.
 
 ## 2026-11-09 · Switch to a new Codespace
 
@@ -107,16 +138,3 @@ DD-AR on CPU, rule toggling, transformer and training script, GenesisGeo
 data, `solve()`, translation guide, problem store, tests, Latvian write-up
 (tasks 1-5, `5682171` … `3478d84`).
 
----
-
-## Next
-
-1. Switch Codespace (above).
-2. **7.2** Sort the 1499 geometry problems into statable / not statable,
-   with an agent and a short guide, as `docs/tasks.md` suggests.
-3. 7.3-7.4 Pick the working set, translate and scan a pilot batch of ~10.
-4. In the background, if wanted: resume `mini_long`
-   (`cd geo-lm && ../.venv-newclid/bin/python -m geo_lm.train --config configs/train_mini_long.json`,
-   ~60 min left) or do the full run (8.1) on Kaggle.
-5. Rerun `mini_long` on the two stuck JGEX problems
-   (`bench/sweep.py … pipeline/configs/mini_long_model.json`).

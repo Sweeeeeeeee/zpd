@@ -5,3 +5,5 @@ __pycache__/
 data/
 problems/**/results_*.json
 *.rules
+# Claude job outputs and heartbeats (claude/jobs.log itself is kept)
+claude/jobs/

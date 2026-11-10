@@ -63,6 +63,11 @@ if [ "$EXTRACT" = 1 ] && ! command -v pdftotext >/dev/null; then
 fi
 if [ ${#PKGS[@]} -gt 0 ]; then
   step "apt: ${PKGS[*]}"
+  # The universal Codespace image ships a Yarn apt repo whose signing key has
+  # expired; it makes `apt-get update` fail (exit 100). We don't need Yarn.
+  if [ -f /etc/apt/sources.list.d/yarn.list ]; then
+    $SUDO mv /etc/apt/sources.list.d/yarn.list /etc/apt/sources.list.d/yarn.list.disabled
+  fi
   $SUDO apt-get update -qq
   DEBIAN_FRONTEND=noninteractive $SUDO apt-get install -y -qq --no-install-recommends "${PKGS[@]}"
 fi
