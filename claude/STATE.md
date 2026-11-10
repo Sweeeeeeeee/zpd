@@ -1,6 +1,6 @@
 # State
 
-Updated: 2026-11-10 17:00 UTC (session 32e42808)
+Updated: 2026-11-10 18:15 UTC (session 32e42808)
 
 Claude's own notes: overwrite this file at the end of every session so it is
 true *now*. History goes to [LOG.md](LOG.md), not here. Facts that a command can
@@ -19,7 +19,7 @@ holds what a command cannot tell.
 | Docs | `docs/rezultati.md`, `tasks.md`, `geo-lm.md`, `README.md` have the 9000-step numbers |
 | Paper | `zpd_darbs/preliminary` still describes only the 1600-step `mini` model and the first 73-JGEX run. Not updated on purpose: ask the user whether the paper should switch to `mini_long` and the 231 benchmark. `make_figures.py` pins the JGEX tables to the first 73 rows (`PAPER_JGEX_N`); change that together with the text |
 | Blocker | the problem set (7.2-7.6): the scan (9-11) cannot start without it |
-| Other models | `pipeline/hf_tool.py` (HFLMTool: any Hugging Face causal LM, prompts genesisgeo / genesisgeo_x00 / fewshot). GenesisGeo (Qwen3-0.6B) downloaded to `models/hf/GenesisGeo` (1.5 GB, gitignored). transformers 4.52.4 installed in .venv-newclid (not yet in setup.sh). Untested on real problems: test after training |
+| Other models | Comparison harness ready (`docs/models.md`): `pipeline/hf_tool.py` (any HF model), `bench/compare_configs.py` → `pipeline/configs/compare/<domain>/<proposer>.json` (depth 1, 60 s after loading, strict tools), `bench/run_compare.sh`, `bench/compare_table.py`, sample `bench/compare_problems.txt` (60 JGEX). GenesisGeo in `models/hf/GenesisGeo` (gitignored), **prompt format untested** (test needs free CPU+RAM). Nothing of the comparison has been run yet |
 | Codespace budget | user, 2026-11-10 ~16:50 UTC: **35 h left** on 2 cores (70 core-h) this billing month. Free plan 120 core-h/month. Stop the Codespace when idle; no long training here (use Kaggle) |
 | Machine | Codespace `glowing-barnacle-69499rgp76525wvr`, 2 cores, 8 GB, idle timeout 240 min |
 
@@ -54,11 +54,14 @@ holds what a command cannot tell.
 
 ## Next
 
-1. User: confirm why the Codespace stopped on 11-09 (billing page, email).
-2. Ask: should the paper use `mini_long` (9000) instead of `mini` (1600)?
-   (AG1 numbers 198/228, 14/25 verified against the official AG1 README on 11-10.)
-3. **7.2** Sort the 1499 Latvian geometry problems into statable / not statable.
-4. 7.3-7.4 Pick the working set, translate and scan a pilot batch of ~10.
-5. Same benchmark with `heuristics_only` and `mini_model` (1600 steps) on the
-   DDAR failures (`results/*/ddar_unsolved.txt`, 26 + 17 + 101): ~15 min each.
-   `LLM=mini_model bench/run_benchmarks.sh` does the model part.
+1. When the mid run ends (~20:45): check `claude/jobs/mid-pipeline.out`, add the
+   mid results to `docs/rezultati.md`, compare with mini_long. If 9000 steps were
+   not reached, resume later: `setsid -f claude/job.sh mid-pipeline geo-lm/scripts/run_mid_pipeline.sh "<train end>" "<bench end>" "<hard end>"`.
+2. GenesisGeo prompt test (scratchpad script idea: 3 val problems, both prompt
+   styles, compare with reference aux), then set the right style in
+   `bench/compare_configs.py`.
+3. Folder restructure from `docs/models.md` (geo-lm → models/...), full tests.
+4. Run the comparison: `bench/run_compare.sh` (light), then GenesisGeo,
+   SmolLM2; `bench/compare_table.py`. Measure cost on one domain first.
+5. User: why the Codespace stopped on 11-09; paper → mini_long/mid?
+6. 7.2 Sort the 1499 Latvian geometry problems.
