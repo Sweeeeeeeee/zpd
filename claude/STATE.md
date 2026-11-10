@@ -54,8 +54,15 @@ holds what a command cannot tell.
 
 ## Next
 
-1. GenesisGeo prompt test (3 val problems, both prompt styles, compare with
-   reference aux), then set the right style in `bench/compare_configs.py`.
+1. GenesisGeo: prompt test done 11-10 20:50 (3 val problems, beam 4, CPU free).
+   Style `genesisgeo` (letter names) is right: 1 of 3 exact in beam, others
+   plausible; `genesisgeo_x00` gives `x00 : ... x` mixed names. Two problems
+   before the comparison: (a) **~35-48 s per proposal call** on 2 CPU, too slow
+   for a 60 s budget (try beam 1-2, max_new_tokens 24, or Kaggle GPU);
+   (b) output has no comma between predicates (`coll a c j  perp a c j d`,
+   double space, likely `[nn]` index stripped where the comma was); check that
+   `aux_to_clauses` splits it, else insert ", " in `propose_raw`. Beams often
+   identical (dedupe already at clause level).
 2. Folder restructure from `docs/models.md` (geo-lm → models/...), full tests.
 3. Run the comparison: `bench/run_compare.sh` (light, now incl. `mid`), then
    GenesisGeo, SmolLM2; `bench/compare_table.py`. Measure cost on one domain first.
