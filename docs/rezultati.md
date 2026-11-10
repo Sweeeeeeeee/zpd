@@ -9,8 +9,8 @@ failiem (`results/`, `geo-lm/runs/`); avots norādīts katras sadaļas beigās.
 | --- | --- |
 | **JGEX-AG-231** | DD-AR viens 205 / 231, ar modeli **210 / 231 (91%)**; AG1: DD+AR 198, AlphaGeometry 228 |
 | **IMO-AG-30** (29 no 30) | DD-AR viens **15**, modelis nepievieno neko; AG1: DD+AR 14, AlphaGeometry 25 |
-| **IMO, kam vajag palīgpunktu** | modelis atrisina **3 / 101** (DD-AR viens 0) |
-| **Modelis** | `mini_long`: 2,1 milj. parametru, 9000 soļi (~1,5 h uz 2 CPU kodoliem), validācijas zudums 0,27 |
+| **IMO, kam vajag palīgpunktu** | modelis atrisina **3 / 101** (`mid`: **5 / 101**; DD-AR viens 0) |
+| **Modelis** | `mini_long`: 2,1 milj. parametru, 9000 soļi (~1,5 h uz 2 CPU kodoliem), validācijas zudums 0,27; lielākais `mid` (5,1 milj., 7500 soļi): 0,25, JGEX 211 / 231 |
 | **Piedāvājumu kvalitāte** | 200 neredzētos uzdevumos precīzs palīgpunkts ar 1. piedāvājumu 33%, ar kādu no 4 — 49,5% |
 | **Resursi** | viens uzdevums: mediāna ~2 s ar DD-AR, ~5 s ar modeli; 60 s un 2 GB budžets netika sasniegts |
 
@@ -214,6 +214,34 @@ piedāvājums nebija derīgs. 1600 soļu modelis atrisināja abus. Labāka
 sakritība ar atsauci uz GenesisGeo nenozīmē labāku palīdzību uz cita
 avota uzdevumiem; ar 2 uzdevumiem to nevar izmērīt. Avots:
 `results/jgex_ag_231/mini_long_model.jsonl`.
+
+### Lielāks modelis: `mid` (5,1 milj. parametru)
+
+6 slāņi, 4 galvas, n_embd 256 (`geo-lm/configs/model_mid.json`), apmācīts
+2026-11-10 bez uzraudzības (~2,9 h uz 2 CPU kodoliem). Termiņš pienāca pie
+7700. soļa no plānotajiem 9000; izmantots labākais kontrolpunkts (7500. solis).
+Validācijas zudums pie tiem pašiem soļiem ir zemāks nekā `mini_long`: 0,613
+pret 0,758 pie 1500, 0,252 pie 7500 (`mini_long` beigās pie 9000: 0,27).
+
+| Rādītājs | `mini_long` (9000 soļi) | `mid` (7500 soļi) |
+| --- | --- | --- |
+| Pārvēršamas hipotēzes | 90,6% | 91,4% |
+| Pirmais piedāvājums precīzi sakrīt | 33% | **37,5%** |
+| Kāds no 4 precīzi sakrīt | 49,5% | **52%** |
+| JGEX: atrisināti no 26 DD-AR neveiksmēm | 5 | **6** |
+| IMO-AG-30: no 14 DD-AR neveiksmēm | 0 | 0 |
+| `imo_102_requires_aux`: no 101 | 3 | **5** |
+| Mediānas laiks uz uzdevumu (JGEX / IMO-aux) | 4,7 / 6,7 s | 5,3 / 8,3 s |
+| Maks. atmiņa | 975 MB | 916 MB |
+
+`mid` atrisina visus `mini_long` JGEX uzdevumus, izņemot `ye_aux_y1`, un
+papildus `GDD_FULL_41-60_42` un `ye_aux_think2`; uz IMO-aux kopas jauni ir
+`imo_sl_2015_g3`, `imo_sl_2017_g3`, `imo_sl_2022_g3_variant`
+(`imo_sl_2016_g4_variant` vairs nav). Uzlabojums ir neliels, bet vienā virzienā
+visos rādītājos, un laiks un atmiņa paliek tālu zem 60 s / 2 GB budžeta.
+Avoti: `results/transformer/eval_mid_val200.json`,
+`results/transformer/mid_train_log.jsonl`, `results/*/mid_model.jsonl`;
+kontrolpunkts `geo-lm/runs/mid/best.pt` (59 MB, gitā).
 
 ## 3. Agrīnie eksperimenti
 

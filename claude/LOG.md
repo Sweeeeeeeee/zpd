@@ -6,6 +6,18 @@ verified. Newest first. Times are UTC. The current state and next steps are in
 
 ---
 
+## 2026-11-10 (session 32e42808, evening)
+
+- `mid` model (5.1M) trained unattended 17:30-20:20 via `run_mid_pipeline.sh`
+  after two kills (17:19 SIGTERM unknown; 17:34 memory pressure → mallopt fix in
+  `geo_lm/train.py`, b2506a4). Reached step 7700; best.pt = step 7500, val 0.252.
+  Eval 200: exact 37.5% / 52% (mini_long 33 / 49.5). Bench: JGEX +6/26,
+  imo_102 5/101, IMO-AG-30 +0. Pipeline committed 3dba999; backups on `backup-mid`.
+- Comparison harness (e66e54d): HF adapter, strict tool loading, load time apart
+  from the solve limit, 24 configs, runner, table. Nothing run yet.
+- `docs/rezultati.md` mid section + headline, `docs/models.md` status.
+- Codespace stopped by Claude after the commit.
+
 ## 2026-11-10 ~16:55 · rezultati.md restructured; bigger-model speed measured
 
 - Committed the cleanup (`1cfdddb`, pushed). User: 35 h of 2-core time left.

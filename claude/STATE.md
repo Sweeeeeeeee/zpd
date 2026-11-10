@@ -1,6 +1,6 @@
 # State
 
-Updated: 2026-11-10 18:15 UTC (session 32e42808)
+Updated: 2026-11-10 20:50 UTC (session 32e42808)
 
 Claude's own notes: overwrite this file at the end of every session so it is
 true *now*. History goes to [LOG.md](LOG.md), not here. Facts that a command can
@@ -11,7 +11,7 @@ holds what a command cannot tell.
 
 | | |
 |---|---|
-| Bigger model | **RUNNING since 17:30 UTC (2nd start)**: `geo-lm/scripts/run_mid_pipeline.sh` via `setsid -f claude/job.sh mid-pipeline` (own session). Train `runs/mid` (5.1M, 9000 steps) until 20:20, restarts from `last.pt` if killed → eval_aux 200 → `LLM=mid_model bench/run_benchmarks.sh` until 20:55 → commit+push main → `claude/jobs/mid-pipeline.done`. Backups every 30 min to branch `backup-mid`. Hard stop 21:10: backup + `gh codespace stop`. 1st start (17:11) lost to a SIGTERM at 17:19 (sender unknown); its bogus bench output is in `claude/jobs/broken_mid_run_1711/` |
+| Bigger model | **`mid` done** (commit 3dba999): `geo-lm/runs/mid/best.pt` 5.1M params, step 7500 (deadline hit at 7700 of 9000), val loss 0.252, exact 37.5% top-1 / 52% top-4, 91.4% translatable. Benchmarks: JGEX +6/26 (mini_long +5), IMO-AG-30 +0, imo_102 5/101 (mini_long 3). In `docs/rezultati.md`. Checkpoints are 59 MB in git (GitHub warns >50 MB; consider LFS or dropping `last.pt`). Resume to 9000 is possible from `last.pt` (step 7700) |
 | Done | tasks 1-6, 7.1, 8.2, 8.2a (benchmarks), 12.1-12.3 ([docs/tasks.md](../docs/tasks.md)) |
 | Best model | `geo-lm/runs/mini_long/best.pt`: 2.1M params, **step 9000 (finished)**, val loss 0.271, exact 33% top-1 / 49.5% top-4, 90.6% translatable on 200 held-out problems |
 | Stuck JGEX problems | `mini_long` solves L058-9 but **not L053-1**; `mini` (1600 steps) solved both. Better exact match did not mean better help here |
@@ -54,14 +54,11 @@ holds what a command cannot tell.
 
 ## Next
 
-1. When the mid run ends (~20:45): check `claude/jobs/mid-pipeline.out`, add the
-   mid results to `docs/rezultati.md`, compare with mini_long. If 9000 steps were
-   not reached, resume later: `setsid -f claude/job.sh mid-pipeline geo-lm/scripts/run_mid_pipeline.sh "<train end>" "<bench end>" "<hard end>"`.
-2. GenesisGeo prompt test (scratchpad script idea: 3 val problems, both prompt
-   styles, compare with reference aux), then set the right style in
-   `bench/compare_configs.py`.
-3. Folder restructure from `docs/models.md` (geo-lm → models/...), full tests.
-4. Run the comparison: `bench/run_compare.sh` (light), then GenesisGeo,
-   SmolLM2; `bench/compare_table.py`. Measure cost on one domain first.
-5. User: why the Codespace stopped on 11-09; paper → mini_long/mid?
-6. 7.2 Sort the 1499 Latvian geometry problems.
+1. GenesisGeo prompt test (3 val problems, both prompt styles, compare with
+   reference aux), then set the right style in `bench/compare_configs.py`.
+2. Folder restructure from `docs/models.md` (geo-lm → models/...), full tests.
+3. Run the comparison: `bench/run_compare.sh` (light, now incl. `mid`), then
+   GenesisGeo, SmolLM2; `bench/compare_table.py`. Measure cost on one domain first.
+4. User: why the Codespace stopped on 11-09; paper → mini_long or mid?
+5. 7.2 Sort the 1499 Latvian geometry problems.
+6. Optional: finish `mid` to 9000 steps (~30 min from `last.pt`).

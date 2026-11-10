@@ -16,7 +16,7 @@ search depth 1 (one aux point), beam 4, the same problems, the same budget.
 | baseline | heuristics (midpoint, circumcenter, foot) | – | `pipeline/tools.py` | done |
 | light, ours | `mini` (1600 steps) | 2.1M | `geo-lm/runs/mini` | done |
 | light, ours | `mini_long` (9000 steps) | 2.1M | `geo-lm/runs/mini_long` | done |
-| light, ours | `mid` (9000 steps) | 5.1M | `geo-lm/runs/mid` | training 11-10 |
+| light, ours | `mid` (7500 steps) | 5.1M | `geo-lm/runs/mid` | done 11-10 (exact@4 52%, JGEX +6/26, IMO-aux 5/101) |
 | light, general | SmolLM2-360M-Instruct, few-shot | 0.36B | Hugging Face | planned |
 | big, specialist | GenesisGeo (Qwen3-0.6B fine-tuned on the same data) | 0.6B | `ZJUVAI/GenesisGeo`, downloaded to `models/hf/` | adapter written, untested |
 | big, general | Qwen2.5-1.5B-Instruct, few-shot | 1.5B | Hugging Face | optional |
