@@ -11,7 +11,7 @@ holds what a command cannot tell.
 
 | | |
 |---|---|
-| Bigger model | measured 11-10: mid 5.1M (6 layers, 256 dim) ~1.1 s/step, 9000 steps ~3.3 h incl. evals (~7 core-h); small 11.2M ~2.3 s/step, 9000 steps ~7 h (~14 core-h), 20000 ~14 h. mini: ~0.45 s/step. Waiting for user approval; split into <=3.5 h parts (idle timeout 240 min), resume from `last.pt` |
+| Bigger model | **RUNNING (started 2026-11-10 ~17:15 UTC, user approved):** `geo-lm/scripts/run_mid_pipeline.sh` via `claude/job.sh mid-pipeline` (detached). Train `runs/mid` (5.1M, 9000 steps, `train_mid.json`) until 20:12 → eval_aux 200 → `LLM=mid_model bench/run_benchmarks.sh` until 20:45 → commit+push to main → `claude/jobs/mid-pipeline.done`. Backups every 30 min to branch `backup-mid` (force-pushed). Hard stop 21:00: backup + `gh codespace stop`. Output `claude/jobs/mid-pipeline.out`. If interrupted: rerun the same command with new times, it resumes |
 | Done | tasks 1-6, 7.1, 8.2, 8.2a (benchmarks), 12.1-12.3 ([docs/tasks.md](../docs/tasks.md)) |
 | Best model | `geo-lm/runs/mini_long/best.pt`: 2.1M params, **step 9000 (finished)**, val loss 0.271, exact 33% top-1 / 49.5% top-4, 90.6% translatable on 200 held-out problems |
 | Stuck JGEX problems | `mini_long` solves L058-9 but **not L053-1**; `mini` (1600 steps) solved both. Better exact match did not mean better help here |

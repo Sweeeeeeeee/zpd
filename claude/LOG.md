@@ -12,6 +12,11 @@ verified. Newest first. Times are UTC. The current state and next steps are in
 - `docs/rezultati.md` reorganised, no numbers changed: summary table + two
   benchmark charts first, then 1. standard sets, 2. transformer (new
   `mini_long` val-loss chart), 3. early experiments, conclusions rewritten.
+- Mid run prepared: `model_mid.json`, `train_mid.json` (lr 1e-3, eval_generate 50),
+  `pipeline/configs/mid_model.json`, `geo-lm/scripts/run_mid_pipeline.sh`.
+  Tested: backup push to `backup-mid`, eval_aux and pipeline with the 40-step
+  scratch checkpoint. Started ~17:15, deadlines 20:12 / 20:45 / 21:00
+  (idle timeout ~21:08 from the user's last input at ~17:08).
 - Speed of 40 training steps (scratchpad, not kept): mini 2.1M ~1000 target
   tok/s; mid (6 layers, 256 dim) 5.1M ~440; small 11.2M ~200. Estimates in
   STATE. **Bigger model not started: user must approve.**
