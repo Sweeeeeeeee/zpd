@@ -29,12 +29,17 @@ measured on a few held-out problems (their repo has moved to a newer format).
 ## Fitting the models to the requirement
 
 - **Depth 1**: `search.max_depth = 1` in every comparison config.
-- **Budget**: 30 s and 2 GB per problem for light models. Big models get
-  3 GB (a 0.6B model in bfloat16 is ~1.2 GB) and are reported separately.
-- **Load time**: `solve()` runs each problem in a fresh child process, so a
-  model is loaded once per problem (mini: ~1 s, GenesisGeo: ~5-10 s). For
-  the comparison either load time is subtracted and reported apart, or one
-  process serves all problems. To decide before the big-model runs.
+- **Budget**: 60 s after loading and 2 GB per problem for light models; big
+  models get 3-4 GB (a 0.6B model in bfloat16 is ~1.2 GB) and are reported
+  separately. 60 s, not 30: domains need Newclid's Python DDAR engine, 10-100x
+  slower than yuclid (a 30 s test on 11-10 timed out even without a model).
+- **Load time** (decided 11-10): each problem still runs in a fresh child
+  process (reliable limits), but the time limit starts when the tools are
+  loaded. Loading has its own cap (`Budget.load_s`, 120 s) and is reported as
+  `load_time` / `load` in results. A scanner loads a model once and solves
+  many problems, so solve time after loading is the fair measure.
+- **No silent fallback**: comparison configs set `"strict_tools": true`, so a
+  missing model is an error, not a run of DDAR alone.
 - **CPU only here**: big models on Kaggle (free GPU) or on a small subset.
 - **Memory next to training**: never load a big model while training runs
   (on 11-10 that got the training killed).
@@ -42,13 +47,26 @@ measured on a few held-out problems (their repo has moved to a newer format).
 ## Problems
 
 Not IMO. In order:
-1. JGEX-231 problems DDAR fails on (26), per domain config
-   (`pipeline/configs/domains/`), depth 1.
+1. A fixed 60-problem JGEX sample (`bench/compare_problems.txt`): the 26
+   that yuclid DDAR fails on plus 34 spread over the rest. Per domain
+   (full, no_similarity, circles), DDAR alone first, then each proposer only
+   on that domain's DDAR failures.
 2. `problems/examples/`.
 3. The Latvian pilot batch (task 7.4), when translated: the real target.
 
-Output: one table, model x domain: solved with one aux point, median time,
-peak memory, model size.
+Output: one table, model x domain: solved with one aux point, median solve
+time, median load time, peak memory (`results/compare/table.md`).
+
+```bash
+python bench/compare_configs.py                  # (re)writes pipeline/configs/compare/<domain>/<proposer>.json
+bench/run_compare.sh                             # light: heuristics mini mini_long mid, all 3 domains
+bench/run_compare.sh genesisgeo smollm2_360m     # chosen proposers
+python bench/compare_table.py                    # results/compare/table.md
+```
+
+Cost estimate (not yet measured without training running): DDAR alone on 60
+problems x 3 domains, up to 60 s each; then each proposer on the failures.
+Run with `claude/job.sh`, never next to training.
 
 ## Folder restructure (after the mid run finishes; it uses the current paths)
 

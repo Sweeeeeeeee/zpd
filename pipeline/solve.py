@@ -38,6 +38,7 @@ class Budget:
     time_s: float = 60.0  # wall clock
     memory_mb: float = 2048.0  # total RSS of the process tree; 0 = unlimited
     cpu_s: float = 0.0  # total CPU time of the process tree; 0 = unlimited
+    load_s: float = 120.0  # loading the tools (models); time_s counts only after that
 
 
 @dataclass
@@ -55,6 +56,7 @@ class SolveResult:
     aux: list[dict] = field(default_factory=list)
     ddar_calls: int = 0
     failure_reason: str | None = None
+    load_time: float = 0.0  # part of wall_time spent loading tools; solve time = wall_time - load_time
 
 
 def config_budget(config: str | Path | dict, time_s: float | None = None, memory_mb: float | None = None,
@@ -95,8 +97,10 @@ def solve(problem: str, config: str | Path | dict, budget: Budget | None = None)
             )
             proc.stdin.write(request.encode())
             proc.stdin.close()
-            killed, peak_kb, usage, tree_cpu = _watch(proc.pid, budget, cpu_limit, t0)
+            loaded = Path(str(out_path) + ".loaded")
+            killed, peak_kb, usage, tree_cpu = _watch(proc.pid, budget, cpu_limit, t0, loaded)
         wall = time.time() - t0
+        load_time = (float(loaded.read_text()) - t0) if loaded.exists() else wall
         peak_mb = max(peak_kb, usage.ru_maxrss) / 1024
         cpu = max(tree_cpu, usage.ru_utime + usage.ru_stime)
 
@@ -108,13 +112,14 @@ def solve(problem: str, config: str | Path | dict, budget: Budget | None = None)
                 rules_fired=data["rules_fired"], rules_in_proof=data["rules_in_proof"],
                 tools_used=data["tools_used"], tool_calls=data["tool_calls"], aux=data["aux"],
                 ddar_calls=data["ddar_calls"], failure_reason=data["failure_reason"],
+                load_time=round(load_time, 3),
             )
         if killed is None:
             lines = err_path.read_text().strip().splitlines() or ["no output"]
             killed = f"crashed: {lines[-1][:200]}"
         return SolveResult(
             solved=False, proof=None, wall_time=round(wall, 3), peak_memory_mb=round(peak_mb, 1),
-            cpu_time=round(cpu, 2), depth=0, failure_reason=killed,
+            cpu_time=round(cpu, 2), depth=0, failure_reason=killed, load_time=round(load_time, 3),
         )
 
 
@@ -124,9 +129,13 @@ def _limit_cpu(seconds: float) -> None:
     resource.setrlimit(resource.RLIMIT_CPU, (limit, limit + 1))
 
 
-def _watch(pid: int, budget: Budget, cpu_limit: float, t0: float):
-    """Poll until the child exits; kill its process group if over budget."""
+def _watch(pid: int, budget: Budget, cpu_limit: float, t0: float, loaded: Path):
+    """Poll until the child exits; kill its process group if over budget.
+
+    The time limit counts from when the child has loaded its tools (it writes
+    `loaded`); loading itself is capped by budget.load_s."""
     killed, peak_kb, tree_cpu = None, 0, 0.0
+    t_solve = None
     tick = os.sysconf("SC_CLK_TCK")
     while True:
         done, status, usage = os.wait4(pid, os.WNOHANG)
@@ -139,8 +148,16 @@ def _watch(pid: int, budget: Budget, cpu_limit: float, t0: float):
         rss_kb, cpu = _tree_usage(pid, tick)
         peak_kb = max(peak_kb, rss_kb)
         tree_cpu = max(tree_cpu, cpu)
+        if t_solve is None and loaded.exists():
+            try:
+                t_solve = float(loaded.read_text())
+            except ValueError:  # being written
+                pass
         if killed is None:
-            if time.time() - t0 > budget.time_s:
+            now = time.time()
+            if t_solve is None and now - t0 > budget.load_s:
+                killed = f"load limit ({budget.load_s:.0f}s)"
+            elif t_solve is not None and now - t_solve > budget.time_s:
                 killed = f"time limit ({budget.time_s:.0f}s)"
             elif budget.memory_mb and rss_kb / 1024 > budget.memory_mb:
                 killed = f"memory limit ({budget.memory_mb:.0f} MB)"
@@ -181,6 +198,9 @@ def _child(out_path: str) -> None:
     request = json.loads(sys.stdin.read())
     config = request["config"]
     ddar, proposers = load_tools(config)
+    tmp = Path(out_path + ".loaded.tmp")
+    tmp.write_text(repr(time.time()))
+    tmp.rename(out_path + ".loaded")  # atomic: the watchdog never reads half a number
     result = search(request["problem"], ddar, proposers, SearchLimits(**config.get("search", {})))
     Path(out_path).write_text(json.dumps(asdict(result)))
 

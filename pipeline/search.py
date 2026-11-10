@@ -98,6 +98,8 @@ def load_tools(config: dict) -> tuple[Tool | None, list[Tool]]:
         try:
             proposers.append(load_tool(n, enabled[n]))
         except FileNotFoundError as e:  # e.g. a model that has not been trained yet
+            if config.get("strict_tools"):  # comparisons: a missing model must not pass as DDAR alone
+                raise
             print(f"warning: tool '{n}' switched off: {e}", file=sys.stderr)
     return ddar, proposers
 

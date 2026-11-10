@@ -56,7 +56,7 @@ def test_store_uses_the_config_budget(tmp_path, monkeypatch):
     (tmp_path / "small.json").write_text(json.dumps(config))
     monkeypatch.setattr(store, "RESULTS_ROOT", tmp_path / "results")
     (record,) = store.run(store.load_problems(folder), [tmp_path / "small.json"])
-    assert record["resources"]["available"] == {"time_s": 30, "memory_mb": 1500, "cpu_s": 0}
+    assert record["resources"]["available"] == {"time_s": 30, "memory_mb": 1500, "cpu_s": 0, "load_s": 120.0}
     assert record["solved"]
 
 

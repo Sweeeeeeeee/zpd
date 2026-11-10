@@ -1,16 +1,17 @@
 """Run solve() over a Newclid dataset file with one config; append JSON lines.
 
 usage: python bench/sweep.py DATASET CONFIG OUT.jsonl [--only names.txt] [--time 60]
+(without --time: the config's own budget block)
 """
 import argparse, json, sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from pipeline.solve import Budget, solve
+from pipeline.solve import Budget, config_budget, solve
 
 ap = argparse.ArgumentParser()
 ap.add_argument("dataset"); ap.add_argument("config"); ap.add_argument("out")
-ap.add_argument("--only"); ap.add_argument("--time", type=float, default=60)
+ap.add_argument("--only"); ap.add_argument("--time", type=float, default=None, help="seconds, 2 GB; default: the config's own budget")
 a = ap.parse_args()
 
 lines = [l.strip() for l in Path(a.dataset).read_text().splitlines() if l.strip()]
@@ -29,12 +30,13 @@ if Path(a.out).exists():
     if text and not text.endswith("\n"):
         Path(a.out).write_text(text[: text.rfind("\n") + 1])  # drop the partial line
 
+budget = Budget(time_s=a.time, memory_mb=2048, cpu_s=0) if a.time else config_budget(a.config)
 with open(a.out, "a") as f:
     for i, (name, text) in enumerate(problems):
         if name in done:
             continue
-        r = solve(text, a.config, Budget(time_s=a.time, memory_mb=2048, cpu_s=0))
-        rec = {"name": name, "solved": r.solved, "wall": r.wall_time, "mem": r.peak_memory_mb,
+        r = solve(text, a.config, budget)
+        rec = {"name": name, "solved": r.solved, "wall": r.wall_time, "load": r.load_time, "mem": r.peak_memory_mb,
                "depth": r.depth, "aux": r.aux, "ddar_calls": r.ddar_calls,
                "tool_calls": r.tool_calls, "reason": r.failure_reason,
                "n_rules": sum(r.rules_in_proof.values())}
