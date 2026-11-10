@@ -1,0 +1,17 @@
+{"name": "2000_p6", "solved": false, "wall": 6.714, "mem": 523.7, "depth": 1, "aux": [], "ddar_calls": 1, "tool_calls": {"ddar": 1, "transformer": 1}, "reason": "no usable proposals", "n_rules": 0}
+{"name": "2008_p1a", "solved": false, "wall": 7.518, "mem": 439.2, "depth": 2, "aux": [], "ddar_calls": 21, "tool_calls": {"ddar": 21, "transformer": 5}, "reason": "not solved within depth 2", "n_rules": 0}
+{"name": "2008_p1b", "solved": false, "wall": 7.366, "mem": 423.4, "depth": 2, "aux": [], "ddar_calls": 21, "tool_calls": {"ddar": 21, "transformer": 5}, "reason": "not solved within depth 2", "n_rules": 0}
+{"name": "2008_p6", "solved": false, "wall": 4.896, "mem": 475.3, "depth": 1, "aux": [], "ddar_calls": 1, "tool_calls": {"ddar": 1, "transformer": 1}, "reason": "no usable proposals", "n_rules": 0}
+{"name": "2009_p2", "solved": false, "wall": 5.0, "mem": 823.6, "depth": 2, "aux": [], "ddar_calls": 21, "tool_calls": {"ddar": 21, "transformer": 5}, "reason": "not solved within depth 2", "n_rules": 0}
+{"name": "2010_p2", "solved": false, "wall": 5.449, "mem": 432.0, "depth": 2, "aux": [], "ddar_calls": 21, "tool_calls": {"ddar": 21, "transformer": 5}, "reason": "not solved within depth 2", "n_rules": 0}
+{"name": "2011_p6", "solved": false, "wall": 6.47, "mem": 542.9, "depth": 1, "aux": [], "ddar_calls": 1, "tool_calls": {"ddar": 1, "transformer": 1}, "reason": "no usable proposals", "n_rules": 0}
+{"name": "2012_p5", "solved": false, "wall": 3.885, "mem": 412.2, "depth": 2, "aux": [], "ddar_calls": 21, "tool_calls": {"ddar": 21, "transformer": 5}, "reason": "not solved within depth 2", "n_rules": 0}
+{"name": "2015_p3", "solved": false, "wall": 7.025, "mem": 432.6, "depth": 2, "aux": [], "ddar_calls": 16, "tool_calls": {"ddar": 16, "transformer": 4}, "reason": "not solved within depth 2", "n_rules": 0}
+{"name": "2018_p1", "solved": false, "wall": 4.941, "mem": 415.8, "depth": 2, "aux": [], "ddar_calls": 21, "tool_calls": {"ddar": 21, "transformer": 5}, "reason": "not solved within depth 2", "n_rules": 0}
+{"name": "2019_p2", "solved": false, "wall": 3.987, "mem": 414.3, "depth": 2, "aux": [], "ddar_calls": 21, "tool_calls": {"ddar": 21, "transformer": 5}, "reason": "not solved within depth 2", "n_rules": 0}
+{"name": "2019_p6", "solved": false, "wall": 4.035, "mem": 424.0, "depth": 1, "aux": [], "ddar_calls": 1, "tool_calls": {"ddar": 1, "transformer": 1}, "reason": "no usable proposals", "n_rules": 0}
+{"name": "2020_p1", "solved": false, "wall": 5.909, "mem": 426.8, "depth": 2, "aux": [], "ddar_calls": 13, "tool_calls": {"ddar": 13, "transformer": 4}, "reason": "not solved within depth 2", "n_rules": 0}
+{"name": "2021_p3", "solved": false, "wall": 6.609, "mem": 450.4, "depth": 2, "aux": [], "ddar_calls": 21, "tool_calls": {"ddar": 21, "transformer": 5}, "reason": "not solved within depth 2", "n_rules": 0}
+{"name": "1975_p3", "solved": false, "wall": 3.791, "mem": 821.3, "depth": 2, "aux": [], "ddar_calls": 3, "tool_calls": {"ddar": 3, "transformer": 2}, "reason": "not solved within depth 2", "n_rules": 0}
+{"name": "1983_p2", "solved": false, "wall": 7.568, "mem": 456.3, "depth": 2, "aux": [], "ddar_calls": 17, "tool_calls": {"ddar": 17, "transformer": 4}, "reason": "not solved within depth 2", "n_rules": 0}
+{"name": "2025_p2", "solved": false, "wall": 9.495, "mem": 445.0, "depth": 2, "aux": [], "ddar_calls": 21, "tool_calls": {"ddar": 21, "transformer": 5}, "reason": "not solved within depth 2", "n_rules": 0}

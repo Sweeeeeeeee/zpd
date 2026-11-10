@@ -1,0 +1,34 @@
+{"name": "2000_p6", "solved": false, "wall": 1.968, "mem": 190.2, "depth": 0, "aux": [], "ddar_calls": 1, "tool_calls": {"ddar": 1}, "reason": "DDAR saturated and no proposer tools are enabled", "n_rules": 0}
+{"name": "2002_p2a", "solved": true, "wall": 2.022, "mem": 182.6, "depth": 0, "aux": [], "ddar_calls": 1, "tool_calls": {"ddar": 1}, "reason": null, "n_rules": 33}
+{"name": "2002_p2b", "solved": true, "wall": 1.816, "mem": 180.5, "depth": 0, "aux": [], "ddar_calls": 1, "tool_calls": {"ddar": 1}, "reason": null, "n_rules": 14}
+{"name": "2003_p4", "solved": true, "wall": 1.916, "mem": 185.8, "depth": 0, "aux": [], "ddar_calls": 1, "tool_calls": {"ddar": 1}, "reason": null, "n_rules": 64}
+{"name": "2004_p1", "solved": true, "wall": 1.973, "mem": 181.0, "depth": 0, "aux": [], "ddar_calls": 1, "tool_calls": {"ddar": 1}, "reason": null, "n_rules": 38}
+{"name": "2004_p5", "solved": true, "wall": 1.715, "mem": 176.8, "depth": 0, "aux": [], "ddar_calls": 1, "tool_calls": {"ddar": 1}, "reason": null, "n_rules": 21}
+{"name": "2005_p5", "solved": true, "wall": 2.018, "mem": 186.6, "depth": 0, "aux": [], "ddar_calls": 1, "tool_calls": {"ddar": 1}, "reason": null, "n_rules": 66}
+{"name": "2007_p4", "solved": true, "wall": 2.276, "mem": 187.1, "depth": 0, "aux": [], "ddar_calls": 1, "tool_calls": {"ddar": 1}, "reason": null, "n_rules": 87}
+{"name": "2008_p1a", "solved": false, "wall": 1.817, "mem": 182.9, "depth": 0, "aux": [], "ddar_calls": 1, "tool_calls": {"ddar": 1}, "reason": "DDAR saturated and no proposer tools are enabled", "n_rules": 0}
+{"name": "2008_p1b", "solved": false, "wall": 2.025, "mem": 182.9, "depth": 0, "aux": [], "ddar_calls": 1, "tool_calls": {"ddar": 1}, "reason": "DDAR saturated and no proposer tools are enabled", "n_rules": 0}
+{"name": "2008_p6", "solved": false, "wall": 1.765, "mem": 182.4, "depth": 0, "aux": [], "ddar_calls": 1, "tool_calls": {"ddar": 1}, "reason": "DDAR saturated and no proposer tools are enabled", "n_rules": 0}
+{"name": "2009_p2", "solved": false, "wall": 1.664, "mem": 178.4, "depth": 0, "aux": [], "ddar_calls": 1, "tool_calls": {"ddar": 1}, "reason": "DDAR saturated and no proposer tools are enabled", "n_rules": 0}
+{"name": "2010_p2", "solved": false, "wall": 1.82, "mem": 179.1, "depth": 0, "aux": [], "ddar_calls": 1, "tool_calls": {"ddar": 1}, "reason": "DDAR saturated and no proposer tools are enabled", "n_rules": 0}
+{"name": "2010_p4", "solved": true, "wall": 1.869, "mem": 181.1, "depth": 0, "aux": [], "ddar_calls": 1, "tool_calls": {"ddar": 1}, "reason": null, "n_rules": 36}
+{"name": "2011_p6", "solved": false, "wall": 1.966, "mem": 189.8, "depth": 0, "aux": [], "ddar_calls": 1, "tool_calls": {"ddar": 1}, "reason": "DDAR saturated and no proposer tools are enabled", "n_rules": 0}
+{"name": "2012_p1", "solved": true, "wall": 2.179, "mem": 183.4, "depth": 0, "aux": [], "ddar_calls": 1, "tool_calls": {"ddar": 1}, "reason": null, "n_rules": 74}
+{"name": "2012_p5", "solved": false, "wall": 1.664, "mem": 176.4, "depth": 0, "aux": [], "ddar_calls": 1, "tool_calls": {"ddar": 1}, "reason": "DDAR saturated and no proposer tools are enabled", "n_rules": 0}
+{"name": "2013_p4", "solved": true, "wall": 1.921, "mem": 181.0, "depth": 0, "aux": [], "ddar_calls": 1, "tool_calls": {"ddar": 1}, "reason": null, "n_rules": 60}
+{"name": "2014_p4", "solved": true, "wall": 1.974, "mem": 180.6, "depth": 0, "aux": [], "ddar_calls": 1, "tool_calls": {"ddar": 1}, "reason": null, "n_rules": 50}
+{"name": "2015_p3", "solved": false, "wall": 1.666, "mem": 178.4, "depth": 0, "aux": [], "ddar_calls": 1, "tool_calls": {"ddar": 1}, "reason": "DDAR saturated and no proposer tools are enabled", "n_rules": 0}
+{"name": "2015_p4", "solved": true, "wall": 2.178, "mem": 187.4, "depth": 0, "aux": [], "ddar_calls": 1, "tool_calls": {"ddar": 1}, "reason": null, "n_rules": 81}
+{"name": "2016_p1", "solved": true, "wall": 3.178, "mem": 234.3, "depth": 0, "aux": [], "ddar_calls": 1, "tool_calls": {"ddar": 1}, "reason": null, "n_rules": 64}
+{"name": "2017_p4", "solved": true, "wall": 1.972, "mem": 182.9, "depth": 0, "aux": [], "ddar_calls": 1, "tool_calls": {"ddar": 1}, "reason": null, "n_rules": 64}
+{"name": "2018_p1", "solved": false, "wall": 2.03, "mem": 177.7, "depth": 0, "aux": [], "ddar_calls": 1, "tool_calls": {"ddar": 1}, "reason": "DDAR saturated and no proposer tools are enabled", "n_rules": 0}
+{"name": "2019_p2", "solved": false, "wall": 1.868, "mem": 176.6, "depth": 0, "aux": [], "ddar_calls": 1, "tool_calls": {"ddar": 1}, "reason": "DDAR saturated and no proposer tools are enabled", "n_rules": 0}
+{"name": "2019_p6", "solved": false, "wall": 1.767, "mem": 181.7, "depth": 0, "aux": [], "ddar_calls": 1, "tool_calls": {"ddar": 1}, "reason": "DDAR saturated and no proposer tools are enabled", "n_rules": 0}
+{"name": "2020_p1", "solved": false, "wall": 1.72, "mem": 178.3, "depth": 0, "aux": [], "ddar_calls": 1, "tool_calls": {"ddar": 1}, "reason": "DDAR saturated and no proposer tools are enabled", "n_rules": 0}
+{"name": "2021_p3", "solved": false, "wall": 1.767, "mem": 177.2, "depth": 0, "aux": [], "ddar_calls": 1, "tool_calls": {"ddar": 1}, "reason": "DDAR saturated and no proposer tools are enabled", "n_rules": 0}
+{"name": "2022_p4", "solved": true, "wall": 1.816, "mem": 178.1, "depth": 0, "aux": [], "ddar_calls": 1, "tool_calls": {"ddar": 1}, "reason": null, "n_rules": 37}
+{"name": "1975_p3", "solved": false, "wall": 1.665, "mem": 175.8, "depth": 0, "aux": [], "ddar_calls": 1, "tool_calls": {"ddar": 1}, "reason": "DDAR saturated and no proposer tools are enabled", "n_rules": 0}
+{"name": "1983_p2", "solved": false, "wall": 1.766, "mem": 183.4, "depth": 0, "aux": [], "ddar_calls": 1, "tool_calls": {"ddar": 1}, "reason": "DDAR saturated and no proposer tools are enabled", "n_rules": 0}
+{"name": "1995_p1", "solved": true, "wall": 2.37, "mem": 195.2, "depth": 0, "aux": [], "ddar_calls": 1, "tool_calls": {"ddar": 1}, "reason": null, "n_rules": 84}
+{"name": "2024_p4", "solved": true, "wall": 2.976, "mem": 199.9, "depth": 0, "aux": [], "ddar_calls": 1, "tool_calls": {"ddar": 1}, "reason": null, "n_rules": 172}
+{"name": "2025_p2", "solved": false, "wall": 1.869, "mem": 188.1, "depth": 0, "aux": [], "ddar_calls": 1, "tool_calls": {"ddar": 1}, "reason": "DDAR saturated and no proposer tools are enabled", "n_rules": 0}

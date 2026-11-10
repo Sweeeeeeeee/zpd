@@ -1,6 +1,6 @@
 # State
 
-Updated: 2026-11-10 08:55 UTC (session ac55cba9)
+Updated: 2026-11-10 11:05 UTC (session 430cecf6)
 
 Claude's own notes: overwrite this file at the end of every session so it is
 true *now*. History goes to [LOG.md](LOG.md), not here. Facts that a command can
@@ -14,6 +14,7 @@ holds what a command cannot tell.
 | Done | tasks 1-6, 7.1, 8.2, 12.1-12.3 ([docs/tasks.md](../docs/tasks.md)) |
 | Best model | `geo-lm/runs/mini_long/best.pt`: 2.1M params, **step 9000 (finished)**, val loss 0.271, exact 33% top-1 / 49.5% top-4, 90.6% translatable on 200 held-out problems |
 | Stuck JGEX problems | `mini_long` solves L058-9 but **not L053-1**; `mini` (1600 steps) solved both. Better exact match did not mean better help here |
+| Benchmarks | `bench/run_benchmarks.sh`, results in `results/{jgex_ag_231,imo,imo_102_requires_aux}/`: JGEX 205 DDAR / 210 with `mini_long`; IMO-AG-30 (29) 15 / 15; imo_102 0 / 3. AG1: 198/228 JGEX, 14/25 IMO-AG-30. In `docs/rezultati.md` |
 | Docs | `docs/rezultati.md`, `tasks.md`, `geo-lm.md`, `README.md` have the 9000-step numbers |
 | Paper | `zpd_darbs/preliminary` still describes only the 1600-step `mini` model (`\trainSteps`, the JGEX table). Not updated on purpose: ask the user whether the paper should switch to `mini_long` |
 | Blocker | the problem set (7.2-7.6): the scan (9-11) cannot start without it |
@@ -52,8 +53,10 @@ holds what a command cannot tell.
 
 1. User: confirm why the Codespace stopped on 11-09 (billing page, email).
 2. Ask: should the paper use `mini_long` (9000) instead of `mini` (1600)?
+   Also tell the user the benchmark result (above) and that the AG1 JGEX
+   numbers in rezultati.md (198, 228) must be checked against the paper.
 3. **7.2** Sort the 1499 Latvian geometry problems into statable / not statable.
 4. 7.3-7.4 Pick the working set, translate and scan a pilot batch of ~10.
-5. A bigger comparison (sweep of all 231 JGEX with heuristics, `mini`,
-   `mini_long`) would say more than 2 problems; ~231 × up to 60 s per config,
-   run with `claude/job.sh`, detached.
+5. Same benchmark with `heuristics_only` and `mini_model` (1600 steps) on the
+   DDAR failures (`results/*/ddar_unsolved.txt`, 26 + 17 + 101): ~15 min each.
+   `LLM=mini_model bench/run_benchmarks.sh` does the model part.

@@ -6,6 +6,23 @@ verified. Newest first. Times are UTC. The current state and next steps are in
 
 ---
 
+## 2026-11-10 10:24-11:05 · Standard benchmarks: DDAR vs DDAR + mini_long, vs AG1
+
+- User asked for DDAR and DDAR+LLM on the standard sets, estimate first,
+  compare with AG1. Timed 7 samples (DDAR ~2 s, LLM 4-37 s); estimated
+  ~1.3 h, worst ~3 h. Actual: 23 min (job `bench-ddar-llm`, exit 0).
+- New `bench/run_benchmarks.sh`: `ddar_only` on all, then `mini_long_model`
+  only on DDAR failures. 60 s, 2 GB per problem.
+- JGEX-231: DDAR 205, +5 with the model = 210 (AG1: DD+AR 198, AG 228).
+  IMO-AG-30 (29 of 30 in `imo.txt`, `2000_p1` missing): DDAR 15, +0 (AG1 14 / 25).
+  `imo_102_requires_aux`: DDAR 0, model 3 of 101. Only 4 of the 8 model
+  solves use one aux point; no problem hit the time limit (proposal quality
+  is the limit). L053-1 still unsolved.
+- Written into `docs/rezultati.md` (new section "Standarta kopas"). AG1 JGEX
+  numbers (198, 228) are from memory of the paper: verify before citing.
+- User left; safety stop armed (`sleep 16200; gh codespace stop`), session
+  stops the Codespace itself at the end.
+
 ## 2026-11-10 08:10-08:55 · `mini_long` finished, evaluated (unattended)
 
 - Committed the 11-09 work and the notes system (`8f00776`).

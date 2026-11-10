@@ -4,3 +4,5 @@
 2026-11-10 08:47:08 END eval-mini_long-9000 exit=0 dur=1min
 2026-11-10 08:47:26 START jgex-stuck-mini_long pid=67644 cwd=/workspaces/zpd cmd=.venv-newclid/bin/python bench/sweep.py third_party/Newclid/newclid/problems_datasets/jgex_ag_231.txt pipeline/configs/mini_long_model.json results/jgex_ag_231/mini_long_model.jsonl --only claude/jobs/stuck.txt --time 60
 2026-11-10 08:47:35 END jgex-stuck-mini_long exit=0 dur=0min
+2026-11-10 10:33:42 START bench-ddar-llm pid=10754 cwd=/workspaces/zpd cmd=bench/run_benchmarks.sh
+2026-11-10 10:57:23 END bench-ddar-llm exit=0 dur=23min
