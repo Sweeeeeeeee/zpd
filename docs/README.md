@@ -226,6 +226,7 @@ All documents are in `docs/`:
 | [ddar.md](ddar.md) | task 1: Newclid on CPU, how rules and AR load, rule toggling, engine fixes |
 | [rules.md](rules.md) | every rule with premises and conclusions, and where rules are stored |
 | [geo-lm.md](geo-lm.md) | task 2: the transformer, tokenizer and training |
+| [models.md](models.md) | proposer models compared (ours, GenesisGeo, local LLMs) and the folder restructure plan |
 | [datagen.md](datagen.md) | task 2: the GenesisGeo training data |
 | [pipeline.md](pipeline.md) | task 3: tools, search and `solve()` |
 | [translation_guide.md](translation_guide.md) | task 4: writing problems in Newclid syntax |

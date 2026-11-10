@@ -39,7 +39,7 @@ fi
 step "torch (CPU), geo-lm, pyarrow, pytest, matplotlib"
 .venv-newclid/bin/python -c "import torch" 2>/dev/null ||
   .venv-newclid/bin/pip install torch --index-url https://download.pytorch.org/whl/cpu
-.venv-newclid/bin/pip install -q -e geo-lm pyarrow pytest matplotlib
+.venv-newclid/bin/pip install -q -e geo-lm pyarrow pytest matplotlib "transformers==4.52.4"  # transformers: pipeline/hf_tool.py (GenesisGeo, local LLMs)
 
 # 2. Training data: the exact 100k GenesisGeo split is kept in git as .gz
 #    (3.5 MB instead of a 1 GB download); unpack it next to the archives.
