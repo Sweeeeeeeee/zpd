@@ -13,6 +13,6 @@
   "max_steps": 9000,
   "log_every": 50,
   "eval_every": 1500,
-  "ckpt_every": 250,
+  "ckpt_every": 100,
   "eval_generate": 50
 }

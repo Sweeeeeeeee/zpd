@@ -262,7 +262,21 @@ def train(cfg: TrainConfig) -> dict:
     return {"step": step, "best_val_loss": best}
 
 
+def _limit_malloc_growth() -> None:
+    """On CPU, glibc keeps freed tensor buffers of changing sizes, so RSS grows
+    for the whole run (mid model: 1.9 -> 2.5 GB in 10 min on 2026-11-10, then the
+    process was killed). Large buffers via mmap go back to the OS when freed."""
+    try:
+        import ctypes
+        libc = ctypes.CDLL("libc.so.6")
+        libc.mallopt(-3, 4 * 1024 * 1024)  # M_MMAP_THRESHOLD: activation buffers (~16 MB) via mmap
+        libc.mallopt(-1, 4 * 1024 * 1024)  # M_TRIM_THRESHOLD
+    except OSError:
+        pass  # not glibc
+
+
 def main() -> None:
+    _limit_malloc_growth()
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--config", help="training config JSON")
     for f in dataclasses.fields(TrainConfig):

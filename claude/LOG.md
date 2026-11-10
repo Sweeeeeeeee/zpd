@@ -22,6 +22,13 @@ verified. Newest first. Times are UTC. The current state and next steps are in
   benchmark with the model switched off: those outputs moved to
   `claude/jobs/broken_mid_run_1711/`, not used. Script fixed (train retry loop,
   no eval/bench without best.pt); restarted 17:30 with `setsid -f` from step 250.
+- 2nd kill 17:34 (while a GenesisGeo test loaded 1.2 GB). Cause found: training
+  RSS grew 1.9 -> 2.5 GB (glibc keeps freed tensor buffers); under memory
+  pressure something sends SIGTERM (no cgroup OOM, no daemon visible). Fix in
+  `geo_lm/train.py`: mallopt mmap/trim threshold 4 MB -> RSS ~0.9 GB, speed
+  ~370 tok/s (was ~440). 128 KB threshold + batch 16x2 was tried 17:43-17:47
+  (295 tok/s, too slow), reverted. `train_mid.json` ckpt_every 250 -> 100.
+  Lesson: nothing memory-heavy next to training (no model loading).
 - User wants several proposer models compared, lightweight + 1-2 big, judged on
   fast one-domain solutions (not IMO). Added `pipeline/hf_tool.py`; GenesisGeo
   weights in `models/hf/` (gitignored); transformers 4.52.4 installed.
