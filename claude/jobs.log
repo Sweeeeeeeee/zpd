@@ -2,3 +2,5 @@
 2026-11-10 08:45:26 END train-mini_long-5000 exit=0 dur=33min
 2026-11-10 08:45:56 START eval-mini_long-9000 pid=66855 cwd=/workspaces/zpd/geo-lm cmd=../.venv-newclid/bin/python scripts/eval_aux.py runs/mini_long/best.pt --n 200 --beam 4
 2026-11-10 08:47:08 END eval-mini_long-9000 exit=0 dur=1min
+2026-11-10 08:47:26 START jgex-stuck-mini_long pid=67644 cwd=/workspaces/zpd cmd=.venv-newclid/bin/python bench/sweep.py third_party/Newclid/newclid/problems_datasets/jgex_ag_231.txt pipeline/configs/mini_long_model.json results/jgex_ag_231/mini_long_model.jsonl --only claude/jobs/stuck.txt --time 60
+2026-11-10 08:47:35 END jgex-stuck-mini_long exit=0 dur=0min

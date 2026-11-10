@@ -202,8 +202,7 @@ python -m geo_lm.train --config configs/train_small.json --max_steps 5000 --batc
     `para`, `cong` and `cyclic`.
   * Proposals that use `eqangle` or `aconst` are dropped.
 * The full model has not been trained yet. The 2.1M-parameter checkpoints
-  `runs/mini` (1600 steps) and `runs/mini_long` (3000 steps, resumable from
-  `last.pt`) are in git (25 MB each, force-added past `geo-lm/.gitignore`);
+  `runs/mini` (1600 steps) and `runs/mini_long` (9000 steps, val loss 0.27) are in git (25 MB each, force-added past `geo-lm/.gitignore`);
   other runs, such as the 134 MB `runs/quick`, are not.
 * A Codespace stops after its idle timeout (counted from your last input, not
   from running jobs), and the timeout is fixed when the Codespace is created.

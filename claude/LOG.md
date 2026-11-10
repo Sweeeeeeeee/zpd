@@ -6,6 +6,20 @@ verified. Newest first. Times are UTC. The current state and next steps are in
 
 ---
 
+## 2026-11-10 08:10-08:55 · `mini_long` finished, evaluated (unattended)
+
+- Committed the 11-09 work and the notes system (`8f00776`).
+- Training resumed 08:12 from step 5000 with `claude/job.sh` (detached), ended
+  08:45 at step 9000, exit 0, 33 min. Evals: 6000 → 0.342, 7500 → 0.292,
+  9000 → 0.271 val loss. No machine stop this time.
+- `eval_aux.py` on 200 problems: translatable 90.6%, exact 33% top-1, 49.5%
+  top-4 (step 3000: 94.3%, 11.5%, 32%). More rejects with "no predicates" (33).
+  Commit `3d77363`.
+- JGEX stuck pair with `mini_long_model.json`: L058-9 solved (3.8 s, 1 aux);
+  L053-1 not (search exhausted at depth 2, 4.8 s). `mini` solved both.
+- Docs updated (rezultati, tasks 8.1, geo-lm, README); paper left as is (asks
+  the user). Codespace stopped by the session at the end.
+
 ## 2026-11-10 08:00 · Why the 11-09 run stopped; logging system
 
 - The 11-09 run was not covered in this log. From the session transcript

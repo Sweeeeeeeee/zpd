@@ -1,6 +1,6 @@
 # State
 
-Updated: 2026-11-10 (session ac55cba9)
+Updated: 2026-11-10 08:55 UTC (session ac55cba9)
 
 Claude's own notes: overwrite this file at the end of every session so it is
 true *now*. History goes to [LOG.md](LOG.md), not here. Facts that a command can
@@ -12,9 +12,10 @@ holds what a command cannot tell.
 | | |
 |---|---|
 | Done | tasks 1-6, 7.1, 8.2, 12.1-12.3 ([docs/tasks.md](../docs/tasks.md)) |
-| Best model | `geo-lm/runs/mini_long/best.pt`: 2.1M params, **step 4500**, val loss 0.406, exact 16% (on the 100 val examples the training loop checks) |
-| Paper / docs numbers | still the **step-3000** checkpoint (val loss 0.49, top-1 11.5%, top-4 32% on 200 problems). Not yet re-evaluated at 4500 |
-| `mini_long` | stopped at step 5000 of 9000; `last.pt` = step 5000 with optimizer, resumable (~45 min left at ~110 steps/min) |
+| Best model | `geo-lm/runs/mini_long/best.pt`: 2.1M params, **step 9000 (finished)**, val loss 0.271, exact 33% top-1 / 49.5% top-4, 90.6% translatable on 200 held-out problems |
+| Stuck JGEX problems | `mini_long` solves L058-9 but **not L053-1**; `mini` (1600 steps) solved both. Better exact match did not mean better help here |
+| Docs | `docs/rezultati.md`, `tasks.md`, `geo-lm.md`, `README.md` have the 9000-step numbers |
+| Paper | `zpd_darbs/preliminary` still describes only the 1600-step `mini` model (`\trainSteps`, the JGEX table). Not updated on purpose: ask the user whether the paper should switch to `mini_long` |
 | Blocker | the problem set (7.2-7.6): the scan (9-11) cannot start without it |
 | Machine | Codespace `glowing-barnacle-69499rgp76525wvr`, 2 cores, 8 GB, idle timeout 240 min |
 
@@ -29,8 +30,10 @@ holds what a command cannot tell.
    11-10; or a manual stop. **Unconfirmed**: the user should check
    github.com/settings/billing. Until then, no job here is safe for more than a
    few minutes unattended.
-2. The step-3000 → step-4500 checkpoint, the run log and the setup fixes of
-   11-09 are uncommitted (check.sh warns while this is true).
+2. On 11-10 the Codespace ran 08:12-08:55 unattended with no stop (training
+   33 min via `claude/job.sh`), so the 11-09 stop did not repeat. A safety stop
+   (`gh codespace stop` after 7000 s) was armed; the session stopped the
+   Codespace itself at the end.
 
 ## Rules learned the hard way
 
@@ -47,10 +50,10 @@ holds what a command cannot tell.
 
 ## Next
 
-1. Commit the 11-09 work and this logging system.
-2. User: confirm why the Codespace stopped (billing page, email).
+1. User: confirm why the Codespace stopped on 11-09 (billing page, email).
+2. Ask: should the paper use `mini_long` (9000) instead of `mini` (1600)?
 3. **7.2** Sort the 1499 Latvian geometry problems into statable / not statable.
 4. 7.3-7.4 Pick the working set, translate and scan a pilot batch of ~10.
-5. Evaluate `mini_long` step 4500 (`eval_aux.py`, 200 problems, ~10 min) and
-   update docs/paper numbers; optionally finish the run to 9000 once (1) of Open
-   problems is understood, or on Kaggle.
+5. A bigger comparison (sweep of all 231 JGEX with heuristics, `mini`,
+   `mini_long`) would say more than 2 problems; ~231 × up to 60 s per config,
+   run with `claude/job.sh`, detached.

@@ -10,8 +10,9 @@ katrā (apmēram 8 s). Heiristikas tos atrisina ātrāk (apmēram 3 s), bet
 vienam uzdevumam tām vajag divus palīgpunktus. Uz 200 neredzētiem GenesisGeo
 uzdevumiem 92% modeļa piedāvājumu ir pārvēršami Newclid konstrukcijās, un 21%
 gadījumu viens no 4 piedāvājumiem precīzi sakrīt ar atsauces palīgpunktu.
-Ilgāk apmācīts tas pats modelis (`mini_long`, 3000 soļi) šos rādītājus
-uzlabo līdz 94% un 32%.
+Ilgāk apmācīts tas pats modelis (`mini_long`, 9000 soļi, apmēram 1,5 h)
+precīzo sakritību uzlabo līdz 33% ar pirmo un 49,5% ar kādu no 4
+piedāvājumiem; no abiem iestrēgušajiem JGEX uzdevumiem tas atrisina vienu.
 Pilnais konveijers atrisina 4 no 5 parauga uzdevumiem, katru aptuveni 2 s
 laikā; piektais ir apzināti nepareizs tulkojums, un tas tiek pareizi noraidīts.
 
@@ -121,32 +122,37 @@ Zudums vēl krītas, tātad ilgāka apmācība (pilnā, apmēram 14 h) vēl uzla
 modeli. Iepriekšējais 200 soļu skrējiens ar lielo modeli sasniedza
 validācijas zudumu 1,67 un 0% sakritību. Avots: `geo-lm/runs/mini/log.jsonl`.
 
-**Ilgāks skrējiens (`mini_long`).** Tas pats modelis, plānoti 9000 soļi
-(apmēram 3 epohas, `geo-lm/configs/train_mini_long.json`). Codespace pēc
-30 minūtēm bez lietotāja ievades apstājās, tāpēc skrējiens beidzās pie
-3200. soļa; labākais kontrolpunkts ir no 3000. soļa.
+**Ilgāks skrējiens (`mini_long`).** Tas pats modelis, 9000 soļi (apmēram
+3 epohas, `geo-lm/configs/train_mini_long.json`), apmācīts trijos posmos
+(līdz 3200., 5000. un 9000. solim, katru reizi turpinot no `last.pt`), kopā
+apmēram 1,5 h uz 2 CPU kodoliem. Labākais kontrolpunkts ir pēdējais.
 
 | Solis | Validācijas zudums | Precīzā sakritība |
 | --- | --- | --- |
 | 1500 | 0,76 | 3% |
 | 3000 | 0,49 | 11% |
+| 4500 | 0,41 | 16% |
+| 6000 | 0,34 | 31% |
+| 7500 | 0,29 | 32% |
+| 9000 | 0,27 | 28% |
 
-Zudums joprojām krītas. Avots: `results/transformer/mini_long_train_log.jsonl`;
-kontrolpunkti `geo-lm/runs/mini/` un `geo-lm/runs/mini_long/` ir gitā, tāpēc
-`mini_long` skrējienu var turpināt no `last.pt` ar to pašu konfigurāciju.
+Validācijas zudums krītas līdz beigām, bet lēnāk (mācīšanās ātrums
+kosinusa grafikā nonāk līdz minimumam). Sakritība uz 100 piemēriem ir
+trokšņaina (±5 punkti). Avots: `results/transformer/mini_long_train_log.jsonl`;
+kontrolpunkti `geo-lm/runs/mini/` un `geo-lm/runs/mini_long/` ir gitā.
 
 ### Modeļa piedāvājumu pārbaude
 
 200 neredzēti GenesisGeo uzdevumi, staru meklēšana ar 4 hipotēzēm, 50 s uz CPU
 (skripts `geo-lm/scripts/eval_aux.py`):
 
-| Rādītājs | `mini` (1600 soļi) | `mini_long` (3000 soļi) |
-| --- | --- | --- |
-| Pabeigtas hipotēzes (ar `<eos>`) | 100% | 100% |
-| Hipotēzes, kas pārvēršamas Newclid konstrukcijās | 91,6% | 94,3% |
-| Uzdevumi ar vismaz vienu pārvēršamu piedāvājumu | 96% | 98% |
-| Pirmais piedāvājums precīzi sakrīt ar atsauci | 6% | 11,5% |
-| Kāds no 4 piedāvājumiem precīzi sakrīt ar atsauci | 21% | 32% |
+| Rādītājs | `mini` (1600 soļi) | `mini_long` (3000 soļi) | `mini_long` (9000 soļi) |
+| --- | --- | --- | --- |
+| Pabeigtas hipotēzes (ar `<eos>`) | 100% | 100% | 100% |
+| Hipotēzes, kas pārvēršamas Newclid konstrukcijās | 91,6% | 94,3% | 90,6% |
+| Uzdevumi ar vismaz vienu pārvēršamu piedāvājumu | 96% | 98% | 94,5% |
+| Pirmais piedāvājums precīzi sakrīt ar atsauci | 6% | 11,5% | **33%** |
+| Kāds no 4 piedāvājumiem precīzi sakrīt ar atsauci | 21% | 32% | **49,5%** |
 
 `mini` noraidīto 67 hipotēžu iemesli: atsauce uz neesošu punktu (35), predikāts
 bez Newclid konstrukcijas, piemēram `eqangle` (25), pārējie (7). `mini_long`
@@ -154,7 +160,23 @@ noraidīja 46: neesošs punkts (36), nav konstrukcijas (7), pārējie (3); tāta
 ilgāka apmācība gandrīz novērš predikātus bez konstrukcijas. Precīza sakritība
 ir stingrs mērs: arī atšķirīgs palīgpunkts var derēt, kā rāda `L058-9`.
 Avoti: `results/transformer/eval_mini_val200.json`,
-`results/transformer/eval_mini_long_val200.json`.
+`results/transformer/eval_mini_long_val200.json`,
+`results/transformer/eval_mini_long_9000_val200.json`.
+
+Pēc 9000 soļiem precīzā sakritība gandrīz trīskāršojas, bet pārvēršamo
+hipotēžu daļa nedaudz krīt: no 75 noraidītajām 37 atsaucas uz neesošu punktu
+un 33 ir "bez predikātiem" (modelis nosauc punktu, bet neuzraksta tam
+nosacījumu). Tātad ilgāk apmācīts modelis biežāk trāpa precīzi, bet pārējos
+staros vairāk riskē.
+
+**`mini_long` (9000 soļi) uz iestrēgušajiem JGEX uzdevumiem** (60 s budžets):
+`L058-9` atrisināts 3,8 s ar vienu palīgpunktu (hordas `ad` viduspunkts,
+17 likumi pierādījumā); `L053-1` nav atrisināts: 21 DD-AR izsaukums un
+5 modeļa izsaukumi izsmēla meklēšanu līdz dziļumam 2 (4,8 s), un neviens
+piedāvājums nebija derīgs. 1600 soļu modelis atrisināja abus. Labāka
+sakritība ar atsauci uz GenesisGeo nenozīmē labāku palīdzību uz cita
+avota uzdevumiem; ar 2 uzdevumiem to nevar izmērīt. Avots:
+`results/jgex_ag_231/mini_long_model.jsonl`.
 
 ## Secinājumi un nākamie soļi
 
@@ -171,9 +193,9 @@ Avoti: `results/transformer/eval_mini_val200.json`,
 
 Nākamie soļi:
 
-- [ ] Pilnā apmācība (8.1, apmēram 14 h), jo zudums vēl krītas; tā neiekļaujas 2-4 h Codespace dīkstāves
+- [ ] Pilnā apmācība (8.1, apmēram 14 h, lielais modelis), jo zudums vēl krītas; tā neiekļaujas 2-4 h Codespace dīkstāves
       limitā, tāpēc vai nu vairākās sesijās ar `last.pt`, vai Kaggle
-- [ ] `mini_long` uz abiem iestrēgušajiem JGEX uzdevumiem (palaišana tika pārtraukta)
+- [x] `mini_long` uz abiem iestrēgušajiem JGEX uzdevumiem (atrisina 1 no 2)
 - [ ] Pabeigt `bench/sweep.py` skrējienu uz visiem 231 JGEX uzdevumiem ar
       `heuristics_only` un `mini_model`
 - [ ] Jomu konfigurācijas ar transformeri (`pipeline/configs/domains_transformer/`)
