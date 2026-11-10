@@ -1,33 +1,47 @@
 # ZPD ģeometrijas risinātājs: rezultāti
 
-Stāvoklis uz 2026. gada 10. novembri.
+Stāvoklis uz 2026. gada 10. novembri. Visi skaitļi ņemti no repozitorija
+failiem (`results/`, `geo-lm/runs/`); avots norādīts katras sadaļas beigās.
 
-## Pārskats
+## Galvenais īsumā
 
-Pēc 14 minūšu apmācības uz CPU mazais transformeris (2,1 milj. parametru)
-atrisina abus JGEX uzdevumus, kuros DD-AR iestrēgst, ar vienu palīgpunktu
-katrā (apmēram 8 s). Heiristikas tos atrisina ātrāk (apmēram 3 s), bet
-vienam uzdevumam tām vajag divus palīgpunktus. Uz 200 neredzētiem GenesisGeo
-uzdevumiem 92% modeļa piedāvājumu ir pārvēršami Newclid konstrukcijās, un 21%
-gadījumu viens no 4 piedāvājumiem precīzi sakrīt ar atsauces palīgpunktu.
-Ilgāk apmācīts tas pats modelis (`mini_long`, 9000 soļi, apmēram 1,5 h)
-precīzo sakritību uzlabo līdz 33% ar pirmo un 49,5% ar kādu no 4
-piedāvājumiem; no abiem iestrēgušajiem JGEX uzdevumiem tas atrisina vienu.
-Uz visām standarta kopām (60 s, 2 GB, 2 CPU kodoli): tikai DD-AR atrisina
-205 no 231 JGEX uzdevuma un 15 no 29 IMO-AG-30 uzdevumiem; modelis pievieno
-vēl 5 JGEX uzdevumus, 0 IMO-AG-30 uzdevumus un 3 no 101 IMO uzdevuma, kuriem
-noteikti vajag palīgpunktu. AlphaGeometry (AG1) atrisina 25 no 30 IMO-AG-30.
-Pilnais konveijers atrisina 4 no 5 parauga uzdevumiem, katru aptuveni 2 s
-laikā; piektais ir apzināti nepareizs tulkojums, un tas tiek pareizi noraidīts.
+| | Rezultāts |
+| --- | --- |
+| **JGEX-AG-231** | DD-AR viens 205 / 231, ar modeli **210 / 231 (91%)**; AG1: DD+AR 198, AlphaGeometry 228 |
+| **IMO-AG-30** (29 no 30) | DD-AR viens **15**, modelis nepievieno neko; AG1: DD+AR 14, AlphaGeometry 25 |
+| **IMO, kam vajag palīgpunktu** | modelis atrisina **3 / 101** (DD-AR viens 0) |
+| **Modelis** | `mini_long`: 2,1 milj. parametru, 9000 soļi (~1,5 h uz 2 CPU kodoliem), validācijas zudums 0,27 |
+| **Piedāvājumu kvalitāte** | 200 neredzētos uzdevumos precīzs palīgpunkts ar 1. piedāvājumu 33%, ar kādu no 4 — 49,5% |
+| **Resursi** | viens uzdevums: mediāna ~2 s ar DD-AR, ~5 s ar modeli; 60 s un 2 GB budžets netika sasniegts |
+
+**Secinājums vienā teikumā:** Newclid DD-AR viens jau pārspēj AG1 DD+AR, un
+mazais modelis palīdz tikai dažos uzdevumos; to ierobežo piedāvājumu
+kvalitāte, nevis laiks, tāpēc nākamais solis ir lielāks modelis.
+
+```mermaid
+xychart-beta
+    title "JGEX-AG-231: atrisināti uzdevumi"
+    x-axis ["DD-AR (šeit)", "DD-AR + modelis (šeit)", "AG1 DD+AR", "AlphaGeometry"]
+    y-axis "Atrisināti" 150 --> 231
+    bar [205, 210, 198, 228]
+```
+
+```mermaid
+xychart-beta
+    title "IMO-AG-30: atrisināti uzdevumi"
+    x-axis ["DD-AR (šeit, no 29)", "DD-AR + modelis (šeit, no 29)", "AG1 DD+AR", "AlphaGeometry"]
+    y-axis "Atrisināti" 0 --> 30
+    bar [15, 15, 14, 25]
+```
+
+## Ko skeneris dara
 
 Skeneris meklē olimpiāžu ģeometrijas uzdevumus, kuriem ir viegls risinājums
 vienā izvēlētā jomā: ar fiksētu likumu kopu, ne vairāk kā vienu palīgpunktu un
 nelieliem laika un atmiņas resursiem. DD-AR pierāda, ko var; kad tas apstājas,
-palīgpunktus piedāvā transformeris vai vienkāršas heiristikas. Visi skaitļi
-šajā dokumentā ņemti no repozitorija failiem: `results/jgex_ag_231/`,
-`results/examples/`, `results/transformer/` un `geo-lm/runs/`.
+palīgpunktus piedāvā transformeris vai vienkāršas heiristikas.
 
-## Konveijers
+### Konveijers
 
 ```mermaid
 flowchart LR
@@ -46,44 +60,7 @@ DD-AR pierāda, ko var; piedāvāts palīgpunkts dod tam vēl vienu iespēju. Vi
 konfigurācija (`pipeline/configs/default.json`) atļauj 2 palīgpunktu līmeņus
 un 80 DD-AR izsaukumus; uzraugs aptur darbu, kad beidzas laiks vai atmiņa.
 
-## Rezultāti
-
-### Ar LLM un bez tā
-
-Salīdzinātas konfigurācijas uz pirmajiem 73 no 231 JGEX uzdevuma
-(`jgex_ag_231` no Newclid). Pilns skrējiens tika apturēts laika dēļ; visu
-231 uzdevumu rezultāti ir sadaļā "Standarta kopas" zemāk.
-
-1. Tikai DD-AR (`ddar_only`) uz visiem 73 uzdevumiem, budžets 30 s.
-2. Uz tiem 2 uzdevumiem, kur DD-AR iestrēga: DD-AR + heiristikas
-   (`heuristics_only`, 15 s), DD-AR + vecais 200 soļu modelis un heiristikas
-   (`quick_model`, 15 s) un DD-AR + jaunais modelis bez heiristikām
-   (`mini_model`, 60 s).
-
-**Tikai DD-AR:** atrisināti 71 no 73 (97%), mediāna 1,9 s, 180 MB un 17 likumu
-pielietojumi pierādījumā. Palīgpunkts nevienam no tiem nebija vajadzīgs.
-
-**Uzdevumi, kur DD-AR iestrēga:**
-
-| Uzdevums | Tikai DD-AR | DD-AR + heiristikas | DD-AR + vecais modelis (200 soļi) | DD-AR + jaunais modelis (1600 soļi) |
-| --- | --- | --- | --- | --- |
-| `L053-1` | nē, iestrēga | **jā**, 3,3 s, 1 palīgpunkts (`foot`), 5 DD-AR izsaukumi | nē, 15 s limits | **jā**, 8,3 s, 1 palīgpunkts (viduspunkts), 5 DD-AR izsaukumi |
-| `L058-9` | nē, iestrēga | **jā**, 2,8 s, 2 palīgpunkti (`circle`, `circle`), 19 DD-AR izsaukumi | nē, 15 s limits | **jā**, 8,6 s, 1 palīgpunkts (viduspunkts), 2 DD-AR izsaukumi |
-
-Jaunais modelis abos uzdevumos atrada palīgpunktu ar pirmo piedāvājumu, tātad
-abi risinājumi atbilst "vieglā risinājuma" definīcijai (viens palīgpunkts).
-Ar heiristikām tā ir tikai `L053-1`. Modeļa piedāvājums `L058-9` ir hordas
-`ab` viduspunkts (`f : coll a b f, cong a f b f`), un ar to pierādījumā
-pietiek ar 8 likumu pielietojumiem. Modelis ir lēnāks: apmēram 5 s aiziet
-uz tā ielādi un staru meklēšanu, un atmiņas patēriņš ir 410 MB pret 180 MB.
-
-Divi uzdevumi ir pārāk maz secinājumiem; tas rāda, ka modelis strādā, bet
-neļauj teikt, ka tas ir labāks par heiristikām.
-
-Avots: `results/jgex_ag_231/*.jsonl`, skripts `bench/sweep.py`, konfigurācija
-`pipeline/configs/mini_model.json`.
-
-### Standarta kopas: JGEX-231 un IMO, salīdzinājums ar AG1
+## 1. Standarta kopas: JGEX-231 un IMO, salīdzinājums ar AG1
 
 Divas konfigurācijas uz trim Newclid kopām
 (`third_party/Newclid/newclid/problems_datasets/`), budžets 60 s un 2 GB uz
@@ -142,26 +119,22 @@ Avoti: `results/jgex_ag_231/`, `results/imo/`, `results/imo_102_requires_aux/`
 `bench/run_benchmarks.sh`. Pirmie 73 JGEX `ddar_only` rezultāti ir no
 agrāka skrējiena ar 30 s budžetu; neviens no tiem nepārsniedza 27 s.
 
-### Parauga uzdevumi caur `solve()`
+## 2. Transformeris
 
-Katrs uzdevums tika palaists ar trim konfigurācijām un budžetu 60 s, 2 GB.
-`heuristics_only` rezultāti sakrita ar `ddar_only` 0,2 s robežās, tāpēc tabulā
-tie nav parādīti.
+### Apmācība
 
-| Uzdevums | Atrisināts | Likumi pierādījumā | Laiks, tikai DD-AR (s) | Laiks, ar modeli (s) | Maks. atmiņa, tikai DD-AR (MB) | Maks. atmiņa, ar modeli (MB) |
-| --- | --- | --- | --- | --- | --- | --- |
-| Varinjona teorēma | jā | 24 | 2,24 | 4,31 | 180 | 536 |
-| Pieskares un hordas leņķis | jā | 9 | 2,19 | 4,17 | 178 | 536 |
-| Ortocentra atspoguļojums | jā | 8 | 2,03 | 4,22 | 178 | 536 |
-| Taisnleņķa trijstūra mediāna | jā | 1 | 2,15 | 4,36 | 178 | 536 |
-| Nepareizs tulkojums | nē, zīmējums noraidīts | 0 | 2,19 | 4,26 | 176 | 536 |
+Abi modeļi ir viens un tas pats transformeris; `mini_long` ir tikai ilgāk
+apmācīts. Tas ir pašreizējais modelis (`pipeline/configs/default.json`).
 
-Avots: `results/examples/*.json`. Visi atrisinātie pierādījumi ir ar dziļumu 0:
-palīgpunkts nevienam nebija vajadzīgs.
+```mermaid
+xychart-beta
+    title "mini_long: validācijas zudums"
+    x-axis "Apmācības solis" [1500, 3000, 4500, 6000, 7500, 9000]
+    y-axis "Zudums" 0 --> 0.8
+    line [0.758, 0.493, 0.406, 0.342, 0.292, 0.271]
+```
 
-### Transformera apmācība
-
-Modelis: transformeris ar 2,1 milj. parametru (4 slāņi, 4 galvas, 192
+**Pirmais skrējiens (`mini`).** Transformeris ar 2,1 milj. parametru (4 slāņi, 4 galvas, 192
 dimensijas; `geo-lm/configs/model_mini.json`), 98 008 GenesisGeo piemēri,
 1600 soļi pa 32 piemēriem (apmēram puse epohas), 14 minūtes uz 2 CPU kodoliem.
 Lielais modelis (11 milj. parametru) 20 minūtēs paspētu tikai apmēram 550
@@ -242,29 +215,82 @@ sakritība ar atsauci uz GenesisGeo nenozīmē labāku palīdzību uz cita
 avota uzdevumiem; ar 2 uzdevumiem to nevar izmērīt. Avots:
 `results/jgex_ag_231/mini_long_model.jsonl`.
 
-## Secinājumi un nākamie soļi
+## 3. Agrīnie eksperimenti
 
-- **Heiristikas strādā un ir ātras.** Abos uzdevumos, kur DD-AR iestrēga, tās
-  atrada palīgpunktus mazāk nekā 4 s laikā.
-- **Arī īsi apmācīts LLM jau palīdz.** Pēc 14 minūtēm uz CPU tā piedāvājumi
-  gandrīz vienmēr ir derīgas konstrukcijas, un abos iestrēgušajos uzdevumos
-  tas atrada vienu palīgpunktu, kas noved pie pierādījuma; `L058-9` tas deva
-  vieglāku risinājumu nekā heiristikas.
-- **Cena ir laiks un atmiņa.** Ar modeli risināšana ilgst apmēram 8 s, nevis
-  3 s, un prasa 410 MB, nevis 180 MB; 60 s un 2 GB budžetā tas iekļaujas.
-- **Uz standarta kopām modelis palīdz maz.** Tas pievieno 5 JGEX un 3 IMO
-  uzdevumus (no 26 un 101 iestrēgušajiem), uz IMO-AG-30 neko; AG1 tur
-  sasniedz 25 no 30. Ierobežo modeļa piedāvājumu kvalitāte, nevis laiks.
+### Pirmie 73 JGEX uzdevumi: heiristikas pret modeļiem
+
+Salīdzinātas konfigurācijas uz pirmajiem 73 no 231 JGEX uzdevuma
+(`jgex_ag_231` no Newclid). Pilns skrējiens tika apturēts laika dēļ; visu
+231 uzdevumu rezultāti ir 1. sadaļā "Standarta kopas" augstāk.
+
+1. Tikai DD-AR (`ddar_only`) uz visiem 73 uzdevumiem, budžets 30 s.
+2. Uz tiem 2 uzdevumiem, kur DD-AR iestrēga: DD-AR + heiristikas
+   (`heuristics_only`, 15 s), DD-AR + vecais 200 soļu modelis un heiristikas
+   (`quick_model`, 15 s) un DD-AR + jaunais modelis bez heiristikām
+   (`mini_model`, 60 s).
+
+**Tikai DD-AR:** atrisināti 71 no 73 (97%), mediāna 1,9 s, 180 MB un 17 likumu
+pielietojumi pierādījumā. Palīgpunkts nevienam no tiem nebija vajadzīgs.
+
+**Uzdevumi, kur DD-AR iestrēga:**
+
+| Uzdevums | Tikai DD-AR | DD-AR + heiristikas | DD-AR + vecais modelis (200 soļi) | DD-AR + jaunais modelis (1600 soļi) |
+| --- | --- | --- | --- | --- |
+| `L053-1` | nē, iestrēga | **jā**, 3,3 s, 1 palīgpunkts (`foot`), 5 DD-AR izsaukumi | nē, 15 s limits | **jā**, 8,3 s, 1 palīgpunkts (viduspunkts), 5 DD-AR izsaukumi |
+| `L058-9` | nē, iestrēga | **jā**, 2,8 s, 2 palīgpunkti (`circle`, `circle`), 19 DD-AR izsaukumi | nē, 15 s limits | **jā**, 8,6 s, 1 palīgpunkts (viduspunkts), 2 DD-AR izsaukumi |
+
+Jaunais modelis abos uzdevumos atrada palīgpunktu ar pirmo piedāvājumu, tātad
+abi risinājumi atbilst "vieglā risinājuma" definīcijai (viens palīgpunkts).
+Ar heiristikām tā ir tikai `L053-1`. Modeļa piedāvājums `L058-9` ir hordas
+`ab` viduspunkts (`f : coll a b f, cong a f b f`), un ar to pierādījumā
+pietiek ar 8 likumu pielietojumiem. Modelis ir lēnāks: apmēram 5 s aiziet
+uz tā ielādi un staru meklēšanu, un atmiņas patēriņš ir 410 MB pret 180 MB.
+
+Divi uzdevumi ir pārāk maz secinājumiem; tas rāda, ka modelis strādā, bet
+neļauj teikt, ka tas ir labāks par heiristikām.
+
+Avots: `results/jgex_ag_231/*.jsonl`, skripts `bench/sweep.py`, konfigurācija
+`pipeline/configs/mini_model.json`.
+
+### Parauga uzdevumi caur `solve()`
+
+Katrs uzdevums tika palaists ar trim konfigurācijām un budžetu 60 s, 2 GB.
+`heuristics_only` rezultāti sakrita ar `ddar_only` 0,2 s robežās, tāpēc tabulā
+tie nav parādīti.
+
+| Uzdevums | Atrisināts | Likumi pierādījumā | Laiks, tikai DD-AR (s) | Laiks, ar modeli (s) | Maks. atmiņa, tikai DD-AR (MB) | Maks. atmiņa, ar modeli (MB) |
+| --- | --- | --- | --- | --- | --- | --- |
+| Varinjona teorēma | jā | 24 | 2,24 | 4,31 | 180 | 536 |
+| Pieskares un hordas leņķis | jā | 9 | 2,19 | 4,17 | 178 | 536 |
+| Ortocentra atspoguļojums | jā | 8 | 2,03 | 4,22 | 178 | 536 |
+| Taisnleņķa trijstūra mediāna | jā | 1 | 2,15 | 4,36 | 178 | 536 |
+| Nepareizs tulkojums | nē, zīmējums noraidīts | 0 | 2,19 | 4,26 | 176 | 536 |
+
+Avots: `results/examples/*.json`. Visi atrisinātie pierādījumi ir ar dziļumu 0:
+palīgpunkts nevienam nebija vajadzīgs.
+
+## Secinājumi
+
 - **DD-AR viens ir spēcīgs:** 205 no 231 JGEX un 15 no 29 IMO-AG-30, vairāk
-  nekā AG1 DD+AR.
+  nekā AG1 DD+AR (198 un 14).
+- **Mazais modelis palīdz maz, bet palīdz:** +5 JGEX un +3 no 101 IMO
+  uzdevumiem, kam vajag palīgpunktu; uz IMO-AG-30 neko (AG1 modelis pievieno 11).
+- **Ierobežo piedāvājumu kvalitāte, nevis laiks:** neviens uzdevums nesasniedza
+  60 s limitu; meklēšana beidzas, jo piedāvājumi neved pie pierādījuma.
+- **Ilgāka apmācība uzlabo precizitāti, bet ne vienmēr palīdzību:** 9000 soļu
+  modelis trāpa precīzi 3 reizes biežāk nekā 1600 soļu modelis, bet `L053-1`
+  atrisināja tikai vecais. Uz 2 uzdevumiem to nevar izmērīt.
+- **Heiristikas ir ātras** (< 4 s abos iestrēgušajos JGEX uzdevumos), modelis
+  prasa vairāk laika (~5-8 s) un atmiņas (410-536 MB pret 180 MB), bet
+  iekļaujas 60 s un 2 GB budžetā.
 
 Nākamie soļi:
 
-- [ ] Pilnā apmācība (8.1, apmēram 14 h, lielais modelis), jo zudums vēl krītas; tā neiekļaujas 2-4 h Codespace dīkstāves
-      limitā, tāpēc vai nu vairākās sesijās ar `last.pt`, vai Kaggle
+- [ ] Lielāks modelis (5-11 milj. parametru), jo modeļa kvalitāte ir
+      ierobežojums (8.1)
+- [ ] Tas pats etalons ar `heuristics_only` un `mini_model` (1600 soļi), lai salīdzinātu
+- [ ] Jomu konfigurācijas ar transformeri palaist uz parauga un izmēģinājuma
+      uzdevumiem (8.3)
+- [ ] Latvijas uzdevumu kopa (7.2-7.6) un skenēšana (9-11)
 - [x] `mini_long` uz abiem iestrēgušajiem JGEX uzdevumiem (atrisina 1 no 2)
 - [x] Visi 231 JGEX, IMO un `imo_102_requires_aux` ar `ddar_only` un `mini_long`
-- [ ] Tas pats ar `heuristics_only` un `mini_model` (1600 soļi), lai salīdzinātu
-- [ ] Jomu konfigurācijas ar transformeri (`pipeline/configs/domains_transformer/`)
-      palaist uz parauga un izmēģinājuma uzdevumiem (8.3)
-- [ ] Pievienot mapē `problems/` uzdevumus, kuriem vajag tieši vienu palīgpunktu

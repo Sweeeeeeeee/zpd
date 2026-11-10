@@ -6,6 +6,16 @@ verified. Newest first. Times are UTC. The current state and next steps are in
 
 ---
 
+## 2026-11-10 ~16:55 · rezultati.md restructured; bigger-model speed measured
+
+- Committed the cleanup (`1cfdddb`, pushed). User: 35 h of 2-core time left.
+- `docs/rezultati.md` reorganised, no numbers changed: summary table + two
+  benchmark charts first, then 1. standard sets, 2. transformer (new
+  `mini_long` val-loss chart), 3. early experiments, conclusions rewritten.
+- Speed of 40 training steps (scratchpad, not kept): mini 2.1M ~1000 target
+  tok/s; mid (6 layers, 256 dim) 5.1M ~440; small 11.2M ~200. Estimates in
+  STATE. **Bigger model not started: user must approve.**
+
 ## 2026-11-10 16:32-16:50 · Cleanup and correctness check (15 min, user asked)
 
 - `check.sh`: no warnings, nothing running. Tests: 85 passed (86 s).

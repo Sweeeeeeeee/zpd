@@ -1,6 +1,6 @@
 # State
 
-Updated: 2026-11-10 16:50 UTC (session 32e42808)
+Updated: 2026-11-10 17:00 UTC (session 32e42808)
 
 Claude's own notes: overwrite this file at the end of every session so it is
 true *now*. History goes to [LOG.md](LOG.md), not here. Facts that a command can
@@ -11,7 +11,7 @@ holds what a command cannot tell.
 
 | | |
 |---|---|
-| Uncommitted | 11-10 cleanup: `make_figures.py` fix, `default.json` → `mini_long`, docs (rezultati AG1 note, README, pipeline.md, geo-lm.md, tasks.md), `sweep.py` resume fix, these notes |
+| Bigger model | measured 11-10: mid 5.1M (6 layers, 256 dim) ~1.1 s/step, 9000 steps ~3.3 h incl. evals (~7 core-h); small 11.2M ~2.3 s/step, 9000 steps ~7 h (~14 core-h), 20000 ~14 h. mini: ~0.45 s/step. Waiting for user approval; split into <=3.5 h parts (idle timeout 240 min), resume from `last.pt` |
 | Done | tasks 1-6, 7.1, 8.2, 8.2a (benchmarks), 12.1-12.3 ([docs/tasks.md](../docs/tasks.md)) |
 | Best model | `geo-lm/runs/mini_long/best.pt`: 2.1M params, **step 9000 (finished)**, val loss 0.271, exact 33% top-1 / 49.5% top-4, 90.6% translatable on 200 held-out problems |
 | Stuck JGEX problems | `mini_long` solves L058-9 but **not L053-1**; `mini` (1600 steps) solved both. Better exact match did not mean better help here |
