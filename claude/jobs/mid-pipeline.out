@@ -1,0 +1,804 @@
+[17:11:37] 1/4 train until 20:12
+event=start device=cpu params=5115136 vocab=76 train=98008 val=1992 dropped_too_long=0 val_unk_tokens=0 step=0
+event=train step=50 loss=2.456 loss_avg=2.823 lr=0.00051 target_tok_per_s=429.4
+event=train step=100 loss=1.593 loss_avg=1.811 lr=0.001 target_tok_per_s=448.9
+event=train step=150 loss=1.435 loss_avg=1.558 lr=0.0009999 target_tok_per_s=441.5
+event=train step=200 loss=1.312 loss_avg=1.407 lr=0.0009997 target_tok_per_s=425.3
+event=train step=250 loss=1.558 loss_avg=1.4 lr=0.0009994 target_tok_per_s=466.4
+event=train step=300 loss=0.9992 loss_avg=1.281 lr=0.0009989 target_tok_per_s=440.5
+event=train step=350 loss=1.072 loss_avg=1.133 lr=0.0009982 target_tok_per_s=435.3
+Terminated
+[17:19:00] train exit=143
+remote: warning: See https://gh.io/lfs for more information.        
+remote: warning: File geo-lm/runs/mid/last.pt is 58.58 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.        
+[17:19:12] backup pushed e47a7c8959c0485ca29d06007236fa8cd71269f4
+[17:19:12] 2/4 offline eval on 200 held-out problems
+Traceback (most recent call last):
+  File "/workspaces/zpd/geo-lm/scripts/eval_aux.py", line 105, in <module>
+    main()
+  File "/workspaces/zpd/geo-lm/scripts/eval_aux.py", line 45, in main
+    model, tok, _ = load_checkpoint(args.checkpoint, map_location="cpu")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/zpd/geo-lm/geo_lm/checkpoint.py", line 55, in load_checkpoint
+    ckpt = _torch_load(path, map_location)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/zpd/geo-lm/geo_lm/checkpoint.py", line 45, in _torch_load
+    return torch.load(path, map_location=map_location, weights_only=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/zpd/.venv-newclid/lib/python3.12/site-packages/torch/serialization.py", line 1566, in load
+    with _open_file_like(f, "rb") as opened_file:
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/zpd/.venv-newclid/lib/python3.12/site-packages/torch/serialization.py", line 796, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/zpd/.venv-newclid/lib/python3.12/site-packages/torch/serialization.py", line 777, in __init__
+    super().__init__(open(name, mode))  # noqa: SIM115
+                     ^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'runs/mid/best.pt'
+[17:19:20] eval exit=1
+[17:19:20] 3/4 benchmarks on DDAR failures until 20:45
+== jgex_ag_231: ddar_only 17:19:20
+== jgex_ag_231: mid_model on 26 unsolved 17:19:20
+0 complete_008_7_Book_LLL_L053-1.gex False 3.5s DDAR saturated and no proposer tools are enabled
+1 complete_007_7_Book_LLL_L058-9.gex False 3.5s DDAR saturated and no proposer tools are enabled
+2 complete_010_Other_Auxiliary_ye_aux_think2.gex False 3.6s DDAR saturated and no proposer tools are enabled
+3 complete_015_7_Book_00EE_08_E059-59.gex False 3.5s DDAR saturated and no proposer tools are enabled
+4 complete_013_7_Book_00EE_10_E072-16.gex False 3.6s DDAR saturated and no proposer tools are enabled
+5 complete_010_Other_Auxiliary_ye_aux_ll43.gex False 3.6s DDAR saturated and no proposer tools are enabled
+6 complete_010_Other_Auxiliary_aux2_22.gex False 3.5s DDAR saturated and no proposer tools are enabled
+7 complete_012_7_Book_00EE_11_E076-31.gex False 3.6s DDAR saturated and no proposer tools are enabled
+8 complete_010_Other_Auxiliary_ye_aux_y1.gex False 3.5s DDAR saturated and no proposer tools are enabled
+9 complete_014_7_Book_00EE_09_E069-8.gex False 3.5s DDAR saturated and no proposer tools are enabled
+10 complete_011_7_Book_00EE_04_E051-9.gex False 3.6s DDAR saturated and no proposer tools are enabled
+11 complete_002_6_GDD_FULL_41-60_42.gex False 3.7s DDAR saturated and no proposer tools are enabled
+12 complete_015_7_Book_00EE_08_E061-61.gex False 3.5s DDAR saturated and no proposer tools are enabled
+13 complete_008_ex-gao_ex160_005.gex False 3.6s DDAR saturated and no proposer tools are enabled
+14 complete_005_Other_unsolved_109f.gex False 3.6s DDAR saturated and no proposer tools are enabled
+15 complete_014_7_Book_00EE_07_E057-41.gex False 4.3s DDAR saturated and no proposer tools are enabled
+16 complete_008_ex-gao_ex160_e102.gex False 3.9s DDAR saturated and no proposer tools are enabled
+17 complete_012_7_Book_00EE_11_E075-27f.gex False 3.6s DDAR saturated and no proposer tools are enabled
+18 complete_010_Other_gao_Y_yL157-1.gex False 3.7s DDAR saturated and no proposer tools are enabled
+19 complete_012_7_Book_00EE_05_E051-14-1.gex False 3.7s DDAR saturated and no proposer tools are enabled
+20 complete_011_7_Book_00EE_04_E051-2.gex False 3.4s DDAR saturated and no proposer tools are enabled
+21 complete_010_Other_gao_Y_yL182-1.gex False 3.7s DDAR saturated and no proposer tools are enabled
+22 complete_009_Other_paper_Thebault_t5.gex False 3.7s DDAR saturated and no proposer tools are enabled
+23 complete_015_7_Book_00EE_06_E051-28.gex False 3.7s problem could not be built: YuclidError: yuclid ex
+24 complete_010_Other_Auxiliary_ye_aux_think.gex False 3.6s DDAR saturated and no proposer tools are enabled
+25 morley.gex False 3.6s DDAR saturated and no proposer tools are enabled
+== imo: ddar_only 17:20:55
+== imo: mid_model on 17 unsolved 17:20:55
+0 2000_p6 False 3.9s DDAR saturated and no proposer tools are enabled
+1 2008_p1a False 3.8s DDAR saturated and no proposer tools are enabled
+2 2008_p1b False 3.7s DDAR saturated and no proposer tools are enabled
+3 2008_p6 False 3.7s DDAR saturated and no proposer tools are enabled
+4 2009_p2 False 3.7s DDAR saturated and no proposer tools are enabled
+5 2010_p2 False 3.8s DDAR saturated and no proposer tools are enabled
+6 2011_p6 False 4.4s DDAR saturated and no proposer tools are enabled
+7 2012_p5 False 3.8s DDAR saturated and no proposer tools are enabled
+8 2015_p3 False 4.1s DDAR saturated and no proposer tools are enabled
+9 2018_p1 False 4.0s DDAR saturated and no proposer tools are enabled
+10 2019_p2 False 3.9s DDAR saturated and no proposer tools are enabled
+11 2019_p6 False 4.0s DDAR saturated and no proposer tools are enabled
+12 2020_p1 False 3.8s DDAR saturated and no proposer tools are enabled
+13 2021_p3 False 3.8s DDAR saturated and no proposer tools are enabled
+14 1975_p3 False 3.8s DDAR saturated and no proposer tools are enabled
+15 1983_p2 False 3.9s DDAR saturated and no proposer tools are enabled
+16 2025_p2 False 4.2s DDAR saturated and no proposer tools are enabled
+== imo_102_requires_aux: ddar_only 17:22:01
+== imo_102_requires_aux: mid_model on 101 unsolved 17:22:01
+0 imo_1983_p2 False 4.1s DDAR saturated and no proposer tools are enabled
+1 imo_sl_1999_g6 False 4.1s DDAR saturated and no proposer tools are enabled
+2 imo_sl_2000_g1 False 4.3s DDAR saturated and no proposer tools are enabled
+3 imo_sl_2000_g5 False 4.0s DDAR saturated and no proposer tools are enabled
+4 imo_sl_2000_g6 False 4.0s DDAR saturated and no proposer tools are enabled
+5 imo_sl_2000_g8 False 4.3s DDAR saturated and no proposer tools are enabled
+6 imo_sl_2002_g7 False 3.9s DDAR saturated and no proposer tools are enabled
+7 imo_sl_2002_g7_variant False 4.1s DDAR saturated and no proposer tools are enabled
+8 imo_sl_2002_g8 False 4.0s DDAR saturated and no proposer tools are enabled
+9 imo_sl_2002_g8_variant False 3.9s DDAR saturated and no proposer tools are enabled
+10 imo_sl_2003_g2 False 4.2s DDAR saturated and no proposer tools are enabled
+11 imo_sl_2004_g4a False 4.0s DDAR saturated and no proposer tools are enabled
+12 imo_sl_2004_g7 False 4.4s problem could not be built: ValueError: Failed to 
+13 imo_sl_2004_g8 False 4.0s DDAR saturated and no proposer tools are enabled
+14 imo_sl_2005_g1 False 4.2s DDAR saturated and no proposer tools are enabled
+15 imo_sl_2005_g6 False 4.3s DDAR saturated and no proposer tools are enabled
+16 imo_sl_2006_g2 False 3.8s DDAR saturated and no proposer tools are enabled
+17 imo_sl_2006_g4 False 4.0s DDAR saturated and no proposer tools are enabled
+18 imo_sl_2006_g6 False 4.1s DDAR saturated and no proposer tools are enabled
+19 imo_sl_2006_g7a False 4.9s DDAR saturated and no proposer tools are enabled
+20 imo_sl_2006_g7b False 5.2s DDAR saturated and no proposer tools are enabled
+21 imo_sl_2007_g2_variant False 4.2s DDAR saturated and no proposer tools are enabled
+22 imo_sl_2007_g3 False 3.9s DDAR saturated and no proposer tools are enabled
+23 imo_sl_2007_g8 False 4.0s DDAR saturated and no proposer tools are enabled
+24 imo_sl_2008_g1a_variant False 4.2s DDAR saturated and no proposer tools are enabled
+25 imo_sl_2008_g1a_variant2 False 4.0s DDAR saturated and no proposer tools are enabled
+26 imo_sl_2008_g1b False 4.0s DDAR saturated and no proposer tools are enabled
+27 imo_sl_2008_g3 False 3.9s DDAR saturated and no proposer tools are enabled
+28 imo_sl_2009__g3 False 4.0s DDAR saturated and no proposer tools are enabled
+29 imo_sl_2009_g2 False 4.0s DDAR saturated and no proposer tools are enabled
+30 imo_sl_2009_g3 False 4.0s DDAR saturated and no proposer tools are enabled
+31 imo_sl_2009_g4 False 3.8s DDAR saturated and no proposer tools are enabled
+32 imo_sl_2009_g6 False 4.1s DDAR saturated and no proposer tools are enabled
+33 imo_sl_2009_g6_variant False 4.0s DDAR saturated and no proposer tools are enabled
+34 imo_sl_2009_g8 False 4.1s DDAR saturated and no proposer tools are enabled
+35 imo_sl_2010_g2_variant False 4.0s DDAR saturated and no proposer tools are enabled
+36 imo_sl_2010_g2b False 4.3s DDAR saturated and no proposer tools are enabled
+37 imo_sl_2010_g4 False 4.5s DDAR saturated and no proposer tools are enabled
+38 imo_sl_2011_g3 False 4.2s DDAR saturated and no proposer tools are enabled
+39 imo_sl_2011_g4 False 4.8s DDAR saturated and no proposer tools are enabled
+40 imo_sl_2011_g5 False 4.9s DDAR saturated and no proposer tools are enabled
+41 imo_sl_2011_g7 False 4.7s DDAR saturated and no proposer tools are enabled
+42 imo_sl_2011_g8 False 4.9s DDAR saturated and no proposer tools are enabled
+43 imo_sl_2012_g3 False 4.0s DDAR saturated and no proposer tools are enabled
+44 imo_sl_2012_g4 False 4.3s DDAR saturated and no proposer tools are enabled
+45 imo_sl_2012_g4_variant False 4.3s DDAR saturated and no proposer tools are enabled
+46 imo_sl_2012_g5 False 4.4s DDAR saturated and no proposer tools are enabled
+47 imo_sl_2012_g6 False 4.6s DDAR saturated and no proposer tools are enabled
+48 imo_sl_2012_g8 False 4.1s DDAR saturated and no proposer tools are enabled
+49 imo_sl_2013_g2 False 4.4s DDAR saturated and no proposer tools are enabled
+50 imo_sl_2013_g2_variant False 4.1s DDAR saturated and no proposer tools are enabled
+51 imo_sl_2014_g4 False 4.1s DDAR saturated and no proposer tools are enabled
+52 imo_sl_2014_g5 False 4.0s DDAR saturated and no proposer tools are enabled
+53 imo_sl_2015_g3 False 5.0s DDAR saturated and no proposer tools are enabled
+54 imo_sl_2015_g3_variant False 4.4s DDAR saturated and no proposer tools are enabled
+55 imo_sl_2015_g5 False 4.2s DDAR saturated and no proposer tools are enabled
+56 imo_sl_2015_g5_variant False 5.0s DDAR saturated and no proposer tools are enabled
+57 imo_sl_2015_g6 False 5.6s DDAR saturated and no proposer tools are enabled
+58 imo_sl_2016_g2 False 8.5s DDAR saturated and no proposer tools are enabled
+59 imo_sl_2016_g2_variant False 6.8s DDAR saturated and no proposer tools are enabled
+60 imo_sl_2016_g4 False 5.9s DDAR saturated and no proposer tools are enabled
+61 imo_sl_2016_g4_variant False 6.2s DDAR saturated and no proposer tools are enabled
+62 imo_sl_2016_g5 False 7.2s DDAR saturated and no proposer tools are enabled
+63 imo_sl_2016_g5_variant False 4.7s DDAR saturated and no proposer tools are enabled
+64 imo_sl_2016_g6 False 4.7s DDAR saturated and no proposer tools are enabled
+65 imo_sl_2016_g6_variant False 7.1s DDAR saturated and no proposer tools are enabled
+66 imo_sl_2016_g7a False 28.6s DDAR saturated and no proposer tools are enabled
+67 imo_sl_2017_g1 False 4.6s DDAR saturated and no proposer tools are enabled
+68 imo_sl_2017_g3 False 4.0s DDAR saturated and no proposer tools are enabled
+69 imo_sl_2017_g3_variant False 4.0s DDAR saturated and no proposer tools are enabled
+70 imo_sl_2017_g4 False 4.1s DDAR saturated and no proposer tools are enabled
+71 imo_sl_2017_g4_variant False 5.2s DDAR saturated and no proposer tools are enabled
+72 imo_sl_2017_g5 False 4.2s DDAR saturated and no proposer tools are enabled
+73 imo_sl_2018_g1 False 4.2s DDAR saturated and no proposer tools are enabled
+74 imo_sl_2018_g2 False 5.2s DDAR saturated and no proposer tools are enabled
+75 imo_sl_2018_g5 False 4.5s DDAR saturated and no proposer tools are enabled
+76 imo_sl_2018_g6 False 4.5s DDAR saturated and no proposer tools are enabled
+77 imo_sl_2019_g2 False 4.3s DDAR saturated and no proposer tools are enabled
+78 imo_sl_2019_g2_variant False 4.2s DDAR saturated and no proposer tools are enabled
+79 imo_sl_2019_g3 False 4.5s DDAR saturated and no proposer tools are enabled
+80 imo_sl_2019_g6 False 4.1s DDAR saturated and no proposer tools are enabled
+81 imo_sl_2019_g7 False 4.3s DDAR saturated and no proposer tools are enabled
+82 imo_sl_2019_g7_variant False 4.1s DDAR saturated and no proposer tools are enabled
+83 imo_sl_2020_g2 False 3.8s DDAR saturated and no proposer tools are enabled
+84 imo_sl_2020_g6 False 4.2s DDAR saturated and no proposer tools are enabled
+85 imo_sl_2020_g7a False 4.3s DDAR saturated and no proposer tools are enabled
+86 imo_sl_2020_g7a_variant False 4.4s DDAR saturated and no proposer tools are enabled
+87 imo_sl_2020_g7b False 4.2s DDAR saturated and no proposer tools are enabled
+88 imo_sl_2020_g8 False 4.2s DDAR saturated and no proposer tools are enabled
+89 imo_sl_2020_g8_variant False 4.3s DDAR saturated and no proposer tools are enabled
+90 imo_sl_2021_g4 False 4.0s DDAR saturated and no proposer tools are enabled
+91 imo_sl_2021_g4_variant False 4.2s DDAR saturated and no proposer tools are enabled
+92 imo_sl_2021_g7 False 4.3s DDAR saturated and no proposer tools are enabled
+[17:30:06] 1/4 train until 20:20
+resumed from /workspaces/zpd/geo-lm/runs/mid/last.pt at step 250
+event=start device=cpu params=5115136 vocab=76 train=98008 val=1992 dropped_too_long=0 val_unk_tokens=0 step=250
+event=train step=300 loss=1.196 loss_avg=1.234 lr=0.0009989 target_tok_per_s=385.7
+event=train step=350 loss=1.927 loss_avg=1.259 lr=0.0009982 target_tok_per_s=272.2
+Terminated
+[17:34:07] train attempt 1 exit=143 step=350
+resumed from /workspaces/zpd/geo-lm/runs/mid/last.pt at step 250
+event=start device=cpu params=5115136 vocab=76 train=98008 val=1992 dropped_too_long=0 val_unk_tokens=0 step=250
+event=train step=300 loss=1.196 loss_avg=1.234 lr=0.0009989 target_tok_per_s=263.1
+event=train step=350 loss=1.927 loss_avg=1.259 lr=0.0009982 target_tok_per_s=245.8
+event=train step=400 loss=1.677 loss_avg=1.119 lr=0.0009975 target_tok_per_s=402.9
+event=train step=450 loss=1.162 loss_avg=1.068 lr=0.0009966 target_tok_per_s=412.1
+event=train step=500 loss=0.743 loss_avg=1.009 lr=0.0009955 target_tok_per_s=398
+event=train step=550 loss=1.507 loss_avg=1.052 lr=0.0009943 target_tok_per_s=402.5
+Terminated
+[17:42:48] train attempt 2 exit=143 step=550
+resumed from /workspaces/zpd/geo-lm/runs/mid/last.pt at step 500
+event=start device=cpu params=5115136 vocab=76 train=98008 val=1992 dropped_too_long=0 val_unk_tokens=0 step=500
+event=train step=550 loss=0.8019 loss_avg=0.8942 lr=0.0009943 target_tok_per_s=292.5
+event=train step=600 loss=1.006 loss_avg=0.9079 lr=0.000993 target_tok_per_s=297.6
+event=train step=650 loss=1.34 loss_avg=0.8054 lr=0.0009915 target_tok_per_s=314
+Terminated
+[17:47:20] train attempt 3 exit=143 step=650
+resumed from /workspaces/zpd/geo-lm/runs/mid/last.pt at step 600
+event=start device=cpu params=5115136 vocab=76 train=98008 val=1992 dropped_too_long=0 val_unk_tokens=0 step=600
+event=train step=650 loss=1.102 loss_avg=0.8695 lr=0.0009915 target_tok_per_s=391.4
+event=train step=700 loss=0.7441 loss_avg=0.8522 lr=0.0009899 target_tok_per_s=363.4
+event=train step=750 loss=0.9582 loss_avg=0.8514 lr=0.0009882 target_tok_per_s=353.7
+event=train step=800 loss=0.4709 loss_avg=0.7216 lr=0.0009863 target_tok_per_s=376.5
+event=train step=850 loss=0.6827 loss_avg=0.7643 lr=0.0009843 target_tok_per_s=384.1
+event=train step=900 loss=0.7065 loss_avg=0.6868 lr=0.0009822 target_tok_per_s=386.7
+event=train step=950 loss=0.8267 loss_avg=0.714 lr=0.0009799 target_tok_per_s=408
+event=train step=1000 loss=0.9253 loss_avg=0.7254 lr=0.0009775 target_tok_per_s=413.8
+event=train step=1050 loss=0.5931 loss_avg=0.7994 lr=0.0009749 target_tok_per_s=376.1
+event=train step=1100 loss=0.4992 loss_avg=0.6499 lr=0.0009723 target_tok_per_s=409.5
+event=train step=1150 loss=0.6729 loss_avg=0.6306 lr=0.0009694 target_tok_per_s=419.2
+event=train step=1200 loss=0.5694 loss_avg=0.6054 lr=0.0009665 target_tok_per_s=393.8
+remote: warning: See https://gh.io/lfs for more information.        
+remote: warning: File geo-lm/runs/mid/last.pt is 58.58 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.        
+[18:00:24] backup pushed 5b706d2c1d940c0789370cdf81e603e6560c153b
+event=train step=1250 loss=0.5252 loss_avg=0.6152 lr=0.0009634 target_tok_per_s=372.1
+event=train step=1300 loss=1.483 loss_avg=0.731 lr=0.0009602 target_tok_per_s=279
+event=train step=1350 loss=0.4428 loss_avg=0.6182 lr=0.0009569 target_tok_per_s=306
+event=train step=1400 loss=0.6246 loss_avg=0.6078 lr=0.0009534 target_tok_per_s=367.6
+event=train step=1450 loss=1.394 loss_avg=0.6248 lr=0.0009499 target_tok_per_s=336.6
+event=train step=1500 loss=0.554 loss_avg=0.5757 lr=0.0009462 target_tok_per_s=304.9
+event=eval step=1500 val_loss=0.613 exact_match=0 best_val_loss=0.613
+event=train step=1550 loss=0.5372 loss_avg=0.5343 lr=0.0009423 target_tok_per_s=164
+event=train step=1600 loss=0.4392 loss_avg=0.5635 lr=0.0009384 target_tok_per_s=351.6
+event=train step=1650 loss=0.5823 loss_avg=0.6102 lr=0.0009343 target_tok_per_s=393.3
+event=train step=1700 loss=0.7756 loss_avg=0.5771 lr=0.0009301 target_tok_per_s=397.4
+event=train step=1750 loss=0.379 loss_avg=0.5484 lr=0.0009258 target_tok_per_s=412.2
+event=train step=1800 loss=0.4266 loss_avg=0.519 lr=0.0009214 target_tok_per_s=410.1
+event=train step=1850 loss=0.5309 loss_avg=0.5322 lr=0.0009168 target_tok_per_s=392.5
+event=train step=1900 loss=0.4139 loss_avg=0.5676 lr=0.0009122 target_tok_per_s=412.8
+event=train step=1950 loss=0.6052 loss_avg=0.5142 lr=0.0009074 target_tok_per_s=394.5
+event=train step=2000 loss=0.3623 loss_avg=0.5022 lr=0.0009025 target_tok_per_s=408.3
+event=train step=2050 loss=0.5637 loss_avg=0.4897 lr=0.0008975 target_tok_per_s=393.9
+event=train step=2100 loss=0.4733 loss_avg=0.4802 lr=0.0008924 target_tok_per_s=406.1
+event=train step=2150 loss=0.5404 loss_avg=0.4248 lr=0.0008872 target_tok_per_s=398.9
+event=train step=2200 loss=0.6015 loss_avg=0.4413 lr=0.0008819 target_tok_per_s=423
+event=train step=2250 loss=0.6874 loss_avg=0.4769 lr=0.0008765 target_tok_per_s=421.4
+event=train step=2300 loss=0.3446 loss_avg=0.4381 lr=0.000871 target_tok_per_s=411.8
+event=train step=2350 loss=0.5598 loss_avg=0.4758 lr=0.0008654 target_tok_per_s=420.1
+event=train step=2400 loss=0.3304 loss_avg=0.4493 lr=0.0008597 target_tok_per_s=405.7
+event=train step=2450 loss=0.5453 loss_avg=0.4455 lr=0.0008539 target_tok_per_s=420.5
+event=train step=2500 loss=0.5318 loss_avg=0.4726 lr=0.0008479 target_tok_per_s=408
+event=train step=2550 loss=0.3487 loss_avg=0.487 lr=0.0008419 target_tok_per_s=352.8
+remote: warning: See https://gh.io/lfs for more information.        
+remote: warning: File geo-lm/runs/mid/best.pt is 58.58 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: File geo-lm/runs/mid/last.pt is 58.58 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.        
+[18:31:22] backup pushed 32149c31daefed69ea3cd07ffaa35568b430f9ad
+event=train step=2600 loss=0.2416 loss_avg=0.4179 lr=0.0008359 target_tok_per_s=374.1
+event=train step=2650 loss=0.4308 loss_avg=0.4598 lr=0.0008297 target_tok_per_s=355.5
+event=train step=2700 loss=0.4495 loss_avg=0.4256 lr=0.0008234 target_tok_per_s=416.7
+event=train step=2750 loss=0.392 loss_avg=0.4803 lr=0.0008171 target_tok_per_s=411.1
+event=train step=2800 loss=0.4022 loss_avg=0.4331 lr=0.0008106 target_tok_per_s=421.2
+event=train step=2850 loss=1.199 loss_avg=0.5003 lr=0.0008041 target_tok_per_s=391.5
+event=train step=2900 loss=0.367 loss_avg=0.4775 lr=0.0007975 target_tok_per_s=412.7
+event=train step=2950 loss=0.2663 loss_avg=0.4005 lr=0.0007909 target_tok_per_s=397.8
+event=train step=3000 loss=0.321 loss_avg=0.4071 lr=0.0007841 target_tok_per_s=397.8
+event=eval step=3000 val_loss=0.4325 exact_match=0.08 best_val_loss=0.4325
+event=train step=3050 loss=0.4312 loss_avg=0.4566 lr=0.0007773 target_tok_per_s=220.3
+event=train step=3100 loss=0.4286 loss_avg=0.4164 lr=0.0007704 target_tok_per_s=404.4
+event=train step=3150 loss=0.9745 loss_avg=0.4525 lr=0.0007634 target_tok_per_s=411.6
+event=train step=3200 loss=0.4346 loss_avg=0.4381 lr=0.0007564 target_tok_per_s=401.2
+event=train step=3250 loss=0.3894 loss_avg=0.3657 lr=0.0007493 target_tok_per_s=404.4
+event=train step=3300 loss=0.9441 loss_avg=0.4381 lr=0.0007422 target_tok_per_s=410.1
+event=train step=3350 loss=0.3351 loss_avg=0.3851 lr=0.000735 target_tok_per_s=393.6
+event=train step=3400 loss=0.3343 loss_avg=0.4036 lr=0.0007277 target_tok_per_s=401.5
+event=train step=3450 loss=0.3301 loss_avg=0.381 lr=0.0007204 target_tok_per_s=437.1
+event=train step=3500 loss=0.28 loss_avg=0.3697 lr=0.000713 target_tok_per_s=404.7
+event=train step=3550 loss=0.5621 loss_avg=0.3866 lr=0.0007056 target_tok_per_s=414.9
+event=train step=3600 loss=0.3951 loss_avg=0.3609 lr=0.0006981 target_tok_per_s=411.6
+event=train step=3650 loss=0.3156 loss_avg=0.3566 lr=0.0006906 target_tok_per_s=406.4
+event=train step=3700 loss=0.457 loss_avg=0.3916 lr=0.000683 target_tok_per_s=408
+event=train step=3750 loss=0.3801 loss_avg=0.3628 lr=0.0006754 target_tok_per_s=406.8
+event=train step=3800 loss=0.28 loss_avg=0.3692 lr=0.0006677 target_tok_per_s=415.4
+event=train step=3850 loss=0.5221 loss_avg=0.3763 lr=0.0006601 target_tok_per_s=393.1
+event=train step=3900 loss=0.3235 loss_avg=0.3566 lr=0.0006523 target_tok_per_s=417.1
+event=train step=3950 loss=0.4361 loss_avg=0.3687 lr=0.0006446 target_tok_per_s=386.1
+event=train step=4000 loss=0.2008 loss_avg=0.3382 lr=0.0006368 target_tok_per_s=378.1
+remote: warning: See https://gh.io/lfs for more information.        
+remote: warning: File geo-lm/runs/mid/best.pt is 58.58 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: File geo-lm/runs/mid/last.pt is 58.58 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.        
+[19:01:58] backup pushed 37b7b37aabf6ed0492341a28016290d11a893c49
+event=train step=4050 loss=0.3216 loss_avg=0.3359 lr=0.000629 target_tok_per_s=308.9
+event=train step=4100 loss=0.3489 loss_avg=0.3373 lr=0.0006212 target_tok_per_s=394.7
+event=train step=4150 loss=0.4014 loss_avg=0.3514 lr=0.0006133 target_tok_per_s=386.8
+event=train step=4200 loss=0.3118 loss_avg=0.353 lr=0.0006055 target_tok_per_s=383.6
+event=train step=4250 loss=0.2606 loss_avg=0.3292 lr=0.0005976 target_tok_per_s=385.1
+event=train step=4300 loss=0.4728 loss_avg=0.3495 lr=0.0005897 target_tok_per_s=384.9
+event=train step=4350 loss=0.2305 loss_avg=0.3145 lr=0.0005817 target_tok_per_s=409.5
+event=train step=4400 loss=0.3343 loss_avg=0.3413 lr=0.0005738 target_tok_per_s=415.1
+event=train step=4450 loss=0.279 loss_avg=0.3855 lr=0.0005659 target_tok_per_s=406.1
+event=train step=4500 loss=0.197 loss_avg=0.3156 lr=0.0005579 target_tok_per_s=427.2
+event=eval step=4500 val_loss=0.363 exact_match=0.18 best_val_loss=0.363
+event=train step=4550 loss=0.3136 loss_avg=0.3895 lr=0.00055 target_tok_per_s=216.6
+event=train step=4600 loss=0.4022 loss_avg=0.34 lr=0.0005421 target_tok_per_s=399.5
+event=train step=4650 loss=0.2403 loss_avg=0.3751 lr=0.0005341 target_tok_per_s=400
+event=train step=4700 loss=0.2295 loss_avg=0.2852 lr=0.0005262 target_tok_per_s=402.3
+event=train step=4750 loss=0.4344 loss_avg=0.2892 lr=0.0005183 target_tok_per_s=402.9
+event=train step=4800 loss=0.2778 loss_avg=0.3799 lr=0.0005103 target_tok_per_s=397.5
+event=train step=4850 loss=0.5081 loss_avg=0.3731 lr=0.0005024 target_tok_per_s=407.6
+event=train step=4900 loss=0.1858 loss_avg=0.329 lr=0.0004945 target_tok_per_s=399.8
+event=train step=4950 loss=0.1858 loss_avg=0.357 lr=0.0004867 target_tok_per_s=405.2
+event=train step=5000 loss=0.3763 loss_avg=0.3246 lr=0.0004788 target_tok_per_s=411.5
+event=train step=5050 loss=0.2443 loss_avg=0.2868 lr=0.000471 target_tok_per_s=423.9
+event=train step=5100 loss=0.3441 loss_avg=0.3164 lr=0.0004632 target_tok_per_s=416.2
+event=train step=5150 loss=0.3911 loss_avg=0.3497 lr=0.0004554 target_tok_per_s=413
+event=train step=5200 loss=0.1965 loss_avg=0.2942 lr=0.0004477 target_tok_per_s=411
+event=train step=5250 loss=0.35 loss_avg=0.371 lr=0.0004399 target_tok_per_s=389.3
+event=train step=5300 loss=0.2921 loss_avg=0.3225 lr=0.0004323 target_tok_per_s=408.4
+event=train step=5350 loss=0.3145 loss_avg=0.3011 lr=0.0004246 target_tok_per_s=405.6
+event=train step=5400 loss=0.3993 loss_avg=0.3103 lr=0.000417 target_tok_per_s=389.8
+event=train step=5450 loss=0.2503 loss_avg=0.2957 lr=0.0004094 target_tok_per_s=404.9
+remote: warning: See https://gh.io/lfs for more information.        
+remote: warning: File geo-lm/runs/mid/best.pt is 58.58 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: File geo-lm/runs/mid/last.pt is 58.58 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.        
+[19:32:53] backup pushed 9c7a5d6042a1da8750c4c9980c5e0d730ca87a6a
+event=train step=5500 loss=0.2156 loss_avg=0.2905 lr=0.0004019 target_tok_per_s=295.7
+event=train step=5550 loss=0.2998 loss_avg=0.2776 lr=0.0003944 target_tok_per_s=407.5
+event=train step=5600 loss=0.224 loss_avg=0.2724 lr=0.000387 target_tok_per_s=437.3
+event=train step=5650 loss=0.2961 loss_avg=0.2683 lr=0.0003796 target_tok_per_s=409.7
+event=train step=5700 loss=0.3474 loss_avg=0.295 lr=0.0003723 target_tok_per_s=402.3
+event=train step=5750 loss=0.3351 loss_avg=0.2854 lr=0.000365 target_tok_per_s=407.8
+event=train step=5800 loss=0.2353 loss_avg=0.2771 lr=0.0003578 target_tok_per_s=380.9
+event=train step=5850 loss=0.2993 loss_avg=0.2805 lr=0.0003507 target_tok_per_s=405.5
+event=train step=5900 loss=0.2069 loss_avg=0.2939 lr=0.0003436 target_tok_per_s=401.2
+event=train step=5950 loss=0.2912 loss_avg=0.2547 lr=0.0003366 target_tok_per_s=398.1
+event=train step=6000 loss=0.2147 loss_avg=0.2477 lr=0.0003296 target_tok_per_s=395.5
+event=eval step=6000 val_loss=0.2943 exact_match=0.34 best_val_loss=0.2943
+event=train step=6050 loss=0.2649 loss_avg=0.2914 lr=0.0003227 target_tok_per_s=208.6
+event=train step=6100 loss=0.3038 loss_avg=0.2742 lr=0.0003159 target_tok_per_s=402.5
+event=train step=6150 loss=0.2731 loss_avg=0.2542 lr=0.0003091 target_tok_per_s=393.9
+event=train step=6200 loss=0.1654 loss_avg=0.265 lr=0.0003025 target_tok_per_s=409.9
+event=train step=6250 loss=0.3541 loss_avg=0.2484 lr=0.0002959 target_tok_per_s=427.9
+event=train step=6300 loss=0.2269 loss_avg=0.2952 lr=0.0002894 target_tok_per_s=389.1
+event=train step=6350 loss=0.2936 loss_avg=0.2582 lr=0.0002829 target_tok_per_s=406
+event=train step=6400 loss=0.2479 loss_avg=0.3048 lr=0.0002766 target_tok_per_s=432.6
+event=train step=6450 loss=0.1505 loss_avg=0.2774 lr=0.0002703 target_tok_per_s=398.4
+event=train step=6500 loss=0.2595 loss_avg=0.2369 lr=0.0002641 target_tok_per_s=409.8
+event=train step=6550 loss=0.2244 loss_avg=0.2527 lr=0.0002581 target_tok_per_s=412.8
+event=train step=6600 loss=0.2792 loss_avg=0.2531 lr=0.0002521 target_tok_per_s=428.3
+event=train step=6650 loss=0.3083 loss_avg=0.2389 lr=0.0002461 target_tok_per_s=408.3
+event=train step=6700 loss=0.356 loss_avg=0.3053 lr=0.0002403 target_tok_per_s=418.1
+event=train step=6750 loss=0.1448 loss_avg=0.2116 lr=0.0002346 target_tok_per_s=417
+event=train step=6800 loss=0.1114 loss_avg=0.2308 lr=0.000229 target_tok_per_s=404.8
+event=train step=6850 loss=0.244 loss_avg=0.2563 lr=0.0002235 target_tok_per_s=385.5
+event=train step=6900 loss=0.4238 loss_avg=0.2594 lr=0.0002181 target_tok_per_s=352.9
+remote: warning: See https://gh.io/lfs for more information.        
+remote: warning: File geo-lm/runs/mid/best.pt is 58.58 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: File geo-lm/runs/mid/last.pt is 58.58 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.        
+[20:03:35] backup pushed 89ae0d9eed72b3aab0c88b17ba840cdbbf548141
+event=train step=6950 loss=0.1282 loss_avg=0.2169 lr=0.0002128 target_tok_per_s=353
+event=train step=7000 loss=0.1882 loss_avg=0.2368 lr=0.0002076 target_tok_per_s=417.5
+event=train step=7050 loss=0.1671 loss_avg=0.2365 lr=0.0002025 target_tok_per_s=421.4
+event=train step=7100 loss=0.2774 loss_avg=0.2604 lr=0.0001975 target_tok_per_s=443.6
+event=train step=7150 loss=0.1545 loss_avg=0.2331 lr=0.0001926 target_tok_per_s=412.6
+event=train step=7200 loss=0.1969 loss_avg=0.2162 lr=0.0001878 target_tok_per_s=422.6
+event=train step=7250 loss=0.2132 loss_avg=0.2275 lr=0.0001832 target_tok_per_s=428.8
+event=train step=7300 loss=0.2124 loss_avg=0.2266 lr=0.0001786 target_tok_per_s=440.6
+event=train step=7350 loss=0.2702 loss_avg=0.2291 lr=0.0001742 target_tok_per_s=426.2
+event=train step=7400 loss=0.1595 loss_avg=0.2159 lr=0.0001699 target_tok_per_s=416.4
+event=train step=7450 loss=0.2553 loss_avg=0.2389 lr=0.0001657 target_tok_per_s=419.2
+event=train step=7500 loss=0.2693 loss_avg=0.2327 lr=0.0001616 target_tok_per_s=420
+event=eval step=7500 val_loss=0.2523 exact_match=0.38 best_val_loss=0.2523
+event=train step=7550 loss=0.1465 loss_avg=0.2035 lr=0.0001577 target_tok_per_s=221.1
+event=train step=7600 loss=0.4522 loss_avg=0.2811 lr=0.0001538 target_tok_per_s=423.2
+event=train step=7650 loss=0.2017 loss_avg=0.2158 lr=0.0001501 target_tok_per_s=433.5
+event=train step=7700 loss=0.2843 loss_avg=0.2166 lr=0.0001466 target_tok_per_s=420.3
+[20:20:00] train attempt 4 exit=124 step=7700
+[20:20:00] training deadline reached at step 7700
+remote: warning: See https://gh.io/lfs for more information.        
+remote: warning: File geo-lm/runs/mid/best.pt is 58.58 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: File geo-lm/runs/mid/last.pt is 58.58 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.        
+[20:20:23] backup pushed f192bf2052f9a899354579c309069454d9b569b3
+[20:20:23] 2/4 offline eval on 200 held-out problems
+{
+  "checkpoint": "runs/mid/best.pt",
+  "problems": 200,
+  "beam": 4,
+  "hypotheses": 800,
+  "finished_rate": 1.0,
+  "translatable_rate": 0.914,
+  "problems_with_translatable": 0.96,
+  "exact_at_1": 0.375,
+  "exact_at_4": 0.52,
+  "rejected": {
+    "unknown point": 36,
+    "no predicates": 30,
+    "no construction for": 2,
+    "expected one new point": 1
+  },
+  "seconds": 108.6
+}
+[20:22:20] eval exit=0
+[20:22:20] 3/4 benchmarks on DDAR failures until 20:55
+== jgex_ag_231: ddar_only 20:22:20
+== jgex_ag_231: mid_model on 26 unsolved 20:22:20
+0 complete_008_7_Book_LLL_L053-1.gex False 8.6s not solved within depth 2
+1 complete_007_7_Book_LLL_L058-9.gex True 4.4s 
+2 complete_010_Other_Auxiliary_ye_aux_think2.gex True 6.7s 
+3 complete_015_7_Book_00EE_08_E059-59.gex False 5.2s not solved within depth 2
+4 complete_013_7_Book_00EE_10_E072-16.gex False 7.9s not solved within depth 2
+5 complete_010_Other_Auxiliary_ye_aux_ll43.gex True 4.6s 
+6 complete_010_Other_Auxiliary_aux2_22.gex False 6.9s not solved within depth 2
+7 complete_012_7_Book_00EE_11_E076-31.gex False 5.2s not solved within depth 2
+8 complete_010_Other_Auxiliary_ye_aux_y1.gex False 6.0s not solved within depth 2
+9 complete_014_7_Book_00EE_09_E069-8.gex False 7.8s not solved within depth 2
+10 complete_011_7_Book_00EE_04_E051-9.gex False 4.8s not solved within depth 2
+11 complete_002_6_GDD_FULL_41-60_42.gex True 4.4s 
+12 complete_015_7_Book_00EE_08_E061-61.gex True 5.6s 
+13 complete_008_ex-gao_ex160_005.gex False 5.2s not solved within depth 2
+14 complete_005_Other_unsolved_109f.gex False 8.2s not solved within depth 2
+15 complete_014_7_Book_00EE_07_E057-41.gex False 5.7s not solved within depth 2
+16 complete_008_ex-gao_ex160_e102.gex False 5.5s not solved within depth 2
+17 complete_012_7_Book_00EE_11_E075-27f.gex False 5.0s not solved within depth 2
+18 complete_010_Other_gao_Y_yL157-1.gex True 5.1s 
+19 complete_012_7_Book_00EE_05_E051-14-1.gex False 4.9s not solved within depth 2
+20 complete_011_7_Book_00EE_04_E051-2.gex False 5.1s not solved within depth 2
+21 complete_010_Other_gao_Y_yL182-1.gex False 4.8s not solved within depth 2
+22 complete_009_Other_paper_Thebault_t5.gex False 9.1s no usable proposals
+23 complete_015_7_Book_00EE_06_E051-28.gex False 4.0s problem could not be built: YuclidError: yuclid ex
+24 complete_010_Other_Auxiliary_ye_aux_think.gex False 6.0s not solved within depth 2
+25 morley.gex False 8.4s not solved within depth 2
+== imo: ddar_only 20:24:55
+== imo: mid_model on 17 unsolved 20:24:55
+0 2000_p6 False 5.8s no usable proposals
+1 2008_p1a False 8.8s not solved within depth 2
+2 2008_p1b False 10.8s not solved within depth 2
+3 2008_p6 False 5.1s no usable proposals
+4 2009_p2 False 7.3s not solved within depth 2
+5 2010_p2 False 8.1s not solved within depth 2
+6 2011_p6 False 6.0s no usable proposals
+7 2012_p5 False 5.2s not solved within depth 2
+8 2015_p3 False 7.9s not solved within depth 2
+9 2018_p1 False 5.9s not solved within depth 2
+10 2019_p2 False 5.1s not solved within depth 2
+11 2019_p6 False 11.1s not solved within depth 2
+12 2020_p1 False 12.2s not solved within depth 2
+13 2021_p3 False 6.0s not solved within depth 2
+14 1975_p3 False 5.2s not solved within depth 2
+15 1983_p2 False 11.7s not solved within depth 2
+16 2025_p2 False 12.7s not solved within depth 2
+== imo_102_requires_aux: ddar_only 20:27:10
+== imo_102_requires_aux: mid_model on 101 unsolved 20:27:11
+0 imo_1983_p2 False 11.9s not solved within depth 2
+1 imo_sl_1999_g6 False 10.0s not solved within depth 2
+2 imo_sl_2000_g1 False 11.2s not solved within depth 2
+3 imo_sl_2000_g5 False 12.0s not solved within depth 2
+4 imo_sl_2000_g6 False 8.3s not solved within depth 2
+5 imo_sl_2000_g8 False 5.8s no usable proposals
+6 imo_sl_2002_g7 False 6.1s not solved within depth 2
+7 imo_sl_2002_g7_variant False 5.7s not solved within depth 2
+8 imo_sl_2002_g8 False 9.0s not solved within depth 2
+9 imo_sl_2002_g8_variant False 5.8s not solved within depth 2
+10 imo_sl_2003_g2 False 6.5s no usable proposals
+11 imo_sl_2004_g4a False 5.1s not solved within depth 2
+12 imo_sl_2004_g7 False 4.1s problem could not be built: ValueError: Failed to 
+13 imo_sl_2004_g8 False 9.4s not solved within depth 2
+14 imo_sl_2005_g1 False 11.9s not solved within depth 2
+15 imo_sl_2005_g6 False 7.5s no usable proposals
+16 imo_sl_2006_g2 False 5.3s not solved within depth 2
+17 imo_sl_2006_g4 False 12.0s not solved within depth 2
+18 imo_sl_2006_g6 False 8.5s not solved within depth 2
+19 imo_sl_2006_g7a False 8.6s no usable proposals
+20 imo_sl_2006_g7b False 12.2s no usable proposals
+21 imo_sl_2007_g2_variant False 6.8s not solved within depth 2
+22 imo_sl_2007_g3 False 4.9s not solved within depth 2
+23 imo_sl_2007_g8 False 5.4s no usable proposals
+24 imo_sl_2008_g1a_variant False 8.9s not solved within depth 2
+25 imo_sl_2008_g1a_variant2 False 12.2s not solved within depth 2
+26 imo_sl_2008_g1b False 8.9s not solved within depth 2
+27 imo_sl_2008_g3 False 5.0s not solved within depth 2
+28 imo_sl_2009__g3 False 11.0s not solved within depth 2
+29 imo_sl_2009_g2 False 12.2s not solved within depth 2
+30 imo_sl_2009_g3 False 11.3s not solved within depth 2
+31 imo_sl_2009_g4 False 5.7s not solved within depth 2
+32 imo_sl_2009_g6 False 6.4s not solved within depth 2
+33 imo_sl_2009_g6_variant False 6.4s not solved within depth 2
+34 imo_sl_2009_g8 False 4.8s no usable proposals
+35 imo_sl_2010_g2_variant False 18.4s not solved within depth 2
+36 imo_sl_2010_g2b False 17.2s not solved within depth 2
+37 imo_sl_2010_g4 False 11.0s not solved within depth 2
+38 imo_sl_2011_g3 False 4.9s no usable proposals
+39 imo_sl_2011_g4 False 15.5s not solved within depth 2
+40 imo_sl_2011_g5 False 18.6s not solved within depth 2
+41 imo_sl_2011_g7 False 4.9s no usable proposals
+42 imo_sl_2011_g8 False 6.3s no usable proposals
+43 imo_sl_2012_g3 False 14.1s not solved within depth 2
+remote: warning: See https://gh.io/lfs for more information.        
+remote: warning: File geo-lm/runs/mid/best.pt is 58.58 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: File geo-lm/runs/mid/last.pt is 58.58 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.        
+[20:33:57] backup pushed 120016180c588c3dd3155738ade208d6bc1ceca5
+44 imo_sl_2012_g4 False 11.3s not solved within depth 2
+45 imo_sl_2012_g4_variant False 7.9s not solved within depth 2
+46 imo_sl_2012_g5 False 5.7s not solved within depth 2
+47 imo_sl_2012_g6 False 17.5s not solved within depth 2
+48 imo_sl_2012_g8 False 5.5s not solved within depth 2
+49 imo_sl_2013_g2 False 12.1s not solved within depth 2
+50 imo_sl_2013_g2_variant False 17.3s not solved within depth 2
+51 imo_sl_2014_g4 False 5.3s not solved within depth 2
+52 imo_sl_2014_g5 False 11.2s not solved within depth 2
+53 imo_sl_2015_g3 True 5.4s 
+54 imo_sl_2015_g3_variant True 4.9s 
+55 imo_sl_2015_g5 False 13.0s not solved within depth 2
+56 imo_sl_2015_g5_variant False 14.3s not solved within depth 2
+57 imo_sl_2015_g6 False 7.9s not solved within depth 2
+58 imo_sl_2016_g2 False 11.0s not solved within depth 2
+59 imo_sl_2016_g2_variant False 11.6s not solved within depth 2
+60 imo_sl_2016_g4 True 5.7s 
+61 imo_sl_2016_g4_variant False 9.7s not solved within depth 2
+62 imo_sl_2016_g5 False 12.2s not solved within depth 2
+63 imo_sl_2016_g5_variant False 11.4s not solved within depth 2
+64 imo_sl_2016_g6 False 7.0s not solved within depth 2
+65 imo_sl_2016_g6_variant False 12.1s not solved within depth 2
+66 imo_sl_2016_g7a False 8.1s not solved within depth 2
+67 imo_sl_2017_g1 False 7.6s not solved within depth 2
+68 imo_sl_2017_g3 True 7.7s 
+69 imo_sl_2017_g3_variant False 13.6s not solved within depth 2
+70 imo_sl_2017_g4 False 6.8s not solved within depth 2
+71 imo_sl_2017_g4_variant False 6.7s not solved within depth 2
+72 imo_sl_2017_g5 False 13.7s not solved within depth 2
+73 imo_sl_2018_g1 False 7.0s not solved within depth 2
+74 imo_sl_2018_g2 False 5.2s not solved within depth 2
+75 imo_sl_2018_g5 False 8.6s not solved within depth 2
+76 imo_sl_2018_g6 False 5.0s not solved within depth 2
+77 imo_sl_2019_g2 False 10.5s not solved within depth 2
+78 imo_sl_2019_g2_variant False 8.0s not solved within depth 2
+79 imo_sl_2019_g3 False 5.6s not solved within depth 2
+80 imo_sl_2019_g6 False 9.0s not solved within depth 2
+81 imo_sl_2019_g7 False 6.2s no usable proposals
+82 imo_sl_2019_g7_variant False 9.8s not solved within depth 2
+83 imo_sl_2020_g2 False 10.0s not solved within depth 2
+84 imo_sl_2020_g6 False 10.2s not solved within depth 2
+85 imo_sl_2020_g7a False 4.7s no usable proposals
+86 imo_sl_2020_g7a_variant False 7.9s no usable proposals
+87 imo_sl_2020_g7b False 10.2s no usable proposals
+88 imo_sl_2020_g8 False 10.9s not solved within depth 2
+89 imo_sl_2020_g8_variant False 11.7s not solved within depth 2
+90 imo_sl_2021_g4 False 9.5s not solved within depth 2
+91 imo_sl_2021_g4_variant False 7.1s not solved within depth 2
+92 imo_sl_2021_g7 False 6.1s not solved within depth 2
+93 imo_sl_2021_g8 False 5.2s no usable proposals
+94 imo_sl_2022_g2 False 7.4s not solved within depth 2
+95 imo_sl_2022_g2_variant False 7.3s not solved within depth 2
+96 imo_sl_2022_g3 False 8.1s not solved within depth 2
+97 imo_sl_2022_g3_variant True 6.5s 
+98 imo_sl_2022_g4 False 11.5s not solved within depth 2
+99 imo_sl_2022_g6 False 5.9s not solved within depth 2
+100 imo_sl_2022_g7 False 10.2s not solved within depth 2
+== done 20:42:18
+[20:42:18] bench exit=0
+[20:42:18] 4/4 summary and commit
+[20:42:18] jgex_ag_231: mid solved 6 of 26 run (of 26 DDAR failures)
+[20:42:18] imo: mid solved 0 of 17 run (of 17 DDAR failures)
+[20:42:18] imo_102_requires_aux: mid solved 5 of 101 run (of 101 DDAR failures)
+remote: warning: See https://gh.io/lfs for more information.        
+remote: warning: File geo-lm/runs/mid/best.pt is 58.58 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: File geo-lm/runs/mid/last.pt is 58.58 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.        
+[20:42:33] committed 3dba999
+[20:42:34] backup pushed dcb211a5ed46c5ce6fa524de213a322a3cce1603
+[20:42:34] done; waiting for the hard deadline to stop the Codespace (Claude stops it earlier if finished)
+[14:59:39] 1/4 train until 16:20
+resumed from /workspaces/zpd/geo-lm/runs/mid/last.pt at step 7700
+event=start device=cpu params=5115136 vocab=76 train=98008 val=1992 dropped_too_long=0 val_unk_tokens=0 step=7700
+event=train step=7750 loss=0.1835 loss_avg=0.2107 lr=0.0001431 target_tok_per_s=363
+event=train step=7800 loss=0.2241 loss_avg=0.223 lr=0.0001398 target_tok_per_s=331.2
+event=train step=7850 loss=0.2657 loss_avg=0.2478 lr=0.0001366 target_tok_per_s=227.4
+event=train step=7900 loss=0.2235 loss_avg=0.2209 lr=0.0001335 target_tok_per_s=345.9
+event=train step=7950 loss=0.2007 loss_avg=0.2113 lr=0.0001306 target_tok_per_s=399.7
+event=train step=8000 loss=0.2357 loss_avg=0.1952 lr=0.0001277 target_tok_per_s=413.7
+event=train step=8050 loss=0.2121 loss_avg=0.2189 lr=0.0001251 target_tok_per_s=379.9
+event=train step=8100 loss=0.2015 loss_avg=0.2183 lr=0.0001225 target_tok_per_s=416.5
+event=train step=8150 loss=0.2327 loss_avg=0.2014 lr=0.0001201 target_tok_per_s=405.6
+event=train step=8200 loss=0.2058 loss_avg=0.2279 lr=0.0001178 target_tok_per_s=395.8
+event=train step=8250 loss=0.2724 loss_avg=0.2048 lr=0.0001157 target_tok_per_s=402.5
+event=train step=8300 loss=0.2636 loss_avg=0.2189 lr=0.0001137 target_tok_per_s=401.5
+event=train step=8350 loss=0.1552 loss_avg=0.2024 lr=0.0001118 target_tok_per_s=375.4
+event=train step=8400 loss=0.2157 loss_avg=0.2272 lr=0.0001101 target_tok_per_s=413.4
+event=train step=8450 loss=0.1486 loss_avg=0.21 lr=0.0001085 target_tok_per_s=346.4
+event=train step=8500 loss=0.2199 loss_avg=0.2175 lr=0.000107 target_tok_per_s=294.1
+event=train step=8550 loss=0.2208 loss_avg=0.2111 lr=0.0001057 target_tok_per_s=362.3
+event=train step=8600 loss=0.184 loss_avg=0.1882 lr=0.0001045 target_tok_per_s=321.6
+event=train step=8650 loss=0.1661 loss_avg=0.2158 lr=0.0001034 target_tok_per_s=312
+event=train step=8700 loss=0.2677 loss_avg=0.1972 lr=0.0001025 target_tok_per_s=313
+event=train step=8750 loss=0.2432 loss_avg=0.2177 lr=0.0001018 target_tok_per_s=406.5
+event=train step=8800 loss=0.1365 loss_avg=0.2213 lr=0.0001011 target_tok_per_s=363.4
+event=train step=8850 loss=0.195 loss_avg=0.2093 lr=0.0001006 target_tok_per_s=331.3
+event=train step=8900 loss=0.08179 loss_avg=0.2036 lr=0.0001003 target_tok_per_s=354.3
+event=train step=8950 loss=0.2894 loss_avg=0.2225 lr=0.0001001 target_tok_per_s=401.1
+event=train step=9000 loss=0.1834 loss_avg=0.1928 lr=0.0001 target_tok_per_s=375.4
+remote: warning: See https://gh.io/lfs for more information.        
+remote: warning: File geo-lm/runs/mid/last.pt is 58.58 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.        
+[15:30:41] backup pushed cdf36c0ffef327c492915aa7754e6d7a242094ff
+event=eval step=9000 val_loss=0.235 exact_match=0.38 best_val_loss=0.235
+{"step": 9000, "best_val_loss": 0.23500136728894686}
+[15:31:00] train attempt 1 exit=0 step=9000
+remote: warning: See https://gh.io/lfs for more information.        
+remote: warning: File geo-lm/runs/mid/best.pt is 58.58 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: File geo-lm/runs/mid/last.pt is 58.58 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.        
+[15:31:30] backup pushed fa368c0744e80a6979b4a079873484abcdfd2f49
+[15:31:30] 2/4 offline eval on 200 held-out problems
+{
+  "checkpoint": "runs/mid/best.pt",
+  "problems": 200,
+  "beam": 4,
+  "hypotheses": 800,
+  "finished_rate": 1.0,
+  "translatable_rate": 0.904,
+  "problems_with_translatable": 0.965,
+  "exact_at_1": 0.39,
+  "exact_at_4": 0.535,
+  "rejected": {
+    "no predicates": 39,
+    "unknown point": 31,
+    "no construction for": 3,
+    "expected one new point": 3,
+    "empty construction": 1
+  },
+  "seconds": 178.3
+}
+[15:35:07] eval exit=0
+[15:35:07] 3/4 benchmarks on DDAR failures until 17:00
+== jgex_ag_231: ddar_only 15:35:07
+== jgex_ag_231: mid_model on 26 unsolved 15:35:08
+0 complete_008_7_Book_LLL_L053-1.gex False 17.2s not solved within depth 2
+1 complete_007_7_Book_LLL_L058-9.gex True 9.6s 
+2 complete_010_Other_Auxiliary_ye_aux_think2.gex False 20.7s not solved within depth 2
+3 complete_015_7_Book_00EE_08_E059-59.gex False 10.6s not solved within depth 2
+4 complete_013_7_Book_00EE_10_E072-16.gex False 13.3s not solved within depth 2
+5 complete_010_Other_Auxiliary_ye_aux_ll43.gex True 7.5s 
+6 complete_010_Other_Auxiliary_aux2_22.gex False 12.3s not solved within depth 2
+7 complete_012_7_Book_00EE_11_E076-31.gex False 10.3s not solved within depth 2
+8 complete_010_Other_Auxiliary_ye_aux_y1.gex False 11.4s not solved within depth 2
+9 complete_014_7_Book_00EE_09_E069-8.gex False 10.7s not solved within depth 2
+10 complete_011_7_Book_00EE_04_E051-9.gex False 9.1s not solved within depth 2
+11 complete_002_6_GDD_FULL_41-60_42.gex True 7.4s 
+12 complete_015_7_Book_00EE_08_E061-61.gex True 9.4s 
+13 complete_008_ex-gao_ex160_005.gex False 6.7s not solved within depth 2
+14 complete_005_Other_unsolved_109f.gex False 16.3s not solved within depth 2
+15 complete_014_7_Book_00EE_07_E057-41.gex False 9.7s not solved within depth 2
+16 complete_008_ex-gao_ex160_e102.gex False 9.0s not solved within depth 2
+17 complete_012_7_Book_00EE_11_E075-27f.gex False 6.5s not solved within depth 2
+18 complete_010_Other_gao_Y_yL157-1.gex False 7.8s not solved within depth 2
+19 complete_012_7_Book_00EE_05_E051-14-1.gex False 5.5s not solved within depth 2
+20 complete_011_7_Book_00EE_04_E051-2.gex False 7.5s not solved within depth 2
+21 complete_010_Other_gao_Y_yL182-1.gex False 6.2s not solved within depth 2
+22 complete_009_Other_paper_Thebault_t5.gex False 9.5s no usable proposals
+23 complete_015_7_Book_00EE_06_E051-28.gex False 6.3s problem could not be built: YuclidError: yuclid ex
+24 complete_010_Other_Auxiliary_ye_aux_think.gex True 8.7s 
+25 morley.gex False 18.1s not solved within depth 2
+== imo: ddar_only 15:39:36
+== imo: mid_model on 17 unsolved 15:39:37
+0 2000_p6 False 8.4s no usable proposals
+1 2008_p1a False 19.9s not solved within depth 2
+2 2008_p1b False 18.1s not solved within depth 2
+3 2008_p6 False 6.2s no usable proposals
+4 2009_p2 False 10.3s not solved within depth 2
+5 2010_p2 False 15.9s not solved within depth 2
+6 2011_p6 False 7.6s no usable proposals
+7 2012_p5 False 9.1s not solved within depth 2
+8 2015_p3 True 9.7s 
+9 2018_p1 False 10.6s not solved within depth 2
+10 2019_p2 False 8.0s not solved within depth 2
+11 2019_p6 False 20.6s not solved within depth 2
+12 2020_p1 False 24.2s not solved within depth 2
+13 2021_p3 False 9.3s not solved within depth 2
+14 1975_p3 False 7.9s not solved within depth 2
+15 1983_p2 False 28.1s not solved within depth 2
+16 2025_p2 False 18.5s not solved within depth 2
+== imo_102_requires_aux: ddar_only 15:43:29
+== imo_102_requires_aux: mid_model on 101 unsolved 15:43:29
+0 imo_1983_p2 False 20.1s not solved within depth 2
+1 imo_sl_1999_g6 False 22.0s not solved within depth 2
+2 imo_sl_2000_g1 False 15.2s not solved within depth 2
+3 imo_sl_2000_g5 False 16.9s not solved within depth 2
+4 imo_sl_2000_g6 False 18.4s not solved within depth 2
+5 imo_sl_2000_g8 False 10.5s no usable proposals
+6 imo_sl_2002_g7 False 7.2s not solved within depth 2
+7 imo_sl_2002_g7_variant False 11.0s not solved within depth 2
+8 imo_sl_2002_g8 False 13.3s not solved within depth 2
+9 imo_sl_2002_g8_variant False 6.4s not solved within depth 2
+10 imo_sl_2003_g2 False 9.7s not solved within depth 2
+11 imo_sl_2004_g4a False 7.7s not solved within depth 2
+12 imo_sl_2004_g7 False 4.9s problem could not be built: ValueError: Failed to 
+13 imo_sl_2004_g8 False 12.4s not solved within depth 2
+14 imo_sl_2005_g1 False 14.0s not solved within depth 2
+15 imo_sl_2005_g6 False 8.1s no usable proposals
+16 imo_sl_2006_g2 False 5.8s not solved within depth 2
+17 imo_sl_2006_g4 False 11.6s not solved within depth 2
+18 imo_sl_2006_g6 False 12.2s not solved within depth 2
+19 imo_sl_2006_g7a False 9.1s no usable proposals
+20 imo_sl_2006_g7b False 9.0s no usable proposals
+21 imo_sl_2007_g2_variant False 12.3s not solved within depth 2
+22 imo_sl_2007_g3 False 5.7s not solved within depth 2
+23 imo_sl_2007_g8 False 6.1s no usable proposals
+24 imo_sl_2008_g1a_variant False 14.5s not solved within depth 2
+25 imo_sl_2008_g1a_variant2 False 15.6s not solved within depth 2
+26 imo_sl_2008_g1b False 19.4s not solved within depth 2
+27 imo_sl_2008_g3 False 6.5s not solved within depth 2
+28 imo_sl_2009__g3 False 7.7s no usable proposals
+29 imo_sl_2009_g2 False 15.3s not solved within depth 2
+30 imo_sl_2009_g3 False 14.5s no usable proposals
+31 imo_sl_2009_g4 False 19.2s not solved within depth 2
+32 imo_sl_2009_g6 False 19.8s not solved within depth 2
+33 imo_sl_2009_g6_variant False 21.1s not solved within depth 2
+34 imo_sl_2009_g8 False 21.6s no usable proposals
+35 imo_sl_2010_g2_variant False 15.7s not solved within depth 2
+36 imo_sl_2010_g2b False 14.2s not solved within depth 2
+37 imo_sl_2010_g4 False 21.5s not solved within depth 2
+38 imo_sl_2011_g3 False 6.6s no usable proposals
+39 imo_sl_2011_g4 False 23.5s not solved within depth 2
+40 imo_sl_2011_g5 False 18.7s not solved within depth 2
+41 imo_sl_2011_g7 False 5.4s no usable proposals
+42 imo_sl_2011_g8 False 6.3s no usable proposals
+43 imo_sl_2012_g3 False 11.8s not solved within depth 2
+44 imo_sl_2012_g4 False 11.4s not solved within depth 2
+45 imo_sl_2012_g4_variant False 11.5s not solved within depth 2
+46 imo_sl_2012_g5 False 6.7s not solved within depth 2
+47 imo_sl_2012_g6 False 18.8s not solved within depth 2
+48 imo_sl_2012_g8 False 6.2s not solved within depth 2
+49 imo_sl_2013_g2 False 14.6s not solved within depth 2
+50 imo_sl_2013_g2_variant False 18.2s not solved within depth 2
+51 imo_sl_2014_g4 False 6.8s not solved within depth 2
+52 imo_sl_2014_g5 False 9.5s not solved within depth 2
+53 imo_sl_2015_g3 True 6.1s 
+54 imo_sl_2015_g3_variant True 5.8s 
+55 imo_sl_2015_g5 False 13.4s not solved within depth 2
+56 imo_sl_2015_g5_variant False 12.7s not solved within depth 2
+57 imo_sl_2015_g6 True 8.0s 
+58 imo_sl_2016_g2 False 14.9s not solved within depth 2
+59 imo_sl_2016_g2_variant False 15.4s not solved within depth 2
+60 imo_sl_2016_g4 True 6.1s 
+61 imo_sl_2016_g4_variant False 11.4s not solved within depth 2
+62 imo_sl_2016_g5 False 13.9s not solved within depth 2
+63 imo_sl_2016_g5_variant False 13.7s not solved within depth 2
+64 imo_sl_2016_g6 False 12.6s not solved within depth 2
+65 imo_sl_2016_g6_variant False 16.0s not solved within depth 2
+66 imo_sl_2016_g7a False 5.9s no usable proposals
+67 imo_sl_2017_g1 False 9.0s not solved within depth 2
+68 imo_sl_2017_g3 True 8.1s 
+69 imo_sl_2017_g3_variant False 15.9s not solved within depth 2
+70 imo_sl_2017_g4 False 10.0s not solved within depth 2
+71 imo_sl_2017_g4_variant False 9.9s not solved within depth 2
+72 imo_sl_2017_g5 False 13.8s not solved within depth 2
+73 imo_sl_2018_g1 False 10.8s not solved within depth 2
+74 imo_sl_2018_g2 False 5.8s not solved within depth 2
+75 imo_sl_2018_g5 False 6.4s no usable proposals
+76 imo_sl_2018_g6 False 5.8s not solved within depth 2
+77 imo_sl_2019_g2 False 6.2s no usable proposals
+78 imo_sl_2019_g2_variant False 10.7s not solved within depth 2
+79 imo_sl_2019_g3 False 6.0s not solved within depth 2
+80 imo_sl_2019_g6 False 11.1s not solved within depth 2
+81 imo_sl_2019_g7 False 6.2s no usable proposals
+82 imo_sl_2019_g7_variant False 13.4s not solved within depth 2
+83 imo_sl_2020_g2 False 15.8s not solved within depth 2
+84 imo_sl_2020_g6 False 11.9s not solved within depth 2
+85 imo_sl_2020_g7a False 12.4s no usable proposals
+86 imo_sl_2020_g7a_variant False 10.1s no usable proposals
+87 imo_sl_2020_g7b False 10.8s no usable proposals
+88 imo_sl_2020_g8 False 15.6s not solved within depth 2
+remote: warning: See https://gh.io/lfs for more information.        
+remote: warning: File geo-lm/runs/mid/best.pt is 58.58 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: File geo-lm/runs/mid/last.pt is 58.58 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.        
+[16:01:08] backup pushed 2616ab698acdcf89e35e2b888ee8226ee360d96d
+89 imo_sl_2020_g8_variant False 10.9s no usable proposals
+90 imo_sl_2021_g4 False 11.4s not solved within depth 2
+91 imo_sl_2021_g4_variant False 10.0s not solved within depth 2
+92 imo_sl_2021_g7 False 6.5s not solved within depth 2
+93 imo_sl_2021_g8 False 5.5s no usable proposals
+94 imo_sl_2022_g2 False 13.0s not solved within depth 2
+95 imo_sl_2022_g2_variant False 13.2s not solved within depth 2
+96 imo_sl_2022_g3 False 14.0s not solved within depth 2
+97 imo_sl_2022_g3_variant True 7.7s 
+98 imo_sl_2022_g4 False 13.1s not solved within depth 2
+99 imo_sl_2022_g6 False 6.6s not solved within depth 2
+100 imo_sl_2022_g7 False 6.9s no usable proposals
+== done 16:03:02
+[16:03:02] bench exit=0
+[16:03:02] 4/4 summary and commit
+[16:03:03] jgex_ag_231: mid solved 5 of 26 run (of 26 DDAR failures)
+[16:03:03] imo: mid solved 1 of 17 run (of 17 DDAR failures)
+[16:03:03] imo_102_requires_aux: mid solved 6 of 101 run (of 101 DDAR failures)
+remote: warning: See https://gh.io/lfs for more information.        
+remote: warning: File geo-lm/runs/mid/best.pt is 58.58 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: File geo-lm/runs/mid/last.pt is 58.58 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB        
+remote: warning: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.        
+[16:03:24] committed 64e1fab

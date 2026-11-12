@@ -1,0 +1,18 @@
+{
+  "checkpoint": "runs/mini_long/best.pt",
+  "problems": 200,
+  "beam": 4,
+  "hypotheses": 800,
+  "finished_rate": 1.0,
+  "translatable_rate": 0.906,
+  "problems_with_translatable": 0.945,
+  "exact_at_1": 0.33,
+  "exact_at_4": 0.495,
+  "rejected": {
+    "unknown point": 37,
+    "no predicates": 33,
+    "para with the new point on both lines": 3,
+    "degenerate": 2
+  },
+  "seconds": 45.3
+}

@@ -1,0 +1,162 @@
+/opt/conda/lib/python3.12/site-packages/conda/base/context.py:198: FutureWarning: Adding 'defaults' to channel list implicitly is deprecated and will be removed in 25.9. 
+
+To remove this warning, please choose a default channel explicitly with conda's regular configuration system, e.g. by adding 'defaults' to the list of channels:
+
+  conda config --add channels defaults
+
+For more information see https://docs.conda.io/projects/conda/en/stable/user-guide/configuration/use-condarc.html
+
+  deprecated.topic(
+Retrieving notices: ...working... done
+/opt/conda/lib/python3.12/site-packages/conda/base/context.py:198: FutureWarning: Adding 'defaults' to channel list implicitly is deprecated and will be removed in 25.9. 
+
+To remove this warning, please choose a default channel explicitly with conda's regular configuration system, e.g. by adding 'defaults' to the list of channels:
+
+  conda config --add channels defaults
+
+For more information see https://docs.conda.io/projects/conda/en/stable/user-guide/configuration/use-condarc.html
+
+  deprecated.topic(
+Channels:
+ - defaults
+Platform: linux-64
+Collecting package metadata (repodata.json): ...working... done
+Solving environment: ...working... done
+
+## Package Plan ##
+
+  environment location: /workspaces/zpd/.venv-ag1
+
+  added / updated specs:
+    - pip
+    - python=3.10.9
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    _libgcc_mutex-0.1          |             main           3 KB
+    _openmp_mutex-5.1          |           52_gnu           7 KB
+    bzip2-1.0.8                |       h5eee18b_6         262 KB
+    ca-certificates-2026.11.5  |       h59cdc77_0         113 KB
+    ld_impl_linux-64-2.44      |       h9e0c5a2_3         725 KB
+    libffi-3.4.8               |       h06d3fd0_3         137 KB
+    libgcc-15.2.0              |       h69a1729_8         803 KB
+    libgcc-ng-15.2.0           |       h166f726_8          28 KB
+    libstdcxx-15.2.0           |       h39759b7_8         3.7 MB
+    libuuid-1.41.5             |       h5eee18b_0          27 KB
+    libxcb-1.17.0              |       h9b100fa_0         430 KB
+    libzlib-1.3.2              |       h47b2149_0          60 KB
+    ncurses-6.6                |       hfaaeb4e_0         893 KB
+    openssl-1.1.1w             |       h7f8727e_0         3.7 MB
+    packaging-26.3             |  py310h06a4308_0         329 KB
+    pip-26.2.2                 |     pyhc872135_0         1.1 MB
+    pthread-stubs-0.3          |       h47b2149_2           7 KB
+    python-3.10.9              |       h7a1cb2a_2        26.8 MB
+    readline-8.3               |       hc2a1206_0         471 KB
+    setuptools-84.2.1          |  py310h06a4308_0         1.0 MB
+    sqlite-3.54.1              |       h795bf6d_0         1.3 MB
+    tk-8.6.15                  |       h54e0aa7_0         3.4 MB
+    tzdata-2026c               |       he532380_0         117 KB
+    wheel-0.48.0               |  py310h06a4308_0          59 KB
+    xorg-libx11-1.8.14         |       h65de747_0         820 KB
+    xorg-libxau-1.0.12         |       h9b100fa_0          13 KB
+    xorg-libxdmcp-1.1.5        |       h9b100fa_0          19 KB
+    xorg-xorgproto-2025.1      |       h47b2149_0         555 KB
+    xz-5.8.4                   |       h140a991_0         652 KB
+    zlib-1.3.2                 |       h47b2149_0          92 KB
+    ------------------------------------------------------------
+                                           Total:        47.6 MB
+
+The following NEW packages will be INSTALLED:
+
+  _libgcc_mutex      pkgs/main/linux-64::_libgcc_mutex-0.1-main 
+  _openmp_mutex      pkgs/main/linux-64::_openmp_mutex-5.1-52_gnu 
+  bzip2              pkgs/main/linux-64::bzip2-1.0.8-h5eee18b_6 
+  ca-certificates    pkgs/main/noarch::ca-certificates-2026.11.5-h59cdc77_0 
+  ld_impl_linux-64   pkgs/main/linux-64::ld_impl_linux-64-2.44-h9e0c5a2_3 
+  libffi             pkgs/main/linux-64::libffi-3.4.8-h06d3fd0_3 
+  libgcc             pkgs/main/linux-64::libgcc-15.2.0-h69a1729_8 
+  libgcc-ng          pkgs/main/linux-64::libgcc-ng-15.2.0-h166f726_8 
+  libstdcxx          pkgs/main/linux-64::libstdcxx-15.2.0-h39759b7_8 
+  libuuid            pkgs/main/linux-64::libuuid-1.41.5-h5eee18b_0 
+  libxcb             pkgs/main/linux-64::libxcb-1.17.0-h9b100fa_0 
+  libzlib            pkgs/main/linux-64::libzlib-1.3.2-h47b2149_0 
+  ncurses            pkgs/main/linux-64::ncurses-6.6-hfaaeb4e_0 
+  openssl            pkgs/main/linux-64::openssl-1.1.1w-h7f8727e_0 
+  packaging          pkgs/main/linux-64::packaging-26.3-py310h06a4308_0 
+  pip                pkgs/main/noarch::pip-26.2.2-pyhc872135_0 
+  pthread-stubs      pkgs/main/linux-64::pthread-stubs-0.3-h47b2149_2 
+  python             pkgs/main/linux-64::python-3.10.9-h7a1cb2a_2 
+  readline           pkgs/main/linux-64::readline-8.3-hc2a1206_0 
+  setuptools         pkgs/main/linux-64::setuptools-84.2.1-py310h06a4308_0 
+  sqlite             pkgs/main/linux-64::sqlite-3.54.1-h795bf6d_0 
+  tk                 pkgs/main/linux-64::tk-8.6.15-h54e0aa7_0 
+  tzdata             pkgs/main/noarch::tzdata-2026c-he532380_0 
+  wheel              pkgs/main/linux-64::wheel-0.48.0-py310h06a4308_0 
+  xorg-libx11        pkgs/main/linux-64::xorg-libx11-1.8.14-h65de747_0 
+  xorg-libxau        pkgs/main/linux-64::xorg-libxau-1.0.12-h9b100fa_0 
+  xorg-libxdmcp      pkgs/main/linux-64::xorg-libxdmcp-1.1.5-h9b100fa_0 
+  xorg-xorgproto     pkgs/main/linux-64::xorg-xorgproto-2025.1-h47b2149_0 
+  xz                 pkgs/main/linux-64::xz-5.8.4-h140a991_0 
+  zlib               pkgs/main/linux-64::zlib-1.3.2-h47b2149_0 
+
+
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... done
+
+Channel "defaults" has the following notices:
+  [warning] -- Wed Sep 30 00:00:00 2026
+  Anaconda will stop building new Python 3.10 packages on the main channel after October 31, 2026. Existing Python 3.10 packages will stay available but will no longer get new builds or security fixes. We recommend upgrading to Python 3.11 or later. Details: https://www.anaconda.com/docs/reference/policies-practices/python-version-support?utm_source=channel_notices
+
+  [info] -- Thu Aug  6 00:00:00 2026
+  main-x (Anaconda's new authenticated channel) is now generally available, with thousands of additional packages from our secure supply chain. Get started at: https://anaconda.com/docs/getting-started/main-x?utm_source=channel_notices
+
+ERROR: Ignored the following yanked versions: 0.4.32
+ERROR: Ignored the following versions that require a different python version: 0.1.91 Requires-Python >=3.11; 0.1.92 Requires-Python >=3.11; 0.10.0 Requires-Python >=3.11; 0.10.1 Requires-Python >=3.11; 0.10.2 Requires-Python >=3.11; 0.11.0 Requires-Python >=3.11; 0.11.0 Requires-Python >=3.12; 0.11.1 Requires-Python >=3.11; 0.11.1 Requires-Python >=3.12; 0.11.2 Requires-Python >=3.11; 0.11.2 Requires-Python >=3.12; 0.12.0 Requires-Python >=3.11; 0.12.0 Requires-Python >=3.12; 0.12.0.1 Requires-Python >=3.12; 0.12.1 Requires-Python >=3.11; 0.12.10 Requires-Python >=3.12; 0.12.11 Requires-Python >=3.12; 0.12.12 Requires-Python >=3.12; 0.12.2 Requires-Python >=3.11; 0.12.3 Requires-Python >=3.11; 0.12.4 Requires-Python >=3.11; 0.12.5 Requires-Python >=3.11; 0.12.6 Requires-Python >=3.11; 0.12.7 Requires-Python >=3.11; 0.12.8 Requires-Python >=3.11; 0.12.9 Requires-Python >=3.12; 0.7.0 Requires-Python >=3.11; 0.7.1 Requires-Python >=3.11; 0.7.2 Requires-Python >=3.11; 0.8.0 Requires-Python >=3.11; 0.8.1 Requires-Python >=3.11; 0.8.2 Requires-Python >=3.11; 0.8.3 Requires-Python >=3.11; 0.9.0 Requires-Python >=3.11; 0.9.0.1 Requires-Python >=3.11; 0.9.1 Requires-Python >=3.11; 0.9.2 Requires-Python >=3.11; 1.14.0 Requires-Python >=3.11; 1.15.0 Requires-Python >=3.11; 1.3.3 Requires-Python >=3.11; 1.4.0 Requires-Python >=3.12; 1.8.0 Requires-Python >=3.11; 1.9.0 Requires-Python >=3.11; 1.9.1 Requires-Python >=3.11; 1.9.2 Requires-Python >=3.11; 1.9.3 Requires-Python >=3.11; 4.1.1 Requires-Python >=3.11; 4.1.2 Requires-Python >=3.11; 4.2.0 Requires-Python >=3.11; 4.2.1 Requires-Python >=3.11; 4.2.10 Requires-Python >=3.11; 4.2.2 Requires-Python >=3.11; 4.2.3 Requires-Python >=3.11; 4.2.4 Requires-Python >=3.11; 4.2.5 Requires-Python >=3.11; 4.2.6 Requires-Python >=3.11; 4.2.7 Requires-Python >=3.11; 4.2.8 Requires-Python >=3.11; 4.2.9 Requires-Python >=3.11; 4.66.0 Requires-Python >=3.11; 4.66.1 Requires-Python >=3.11; 4.67.0 Requires-Python >=3.11; 4.68.0 Requires-Python >=3.11; 8.0.0 Requires-Python >=3.11
+ERROR: Could not find a version that satisfies the requirement jaxlib==0.4.6 (from versions: 0.4.18, 0.4.19, 0.4.20, 0.4.21, 0.4.22, 0.4.23, 0.4.24, 0.4.25, 0.4.26, 0.4.27, 0.4.28, 0.4.29, 0.4.30, 0.4.31, 0.4.33, 0.4.34, 0.4.35, 0.4.36, 0.4.38, 0.5.0, 0.5.1, 0.5.3, 0.6.0, 0.6.1, 0.6.2)
+ERROR: No matching distribution found for jaxlib==0.4.6
+2026-11-12 15:37:25.113082: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+/workspaces/zpd/.venv-ag1/lib/python3.10/site-packages/flax/struct.py:132: FutureWarning: jax.tree_util.register_keypaths is deprecated, and will be removed in a future release. Please use `register_pytree_with_keys()` instead.
+  jax.tree_util.register_keypaths(data_clz, keypaths)
+/workspaces/zpd/.venv-ag1/lib/python3.10/site-packages/flax/struct.py:132: FutureWarning: jax.tree_util.register_keypaths is deprecated, and will be removed in a future release. Please use `register_pytree_with_keys()` instead.
+  jax.tree_util.register_keypaths(data_clz, keypaths)
+/workspaces/zpd/.venv-ag1/lib/python3.10/site-packages/flax/struct.py:132: FutureWarning: jax.tree_util.register_keypaths is deprecated, and will be removed in a future release. Please use `register_pytree_with_keys()` instead.
+  jax.tree_util.register_keypaths(data_clz, keypaths)
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/workspaces/zpd/.venv-ag1/lib/python3.10/site-packages/t5/__init__.py", line 17, in <module>
+    import t5.data
+  File "/workspaces/zpd/.venv-ag1/lib/python3.10/site-packages/t5/data/__init__.py", line 17, in <module>
+    from t5.data.dataset_providers import *
+  File "/workspaces/zpd/.venv-ag1/lib/python3.10/site-packages/t5/data/dataset_providers.py", line 28, in <module>
+    import seqio
+  File "/workspaces/zpd/.venv-ag1/lib/python3.10/site-packages/seqio/__init__.py", line 18, in <module>
+    from seqio.dataset_providers import *
+  File "/workspaces/zpd/.venv-ag1/lib/python3.10/site-packages/seqio/dataset_providers.py", line 39, in <module>
+    from seqio import metrics as metrics_lib
+  File "/workspaces/zpd/.venv-ag1/lib/python3.10/site-packages/seqio/metrics.py", line 27, in <module>
+    from seqio import utils
+  File "/workspaces/zpd/.venv-ag1/lib/python3.10/site-packages/seqio/utils.py", line 29, in <module>
+    from seqio.vocabularies import Vocabulary
+  File "/workspaces/zpd/.venv-ag1/lib/python3.10/site-packages/seqio/vocabularies.py", line 26, in <module>
+    import tensorflow_text as tf_text
+  File "/workspaces/zpd/.venv-ag1/lib/python3.10/site-packages/tensorflow_text/__init__.py", line 21, in <module>
+    from tensorflow_text.python import keras
+  File "/workspaces/zpd/.venv-ag1/lib/python3.10/site-packages/tensorflow_text/python/keras/__init__.py", line 21, in <module>
+    from tensorflow_text.python.keras.layers import *
+  File "/workspaces/zpd/.venv-ag1/lib/python3.10/site-packages/tensorflow_text/python/keras/layers/__init__.py", line 22, in <module>
+    from tensorflow_text.python.keras.layers.tokenization_layers import *
+  File "/workspaces/zpd/.venv-ag1/lib/python3.10/site-packages/tensorflow_text/python/keras/layers/tokenization_layers.py", line 24, in <module>
+    from tensorflow_text.python.ops import unicode_script_tokenizer
+  File "/workspaces/zpd/.venv-ag1/lib/python3.10/site-packages/tensorflow_text/python/ops/__init__.py", line 35, in <module>
+    from tensorflow_text.python.ops.hub_module_splitter import HubModuleSplitter
+  File "/workspaces/zpd/.venv-ag1/lib/python3.10/site-packages/tensorflow_text/python/ops/hub_module_splitter.py", line 18, in <module>
+    import tensorflow_hub as hub
+  File "/workspaces/zpd/.venv-ag1/lib/python3.10/site-packages/tensorflow_hub/__init__.py", line 85, in <module>
+    _ensure_tf_install()
+  File "/workspaces/zpd/.venv-ag1/lib/python3.10/site-packages/tensorflow_hub/__init__.py", line 61, in _ensure_tf_install
+    from pkg_resources import parse_version
+ModuleNotFoundError: No module named 'pkg_resources'
