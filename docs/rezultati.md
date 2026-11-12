@@ -8,9 +8,9 @@ failiem (`results/`, `geo-lm/runs/`); avots norādīts katras sadaļas beigās.
 | | Rezultāts |
 | --- | --- |
 | **JGEX-AG-231** | DD-AR viens 205 / 231, ar modeli **210 / 231 (91%)**; AG1: DD+AR 198, AlphaGeometry 228 |
-| **IMO-AG-30** (29 no 30) | DD-AR viens **15**, modelis nepievieno neko; AG1: DD+AR 14, AlphaGeometry 25 |
-| **IMO, kam vajag palīgpunktu** | modelis atrisina **3 / 101** (`mid`: **5 / 101**; DD-AR viens 0) |
-| **Modelis** | `mini_long`: 2,1 milj. parametru, 9000 soļi (~1,5 h uz 2 CPU kodoliem), validācijas zudums 0,27; lielākais `mid` (5,1 milj., 7500 soļi): 0,25, JGEX 211 / 231 |
+| **IMO-AG-30** (29 no 30) | DD-AR viens **15**; `mini_long` nepievieno neko, `mid` (9000 soļi) **16** (+2015 P3); AG1: DD+AR 14, AlphaGeometry 25 |
+| **IMO, kam vajag palīgpunktu** | modelis atrisina **3 / 101** (`mid`: **6 / 101**; DD-AR viens 0) |
+| **Modelis** | `mini_long`: 2,1 milj. parametru, 9000 soļi (~1,5 h uz 2 CPU kodoliem), validācijas zudums 0,27; lielākais `mid` (5,1 milj., 9000 soļi): 0,235, JGEX 210 / 231, IMO 2015 P3 |
 | **Piedāvājumu kvalitāte** | 200 neredzētos uzdevumos precīzs palīgpunkts ar 1. piedāvājumu 33%, ar kādu no 4 — 49,5% |
 | **Resursi** | viens uzdevums: mediāna ~2 s ar DD-AR, ~5 s ar modeli; 60 s un 2 GB budžets netika sasniegts |
 
@@ -218,29 +218,36 @@ avota uzdevumiem; ar 2 uzdevumiem to nevar izmērīt. Avots:
 ### Lielāks modelis: `mid` (5,1 milj. parametru)
 
 6 slāņi, 4 galvas, n_embd 256 (`geo-lm/configs/model_mid.json`), apmācīts
-2026-11-10 bez uzraudzības (~2,9 h uz 2 CPU kodoliem). Termiņš pienāca pie
-7700. soļa no plānotajiem 9000; izmantots labākais kontrolpunkts (7500. solis).
-Validācijas zudums pie tiem pašiem soļiem ir zemāks nekā `mini_long`: 0,613
-pret 0,758 pie 1500, 0,252 pie 7500 (`mini_long` beigās pie 9000: 0,27).
+2026-11-10 bez uzraudzības (~2,9 h uz 2 CPU kodoliem) līdz 7700. solim
+(termiņš), 2026-11-12 turpināts no `last.pt` līdz 9000 (31 min). Validācijas
+zudums pie tiem pašiem soļiem ir zemāks nekā `mini_long`: 0,613 pret 0,758 pie
+1500, 0,252 pie 7500, **0,235 pie 9000** (`mini_long` pie 9000: 0,27).
 
-| Rādītājs | `mini_long` (9000 soļi) | `mid` (7500 soļi) |
-| --- | --- | --- |
-| Pārvēršamas hipotēzes | 90,6% | 91,4% |
-| Pirmais piedāvājums precīzi sakrīt | 33% | **37,5%** |
-| Kāds no 4 precīzi sakrīt | 49,5% | **52%** |
-| JGEX: atrisināti no 26 DD-AR neveiksmēm | 5 | **6** |
-| IMO-AG-30: no 14 DD-AR neveiksmēm | 0 | 0 |
-| `imo_102_requires_aux`: no 101 | 3 | **5** |
-| Mediānas laiks uz uzdevumu (JGEX / IMO-aux) | 4,7 / 6,7 s | 5,3 / 8,3 s |
-| Maks. atmiņa | 975 MB | 916 MB |
+| Rādītājs | `mini_long` (9000 soļi) | `mid` (7500 soļi) | `mid` (9000 soļi) |
+| --- | --- | --- | --- |
+| Pārvēršamas hipotēzes | 90,6% | 91,4% | 90,4% |
+| Pirmais piedāvājums precīzi sakrīt | 33% | 37,5% | **39%** |
+| Kāds no 4 precīzi sakrīt | 49,5% | 52% | **53,5%** |
+| JGEX: atrisināti no 26 DD-AR neveiksmēm | 5 | **6** | 5 |
+| IMO kopa: no 17 DD-AR neveiksmēm (14 no tām IMO-AG-30) | 0 | 0 | **1** (2015 P3) |
+| `imo_102_requires_aux`: no 101 | 3 | 5 | **6** |
+| Mediānas laiks uz uzdevumu (JGEX / IMO-aux) | 4,7 / 6,7 s | 5,3 / 8,3 s | 9,5 / 11,4 s* |
+| Maks. atmiņa | 975 MB | 916 MB | 928 MB |
+
+\* 9000. soļa etalons gāja paralēli citam darbam (AG1 instalācija un testi),
+tāpēc laiki nav salīdzināmi. Abi zaudētie JGEX uzdevumi (`ye_aux_think2`,
+`yL157-1`) beidzās ātri (21 s, 8 s) ar "not solved within depth 2", nevis
+laika limitā: tā ir modeļa atšķirība, nevis noslodze. Jauns ir
+`ye_aux_think`; IMO kopā `2015_p3`, `imo_102` kopā `imo_sl_2015_g6`.
 
 `mid` atrisina visus `mini_long` JGEX uzdevumus, izņemot `ye_aux_y1`, un
 papildus `GDD_FULL_41-60_42` un `ye_aux_think2`; uz IMO-aux kopas jauni ir
 `imo_sl_2015_g3`, `imo_sl_2017_g3`, `imo_sl_2022_g3_variant`
 (`imo_sl_2016_g4_variant` vairs nav). Uzlabojums ir neliels, bet vienā virzienā
 visos rādītājos, un laiks un atmiņa paliek tālu zem 60 s / 2 GB budžeta.
-Avoti: `results/transformer/eval_mid_val200.json`,
-`results/transformer/mid_train_log.jsonl`, `results/*/mid_model.jsonl`;
+Avoti: `results/transformer/eval_mid_val200.json` (9000),
+`eval_mid_7500_val200.json`, `mid_train_log.jsonl`, `mid_7700_train_log.jsonl`,
+`results/*/mid_model.jsonl` (9000), `results/*/mid_7500_model.jsonl`;
 kontrolpunkts `geo-lm/runs/mid/best.pt` (59 MB, gitā).
 
 ## 3. Agrīnie eksperimenti

@@ -35,3 +35,4 @@ for rid,d in [('HuggingFaceTB/SmolLM2-135M-Instruct','SmolLM2-135M-Instruct'),('
 2026-11-12 15:38:24 END dl-ag1-ckpt exit=1 dur=0min
 2026-11-12 15:38:48 START dl-ag1-ckpt2 pid=40424 cwd=/workspaces/zpd/models/ag1/ag_ckpt_vocab cmd=curl -sfL -o checkpoint_10999999 https://drive.usercontent.google.com/download?id=1qXkmmgoJ8oTYJdFV1xw0xGPpQj6SyOYA&export=download&confirm=t
 2026-11-12 15:39:45 END dl-ag1-ckpt2 exit=0 dur=0min
+2026-11-12 16:03:36 END mid-pipeline exit=signal-TERM dur=63min

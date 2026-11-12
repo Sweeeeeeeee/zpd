@@ -6,6 +6,28 @@ verified. Newest first. Times are UTC. The current state and next steps are in
 
 ---
 
+## 2026-11-12 (session 51d9920c)
+
+- `mid` resumed 7700 -> 9000 (14:59-15:31, `run_mid_pipeline.sh`; 7500 results
+  kept as `mid_7500_*`, 71fdb86). Val loss 0.235, exact 39% / 53.5%. Bench:
+  JGEX 5/26 (7500: 6), IMO set 1/17 = **IMO 2015 P3** (first IMO-AG-30 gain),
+  imo_102 6/101. Lost JGEX problems ended in 21 s / 8 s (not time limit).
+  Committed by the pipeline 64e1fab; its 18:30 Codespace stop cancelled (killed
+  the job's process group -> jobs.log END signal-TERM, expected).
+  Bench timings overlap AG1 install/tests (noted in rezultati.md).
+- HF proposers (4104a06): GenesisGeo comma-less output split by predicate
+  name (+test), generation stops at ';', 20 new tokens (p99 of one aux point
+  = 13 Qwen tokens). Downloaded SmolLM2-360M, Qwen2.5-1.5B, SmolLM2-135M,
+  Qwen3-0.6B-Base (control for GenesisGeo) to `models/hf/`; `models/registry.json`,
+  `bench/hf_probe.py` (not yet run). No HF model probed this session.
+- AG1 (ece3c69): see docs/models.md "AlphaGeometry (AG1)". Env, checkpoint
+  (sha256 = HF mirror), server/tool, weights-only npz, decode cap. Verified on
+  the README orthocenter proposals. ~40 s load + 75 s JIT + 23 s/call, 2.7 GB,
+  SIGTERM in 2 of 5 runs: not usable here within 60 s.
+- Cleanup: pip cache, npm cache, pycache (1 GB). `git gc --prune` of 566 MB old
+  backup objects was blocked by the permission classifier: left to the user.
+- Tests 86 passed.
+
 ## 2026-11-10 (session 32e42808, evening)
 
 - `mid` model (5.1M) trained unattended 17:30-20:20 via `run_mid_pipeline.sh`

@@ -1,6 +1,6 @@
 # State
 
-Updated: 2026-11-10 20:50 UTC (session 32e42808)
+Updated: 2026-11-12 ~16:50 UTC (session 51d9920c)
 
 Claude's own notes: overwrite this file at the end of every session so it is
 true *now*. History goes to [LOG.md](LOG.md), not here. Facts that a command can
@@ -11,61 +11,54 @@ holds what a command cannot tell.
 
 | | |
 |---|---|
-| Bigger model | **`mid` done** (commit 3dba999): `geo-lm/runs/mid/best.pt` 5.1M params, step 7500 (deadline hit at 7700 of 9000), val loss 0.252, exact 37.5% top-1 / 52% top-4, 91.4% translatable. Benchmarks: JGEX +6/26 (mini_long +5), IMO-AG-30 +0, imo_102 5/101 (mini_long 3). In `docs/rezultati.md`. Checkpoints are 59 MB in git (GitHub warns >50 MB; consider LFS or dropping `last.pt`). Resume to 9000 is possible from `last.pt` (step 7700) |
-| Done | tasks 1-6, 7.1, 8.2, 8.2a (benchmarks), 12.1-12.3 ([docs/tasks.md](../docs/tasks.md)) |
-| Best model | `geo-lm/runs/mini_long/best.pt`: 2.1M params, **step 9000 (finished)**, val loss 0.271, exact 33% top-1 / 49.5% top-4, 90.6% translatable on 200 held-out problems |
-| Stuck JGEX problems | `mini_long` solves L058-9 but **not L053-1**; `mini` (1600 steps) solved both. Better exact match did not mean better help here |
-| Benchmarks | `bench/run_benchmarks.sh`, results in `results/{jgex_ag_231,imo,imo_102_requires_aux}/`: JGEX 205 DDAR / 210 with `mini_long`; IMO-AG-30 (29) 15 / 15; imo_102 0 / 3. AG1: 198/228 JGEX, 14/25 IMO-AG-30. In `docs/rezultati.md` |
-| Docs | `docs/rezultati.md`, `tasks.md`, `geo-lm.md`, `README.md` have the 9000-step numbers |
-| Paper | `zpd_darbs/preliminary` still describes only the 1600-step `mini` model and the first 73-JGEX run. Not updated on purpose: ask the user whether the paper should switch to `mini_long` and the 231 benchmark. `make_figures.py` pins the JGEX tables to the first 73 rows (`PAPER_JGEX_N`); change that together with the text |
+| Our models | `mid` **finished, 9000 steps** (`geo-lm/runs/mid/best.pt`, 5.1M): val 0.235, exact 39% / 53.5%, JGEX +5/26, IMO 2015 P3 (first IMO-AG-30 gain over DDAR), imo_102 6/101. Step-7500 results kept as `results/*/mid_7500_model.jsonl`. `mini_long` (2.1M) is still the one in the main tables of `docs/rezultati.md`; `mid` has its own section |
+| Done | tasks 1-6, 7.1, 8.2, 8.2a, 12.1-12.3 ([docs/tasks.md](../docs/tasks.md)) |
+| Proposer comparison | [docs/models.md](../docs/models.md) has the table and status. Configs: 11 proposers x 3 domains in `pipeline/configs/compare/` (`bench/compare_configs.py`); list in `models/registry.json`. **Nothing of the comparison has been run yet** |
+| HF models | in `models/hf/` (gitignored, 6.5 GB): GenesisGeo, SmolLM2-135M/360M, Qwen3-0.6B-Base, Qwen2.5-1.5B. None probed after the 11-12 fixes (comma split, stop at `;`, 20 tokens). `bench/hf_probe.py` is written, never run |
+| AG1 | works (`pipeline/ag1_tool.py` + `ag1_server.py`, env `.venv-ag1`, weights `models/ag1/ag_ckpt_vocab/params_only.npz`), verified against the README example. On this Codespace: 40 s load + 75 s JIT + ~23 s/call (beam 2), 2.7 GB, and SIGTERMed in 2 of 5 runs. Not usable within the 60 s budget here; for Kaggle |
+| Paper | `zpd_darbs/preliminary` still describes only `mini` and the first 73-JGEX run, on purpose: ask the user which model (mini_long / mid) and benchmark the paper should use. `make_figures.py` pins JGEX tables to 73 rows (`PAPER_JGEX_N`) |
 | Blocker | the problem set (7.2-7.6): the scan (9-11) cannot start without it |
-| Other models | Comparison harness ready (`docs/models.md`): `pipeline/hf_tool.py` (any HF model), `bench/compare_configs.py` → `pipeline/configs/compare/<domain>/<proposer>.json` (depth 1, 60 s after loading, strict tools), `bench/run_compare.sh`, `bench/compare_table.py`, sample `bench/compare_problems.txt` (60 JGEX). GenesisGeo in `models/hf/GenesisGeo` (gitignored), **prompt format untested** (test needs free CPU+RAM). Nothing of the comparison has been run yet |
-| Codespace budget | user, 2026-11-10 ~16:50 UTC: **35 h left** on 2 cores (70 core-h) this billing month. Free plan 120 core-h/month. Stop the Codespace when idle; no long training here (use Kaggle) |
+| Codespace budget | user 11-10: 35 h of 2-core time left this month; ~6 h used since (11-10 evening + 11-12 ~2 h). Free plan 120 core-h/month |
+| Disk | ~3.5 GB free after AG1 (env 2.4 GB, checkpoint 1.8 GB incl. npz). `.git` holds 566 MB of unreachable old backup objects |
 | Machine | Codespace `glowing-barnacle-69499rgp76525wvr`, 2 cores, 8 GB, idle timeout 240 min |
 
 ## Open problems
 
-1. **The Codespace stopped by itself on 2026-11-09 at ~09:15 UTC**, 20 min after
-   the last input. Not the idle timeout (240). Signs: SIGTERM to the training at
-   09:09:37, Claude gone at 09:10, machine down after 09:14:30, nothing in the
-   VS Code logs after the browser disconnect at 08:55:32. The API gives no stop
-   reason. Most likely the free Codespaces quota ran out (120 core-hours/month,
-   $0 spending limit stops the Codespace), restarting with the billing cycle on
-   11-10; or a manual stop. **Unconfirmed**: the user should check
-   github.com/settings/billing. Until then, no job here is safe for more than a
-   few minutes unattended.
-2. On 11-10 the Codespace ran 08:12-08:55 unattended with no stop (training
-   33 min via `claude/job.sh`), so the 11-09 stop did not repeat. A safety stop
-   (`gh codespace stop` after 7000 s) was armed; the session stopped the
-   Codespace itself at the end.
+1. **SIGTERM under memory pressure.** Processes above ~2.5-3 GB RSS get
+   SIGTERM from outside the container (no cgroup limit, no OOM kill recorded,
+   no killer process visible inside). Hit: training 11-10 (2.5 GB), AG1 server
+   11-12 (3.85 GB full restore; 2.7 GB in 2 of 5 runs). Keep anything long
+   below ~2.5 GB here.
+2. **Why the Codespace stopped on 11-09** (~09:15 UTC): still unconfirmed,
+   likely the free quota; user should check github.com/settings/billing.
+3. `git gc --prune=now` (frees ~566 MB in `.git`) was blocked by the permission
+   classifier; the user can run `git reflog expire --expire-unreachable=now --all && git gc --prune=now`.
 
 ## Rules learned the hard way
 
-- `/tmp` is wiped when the Codespace restarts: job output there is lost (that is
-  why the 11-09 stop had to be reconstructed from the session transcript).
-  Run long jobs with `claude/job.sh`, which keeps output and heartbeats in `claude/jobs/`.
-- The idle timeout counts from the user's last input, not from running jobs, and
-  is fixed when a Codespace is created.
-- A background job started by Claude dies with the Claude session; use
-  `setsid nohup claude/job.sh ...` for anything that must outlive it.
+- `/tmp` is wiped when the Codespace restarts: run long jobs with `claude/job.sh`.
+- The idle timeout counts from the user's last input, not from running jobs.
+- A background job started by Claude dies with the session; use `setsid nohup claude/job.sh ...`.
+- `run_mid_pipeline.sh` ends by *waiting* for its hard deadline and then stops the
+  Codespace: kill its process group when finished interactively.
+- `claude/jobs/mid-pipeline.out` is appended across runs: match on the new
+  run's start line, not on any line (a false trigger happened 11-12).
+- Never `pkill -f <pattern>` that also matches the current shell's command line.
+- AG1's `build_problem` loops forever on a numerically false goal: test with true problems.
 - `gh codespace create` and the billing API do not work with the Codespace token.
 - Session transcripts (`~/.claude/projects/-workspaces-zpd/*.jsonl`) record what an
-  earlier session actually ran. Read them when LOG.md and the files disagree.
+  earlier session actually ran.
 
 ## Next
 
-1. GenesisGeo: prompt test done 11-10 20:50 (3 val problems, beam 4, CPU free).
-   Style `genesisgeo` (letter names) is right: 1 of 3 exact in beam, others
-   plausible; `genesisgeo_x00` gives `x00 : ... x` mixed names. Two problems
-   before the comparison: (a) **~35-48 s per proposal call** on 2 CPU, too slow
-   for a 60 s budget (try beam 1-2, max_new_tokens 24, or Kaggle GPU);
-   (b) output has no comma between predicates (`coll a c j  perp a c j d`,
-   double space, likely `[nn]` index stripped where the comma was); check that
-   `aux_to_clauses` splits it, else insert ", " in `propose_raw`. Beams often
-   identical (dedupe already at clause level).
-2. Folder restructure from `docs/models.md` (geo-lm → models/...), full tests.
-3. Run the comparison: `bench/run_compare.sh` (light, now incl. `mid`), then
-   GenesisGeo, SmolLM2; `bench/compare_table.py`. Measure cost on one domain first.
-4. User: why the Codespace stopped on 11-09; paper → mini_long or mid?
-5. 7.2 Sort the 1499 Latvian geometry problems.
-6. Optional: finish `mid` to 9000 steps (~30 min from `last.pt`).
+1. Probe the HF models one at a time with `bench/hf_probe.py` (5 problems, beam 2
+   and 4): GenesisGeo first (speed after the stop-at-`;` change), then
+   Qwen3-0.6B-Base, SmolLM2-135M/360M, Qwen2.5-1.5B. Drop any with ~0 exact
+   and ~0 translatable.
+2. Run the comparison: `bench/run_compare.sh` (light: heuristics, mini,
+   mini_long, mid), then the HF models that passed; `bench/compare_table.py`.
+   One domain first to measure the cost.
+3. AG1 and any 7B-class model: on Kaggle (GPU), not here.
+4. Folder restructure from `docs/models.md` (geo-lm -> models/...), full tests.
+5. User: paper model choice; 11-09 stop reason.
+6. 7.2 Sort the 1499 Latvian geometry problems.
