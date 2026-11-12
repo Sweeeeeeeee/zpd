@@ -1,0 +1,19 @@
+{
+  "checkpoint": "runs/mid/best.pt",
+  "problems": 200,
+  "beam": 4,
+  "hypotheses": 800,
+  "finished_rate": 1.0,
+  "translatable_rate": 0.904,
+  "problems_with_translatable": 0.965,
+  "exact_at_1": 0.39,
+  "exact_at_4": 0.535,
+  "rejected": {
+    "no predicates": 39,
+    "unknown point": 31,
+    "no construction for": 3,
+    "expected one new point": 3,
+    "empty construction": 1
+  },
+  "seconds": 178.3
+}

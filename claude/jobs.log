@@ -14,3 +14,24 @@ print('done', p)
 2026-11-10 17:27:17 END dl-genesisgeo exit=0 dur=0min
 2026-11-10 17:29:22 END mid-pipeline exit=signal-TERM dur=17min
 2026-11-10 17:30:06 START mid-pipeline pid=82956 cwd=/workspaces/zpd cmd=geo-lm/scripts/run_mid_pipeline.sh 2026-11-10 20:20 2026-11-10 20:55 2026-11-10 21:10
+2026-11-12 14:59:39 START mid-pipeline pid=6335 cwd=/workspaces/zpd cmd=geo-lm/scripts/run_mid_pipeline.sh 2026-11-12 16:20 2026-11-12 17:00 2026-11-12 18:30
+2026-11-12 15:03:14 START dl-hf-models pid=9892 cwd=/workspaces/zpd cmd=.venv-newclid/bin/python -c 
+from huggingface_hub import snapshot_download
+for rid,d in [('HuggingFaceTB/SmolLM2-360M-Instruct','SmolLM2-360M-Instruct'),('Qwen/Qwen2.5-1.5B-Instruct','Qwen2.5-1.5B-Instruct')]:
+    print('done', snapshot_download(rid, local_dir='models/hf/'+d, allow_patterns=['*.json','*.txt','*.jinja','*.safetensors']), flush=True)
+
+2026-11-12 15:04:42 END dl-hf-models exit=0 dur=1min
+2026-11-12 15:17:18 START dl-hf-controls pid=18613 cwd=/workspaces/zpd cmd=.venv-newclid/bin/python -c 
+from huggingface_hub import snapshot_download
+for rid,d in [('HuggingFaceTB/SmolLM2-135M-Instruct','SmolLM2-135M-Instruct'),('Qwen/Qwen3-0.6B-Base','Qwen3-0.6B-Base')]:
+    print('done', snapshot_download(rid, local_dir='models/hf/'+d, allow_patterns=['*.json','*.txt','*.jinja','*.safetensors']), flush=True)
+
+2026-11-12 15:17:55 END dl-hf-controls exit=0 dur=0min
+2026-11-12 15:31:11 START setup-ag1 pid=30648 cwd=/workspaces/zpd cmd=claude/jobs/setup_ag1.sh
+2026-11-12 15:32:59 END setup-ag1 exit=1 dur=1min
+2026-11-12 15:33:46 START setup-ag1 pid=35787 cwd=/workspaces/zpd cmd=claude/jobs/setup_ag1.sh
+2026-11-12 15:37:34 END setup-ag1 exit=1 dur=3min
+2026-11-12 15:38:22 START dl-ag1-ckpt pid=39752 cwd=/workspaces/zpd/models/ag1 cmd=/workspaces/zpd/.venv-ag1/bin/gdown --folder https://bit.ly/alphageometry
+2026-11-12 15:38:24 END dl-ag1-ckpt exit=1 dur=0min
+2026-11-12 15:38:48 START dl-ag1-ckpt2 pid=40424 cwd=/workspaces/zpd/models/ag1/ag_ckpt_vocab cmd=curl -sfL -o checkpoint_10999999 https://drive.usercontent.google.com/download?id=1qXkmmgoJ8oTYJdFV1xw0xGPpQj6SyOYA&export=download&confirm=t
+2026-11-12 15:39:45 END dl-ag1-ckpt2 exit=0 dur=0min
