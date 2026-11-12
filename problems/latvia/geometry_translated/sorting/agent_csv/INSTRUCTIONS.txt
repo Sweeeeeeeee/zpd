@@ -1,0 +1,33 @@
+You sort Latvian olympiad geometry problems for a solver (Newclid) that can only
+handle this kind of problem: PLANE geometry, the figure is built point by point from
+free points with ruler-and-compass style constructions (lines, circles, intersections,
+midpoints, feet, reflections, given equal angles or lengths), and the task is to PROVE
+one fact of this form: three points collinear; two lines parallel or perpendicular;
+two segments equal; four points concyclic; two (directed) angles equal; two ratios of
+segments equal; a point is a midpoint; two triangles similar. A tangency, an angle
+bisector, an isosceles triangle or "X lies on circle ABC" count, as they reduce to these.
+
+For every problem in the batch file, choose ONE category:
+  prove          plane, prove a fact of the form above  -> statable yes
+  prove_other    plane proof, but the goal is something else: a sum of lengths, an area,
+                 an inequality between lengths, "the angle is 60 deg" is OK only if it can
+                 be an equal-angles statement (then use prove), counting facts, etc.
+  compute        find a length, angle, area, ratio or number
+  inequality     prove or find an inequality
+  construction   construct a figure with ruler and compass
+  find_all       find all / locus / for which values
+  existence      does there exist / can one / is it possible (yes-no questions)
+  combinatorial  counting, colouring, cutting, covering, lattice points, games, point sets
+  solid          three-dimensional geometry
+  unreadable     the text is broken ([formula] missing so the problem cannot be understood)
+If a problem has several parts, judge the main provable part: if one part is a
+statable proof, use prove and say which part in the reason.
+
+Write a CSV file (exactly the path given to you) with this header and one row per problem,
+in the same order as the batch file:
+  id,category,statable,confidence,figure,reason
+statable: yes for prove, unsure for unreadable, no otherwise.
+confidence: high, medium or low (low when the text is ambiguous or you are guessing).
+figure: yes if the statement refers to a drawing ("skat. zīm.", "attēlā"), else no.
+reason: at most 15 English words, in double quotes, e.g. "prove AB = CD in triangle with midpoints".
+Do not skip any problem. Do not write anything else to the file.

@@ -1,0 +1,1043 @@
+id,category,reason
+latvia/national/1975-76_26/extra/grade08-09/p2,compute,compute segment length x from lines through interior point
+latvia/national/1975-76_26/extra/grade08-09/p4,prove_other,prove four circumcircles of line triangles concur
+latvia/national/1975-76_26/extra/grade10/p2,compute,compute pentagon area from diagonal triangle areas
+latvia/national/1975-76_26/extra/grade10/p4,combinatorial,maximum number of segments avoiding triangles
+latvia/national/1975-76_26/extra/grade11/p3,solid,volume of solid of revolution of cube
+latvia/national/1975-76_26/grade08/p3,compute,compute BC from angle A equals 2B
+latvia/national/1975-76_26/grade09/p5,combinatorial,"two-colour segments on five points, forced structure"
+latvia/national/1975-76_26/grade10/p4,compute,"area ratio of triangles, find angle alpha"
+latvia/national/1975-76_26/grade11/p1,compute,sum of squared segments between two hexagons
+latvia/national/1975-76_26/grade11/p2,solid,dihedral angle of parallelepiped
+latvia/national/1976-77_27/extra/grade08-09/p2,prove_other,prove no circle bisects three regions by area
+latvia/national/1976-77_27/extra/grade10/p1,solid,bisectors of trihedral angle plane angles
+latvia/national/1976-77_27/grade08/p2,compute,distance from vertex given distances to sides
+latvia/national/1976-77_27/grade08/p5,combinatorial,convex polygon lines through interior point
+latvia/national/1976-77_27/grade09/p4,compute,limit of iterated bisector angles
+latvia/national/1976-77_27/grade09/p5,solid,area of parallelepiped plane section
+latvia/national/1976-77_27/grade11/p1,construction,construct segment equal to pyramid height
+latvia/national/1977-78_28/extra/grade10/p1,prove_other,prove three points not collinear
+latvia/national/1977-78_28/extra/grade11/p2,solid,convex polyhedron with symmetric halving plane
+latvia/national/1977-78_28/grade08/p4,compute,area of isosceles trapezoid from circumcircle
+latvia/national/1977-78_28/grade08/p5,combinatorial,grid circle boundary vertices difference
+latvia/national/1977-78_28/grade09/p4,construction,construct triangle through three points on rays
+latvia/national/1977-78_28/grade09/p5,compute,minimal perimeter quadrilateral with given diagonals
+latvia/national/1977-78_28/grade10/p3,existence,points on rectangular pyramid surface within distance
+latvia/national/1977-78_28/grade11/p1,solid,pyramid altitude feet are orthocentres
+latvia/national/1978-79_29/extra/grade10/p4,prove_other,prove no two incircle-triangles are similar
+latvia/national/1978-79_29/extra/grade11/p1,inequality,existence of x with derivative inequality
+latvia/national/1978-79_29/extra/grade11/p2,existence,1979 points with integer mutual distances
+latvia/national/1978-79_29/extra/grade11/p5,solid,volume of intersection of two cylinders
+latvia/national/1978-79_29/grade08/p2,existence,point inside equilateral triangle with given distances
+latvia/national/1978-79_29/grade09/p5,prove_other,prove sum of distances to side lines constant
+latvia/national/1978-79_29/grade10/p3,solid,trihedral angle bisector planes through one line
+latvia/national/1979-80_30/extra/grade08-09/p4,find_all,position of M maximizing KN on circumcircle
+latvia/national/1979-80_30/extra/grade08-09/p5,combinatorial,non-crossing segments among 100 points in square
+latvia/national/1979-80_30/extra/grade10/p3,solid,convex polyhedron with every face at least six edges
+latvia/national/1979-80_30/extra/grade11/p2,prove_other,prove middle quadrilateral area one ninth
+latvia/national/1979-80_30/grade08/p2,compute,side ratio of parallelogram from equal angles
+latvia/national/1979-80_30/grade08/p4,compute,village distances from field area condition
+latvia/national/1979-80_30/grade09/p5,combinatorial,figure moves through all cubes cycle
+latvia/national/1979-80_30/grade10/p4,combinatorial,finite point set with parallel pairs
+latvia/national/1979-80_30/grade11/p3,solid,volume common to all positions of rotating cube
+latvia/national/1980-81_31/extra/grade10/p2,solid,equal lateral edges and dihedral angles imply regular pyramid
+latvia/national/1980-81_31/extra/grade10/p5,combinatorial,"coloured points on square partition, rotation orientation"
+latvia/national/1980-81_31/extra/grade11/p1,prove_other,prove three circumcircles concurrent
+latvia/national/1980-81_31/extra/grade11/p3,combinatorial,tile rectangle with isosceles trapezoids
+latvia/national/1980-81_31/extra/grade11/p5,combinatorial,distinct absolute differences on polygon vertices
+latvia/national/1980-81_31/grade08/p3,prove_other,prove product of coloured triangle areas equal
+latvia/national/1980-81_31/grade09/p4,combinatorial,monochrome triangle among coloured nonagonal pyramid edges
+latvia/national/1980-81_31/grade09/p5,solid,parallel segment property of plane intersections in space
+latvia/national/1980-81_31/grade10/p2,solid,bisector planes of tetrahedron concurrent
+latvia/national/1980-81_31/grade10/p3,existence,quadrilaterals with same lengths not congruent possible
+latvia/national/1980-81_31/grade11/p2,solid,tetrahedron exists with given opposite edges
+latvia/national/1980-81_31/grade11/p3,inequality,lattice triangle abc at least 2R
+latvia/national/1981-82_32/extra/grade08-09/p2,inequality,broken line longer than semiperimeter of midpoint hexagon
+latvia/national/1981-82_32/extra/grade08-09/p4,inequality,some arc between 10-gon and 9-gon at most 2 degrees
+latvia/national/1981-82_32/extra/grade11/p1,combinatorial,lines separating 1982 points into regions
+latvia/national/1981-82_32/extra/grade11/p2,combinatorial,minimum number of acute triangles dissecting square
+latvia/national/1981-82_32/extra/grade11/p3,solid,line through three altitudes of tetrahedron
+latvia/national/1981-82_32/grade08/p4,compute,angles of triangle from incentre-circumcentre coincidence
+latvia/national/1981-82_32/grade09/p4,inequality,minimal sum of translation segments
+latvia/national/1981-82_32/grade10/p2,find_all,find x satisfying trigonometric inequality
+latvia/national/1981-82_32/grade10/p3,solid,tetrahedron plane sections rectangle implication
+latvia/national/1981-82_32/grade10/p4,combinatorial,choose vectors maximising sum length
+latvia/national/1981-82_32/grade11/p3,solid,two triangles translated in space equal volumes
+latvia/national/1982-83_33/extra/grade08-09/p2,prove_other,prove triangle area twice original via parallels
+latvia/national/1982-83_33/extra/grade08-09/p5,find_all,point on circle maximizing PA plus PB
+latvia/national/1982-83_33/extra/grade10/p2,solid,polyhedron face edge parity broken line
+latvia/national/1982-83_33/extra/grade11/p2,solid,lines of pentagon vertices parallel to a plane
+latvia/national/1982-83_33/extra/grade11/p5,combinatorial,choose disjoint coloured triangles from 3n points
+latvia/national/1982-83_33/grade08/p2,compute,square area from triangle BOM area
+latvia/national/1982-83_33/grade09/p1,solid,sum of face-centroid vectors in tetrahedron zero
+latvia/national/1982-83_33/grade09/p2,solid,decagonal pyramid plane crossing fifteen edges
+latvia/national/1982-83_33/grade10/p4,solid,perpendicular planes through edge midpoints concurrent
+latvia/national/1982-83_33/grade11/p2,combinatorial,count triangles covering centre of regular nonagon
+latvia/national/1982-83_33/grade11/p3,solid,sphere planes produce given number of triangles
+latvia/national/1983-84_34/extra/grade10/p1,prove_other,prove two quadrilaterals similar via medians
+latvia/national/1983-84_34/extra/grade11/p3,prove_other,polynomial graph has at most n tangents
+latvia/national/1983-84_34/extra/grade11/p5,compute,area of pentagon from five triangle areas
+latvia/national/1983-84_34/grade08/p4,combinatorial,colour cube squares no shared edges
+latvia/national/1983-84_34/grade09/p2,prove_other,point with vanishing sum of vectors exists
+latvia/national/1983-84_34/grade10/p3,solid,cube vertices split with equal distance sums
+latvia/national/1983-84_34/grade11/p1,solid,tetrahedron face-midpoint plane properties
+latvia/national/1984-85_35/extra/grade10/p1,combinatorial,cover equilateral triangle with four instead of five
+latvia/national/1984-85_35/extra/grade11/p4,inequality,tetrahedron edge sum exceeds six
+latvia/national/1984-85_35/grade08/p3,compute,area of triangle ABC from sub-triangle areas
+latvia/national/1984-85_35/grade09/p1,compute,ratio of bases from vector sum condition
+latvia/national/1984-85_35/grade10/p2,combinatorial,minimum cube edges cut to block paths
+latvia/national/1984-85_35/grade10/p4,solid,tetrahedron points with diagonals through M
+latvia/national/1984-85_35/grade11/p2,prove_other,cyclic right triangle identity for inradius circumradius
+latvia/national/1984-85_35/grade11/p3,solid,sections of polyhedron equal perimeter
+latvia/national/1985-86_36/extra/grade08-09/p4,prove_other,convex quadrilateral with sum of squares is square
+latvia/national/1985-86_36/extra/grade11/p1,solid,plane through midpoints bisects tetrahedron volume
+latvia/national/1985-86_36/grade08/p4,prove_other,convex polygon cut into cyclic quadrilaterals
+latvia/national/1985-86_36/grade09/p3,solid,concurrency of lines in tetrahedron with plane
+latvia/national/1985-86_36/grade10/p2,solid,section perimeter of unit tetrahedron at least two
+latvia/national/1985-86_36/grade11/p1,prove_other,unique line bisecting area and perimeter
+latvia/national/1985-86_36/grade11/p3,solid,two tetrahedra in unit cube
+latvia/national/1986-87_37/extra/grade10/p1,combinatorial,covering midpoint set with unit segments
+latvia/national/1986-87_37/extra/grade10/p5,find_all,locus traced by point X in n-gon
+latvia/national/1986-87_37/extra/grade11/p4,inequality,sum of parallelogram areas below 25
+latvia/national/1986-87_37/grade08/p2,compute,trapezoid angles from side equalities
+latvia/national/1986-87_37/grade08/p4,combinatorial,construct side-11 triangle with coloring devices
+latvia/national/1986-87_37/grade09/p1,prove_other,vector sum zero for pentagon midpoints
+latvia/national/1986-87_37/grade09/p3,prove_other,two triangles equal areas in convex hexagon
+latvia/national/1986-87_37/grade11/p4,solid,tangent-parallel plane polyhedron octagonal section
+latvia/national/1987-88_38/extra/grade08-09/p2,find_all,possible values of perimeter ratio
+latvia/national/1987-88_38/extra/grade08-09/p4,prove_other,alternating pentagon extensions length sums equal
+latvia/national/1987-88_38/extra/grade10/p2,existence,construct broken line with 2n parallel sides
+latvia/national/1987-88_38/extra/grade10/p4,prove_other,sum of blue and red segment lengths equal
+latvia/national/1987-88_38/extra/grade11/p4,prove_other,lines through points concurrent
+latvia/national/1987-88_38/grade08/p4,existence,almost-equal triangle chain forces congruence yes or no
+latvia/national/1987-88_38/grade09/p2,prove_other,parallelogram area half of quadrilateral
+latvia/national/1987-88_38/grade11/p1,inequality,median length inequality in obtuse triangles
+latvia/national/1988-89_39/extra/grade08-09/p5,prove_other,inradius identity r1 plus r2 equals r
+latvia/national/1988-89_39/extra/grade10/p4,prove_other,centroid triangle area identity
+latvia/national/1988-89_39/extra/grade11/p2,solid,fit three tetrahedra in unit cube
+latvia/national/1988-89_39/extra/grade11/p5,prove_other,"cover a segment with rhombus, text partly missing"
+latvia/national/1988-89_39/grade09/p1,construction,construct cube section through midpoints
+latvia/national/1988-89_39/grade09/p4,prove_other,sum of three areas equals fourth triangle
+latvia/national/1988-89_39/grade10/p1,solid,cube vertices vector sums to face centres
+latvia/national/1988-89_39/grade11/p2,prove_other,product of circumradii equal
+latvia/national/1989-90_40/extra/grade09-10/p4,combinatorial,arrows on pentagon sides point to vertices
+latvia/national/1989-90_40/extra/grade11/p1,prove_other,quadrilateral has inscribed circle
+latvia/national/1989-90_40/extra/grade11/p5,combinatorial,minimum segments in graph with 3-clique property
+latvia/national/1989-90_40/grade09/p4,prove_other,sum of trapezoid areas independent of segment position
+latvia/national/1989-90_40/grade09/p5,combinatorial,monochrome equally spaced triple on triangular grid
+latvia/national/1989-90_40/grade10/p1,construction,restore missing projected point with ruler and compass
+latvia/national/1989-90_40/grade11/p3,existence,point common to two area-one triangles in unit circle
+latvia/national/1989-90_40/grade11/p4,solid,cube from eight unit cubes with equal colours
+latvia/national/1989-90_40/grade12/p2,solid,projections of triangle onto perpendicular planes acute
+latvia/national/1989-90_40/grade12/p3,compute,angle sum BCM plus DAM in rectangle
+latvia/national/1989-90_40/grade12/p4,combinatorial,monochrome triple with empty segment between
+latvia/national/1990-91_41/extra/grade11/p2,combinatorial,two edge-disjoint monochrome triangles among seven points
+latvia/national/1990-91_41/extra/grade12/p4,prove_other,product BM times NC independent of P
+latvia/national/1990-91_41/grade09/p4,prove_other,area product identity S0 S2 equals S1 S3
+latvia/national/1990-91_41/grade11/p3,combinatorial,mosquitoes return to vertices of equal triangles
+latvia/national/1990-91_41/grade12/p2,inequality,sum of products of sides bounded by medians and circumradius
+latvia/national/1990-91_41/grade12/p4,combinatorial,one-way street network has a cycle quarter
+latvia/national/1991-92_42/grade10/p2,prove_other,segments from O split quadrilateral into equal areas
+latvia/national/1991-92_42/grade10/p4,prove_other,circumcircles pass through a fixed point
+latvia/national/1991-92_42/grade10/p5,existence,closed perpendicular broken line with given lengths
+latvia/national/1991-92_42/grade11/p2,existence,convex hexagon cuttable into 1992 equal triangles
+latvia/national/1991-92_42/grade11/p3,solid,three pairwise crossing lines in space common transversal
+latvia/national/1991-92_42/grade11/p5,prove_other,circumcentres of triangles lie on one circle
+latvia/national/1991-92_42/grade12/p4,solid,sphere tangent to tetrahedron edges concurrent segments
+latvia/national/1992-93_43/grade09/p1,prove_other,triangle with sides OA OB OC exists
+latvia/national/1992-93_43/grade09/p3,prove_other,hexagon area twice triangle ACE
+latvia/national/1992-93_43/grade10/p2,prove_other,equal areas of triangles ABC and ADC
+latvia/national/1992-93_43/grade11/p2,inequality,product of two sides exceeds product of diameters
+latvia/national/1992-93_43/grade11/p3,combinatorial,finite point set with exactly two perpendicular bisector points
+latvia/national/1992-93_43/grade11/p6,inequality,sum of radii of inscribed circles bounded
+latvia/national/1992-93_43/grade11/p8,prove_other,disjunction: trapezoid or cyclic quadrilateral
+latvia/national/1992-93_43/grade11/p9,solid,polyhedron diagonals pairwise perpendicular and concurrent
+latvia/national/1993-94_44/extra/grade12/p3,inequality,covering segments total length greater than 3
+latvia/national/1993-94_44/extra/grade12/p5,inequality,triangle area at least 9 times another triangle
+latvia/national/1993-94_44/grade09/p4,combinatorial,dissect any polygon into obtuse triangles
+latvia/national/1993-94_44/grade10/p4,combinatorial,convex polygon cut into concave quadrilaterals impossible
+latvia/national/1993-94_44/grade11/p2,combinatorial,cube vertex numbers versus neighbour averages
+latvia/national/1994-95_45/extra/grade12/p4,prove_other,regular heptagon from midpoints and feet
+latvia/national/1994-95_45/grade09/p3,compute,maximal rectangle area between concentric circles
+latvia/national/1994-95_45/grade09/p4,existence,circle through three red points with no red inside
+latvia/national/1994-95_45/grade11/p3,prove_other,shaded area fraction of quadrilateral; fraction missing
+latvia/national/1994-95_45/grade11/p5,combinatorial,polygon diagonals drawable as one closed path
+latvia/national/1994-95_45/grade12/p3,solid,four-cube figure forms parallelepiped or cube
+latvia/national/1995-96_46/extra/grade12/p2,prove_other,hexagon diagonals concurrent iff side product equality
+latvia/national/1995-96_46/extra/grade12/p4,solid,cube surface polyline equal areas no geometric progression
+latvia/national/1995-96_46/grade09/p2,compute,cyclic quadrilateral angles from bisector ratio
+latvia/national/1995-96_46/grade09/p3,prove_other,sum of cevian lengths identity
+latvia/national/1995-96_46/grade10/p2,prove_other,equal triangle area sums with incenter circumcenter
+latvia/national/1995-96_46/grade11/p2,prove_other,perimeter equals 4 times segment MN
+latvia/national/1995-96_46/grade12/p3,prove_other,perpendiculars from side midpoints concurrent
+latvia/national/1996-97_47/extra/grade12/p3,combinatorial,space points segment colouring forces monochromatic triangle
+latvia/national/1996-97_47/extra/grade12/p5,prove_other,point X independent of choice of M
+latvia/national/1996-97_47/grade09/p4,prove_other,equal alternating triangle area sums in equilateral triangle
+latvia/national/1996-97_47/grade11/p5,combinatorial,ant jumping on circle with red points
+latvia/national/1996-97_47/grade12/p3,prove_other,trapezoid diagonals perpendicular: square-sum identity and product inequality
+latvia/national/1996-97_47/grade12/p4,solid,pyramids: is MK perpendicular to base plane
+latvia/national/1997-98_48/extra/grade12/p1,prove_other,parallelogram circle product identity AC times AN
+latvia/national/1997-98_48/extra/grade12/p5,solid,rolling cube returns to start rotated 90 degrees
+latvia/national/1997-98_48/grade11/p5,combinatorial,ants on triangular grid meet
+latvia/national/1997-98_48/grade12/p3,solid,polyhedron with distinct face edge counts minimal vertices
+latvia/national/1998-99_49/grade09/p4,prove_other,equal areas of triangles ABS and CDS
+latvia/national/1998-99_49/grade11/p5,combinatorial,max red points in 4x4 grid without collinear triples
+latvia/national/1998-99_49/grade12/p3,solid,pyramid inscribed sphere edge length sum
+latvia/national/1999-00_50/grade09/p3,prove_other,length identity 2A1C1 = AB+BC-AC
+latvia/national/1999-00_50/grade10/p3,prove_other,length identity; also angle AMC computation
+latvia/national/1999-00_50/grade11/p5,combinatorial,circle points chord pairing with label difference bound
+latvia/national/1999-00_50/grade12/p5,combinatorial,circle points chord pairing with label difference bound
+latvia/national/2000-01_51/grade09/p3,compute,maximal quadrilateral area from vertex distances
+latvia/national/2000-01_51/grade10/p2,combinatorial,cut triangle into isosceles triangles
+latvia/national/2000-01_51/grade11/p4,prove_other,three perpendicular lines concurrent
+latvia/national/2000-01_51/grade12/p2,solid,max lines through point with equal pairwise angles
+latvia/national/2001-02_52/grade09/p3,combinatorial,coloured regular 100-gon equal segments
+latvia/national/2002-03_53/grade11/p3,compute,position minimizing distance between perpendicular feet
+latvia/national/2002-03_53/grade12/p2,solid,count prisms with four given vertices
+latvia/national/2003-04_54/grade10/p2,compute,compute angle AOE in square and circle
+latvia/national/2003-04_54/grade10/p5,combinatorial,five numbers on circle with nonnegative sums
+latvia/national/2003-04_54/grade12/p1,prove_other,trapezoid area sum depends only on chord
+latvia/national/2004-05_55/grade09/p1,prove_other,trapezoid part areas sum equal another part
+latvia/national/2004-05_55/grade11/p5,combinatorial,cube vertex numbers made equal
+latvia/national/2004-05_55/grade12/p2,prove_other,sum of inradii equality in six right triangles
+latvia/national/2004-05_55/grade12/p5,combinatorial,cube vertex numbers made equal
+latvia/national/2005-06_56/grade09/p3,prove_other,sum of chord lengths equals triangle perimeter
+latvia/national/2005-06_56/grade12/p5,combinatorial,regular polygon vertex numbers reach equal values
+latvia/national/2006-07_57/grade10/p4,prove_other,area of triangle from perpendicular bisectors independent of O
+latvia/national/2006-07_57/grade12/p2,combinatorial,prism vertex sign products
+latvia/national/2007-08_58/grade09/p3,combinatorial,coloured circle points inscribed square three white vertices
+latvia/national/2007-08_58/grade09/p4,inequality,segment XY not longer than half perimeter
+latvia/national/2008-09_59/grade12/p3,prove_other,prove EF = AE + FC
+latvia/national/2009-10_60/grade09/p2,compute,angle BAC from bisectors and cyclic condition
+latvia/national/2009-10_60/grade10/p3,inequality,prove angle MDN at least angle BAC
+latvia/national/2009-10_60/grade12/p3,prove_other,equal areas of triangles OHD and OEJ
+latvia/national/2010-11_61/grade09/p2,compute,ratio of hypotenuse to shorter leg
+latvia/national/2010-11_61/grade10/p5,combinatorial,minimal n guaranteeing two obtuse triangles
+latvia/national/2010-11_61/grade11/p4,combinatorial,sum of labels on circle with coloured points
+latvia/national/2010-11_61/grade11/p5,prove_other,triangle area 4 containing all points
+latvia/national/2010-11_61/grade12/p4,combinatorial,sum of labels on circle with coloured points
+latvia/national/2010-11_61/grade12/p5,combinatorial,universal digit sequence length
+latvia/national/2011-12_62/grade09/p2,prove_other,"triangle with altitudes 4,7,10 impossible"
+latvia/national/2011-12_62/grade10/p4,combinatorial,pentagon chips swapping via diagonal moves
+latvia/national/2011-12_62/grade11/p3,compute,maximal area ratio of median-line split
+latvia/national/2011-12_62/grade12/p5,combinatorial,two players cutting cake game
+latvia/national/2012-13_63/grade11/p2,prove_other,prove AD + BD = BC
+latvia/national/2012-13_63/grade12/p1,combinatorial,number theory divisibility; text mixed with geometry
+latvia/national/2012-13_63/grade12/p2,prove_other,prove AD + BD = BC
+latvia/national/2013-14_64/grade10/p1,find_all,"integer solutions of system, not geometry"
+latvia/national/2013-14_64/grade10/p4,prove_other,prove BC = 2AF
+latvia/national/2013-14_64/grade12/p3,compute,compute angle AED
+latvia/national/2014-15_65/day2/day2/p2,prove_other,three lines from squares concurrent
+latvia/national/2015-16_66/day2/day2/p4,find_all,possible values of angle ACB
+latvia/national/2015-16_66/grade10/p5,combinatorial,black vertices avoid triangles in 2016-gon
+latvia/national/2015-16_66/grade11/p5,combinatorial,dissect triangle into three symmetric pieces
+latvia/national/2015-16_66/grade12/p2,prove_other,sum of lengths PU = UV + VQ
+latvia/national/2016-17_67/day2/p2,prove_other,regular polygon sides lines concurrent
+latvia/national/2016-17_67/grade09/p2,prove_other,coloured figure area equals circle area
+latvia/national/2016-17_67/grade12/p3,inequality,triangle BEF area greater than rectangle
+latvia/national/2017-18_68/grade09/p4,compute,area of triangle BMC
+latvia/national/2017-18_68/grade10/p2,compute,length AD from parallelogram data
+latvia/national/2018-19_69/grade09/p2,compute,area of triangle ABC
+latvia/national/2018-19_69/grade11/p5,combinatorial,lattice points of medians centroid integer
+latvia/national/2018-19_69/grade12/p2,prove_other,prove OE^2 = OB^2 + 2 OB BE
+latvia/national/2019-20_70/grade12/p3,prove_other,prove AB^2 = 2CD^2
+latvia/national/2020-21_71/grade10/p3,prove_other,BP = BC or BP = AD disjunction
+latvia/national/2020-21_71/grade11/p4,prove_other,segments form a right triangle
+latvia/national/2021-22_72/grade09/p2,compute,find angle beta
+latvia/national/2021-22_72/grade09/p5,prove_other,"altitudes 19,37,41 impossible"
+latvia/national/2021-22_72/grade12/p2,prove_other,prove EF = |AD+BC-AB-CD|
+latvia/national/2022-23_73/grade09/p4,find_all,real m values making right triangle
+latvia/national/2022-23_73/grade10/p4,compute,compute angle COD
+latvia/national/2023-24_74/grade09/p2,prove_other,equal areas of triangles ACH and HEG
+latvia/national/2023-24_74/grade11/p2,compute,area of quadrilateral OECG
+latvia/national/2024-25_75/grade10/p2,compute,compute angle AMC
+latvia/open/1973-74_01/grade07/p1,compute,acute angle between bisectors
+latvia/open/1973-74_01/grade08/p1,combinatorial,count triangles quadrilaterals pentagons
+latvia/open/1973-74_01/grade08/p4,construction,construct 1 degree angle from 11 degrees
+latvia/open/1973-74_01/grade08/p5,inequality,median at least bisector from same vertex
+latvia/open/1973-74_01/grade09/p2,compute,optimal rectangle ratio with equilateral triangle
+latvia/open/1973-74_01/grade09/p3,prove_other,"MN = (AD-BC)/2 is a length relation, not an equal-segments fact"
+latvia/open/1973-74_01/grade10/p1,compute,compute sin 54 minus sin 18
+latvia/open/1973-74_01/grade10/p4,solid,midpoints of six cube edges lie in one plane
+latvia/open/1973-74_01/grade10/p5,construction,"construct triangle from base, altitude and base angle difference"
+latvia/open/1973-74_01/grade11/p1,solid,volume of sphere part outside tetrahedron tangent to edges
+latvia/open/1973-74_01/grade11/p2,combinatorial,count segments in non-crossing triangulation of interior points
+latvia/open/1974-75_02/grade07/p5,existence,can rectangular cake fit round plate after one straight cut
+latvia/open/1974-75_02/grade08/p2,compute,compute A15B15 and A20A21 in angle construction sequence
+latvia/open/1974-75_02/grade09/p1,construction,"construct triangle from vertex, circumcentre and incentre"
+latvia/open/1974-75_02/grade09/p4,compute,side of regular decagon with circumradius 1
+latvia/open/1974-75_02/grade10/p4,solid,describe pyramids where no two altitudes intersect
+latvia/open/1974-75_02/grade10/p5,find_all,trapezoid angles maximising area given side and base
+latvia/open/1974-75_02/grade11/p4,solid,sum of face angles of convex polyhedron via Euler formula
+latvia/open/1974-75_02/grade11/p5,combinatorial,cover circle by arcs with total length at most 720
+latvia/open/1975-76_03/grade07/p2,compute,areas of triangles in repeated midpoint construction in square
+latvia/open/1975-76_03/grade07/p5,construction,draw chord trisecting by two given radii
+latvia/open/1975-76_03/grade08/p2,compute,sum of two triangle areas in square and extremal x
+latvia/open/1975-76_03/grade08/p5,construction,construct triangle from line of side AC and two altitude feet
+latvia/open/1975-76_03/grade09/p4,compute,distance to fourth rectangle vertex from three distances
+latvia/open/1975-76_03/grade09/p5,compute,length PK from two tangent circles and chord data
+latvia/open/1975-76_03/grade10/p2,solid,cross-section area of hexagonal pyramid parallel to face
+latvia/open/1975-76_03/grade11/p1,compute,meeting point and distances of three walkers on triangle
+latvia/open/1975-76_03/grade11/p4,solid,"hollow convex polyhedron with unlit point, light perpendicular to faces"
+latvia/open/1976-77_04/grade07/p2,construction,construct altitudes with one compass use
+latvia/open/1976-77_04/grade08/p2,find_all,lines t whose reflected rotation is parallel to t
+latvia/open/1976-77_04/grade08/p3,construction,construct isosceles triangle with points on two sides
+latvia/open/1976-77_04/grade08/p4,combinatorial,monochromatic right triangle exists in 3-colouring
+latvia/open/1976-77_04/grade09/p3,compute,radius of fourth circle tangent to three circles with collinear centres
+latvia/open/1976-77_04/grade11/p3,solid,"cube inscribed in tetrahedron with perpendicular edges, find edge"
+latvia/open/1976-77_04/grade11/p4,solid,construct segment equal to ball radius using compass on sphere
+latvia/open/1977-78_05/grade06/p3,compute,length BD from collinear points with given distances
+latvia/open/1977-78_05/grade06/p4,construction,construct isosceles triangle from base and altitude to side
+latvia/open/1977-78_05/grade07/p5,construction,perpendicular at point using ruler with parallel edges and pencil
+latvia/open/1977-78_05/grade08/p2,compute,area of trapezoid with inscribed circle and base angles
+latvia/open/1977-78_05/grade09/p2,solid,tetrahedron parallel projection to parallelogram
+latvia/open/1977-78_05/grade09/p5,solid,count parallelepipeds with four given vertices
+latvia/open/1977-78_05/grade10/p5,solid,volume of polyhedron from pyramid volume V
+latvia/open/1977-78_05/grade11/p4,combinatorial,"partition plane points into two sets, each segment meets both"
+latvia/open/1978-79_06/grade04/p5,combinatorial,six points with twelve non-crossing segments
+latvia/open/1978-79_06/grade05/p3,combinatorial,count distinct midpoints of segments among grid points
+latvia/open/1978-79_06/grade06/p3,construction,construct point C on line with equal angles to line
+latvia/open/1978-79_06/grade07/p3,prove_other,no triangle or quadrilateral point lies outside all diameter circles
+latvia/open/1978-79_06/grade09/p2,solid,construct cube section through three given points
+latvia/open/1978-79_06/grade10/p2,compute,area common to four unit circles centred at square vertices
+latvia/open/1978-79_06/grade11/p5,solid,sum of six segment ratios equals 3 in tetrahedron
+latvia/open/1979-80_07/grade04/p2,combinatorial,count unit cubes with a black face in box
+latvia/open/1979-80_07/grade05/p4,combinatorial,game placing coloured balls on cube vertices
+latvia/open/1979-80_07/grade06/p5,combinatorial,maximum number of regions from 10 lines
+latvia/open/1979-80_07/grade08/p2,prove_other,equal areas of triangle AOF and quadrilateral MCNO
+latvia/open/1979-80_07/grade08/p3,find_all,locus traced by point of sliding angle with circles
+latvia/open/1979-80_07/grade09/p2,solid,cube edge vectors with zero sum possible
+latvia/open/1979-80_07/grade10/p3,solid,pyramid edge directions giving zero vector sum
+latvia/open/1979-80_07/grade10/p5,inequality,trig sum of sines at most 1 given odd sum condition
+latvia/open/1979-80_07/grade11/p3,solid,angle between projection of line in dihedral face and edge
+latvia/open/1980-81_08/grade07/p3,prove_other,equal areas of triangles CMN and CKL in parallelogram
+latvia/open/1980-81_08/grade08/p3,combinatorial,dissect triangle into parts forming cyclic quadrilateral
+latvia/open/1980-81_08/grade08/p5,combinatorial,lattice triangle with integer area among five points
+latvia/open/1980-81_08/grade09/p4,compute,angle BAE in equilateral pentagon with angle condition
+latvia/open/1980-81_08/grade09/p5,combinatorial,at most 30 unit segments among ten points
+latvia/open/1980-81_08/grade10/p5,combinatorial,at least 33 disjoint black rhombi in triangle grid
+latvia/open/1980-81_08/grade11/p4,solid,volume of convex polyhedron inside unit cube with given projections
+latvia/open/1981-82_09/grade04/p1,existence,can five lines give exactly six intersections
+latvia/open/1981-82_09/grade06/p2,combinatorial,nine segments avoiding triangle with vertices among six points
+latvia/open/1981-82_09/grade07/p1,solid,maximum number of cube lines with no two parallel
+latvia/open/1981-82_09/grade09/p3,combinatorial,minimal subset of 25 vectors summing to zero
+latvia/open/1981-82_09/grade10/p1,prove_other,rhombus-based rectangle MNKL is not a square
+latvia/open/1981-82_09/grade10/p3,solid,line with two line projections necessarily a line
+latvia/open/1981-82_09/grade10/p4,construction,ruler-only construction of segments in regular hexagon
+latvia/open/1981-82_09/grade11/p1,prove_other,trig identity implies a + b = 90 degrees
+latvia/open/1982-83_10/grade06/p5,combinatorial,three-colouring of tangent circles with no equal touching
+latvia/open/1982-83_10/grade07/p2,combinatorial,all region counts for three circles
+latvia/open/1982-83_10/grade07/p4,prove_other,compare areas of two trapezoid parts from midline point
+latvia/open/1982-83_10/grade09/p1,solid,can cube section plane be a pentagon
+latvia/open/1982-83_10/grade09/p4,inequality,sum of 1983 unit vectors exceeds 1
+latvia/open/1982-83_10/grade10/p3,compute,angles of largest-area triangle from regular 217-gon vertices
+latvia/open/1982-83_10/grade11/p2,solid,pyramid with equal median pairs has congruent faces
+latvia/open/1982-83_10/grade11/p3,prove_other,equal alternating sums of perpendicular segments in n-gon
+latvia/open/1982-83_10/grade11/p5,combinatorial,rolling tetrahedron back to start after 1983 moves
+latvia/open/1983-84_11/grade06/p2,inequality,angle ABC greater than ADC for point inside triangle
+latvia/open/1983-84_11/grade06/p5,combinatorial,1000 disjoint quadrilaterals from 4000 points
+latvia/open/1983-84_11/grade07/p3,inequality,triangle from three of eight segments with length bounds
+latvia/open/1983-84_11/grade07/p4,combinatorial,12-gon dissected into parallelograms contains three rectangles
+latvia/open/1983-84_11/grade08/p4,combinatorial,clock sums reaching all 1984 on board
+latvia/open/1983-84_11/grade08/p5,inequality,inner polygon perimeter at least bound in circle
+latvia/open/1983-84_11/grade09/p2,existence,can projections under 1 cm fit circle diameter 1 and 1.5
+latvia/open/1983-84_11/grade10/p1,solid,trihedral angle sum equal to sum of dihedral angles possible
+latvia/open/1983-84_11/grade10/p5,combinatorial,maximum count of regular triangles from six lines
+latvia/open/1983-84_11/grade11/p2,inequality,sum of cevian lengths less than side of regular triangle
+latvia/open/1983-84_11/grade11/p4,solid,tetrahedron cevians through A1 B1 C1 D1 concurrent
+latvia/open/1984-85_12/grade04/p3,combinatorial,count visible painted unit cubes in 10x11x12 box
+latvia/open/1984-85_12/grade05/p1,combinatorial,seven segments with twelve perpendicular pairs
+latvia/open/1984-85_12/grade05/p4,combinatorial,regions formed by two convex quadrilateral contours
+latvia/open/1984-85_12/grade07/p3,construction,construct triangle and pentagon from midpoints
+latvia/open/1984-85_12/grade07/p4,combinatorial,two of five lattice points with lattice midpoint
+latvia/open/1984-85_12/grade07/p5,combinatorial,minimum colours for octagon sides and diagonals
+latvia/open/1984-85_12/grade08/p5,prove_other,hexagon area from perpendiculars equals half triangle
+latvia/open/1984-85_12/grade09/p1,inequality,which of triangle and 9-gon has larger sum of squared sides
+latvia/open/1984-85_12/grade10/p3,inequality,area of MNK at most one third of ABC
+latvia/open/1984-85_12/grade11/p1,compute,area of triangle BMO in unit square
+latvia/open/1984-85_12/grade11/p5,existence,four points with no three collinear and distinct distances
+latvia/open/1985-86_13/grade04/p3,combinatorial,possible numbers of intersection points of four lines
+latvia/open/1985-86_13/grade05/p3,combinatorial,count right angles on cube surface formed by small cubes
+latvia/open/1985-86_13/grade08/p2,prove_other,regular octagon side identity with product of two sides
+latvia/open/1985-86_13/grade09/p4,compute,area of quadrilateral from equal-division segment areas
+latvia/open/1985-86_13/grade10/p4,solid,construct polyhedron with interior point projecting outside faces
+latvia/open/1985-86_13/grade10/p5,inequality,sum of three incircle radii at least inradius
+latvia/open/1985-86_13/grade11/p3,solid,sum of squared perpendicular chords through point in sphere constant
+latvia/open/1985-86_13/grade11/p4,combinatorial,edge recolouring of polyhedron preserving vertex rules
+latvia/open/1986-87_14/grade04/p1,combinatorial,example of line splitting octagon into 2 to 5 parts
+latvia/open/1986-87_14/grade07/p3,combinatorial,possible dimensions of box from 1987 unit cubes
+latvia/open/1986-87_14/grade08/p1,compute,side lengths of right triangle from R and r
+latvia/open/1986-87_14/grade10/p2,prove_other,sixth small triangle area equal given five equal areas
+latvia/open/1986-87_14/grade10/p4,combinatorial,cut cube into 20 pieces to form 1x1x216 box
+latvia/open/1986-87_14/grade11/p3,inequality,sum of squared cosines of triangle angles bound
+latvia/open/1986-87_14/grade11/p5,solid,regions of space cut by eight face planes of two pyramids
+latvia/open/1987-88_15/grade04/p5,combinatorial,colour cube squares with two or three colours no adjacent
+latvia/open/1987-88_15/grade05/p3,combinatorial,count distinct rays rotating by 210 degrees
+latvia/open/1987-88_15/grade06/p3,existence,are triangles with two equal sides and altitude congruent
+latvia/open/1987-88_15/grade06/p5,combinatorial,minimum blue points in hexagon with red vertices
+latvia/open/1987-88_15/grade09/p4,combinatorial,circle on lattice with radius natural or sqrt natural
+latvia/open/1987-88_15/grade10/p3,solid,convex polyhedron with eight quadrilateral faces exists
+latvia/open/1987-88_15/grade11/p4,solid,pyramid with given six edge lengths exists
+latvia/open/1988-89_16/grade05/p4,combinatorial,segments versus lines with same number of intersections
+latvia/open/1988-89_16/grade06/p4,combinatorial,two-colour intersection points on 100 lines
+latvia/open/1988-89_16/grade07/p2,find_all,point M on hypotenuse minimising EF
+latvia/open/1988-89_16/grade09/p3,combinatorial,64-gon segments of pairwise different lengths
+latvia/open/1988-89_16/grade10/p3,inequality,area of EFM less than sum of two triangle areas
+latvia/open/1988-89_16/grade10/p4,prove_other,parity of areas from medians in integer right triangle
+latvia/open/1989-90_17/grade07/p4,combinatorial,triangles from non-crossing segments in triangle with 10 points
+latvia/open/1989-90_17/grade10/p2,combinatorial,colour 27 unit cubes into 3x3x3 with two colours per column
+latvia/open/1989-90_17/grade11/p2,combinatorial,count perpendicular pairs among cube edges and face diagonals
+latvia/open/1989-90_17/grade11/p4,compute,largest area quadrilateral with three sides 1 and a right angle
+latvia/open/1989-90_17/grade12/p4,solid,convex polyhedron with triangular section and five edges per vertex
+latvia/open/1990-91_18/grade07/p1,existence,can four linear function graphs match given figure
+latvia/open/1990-91_18/grade09/p4,combinatorial,three of eight integer points with integer centroid
+latvia/open/1990-91_18/grade10/p3,prove_other,sum of circle radii independent of line position
+latvia/open/1990-91_18/grade11/p4,prove_other,MN equals R plus 3r for three tangent circles
+latvia/open/1990-91_18/grade12/p5,inequality,area of MNK at least area of triangle ABC
+latvia/open/1991-92_19/grade05/p3,combinatorial,cube vertex numbers with sum 1992 possible
+latvia/open/1991-92_19/grade08/p2,combinatorial,cut quadrilateral into three pieces forming trapezoid
+latvia/open/1991-92_19/grade09/p4,compute,relate distance to hypotenuse with triangle perimeter
+latvia/open/1991-92_19/grade12/p4,solid,plane at distance up to 600 from A missing segments
+latvia/open/1992-93_20/grade05/p3,combinatorial,cube vertex numbers with sum 1993 possible
+latvia/open/1992-93_20/grade06/p5,construction,draw quadrilateral and pentagon sharing many sides
+latvia/open/1992-93_20/grade07/p4,construction,draw convex decagon not common part of four triangles
+latvia/open/1992-93_20/grade08/p5,prove_other,area of triangle ACE half of hexagon area
+latvia/open/1992-93_20/grade09/p4,prove_other,equal areas of triangles ABS and CDR
+latvia/open/1992-93_20/grade10/p2,prove_other,parallelograms ABCD and BMNK have equal area
+latvia/open/1992-93_20/grade11/p4,combinatorial,dissect regular triangle into five isosceles with two regular
+latvia/open/1992-93_20/grade12/p2,combinatorial,line through two of 2n points with n-1 on each side
+latvia/open/1993-94_21/grade05/p4,combinatorial,flies on cube vertices avoid shared edges after moving
+latvia/open/1993-94_21/grade08/p2,combinatorial,eight distinct chords among 16 equally spaced points
+latvia/open/1993-94_21/grade11/p4,combinatorial,"cube columns of integers summing to zero, constructive"
+latvia/open/1993-94_21/grade11/p5,compute,largest number of midpoints on one circle in 100-gon
+latvia/open/1993-94_21/grade12/p5,combinatorial,minimum points so each line i contains exactly i points
+latvia/open/1994-95_22/grade09/p5,prove_other,"circumcircles of AMN BMK CNK concur, not a listed fact"
+latvia/open/1994-95_22/grade10/p3,prove_other,circumcircles of outer equilateral triangles concur
+latvia/open/1994-95_22/grade10/p5,prove_other,area of triangle from parallel lines equals twice ABC
+latvia/open/1994-95_22/grade11/p3,combinatorial,count parallelepipeds having four given vertices
+latvia/open/1994-95_22/grade12/p2,solid,"convex polyhedron with triangular faces, possible face counts"
+latvia/open/1994-95_22/grade12/p5,compute,maximise quadrilateral area with points on four circles
+latvia/open/1995-96_23/grade07/p2,combinatorial,vertex count of polygon cut by one line
+latvia/open/1995-96_23/grade08/p5,existence,can segment lengths in the drawing occur
+latvia/open/1995-96_23/grade10/p2,prove_other,circumcircles of outer equilateral triangles concur
+latvia/open/1995-96_23/grade12/p2,solid,"convex polyhedron with n triangular faces, possible n"
+latvia/open/1996-97_24/grade07/p2,combinatorial,vertex count of polygon cut by one line
+latvia/open/1996-97_24/grade08/p3,existence,can common internal tangents cross at three distinct points
+latvia/open/1996-97_24/grade09/p5,find_all,natural n for equilateral triangle cut into trapezoids
+latvia/open/1996-97_24/grade10/p2,prove_other,circumcircles of outer equilateral triangles concur
+latvia/open/1996-97_24/grade10/p5,combinatorial,"coloured plane game, equilateral red triangle forced"
+latvia/open/1996-97_24/grade12/p3,combinatorial,colour cube vertices avoiding monochromatic coplanar four
+latvia/open/1996-97_24/grade12/p4,prove_other,hexagon area is twice triangle ABC area
+latvia/open/1997-98_25/grades5-8/grade06/p2,combinatorial,wrap cube surface with given tile figures
+latvia/open/1998-99_26/grade05/p3,combinatorial,count integer rectangles by perimeter
+latvia/open/1998-99_26/grade05/p4,compute,"octagon midpoint sums, find number at X"
+latvia/open/1998-99_26/grade06/p2,combinatorial,cover cube surface with given tile figure
+latvia/open/1998-99_26/grade11/p4,compute,"ant position on regular polygon, names garbled"
+latvia/open/1998-99_26/grade12/p3,solid,five points in space with distinct distances and equal cycles
+latvia/open/1999-00_27/grade06/p4,combinatorial,cube vertex numbering with equal face sums
+latvia/open/1999-00_27/grade08/p4,prove_other,sum of white-chord lengths equals red-chord lengths
+latvia/open/1999-00_27/grade09/p3,prove_other,sum of trisection segment lengths in right triangle
+latvia/open/1999-00_27/grade12/p3,solid,sphere tangent to all edges of tetrahedron
+latvia/open/1999-00_27/grade12/p4,combinatorial,max number of long chords among 2000 points
+latvia/open/2000-01_28/grade07/p4,combinatorial,max intersections of chords between six points on circle
+latvia/open/2000-01_28/grade08/p2,construction,dissect triangle into three isosceles triangles with equal sides
+latvia/open/2000-01_28/grade08/p4,prove_other,sum of white-chord lengths equals red-chord lengths
+latvia/open/2000-01_28/grade09/p2,prove_other,dissect convex quadrilateral into parts forming two parallelograms
+latvia/open/2000-01_28/grade09/p3,existence,quadrilateral with vertex-moving property exists
+latvia/open/2000-01_28/grade10/p4,combinatorial,"tile with 2x2 squares and 1x4 rectangles, n=2000 or 2001"
+latvia/open/2000-01_28/grade12/p4,solid,max edges of polyhedron crossed by one plane
+latvia/open/2001-02_29/grade07/p3,combinatorial,"six-point graph, choose three edges with distinct endpoints"
+latvia/open/2001-02_29/grade08/p4,compute,"pentagon with right angles, compute angle ACE"
+latvia/open/2001-02_29/grade09/p2,prove_other,every triangle dissected into five isosceles triangles
+latvia/open/2001-02_29/grade09/p4,combinatorial,"cube rolling puzzle, position in row"
+latvia/open/2001-02_29/grade11/p4,prove_other,sector areas in regular hexagon sum equally
+latvia/open/2002-03_30/grade07/p2,combinatorial,counting triangles and polygons from four lines
+latvia/open/2002-03_30/grade12/p1,prove_other,rational cosines iff similar to integer-sided triangle
+latvia/open/2003-04_31/grade10/p2,prove_other,circumcircle length depends only on chord MN
+latvia/open/2003-04_31/grade12/p2,solid,"squares in parallel planes, sum of squared diagonals"
+latvia/open/2004-05_32/grade08/p4,compute,"isosceles triangle with 20 deg, compute angles MCB MBC"
+latvia/open/2004-05_32/grade10/p2,prove_other,circumcircle length depends only on chord MN
+latvia/open/2004-05_32/grade12/p3,solid,"squares in parallel planes, sum of squared diagonals"
+latvia/open/2005-06_33/grade10/p2,prove_other,circumcircle length depends only on chord MN
+latvia/open/2005-06_33/grade12/p5,existence,"function on polygons with additive inequality, formula missing"
+latvia/open/2006-07_34/grade08/p2,compute,"isosceles triangle with 20 deg, compute angles MCB MBC"
+latvia/open/2006-07_34/grade10/p5,combinatorial,"n points, count pairwise nonparallel lines through pairs"
+latvia/open/2006-07_34/grade12/p2,compute,"cubic roots as box sides, compute volume and area"
+latvia/open/2006-07_34/grade12/p4,existence,circle cut into n equal pieces by lines and arcs
+latvia/open/2007-08_35/grade07/p5,combinatorial,colour five of 17 points avoiding red equilateral triangle
+latvia/open/2008-09_36/grade06/p5,combinatorial,"multi-part, first part is liar counting logic"
+latvia/open/2008-09_36/grade07/p2,existence,can MN exceed sides of scalene triangle
+latvia/open/2008-09_36/grade09/p3,existence,can stick endpoint distance AC exceed 2009
+latvia/open/2008-09_36/grade10/p3,existence,can stick endpoint distance AC exceed 2009
+latvia/open/2008-09_36/grade10/p5,combinatorial,"8x8 board, flip three-cell figure to all white"
+latvia/open/2009-10_37/grade07/p2,existence,can AB exceed AC with equal-area split
+latvia/open/2009-10_37/grade09/p2,prove_other,point on two parabola chords cannot be both midpoints
+latvia/open/2009-10_37/grade10/p2,prove_other,point on two parabola chords cannot be both midpoints
+latvia/open/2009-10_37/grade10/p3,compute,"multi-part, divisor numbers and parallelogram area"
+latvia/open/2009-10_37/grade11/p3,compute,cyclic quadrilateral area with bisector diagonals
+latvia/open/2009-10_37/grade12/p3,find_all,"n with n, d(n), d(d(n)) in arithmetic progression"
+latvia/open/2010-11_38/grade07/p5,combinatorial,"ten coloured points on line, integer distance pair"
+latvia/open/2010-11_38/grade08/p3,combinatorial,"cube edge midpoint numbers, possible equal face sums"
+latvia/open/2010-11_38/grade10/p2,compute,compute area of right triangle ABD
+latvia/open/2010-11_38/grade10/p4,inequality,some arc of 19 arcs at most 2 degrees
+latvia/open/2010-11_38/grade12/p4,compute,"multi-part, solve equation, trig extremes, space points"
+latvia/open/2011-12_39/grade05/p2,construction,dissect square into obtuse triangles
+latvia/open/2011-12_39/grade06/p2,construction,dissect square into obtuse triangles and halves
+latvia/open/2011-12_39/grade07/p2,combinatorial,count triangles from six segment lengths
+latvia/open/2011-12_39/grade08/p2,inequality,sum of distances from interior point exceeds half perimeter
+latvia/open/2011-12_39/grade09/p5,existence,trapezoid cannot split into five equal-area triangles
+latvia/open/2011-12_39/grade10/p2,inequality,prove BD greater than AC in convex quadrilateral
+latvia/open/2011-12_39/grade10/p4,inequality,some arc of 19 arcs at most 2 degrees
+latvia/open/2011-12_39/grade10/p5,combinatorial,max non-crossing green-red segments between parallel lines
+latvia/open/2011-12_39/grade11/p5,combinatorial,largest grid point set without good rectangle
+latvia/open/2011-12_39/grade12/p4,solid,isosceles triangles among six or seven points in space
+latvia/open/2011-12_39/grade12/p5,combinatorial,largest grid point set without good rectangle
+latvia/open/2012-13_40/grade05/p3,combinatorial,"fill circles with digits, equal line sums"
+latvia/open/2012-13_40/grade05/p5,combinatorial,colour cube face quarters with adjacent different colours
+latvia/open/2012-13_40/grade06/p3,combinatorial,"fill circles with digits, equal line sums"
+latvia/open/2012-13_40/grade06/p5,combinatorial,colour cube face quarters with adjacent different colours
+latvia/open/2012-13_40/grade07/p2,combinatorial,count triangles from six segment lengths
+latvia/open/2012-13_40/grade08/p2,combinatorial,count triangles from six segment lengths
+latvia/open/2012-13_40/grade09/p1,existence,trapezoid cannot split into five equal-area triangles
+latvia/open/2012-13_40/grade09/p5,prove_other,circles on sides as diameters cover convex quadrilateral
+latvia/open/2012-13_40/grade10/p1,existence,"trapezoid cannot split into five equal-area triangles, plus algebra"
+latvia/open/2012-13_40/grade10/p3,combinatorial,n-hexagon tilings avoiding figure with hole
+latvia/open/2012-13_40/grade12/p2,prove_other,three circles through midpoints concur
+latvia/open/2012-13_40/grade12/p5,combinatorial,"pin coloured papers on table, one needle each"
+latvia/open/2013-14_41/grade05/p3,compute,rectangle area and perimeter from shaded area
+latvia/open/2013-14_41/grade06/p4,compute,inner rectangle perimeter from square cut
+latvia/open/2013-14_41/grade07/p1,compute,compute AC from altitude and median lengths
+latvia/open/2013-14_41/grade08/p3,combinatorial,any 5 cube-skeleton vertices joined by 3 edges
+latvia/open/2013-14_41/grade08/p4,inequality,which of angles ABC or CDE is larger
+latvia/open/2013-14_41/grade09/p1,compute,sum of shaded areas in square with circle
+latvia/open/2013-14_41/grade09/p3,compute,find angle BAC from circle and parallel condition
+latvia/open/2013-14_41/grade10/p2,combinatorial,max non-crossing green-red segments between parallel lines
+latvia/open/2013-14_41/grade11/p1,combinatorial,count polygons with red vertex versus all-white
+latvia/open/2014-15_42/grade06/p3,combinatorial,"digits in circles, all triangle sums equal"
+latvia/open/2014-15_42/grade07/p4,find_all,"isosceles triangle angles, all cases"
+latvia/open/2014-15_42/grade09/p4,compute,angle CGD in isosceles trapezoid given CAD
+latvia/open/2014-15_42/grade09/p5,combinatorial,arrange 1 to 2n+1 with distinct adjacent differences
+latvia/open/2014-15_42/grade10/p4,inequality,"BD plus BE versus 2BC, relation garbled"
+latvia/open/2014-15_42/grade10/p5,construction,cut cake into equal prisms
+latvia/open/2015-16_43/grade11/p1,compute,"isosceles triangle with max area, lateral side 10"
+latvia/open/2015-16_43/grade11/p4,prove_other,area of AFG equals area of GHJK
+latvia/open/2016-17_44/grade08/p1,existence,does line contain point with given coordinate relations
+latvia/open/2016-17_44/grade08/p3,compute,"folded rectangle, find original side lengths"
+latvia/open/2016-17_44/grade09/p3,compute,triangle angles from exterior bisectors and equal lengths
+latvia/open/2016-17_44/grade10/p3,prove_other,AB times AP plus AD times AR equals AC times AQ
+latvia/open/2017-18_45/grade06/p5,combinatorial,dice sum counts and non-standard dice
+latvia/open/2017-18_45/grade07/p3,inequality,prove CD exceeds half of CA+CB-AB
+latvia/open/2017-18_45/grade08/p3,compute,area of quadrilateral from parallelogram midpoints
+latvia/open/2017-18_45/grade10/p3,prove_other,prove MN equals half perimeter of triangle
+latvia/open/2017-18_45/grade11/p3,prove_other,prove angle QAR equals twice angle XAY
+latvia/open/2017-18_45/grade12/p3,prove_other,prove A'E equals inradius of triangle EBD'
+latvia/open/2017-18_45/grade12/p5,combinatorial,"monochromatic triangle in two-coloured hexagon, existence and count"
+latvia/open/2018-19_46/grade05/p3,existence,can five lines give exactly six intersection points
+latvia/open/2018-19_46/grade07/p4,construction,draw pentagon from two equal pentagons of equilateral triangles
+latvia/open/2018-19_46/grade09/p1,combinatorial,count parallelograms formed by three line families
+latvia/open/2021-22_47/grade08/p1,compute,area of triangle from two lines and y-axis
+latvia/open/2021-22_47/grade10/p3,compute,area of triangle ABC from partial areas
+latvia/open/2021-22_47/grade11/p1,compute,area of triangle AOB from parabola vertices
+latvia/open/2021-22_47/grade12/p1,combinatorial,count distinct numbered pentagon plates under symmetries
+latvia/open/2022-23_48/grade07/p3,combinatorial,"six lines with seven points, three points per line"
+latvia/open/2022-23_48/grade08/p3,compute,compute angles of triangle ABC with equal segments
+latvia/open/2022-23_48/grade10/p3,compute,area of right triangle with inscribed circle centre on hypotenuse
+latvia/open/2022-23_48/grade11/p3,compute,side BC from incircle tangent lengths and angle
+latvia/open/2022-23_48/grade12/p3,find_all,possible area of triangle with given altitudes and median
+latvia/open/2023-24_49/grade08/p3,compute,express angle CGF in two equilateral triangles
+latvia/open/2023-24_49/grade09/p3,prove_other,prove bisector length is twice altitude length
+latvia/open/2023-24_49/grade10/p3,compute,find angle alpha in concave quadrilateral with equal sides
+latvia/open/2023-24_49/grade11/p3,compute,area of circle bounded by given circle with chords
+latvia/open/2023-24_49/grade12/p3,inequality,prove area of ABD at most area of CEF
+latvia/open/2024-25_50/grade08/p4,compute,express angle BCO in terms of alpha and beta
+latvia/open/2024-25_50/grade09/p4,prove_other,prove area identity for points on parallelogram sides
+latvia/open/2024-25_50/grade10/p5,existence,prove strategy exists with path length at most 2 pi S
+latvia/open/2025-26_51/grade08/p2,compute,compute angles of isosceles triangle ABC
+latvia/open/2025-26_51/grade09/p2,compute,"compute ratio DC from parallel medians, text garbled"
+latvia/open/2025-26_51/grade10/p2,compute,ratio in which AC divides segment MD for two squares
+latvia/open/2025-26_51/grade11/p2,combinatorial,minimal common sum for numbers on regular nonagon
+latvia/open/2025-26_51/grade12/p3,compute,compute angle DBE in triangle with altitude and median
+latvia/regional/1974-75_25/grade08/p4,compute,shape and diagonals of parallelogram angle-bisector quadrilateral
+latvia/regional/1974-75_25/grade09/p4,inequality,prove angle bisector shorter than 12 cm
+latvia/regional/1974-75_25/grade09/p5,compute,areas of circle and triangle division for regular triangle
+latvia/regional/1974-75_25/grade10/p4,solid,plane cuts convex four-face corner into parallelogram
+latvia/regional/1974-75_25/grade10/p5,construction,construct circle tangent to line and given circle
+latvia/regional/1974-75_25/grade11/p2,inequality,centroid lies nearest the longest side of triangle
+latvia/regional/1974-75_25/grade11/p3,solid,pyramid distance between apothem and diagonal
+latvia/regional/1975-76_26/grade08/p4,compute,side lengths of isosceles trapezoid from angles
+latvia/regional/1975-76_26/grade08/p5,compute,compute O1A and whether centre lies inside triangle
+latvia/regional/1975-76_26/grade09/p5,combinatorial,pursuit game in rectangle: can mouse escape cat
+latvia/regional/1975-76_26/grade10/p4,compute,angle between median and bisector in right triangle
+latvia/regional/1975-76_26/grade10/p5,solid,n pairwise intersecting lines coplanar or concurrent
+latvia/regional/1975-76_26/grade11/p4,solid,volume ratio of cube sections through vertex and midpoints
+latvia/regional/1975-76_26/grade11/p5,compute,optimal legs of n right triangles minimising hypotenuse sum
+latvia/regional/1976-77_27/grade08/p4,compute,height of tree from shadow on slope
+latvia/regional/1976-77_27/grade08/p5,construction,construct angle bisector with ruler and set square
+latvia/regional/1976-77_27/grade09/p4,solid,"cube section through line and point, possible polygon sides"
+latvia/regional/1976-77_27/grade10/p4,solid,"cube section through line and point, variant"
+latvia/regional/1976-77_27/grade11/p4,combinatorial,cut right isosceles triangle into finitely many acute triangles
+latvia/regional/1976-77_27/grade11/p5,solid,maximal shadow area of box projected onto plane
+latvia/regional/1977-78_28/grade08/p1,find_all,range of base length for two triangles of area 50
+latvia/regional/1977-78_28/grade08/p3,compute,common chord of two intersecting circles
+latvia/regional/1977-78_28/grade08/p5,existence,can 3x3 paper wrap unit cube
+latvia/regional/1977-78_28/grade09/p4,prove_other,prove three lines from equal circles are concurrent
+latvia/regional/1977-78_28/grade09/p5,construction,construct trapezoid point across two planes
+latvia/regional/1977-78_28/grade10/p3,find_all,value of a for line tangent to parabola
+latvia/regional/1977-78_28/grade10/p5,construction,"construct trapezoid point across two planes, variant"
+latvia/regional/1977-78_28/grade11/p2,prove_other,prove sum of squared distances independent of point M
+latvia/regional/1977-78_28/grade11/p3,existence,polyhedron with n edges exists for n above 7
+latvia/regional/1978-79_29/grade04/p3,combinatorial,union of triangle and quadrilateral can be n-gon
+latvia/regional/1978-79_29/grade04/p5,solid,minimal wire pieces to build cube frame
+latvia/regional/1978-79_29/grade06/p4,prove_other,symmetry under 7 and 9 degree rotations implies 1 degree
+latvia/regional/1978-79_29/grade07/p5,compute,areas in trapezoid from diagonal triangle areas
+latvia/regional/1978-79_29/grade08/p2,compute,common chord of two circles with given radii and centres
+latvia/regional/1978-79_29/grade08/p5,construction,construct points on angle sides for maximal triangle area
+latvia/regional/1978-79_29/grade09/p1,compute,area of overlap of two regular triangles
+latvia/regional/1978-79_29/grade09/p5,existence,find two functions with given continuity and derivative properties
+latvia/regional/1978-79_29/grade10/p3,solid,distance between skew lines bounded by a+b
+latvia/regional/1978-79_29/grade10/p4,find_all,"value of a for line tangent to parabola, variant"
+latvia/regional/1978-79_29/grade10/p5,prove_other,"functional inequality prove f(0)=f(1), not geometry"
+latvia/regional/1978-79_29/grade11/p2,prove_other,"prove squared sum independent of point M, variant"
+latvia/regional/1979-80_30/grade04/p4,combinatorial,"colour 16 grid points, no three collinear same colour"
+latvia/regional/1979-80_30/grade06/p4,construction,construct bisector part in ink-stained angle
+latvia/regional/1979-80_30/grade07/p5,prove_other,prove shaded quadrilateral areas sum to half
+latvia/regional/1979-80_30/grade09/p4,inequality,prove no segment longer than sum of other two
+latvia/regional/1979-80_30/grade10/p3,solid,possible distance of fourth parallelogram vertex from plane
+latvia/regional/1979-80_30/p1,combinatorial,place 1-6 in circles with equal line sums
+latvia/regional/1979-80_30/p3,solid,which folded figures give cube surface
+latvia/regional/1980-81_31/grade05/p3,combinatorial,place 1-8 on octagon vertices with distinct differences
+latvia/regional/1980-81_31/grade05/p4,combinatorial,cut square into five polygons with 3 to 7 sides
+latvia/regional/1980-81_31/grade06/p1,combinatorial,finite point set invariant under 43 degree rotation
+latvia/regional/1980-81_31/grade07/p5,combinatorial,circle through three of 1981 points with exactly 1000 inside
+latvia/regional/1980-81_31/grade08/p3,prove_other,prove quadrilateral area d1 d2 sin alpha
+latvia/regional/1980-81_31/grade09/p2,solid,construct cube section through B1 and edge midpoints
+latvia/regional/1980-81_31/grade10/p1,solid,distance between skew lines bounded by ab
+latvia/regional/1980-81_31/grade10/p3,combinatorial,minimal number of points whose projections match
+latvia/regional/1980-81_31/grade11/p2,solid,plane through pyramid edge halves lateral area ratio
+latvia/regional/1981-82_32/grade08/p3,prove_other,line through incentre bisects perimeter and area
+latvia/regional/1981-82_32/grade09/p1,solid,construct cube section through B1 and edge midpoints
+latvia/regional/1981-82_32/grade09/p2,inequality,diagonal of isosceles trapezoid longer than midline
+latvia/regional/1981-82_32/grade10/p3,solid,tetrahedron with equal angle sums has equal opposite edges
+latvia/regional/1981-82_32/grade11/p1,compute,largest area of rectangle inscribed in circle
+latvia/regional/1981-82_32/grade11/p4,solid,"tetrahedron opposite edges equal, duplicate"
+latvia/regional/1982-83_33/grade05/p5,combinatorial,"dodecagon sides on six lines, more than twelve sides"
+latvia/regional/1982-83_33/grade06/p1,inequality,prove sum of three edges from vertex less than 60 cm
+latvia/regional/1984-85_35/grade04/p3,combinatorial,draw seven segments forming 10 or 11 triangles
+latvia/regional/1984-85_35/grade05/p4,combinatorial,die faces numbers differing by one on adjacent faces
+latvia/regional/1984-85_35/grade06/p1,compute,angle between bisectors of angles A and C
+latvia/regional/1984-85_35/grade06/p3,combinatorial,"cut equilateral triangle into 4, 6, 7, 1985 triangles"
+latvia/regional/1984-85_35/grade07/p3,inequality,prove sum of cevians exceeds perimeter
+latvia/regional/1984-85_35/grade07/p5,combinatorial,colour 4x4x4 cube with two same-colour neighbours
+latvia/regional/1984-85_35/grade08/p3,prove_other,prove sum of squared chords independent of chord pair
+latvia/regional/1984-85_35/grade09/p1,solid,construct cube section through edge midpoints and face centre
+latvia/regional/1984-85_35/grade10/p1,prove_other,trig identity with garbled formula
+latvia/regional/1984-85_35/grade10/p2,solid,skew lines: equidistant points symmetric about common perpendicular
+latvia/regional/1984-85_35/grade10/p3,compute,minimal distance between parabola and line
+latvia/regional/1984-85_35/grade10/p4,combinatorial,two-colour regular 11-gon forces monochromatic isosceles triangle
+latvia/regional/1984-85_35/grade11/p1,compute,angles of triangle split into two isosceles triangles
+latvia/regional/1984-85_35/grade11/p2,find_all,possible number of triangular faces of convex polyhedron
+latvia/regional/1985-86_36/grade04/p3,combinatorial,draw triangles supporting each other in patterns
+latvia/regional/1985-86_36/grade05/p4,existence,20-gon where each side line contains another side
+latvia/regional/1985-86_36/grade07/p2,existence,convex quadrilateral with given sides and diagonals exists
+latvia/regional/1985-86_36/grade08/p3,compute,ratio AL:LC from median and cevian
+latvia/regional/1985-86_36/grade09/p1,solid,construct cube section through edge midpoints and face centre
+latvia/regional/1985-86_36/grade10/p3,compute,minimal distance between parabola and line
+latvia/regional/1985-86_36/grade11/p1,solid,maximal number of cube edges crossed by plane
+latvia/regional/1985-86_36/grade11/p4,prove_other,prove distance from O to CD is half of AB
+latvia/regional/1986-87_37/grade05/p2,existence,can sum of segment lengths equal 24
+latvia/regional/1986-87_37/grade06/p2,combinatorial,draw eight lines with exactly 13 intersection points
+latvia/regional/1986-87_37/grade08/p2,prove_other,prove median length formula from side squares
+latvia/regional/1986-87_37/grade09/p1,solid,"cube section through two faces and midpoint, variant"
+latvia/regional/1986-87_37/grade10/p4,combinatorial,count cubes in iterated symmetric cube construction
+latvia/regional/1986-87_37/grade11/p3,compute,length BD from angles and unit lengths
+latvia/regional/1986-87_37/grade11/p4,solid,plane through prism midpoints bisects volume
+latvia/regional/1987-88_38/grade04/p5,combinatorial,grasshoppers return to start after 1001 jumps
+latvia/regional/1987-88_38/grade06/p1,find_all,possible numbers of intersection points of lines
+latvia/regional/1987-88_38/grade08/p1,compute,ratio AL:LC from median and cevian
+latvia/regional/1987-88_38/grade09/p1,solid,construct pyramid section through edge midpoints and centroid
+latvia/regional/1987-88_38/grade09/p4,compute,area of quadrilateral MNKL from vectors
+latvia/regional/1987-88_38/grade10/p3,prove_other,radius ratio of two circles independent of point N
+latvia/regional/1987-88_38/grade10/p4,find_all,range of sum of unit vectors on pyramid edges
+latvia/regional/1987-88_38/grade11/p1,existence,"triangle with sides PA, PB, PC exists"
+latvia/regional/1987-88_38/grade11/p2,prove_other,number theory: a squared plus b squared divisible by 9
+latvia/regional/1988-89_39/grade04/p2,existence,can a line cross all sides of pentagon or hexagon
+latvia/regional/1988-89_39/grade04/p4,combinatorial,"colour 10 intersection points, two of each colour per line"
+latvia/regional/1988-89_39/grade06/p3,existence,can bisector rays form a 30 degree angle
+latvia/regional/1988-89_39/grade07/p3,prove_other,prove sum of squared segments equals AB squared
+latvia/regional/1988-89_39/grade07/p4,prove_other,prove sum of six alternate segment lengths equal
+latvia/regional/1988-89_39/grade08/p4,combinatorial,seven points: at least three distinct segment lengths
+latvia/regional/1988-89_39/grade09/p1,solid,construct cube section through face centres and edge midpoint
+latvia/regional/1988-89_39/grade09/p3,prove_other,trig: prove x minus y equals 121 degrees impossible
+latvia/regional/1988-89_39/grade10/p4,prove_other,prove angle bisector divides angle in ratio 2:1
+latvia/regional/1988-89_39/grade11/p3,existence,convex polyhedron with all faces at least six edges
+latvia/regional/1988-89_39/grade11/p4,combinatorial,number intersection points so each line is monotone
+latvia/regional/1989-90_40/grade06/p5,combinatorial,can sums of region corner counts differ
+latvia/regional/1989-90_40/grade08/p3,prove_other,"prove sum of squared segments equals AB squared, variant"
+latvia/regional/1989-90_40/grade10/p1,solid,construct cube section through face centres and edge midpoint
+latvia/regional/1989-90_40/grade11/p2,solid,construct projections of point between two planes
+latvia/regional/1989-90_40/grade11/p3,prove_other,"prove angle bisector divides angle 2:1, variant"
+latvia/regional/1989-90_40/grade12/p5,solid,count regions cut by planes in tetrahedron
+latvia/regional/1990-91_41/grade05/p4,combinatorial,draw six segments with four crossings each
+latvia/regional/1990-91_41/grade06/p1,combinatorial,three rays covering line: can two cover it
+latvia/regional/1990-91_41/grade06/p2,combinatorial,numbers on cube faces with odd sums at vertices
+latvia/regional/1990-91_41/grade09/p3,compute,compute length MP in triangle with bisector and midpoint
+latvia/regional/1990-91_41/grade10/p2,prove_other,prove sum of semicircle areas equals triangle area
+latvia/regional/1990-91_41/grade11/p2,construction,construct pyramid face heights from apex with justification
+latvia/regional/1991-92_42/grade05/p4,combinatorial,count possible intersection points of six segments
+latvia/regional/1991-92_42/grade06/p4,combinatorial,cube edge numbering with triple sums divisible by 3
+latvia/regional/1991-92_42/grade07/p2,combinatorial,number pentagram vertices so each line is monotone
+latvia/regional/1991-92_42/grade08/p4,combinatorial,count squares with vertices at white points on circle
+latvia/regional/1991-92_42/grade09/p2,compute,compute length MP; trailing text garbled
+latvia/regional/1991-92_42/grade10/p4,prove_other,prove sum of three segment ratios equals one
+latvia/regional/1991-92_42/grade10/p5,compute,compute angle ACB from given angle conditions
+latvia/regional/1991-92_42/grade11/p3,solid,"regular triangle tilted over plane, sine identity"
+latvia/regional/1991-92_42/grade12/p3,solid,count regions cut by planes parallel to pyramid faces
+latvia/regional/1992-93_43/grade05/p2,combinatorial,count possible intersection points of six segments
+latvia/regional/1992-93_43/grade06/p4,combinatorial,cube edge numbering with triple sums divisible by 3
+latvia/regional/1992-93_43/grade08/p2,combinatorial,can equilateral triangle be cut into 12 equal triangles
+latvia/regional/1992-93_43/grade08/p4,existence,hexagon with exactly six or five acute angles possible
+latvia/regional/1992-93_43/grade08/p5,combinatorial,reorder circle numbers with swaps of differing pairs
+latvia/regional/1992-93_43/grade10/p1,inequality,prove inequality between sides with larger angle A
+latvia/regional/1992-93_43/grade11/p2,solid,"regular triangle over plane, sine identity"
+latvia/regional/1992-93_43/grade11/p5,prove_other,prove equal sums of alternately coloured segment lengths
+latvia/regional/1992-93_43/grade12/p2,prove_other,prove equal sums of squared lengths of hexagon sides
+latvia/regional/1992-93_43/grade12/p4,solid,parallelepiped face diagonals: angle sum equals 180 degrees
+latvia/regional/1993-94_44/grade05/p2,combinatorial,place numbers in regions of four lines in circle
+latvia/regional/1993-94_44/grade06/p2,combinatorial,cube edge numbering with triple sums divisible by 3
+latvia/regional/1993-94_44/grade08/p3,existence,hexagon with exactly six or five acute angles possible
+latvia/regional/1993-94_44/grade08/p5,combinatorial,minimum points carrying segments of given lengths
+latvia/regional/1993-94_44/grade09/p4,construction,find midpoint with ruler and trisector only
+latvia/regional/1993-94_44/grade10/p1,compute,compute area of triangle ASM in unit square
+latvia/regional/1993-94_44/grade11/p2,prove_other,prove product of parallelogram areas vs triangle areas
+latvia/regional/1993-94_44/grade12/p4,solid,parallelepiped face diagonals: angle sum equals 180 degrees
+latvia/regional/1993-94_44/grade12/p5,combinatorial,colour polygon edges and diagonals avoiding monochromatic cycle
+latvia/regional/1994-95_45/day2/grade12/p1,combinatorial,"mixed sheet of counting, numeric and angle tasks"
+latvia/regional/1994-95_45/day2/grade12/p2,combinatorial,"mixed sheet of divisibility, sequences and counting tasks"
+latvia/regional/1994-95_45/grade05/p5,combinatorial,cube vertex numbers: two equal edge differences forced
+latvia/regional/1994-95_45/grade07/p3,combinatorial,ten circles with 91 intersections force coincidence
+latvia/regional/1994-95_45/grade09/p2,existence,"triangle with sides a, b, a-c and 60 degree exists"
+latvia/regional/1994-95_45/grade09/p4,construction,find midpoint with ruler and trisector only
+latvia/regional/1994-95_45/grade10/p2,prove_other,inscribed polygon with equal angles has even vertices
+latvia/regional/1994-95_45/grade12/p4,solid,cube unit: nine solids volume sum exceeds 8 gives common point
+latvia/regional/1995-96_46/grade06/p2,combinatorial,cube edge numbering with triple sums divisible by 3
+latvia/regional/1995-96_46/grade08/p3,combinatorial,colour cube face squares with count constraints
+latvia/regional/1995-96_46/grade08/p5,compute,max polygon sides with integer-degree angles
+latvia/regional/1995-96_46/grade09/p4,prove_other,prove right triangle identity p(p-c) = (p-a)(p-b) = S
+latvia/regional/1995-96_46/grade10/p2,prove_other,inscribed polygon with equal angles has even vertices
+latvia/regional/1995-96_46/grade11/p4,compute,regular triangle area 9; line through centre; question incomplete
+latvia/regional/1995-96_46/grade12/p4,prove_other,prove product identity for cyclic quadrilateral with perpendicular diagonals
+latvia/regional/1996-97_47/grade07/p3,combinatorial,polygon from three angles: possible sides and maximum
+latvia/regional/1996-97_47/grade08/p2,compute,max polygon sides with integer-degree angles
+latvia/regional/1996-97_47/grade08/p3,prove_other,prove perimeters of two triangles equal
+latvia/regional/1996-97_47/grade09/p5,compute,compute triangle angles from altitude conditions
+latvia/regional/1996-97_47/grade10/p2,existence,right triangle with c + h = a + b possible?
+latvia/regional/1997-98_48/grade05/p5,combinatorial,children around circle lie; prove boys all lie
+latvia/regional/1997-98_48/grade06/p5,combinatorial,children around circle; prove equal boys and girls
+latvia/regional/1997-98_48/grade07/p3,combinatorial,polygon from three angles: possible sides and maximum
+latvia/regional/1997-98_48/grade08/p2,prove_other,prove perimeters of two triangles equal
+latvia/regional/1997-98_48/grade09/p3,combinatorial,count acute triangles among two triangles from diagonal
+latvia/regional/1997-98_48/grade10/p2,prove_other,prove at most one acute triangle in pentagon split
+latvia/regional/1997-98_48/grade12/p3,prove_other,prove cyclic quadrilaterals impossible; figure missing
+latvia/regional/1998-99_49/grade09/p4,compute,construct example and compute angle between diagonals
+latvia/regional/1998-99_49/grade11/p2,combinatorial,erase four marked points from subdivided triangle
+latvia/regional/1998-99_49/grade11/p3,compute,smallest positive value of 56^x - 5^y; text garbled
+latvia/regional/1998-99_49/grade11/p4,prove_other,prove distance between incentres equals sqrt 2
+latvia/regional/1999-00_50/grade06/p5,combinatorial,cube face numbers with neighbour sums; integer question
+latvia/regional/1999-00_50/grade07/p3,combinatorial,polygon from three angles: possible sides and maximum
+latvia/regional/1999-00_50/grade08/p2,combinatorial,five points on circle: maximal chords without quadrilateral
+latvia/regional/1999-00_50/grade08/p4,prove_other,prove angle sum MAN + MCN equals 60 degrees
+latvia/regional/1999-00_50/grade12/p3,solid,cube side 3: count small cubes cut by plane
+latvia/regional/2000-01_51/grade11/p5,combinatorial,n-gon labelling: can five chosen lengths be distinct
+latvia/regional/2001-02_52/grade07/p4,existence,six segments summing to 43 cm: quadrilateral necessarily exists?
+latvia/regional/2001-02_52/grade08/p4,prove_other,prove AB + AK = CK from parallel to bisector
+latvia/regional/2001-02_52/grade09/p3,prove_other,midpoint distance to AB independent of C position
+latvia/regional/2001-02_52/grade10/p4,prove_other,prove equal areas of triangles BMS and DLS
+latvia/regional/2001-02_52/grade11/p5,combinatorial,count good diagonals of labelled n-gon
+latvia/regional/2001-02_52/grade12/p5,solid,four spheres from tetrahedron: equal and concurrent
+latvia/regional/2002-03_53/grade07/p2,existence,six segments summing to 43 cm: quadrilateral necessarily exists?
+latvia/regional/2002-03_53/grade10/p4,combinatorial,n by n grid diagonal sums equal one
+latvia/regional/2002-03_53/grade12/p2,compute,compute triangle angles from incircle radii condition
+latvia/regional/2003-04_54/grade05/p3,combinatorial,can cube surface be covered by six given figures
+latvia/regional/2003-04_54/grade07/p3,compute,find length BD from given segment lengths
+latvia/regional/2003-04_54/grade08/p3,combinatorial,pentagon diagonal intersection points: maximum and minimum
+latvia/regional/2003-04_54/grade08/p5,combinatorial,can one player force two triangle contours from segments
+latvia/regional/2003-04_54/grade10/p3,compute,area of cyclic quadrilateral with given sides
+latvia/regional/2003-04_54/grade10/p4,combinatorial,"n-gon labelling: triangle types match, parity of n"
+latvia/regional/2003-04_54/grade11/p3,inequality,prove angle inequality in obtuse triangle circumcentre
+latvia/regional/2004-05_55/grade06/p2,combinatorial,"gnomes around circle: possible for n = 2004, 2005"
+latvia/regional/2004-05_55/grade08/p4,find_all,points C making isosceles triangle with A and B
+latvia/regional/2005-06_56/grade06/p1,existence,five points on line with given distances possible?
+latvia/regional/2005-06_56/grade07/p1,combinatorial,count triangles with vertices among five points
+latvia/regional/2005-06_56/grade08/p2,combinatorial,can one player force two triangle contours from segments
+latvia/regional/2005-06_56/grade09/p2,prove_other,prove equal areas of triangles BMC and KCD
+latvia/regional/2005-06_56/grade10/p2,combinatorial,"n-gon labelling: triangle types match, parity of n"
+latvia/regional/2005-06_56/grade12/p1,prove_other,sum of abscissas of graph intersections is zero
+latvia/regional/2006-07_57/grade08/p3,existence,interior point with three angle inequalities possible?
+latvia/regional/2006-07_57/grade09/p3,compute,compute triangle angles from median and tangent condition
+latvia/regional/2007-08_58/grade07/p4,existence,hexagon cut into two triangles or quadrilaterals possible?
+latvia/regional/2007-08_58/grade09/p2,compute,minimal triangle area given altitude lower bounds
+latvia/regional/2007-08_58/grade10/p3,compute,compute angle AKC in right triangle figure
+latvia/regional/2007-08_58/grade11/p5,existence,"regular n-gon labelling possible for n = 8, 7, 10, 16?"
+latvia/regional/2008-09_59/grade07/p4,combinatorial,max red grid points with no perpendicular segments
+latvia/regional/2008-09_59/grade08/p5,inequality,prove 3 AC > AB in isosceles triangle with 20 degrees
+latvia/regional/2008-09_59/grade09/p1,compute,minimal triangle area given altitude lower bounds
+latvia/regional/2008-09_59/grade10/p2,prove_other,prove incircle line bisects triangle perimeter
+latvia/regional/2008-09_59/grade11/p1,existence,"regular n-gon labelling possible for n = 8, 7, 10, 16?"
+latvia/regional/2008-09_59/grade11/p4,prove_other,prove AM + CL = AN + CK in triangle figure
+latvia/regional/2008-09_59/grade11/p5,combinatorial,"seven points in space, two-coloured segments, monochromatic triangles"
+latvia/regional/2008-09_59/grade12/p4,prove_other,prove AM + CL = AN + CK in regular triangle figure
+latvia/regional/2008-09_59/grade12/p5,solid,count parallelepipeds from four non-coplanar points
+latvia/regional/2009-10_60/grade08/p2,inequality,prove 3 AC > AB in isosceles triangle with 20 degrees
+latvia/regional/2009-10_60/grade09/p2,prove_other,iff with algebraic condition R^2 + r^2 = d^2 (review 2026-11-12)
+latvia/regional/2009-10_60/grade09/p3,inequality,sum of distances from interior point at most largest altitude
+latvia/regional/2009-10_60/grade11/p4,prove_other,prove equal areas of triangles ABN and CDM
+latvia/regional/2009-10_60/grade12/p4,prove_other,cyclic hexagon: product of side groups equal via concurrency
+latvia/regional/2010-11_61/grade09/p2,compute,compute angle ABE from arc and square figure
+latvia/regional/2010-11_61/grade10/p2,inequality,prove DC - DB > AC - AB in triangle with altitude
+latvia/regional/2010-11_61/grade10/p4,compute,ratio of areas of triangles CEF and ABC
+latvia/regional/2010-11_61/grade11/p2,prove_other,prove equal areas of triangles ADE and BCF
+latvia/regional/2010-11_61/grade12/p2,prove_other,prove equal areas of triangles cut by parallels through P
+latvia/regional/2010-11_61/grade12/p5,solid,polyhedron with odd faces and odd vertices impossible
+latvia/regional/2011-12_62/grade06/p3,existence,hexagon or heptagon with circle crossing each side once
+latvia/regional/2011-12_62/grade06/p4,combinatorial,pentagon integers with prime sums of neighbours
+latvia/regional/2011-12_62/grade07/p2,construction,draw closed broken line with seven segments
+latvia/regional/2011-12_62/grade07/p5,combinatorial,choose four triangles with number sum at least 18
+latvia/regional/2011-12_62/grade11/p3,inequality,compare sums of squared sides of nonagon and triangle
+latvia/regional/2011-12_62/grade12/p2,solid,polyhedron with odd faces and odd vertices impossible
+latvia/regional/2012-13_63/grade05/p4,combinatorial,pentagon integers with gcd conditions on sides and diagonals
+latvia/regional/2012-13_63/grade06/p3,existence,12-gon or 13-gon with circle crossing each side once
+latvia/regional/2012-13_63/grade07/p3,existence,11-gon or 12-gon with eight collinear vertices exists?
+latvia/regional/2012-13_63/grade07/p5,combinatorial,choose four triangles with number sum at least 18
+latvia/regional/2012-13_63/grade08/p2,compute,"find triangle angles from altitude, bisector, median"
+latvia/regional/2012-13_63/grade10/p2,compute,find triangle angles from circumcentre and incentre symmetry
+latvia/regional/2012-13_63/grade10/p3,existence,pyramid with equal-perimeter faces and unequal edges exists?
+latvia/regional/2012-13_63/grade11/p5,combinatorial,existence of non-self-intersecting polygon through given points
+latvia/regional/2012-13_63/grade12/p4,inequality,area of some coloured triangle at most a bound
+latvia/regional/2013-14_64/grade09/p5,compute,area of triangle ASM in unit square
+latvia/regional/2013-14_64/grade11/p2,compute,angle AOD in circle with perpendicular radii
+latvia/regional/2013-14_64/grade12/p2,prove_other,"area equality of polygon and two triangles, formulas garbled"
+latvia/regional/2014-15_65/grade08/p4,prove_other,sum of two angles equals 60 degrees
+latvia/regional/2014-15_65/grade09/p2,combinatorial,reachability of number 2014 by allowed operations
+latvia/regional/2014-15_65/grade09/p3,existence,can rectangle be cut into similar triangles
+latvia/regional/2014-15_65/grade12/p4,prove_other,sum of four triangle areas equals quadrilateral area
+latvia/regional/2015-16_66/grade05/p3,combinatorial,count unit squares needed to cover cube figure
+latvia/regional/2015-16_66/grade09/p3,compute,find angle BAC in triangle with bisector
+latvia/regional/2016-17_67/grade06/p4,construction,draw grid triangle with given midpoints and right angle
+latvia/regional/2016-17_67/grade09/p3,compute,ratio in which point divides side of trapezoid
+latvia/regional/2016-17_67/grade12/p4,compute,compute radii of two internally tangent circles
+latvia/regional/2017-18_68/grade07/p3,compute,sum of three angles with parallel lines
+latvia/regional/2017-18_68/grade08/p3,compute,ratio of sides QR and PQ in triangle
+latvia/regional/2019-20_70/grade07/p1,compute,equation of line through point meeting given line
+latvia/regional/2019-20_70/grade08/p3,compute,find angles of triangle from bisector lengths
+latvia/regional/2019-20_70/grade09/p1,find_all,possible side lengths of isosceles triangle with perimeter below 30
+latvia/regional/2019-20_70/grade09/p3,compute,ratio of diameters of two tangent circles
+latvia/regional/2019-20_70/grade10/p3,compute,ratio of diameters with tangent length condition
+latvia/regional/2020-21_71/grade07/p1,existence,can given lines be graphs of three linear functions
+latvia/regional/2020-21_71/grade10/p3,compute,area of quadrilateral in unit square
+latvia/regional/2020-21_71/grade12/p3,compute,area and angles of shaded quadrilateral on grid
+latvia/regional/2021-22_72/grade07/p1,compute,area of quadrilateral bounded by four lines
+latvia/regional/2021-22_72/grade07/p3,inequality,sum of distances from interior point exceeds perimeter bound
+latvia/regional/2021-22_72/grade08/p3,inequality,prove 3AC greater than AB in obtuse isosceles triangle
+latvia/regional/2021-22_72/grade09/p3,compute,find angle RAO from bisectors
+latvia/regional/2021-22_72/grade11/p1,prove_other,vector identity for point inside parallelogram
+latvia/regional/2021-22_72/grade11/p3,prove_other,area product identity in trapezoid
+latvia/regional/2022-23_73/grade07/p3,inequality,prove CD greater than 2 in quadrilateral
+latvia/regional/2022-23_73/grade08/p3,compute,find angles of isosceles triangle with perpendicular diagonals
+latvia/regional/2022-23_73/grade09/p3,compute,find AD length from parallel lines and given sides
+latvia/regional/2022-23_73/grade10/p2,combinatorial,minimum number of points in graph without triangle
+latvia/regional/2022-23_73/grade10/p3,compute,area of quadrilateral ABHC from orthocenter
+latvia/regional/2022-23_73/grade11/p3,compute,"find DC length, statement partly garbled"
+latvia/regional/2022-23_73/grade12/p3,inequality,prove AD less than 2AE in isosceles triangle
+latvia/regional/2023-24_74/grade06/p5,existence,can closed polyline with 6 or 7 segments exist
+latvia/regional/2023-24_74/grade07/p3,find_all,possible natural lengths of AC for four points
+latvia/regional/2023-24_74/grade08/p2,compute,find angle CDE in isosceles triangle
+latvia/regional/2023-24_74/grade10/p3,existence,find points on AC with integer chord lengths
+latvia/regional/2023-24_74/grade11/p3,compute,find EC length in right triangle with angle conditions
+latvia/regional/2023-24_74/grade12/p3,compute,find EC length in right triangle with angle conditions
+latvia/regional/2024-25_75/grade05/p1,combinatorial,distinct naturals on hexagon vertices with minimal sum
+latvia/regional/2024-25_75/grade06/p1,combinatorial,distinct naturals on decagon vertices with minimal sum
+latvia/regional/2024-25_75/grade08/p3,compute,find angle ACB from altitude and length condition
+latvia/regional/2024-25_75/grade09/p4,combinatorial,number placement on pentagon regions with equal triangle sums
+latvia/regional/2024-25_75/grade11/p4,combinatorial,number placement with equal triangle sums and value X
+latvia/regional/2025-26_76/grade09/p1,compute,length AO in parallelogram from ratio
+latvia/regional/2025-26_76/grade10/p1,compute,length AC in right triangle with segment DE
+latvia/regional/2025-26_76/grade11/p2,compute,"area of triangle ABC, trailing equation system stray text"
+latvia/regional/2025-26_76/grade12/p1,compute,length CG in square with parallel line
+latvia/school/1987-88_38/grade04/p3,combinatorial,graph of 8 points each with four segments
+latvia/school/1987-88_38/grade06/p2,prove_other,"triangle equality by renaming, trivial statement"
+latvia/school/1988-89_39/grade06/p1,combinatorial,maximum number of segments from 16 lines
+latvia/school/1988-89_39/grade08/p4,prove_other,prove inradius formula for right triangle
+latvia/school/1988-89_39/grade09/p1,construction,construct cube section by plane through midpoints
+latvia/school/1988-89_39/grade11/p2,solid,polyhedron with 6 or 1988 triangular faces existence
+latvia/school/1988-89_39/grade11/p3,combinatorial,equal numbers in cubic lattice averaging argument
+latvia/school/1989-90_40/grade05/p5,combinatorial,find blue numbers at cube vertices from red sums
+latvia/school/1989-90_40/grade06/p3,combinatorial,count lines through points perpendicular to axes
+latvia/school/1989-90_40/grade06/p5,combinatorial,number intersection points so line sums equal
+latvia/school/1989-90_40/grade07/p5,combinatorial,integers on lines with zero sums on each side
+latvia/school/1989-90_40/grade09/p2,combinatorial,count right triangles from given segment lengths
+latvia/school/1989-90_40/grade10/p3,solid,can plane cut five edges of tetrahedron internally
+latvia/school/1989-90_40/grade10/p4,existence,can inradius of one triangle be twice another
+latvia/school/1989-90_40/grade12/p1,solid,can four face triangles of tetrahedron all be equal
+latvia/school/1989-90_40/grade12/p5,solid,equal projection values of cube onto plane and line
+latvia/school/1990-91_41/grade08/p3,existence,can diagonal intersection lie on trapezoid midline
+latvia/school/1990-91_41/grade09/p1,compute,sum of squares of medians in right triangle
+latvia/school/1990-91_41/grade10/p3,compute,sum of four corner triangle areas in quadrilateral
+latvia/school/1990-91_41/grade11/p4,solid,angle between vectors OA and OB is acute
+latvia/school/1990-91_41/grade12/p4,solid,triple reflection in trihedral corner reverses ray
+latvia/school/1990-91_41/grade12/p5,combinatorial,tile 11x12x13 box with 429 bricks
+latvia/school/1991-92_42/grade06/p4,combinatorial,number pentagon sides and diagonals with equal triangle sums
+latvia/school/1991-92_42/grade07/p4,existence,seven lines giving 9 triangles and 7 quadrilaterals
+latvia/school/1991-92_42/grade08/p3,combinatorial,"colour triangulation triangles, count ratio"
+latvia/school/1991-92_42/grade08/p5,inequality,interior point distances sum less than triangle perimeter
+latvia/school/1991-92_42/grade11/p5,inequality,prove r + R less than b in acute triangle
+latvia/school/1992-93_43/grade06/p4,combinatorial,number tetrahedron edges so face sums equal
+latvia/school/1992-93_43/grade09/p1,compute,third side of triangle from altitude
+latvia/school/1992-93_43/grade09/p5,combinatorial,cut six-triangle figure into four equal parts
+latvia/school/1992-93_43/grade10/p1,existence,can five circles each touch exactly three others
+latvia/school/1992-93_43/grade11/p3,inequality,some diagonal of hexagon shorter than 2
+latvia/school/1993-94_44/grade06/p3,combinatorial,cube rolling path which squares become black
+latvia/school/1993-94_44/grade07/p1,existence,can five lines and a circle make 23 regions
+latvia/school/1993-94_44/grade08/p2,construction,draw nonagon with six vertices on one line
+latvia/school/1993-94_44/grade08/p3,existence,can decagon have four acute angles and all angles below 180
+latvia/school/1993-94_44/grade09/p3,prove_other,"sum of marked areas equals other area, formula missing"
+latvia/school/1993-94_44/grade10/p4,combinatorial,8 points with no three collinear and no convex pentagon
+latvia/school/1993-94_44/grade12/p3,inequality,sum of distances from interior point bounded by altitudes
+latvia/school/1993-94_44/grade12/p4,solid,convex polyhedron with 25 quadrilateral faces existence
+latvia/school/1994-95_45/grade08/p1,combinatorial,six points nine segments with no triangle
+latvia/school/1994-95_45/grade08/p5,combinatorial,circle touching at most six others exists
+latvia/school/1994-95_45/grade09/p2,combinatorial,two circles touching equal number of others
+latvia/school/1994-95_45/grade10/p3,prove_other,three bisectors of equal angles concurrent
+latvia/school/1994-95_45/grade10/p5,combinatorial,isosceles triangle with all white vertices in 20-gon
+latvia/school/1994-95_45/grade11/p5,combinatorial,trapezoid with all black vertices in 13-gon
+latvia/school/1994-95_45/grade12/p2,prove_other,sum of squared sides equals 8R squared
+latvia/school/1994-95_45/grade12/p5,inequality,sum of strip widths at least circle diameter
+latvia/school/1996-97_47/grade05/p3,combinatorial,"grasshoppers swap order, outer ones exchanged"
+latvia/school/1996-97_47/grade07/p3,combinatorial,count lines through five points
+latvia/school/1996-97_47/grade08/p3,inequality,prove CD greater than 2 in quadrilateral
+latvia/school/1996-97_47/grade09/p4,compute,area of shaded region with chord tangent to semicircle
+latvia/school/1996-97_47/grade10/p2,inequality,hypotenuse of cut triangle shorter than radius
+latvia/school/1996-97_47/grade11/p2,compute,area of triangle from reflected vertices
+latvia/school/1996-97_47/grade11/p3,inequality,prove MN at least AB plus CD for circumcenters
+latvia/school/1997-98_48/grade06/p1,combinatorial,segment crossing counts with other segments
+latvia/school/1997-98_48/grade07/p2,construction,fold triangle once to get pentagon hexagon heptagon
+latvia/school/1997-98_48/grade07/p4,combinatorial,trees on equator cover exactly half
+latvia/school/1997-98_48/grade08/p2,existence,five circles tangent cyclically with common line
+latvia/school/1997-98_48/grade09/p2,compute,find angle ASB from equal segments
+latvia/school/1997-98_48/grade10/p2,compute,find angle BAE from equal segments
+latvia/school/1997-98_48/grade11/p1,existence,is it possible that (a-b)(alpha-beta) is negative
+latvia/school/1997-98_48/grade12/p3,solid,count small cubes cut by central plane
+latvia/school/1998-99_49/grade07/p2,combinatorial,number intersection points so each line has all five
+latvia/school/1998-99_49/grade08/p5,combinatorial,cut regular pentagon into four acute triangles
+latvia/school/1998-99_49/grade10/p2,combinatorial,10 points with all triples obtuse triangles
+latvia/school/1998-99_49/grade12/p2,prove_other,prove tangent product equals 3
+latvia/school/1999-00_50/grade06/p5,combinatorial,largest number of red unit segments without red triangle
+latvia/school/1999-00_50/grade08/p3,construction,construct decagon and 15-gon with parallel side property
+latvia/school/1999-00_50/grade11/p2,prove_other,prove three lines concurrent
+latvia/school/1999-00_50/grade12/p5,combinatorial,numbering 2n-gon vertices with equal sums possible
+latvia/school/2000-01_51/grade06/p5,combinatorial,minimal number of lines crossing all segments
+latvia/school/2000-01_51/grade07/p2,combinatorial,numbers on cube faces dividing neighbour sums
+latvia/school/2000-01_51/grade07/p4,combinatorial,minimal number of lines crossing segments in figure
+latvia/school/2000-01_51/grade08/p4,compute,side lengths from perimeter and perpendicular median and bisector
+latvia/school/2000-01_51/grade09/p4,prove_other,prove three lines meet at one point
+latvia/school/2000-01_51/grade10/p3,prove_other,tangent ratio identity on circle with diameter
+latvia/school/2000-01_51/grade11/p3,construction,construct circle centre through two points with short chord
+latvia/school/2000-01_51/grade12/p5,combinatorial,cube of unit cubes coloured so 1x1x5 bars have 3 red
+latvia/school/2001-02_52/grade06/p4,combinatorial,microbes moving to adjacent squares on cube faces
+latvia/school/2001-02_52/grade06/p5,combinatorial,"minimum lines crossing all triangles in figure, counting"
+latvia/school/2001-02_52/grade09/p3,existence,"can acute triangle median equal midline, yes/no"
+latvia/school/2001-02_52/grade10/p2,prove_other,prove equal areas of triangles AEC and DBF
+latvia/school/2003-04_54/grade08/p1,combinatorial,count function graphs visible in figure
+latvia/school/2003-04_54/grade08/p2,combinatorial,orient 10 lines so no closed directed loop
+latvia/school/2003-04_54/grade08/p3,compute,"find angle ABC from concurrent altitude, bisector, perpendicular bisector"
+latvia/school/2003-04_54/grade11/p2,prove_other,"sum of chord lengths in regular 14-gon, length identity"
+latvia/school/2003-04_54/grade12/p2,prove_other,sum of distances to sides equals distance to third side
+latvia/school/2004-05_55/grade09/p3,compute,express MN in terms of x and y
+latvia/school/2004-05_55/grade11/p4,solid,"pyramid bisector planes, concurrency of three lines"
+latvia/school/2004-05_55/grade11/p5,combinatorial,"colour prism vertices, which n allow distinct neighbour colours"
+latvia/school/2004-05_55/grade12/p3,solid,maximum projection area of regular tetrahedron
+latvia/school/2004-05_55/grade12/p4,solid,count distinct sums of cube edge vectors
+latvia/school/2005-06_56/grade05/p5,combinatorial,number cube vertices 1 to 8 with equal face sums
+latvia/school/2005-06_56/grade07/p5,combinatorial,count points on sixth segment from intersection counts
+latvia/school/2005-06_56/grade08/p3,existence,can triangle with sides equal to medians be congruent
+latvia/school/2005-06_56/grade09/p4,prove_other,prove R < 2r inequality for tangent circle
+latvia/school/2005-06_56/grade10/p1,prove_other,line x/a+y/b=1 cuts axis segments of lengths a and b
+latvia/school/2006-07_57/grade08/p4,prove_other,prove AD<AE from perpendicular bisector of BC
+latvia/school/2006-07_57/grade09/p3,prove_other,prove AD+BE=DE sum of lengths in right triangle
+latvia/school/2006-07_57/grade10/p3,compute,"area of triangle from altitudes 24, 30, 40"
+latvia/school/2006-07_57/grade12/p2,prove_other,MA=MB+MC for point on circumcircle arc
+latvia/school/2006-07_57/grade12/p5,combinatorial,"brick packing into cube, minimal number of bricks"
+latvia/school/2007-08_58/grade07/p2,combinatorial,"six lines, can exactly 16 or 14 points be multiple"
+latvia/school/2007-08_58/grade08/p4,combinatorial,red and green segments shared endpoints sum 21 possible
+latvia/school/2007-08_58/grade11/p1,combinatorial,"regular decagon, three marked vertices form isosceles triangle"
+latvia/school/2007-08_58/grade12/p2,solid,"tetrahedron with right angles, prove BD<2"
+latvia/school/2008-09_59/grade05/p2,combinatorial,build 4x4x4 and 5x5x5 cubes from four-cube bricks
+latvia/school/2008-09_59/grade06/p5,combinatorial,maximum friendly diagonal pairs on cube faces
+latvia/school/2008-09_59/grade07/p2,combinatorial,can black region from two triangles be heptagon or decagon
+latvia/school/2008-09_59/grade08/p4,combinatorial,number cube vertices and edges 1 to 20 with sums
+latvia/school/2008-09_59/grade10/p2,existence,can quadrilateral with bisector condition be tangential
+latvia/school/2008-09_59/grade10/p5,combinatorial,fit 53 bricks 1x1x4 into 6x6x6 box
+latvia/school/2008-09_59/grade11/p5,combinatorial,minimum friendly diagonal pairs on cube faces
+latvia/school/2009-10_60/grade07/p2,combinatorial,"four points, prove six lines are distinct"
+latvia/school/2009-10_60/grade10/p2,prove_other,perimeter bisector through incenter also bisects area
+latvia/school/2009-10_60/grade12/p3,prove_other,sum of segment lengths equal in regular triangle figure
+latvia/school/2010-11_61/grade06/p2,combinatorial,"cut regular hexagon into four triangles, dissection"
+latvia/school/2010-11_61/grade06/p3,compute,pen price arithmetic; geometry text garbled
+latvia/school/2010-11_61/grade07/p2,construction,draw decagon with two sides on each line
+latvia/school/2010-11_61/grade07/p4,combinatorial,dissect hexagon of even side n into four triangles
+latvia/school/2010-11_61/grade08/p3,find_all,for which n hexagon dissects into four triangles
+latvia/school/2010-11_61/grade10/p4,solid,pyramid edge directions with zero vector sum
+latvia/school/2010-11_61/grade11/p5,combinatorial,pair 100 blue and 100 red points with non-crossing segments
+latvia/school/2010-11_61/grade12/p2,solid,exists tetrahedron with right angles at edge midpoints
+latvia/school/2011-12_62/grade06/p4,compute,shortest side of hexagon from equal perimeters
+latvia/school/2011-12_62/grade07/p2,combinatorial,count intersection points of 5 and 2011 lines
+latvia/school/2011-12_62/grade07/p4,prove_other,two of five red points within 1 cm in triangle
+latvia/school/2011-12_62/grade08/p2,compute,angle AGE from two isosceles triangles with parallel bases
+latvia/school/2011-12_62/grade09/p2,compute,areas of figures built from unit circles
+latvia/school/2011-12_62/grade10/p2,prove_other,prove area of ABE equals 2 times BEC
+latvia/school/2011-12_62/grade11/p2,prove_other,hexagon area equals area of quadrilateral EGBH
+latvia/school/2011-12_62/grade12/p4,solid,"shortest ant path on brick surface, two heights"
+latvia/school/2012-13_63/grade09/p2,compute,angle ABC from equal segments BD=DC=CA
+latvia/school/2012-13_63/grade10/p2,prove_other,prove area ABD equals CDE plus BCF
+latvia/school/2012-13_63/grade11/p2,existence,must cyclic quadrilateral with bisector diagonals be square
+latvia/school/2012-13_63/grade11/p4,combinatorial,monochromatic equilateral triangle on 10-vertex grid
+latvia/school/2012-13_63/grade12/p2,prove_other,parallelogram area sum identity for four regions
+latvia/school/2013-14_64/grade09/p2,prove_other,"prove AE, CM, BH concurrent; formula missing"
+latvia/school/2014-15_65/grade08/p2,compute,angle ASB from equal segments SA=SB=AN=BM=MN
+latvia/school/2014-15_65/grade09/p2,compute,"angle ABC from concurrent altitude, bisector, perpendicular bisector"
+latvia/school/2015-16_66/grade05/p4,combinatorial,octagon vertex numbers with distinct edge differences
+latvia/school/2015-16_66/grade09/p2,combinatorial,dissect square into five polygons with 3 to 7 sides
+latvia/school/2015-16_66/grade09/p4,prove_other,shaded midpoint-segment areas sum to half
+latvia/school/2015-16_66/grade10/p3,prove_other,area of convex quadrilateral from diagonals and angle
+latvia/school/2015-16_66/grade12/p2,prove_other,three circumcircles of corner triangles concurrent
+latvia/school/2016-17_67/grade06/p1,construction,draw dodecagon with sides on six lines
+latvia/school/2016-17_67/grade07/p3,combinatorial,six lines with exactly 6 or 16 intersection points
+latvia/school/2016-17_67/grade08/p3,prove_other,"cevians through common point, sum exceeds twice perimeter"
+latvia/school/2016-17_67/grade09/p3,prove_other,area inequality for midpoints in convex quadrilateral
+latvia/school/2016-17_67/grade10/p3,prove_other,PA^2+PC^2=PB^2+PD^2 in rectangle
+latvia/school/2016-17_67/grade12/p3,compute,compute side AD from perpendicular diagonals and sides
+latvia/school/2017-18_68/grade07/p3,combinatorial,"lines through 10 points perpendicular to axes, count"
+latvia/school/2017-18_68/grade08/p3,combinatorial,cut 8x8 square minus one cell into 63 triangles
+latvia/school/2017-18_68/grade09/p3,existence,can trapezoid diagonal intersection lie on midline
+latvia/school/2017-18_68/grade10/p3,compute,"sum of squared medians from acute vertices, hypotenuse 10"
+latvia/school/2017-18_68/grade11/p3,existence,can inradius of ABM be twice inradius of CBM
+latvia/school/2017-18_68/grade12/p3,compute,sum of four corner triangle areas from midpoints
+latvia/school/2018-19_69/grade05/p3,find_all,which polygons can be cut into triangle by one straight cut
+latvia/school/2018-19_69/grade06/p3,compute,rectangle area and integer perimeters from triangle area
+latvia/school/2018-19_69/grade07/p3,combinatorial,count angles below 180 formed by four lines
+latvia/school/2018-19_69/grade10/p3,prove_other,AM+CL=AN+CK for regular triangle and circle
+latvia/school/2019-20_70/grade09/p2,existence,can median length equal midline in acute triangle
+latvia/school/2019-20_70/grade10/p2,prove_other,prove equal areas of triangles AEC and DBF
+latvia/school/2019-20_70/grade12/p2,prove_other,tangent ratio identity for points on circle with diameter
+latvia/tst/2021_bw/p5,solid,"six lines in space, max points with three concurrent"
+latvia/tst/2022_bw/p8,combinatorial,"closed polyline with almost-ideal segment crossings, existence"
+latvia/tst/2022_imo/day3/p2,prove_other,iff: angle equality BAT = BB'Q with segment equality
+latvia/tst/2023_bw/p7,combinatorial,which n admit good two-colouring of triangulated polygon
+latvia/tst/2023_imo/day1/p4,compute,maximum number of intersection points with circle
+latvia/tst/2023_imo/day2/p8,combinatorial,minimum independent vertex sets in polygon triangulation
+latvia/tst/2024_bw/day1/p5,combinatorial,snail path minimum turns in triangular grid
+latvia/tst/2024_bw/day1/p6,combinatorial,maximum number of segments on real line
+latvia/tst/2025_bw/day1/p6,combinatorial,"lattice colouring, monochromatic isosceles right triangle"
+latvia/tst/2025_bw/day2/p10,existence,"can AD, BE, CF be concurrent"
+latvia/tst/2025_bw/day2/p9,prove_other,hypothesis BE + DF = EF is not a ruler-and-compass construction (review 2026-11-12)
+latvia/tst/2025_imo/day1/p4,prove_other,"three lines concurrent, pentagon with equal angles"
+latvia/tst/2025_imo/day2/p1,prove_other,fixed point concurrency and exceptional k value
