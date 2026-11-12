@@ -41,6 +41,29 @@ FEWSHOT_INSTRUCTION = (
 )
 _STOPS = (";", "</aux>", "<|", "\n")
 _INDEX = re.compile(r"\[\d+\]")
+# Predicate names in the GenesisGeo format (data/genesisgeo/train.txt). Point
+# names are short letters (a, b, x00), never one of these.
+PREDICATES = {"coll", "cong", "perp", "para", "eqangle", "eqratio", "cyclic",
+              "midp", "aconst", "rconst", "circle", "simtri", "contri"}
+
+
+def normalize_preds(text: str) -> str:
+    """'coll a c j [12] perp a c j d' or 'coll a c j  perp a c j d' ->
+    'coll a c j, perp a c j d'. GenesisGeo's published checkpoint writes an
+    index where the training data has a comma; a new predicate starts at every
+    predicate name, with or without a comma."""
+    text = _INDEX.sub(" , ", text)
+    preds, cur = [], []
+    for tok in text.replace(",", " , ").split():
+        if tok == "," or tok in PREDICATES:
+            if cur:
+                preds.append(" ".join(cur))
+            cur = [] if tok == "," else [tok]
+        else:
+            cur.append(tok)
+    if cur:
+        preds.append(" ".join(cur))
+    return ", ".join(preds)
 
 
 class HFLMTool(Tool):
@@ -50,7 +73,8 @@ class HFLMTool(Tool):
         name:           tool name in results (default "hf")
         beam_size:      beams; all are returned as candidates (default 4)
         max_candidates: proposals returned (default 4)
-        max_new_tokens: generation limit (default 48)
+        max_new_tokens: generation limit (default 20; one aux point is <= 13 Qwen
+                        tokens for 99% of val.txt, max 26); generation also stops at ";"
         dtype:          "bfloat16" (default, half the memory) or "float32"
         shots:          examples in the fewshot prompt (default 4)
         threads:        torch threads (default: torch's choice)
@@ -59,7 +83,7 @@ class HFLMTool(Tool):
     name = "hf"
 
     def __init__(self, model: str, prompt: str = "genesisgeo", name: str = "hf",
-                 beam_size: int = 4, max_candidates: int = 4, max_new_tokens: int = 48,
+                 beam_size: int = 4, max_candidates: int = 4, max_new_tokens: int = 20,
                  dtype: str = "bfloat16", shots: int = 4, threads: int | None = None) -> None:
         super().__init__(model=model, prompt=prompt, beam_size=beam_size,
                          max_candidates=max_candidates, max_new_tokens=max_new_tokens, dtype=dtype)
@@ -114,13 +138,14 @@ class HFLMTool(Tool):
                 **ids, max_new_tokens=self.max_new_tokens, do_sample=False,
                 num_beams=self.beam_size, num_return_sequences=self.beam_size,
                 early_stopping=True, output_scores=True, return_dict_in_generate=True,
+                stop_strings=[";", "</aux>", "\n"], tokenizer=self.tok,
                 pad_token_id=self.tok.pad_token_id or self.tok.eos_token_id)
         scores = out.sequences_scores.tolist() if out.sequences_scores is not None else [0.0] * len(out.sequences)
         res = []
         for seq, score in zip(out.sequences, scores):
             cont = self.tok.decode(seq[n:], skip_special_tokens=False)
             cut = min([cont.find(s) for s in _STOPS if s in cont] or [len(cont)])
-            preds = _INDEX.sub("", cont[:cut]).strip()
+            preds = normalize_preds(cont[:cut])
             res.append((f"{new_point} : {preds}", float(score)))
         return res
 

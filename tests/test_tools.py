@@ -117,3 +117,16 @@ def test_transformer_tool_missing_checkpoint():
 
     with pytest.raises(FileNotFoundError):
         TransformerTool(checkpoint="no/such/model.pt")
+
+
+def test_hf_normalize_preds_splits_comma_less_output():
+    """GenesisGeo writes '[nn]' or nothing where the data has a comma (11-10 test)."""
+    from pipeline.hf_tool import normalize_preds
+    from pipeline.translate import aux_to_clauses
+
+    assert normalize_preds("coll a c j  perp a c j d") == "coll a c j, perp a c j d"
+    assert normalize_preds("coll a c j [12] perp a c j d [13]") == "coll a c j, perp a c j d"
+    assert normalize_preds("coll b c i, perp b c i a") == "coll b c i, perp b c i a"
+    clauses = aux_to_clauses("j : " + normalize_preds("coll a c j  perp a c j d"),
+                             {"a": "a", "c": "c", "d": "d"})
+    assert len(clauses) == 1 and "on_line" in clauses[0] and "on_tline" in clauses[0]

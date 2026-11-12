@@ -26,11 +26,11 @@ PROPOSERS: dict[str, tuple[dict | None, int]] = {
     "mini": ({"checkpoint": "geo-lm/runs/mini/best.pt"}, 2048),
     "mini_long": ({"checkpoint": "geo-lm/runs/mini_long/best.pt"}, 2048),
     "mid": ({"checkpoint": "geo-lm/runs/mid/best.pt"}, 2048),
-    "smollm2_360m": ({"class": HF, "model": "HuggingFaceTB/SmolLM2-360M-Instruct",
+    "smollm2_360m": ({"class": HF, "model": "models/hf/SmolLM2-360M-Instruct",
                       "prompt": "fewshot", "name": "smollm2_360m"}, 2048),
     "genesisgeo": ({"class": HF, "model": "models/hf/GenesisGeo",
                     "prompt": "genesisgeo", "name": "genesisgeo"}, 3072),
-    "qwen25_1_5b": ({"class": HF, "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "qwen25_1_5b": ({"class": HF, "model": "models/hf/Qwen2.5-1.5B-Instruct",
                      "prompt": "fewshot", "name": "qwen25_1_5b"}, 4096),
 }
 
@@ -45,7 +45,10 @@ def config(domain: str, proposer: str) -> dict:
             tools["heuristics"] = {"enabled": True, "options": spec}
         else:
             cls = spec.pop("class", None)
-            options = {"beam_size": 4, "max_candidates": 4, "max_new_tokens": 48, **spec}
+            # HF models (Qwen tokens): one aux point is <= 13 tokens for 99% of val.txt,
+            # and generation stops at ";". geo-lm models keep their own limit.
+            options = {"beam_size": 4, "max_candidates": 4,
+                       "max_new_tokens": 20 if cls else 48, **spec}
             tools[proposer] = {"enabled": True, "options": options}
             if cls:
                 tools[proposer]["class"] = cls

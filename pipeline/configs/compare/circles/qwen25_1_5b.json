@@ -13,8 +13,8 @@
       "options": {
         "beam_size": 4,
         "max_candidates": 4,
-        "max_new_tokens": 48,
-        "model": "Qwen/Qwen2.5-1.5B-Instruct",
+        "max_new_tokens": 20,
+        "model": "models/hf/Qwen2.5-1.5B-Instruct",
         "prompt": "fewshot",
         "name": "qwen25_1_5b"
       },
