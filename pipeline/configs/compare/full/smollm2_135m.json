@@ -16,6 +16,7 @@
         "model": "models/hf/SmolLM2-135M-Instruct",
         "prompt": "fewshot",
         "name": "smollm2_135m",
+        "dtype": "float32",
         "max_new_tokens": 20
       },
       "class": "pipeline.hf_tool:HFLMTool"

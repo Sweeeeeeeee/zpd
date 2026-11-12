@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import json
 import re
+import sys
 from pathlib import Path
 
 import matplotlib
@@ -114,7 +115,8 @@ def domains_table(ex: dict[str, dict[str, dict]]) -> None:
 MODELS = [("mini", "mini_train_log.jsonl", "eval_mini_val200.json", "14 min"),
           ("mini_long", "mini_long_train_log.jsonl", "eval_mini_long_9000_val200.json", r"1,5~h"),
           ("mid", "mid_train_log.jsonl", "eval_mid_val200.json", r"3,4~h")]
-BENCH_MODELS = [("mini_long", r"\texttt{mini\_long}"), ("mid", r"\texttt{mid}")]
+BENCH_MODELS = [("heuristics_only", "Heiristikas"), ("mini_long_model", r"\texttt{mini\_long}"),
+                ("mid_model", r"\texttt{mid}")]
 # AlphaGeometry rezultāti no Trinh u.c. (2024) un oficiālā repozitorija README.
 AG1 = {"jgex_ag_231": ("198", "228"), "imo": ("14", "25"), "imo_102_requires_aux": ("--", "--")}
 # `imo` kopā 34 uzdevumi; šie 5 nav AG1 etalonā IMO-AG-30 (no tā trūkst 2000_p1).
@@ -144,15 +146,14 @@ def bench_table() -> None:
         dd = bench_records(s, "ddar_only")
         n_dd = sum(r["solved"] for r in dd.values())
         cells = [str(len(dd)), str(n_dd)]
-        best = n_dd
+        union: set[str] = set()
         for m, _ in BENCH_MODELS:
-            mr = bench_records(s, f"{m}_model")
-            extra = sum(r["solved"] for n, r in mr.items() if n in dd and not dd[n]["solved"])
-            cells.append(f"+{extra}")
-            best = max(best, n_dd + extra)
-            for n, r in mr.items():
-                if r["solved"] and n in dd and not dd[n]["solved"]:
-                    solved_by_model.append((label, n, m, r))
+            mr = bench_records(s, m)
+            won = {n for n, r in mr.items() if r["solved"] and n in dd and not dd[n]["solved"]}
+            cells.append(f"+{len(won)}" if mr else "--")  # -- : not run on this set
+            union |= won
+            solved_by_model += [(label, n, m, mr[n]) for n in sorted(won)]
+        best = n_dd + len(union)
         cells.append(rf"\textbf{{{best}}}")
         cells += list(AG1[s])
         rows.append(f"{label} & " + " & ".join(cells) + r" \\")
@@ -186,7 +187,7 @@ def bench_table() -> None:
         rf"\newcommand{{\auxBest}}{{{totals['imo_102_requires_aux'][2]}}}" "\n"
         rf"\newcommand{{\auxTotal}}{{{totals['imo_102_requires_aux'][0]}}}" "\n"
         rf"\newcommand{{\stuckSolved}}{{{len(by_problem)}}}" "\n"
-        rf"\newcommand{{\midOneAux}}{{{one_aux['mid']}}}" "\n")
+        rf"\newcommand{{\midOneAux}}{{{one_aux['mid_model']}}}" "\n")
 
 
 # ------------------------------------------------------------------ 3. transformera apmācība
@@ -217,12 +218,71 @@ def training_figure() -> None:
         rf"\newcommand{{\evalProblems}}{{{meta['problems']}}}" "\n")
 
 
+# ------------------------------------------------------------------ 4. palīgpunktu modeļu salīdzinājums
+def proposers_tables() -> None:
+    sys.path.insert(0, str(ROOT))
+    from bench.proposer_table import compare_summaries, val_summaries
+
+    def p(x: float) -> str:
+        return lv(100 * x) + r"\,\%"
+
+    rows = []
+    for v in val_summaries():
+        if not v["n"]:
+            continue
+        lo, hi = v["exact4_ci"]
+        rows.append(rf"{tex_escape(v['name'])} & {v['size']} & {v['n']} & {p(v['translatable'])} & {p(v['exact1'])} & "
+                    rf"{p(v['exact4'])} ({lv(100 * lo, 0)}--{lv(100 * hi, 0)}) & {lv(v['sec'])} \\")
+    (TAB / "proposers_val.tex").write_text("\n".join(rows) + "\n")
+
+    names = {"ddar": "Tikai DD-AR", "heuristics": "Heiristikas", "mini": r"\texttt{mini}",
+             "mini_long": r"\texttt{mini\_long}", "mid": r"\texttt{mid}", "smollm2_135m": "SmolLM2-135M",
+             "smollm2_360m": "SmolLM2-360M", "genesisgeo": "GenesisGeo", "qwen3_0_6b_base": "Qwen3-0.6B-Base",
+             "qwen25_1_5b": "Qwen2.5-1.5B", "ag1": "AlphaGeometry"}
+    rows, last = [], None
+    for c in compare_summaries():
+        dom = r"\texttt{" + tex_escape(c["domain"]) + "}" if c["domain"] != last else ""
+        if c["domain"] != last and last is not None:
+            rows.append(r"\midrule")
+        last = c["domain"]
+        if c["proposer"] == "ddar":
+            rows.append(rf"{dom} & {names['ddar']} & {c['solved']} / {c['n']} & {lv(c['sec'])} & -- & -- \\")
+        else:
+            of = f"{c['solved']} / {c['of']}" + ("" if c["n"] == c["of"] else rf"$^*$")
+            rows.append(rf"{dom} & {names.get(c['proposer'], tex_escape(c['proposer']))} & {of} & {lv(c['sec'])} & "
+                        rf"{lv(c['load'])} & {c['timeouts']} \\")
+    (TAB / "proposers_compare.tex").write_text("\n".join(rows) + "\n")
+
+
+# ------------------------------------------------------------------ 5. Latvijas uzdevumu šķirojums
+SORT_LV = [("prove", r"Pierādīt apgalvojumu, ko var uzrakstīt Newclid (\textbf{tulkojami})"),
+           ("prove_other", "Pierādīt citu apgalvojumu (laukumi, garumu summas, ...)"),
+           ("compute", "Aprēķināt lielumu"), ("inequality", "Nevienādība"),
+           ("construction", "Konstruēšana"), ("find_all", "Atrast visus, ģeometriskā vieta"),
+           ("existence", "Eksistence (vai var ...)"), ("combinatorial", "Kombinatoriskā ģeometrija"),
+           ("solid", "Telpas ģeometrija"), ("unreadable", "Nesalasāms teksts (trūkst formulas)")]
+
+
+def sorting_table() -> None:
+    import csv
+    f = ROOT / "problems/latvia/geometry_translated/sorting/sorting.csv"
+    if not f.exists():
+        return
+    rows = list(csv.DictReader(f.open()))
+    n = {c: sum(r["category"] == c for r in rows) for c, _ in SORT_LV}
+    lines = [rf"{label} & {n[c]} \\" for c, label in SORT_LV]
+    lines += [r"\midrule", rf"Kopā & {len(rows)} \\"]
+    (TAB / "sorting.tex").write_text("\n".join(lines) + "\n")
+
+
 def main() -> None:
     FIG.mkdir(exist_ok=True)
     TAB.mkdir(exist_ok=True)
     domains_table(load_examples())
     bench_table()
     training_figure()
+    proposers_tables()
+    sorting_table()
     print("figures:", sorted(p.name for p in FIG.iterdir()))
     print("tables: ", sorted(p.name for p in TAB.iterdir()))
 

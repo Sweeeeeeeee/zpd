@@ -542,6 +542,432 @@
    "rules_in_proof": {},
    "rules_fired": {},
    "proof": null
+  },
+  {
+   "config": "circles_no_ar_transformer",
+   "settings": {
+    "tools": [
+     "ddar",
+     "transformer",
+     "heuristics"
+    ],
+    "proposer_order": [
+     "transformer",
+     "heuristics"
+    ],
+    "ddar": {
+     "config": "circles_no_ar",
+     "engine": "python",
+     "ar": false,
+     "n_rules": 29,
+     "rules": "r03 r04 r13 r14 r15 r16 r17 r18 r19 r20 r21 r24 r28 r49 r50 r51 r54 r55 r56 r58 r59 r72 r73 r74 r80 r81 r82 r91 r92"
+    },
+    "transformer": {
+     "checkpoint": "geo-lm/runs/mid/best.pt",
+     "beam_size": 4,
+     "max_candidates": 4,
+     "max_new_tokens": 64
+    },
+    "heuristics": {
+     "kinds": [
+      "midpoint",
+      "circumcenter",
+      "foot"
+     ],
+     "max_candidates": 8
+    },
+    "search": {
+     "max_depth": 1,
+     "branching": 8,
+     "max_frontier": 8,
+     "max_ddar_calls": 20,
+     "time_limit": 0
+    },
+    "budget": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0
+    }
+   },
+   "resources": {
+    "available": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0,
+     "load_s": 120.0
+    },
+    "used": {
+     "wall_time_s": 6.901,
+     "peak_memory_mb": 443.4,
+     "cpu_time_s": 5.83,
+     "ddar_calls": 1
+    }
+   },
+   "solved": false,
+   "failure_reason": "problem could not be built: ValueError: Failed to build a valid problem setup for problem after 100 attempts. Last error: Did not even try to build a valid problem setup for problem.",
+   "depth": 0,
+   "aux": [],
+   "tools_used": [
+    "ddar"
+   ],
+   "rules_in_proof": {},
+   "rules_fired": {},
+   "proof": null
+  },
+  {
+   "config": "circles_transformer",
+   "settings": {
+    "tools": [
+     "ddar",
+     "transformer",
+     "heuristics"
+    ],
+    "proposer_order": [
+     "transformer",
+     "heuristics"
+    ],
+    "ddar": {
+     "config": "circles",
+     "engine": "python",
+     "ar": true,
+     "n_rules": 29,
+     "rules": "r03 r04 r13 r14 r15 r16 r17 r18 r19 r20 r21 r24 r28 r49 r50 r51 r54 r55 r56 r58 r59 r72 r73 r74 r80 r81 r82 r91 r92"
+    },
+    "transformer": {
+     "checkpoint": "geo-lm/runs/mid/best.pt",
+     "beam_size": 4,
+     "max_candidates": 4,
+     "max_new_tokens": 64
+    },
+    "heuristics": {
+     "kinds": [
+      "midpoint",
+      "circumcenter",
+      "foot"
+     ],
+     "max_candidates": 8
+    },
+    "search": {
+     "max_depth": 1,
+     "branching": 8,
+     "max_frontier": 8,
+     "max_ddar_calls": 20,
+     "time_limit": 0
+    },
+    "budget": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0
+    }
+   },
+   "resources": {
+    "available": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0,
+     "load_s": 120.0
+    },
+    "used": {
+     "wall_time_s": 7.875,
+     "peak_memory_mb": 443.3,
+     "cpu_time_s": 6.12,
+     "ddar_calls": 1
+    }
+   },
+   "solved": false,
+   "failure_reason": "problem could not be built: ValueError: Failed to build a valid problem setup for problem after 100 attempts. Last error: Did not even try to build a valid problem setup for problem.",
+   "depth": 0,
+   "aux": [],
+   "tools_used": [
+    "ddar"
+   ],
+   "rules_in_proof": {},
+   "rules_fired": {},
+   "proof": null
+  },
+  {
+   "config": "full_no_ar_transformer",
+   "settings": {
+    "tools": [
+     "ddar",
+     "transformer",
+     "heuristics"
+    ],
+    "proposer_order": [
+     "transformer",
+     "heuristics"
+    ],
+    "ddar": {
+     "config": "full_no_ar",
+     "engine": "python",
+     "ar": false,
+     "n_rules": 70,
+     "rules": "r03 r04 r06 r07 r11 r12 r13 r14 r15 r16 r17 r18 r19 r20 r21 r24 r25 r26 r27 r28 r34 r35 r36 r37 r41 r42 r43 r44 r46 r49 r50 r51 r52 r53 r54 r55 r56 r58 r59 r60 r61 r62 r63 r64 r65 r66 r67 r68 r69 r70 r71 r72 r73 r74 r77 r78 r79 r80 r81 r82 r83 r84 r85 r86 r87 r88 r89 r90 r91 r92"
+    },
+    "transformer": {
+     "checkpoint": "geo-lm/runs/mid/best.pt",
+     "beam_size": 4,
+     "max_candidates": 4,
+     "max_new_tokens": 64
+    },
+    "heuristics": {
+     "kinds": [
+      "midpoint",
+      "circumcenter",
+      "foot"
+     ],
+     "max_candidates": 8
+    },
+    "search": {
+     "max_depth": 1,
+     "branching": 8,
+     "max_frontier": 8,
+     "max_ddar_calls": 20,
+     "time_limit": 0
+    },
+    "budget": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0
+    }
+   },
+   "resources": {
+    "available": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0,
+     "load_s": 120.0
+    },
+    "used": {
+     "wall_time_s": 7.543,
+     "peak_memory_mb": 443.5,
+     "cpu_time_s": 6.35,
+     "ddar_calls": 1
+    }
+   },
+   "solved": false,
+   "failure_reason": "problem could not be built: ValueError: Failed to build a valid problem setup for problem after 100 attempts. Last error: Did not even try to build a valid problem setup for problem.",
+   "depth": 0,
+   "aux": [],
+   "tools_used": [
+    "ddar"
+   ],
+   "rules_in_proof": {},
+   "rules_fired": {},
+   "proof": null
+  },
+  {
+   "config": "full_transformer",
+   "settings": {
+    "tools": [
+     "ddar",
+     "transformer",
+     "heuristics"
+    ],
+    "proposer_order": [
+     "transformer",
+     "heuristics"
+    ],
+    "ddar": {
+     "config": "full",
+     "engine": "python",
+     "ar": true,
+     "n_rules": 70,
+     "rules": "r03 r04 r06 r07 r11 r12 r13 r14 r15 r16 r17 r18 r19 r20 r21 r24 r25 r26 r27 r28 r34 r35 r36 r37 r41 r42 r43 r44 r46 r49 r50 r51 r52 r53 r54 r55 r56 r58 r59 r60 r61 r62 r63 r64 r65 r66 r67 r68 r69 r70 r71 r72 r73 r74 r77 r78 r79 r80 r81 r82 r83 r84 r85 r86 r87 r88 r89 r90 r91 r92"
+    },
+    "transformer": {
+     "checkpoint": "geo-lm/runs/mid/best.pt",
+     "beam_size": 4,
+     "max_candidates": 4,
+     "max_new_tokens": 64
+    },
+    "heuristics": {
+     "kinds": [
+      "midpoint",
+      "circumcenter",
+      "foot"
+     ],
+     "max_candidates": 8
+    },
+    "search": {
+     "max_depth": 1,
+     "branching": 8,
+     "max_frontier": 8,
+     "max_ddar_calls": 20,
+     "time_limit": 0
+    },
+    "budget": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0
+    }
+   },
+   "resources": {
+    "available": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0,
+     "load_s": 120.0
+    },
+    "used": {
+     "wall_time_s": 6.891,
+     "peak_memory_mb": 443.3,
+     "cpu_time_s": 5.96,
+     "ddar_calls": 1
+    }
+   },
+   "solved": false,
+   "failure_reason": "problem could not be built: ValueError: Failed to build a valid problem setup for problem after 100 attempts. Last error: Did not even try to build a valid problem setup for problem.",
+   "depth": 0,
+   "aux": [],
+   "tools_used": [
+    "ddar"
+   ],
+   "rules_in_proof": {},
+   "rules_fired": {},
+   "proof": null
+  },
+  {
+   "config": "no_similarity_no_ar_transformer",
+   "settings": {
+    "tools": [
+     "ddar",
+     "transformer",
+     "heuristics"
+    ],
+    "proposer_order": [
+     "transformer",
+     "heuristics"
+    ],
+    "ddar": {
+     "config": "no_similarity_no_ar",
+     "engine": "python",
+     "ar": false,
+     "n_rules": 59,
+     "rules": "r03 r04 r06 r11 r12 r13 r14 r15 r16 r17 r18 r19 r20 r21 r24 r25 r26 r27 r28 r36 r37 r41 r42 r43 r44 r46 r49 r50 r51 r54 r55 r56 r58 r59 r64 r65 r66 r67 r70 r71 r72 r73 r74 r77 r78 r79 r80 r81 r82 r83 r84 r85 r86 r87 r88 r89 r90 r91 r92"
+    },
+    "transformer": {
+     "checkpoint": "geo-lm/runs/mid/best.pt",
+     "beam_size": 4,
+     "max_candidates": 4,
+     "max_new_tokens": 64
+    },
+    "heuristics": {
+     "kinds": [
+      "midpoint",
+      "circumcenter",
+      "foot"
+     ],
+     "max_candidates": 8
+    },
+    "search": {
+     "max_depth": 1,
+     "branching": 8,
+     "max_frontier": 8,
+     "max_ddar_calls": 20,
+     "time_limit": 0
+    },
+    "budget": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0
+    }
+   },
+   "resources": {
+    "available": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0,
+     "load_s": 120.0
+    },
+    "used": {
+     "wall_time_s": 8.043,
+     "peak_memory_mb": 443.4,
+     "cpu_time_s": 6.54,
+     "ddar_calls": 1
+    }
+   },
+   "solved": false,
+   "failure_reason": "problem could not be built: ValueError: Failed to build a valid problem setup for problem after 100 attempts. Last error: Did not even try to build a valid problem setup for problem.",
+   "depth": 0,
+   "aux": [],
+   "tools_used": [
+    "ddar"
+   ],
+   "rules_in_proof": {},
+   "rules_fired": {},
+   "proof": null
+  },
+  {
+   "config": "no_similarity_transformer",
+   "settings": {
+    "tools": [
+     "ddar",
+     "transformer",
+     "heuristics"
+    ],
+    "proposer_order": [
+     "transformer",
+     "heuristics"
+    ],
+    "ddar": {
+     "config": "no_similarity",
+     "engine": "python",
+     "ar": true,
+     "n_rules": 59,
+     "rules": "r03 r04 r06 r11 r12 r13 r14 r15 r16 r17 r18 r19 r20 r21 r24 r25 r26 r27 r28 r36 r37 r41 r42 r43 r44 r46 r49 r50 r51 r54 r55 r56 r58 r59 r64 r65 r66 r67 r70 r71 r72 r73 r74 r77 r78 r79 r80 r81 r82 r83 r84 r85 r86 r87 r88 r89 r90 r91 r92"
+    },
+    "transformer": {
+     "checkpoint": "geo-lm/runs/mid/best.pt",
+     "beam_size": 4,
+     "max_candidates": 4,
+     "max_new_tokens": 64
+    },
+    "heuristics": {
+     "kinds": [
+      "midpoint",
+      "circumcenter",
+      "foot"
+     ],
+     "max_candidates": 8
+    },
+    "search": {
+     "max_depth": 1,
+     "branching": 8,
+     "max_frontier": 8,
+     "max_ddar_calls": 20,
+     "time_limit": 0
+    },
+    "budget": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0
+    }
+   },
+   "resources": {
+    "available": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0,
+     "load_s": 120.0
+    },
+    "used": {
+     "wall_time_s": 6.166,
+     "peak_memory_mb": 443.4,
+     "cpu_time_s": 5.41,
+     "ddar_calls": 1
+    }
+   },
+   "solved": false,
+   "failure_reason": "problem could not be built: ValueError: Failed to build a valid problem setup for problem after 100 attempts. Last error: Did not even try to build a valid problem setup for problem.",
+   "depth": 0,
+   "aux": [],
+   "tools_used": [
+    "ddar"
+   ],
+   "rules_in_proof": {},
+   "rules_fired": {},
+   "proof": null
   }
  ]
 }

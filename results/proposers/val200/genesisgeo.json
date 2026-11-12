@@ -1,0 +1,17 @@
+{
+ "kind": "hf",
+ "model": "models/hf/GenesisGeo",
+ "prompt": "genesisgeo",
+ "dtype": "bfloat16",
+ "beam": 4,
+ "problems": 15,
+ "beams": 60,
+ "translatable_rate": 0.817,
+ "problems_with_translatable": 0.867,
+ "exact_at_1": 0.533,
+ "exact_at_4": 0.733,
+ "seconds_median": 28.5,
+ "seconds_total": 572.3,
+ "load_s": 18.2,
+ "peak_rss_gb_last_part": 2.65
+}

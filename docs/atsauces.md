@@ -30,6 +30,11 @@
     Qwen2.5-1.5B-Instruct in the proposer comparison.
 11. Qwen Team. *Qwen3 Technical Report.* arXiv:2505.09388 (2025). Qwen3-0.6B-Base,
     the model GenesisGeo is fine-tuned from (control in the comparison).
+12. W.-T. Wu. *Basic Principles of Mechanical Theorem Proving in Elementary
+    Geometries.* Journal of Automated Reasoning 2, 221–252 (1986). Wu's
+    algebraic method (paper, chapter 1).
+13. D. Kapur. *Using Gröbner Bases to Reason About Geometry Problems.* Journal of
+    Symbolic Computation 2(4), 399–408 (1986). Gröbner-basis proving (paper, chapter 1).
 
 ## Software and data
 

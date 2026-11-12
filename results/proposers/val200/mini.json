@@ -1,0 +1,17 @@
+{
+ "kind": "geolm",
+ "model": "geo-lm/runs/mini/best.pt",
+ "prompt": null,
+ "dtype": null,
+ "beam": 4,
+ "problems": 200,
+ "beams": 800,
+ "translatable_rate": 0.916,
+ "problems_with_translatable": 0.96,
+ "exact_at_1": 0.075,
+ "exact_at_4": 0.285,
+ "seconds_median": 0.32,
+ "seconds_total": 72.0,
+ "load_s": 6.3,
+ "peak_rss_gb_last_part": 0.5
+}

@@ -8,6 +8,7 @@ meliad), started by pipeline.ag1_tool.AG1Tool; not imported by the pipeline.
 Protocol (stdout carries only protocol lines; all logging goes to stderr):
     -> READY <load seconds>
     <- {"setup": "a b c = triangle a b c; ...", "goal": "perp a h b c"}
+       or {"prompt": "{S} a : ; b : ; ... ? T a b c d {F1} x00"} (decode only)
     -> {"ok": true, "candidates": [{"raw": ..., "clause": ..., "score": ...}, ...]}
        or {"ok": false, "error": "..."}
 
@@ -137,7 +138,11 @@ def keep_returned_state(model) -> None:
 
 
 def propose(req: dict, ag, gh, pr, model) -> list[dict]:
-    setup = "; ".join(" ".join(c.split()) for c in req["setup"].split(";") if c.strip())
+    if "prompt" in req:  # raw AG1 prompt (bench/eval_proposers.py): decode only, no graph
+        out = model.beam_decode(req["prompt"], eos_tokens=[";"])
+        return [{"raw": raw, "score": float(score)}
+                for raw, score in reversed(list(zip(out["seqs_str"], out["scores"])))]
+    setup ="; ".join(" ".join(c.split()) for c in req["setup"].split(";") if c.strip())
     goal = " ".join(req["goal"].split(";")[0].split())  # AG1 takes one goal
     p = pr.Problem.from_txt(f"{setup} ? {goal}", translate=True)  # names -> a, b, c, ...
     back = {v: k for k, v in p.mapping.items()}

@@ -578,6 +578,456 @@
     "r19": 2
    },
    "proof": "# Problem setup:\n\n## Points\n\n- A(0.5383, 0.5390)\n- B(0.3439, 1.2776)\n- C(0.9974, 0.6599)\n- M(0.6706, 0.9688)\n\n## Assumptions:\n\n[C0] : M is the midpoint of BC\n[C1] : AB ⟂ AC\n\n\n# Goals\n\nAM = BM : Proved [0]\n\n\n# Proof:\n\n000. | M is the midpoint of BC [C0], AB ⟂ AC [C1] =(r19 Hypotenuse is diameter)> AM = BM [0]\n\n\n# Appendix: AR deductions:\n\nEnd of proof."
+  },
+  {
+   "config": "circles_no_ar_transformer",
+   "settings": {
+    "tools": [
+     "ddar",
+     "transformer",
+     "heuristics"
+    ],
+    "proposer_order": [
+     "transformer",
+     "heuristics"
+    ],
+    "ddar": {
+     "config": "circles_no_ar",
+     "engine": "python",
+     "ar": false,
+     "n_rules": 29,
+     "rules": "r03 r04 r13 r14 r15 r16 r17 r18 r19 r20 r21 r24 r28 r49 r50 r51 r54 r55 r56 r58 r59 r72 r73 r74 r80 r81 r82 r91 r92"
+    },
+    "transformer": {
+     "checkpoint": "geo-lm/runs/mid/best.pt",
+     "beam_size": 4,
+     "max_candidates": 4,
+     "max_new_tokens": 64
+    },
+    "heuristics": {
+     "kinds": [
+      "midpoint",
+      "circumcenter",
+      "foot"
+     ],
+     "max_candidates": 8
+    },
+    "search": {
+     "max_depth": 1,
+     "branching": 8,
+     "max_frontier": 8,
+     "max_ddar_calls": 20,
+     "time_limit": 0
+    },
+    "budget": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0
+    }
+   },
+   "resources": {
+    "available": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0,
+     "load_s": 120.0
+    },
+    "used": {
+     "wall_time_s": 6.474,
+     "peak_memory_mb": 443.0,
+     "cpu_time_s": 5.88,
+     "ddar_calls": 1
+    }
+   },
+   "solved": true,
+   "failure_reason": null,
+   "depth": 0,
+   "aux": [],
+   "tools_used": [
+    "ddar"
+   ],
+   "rules_in_proof": {
+    "r19": 1
+   },
+   "rules_fired": {
+    "r19": 2
+   },
+   "proof": "# Problem setup:\n\n## Points\n\n- A(0.5383, 0.5390)\n- B(0.3439, 1.2776)\n- C(0.9974, 0.6599)\n- M(0.6706, 0.9688)\n\n## Assumptions:\n\n[C0] : M is the midpoint of BC\n[C1] : AB ⟂ AC\n\n\n# Goals\n\nBM = AM : Proved [0]\n\n\n# Proof:\n\n000. | M is the midpoint of BC [C0], AB ⟂ AC [C1] =(r19 Hypotenuse is diameter)> BM = AM [0]\n\n\n# Appendix: AR deductions:\n\nEnd of proof."
+  },
+  {
+   "config": "circles_transformer",
+   "settings": {
+    "tools": [
+     "ddar",
+     "transformer",
+     "heuristics"
+    ],
+    "proposer_order": [
+     "transformer",
+     "heuristics"
+    ],
+    "ddar": {
+     "config": "circles",
+     "engine": "python",
+     "ar": true,
+     "n_rules": 29,
+     "rules": "r03 r04 r13 r14 r15 r16 r17 r18 r19 r20 r21 r24 r28 r49 r50 r51 r54 r55 r56 r58 r59 r72 r73 r74 r80 r81 r82 r91 r92"
+    },
+    "transformer": {
+     "checkpoint": "geo-lm/runs/mid/best.pt",
+     "beam_size": 4,
+     "max_candidates": 4,
+     "max_new_tokens": 64
+    },
+    "heuristics": {
+     "kinds": [
+      "midpoint",
+      "circumcenter",
+      "foot"
+     ],
+     "max_candidates": 8
+    },
+    "search": {
+     "max_depth": 1,
+     "branching": 8,
+     "max_frontier": 8,
+     "max_ddar_calls": 20,
+     "time_limit": 0
+    },
+    "budget": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0
+    }
+   },
+   "resources": {
+    "available": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0,
+     "load_s": 120.0
+    },
+    "used": {
+     "wall_time_s": 6.996,
+     "peak_memory_mb": 445.1,
+     "cpu_time_s": 5.9,
+     "ddar_calls": 1
+    }
+   },
+   "solved": true,
+   "failure_reason": null,
+   "depth": 0,
+   "aux": [],
+   "tools_used": [
+    "ddar"
+   ],
+   "rules_in_proof": {
+    "r19": 1
+   },
+   "rules_fired": {
+    "r19": 2
+   },
+   "proof": "# Problem setup:\n\n## Points\n\n- A(0.5383, 0.5390)\n- B(0.3439, 1.2776)\n- C(0.9974, 0.6599)\n- M(0.6706, 0.9688)\n\n## Assumptions:\n\n[C0] : M is the midpoint of BC\n[C1] : AB ⟂ AC\n\n\n# Goals\n\nAM = BM : Proved [0]\n\n\n# Proof:\n\n000. | M is the midpoint of BC [C0], AB ⟂ AC [C1] =(r19 Hypotenuse is diameter)> AM = BM [0]\n\n\n# Appendix: AR deductions:\n\nEnd of proof."
+  },
+  {
+   "config": "full_no_ar_transformer",
+   "settings": {
+    "tools": [
+     "ddar",
+     "transformer",
+     "heuristics"
+    ],
+    "proposer_order": [
+     "transformer",
+     "heuristics"
+    ],
+    "ddar": {
+     "config": "full_no_ar",
+     "engine": "python",
+     "ar": false,
+     "n_rules": 70,
+     "rules": "r03 r04 r06 r07 r11 r12 r13 r14 r15 r16 r17 r18 r19 r20 r21 r24 r25 r26 r27 r28 r34 r35 r36 r37 r41 r42 r43 r44 r46 r49 r50 r51 r52 r53 r54 r55 r56 r58 r59 r60 r61 r62 r63 r64 r65 r66 r67 r68 r69 r70 r71 r72 r73 r74 r77 r78 r79 r80 r81 r82 r83 r84 r85 r86 r87 r88 r89 r90 r91 r92"
+    },
+    "transformer": {
+     "checkpoint": "geo-lm/runs/mid/best.pt",
+     "beam_size": 4,
+     "max_candidates": 4,
+     "max_new_tokens": 64
+    },
+    "heuristics": {
+     "kinds": [
+      "midpoint",
+      "circumcenter",
+      "foot"
+     ],
+     "max_candidates": 8
+    },
+    "search": {
+     "max_depth": 1,
+     "branching": 8,
+     "max_frontier": 8,
+     "max_ddar_calls": 20,
+     "time_limit": 0
+    },
+    "budget": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0
+    }
+   },
+   "resources": {
+    "available": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0,
+     "load_s": 120.0
+    },
+    "used": {
+     "wall_time_s": 7.877,
+     "peak_memory_mb": 443.1,
+     "cpu_time_s": 6.3,
+     "ddar_calls": 1
+    }
+   },
+   "solved": true,
+   "failure_reason": null,
+   "depth": 0,
+   "aux": [],
+   "tools_used": [
+    "ddar"
+   ],
+   "rules_in_proof": {
+    "r19": 1
+   },
+   "rules_fired": {
+    "r19": 2
+   },
+   "proof": "# Problem setup:\n\n## Points\n\n- A(0.5383, 0.5390)\n- B(0.3439, 1.2776)\n- C(0.9974, 0.6599)\n- M(0.6706, 0.9688)\n\n## Assumptions:\n\n[C0] : M is the midpoint of BC\n[C1] : AB ⟂ AC\n\n\n# Goals\n\nAM = BM : Proved [0]\n\n\n# Proof:\n\n000. | M is the midpoint of BC [C0], AB ⟂ AC [C1] =(r19 Hypotenuse is diameter)> AM = BM [0]\n\n\n# Appendix: AR deductions:\n\nEnd of proof."
+  },
+  {
+   "config": "full_transformer",
+   "settings": {
+    "tools": [
+     "ddar",
+     "transformer",
+     "heuristics"
+    ],
+    "proposer_order": [
+     "transformer",
+     "heuristics"
+    ],
+    "ddar": {
+     "config": "full",
+     "engine": "python",
+     "ar": true,
+     "n_rules": 70,
+     "rules": "r03 r04 r06 r07 r11 r12 r13 r14 r15 r16 r17 r18 r19 r20 r21 r24 r25 r26 r27 r28 r34 r35 r36 r37 r41 r42 r43 r44 r46 r49 r50 r51 r52 r53 r54 r55 r56 r58 r59 r60 r61 r62 r63 r64 r65 r66 r67 r68 r69 r70 r71 r72 r73 r74 r77 r78 r79 r80 r81 r82 r83 r84 r85 r86 r87 r88 r89 r90 r91 r92"
+    },
+    "transformer": {
+     "checkpoint": "geo-lm/runs/mid/best.pt",
+     "beam_size": 4,
+     "max_candidates": 4,
+     "max_new_tokens": 64
+    },
+    "heuristics": {
+     "kinds": [
+      "midpoint",
+      "circumcenter",
+      "foot"
+     ],
+     "max_candidates": 8
+    },
+    "search": {
+     "max_depth": 1,
+     "branching": 8,
+     "max_frontier": 8,
+     "max_ddar_calls": 20,
+     "time_limit": 0
+    },
+    "budget": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0
+    }
+   },
+   "resources": {
+    "available": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0,
+     "load_s": 120.0
+    },
+    "used": {
+     "wall_time_s": 7.245,
+     "peak_memory_mb": 445.4,
+     "cpu_time_s": 6.12,
+     "ddar_calls": 1
+    }
+   },
+   "solved": true,
+   "failure_reason": null,
+   "depth": 0,
+   "aux": [],
+   "tools_used": [
+    "ddar"
+   ],
+   "rules_in_proof": {
+    "r19": 1
+   },
+   "rules_fired": {
+    "r19": 2
+   },
+   "proof": "# Problem setup:\n\n## Points\n\n- A(0.5383, 0.5390)\n- B(0.3439, 1.2776)\n- C(0.9974, 0.6599)\n- M(0.6706, 0.9688)\n\n## Assumptions:\n\n[C0] : M is the midpoint of BC\n[C1] : AB ⟂ AC\n\n\n# Goals\n\nAM = BM : Proved [0]\n\n\n# Proof:\n\n000. | M is the midpoint of BC [C0], AB ⟂ AC [C1] =(r19 Hypotenuse is diameter)> AM = BM [0]\n\n\n# Appendix: AR deductions:\n\nEnd of proof."
+  },
+  {
+   "config": "no_similarity_no_ar_transformer",
+   "settings": {
+    "tools": [
+     "ddar",
+     "transformer",
+     "heuristics"
+    ],
+    "proposer_order": [
+     "transformer",
+     "heuristics"
+    ],
+    "ddar": {
+     "config": "no_similarity_no_ar",
+     "engine": "python",
+     "ar": false,
+     "n_rules": 59,
+     "rules": "r03 r04 r06 r11 r12 r13 r14 r15 r16 r17 r18 r19 r20 r21 r24 r25 r26 r27 r28 r36 r37 r41 r42 r43 r44 r46 r49 r50 r51 r54 r55 r56 r58 r59 r64 r65 r66 r67 r70 r71 r72 r73 r74 r77 r78 r79 r80 r81 r82 r83 r84 r85 r86 r87 r88 r89 r90 r91 r92"
+    },
+    "transformer": {
+     "checkpoint": "geo-lm/runs/mid/best.pt",
+     "beam_size": 4,
+     "max_candidates": 4,
+     "max_new_tokens": 64
+    },
+    "heuristics": {
+     "kinds": [
+      "midpoint",
+      "circumcenter",
+      "foot"
+     ],
+     "max_candidates": 8
+    },
+    "search": {
+     "max_depth": 1,
+     "branching": 8,
+     "max_frontier": 8,
+     "max_ddar_calls": 20,
+     "time_limit": 0
+    },
+    "budget": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0
+    }
+   },
+   "resources": {
+    "available": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0,
+     "load_s": 120.0
+    },
+    "used": {
+     "wall_time_s": 7.718,
+     "peak_memory_mb": 442.9,
+     "cpu_time_s": 6.2,
+     "ddar_calls": 1
+    }
+   },
+   "solved": true,
+   "failure_reason": null,
+   "depth": 0,
+   "aux": [],
+   "tools_used": [
+    "ddar"
+   ],
+   "rules_in_proof": {
+    "r19": 1
+   },
+   "rules_fired": {
+    "r19": 2
+   },
+   "proof": "# Problem setup:\n\n## Points\n\n- A(0.5383, 0.5390)\n- B(0.3439, 1.2776)\n- C(0.9974, 0.6599)\n- M(0.6706, 0.9688)\n\n## Assumptions:\n\n[C0] : M is the midpoint of BC\n[C1] : AB ⟂ AC\n\n\n# Goals\n\nBM = AM : Proved [0]\n\n\n# Proof:\n\n000. | M is the midpoint of BC [C0], AB ⟂ AC [C1] =(r19 Hypotenuse is diameter)> BM = AM [0]\n\n\n# Appendix: AR deductions:\n\nEnd of proof."
+  },
+  {
+   "config": "no_similarity_transformer",
+   "settings": {
+    "tools": [
+     "ddar",
+     "transformer",
+     "heuristics"
+    ],
+    "proposer_order": [
+     "transformer",
+     "heuristics"
+    ],
+    "ddar": {
+     "config": "no_similarity",
+     "engine": "python",
+     "ar": true,
+     "n_rules": 59,
+     "rules": "r03 r04 r06 r11 r12 r13 r14 r15 r16 r17 r18 r19 r20 r21 r24 r25 r26 r27 r28 r36 r37 r41 r42 r43 r44 r46 r49 r50 r51 r54 r55 r56 r58 r59 r64 r65 r66 r67 r70 r71 r72 r73 r74 r77 r78 r79 r80 r81 r82 r83 r84 r85 r86 r87 r88 r89 r90 r91 r92"
+    },
+    "transformer": {
+     "checkpoint": "geo-lm/runs/mid/best.pt",
+     "beam_size": 4,
+     "max_candidates": 4,
+     "max_new_tokens": 64
+    },
+    "heuristics": {
+     "kinds": [
+      "midpoint",
+      "circumcenter",
+      "foot"
+     ],
+     "max_candidates": 8
+    },
+    "search": {
+     "max_depth": 1,
+     "branching": 8,
+     "max_frontier": 8,
+     "max_ddar_calls": 20,
+     "time_limit": 0
+    },
+    "budget": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0
+    }
+   },
+   "resources": {
+    "available": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0,
+     "load_s": 120.0
+    },
+    "used": {
+     "wall_time_s": 6.17,
+     "peak_memory_mb": 445.5,
+     "cpu_time_s": 5.27,
+     "ddar_calls": 1
+    }
+   },
+   "solved": true,
+   "failure_reason": null,
+   "depth": 0,
+   "aux": [],
+   "tools_used": [
+    "ddar"
+   ],
+   "rules_in_proof": {
+    "r19": 1
+   },
+   "rules_fired": {
+    "r19": 2
+   },
+   "proof": "# Problem setup:\n\n## Points\n\n- A(0.5383, 0.5390)\n- B(0.3439, 1.2776)\n- C(0.9974, 0.6599)\n- M(0.6706, 0.9688)\n\n## Assumptions:\n\n[C0] : M is the midpoint of BC\n[C1] : AB ⟂ AC\n\n\n# Goals\n\nBM = AM : Proved [0]\n\n\n# Proof:\n\n000. | M is the midpoint of BC [C0], AB ⟂ AC [C1] =(r19 Hypotenuse is diameter)> BM = AM [0]\n\n\n# Appendix: AR deductions:\n\nEnd of proof."
   }
  ]
 }

@@ -21,7 +21,7 @@ deduction rules.
 | `geo-lm/` | the transformer, its tokenizer, training script and evaluation (`scripts/eval_aux.py`) | 2, 8 |
 | `datagen/` | 100k training examples subsampled from GenesisGeo | 2 |
 | `pipeline/` | tools, search, `solve()`, figure check, folder runner | 3 |
-| `ddar/configs/domains/`, `pipeline/configs/domains/` | geometry domains (rule sets, with and without AR) in the easy setting ([domains.md](domains.md)); `pipeline/configs/domains_transformer/` adds the transformer | 6, 8 |
+| `ddar/configs/domains/`, `pipeline/configs/domains/` | geometry domains (rule sets, with and without AR) in the easy setting ([domains.md](domains.md)); `pipeline/configs/domains_transformer/<domain>_transformer.json` adds the transformer (`mid`) | 6, 8 |
 | `docs/` | all documentation (this file, one file per part, references) | all |
 | `problems/examples/` | worked example problems | 4 |
 | `problems/latvia/` | all Latvian olympiad problems from the NMS archive, the geometry subset, and its translations ([README](../problems/latvia/README.md)); built by `bench/latvia/` | 7 |

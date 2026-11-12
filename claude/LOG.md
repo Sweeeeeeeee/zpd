@@ -8,6 +8,31 @@ verified. Newest first. Times are UTC. The current state and next steps are in
 
 ## 2026-11-12 (session 51d9920c)
 
+- Evening (user away 19:10-21:20; 2-hour budget, runs 19:11-20:45 in two
+  streams, `claude/jobs/stream_a.sh`, `stream_b.sh`):
+  - One evaluation for every proposer (`bench/eval_proposers.py`, first aux
+    point, same held-out problems; AG1 via its own prompt format, server got a
+    `prompt` request). Kill rule from the user: skip a model when >60% of >=3
+    attempts are killed (`bench/run_eval_proposers.sh`). Found: torch uses 1
+    thread (1 physical core), bfloat16 ~2x slower than float32 -> float32 for
+    SmolLM2, bfloat16 from 0.6B up (memory). Results: mid 51.5% / 68%, mini_long
+    42% / 65%, SmolLM2 0-2%, Qwen 0 (5 and 3 problems, 89 and 464 s each),
+    GenesisGeo 53% on 15 (28 s), AG1 SIGTERMed 3/3 -> skipped.
+  - Heuristics on the DDAR failures: JGEX +8 of 26 (models +5), union 217/231;
+    IMO 0 of 17. imo_102 not run.
+  - Task 8.3 on the examples with `mid` (configs renamed `*_transformer.json`,
+    they collided with the domain configs in the example store): no change.
+  - Comparison, full domain only: DDAR (Python engine) 5 of 60 at 60 s, 32
+    timeouts; heuristics 0 of 31. Too slow for 60 s here.
+  - Latvian problems (user agreed the translation scheme, tasks.md task 7):
+    8 Haiku agents sorted all 1499 (420 statable after 2 corrections); Claude
+    checked 60 (user delegated): ~5% wrong, generous `prove`. Working set of
+    80 + pilot 10, duplicates merged (55 groups). Translation kit: 6 worked
+    examples checked numerically, `pipeline/dof.py` free-parameter check.
+    a3438ca. User: stop after sorting -> 7.4 pilot not started.
+  - Paper: literature comparison (Wu, Gröbner), problem-set section with the
+    sorting table, comparison subsection and tables, heuristics column; 14 pages.
+
 - Later the same day, docs and paper brought up to date (user asked for
   everything written up to the requirements):
   - Stale facts fixed: 86 tests, `mid` and `mid_model.json` in docs/README,

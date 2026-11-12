@@ -36,3 +36,11 @@ for rid,d in [('HuggingFaceTB/SmolLM2-135M-Instruct','SmolLM2-135M-Instruct'),('
 2026-11-12 15:38:48 START dl-ag1-ckpt2 pid=40424 cwd=/workspaces/zpd/models/ag1/ag_ckpt_vocab cmd=curl -sfL -o checkpoint_10999999 https://drive.usercontent.google.com/download?id=1qXkmmgoJ8oTYJdFV1xw0xGPpQj6SyOYA&export=download&confirm=t
 2026-11-12 15:39:45 END dl-ag1-ckpt2 exit=0 dur=0min
 2026-11-12 16:03:36 END mid-pipeline exit=signal-TERM dur=63min
+2026-11-12 19:03:18 START eval-probe5 pid=160988 cwd=/workspaces/zpd cmd=bench/run_eval_proposers.sh smollm2_135m smollm2_360m genesisgeo qwen3_0_6b_base ag1 qwen25_1_5b
+2026-11-12 19:03:30 END eval-probe5 exit=signal-TERM dur=0min
+2026-11-12 19:03:42 START eval-probe5 pid=161482 cwd=/workspaces/zpd cmd=bench/run_eval_proposers.sh smollm2_135m smollm2_360m genesisgeo qwen3_0_6b_base ag1 qwen25_1_5b
+2026-11-12 19:11:22 END eval-probe5 exit=signal-TERM dur=7min
+2026-11-12 19:11:24 START stream-b pid=168546 cwd=/workspaces/zpd cmd=timeout -s TERM 5616 claude/jobs/stream_b.sh
+2026-11-12 19:11:24 START stream-a pid=168547 cwd=/workspaces/zpd cmd=timeout -s TERM 5616 claude/jobs/stream_a.sh
+2026-11-12 20:31:52 END stream-a exit=0 dur=80min
+2026-11-12 20:45:00 END stream-b exit=124 dur=93min

@@ -1,0 +1,17 @@
+{
+ "kind": "hf",
+ "model": "models/hf/Qwen2.5-1.5B-Instruct",
+ "prompt": "fewshot",
+ "dtype": "bfloat16",
+ "beam": 4,
+ "problems": 3,
+ "beams": 12,
+ "translatable_rate": 0.667,
+ "problems_with_translatable": 1.0,
+ "exact_at_1": 0.0,
+ "exact_at_4": 0.0,
+ "seconds_median": 463.9,
+ "seconds_total": 1364.1,
+ "load_s": 10.7,
+ "peak_rss_gb_last_part": 3.32
+}

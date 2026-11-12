@@ -111,6 +111,19 @@ class AG1Tool(Tool):
                 break
         return out or None
 
+    def raw(self, prompt: str) -> list[tuple[str, float]]:
+        """AG1's beams for a ready AG1 prompt ('{S} ... ? ... {F1} x00'), best first."""
+        self.proc.stdin.write(json.dumps({"prompt": prompt}) + "\n")
+        self.proc.stdin.flush()
+        line = self._readline(self.timeout_s)
+        try:
+            reply = json.loads(line)
+        except json.JSONDecodeError:
+            raise RuntimeError(f"AG1 server: {line!r}") from None
+        if not reply["ok"]:
+            raise RuntimeError(f"AG1 server: {reply['error']}")
+        return [(c["raw"], c["score"]) for c in reply["candidates"]]
+
     def close(self) -> None:
         if self.proc.poll() is None:
             self.proc.kill()

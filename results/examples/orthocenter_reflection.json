@@ -634,6 +634,477 @@
    "rules_in_proof": {},
    "rules_fired": {},
    "proof": null
+  },
+  {
+   "config": "circles_no_ar_transformer",
+   "settings": {
+    "tools": [
+     "ddar",
+     "transformer",
+     "heuristics"
+    ],
+    "proposer_order": [
+     "transformer",
+     "heuristics"
+    ],
+    "ddar": {
+     "config": "circles_no_ar",
+     "engine": "python",
+     "ar": false,
+     "n_rules": 29,
+     "rules": "r03 r04 r13 r14 r15 r16 r17 r18 r19 r20 r21 r24 r28 r49 r50 r51 r54 r55 r56 r58 r59 r72 r73 r74 r80 r81 r82 r91 r92"
+    },
+    "transformer": {
+     "checkpoint": "geo-lm/runs/mid/best.pt",
+     "beam_size": 4,
+     "max_candidates": 4,
+     "max_new_tokens": 64
+    },
+    "heuristics": {
+     "kinds": [
+      "midpoint",
+      "circumcenter",
+      "foot"
+     ],
+     "max_candidates": 8
+    },
+    "search": {
+     "max_depth": 1,
+     "branching": 8,
+     "max_frontier": 8,
+     "max_ddar_calls": 20,
+     "time_limit": 0
+    },
+    "budget": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0
+    }
+   },
+   "resources": {
+    "available": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0,
+     "load_s": 120.0
+    },
+    "used": {
+     "wall_time_s": 8.318,
+     "peak_memory_mb": 456.4,
+     "cpu_time_s": 7.15,
+     "ddar_calls": 9
+    }
+   },
+   "solved": false,
+   "failure_reason": "not solved within depth 1",
+   "depth": 1,
+   "aux": [],
+   "tools_used": [
+    "ddar",
+    "transformer",
+    "heuristics"
+   ],
+   "rules_in_proof": {},
+   "rules_fired": {
+    "r13": 2
+   },
+   "proof": null
+  },
+  {
+   "config": "circles_transformer",
+   "settings": {
+    "tools": [
+     "ddar",
+     "transformer",
+     "heuristics"
+    ],
+    "proposer_order": [
+     "transformer",
+     "heuristics"
+    ],
+    "ddar": {
+     "config": "circles",
+     "engine": "python",
+     "ar": true,
+     "n_rules": 29,
+     "rules": "r03 r04 r13 r14 r15 r16 r17 r18 r19 r20 r21 r24 r28 r49 r50 r51 r54 r55 r56 r58 r59 r72 r73 r74 r80 r81 r82 r91 r92"
+    },
+    "transformer": {
+     "checkpoint": "geo-lm/runs/mid/best.pt",
+     "beam_size": 4,
+     "max_candidates": 4,
+     "max_new_tokens": 64
+    },
+    "heuristics": {
+     "kinds": [
+      "midpoint",
+      "circumcenter",
+      "foot"
+     ],
+     "max_candidates": 8
+    },
+    "search": {
+     "max_depth": 1,
+     "branching": 8,
+     "max_frontier": 8,
+     "max_ddar_calls": 20,
+     "time_limit": 0
+    },
+    "budget": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0
+    }
+   },
+   "resources": {
+    "available": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0,
+     "load_s": 120.0
+    },
+    "used": {
+     "wall_time_s": 8.748,
+     "peak_memory_mb": 450.1,
+     "cpu_time_s": 6.89,
+     "ddar_calls": 1
+    }
+   },
+   "solved": true,
+   "failure_reason": null,
+   "depth": 0,
+   "aux": [],
+   "tools_used": [
+    "ddar"
+   ],
+   "rules_in_proof": {
+    "r13": 2,
+    "AR:angle": 1,
+    "r04": 1
+   },
+   "rules_fired": {
+    "AR:angle": 115,
+    "AR:ratio": 8,
+    "r13": 2,
+    "r28": 1,
+    "r82": 2,
+    "r04": 1
+   },
+   "proof": "# Problem setup:\n\n## Points\n\n- A(0.4127, 0.5303)\n- B(0.9202, 0.6639)\n- C(0.5468, 1.2823)\n- D(0.9882, 0.8778)\n- H(0.6992, 0.7034)\n\n## Assumptions:\n\n[C0] : BD = BH\n[C1] : CD = CH\n[C2] : AB ⟂ CH\n\n## Numerical checks\n\n[N0] : B, D, H are not collinear\n[N1] : C, D, H are not collinear\n[N2] : A, B, C, D are not collinear\n\n\n# Goals\n\nABCD are cyclic : Proved [3]\n\n\n# Proof:\n\n000. | BD = BH [C0], B, D, H are not collinear [N0] =(r13 Isosceles triangle equal angles)> ∠(BD,DH) = ∠(DH,BH) [0]\n001. | CD = CH [C1], C, D, H are not collinear [N1] =(r13 Isosceles triangle equal angles)> ∠(CD,DH) = ∠(DH,CH) [1]\n002. | ∠(BD,DH) = ∠(DH,BH) [0], ∠(CD,DH) = ∠(DH,CH) [1], AB ⟂ CH [C2] =(AR Deduction)> ∠(AB,BD) = ∠(AC,CD) [2]\n003. | ∠(AB,BD) = ∠(AC,CD) [2], A, B, C, D are not collinear [N2] =(r04 Congruent angles are in a cyclic)> ABCD are cyclic [3]\n\n\n# Appendix: AR deductions:\n\n\n\n002. | Angle Chasing to prove ∠(AB,BD) = ∠(AC,CD):\n| Premise ∠(BD,DH) = ∠(DH,BH) gives a linear equation with coefficients {}\n| Premise ∠(CD,DH) = ∠(DH,CH) gives a linear equation with coefficients {}\n| Premise AB ⟂ CH gives a linear equation with coefficients {}\nWe are left with a linear equation with coefficients {} that gives ∠(AB,BD) = ∠(AC,CD)\n\nEnd of proof."
+  },
+  {
+   "config": "full_no_ar_transformer",
+   "settings": {
+    "tools": [
+     "ddar",
+     "transformer",
+     "heuristics"
+    ],
+    "proposer_order": [
+     "transformer",
+     "heuristics"
+    ],
+    "ddar": {
+     "config": "full_no_ar",
+     "engine": "python",
+     "ar": false,
+     "n_rules": 70,
+     "rules": "r03 r04 r06 r07 r11 r12 r13 r14 r15 r16 r17 r18 r19 r20 r21 r24 r25 r26 r27 r28 r34 r35 r36 r37 r41 r42 r43 r44 r46 r49 r50 r51 r52 r53 r54 r55 r56 r58 r59 r60 r61 r62 r63 r64 r65 r66 r67 r68 r69 r70 r71 r72 r73 r74 r77 r78 r79 r80 r81 r82 r83 r84 r85 r86 r87 r88 r89 r90 r91 r92"
+    },
+    "transformer": {
+     "checkpoint": "geo-lm/runs/mid/best.pt",
+     "beam_size": 4,
+     "max_candidates": 4,
+     "max_new_tokens": 64
+    },
+    "heuristics": {
+     "kinds": [
+      "midpoint",
+      "circumcenter",
+      "foot"
+     ],
+     "max_candidates": 8
+    },
+    "search": {
+     "max_depth": 1,
+     "branching": 8,
+     "max_frontier": 8,
+     "max_ddar_calls": 20,
+     "time_limit": 0
+    },
+    "budget": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0
+    }
+   },
+   "resources": {
+    "available": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0,
+     "load_s": 120.0
+    },
+    "used": {
+     "wall_time_s": 67.385,
+     "peak_memory_mb": 458.4,
+     "cpu_time_s": 53.05,
+     "ddar_calls": 0
+    }
+   },
+   "solved": false,
+   "failure_reason": "time limit (60s)",
+   "depth": 0,
+   "aux": [],
+   "tools_used": [],
+   "rules_in_proof": {},
+   "rules_fired": {},
+   "proof": null
+  },
+  {
+   "config": "full_transformer",
+   "settings": {
+    "tools": [
+     "ddar",
+     "transformer",
+     "heuristics"
+    ],
+    "proposer_order": [
+     "transformer",
+     "heuristics"
+    ],
+    "ddar": {
+     "config": "full",
+     "engine": "python",
+     "ar": true,
+     "n_rules": 70,
+     "rules": "r03 r04 r06 r07 r11 r12 r13 r14 r15 r16 r17 r18 r19 r20 r21 r24 r25 r26 r27 r28 r34 r35 r36 r37 r41 r42 r43 r44 r46 r49 r50 r51 r52 r53 r54 r55 r56 r58 r59 r60 r61 r62 r63 r64 r65 r66 r67 r68 r69 r70 r71 r72 r73 r74 r77 r78 r79 r80 r81 r82 r83 r84 r85 r86 r87 r88 r89 r90 r91 r92"
+    },
+    "transformer": {
+     "checkpoint": "geo-lm/runs/mid/best.pt",
+     "beam_size": 4,
+     "max_candidates": 4,
+     "max_new_tokens": 64
+    },
+    "heuristics": {
+     "kinds": [
+      "midpoint",
+      "circumcenter",
+      "foot"
+     ],
+     "max_candidates": 8
+    },
+    "search": {
+     "max_depth": 1,
+     "branching": 8,
+     "max_frontier": 8,
+     "max_ddar_calls": 20,
+     "time_limit": 0
+    },
+    "budget": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0
+    }
+   },
+   "resources": {
+    "available": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0,
+     "load_s": 120.0
+    },
+    "used": {
+     "wall_time_s": 13.868,
+     "peak_memory_mb": 451.3,
+     "cpu_time_s": 11.61,
+     "ddar_calls": 1
+    }
+   },
+   "solved": true,
+   "failure_reason": null,
+   "depth": 0,
+   "aux": [],
+   "tools_used": [
+    "ddar"
+   ],
+   "rules_in_proof": {
+    "r13": 1,
+    "AR:angle": 2,
+    "r28": 1,
+    "r82": 1,
+    "r04": 1
+   },
+   "rules_fired": {
+    "AR:angle": 115,
+    "AR:ratio": 8,
+    "r13": 2,
+    "r28": 1,
+    "r35": 2,
+    "r37": 2,
+    "r53": 6,
+    "r78": 1,
+    "r79": 36,
+    "r82": 2,
+    "r04": 1
+   },
+   "proof": "# Problem setup:\n\n## Points\n\n- A(0.4127, 0.5303)\n- B(0.9202, 0.6639)\n- C(0.5468, 1.2823)\n- D(0.9882, 0.8778)\n- H(0.6992, 0.7034)\n\n## Assumptions:\n\n[C0] : BH = BD\n[C1] : BC ⟂ DH\n[C2] : AH ⟂ BC\n\n## Numerical checks\n\n[N0] : B, D, H are not collinear\n[N1] : A, B, C, D are not collinear\n\n\n# Goals\n\nABCD are cyclic : Proved [5]\n\n\n# Proof:\n\n000. | BH = BD [C0], B, D, H are not collinear [N0] =(r13 Isosceles triangle equal angles)> ∠(BD,DH) = ∠(DH,BH) [0]\n001. | BC ⟂ DH [C1] =(AR Deduction)> DH ∥ AH [1]\n002. | DH ∥ AH [1] =(r28 Overlapping parallels)> A, D, H are collinear [2]\n003. | A, D, H are collinear [2] =(r82 Parallel from collinear)> AD ∥ AH [3]\n004. | ∠(BD,DH) = ∠(DH,BH) [0], AD ∥ AH [3], AH ⟂ BC [C2] =(AR Deduction)> ∠(AC,BC) = ∠(AD,BD) [4]\n005. | ∠(AC,BC) = ∠(AD,BD) [4], A, B, C, D are not collinear [N1] =(r04 Congruent angles are in a cyclic)> ABCD are cyclic [5]\n\n\n# Appendix: AR deductions:\n\n\n\n001. | Angle Chasing to prove DH ∥ AH:\n| Premise BC ⟂ DH gives a linear equation with coefficients {}\nWe are left with a linear equation with coefficients {} that gives DH ∥ AH\n\n\n\n004. | Angle Chasing to prove ∠(AC,BC) = ∠(AD,BD):\n| Premise ∠(BD,DH) = ∠(DH,BH) gives a linear equation with coefficients {}\n| Premise AD ∥ AH gives a linear equation with coefficients {}\n| Premise AH ⟂ BC gives a linear equation with coefficients {}\nWe are left with a linear equation with coefficients {} that gives ∠(AC,BC) = ∠(AD,BD)\n\nEnd of proof."
+  },
+  {
+   "config": "no_similarity_no_ar_transformer",
+   "settings": {
+    "tools": [
+     "ddar",
+     "transformer",
+     "heuristics"
+    ],
+    "proposer_order": [
+     "transformer",
+     "heuristics"
+    ],
+    "ddar": {
+     "config": "no_similarity_no_ar",
+     "engine": "python",
+     "ar": false,
+     "n_rules": 59,
+     "rules": "r03 r04 r06 r11 r12 r13 r14 r15 r16 r17 r18 r19 r20 r21 r24 r25 r26 r27 r28 r36 r37 r41 r42 r43 r44 r46 r49 r50 r51 r54 r55 r56 r58 r59 r64 r65 r66 r67 r70 r71 r72 r73 r74 r77 r78 r79 r80 r81 r82 r83 r84 r85 r86 r87 r88 r89 r90 r91 r92"
+    },
+    "transformer": {
+     "checkpoint": "geo-lm/runs/mid/best.pt",
+     "beam_size": 4,
+     "max_candidates": 4,
+     "max_new_tokens": 64
+    },
+    "heuristics": {
+     "kinds": [
+      "midpoint",
+      "circumcenter",
+      "foot"
+     ],
+     "max_candidates": 8
+    },
+    "search": {
+     "max_depth": 1,
+     "branching": 8,
+     "max_frontier": 8,
+     "max_ddar_calls": 20,
+     "time_limit": 0
+    },
+    "budget": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0
+    }
+   },
+   "resources": {
+    "available": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0,
+     "load_s": 120.0
+    },
+    "used": {
+     "wall_time_s": 66.287,
+     "peak_memory_mb": 457.4,
+     "cpu_time_s": 52.79,
+     "ddar_calls": 0
+    }
+   },
+   "solved": false,
+   "failure_reason": "time limit (60s)",
+   "depth": 0,
+   "aux": [],
+   "tools_used": [],
+   "rules_in_proof": {},
+   "rules_fired": {},
+   "proof": null
+  },
+  {
+   "config": "no_similarity_transformer",
+   "settings": {
+    "tools": [
+     "ddar",
+     "transformer",
+     "heuristics"
+    ],
+    "proposer_order": [
+     "transformer",
+     "heuristics"
+    ],
+    "ddar": {
+     "config": "no_similarity",
+     "engine": "python",
+     "ar": true,
+     "n_rules": 59,
+     "rules": "r03 r04 r06 r11 r12 r13 r14 r15 r16 r17 r18 r19 r20 r21 r24 r25 r26 r27 r28 r36 r37 r41 r42 r43 r44 r46 r49 r50 r51 r54 r55 r56 r58 r59 r64 r65 r66 r67 r70 r71 r72 r73 r74 r77 r78 r79 r80 r81 r82 r83 r84 r85 r86 r87 r88 r89 r90 r91 r92"
+    },
+    "transformer": {
+     "checkpoint": "geo-lm/runs/mid/best.pt",
+     "beam_size": 4,
+     "max_candidates": 4,
+     "max_new_tokens": 64
+    },
+    "heuristics": {
+     "kinds": [
+      "midpoint",
+      "circumcenter",
+      "foot"
+     ],
+     "max_candidates": 8
+    },
+    "search": {
+     "max_depth": 1,
+     "branching": 8,
+     "max_frontier": 8,
+     "max_ddar_calls": 20,
+     "time_limit": 0
+    },
+    "budget": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0
+    }
+   },
+   "resources": {
+    "available": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0,
+     "load_s": 120.0
+    },
+    "used": {
+     "wall_time_s": 15.573,
+     "peak_memory_mb": 451.1,
+     "cpu_time_s": 11.58,
+     "ddar_calls": 1
+    }
+   },
+   "solved": true,
+   "failure_reason": null,
+   "depth": 0,
+   "aux": [],
+   "tools_used": [
+    "ddar"
+   ],
+   "rules_in_proof": {
+    "r13": 1,
+    "AR:angle": 2,
+    "r28": 1,
+    "r82": 1,
+    "r04": 1
+   },
+   "rules_fired": {
+    "AR:angle": 115,
+    "AR:ratio": 8,
+    "r13": 2,
+    "r28": 1,
+    "r37": 2,
+    "r78": 3,
+    "r79": 38,
+    "r82": 2,
+    "r04": 1
+   },
+   "proof": "# Problem setup:\n\n## Points\n\n- A(0.4127, 0.5303)\n- B(0.9202, 0.6639)\n- C(0.5468, 1.2823)\n- D(0.9882, 0.8778)\n- H(0.6992, 0.7034)\n\n## Assumptions:\n\n[C0] : BH = BD\n[C1] : BC ⟂ DH\n[C2] : AH ⟂ BC\n\n## Numerical checks\n\n[N0] : B, D, H are not collinear\n[N1] : A, B, C, D are not collinear\n\n\n# Goals\n\nABCD are cyclic : Proved [5]\n\n\n# Proof:\n\n000. | BH = BD [C0], B, D, H are not collinear [N0] =(r13 Isosceles triangle equal angles)> ∠(BD,DH) = ∠(DH,BH) [0]\n001. | BC ⟂ DH [C1] =(AR Deduction)> AH ∥ DH [1]\n002. | AH ∥ DH [1] =(r28 Overlapping parallels)> A, D, H are collinear [2]\n003. | A, D, H are collinear [2] =(r82 Parallel from collinear)> AH ∥ AD [3]\n004. | ∠(BD,DH) = ∠(DH,BH) [0], AH ∥ AD [3], AH ⟂ BC [C2] =(AR Deduction)> ∠(AC,AD) = ∠(BC,BD) [4]\n005. | ∠(AC,AD) = ∠(BC,BD) [4], A, B, C, D are not collinear [N1] =(r04 Congruent angles are in a cyclic)> ABCD are cyclic [5]\n\n\n# Appendix: AR deductions:\n\n\n\n001. | Angle Chasing to prove AH ∥ DH:\n| Premise BC ⟂ DH gives a linear equation with coefficients {}\nWe are left with a linear equation with coefficients {} that gives AH ∥ DH\n\n\n\n004. | Angle Chasing to prove ∠(AC,AD) = ∠(BC,BD):\n| Premise ∠(BD,DH) = ∠(DH,BH) gives a linear equation with coefficients {}\n| Premise AH ∥ AD gives a linear equation with coefficients {}\n| Premise AH ⟂ BC gives a linear equation with coefficients {}\nWe are left with a linear equation with coefficients {} that gives ∠(AC,AD) = ∠(BC,BD)\n\nEnd of proof."
   }
  ]
 }

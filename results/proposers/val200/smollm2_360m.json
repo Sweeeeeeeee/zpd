@@ -1,0 +1,17 @@
+{
+ "kind": "hf",
+ "model": "models/hf/SmolLM2-360M-Instruct",
+ "prompt": "fewshot",
+ "dtype": "float32",
+ "beam": 4,
+ "problems": 50,
+ "beams": 200,
+ "translatable_rate": 0.55,
+ "problems_with_translatable": 0.9,
+ "exact_at_1": 0.02,
+ "exact_at_4": 0.12,
+ "seconds_median": 25.33,
+ "seconds_total": 1285.6,
+ "load_s": 13.9,
+ "peak_rss_gb_last_part": 2.58
+}

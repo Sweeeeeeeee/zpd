@@ -20,16 +20,18 @@ DOMAINS = ["full", "no_similarity", "circles"]  # with AR; see docs/domains.md
 
 HF = "pipeline.hf_tool:HFLMTool"
 PROPOSERS: dict[str, tuple[dict | None, int]] = {
-    # name: (tool spec or None for DDAR alone, memory MB)
+    # name: (tool spec or None for DDAR alone, memory MB). HF dtype: float32 for the
+    # SmolLM2 models (bfloat16 is ~2x slower on this CPU), bfloat16 (hf_tool default)
+    # from 0.6B up, where float32 would pass the memory at which processes here die.
     "ddar": (None, 2048),
     "heuristics": ({"kinds": ["midpoint", "circumcenter", "foot"], "max_candidates": 8}, 2048),
     "mini": ({"checkpoint": "geo-lm/runs/mini/best.pt"}, 2048),
     "mini_long": ({"checkpoint": "geo-lm/runs/mini_long/best.pt"}, 2048),
     "mid": ({"checkpoint": "geo-lm/runs/mid/best.pt"}, 2048),
     "smollm2_135m": ({"class": HF, "model": "models/hf/SmolLM2-135M-Instruct",
-                      "prompt": "fewshot", "name": "smollm2_135m"}, 2048),
+                      "prompt": "fewshot", "name": "smollm2_135m", "dtype": "float32"}, 2048),
     "smollm2_360m": ({"class": HF, "model": "models/hf/SmolLM2-360M-Instruct",
-                      "prompt": "fewshot", "name": "smollm2_360m"}, 2048),
+                      "prompt": "fewshot", "name": "smollm2_360m", "dtype": "float32"}, 2048),
     "genesisgeo": ({"class": HF, "model": "models/hf/GenesisGeo",
                     "prompt": "genesisgeo", "name": "genesisgeo"}, 3072),
     # control for GenesisGeo: the same base model without the geometry fine-tuning

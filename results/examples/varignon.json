@@ -599,6 +599,442 @@
    "rules_in_proof": {},
    "rules_fired": {},
    "proof": null
+  },
+  {
+   "config": "circles_no_ar_transformer",
+   "settings": {
+    "tools": [
+     "ddar",
+     "transformer",
+     "heuristics"
+    ],
+    "proposer_order": [
+     "transformer",
+     "heuristics"
+    ],
+    "ddar": {
+     "config": "circles_no_ar",
+     "engine": "python",
+     "ar": false,
+     "n_rules": 29,
+     "rules": "r03 r04 r13 r14 r15 r16 r17 r18 r19 r20 r21 r24 r28 r49 r50 r51 r54 r55 r56 r58 r59 r72 r73 r74 r80 r81 r82 r91 r92"
+    },
+    "transformer": {
+     "checkpoint": "geo-lm/runs/mid/best.pt",
+     "beam_size": 4,
+     "max_candidates": 4,
+     "max_new_tokens": 64
+    },
+    "heuristics": {
+     "kinds": [
+      "midpoint",
+      "circumcenter",
+      "foot"
+     ],
+     "max_candidates": 8
+    },
+    "search": {
+     "max_depth": 1,
+     "branching": 8,
+     "max_frontier": 8,
+     "max_ddar_calls": 20,
+     "time_limit": 0
+    },
+    "budget": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0
+    }
+   },
+   "resources": {
+    "available": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0,
+     "load_s": 120.0
+    },
+    "used": {
+     "wall_time_s": 9.156,
+     "peak_memory_mb": 456.7,
+     "cpu_time_s": 7.46,
+     "ddar_calls": 9
+    }
+   },
+   "solved": false,
+   "failure_reason": "not solved within depth 1",
+   "depth": 1,
+   "aux": [],
+   "tools_used": [
+    "ddar",
+    "transformer",
+    "heuristics"
+   ],
+   "rules_in_proof": {},
+   "rules_fired": {
+    "r55": 4,
+    "r56": 4,
+    "r82": 12
+   },
+   "proof": null
+  },
+  {
+   "config": "circles_transformer",
+   "settings": {
+    "tools": [
+     "ddar",
+     "transformer",
+     "heuristics"
+    ],
+    "proposer_order": [
+     "transformer",
+     "heuristics"
+    ],
+    "ddar": {
+     "config": "circles",
+     "engine": "python",
+     "ar": true,
+     "n_rules": 29,
+     "rules": "r03 r04 r13 r14 r15 r16 r17 r18 r19 r20 r21 r24 r28 r49 r50 r51 r54 r55 r56 r58 r59 r72 r73 r74 r80 r81 r82 r91 r92"
+    },
+    "transformer": {
+     "checkpoint": "geo-lm/runs/mid/best.pt",
+     "beam_size": 4,
+     "max_candidates": 4,
+     "max_new_tokens": 64
+    },
+    "heuristics": {
+     "kinds": [
+      "midpoint",
+      "circumcenter",
+      "foot"
+     ],
+     "max_candidates": 8
+    },
+    "search": {
+     "max_depth": 1,
+     "branching": 8,
+     "max_frontier": 8,
+     "max_ddar_calls": 20,
+     "time_limit": 0
+    },
+    "budget": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0
+    }
+   },
+   "resources": {
+    "available": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0,
+     "load_s": 120.0
+    },
+    "used": {
+     "wall_time_s": 66.104,
+     "peak_memory_mb": 463.8,
+     "cpu_time_s": 55.32,
+     "ddar_calls": 0
+    }
+   },
+   "solved": false,
+   "failure_reason": "time limit (60s)",
+   "depth": 0,
+   "aux": [],
+   "tools_used": [],
+   "rules_in_proof": {},
+   "rules_fired": {},
+   "proof": null
+  },
+  {
+   "config": "full_no_ar_transformer",
+   "settings": {
+    "tools": [
+     "ddar",
+     "transformer",
+     "heuristics"
+    ],
+    "proposer_order": [
+     "transformer",
+     "heuristics"
+    ],
+    "ddar": {
+     "config": "full_no_ar",
+     "engine": "python",
+     "ar": false,
+     "n_rules": 70,
+     "rules": "r03 r04 r06 r07 r11 r12 r13 r14 r15 r16 r17 r18 r19 r20 r21 r24 r25 r26 r27 r28 r34 r35 r36 r37 r41 r42 r43 r44 r46 r49 r50 r51 r52 r53 r54 r55 r56 r58 r59 r60 r61 r62 r63 r64 r65 r66 r67 r68 r69 r70 r71 r72 r73 r74 r77 r78 r79 r80 r81 r82 r83 r84 r85 r86 r87 r88 r89 r90 r91 r92"
+    },
+    "transformer": {
+     "checkpoint": "geo-lm/runs/mid/best.pt",
+     "beam_size": 4,
+     "max_candidates": 4,
+     "max_new_tokens": 64
+    },
+    "heuristics": {
+     "kinds": [
+      "midpoint",
+      "circumcenter",
+      "foot"
+     ],
+     "max_candidates": 8
+    },
+    "search": {
+     "max_depth": 1,
+     "branching": 8,
+     "max_frontier": 8,
+     "max_ddar_calls": 20,
+     "time_limit": 0
+    },
+    "budget": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0
+    }
+   },
+   "resources": {
+    "available": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0,
+     "load_s": 120.0
+    },
+    "used": {
+     "wall_time_s": 70.084,
+     "peak_memory_mb": 444.9,
+     "cpu_time_s": 55.97,
+     "ddar_calls": 0
+    }
+   },
+   "solved": false,
+   "failure_reason": "time limit (60s)",
+   "depth": 0,
+   "aux": [],
+   "tools_used": [],
+   "rules_in_proof": {},
+   "rules_fired": {},
+   "proof": null
+  },
+  {
+   "config": "full_transformer",
+   "settings": {
+    "tools": [
+     "ddar",
+     "transformer",
+     "heuristics"
+    ],
+    "proposer_order": [
+     "transformer",
+     "heuristics"
+    ],
+    "ddar": {
+     "config": "full",
+     "engine": "python",
+     "ar": true,
+     "n_rules": 70,
+     "rules": "r03 r04 r06 r07 r11 r12 r13 r14 r15 r16 r17 r18 r19 r20 r21 r24 r25 r26 r27 r28 r34 r35 r36 r37 r41 r42 r43 r44 r46 r49 r50 r51 r52 r53 r54 r55 r56 r58 r59 r60 r61 r62 r63 r64 r65 r66 r67 r68 r69 r70 r71 r72 r73 r74 r77 r78 r79 r80 r81 r82 r83 r84 r85 r86 r87 r88 r89 r90 r91 r92"
+    },
+    "transformer": {
+     "checkpoint": "geo-lm/runs/mid/best.pt",
+     "beam_size": 4,
+     "max_candidates": 4,
+     "max_new_tokens": 64
+    },
+    "heuristics": {
+     "kinds": [
+      "midpoint",
+      "circumcenter",
+      "foot"
+     ],
+     "max_candidates": 8
+    },
+    "search": {
+     "max_depth": 1,
+     "branching": 8,
+     "max_frontier": 8,
+     "max_ddar_calls": 20,
+     "time_limit": 0
+    },
+    "budget": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0
+    }
+   },
+   "resources": {
+    "available": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0,
+     "load_s": 120.0
+    },
+    "used": {
+     "wall_time_s": 6.676,
+     "peak_memory_mb": 446.7,
+     "cpu_time_s": 5.95,
+     "ddar_calls": 1
+    }
+   },
+   "solved": true,
+   "failure_reason": null,
+   "depth": 0,
+   "aux": [],
+   "tools_used": [
+    "ddar"
+   ],
+   "rules_in_proof": {
+    "r06": 2,
+    "AR:angle": 1
+   },
+   "rules_fired": {
+    "r06": 4
+   },
+   "proof": "# Problem setup:\n\n## Points\n\n- A(-0.1184, 1.3490)\n- B(-0.3897, 0.6476)\n- C(0.6053, -0.3744)\n- D(0.7559, 0.2139)\n- E(-0.2540, 0.9983)\n- F(0.1078, 0.1366)\n- G(0.6806, -0.0803)\n- H(0.3188, 0.7814)\n\n## Assumptions:\n\n[C0] : E is the midpoint of AB\n[C1] : F is the midpoint of BC\n[C2] : G is the midpoint of CD\n[C3] : H is the midpoint of AD\n\n\n# Goals\n\nGH ∥ EF : Proved [2]\n\n\n# Proof:\n\n000. | E is the midpoint of AB [C0], F is the midpoint of BC [C1] =(r06 Base of half triangle)> EF ∥ AC [0]\n001. | G is the midpoint of CD [C2], H is the midpoint of AD [C3] =(r06 Base of half triangle)> GH ∥ AC [1]\n002. | EF ∥ AC [0], GH ∥ AC [1] =(AR Deduction)> GH ∥ EF [2]\n\n\n# Appendix: AR deductions:\n\n\n\n002. | Angle Chasing to prove GH ∥ EF:\n| Premise EF ∥ AC gives a linear equation with coefficients {}\n| Premise GH ∥ AC gives a linear equation with coefficients {}\nWe are left with a linear equation with coefficients {} that gives GH ∥ EF\n\nEnd of proof."
+  },
+  {
+   "config": "no_similarity_no_ar_transformer",
+   "settings": {
+    "tools": [
+     "ddar",
+     "transformer",
+     "heuristics"
+    ],
+    "proposer_order": [
+     "transformer",
+     "heuristics"
+    ],
+    "ddar": {
+     "config": "no_similarity_no_ar",
+     "engine": "python",
+     "ar": false,
+     "n_rules": 59,
+     "rules": "r03 r04 r06 r11 r12 r13 r14 r15 r16 r17 r18 r19 r20 r21 r24 r25 r26 r27 r28 r36 r37 r41 r42 r43 r44 r46 r49 r50 r51 r54 r55 r56 r58 r59 r64 r65 r66 r67 r70 r71 r72 r73 r74 r77 r78 r79 r80 r81 r82 r83 r84 r85 r86 r87 r88 r89 r90 r91 r92"
+    },
+    "transformer": {
+     "checkpoint": "geo-lm/runs/mid/best.pt",
+     "beam_size": 4,
+     "max_candidates": 4,
+     "max_new_tokens": 64
+    },
+    "heuristics": {
+     "kinds": [
+      "midpoint",
+      "circumcenter",
+      "foot"
+     ],
+     "max_candidates": 8
+    },
+    "search": {
+     "max_depth": 1,
+     "branching": 8,
+     "max_frontier": 8,
+     "max_ddar_calls": 20,
+     "time_limit": 0
+    },
+    "budget": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0
+    }
+   },
+   "resources": {
+    "available": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0,
+     "load_s": 120.0
+    },
+    "used": {
+     "wall_time_s": 66.304,
+     "peak_memory_mb": 444.9,
+     "cpu_time_s": 58.38,
+     "ddar_calls": 0
+    }
+   },
+   "solved": false,
+   "failure_reason": "time limit (60s)",
+   "depth": 0,
+   "aux": [],
+   "tools_used": [],
+   "rules_in_proof": {},
+   "rules_fired": {},
+   "proof": null
+  },
+  {
+   "config": "no_similarity_transformer",
+   "settings": {
+    "tools": [
+     "ddar",
+     "transformer",
+     "heuristics"
+    ],
+    "proposer_order": [
+     "transformer",
+     "heuristics"
+    ],
+    "ddar": {
+     "config": "no_similarity",
+     "engine": "python",
+     "ar": true,
+     "n_rules": 59,
+     "rules": "r03 r04 r06 r11 r12 r13 r14 r15 r16 r17 r18 r19 r20 r21 r24 r25 r26 r27 r28 r36 r37 r41 r42 r43 r44 r46 r49 r50 r51 r54 r55 r56 r58 r59 r64 r65 r66 r67 r70 r71 r72 r73 r74 r77 r78 r79 r80 r81 r82 r83 r84 r85 r86 r87 r88 r89 r90 r91 r92"
+    },
+    "transformer": {
+     "checkpoint": "geo-lm/runs/mid/best.pt",
+     "beam_size": 4,
+     "max_candidates": 4,
+     "max_new_tokens": 64
+    },
+    "heuristics": {
+     "kinds": [
+      "midpoint",
+      "circumcenter",
+      "foot"
+     ],
+     "max_candidates": 8
+    },
+    "search": {
+     "max_depth": 1,
+     "branching": 8,
+     "max_frontier": 8,
+     "max_ddar_calls": 20,
+     "time_limit": 0
+    },
+    "budget": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0
+    }
+   },
+   "resources": {
+    "available": {
+     "time_s": 60,
+     "memory_mb": 2048,
+     "cpu_s": 0,
+     "load_s": 120.0
+    },
+    "used": {
+     "wall_time_s": 6.315,
+     "peak_memory_mb": 446.3,
+     "cpu_time_s": 5.43,
+     "ddar_calls": 1
+    }
+   },
+   "solved": true,
+   "failure_reason": null,
+   "depth": 0,
+   "aux": [],
+   "tools_used": [
+    "ddar"
+   ],
+   "rules_in_proof": {
+    "r06": 1,
+    "AR:angle": 1
+   },
+   "rules_fired": {
+    "r06": 4
+   },
+   "proof": "# Problem setup:\n\n## Points\n\n- A(-0.1184, 1.3490)\n- B(-0.3897, 0.6476)\n- C(0.6053, -0.3744)\n- D(0.7559, 0.2139)\n- E(-0.2540, 0.9983)\n- F(0.1078, 0.1366)\n- G(0.6806, -0.0803)\n- H(0.3188, 0.7814)\n\n## Assumptions:\n\n[C0] : G is the midpoint of CD\n[C1] : H is the midpoint of AD\n\n\n# Goals\n\nGH ∥ EF : Proved [1]\n\n\n# Proof:\n\n000. | G is the midpoint of CD [C0], H is the midpoint of AD [C1] =(r06 Base of half triangle)> GH ∥ AC [0]\n001. | GH ∥ AC [0] =(AR Deduction)> GH ∥ EF [1]\n\n\n# Appendix: AR deductions:\n\n\n\n001. | Angle Chasing to prove GH ∥ EF:\n| Premise GH ∥ AC gives a linear equation with coefficients {}\nWe are left with a linear equation with coefficients {} that gives GH ∥ EF\n\nEnd of proof."
   }
  ]
 }

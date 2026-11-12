@@ -1,0 +1,17 @@
+{
+ "kind": "hf",
+ "model": "models/hf/Qwen3-0.6B-Base",
+ "prompt": "fewshot",
+ "dtype": "bfloat16",
+ "beam": 4,
+ "problems": 5,
+ "beams": 20,
+ "translatable_rate": 0.1,
+ "problems_with_translatable": 0.2,
+ "exact_at_1": 0.0,
+ "exact_at_4": 0.0,
+ "seconds_median": 88.98,
+ "seconds_total": 462.9,
+ "load_s": 10.4,
+ "peak_rss_gb_last_part": 2.65
+}

@@ -1,5 +1,5 @@
 {
-  "_comment": "Domain 'full_no_ar' in the easy setting: DDAR, then at most one auxiliary point from the transformer (geo-lm runs/mini) and the heuristics, 60 s and 2 GB.",
+  "_comment": "Domain 'full_no_ar' in the easy setting: DDAR, then at most one auxiliary point from the transformer (geo-lm runs/mid, 5.1M) and the heuristics, 60 s and 2 GB.",
   "tools": {
     "ddar": {
       "enabled": true,
@@ -11,7 +11,7 @@
     "transformer": {
       "enabled": true,
       "options": {
-        "checkpoint": "geo-lm/runs/mini/best.pt",
+        "checkpoint": "geo-lm/runs/mid/best.pt",
         "beam_size": 4,
         "max_candidates": 4,
         "max_new_tokens": 64
