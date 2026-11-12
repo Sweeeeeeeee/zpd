@@ -1,5 +1,6 @@
 *.tar
 .venv-newclid/
+.venv-ag1/
 third_party/
 __pycache__/
 data/

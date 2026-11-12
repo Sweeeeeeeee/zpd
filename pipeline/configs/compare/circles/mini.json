@@ -13,8 +13,8 @@
       "options": {
         "beam_size": 4,
         "max_candidates": 4,
-        "max_new_tokens": 48,
-        "checkpoint": "geo-lm/runs/mini/best.pt"
+        "checkpoint": "geo-lm/runs/mini/best.pt",
+        "max_new_tokens": 48
       }
     }
   },

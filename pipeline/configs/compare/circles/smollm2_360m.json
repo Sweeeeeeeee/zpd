@@ -13,10 +13,10 @@
       "options": {
         "beam_size": 4,
         "max_candidates": 4,
-        "max_new_tokens": 20,
         "model": "models/hf/SmolLM2-360M-Instruct",
         "prompt": "fewshot",
-        "name": "smollm2_360m"
+        "name": "smollm2_360m",
+        "max_new_tokens": 20
       },
       "class": "pipeline.hf_tool:HFLMTool"
     }

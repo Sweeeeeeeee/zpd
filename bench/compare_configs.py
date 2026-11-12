@@ -26,10 +26,19 @@ PROPOSERS: dict[str, tuple[dict | None, int]] = {
     "mini": ({"checkpoint": "geo-lm/runs/mini/best.pt"}, 2048),
     "mini_long": ({"checkpoint": "geo-lm/runs/mini_long/best.pt"}, 2048),
     "mid": ({"checkpoint": "geo-lm/runs/mid/best.pt"}, 2048),
+    "smollm2_135m": ({"class": HF, "model": "models/hf/SmolLM2-135M-Instruct",
+                      "prompt": "fewshot", "name": "smollm2_135m"}, 2048),
     "smollm2_360m": ({"class": HF, "model": "models/hf/SmolLM2-360M-Instruct",
                       "prompt": "fewshot", "name": "smollm2_360m"}, 2048),
     "genesisgeo": ({"class": HF, "model": "models/hf/GenesisGeo",
                     "prompt": "genesisgeo", "name": "genesisgeo"}, 3072),
+    # control for GenesisGeo: the same base model without the geometry fine-tuning
+    "qwen3_0_6b_base": ({"class": HF, "model": "models/hf/Qwen3-0.6B-Base",
+                         "prompt": "fewshot", "name": "qwen3_0_6b_base"}, 3072),
+    # AlphaGeometry's 152M LM in its own env (pipeline/ag1_tool.py). On the 2-core
+    # Codespace: ~40 s load + ~75 s JIT on the first call + ~23 s per call (beam 2),
+    # 2.7 GB: over the 60 s budget here; meant for a bigger machine.
+    "ag1": ({"class": "pipeline.ag1_tool:AG1Tool", "name": "ag1"}, 3584),
     "qwen25_1_5b": ({"class": HF, "model": "models/hf/Qwen2.5-1.5B-Instruct",
                      "prompt": "fewshot", "name": "qwen25_1_5b"}, 4096),
 }
@@ -47,8 +56,9 @@ def config(domain: str, proposer: str) -> dict:
             cls = spec.pop("class", None)
             # HF models (Qwen tokens): one aux point is <= 13 tokens for 99% of val.txt,
             # and generation stops at ";". geo-lm models keep their own limit.
-            options = {"beam_size": 4, "max_candidates": 4,
-                       "max_new_tokens": 20 if cls else 48, **spec}
+            options = {"beam_size": 4, "max_candidates": 4, **spec}
+            if cls != "pipeline.ag1_tool:AG1Tool":
+                options.setdefault("max_new_tokens", 20 if cls else 48)
             tools[proposer] = {"enabled": True, "options": options}
             if cls:
                 tools[proposer]["class"] = cls

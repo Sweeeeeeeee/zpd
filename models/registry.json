@@ -1,0 +1,74 @@
+{
+ "_comment": "Proposer models for the comparison (docs/models.md). Paths are relative to the repo root. HF weights live in models/hf/ (gitignored); download with the source id. Config per domain: pipeline/configs/compare/<domain>/<name>.json (bench/compare_configs.py).",
+ "mini": {
+  "group": "light, ours",
+  "params": "2.1M",
+  "kind": "geo-lm",
+  "path": "geo-lm/runs/mini/best.pt",
+  "note": "1600 steps"
+ },
+ "mini_long": {
+  "group": "light, ours",
+  "params": "2.1M",
+  "kind": "geo-lm",
+  "path": "geo-lm/runs/mini_long/best.pt",
+  "note": "9000 steps"
+ },
+ "mid": {
+  "group": "light, ours",
+  "params": "5.1M",
+  "kind": "geo-lm",
+  "path": "geo-lm/runs/mid/best.pt",
+  "note": "resumed 7700 -> 9000 on 2026-11-12"
+ },
+ "smollm2_135m": {
+  "group": "light, general",
+  "params": "0.135B",
+  "kind": "hf",
+  "path": "models/hf/SmolLM2-135M-Instruct",
+  "source": "HuggingFaceTB/SmolLM2-135M-Instruct",
+  "prompt": "fewshot"
+ },
+ "smollm2_360m": {
+  "group": "light, general",
+  "params": "0.36B",
+  "kind": "hf",
+  "path": "models/hf/SmolLM2-360M-Instruct",
+  "source": "HuggingFaceTB/SmolLM2-360M-Instruct",
+  "prompt": "fewshot"
+ },
+ "genesisgeo": {
+  "group": "big, specialist",
+  "params": "0.6B",
+  "kind": "hf",
+  "path": "models/hf/GenesisGeo",
+  "source": "ZJUVAI/GenesisGeo",
+  "prompt": "genesisgeo"
+ },
+ "qwen3_0_6b_base": {
+  "group": "control",
+  "params": "0.6B",
+  "kind": "hf",
+  "path": "models/hf/Qwen3-0.6B-Base",
+  "source": "Qwen/Qwen3-0.6B-Base",
+  "prompt": "fewshot",
+  "note": "GenesisGeo's base model without geometry fine-tuning"
+ },
+ "qwen25_1_5b": {
+  "group": "big, general",
+  "params": "1.5B",
+  "kind": "hf",
+  "path": "models/hf/Qwen2.5-1.5B-Instruct",
+  "source": "Qwen/Qwen2.5-1.5B-Instruct",
+  "prompt": "fewshot"
+ },
+ "ag1": {
+  "group": "big, specialist",
+  "params": "152M",
+  "kind": "ag1",
+  "path": "models/ag1/ag_ckpt_vocab",
+  "source": "AlphaGeometry (google-deepmind/alphageometry), checkpoint_10999999 from the official Google Drive folder; sha256 02d6728b... = HF mirror Wauplin/alphageometry",
+  "env": ".venv-ag1 (Python 3.10.9, pipeline/setup_ag1.sh)",
+  "note": "weights-only params_only.npz from pipeline/ag1_slim_ckpt.py"
+ }
+}
