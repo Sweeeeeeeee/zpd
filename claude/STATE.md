@@ -57,7 +57,9 @@ holds what a command cannot tell.
    timeouts of 60 in `full`). Decide with the user: bigger budget (e.g. 180 s)
    for domains, fewer problems, or a faster machine. Resume: `DOMAINS=... bench/run_compare.sh`.
 3. Heuristics on imo_102 (`LLM=heuristics_only bench/run_benchmarks.sh imo_102_requires_aux`, ~1 h).
-4. AG1, Qwen2.5-1.5B and the full 200 for GenesisGeo / Qwen3: Kaggle (GPU).
+4. AG1, Qwen2.5-1.5B and the full 200 for GenesisGeo / Qwen3: Kaggle (GPU). User asked Claude to do it;
+   waiting for the user's Kaggle token (~/.kaggle/kaggle.json, phone-verified account) and OK to push a
+   private notebook (plan in the 11-12 transcript: clone the public repo, HF models, AG1 from the HF mirror).
 5. Folder restructure from `docs/models.md` (geo-lm -> models/...), full tests.
 6. User: personal data for the paper (12.4); 11-09 stop reason; whether
    `default.json` should use `mid`.

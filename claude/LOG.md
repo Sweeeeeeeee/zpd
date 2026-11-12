@@ -32,6 +32,7 @@ verified. Newest first. Times are UTC. The current state and next steps are in
     a3438ca. User: stop after sorting -> 7.4 pilot not started.
   - Paper: literature comparison (Wu, Gröbner), problem-set section with the
     sorting table, comparison subsection and tables, heuristics column; 14 pages.
+  - 7f9c696. Codespace stopped by Claude at the user's request (~21:00).
 
 - Later the same day, docs and paper brought up to date (user asked for
   everything written up to the requirements):
