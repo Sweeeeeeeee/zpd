@@ -17,6 +17,8 @@ a score.
 |---|---|---|
 | DDAR | `tools.DDARTool` | nothing. It runs Newclid's DDAR on the state and records solved, proof, rules fired and the numeric figure. Its options are a DDAR config ([ddar.md](ddar.md)), so rule toggling and AR on/off apply here too. |
 | transformer | `transformer_tool.TransformerTool` | the model's beam-search hypotheses (deterministic), translated to JGEX clauses |
+| HF language model | `hf_tool.HFLMTool` | proposals from a Hugging Face model (GenesisGeo, SmolLM2, Qwen) with a GenesisGeo or few-shot prompt; only used through a `class` entry, see [models.md](models.md) |
+| AlphaGeometry | `ag1_tool.AG1Tool` | AG1's language model, run as a server in its own environment (`ag1_server.py`); see [models.md](models.md) |
 | heuristics | `tools.HeuristicsTool` | midpoints, circumcenters and feet of altitudes. Candidates touching more goal points come first, ties are broken alphabetically, and points that coincide with existing ones are skipped |
 
 The transformer's input and output use the GenesisGeo predicate format.
@@ -90,9 +92,8 @@ it in `proposer_order`.
 
 ## Status
 
-The wiring has been run end to end with the 60-step smoke model: DDAR → proposals
-→ DDAR, including proposals rejected because they break the figure. The real
-model (`geo-lm/configs/train_small.json`) still has to be trained before the
-transformer tool proposes anything useful. When the search fails, the result
+The pipeline runs end to end with the trained models (`mini`, `mini_long`,
+`mid`): DDAR → proposals → DDAR, including proposals rejected because they break
+the figure. Results on JGEX and IMO are in [rezultati.md](rezultati.md). When the search fails, the result
 reports the deepest level searched, the tools that were called, and no auxiliary
 points. A tool whose model file is missing is switched off with a warning.

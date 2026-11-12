@@ -48,7 +48,7 @@ Nothing is compiled: yuclid, Newclid's C++ engine, comes as a prebuilt wheel. A
 GPU is optional and only used for training.
 
 ```bash
-python -m pytest -q          # 85 tests (project + model), about 30 s
+python -m pytest -q          # 86 tests (project + model), about 30 s
 ```
 
 ## Solve a problem
@@ -120,9 +120,12 @@ running, commit `results/`.
 
 Provided configs:
 * `ddar_only.json`, `heuristics_only.json`
-* `default.json`: heuristics + `mini_long` (the best model)
-* `mini_model.json`, `mini_long_model.json`: the model without heuristics
-  (`runs/mini`, 1600 steps; `runs/mini_long`, 9000 steps), both in git
+* `default.json`: heuristics + `mini_long`
+* `mini_model.json`, `mini_long_model.json`, `mid_model.json`: one model without
+  heuristics (`runs/mini`, 2.1M params, 1600 steps; `runs/mini_long`, 2.1M, 9000
+  steps; `runs/mid`, 5.1M, 9000 steps, the strongest so far), all in git
+* `compare/<domain>/<proposer>.json`: the proposer comparison ([models.md](models.md)),
+  written by `bench/compare_configs.py`
 * `quick_model.json`, `tiny_model.json`: need `runs/quick` (200 steps) or the
   smoke-test `runs/tiny`, which are not in git; retrain to use them
 
@@ -192,8 +195,10 @@ python -m geo_lm.train --config configs/train_small.json --max_steps 5000 --batc
 * Each evaluation prints validation loss and exact-match accuracy.
 * On the 2-core CPU used here, the small model runs at about 2.6 s per step,
   so 20k steps take about 14 h. A modest GPU does it in well under an hour.
-* `pipeline/configs/default.json` uses `geo-lm/runs/mini_long/best.pt`
-  (the best model, 9000 steps). The planned `small` run was never trained.
+* `pipeline/configs/default.json` uses `geo-lm/runs/mini_long/best.pt` (2.1M,
+  9000 steps). `runs/mid` (5.1M, 9000 steps, ~3.4 h) is better on every offline
+  measure and on IMO ([rezultati.md](rezultati.md)); `mid_model.json` uses it.
+  The planned `small` run (11M) was never trained.
 
 ## Known limitations
 
@@ -204,9 +209,14 @@ python -m geo_lm.train --config configs/train_small.json --max_steps 5000 --batc
   * Its outputs are converted to Newclid constructions for `coll`, `perp`,
     `para`, `cong` and `cyclic`.
   * Proposals that use `eqangle` or `aconst` are dropped.
-* The full model has not been trained yet. The 2.1M-parameter checkpoints
-  `runs/mini` (1600 steps) and `runs/mini_long` (9000 steps, val loss 0.27) are in git (25 MB each, force-added past `geo-lm/.gitignore`);
-  other runs, such as the 134 MB `runs/quick`, are not.
+* Only small models are trained (CPU). The checkpoints `runs/mini` (1600 steps),
+  `runs/mini_long` (9000 steps, val loss 0.27) and `runs/mid` (5.1M, 9000 steps,
+  val loss 0.235) are in git (force-added past `geo-lm/.gitignore`); other runs,
+  such as the 134 MB `runs/quick`, are not.
+* Downloaded models (GenesisGeo, SmolLM2, Qwen, AlphaGeometry) are not in git
+  (`models/hf/`, `models/ag1/`); `models/registry.json` lists where each comes
+  from. AlphaGeometry needs its own environment and does not fit this Codespace
+  ([models.md](models.md)).
 * A Codespace stops after its idle timeout (counted from your last input, not
   from running jobs), and the timeout is fixed when the Codespace is created.
   Long training belongs on Kaggle or in several resumed sessions.
@@ -226,7 +236,7 @@ All documents are in `docs/`:
 | [ddar.md](ddar.md) | task 1: Newclid on CPU, how rules and AR load, rule toggling, engine fixes |
 | [rules.md](rules.md) | every rule with premises and conclusions, and where rules are stored |
 | [geo-lm.md](geo-lm.md) | task 2: the transformer, tokenizer and training |
-| [models.md](models.md) | proposer models compared (ours, GenesisGeo, local LLMs) and the folder restructure plan |
+| [models.md](models.md) | proposer models compared (ours, GenesisGeo, AlphaGeometry, small general LLMs), AG1 setup, folder restructure plan |
 | [datagen.md](datagen.md) | task 2: the GenesisGeo training data |
 | [pipeline.md](pipeline.md) | task 3: tools, search and `solve()` |
 | [translation_guide.md](translation_guide.md) | task 4: writing problems in Newclid syntax |

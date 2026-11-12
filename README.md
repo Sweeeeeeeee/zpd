@@ -16,5 +16,5 @@ human heuristics and a small transformer trained from scratch on CPU.
 
 ```bash
 bash setup.sh                             # fresh machine: env, data, TeX, tests (runs by itself in a new Codespace)
-.venv-newclid/bin/python -m pytest -q     # 85 tests
+.venv-newclid/bin/python -m pytest -q     # 86 tests
 ```

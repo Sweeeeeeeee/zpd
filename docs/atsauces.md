@@ -23,6 +23,13 @@
    Reasoning 25, 219–246 (2000). The deductive database (DD) method.
 8. A. Paszke et al. *PyTorch: An Imperative Style, High-Performance Deep
    Learning Library.* NeurIPS 2019. arXiv:1912.01703.
+9. L. B. Allal et al. *SmolLM2: When Smol Goes Big -- Data-Centric Training of
+   a Small Language Model.* arXiv:2502.02737 (2025). SmolLM2-135M/360M, small
+   general models in the proposer comparison.
+10. Qwen Team. *Qwen2.5 Technical Report.* arXiv:2412.15115 (2024).
+    Qwen2.5-1.5B-Instruct in the proposer comparison.
+11. Qwen Team. *Qwen3 Technical Report.* arXiv:2505.09388 (2025). Qwen3-0.6B-Base,
+    the model GenesisGeo is fine-tuned from (control in the comparison).
 
 ## Software and data
 
@@ -31,5 +38,8 @@
 | Newclid 3.0.1 + py-yuclid 3.0.0 | https://github.com/Newclid/Newclid (formerly LMCRC/Newclid), PyPI `newclid[yuclid]` | DDAR engine, rules, constructions, example problems |
 | GenesisGeo dataset | https://huggingface.co/datasets/ZJUVAI/GenesisGeo (Apache-2.0) | 100k training examples (task 2) |
 | GenesisGeo code | https://github.com/ZJUVAI/GenesisGeo | checked for reusable generation code |
-| AlphaGeometry (DeepMind) | https://github.com/google-deepmind/alphageometry | original DDAR; not used (needs Meliad) |
+| AlphaGeometry (DeepMind) | https://github.com/google-deepmind/alphageometry (main 6777cb5, meliad e8af054); checkpoint from its Google Drive folder (same sha256 as https://huggingface.co/Wauplin/alphageometry) | its language model as a proposer in the comparison (`pipeline/ag1_tool.py`); its DDAR is not used |
+| GenesisGeo model | https://huggingface.co/ZJUVAI/GenesisGeo | proposer in the comparison (`pipeline/hf_tool.py`) |
+| SmolLM2, Qwen3, Qwen2.5 | https://huggingface.co/HuggingFaceTB, https://huggingface.co/Qwen | general-model controls in the comparison; exact repos in `models/registry.json` |
+| Hugging Face transformers | https://github.com/huggingface/transformers | loads the models above |
 | PyTorch | https://pytorch.org | model and training |

@@ -8,6 +8,21 @@ verified. Newest first. Times are UTC. The current state and next steps are in
 
 ## 2026-11-12 (session 51d9920c)
 
+- Later the same day, docs and paper brought up to date (user asked for
+  everything written up to the requirements):
+  - Stale facts fixed: 86 tests, `mid` and `mid_model.json` in docs/README,
+    geo-lm.md, pipeline.md (HF and AG1 tools), tasks.md (8.1 `mid`, new 8.4
+    proposer comparison), atsauces.md (SmolLM2, Qwen2.5, Qwen3, AG1 checkpoint,
+    GenesisGeo model), rezultati.md (summary, benchmark table with a `mid`
+    column, conclusions, next steps).
+  - Paper (`zpd_darbs/preliminary`) switched from the first 73-JGEX run and
+    `mini` to all three models and the full benchmarks: new tables `bench`,
+    `bench_solved`, `training_models`; one loss figure for the three models;
+    the old `proposals`/`jgex_stuck` outputs removed. Abstracts, method,
+    results and conclusions rewritten. 12 pages (limit 16), no LaTeX warnings
+    (hyperref `unicode` for Latvian bookmarks).
+  - `pipeline/setup_ag1.sh` installs `setuptools==69.5.1`.
+
 - `mid` resumed 7700 -> 9000 (14:59-15:31, `run_mid_pipeline.sh`; 7500 results
   kept as `mid_7500_*`, 71fdb86). Val loss 0.235, exact 39% / 53.5%. Bench:
   JGEX 5/26 (7500: 6), IMO set 1/17 = **IMO 2015 P3** (first IMO-AG-30 gain),

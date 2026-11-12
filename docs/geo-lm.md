@@ -80,7 +80,7 @@ save_checkpoint("runs/demo.pt", model, tok, opt, step=100)
 ```
 ## Training
 
-The first model is `runs/mini` (configs/train_mini.json): validation loss 0.57 after 14 minutes on 2 CPU cores. The current and best model, used by `pipeline/configs/default.json`, is `runs/mini_long` (configs/train_mini_long.json): the same model trained for 9000 steps (~1.5 h, resumed twice from `last.pt`), validation loss 0.27, exact match 33% top-1 / 49.5% top-4 on 200 held-out problems.
+The first model is `runs/mini` (configs/train_mini.json): validation loss 0.57 after 14 minutes on 2 CPU cores. The current and best model, used by `pipeline/configs/default.json`, is `runs/mini_long` (configs/train_mini_long.json): the same model trained for 9000 steps (~1.5 h, resumed twice from `last.pt`), validation loss 0.27, exact match 33% top-1 / 49.5% top-4 on 200 held-out problems. The larger `runs/mid` (configs/model_mid.json: 6 layers, 4 heads, 256 dims, 5.1M params; 9000 steps, ~3.4 h in two parts) reaches validation loss 0.235 and exact match 39% / 53.5%; `pipeline/configs/mid_model.json` uses it.
 Check its proposals on held-out problems with
 `../.venv-newclid/bin/python scripts/eval_aux.py runs/mini/best.pt --n 200 --beam 4`
 (results in `results/transformer/`, written up in [rezultati.md](rezultati.md)).

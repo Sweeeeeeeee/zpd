@@ -1,22 +1,23 @@
 # ZPD ģeometrijas risinātājs: rezultāti
 
-Stāvoklis uz 2026. gada 10. novembri. Visi skaitļi ņemti no repozitorija
+Stāvoklis uz 2026. gada 12. novembri. Visi skaitļi ņemti no repozitorija
 failiem (`results/`, `geo-lm/runs/`); avots norādīts katras sadaļas beigās.
 
 ## Galvenais īsumā
 
 | | Rezultāts |
 | --- | --- |
-| **JGEX-AG-231** | DD-AR viens 205 / 231, ar modeli **210 / 231 (91%)**; AG1: DD+AR 198, AlphaGeometry 228 |
+| **JGEX-AG-231** | DD-AR viens 205 / 231, ar modeli (`mini_long` vai `mid`) **210 / 231 (91%)**; AG1: DD+AR 198, AlphaGeometry 228 |
 | **IMO-AG-30** (29 no 30) | DD-AR viens **15**; `mini_long` nepievieno neko, `mid` (9000 soļi) **16** (+2015 P3); AG1: DD+AR 14, AlphaGeometry 25 |
-| **IMO, kam vajag palīgpunktu** | modelis atrisina **3 / 101** (`mid`: **6 / 101**; DD-AR viens 0) |
-| **Modelis** | `mini_long`: 2,1 milj. parametru, 9000 soļi (~1,5 h uz 2 CPU kodoliem), validācijas zudums 0,27; lielākais `mid` (5,1 milj., 9000 soļi): 0,235, JGEX 210 / 231, IMO 2015 P3 |
-| **Piedāvājumu kvalitāte** | 200 neredzētos uzdevumos precīzs palīgpunkts ar 1. piedāvājumu 33%, ar kādu no 4 — 49,5% |
+| **IMO, kam vajag palīgpunktu** | `mid` atrisina **6 / 101** (`mini_long` 3; DD-AR viens 0) |
+| **Modeļi** | `mid`: 5,1 milj. parametru, 9000 soļi (~3,4 h uz 2 CPU kodoliem), validācijas zudums 0,235; `mini_long`: 2,1 milj., 9000 soļi (~1,5 h), 0,27 |
+| **Piedāvājumu kvalitāte** | 200 neredzētos uzdevumos precīzs palīgpunkts ar 1. piedāvājumu: `mid` 39%, `mini_long` 33%; ar kādu no 4: 53,5% un 49,5% |
 | **Resursi** | viens uzdevums: mediāna ~2 s ar DD-AR, ~5 s ar modeli; 60 s un 2 GB budžets netika sasniegts |
 
 **Secinājums vienā teikumā:** Newclid DD-AR viens jau pārspēj AG1 DD+AR, un
 mazais modelis palīdz tikai dažos uzdevumos; to ierobežo piedāvājumu
-kvalitāte, nevis laiks, tāpēc nākamais solis ir lielāks modelis.
+kvalitāte, nevis laiks: 2,5 reizes lielāks modelis (`mid`) uzlabo visus
+rādītājus nedaudz un pirmo reizi pievieno IMO-AG-30 uzdevumu.
 
 ```mermaid
 xychart-beta
@@ -29,9 +30,9 @@ xychart-beta
 ```mermaid
 xychart-beta
     title "IMO-AG-30: atrisināti uzdevumi"
-    x-axis ["DD-AR (šeit, no 29)", "DD-AR + modelis (šeit, no 29)", "AG1 DD+AR", "AlphaGeometry"]
+    x-axis ["DD-AR (šeit, no 29)", "DD-AR + mid (šeit, no 29)", "AG1 DD+AR", "AlphaGeometry"]
     y-axis "Atrisināti" 0 --> 30
-    bar [15, 15, 14, 25]
+    bar [15, 16, 14, 25]
 ```
 
 ## Ko skeneris dara
@@ -78,12 +79,15 @@ uzdevumi, no tiem 29 no AG1 etalona IMO-AG-30; trūkst `2000_p1`) un
 viens neatrisina; kopa veidota palīgpunktu modeļu pārbaudei). Viss skrējiens
 ilga 23 minūtes.
 
-| Kopa | Uzdevumi | Tikai DD-AR | + `mini_long` | Kopā | AG1: DD+AR | AG1: AlphaGeometry |
-| --- | --- | --- | --- | --- | --- | --- |
-| JGEX-AG-231 | 231 | 205 (89%) | +5 no 26 | **210 (91%)** | 198 | 228 |
-| IMO-AG-30 (29 no 30) | 29 | 15 | +0 no 14 | **15** | 14 | 25 |
-| `imo` pārējie (1975_p3, 1983_p2, 1995_p1, 2024_p4, 2025_p2) | 5 | 2 | +0 no 3 | 2 | – | – |
-| `imo_102_requires_aux` | 101 | 0 | +3 no 101 | **3** | – | – |
+| Kopa | Uzdevumi | Tikai DD-AR | + `mini_long` | + `mid` | Kopā (labākais) | AG1: DD+AR | AG1: AlphaGeometry |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| JGEX-AG-231 | 231 | 205 (89%) | +5 no 26 | +5 no 26 | **210 (91%)** | 198 | 228 |
+| IMO-AG-30 (29 no 30) | 29 | 15 | +0 no 14 | +1 no 14 | **16** | 14 | 25 |
+| `imo` pārējie (1975_p3, 1983_p2, 1995_p1, 2024_p4, 2025_p2) | 5 | 2 | +0 no 3 | +0 no 3 | 2 | – | – |
+| `imo_102_requires_aux` | 101 | 0 | +3 no 101 | +6 no 101 | **6** | – | – |
+
+`mid` (5,1 milj. parametru, `mid_model.json`, tie paši iestatījumi) palaists
+2026-11-12 uz tām pašām DD-AR neveiksmēm; sīkāk 2. sadaļā "Lielāks modelis".
 
 AG1 skaitļi ņemti no Trinh et al., *Nature* 625 (2024): IMO-AG-30 tabulā arī
 DD+AR ar cilvēku heiristikām 18. AG1 izmantoja simtiem reižu lielāku modeli un
@@ -308,8 +312,11 @@ palīgpunkts nevienam nebija vajadzīgs.
 
 - **DD-AR viens ir spēcīgs:** 205 no 231 JGEX un 15 no 29 IMO-AG-30, vairāk
   nekā AG1 DD+AR (198 un 14).
-- **Mazais modelis palīdz maz, bet palīdz:** +5 JGEX un +3 no 101 IMO
+- **Mazais modelis palīdz maz, bet palīdz:** `mini_long` +5 JGEX un +3 no 101 IMO
   uzdevumiem, kam vajag palīgpunktu; uz IMO-AG-30 neko (AG1 modelis pievieno 11).
+- **Lielāks modelis palīdz nedaudz vairāk:** `mid` (5,1 milj.) +5 JGEX, +6 no
+  101 IMO-aux un +1 IMO-AG-30 (2015 P3, kopā 16); precīzā sakritība 39% / 53,5%
+  pret 33% / 49,5%.
 - **Ierobežo piedāvājumu kvalitāte, nevis laiks:** neviens uzdevums nesasniedza
   60 s limitu; meklēšana beidzas, jo piedāvājumi neved pie pierādījuma.
 - **Ilgāka apmācība uzlabo precizitāti, bet ne vienmēr palīdzību:** 9000 soļu
@@ -321,11 +328,13 @@ palīgpunkts nevienam nebija vajadzīgs.
 
 Nākamie soļi:
 
-- [ ] Lielāks modelis (5-11 milj. parametru), jo modeļa kvalitāte ir
-      ierobežojums (8.1)
+- [x] Lielāks modelis: `mid` (5,1 milj.), 9000 soļi (8.1)
+- [ ] Vēl lielāks modelis (11 milj., `small`) uz GPU (Kaggle) (8.1)
+- [ ] Palīgpunktu modeļu salīdzinājums: mūsu modeļi, heiristikas, GenesisGeo,
+      AlphaGeometry, SmolLM2, Qwen (8.4, [models.md](models.md))
 - [ ] Tas pats etalons ar `heuristics_only` un `mini_model` (1600 soļi), lai salīdzinātu
 - [ ] Jomu konfigurācijas ar transformeri palaist uz parauga un izmēģinājuma
       uzdevumiem (8.3)
 - [ ] Latvijas uzdevumu kopa (7.2-7.6) un skenēšana (9-11)
 - [x] `mini_long` uz abiem iestrēgušajiem JGEX uzdevumiem (atrisina 1 no 2)
-- [x] Visi 231 JGEX, IMO un `imo_102_requires_aux` ar `ddar_only` un `mini_long`
+- [x] Visi 231 JGEX, IMO un `imo_102_requires_aux` ar `ddar_only`, `mini_long` un `mid`

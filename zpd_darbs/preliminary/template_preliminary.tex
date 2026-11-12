@@ -4,9 +4,8 @@
 % Kompilē: make preliminary  (no mapes zpd_darbs/)
 \documentclass{../template/zpd}
 \graphicspath{{../template/}{../figures/}}
-\input{../tables/jgex_ddar_summary.tex}
+\input{../tables/bench_meta.tex}
 \input{../tables/training_meta.tex}
-\input{../tables/proposals_meta.tex}
 
 \skola{RTU Inženierzinātņu vidusskola}
 \nosaukums{Vieglu ģeometrijas risinājumu skeneris}
@@ -31,9 +30,9 @@ izvēlētai ģeometrijas jomai (likumu kopai) atrod uzdevumus ar vieglu risināj
 tikai ar jomas likumiem, ne vairāk kā vienu palīgkonstrukciju, 60~s un 2~GB atmiņas. Rīks balstās uz
 AlphaGeometry pieeju: determinēts DD-AR dzinējs (Newclid) pierāda faktus, bet palīgpunktus piedāvā
 cilvēka heiristikas un paša apmācīts mazs transformeris. Definētas trīs jomas, katra ar algebrisko
-spriešanu un bez tās. Uz \jgexTotal{} JGEX uzdevumiem DD-AR vienatnē atrisina \jgexSolved{};
-abos atlikušajos uzdevumos 14 minūtes apmācītais transformeris atrod pa vienam palīgpunktam, kas
-noved pie pierādījuma. \aizpildit{Galvenie secinājumi pēc skenēšanas.}
+spriešanu un bez tās. Uz \jgexTotal{} JGEX uzdevumiem DD-AR vienatnē atrisina \jgexSolved{},
+vairāk nekā AlphaGeometry DD+AR (198); ar 5,1 milj. parametru transformeri, kas apmācīts 3,4 stundas
+uz diviem CPU kodoliem, -- \jgexBest{}, un IMO-AG-30 etalonā \imoBest{} no \imoTotal{}. \aizpildit{Galvenie secinājumi pēc skenēšanas.}
 
 \atslegvardi{automātiskā teorēmu pierādīšana, deduktīvā datubāze, palīgkonstrukcija, transformeris, olimpiāžu matemātika}
 \end{anotacija}
@@ -46,9 +45,9 @@ olympiad geometry problems that have an easy solution: one provable with the dom
 at most one auxiliary construction, 60~s and 2~GB of memory. It follows the AlphaGeometry approach:
 a deterministic DD-AR engine (Newclid) proves facts, while auxiliary points come from human
 heuristics and a small transformer trained from scratch. Three domains are defined, each with and
-without algebraic reasoning. On \jgexTotal{} JGEX problems DD-AR alone solves \jgexSolved{}; on both
-remaining problems the transformer, trained for 14 minutes, proposes one auxiliary point that leads
-to a proof. \aizpildit{Main conclusions after the scan.}
+without algebraic reasoning. On \jgexTotal{} JGEX problems DD-AR alone solves \jgexSolved{}, more
+than AlphaGeometry's DD+AR (198); with a 5.1M-parameter transformer trained for 3.4 hours on two CPU
+cores it solves \jgexBest{}, and \imoBest{} of \imoTotal{} on the IMO-AG-30 benchmark. \aizpildit{Main conclusions after the scan.}
 
 \atslegvardi[Keywords]{automated theorem proving, deductive database, auxiliary construction, transformer, olympiad mathematics}
 \end{anotacija}
@@ -133,8 +132,16 @@ Joma ir DD-AR likumu kopa ar AR vai bez tā. Definētas trīs jomas: \texttt{ful
 \end{equation}
 
 \subsection{Transformeris un dati}
-No nulles uzrakstīts transformeris ar \modelParams{} milj. parametru apmācīts uz \trainExamples{}
-GenesisGeo piemēriem; \trainSteps{} soļi uz 2 CPU kodoliem ilga 14 minūtes.
+No nulles uzrakstīts transformeris \atsauce{Vaswani u.c., 2017} (GPT tipa dekoderis, PyTorch
+\atsauce{Paszke u.c., 2019}) apmācīts uz \trainExamples{} GenesisGeo piemēriem: uzdevuma
+pieņēmumi un mērķis $\to$ palīgpunkts. Apmācīti trīs modeļi uz 2 CPU kodoliem: \texttt{mini}
+(2,1 milj. parametru, 1600 soļi), tas pats modelis ilgāk (\texttt{mini\_long}, 9000 soļi) un
+lielāks \texttt{mid} (5,1 milj. parametru, 6 slāņi, 9000 soļi). Modeļa piedāvājumi tiek pārvērsti
+Newclid konstrukcijās; tos, kas neatbilst zīmējumam, risinātājs atmet.
+
+Salīdzinājumam sagatavoti arī gatavi modeļi: GenesisGeo \atsauce{Zhu u.c., 2025}, AlphaGeometry
+valodas modelis \atsauce{Trinh u.c., 2024} un mazi vispārīgi valodas modeļi.
+\aizpildit{Salīdzinājuma rezultāti (8.4. uzdevums): kurš modelis jomā visātrāk atrod vienu palīgpunktu.}
 
 \subsection{Uzdevumu kopa}
 No Neklātienes matemātikas skolas arhīva savākti 6333 Latvijas olimpiāžu uzdevumi, no tiem 1499
@@ -167,39 +174,69 @@ teorēma, un bez AR izkrīt uzdevumi, kuros vajag leņķu skaitīšanu.
   \caption{Atrisināto parauga uzdevumu skaits katrā jomā ar AR un bez tā}\label{fig:domains}
 \end{figure}
 
-\subsection{Palīgpunktu avoti}
-Uz \jgexTotal{} JGEX uzdevumiem DD-AR vienatnē atrisina \jgexSolved{} (mediāna \jgexMedian~s).
-Abos atlikušajos uzdevumos palīgpunktu atrod gan heiristikas, gan jaunais modelis (p.~-- palīgpunktu skaits)
-(\ref{tab:jgex}~tabula); uzdevumā \texttt{L058-9} modelis dod vieglāku risinājumu ar vienu punktu.
+\subsection{Standarta uzdevumu kopas}
+Risinātājs pārbaudīts uz trim Newclid publicētām kopām ar 60~s un 2~GB uz uzdevumu
+(\ref{tab:bench}~tabula). DD-AR vienatnē atrisina \jgexSolved{} no \jgexTotal{} JGEX uzdevumiem
+(mediāna \jgexMedian~s) un \imoSolved{} no \imoTotal{} IMO-AG-30 uzdevumiem, vairāk nekā
+AlphaGeometry DD+AR \atsauce{Trinh u.c., 2024}. Modeļi palaisti tikai uzdevumos, kuros DD-AR
+iestrēgst (ar līdz diviem palīgpunktu līmeņiem).
 
 \begin{table}[H]
-  \caption{JGEX uzdevumi, kuros DD-AR vienatnē iestrēgst: atrisināts, palīgpunktu skaits, laiks}\label{tab:jgex}
+  \caption{Atrisināto uzdevumu skaits standarta kopās; AlphaGeometry skaitļi no \atsauce{Trinh u.c., 2024}}\label{tab:bench}
   \centering\small
-  \begin{tabular}{@{}lcccc@{}}
+  \begin{tabular}{@{}lccccccc@{}}
     \toprule
-    Uzdevums & Tikai DD-AR & Heiristikas & Modelis, 200 soļi & Modelis, 1600 soļi \\
+    & & & \multicolumn{3}{c}{Šis darbs} & \multicolumn{2}{c}{AlphaGeometry} \\
+    \cmidrule(lr){4-6}\cmidrule(l){7-8}
+    Kopa & Uzd. & DD-AR & + \texttt{mini\_long} & + \texttt{mid} & Kopā & DD+AR & ar modeli \\
     \midrule
-    \csname @@input\endcsname ../tables/jgex_stuck.tex 
+    \csname @@input\endcsname ../tables/bench.tex 
+    \bottomrule
+  \end{tabular}\\[3pt]
+  {\footnotesize IMO-AG-30: 29 no 30 uzdevumiem (Newclid kopā trūkst \texttt{2000\_p1}).
+  IMO, vajag palīgpunktu: uzdevumi, ko Newclid DD-AR vienatnē neatrisina.}
+\end{table}
+
+Modeļi atrisina \stuckSolved{} uzdevumus, kuros DD-AR iestrēgst (\ref{tab:solved}~tabula);
+\texttt{mid} pirmo reizi pievieno IMO-AG-30 uzdevumu (2015.~gada 3.~uzdevums). Vieglā risinājuma
+definīcijai (viens palīgpunkts) atbilst \midOneAux{} no \texttt{mid} risinājumiem. Laika limits
+netika sasniegts nevienā uzdevumā: ierobežo piedāvājumu kvalitāte, nevis laiks.
+
+\begin{table}[H]
+  \caption{Uzdevumi, kuros DD-AR vienatnē iestrēgst, bet modelis atrod pierādījumu: palīgpunktu skaits (p.) un laiks}\label{tab:solved}
+  \centering\small
+  \begin{tabular}{@{}llcc@{}}
+    \toprule
+    Kopa & Uzdevums & \texttt{mini\_long} & \texttt{mid} \\
+    \midrule
+    \csname @@input\endcsname ../tables/bench_solved.tex 
     \bottomrule
   \end{tabular}
 \end{table}
 
 \subsection{Transformera novērtējums}
-Validācijas zudums samazinājās līdz \bestValLoss{} (\ref{fig:training}~attēls). Uz \evalProblems{}
-neredzētiem uzdevumiem \evalTranslatable~\% piedāvājumu ir pārvēršami Newclid konstrukcijās, un
-\evalExactK~\% uzdevumu kāds no četriem piedāvājumiem precīzi sakrīt ar atsauci
-(\ref{fig:proposals}~attēls).
+Uz \evalProblems{} neredzētiem GenesisGeo uzdevumiem (\ref{tab:models}~tabula) ap 90~\% piedāvājumu
+ir pārvēršami Newclid konstrukcijās visiem modeļiem, bet precīza sakritība ar atsauces palīgpunktu
+aug ar apmācības ilgumu un modeļa izmēru: no 21~\% līdz 53,5~\%, ja skaita jebkuru no četriem
+piedāvājumiem. Validācijas zudums lielākajam modelim ir zemāks katrā apmācības solī
+(\ref{fig:training}~attēls).
+
+\begin{table}[H]
+  \caption{Apmācītie modeļi un to piedāvājumi uz \evalProblems{} neredzētiem uzdevumiem (staru meklēšana, 4 stari)}\label{tab:models}
+  \centering\small
+  \begin{tabular}{@{}lccccccc@{}}
+    \toprule
+    Modelis & Milj. param. & Soļi & Laiks & Val. zudums & Pārvēršami & Precīzi, 1. & Precīzi, 4 \\
+    \midrule
+    \csname @@input\endcsname ../tables/training_models.tex 
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.8\textwidth]{training_loss.pdf}
-  \caption{Transformera apmācības un validācijas zudums 14 minūšu apmācībā uz CPU}\label{fig:training}
-\end{figure}
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.8\textwidth]{proposals.pdf}
-  \caption{Transformera palīgpunktu piedāvājumu derīgums uz neredzētiem GenesisGeo uzdevumiem}\label{fig:proposals}
+  \caption{Validācijas zudums apmācības laikā uz 2 CPU kodoliem}\label{fig:training}
 \end{figure}
 
 \zpdlabel{Nodaļas kopsavilkums}\aizpildit{Pēc Latvijas uzdevumu skenēšanas: cik uzdevumu katrā jomā ir viegli, kuras teorēmas tos padara vieglus, salīdzinājums ar oficiālo grūtību.}
@@ -208,12 +245,13 @@ neredzētiem uzdevumiem \evalTranslatable~\% piedāvājumu ir pārvēršami Newc
 \nenumuretanodala{Secinājumi}
 \zpdnote{Priekšvarianta secinājumi; galīgajā darbā -- ne vairāk kā uzdevumu (5), katrs atbilst uzdevumam.}
 \begin{secinajumi}
-  \item Risinātājs DD-AR + palīgpunkti darbojas uz CPU 60~s un 2~GB budžetā un atrisina
-        \jgexSolved{} no \jgexTotal{} JGEX uzdevumiem bez palīgpunktiem.
+  \item Risinātājs DD-AR + palīgpunkti darbojas uz CPU 60~s un 2~GB budžetā; DD-AR vienatnē
+        atrisina \jgexSolved{} no \jgexTotal{} JGEX uzdevumiem, vairāk nekā AlphaGeometry DD+AR.
   \item Jomas kā likumu kopas atšķir uzdevumus: šaurākā \texttt{circles} jomā atrisināti 3 no 5
         parauga uzdevumiem, \texttt{full} jomā -- 4 no 5.
-  \item Pat īsi apmācīts mazs transformeris piedāvā derīgas konstrukcijas (\evalTranslatable~\%) un
-        atrod vieglus risinājumus tur, kur DD-AR iestrēgst.
+  \item Uz CPU apmācīts mazs transformeris piedāvā derīgas konstrukcijas (ap 90~\%) un atrisina
+        \stuckSolved{} uzdevumus, kuros DD-AR iestrēgst, arī vienu IMO-AG-30 uzdevumu; lielāks modelis
+        palīdz nedaudz vairāk, un to ierobežo piedāvājumu kvalitāte, nevis laiks.
   \item \aizpildit{Secinājums par Latvijas uzdevumu skenēšanu.}
   \item \aizpildit{Secinājums par saistību ar oficiālo grūtību (hipotēzes pārbaude).}
 \end{secinajumi}

@@ -60,7 +60,7 @@
 \RequirePackage{titlesec}
 \RequirePackage{titletoc}
 \AtBeginDocument{\renewcommand{\theHsection}{\arabic{section}}}  % article: hyperref enkuri bez nodaļu skaitītāja
-\RequirePackage[hidelinks]{hyperref}
+\RequirePackage[hidelinks,unicode]{hyperref}
 \RequirePackage{url}
 
 %% ---------------------------------------------------------------- rindstarpa un rindkopas

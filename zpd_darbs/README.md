@@ -11,7 +11,7 @@ content, and the scripts that build its figures and tables from `results/`.
 | `template/zpd.cls` | document class: A4, 2.5 cm margins, Times 12 pt, single spacing, 16/14 pt bold headings, indented justified paragraphs, page numbers bottom centre from the introduction |
 | `template/template.tex` | empty template in the structure of guidelines section 2 (title page, both abstracts, contents, introduction, chapters, conclusions, sources, appendices) |
 | `template/logo_rtu_izv.png` | RTU Inženierzinātņu vidusskola logo, taken from `zpd_darbs/vadlinijas/example_rtu_izv.pdf` (the reference for the look: title page, captions); change with `\logotips{...}` |
-| `preliminary/template_preliminary.tex` | preliminary paper: the template filled with the project's aim, tasks, method and current results |
+| `preliminary/template_preliminary.tex` | preliminary paper: the template filled with the project's aim, tasks, method and current results (status 2026-11-12) |
 | `scripts/make_figures.py` | builds `figures/*.pdf` and `tables/*.tex` from `results/` |
 | `figures/`, `tables/` | generated; rebuild with `make figures` |
 
@@ -54,4 +54,6 @@ For the version to submit, switch them all off with:
 | appendices numbered, in the contents | `\pielikums{Title}` |
 
 The page limit is 16 pages including the title page; the preliminary version
-has 11.
+has 12. It reports the three trained models (`mini`, `mini_long`, `mid`) and the
+full JGEX-AG-231 / IMO-AG-30 / IMO-aux benchmarks; the Latvian scan and the
+proposer comparison are red placeholders.
