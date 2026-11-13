@@ -1,0 +1,4 @@
+# latvia/school/1999-00_50/grade10/p4
+# dof: 2   (acute triangle)
+# notes: Acute not enforced (claim holds for any triangle). Equal radii: OA = PA with O, P circumcenters of ABC, ABH.
+a b c = triangle a b c; h = orthocenter h a b c; o = circle o a b c; p = circle p a b h ? cong o a p a

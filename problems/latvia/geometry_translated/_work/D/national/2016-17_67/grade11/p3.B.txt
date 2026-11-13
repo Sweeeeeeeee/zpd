@@ -1,0 +1,2 @@
+same
+Arc not containing O and second-intersection conditions dropped.

@@ -1,0 +1,4 @@
+# latvia/national/2022-23_73/grade11/p3
+# dof: 2   (isosceles trapezoid up to similarity: 2)
+# notes: iso_trapezoid a b c d: AB ∥ CD, AD = BC.
+a b c d = iso_trapezoid a b c d; x = on_line x a c, on_line x b d; m = midpoint m a d; y = on_pline y x a b, on_line y a d ? cyclic b c m y

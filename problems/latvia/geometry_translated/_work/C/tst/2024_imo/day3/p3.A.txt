@@ -1,0 +1,14 @@
+Free points: A, B, C, forming an arbitrary triangle.
+
+Construction:
+- O: circumcenter of ABC.
+- I: incenter of ABC.
+- P: reflection of I in line BC.
+- S: foot of the perpendicular from P to line AB. (S is not used by any later point or by the goal.)
+- D: intersection of line BP with the circumcircle of ABC, other than B.
+- M: intersection of line CI with the circumcircle of ABC, other than C.
+- N: reflection of M in O, so O is the midpoint of MN (N is the point diametrically opposite M on the circumcircle).
+- Q: the point with Q = P + N - O, i.e. vector PQ equals vector ON (Q is P translated by the vector from O to N).
+- E: intersection of the line through A perpendicular to CQ with the line through B perpendicular to DQ.
+
+Goal: A, B, C, E lie on one circle (cyclic A B C E).

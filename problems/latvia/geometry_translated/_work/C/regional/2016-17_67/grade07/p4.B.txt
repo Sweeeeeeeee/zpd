@@ -1,0 +1,1 @@
+Let ABC be any triangle. Let D be the point on line AC on the bisector of angle ABC (vertex B). Let H be the foot of the perpendicular from A to line BD. Let F be the reflection of D through H. Let E be the point on line BC such that EF is parallel to AC. Prove that directed angle (AF, AB) = directed angle (EB, EF).

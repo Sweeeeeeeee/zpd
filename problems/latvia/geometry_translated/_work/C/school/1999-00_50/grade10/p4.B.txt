@@ -1,0 +1,1 @@
+Let ABC be any triangle with orthocenter H. Let O be the circumcenter of ABC and P the circumcenter of ABH. Prove that OA = PA.

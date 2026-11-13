@@ -1,0 +1,4 @@
+# latvia/regional/2021-22_72/grade12/p3
+# dof: 2   (quadrilateral 4; AB = BC = CD: -2)
+# notes: C on circle (B, BA), D on circle (C, CB). Internal bisectors via angle_bisector. Convexity not enforced.
+a b = segment a b; c = on_circle c b a; d = on_circle d c b; e = on_line e a c, on_line e b d; i = angle_bisector i b a d, angle_bisector i a d c ? cyclic a d e i

@@ -1,0 +1,1 @@
+Let ABC be an acute triangle with orthocenter H and circumcenter O. Let D be the reflection of B through O (the point diametrically opposite B on the circumcircle). Prove that AH is parallel to CD and AD is parallel to HC (so AHCD is a parallelogram).

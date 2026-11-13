@@ -1,0 +1,2 @@
+same
+Excircle centres expressed as intersections of external bisectors (perpendicular to incenter lines).

@@ -1,0 +1,4 @@
+# latvia/open/2002-03_30/grade07/p4
+# dof: 2   (pentagon: 6; four perpendicularity conditions: -4)
+# notes: A A1 perp CD with A1 the midpoint of CD <=> AC = AD (same for the others): AC = AD, BD = BE, CE = CA, DA = DB, i.e. AC = AD = DB = BE = CE. Built: D on circle (A, AC), B on circle (D, DA), E on circles (B, BD) and (C, CA). Convexity not imposed. Goal as stated: E E1 perp BC.
+a c = segment a c; d = on_circle d a c; b = on_circle b d a; e = on_circle e b d, on_circle e c a; e1 = midpoint e1 b c ? perp e e1 b c

@@ -1,0 +1,1 @@
+Take two arbitrary distinct points B and F. Let C be the reflection of B through F (F is the midpoint of BC). Let D be any point on the circle with center B through F. Let A be the reflection of F through D (D is the midpoint of AF). Let E be the intersection of lines CD and AB. Prove that AE = DE.

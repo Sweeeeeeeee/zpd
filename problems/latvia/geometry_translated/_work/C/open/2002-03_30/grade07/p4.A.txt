@@ -1,0 +1,1 @@
+A and C are two arbitrary distinct points. D is an arbitrary point on the circle with center A through C. B is an arbitrary point on the circle with center D through A. E is a common point of the circle with center B through D and the circle with center C through A (two circles, two possible positions for E). E1 is the midpoint of BC. Prove that EE1 is perpendicular to BC.

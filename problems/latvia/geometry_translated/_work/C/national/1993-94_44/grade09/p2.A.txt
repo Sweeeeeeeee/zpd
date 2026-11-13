@@ -1,0 +1,10 @@
+Free points: A, B, C, D, forming an arbitrary quadrilateral ABCD (no convexity or other condition assumed).
+
+Construction:
+- M: any point on line AB.
+- N: any point on line BC.
+- L: any point on line DA.
+- O: a point on circle through A, M, L and also on circle through B, N, M. Both circles pass through M, so O is their second intersection, the one other than M.
+- K: a point on line CD and on circle through C, N, O. The circle passes through C, so K is the intersection of line CD with that circle other than C.
+
+Goal: D, L, K, O lie on one circle (cyclic D L K O).

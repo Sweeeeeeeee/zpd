@@ -1,0 +1,1 @@
+Let ABC be an acute triangle with incenter I and circumcenter O. Let D be the reflection of C over line BI and E the reflection of B over line CI. Let K be the circumcenter of triangle ADE. Prove that WA = OI.

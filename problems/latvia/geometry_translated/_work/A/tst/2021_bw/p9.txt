@@ -1,0 +1,4 @@
+# latvia/tst/2021_bw/p9
+# dof: 3   (five points on a circle: 4 up to similarity; CD ∥ BE: -1; F, G intersections)
+# notes: D is the reflection of C over the perpendicular bisector OM of BE (the chord through C parallel to BE). Convexity of ABCDE and 'A between C and F' are not imposed. 'FG tangent to circle ADG' = FG ⟂ QG, Q the centre of circle ADG.
+o = free o; a = free a; b = on_circle b o a; c = on_circle c o a; e = on_circle e o a; m = midpoint m b e; d = reflect d c o m; f = on_tline f b o b, on_line f a c; g = on_line g b d, on_line g a e; q = circle q a d g ? perp f g g q

@@ -1,0 +1,2 @@
+same
+Concurrency stated as X=A1D1∩B1E1 lying on C1F1; convexity and non-parallelism dropped.

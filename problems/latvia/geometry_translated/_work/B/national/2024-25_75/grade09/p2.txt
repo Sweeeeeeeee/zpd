@@ -1,0 +1,4 @@
+# latvia/national/2024-25_75/grade09/p2
+# dof: 2 (any triangle ABC: 2; D fixed by AD:DB = 2:1; E midpoint; F an intersection)
+# notes: D is the trisection point nearer B (trisegment e d a b; e is a spare name for the other trisection point)
+a b c = triangle a b c; e d = trisegment e d a b; m = midpoint m a c; f = on_line f b m, on_line f c d ? cong b f f m

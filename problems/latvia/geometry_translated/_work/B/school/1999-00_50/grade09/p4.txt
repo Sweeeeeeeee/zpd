@@ -1,0 +1,4 @@
+# latvia/school/1999-00_50/grade09/p4
+# dof: 2   (triangle)
+# notes: M, N, K = feet from the incenter I to AB, BC, CA. On the incircle stated as IP = IM etc.
+a b c = triangle a b c; i = incenter i a b c; m = foot m i a b; n = foot n i b c; k = foot k i c a; p = incenter p a m k; q = incenter q b n m; r = incenter r c k n ? cong i p i m; cong i q i m; cong i r i m

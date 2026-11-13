@@ -1,0 +1,4 @@
+# latvia/tst/2024_bw/day2/p9
+# dof: 3   (acute triangle: 2; X on the arc ∠BXA = 180° − C: 1; Y on its arc: 1; CD + AY = BD + AX: −1)
+# notes: The hypothesis CD + AY = BD + AX is a sum of lengths. It can be built (P free on BC, Q its mirror in D, AX = C'P, AY = B'Q with C', B' the mirrors of C, B in D; X, Y on circles x = on_circle x a w, eqangle3 x b a c a b), but X, Y (a length from A on a circle through A) and M, N (XM = AC on ray BX beyond X) are each one of two intersections and no construction picks the right one: the attempt fails in 5 of 6 drawings. Reformulation for review: AM² = (AX − CD)² + AD², AN² = (AY − BD)² + AD².
+# untranslatable: sum-of-lengths hypothesis and lengths laid off on rays; every construction leaves 4 unresolved two-point branches

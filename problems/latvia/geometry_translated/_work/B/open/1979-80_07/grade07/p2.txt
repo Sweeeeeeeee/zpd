@@ -1,0 +1,3 @@
+# latvia/open/1979-80_07/grade07/p2
+# dof: 2   (trapezoid: 3; E on AD: 1; two perimeter equalities: -2)
+# untranslatable: hypotheses are equalities of perimeters (sums of lengths), no construction

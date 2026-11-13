@@ -1,0 +1,4 @@
+# latvia/open/2018-19_46/grade07/p3
+# dof: 3   (quadrilateral: 4; AD = AB + CD: -1)
+# notes: AD = AB + CD built by P on AD with AP = AB, PD = DC (B on circle (A,P), C on circle (D,P)). P on segment AD and convexity not imposed (goal held in all drawings). M = intersection of the bisectors of angles BAD and ADC.
+a d = segment a d; p = on_line p a d; b = on_circle b a p; c = on_circle c d p; m = angle_bisector m b a d, angle_bisector m a d c ? cong m b m c

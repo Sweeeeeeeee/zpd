@@ -1,0 +1,1 @@
+Take a segment BC with midpoint M, and let L be any point on the circle with center B through C. Let C1 be the reflection of C over line BL. Let A be the intersection of line BC1 with the line through M perpendicular to BL. Prove that AB = BM.

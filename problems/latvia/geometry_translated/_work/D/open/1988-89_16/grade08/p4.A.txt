@@ -1,0 +1,2 @@
+same
+Angle with arbitrary triangle O,A,B1; B2,B3 strictly between O and B1 on the ray (covers all triples).

@@ -1,0 +1,1 @@
+different: Q is the apex of the right isosceles triangle on AB (QA = QB, which forces angle A = 45 degrees) instead of the foot of the altitude from B, and the tangency condition uses line QM in place of the perpendicular from Q to AB.

@@ -1,0 +1,1 @@
+different: P is the reflection of I in BC, not the point on side AC with CP = CB, and Q = P + N - O instead of the point on line SP with PQ = r beyond P (S is also unused).

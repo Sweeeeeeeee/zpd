@@ -1,0 +1,2 @@
+same
+Rectangle built as parallelogram with D via line through N parallel to MN2 (equivalent to angle CDN=30); equilateral stated as two equalities.

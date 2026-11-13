@@ -1,0 +1,4 @@
+# latvia/tst/2023_imo/day2/p5
+# dof: 2   (isosceles trapezoid up to similarity)
+# notes: iso_trapezoid b c d a gives AD ∥ BC, AB = CD. Internal bisectors via incentres: I of ABC (AI bisects BAC), J of BCD (BJ bisects CBD, CJ bisects DCB). AD > BC not enforced.
+b c d a = iso_trapezoid b c d a; i = incenter i a b c; x = on_line x a i, on_line x b c; j = incenter j b c d; e = on_pline e x b j, on_line e b d; f = on_pline f x c j, on_line f d c ? cyclic a e f d

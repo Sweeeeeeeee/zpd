@@ -1,0 +1,2 @@
+same
+C allowed anywhere on line AB, not only between A and B (more general); goal (a) stated as directed angle equal to angle(AC,AB1)=60.

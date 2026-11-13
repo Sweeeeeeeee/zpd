@@ -1,0 +1,1 @@
+Let O A1 B1 be a triangle with a right angle at O (O is the right-angle vertex). Let A2 be any point on line OA1. Let B2 be the point on line OB1 such that A2B2 is parallel to A1B1. Let M1 be the midpoint of A1B1 and M2 the midpoint of A2B2. Prove that O, M1, M2 are collinear.

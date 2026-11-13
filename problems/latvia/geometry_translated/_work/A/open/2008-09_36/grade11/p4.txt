@@ -1,0 +1,4 @@
+# latvia/open/2008-09_36/grade11/p4
+# dof: 5   (hexagon: 8; AB = DE, BC = EF, CD = FA: -3)
+# notes: F on the circle (A, CD), E on the circles (D, AB) and (F, BC) (two branches, both pass). Convexity and "no two sides/diagonals parallel" not imposed (non-degeneracy). Concurrency: X = A1D1 n B1E1, goal X on C1F1. 1 of 6 drawings not built (circles miss).
+a b c d = quadrangle a b c d; k = shift k a c d; f = on_circle f a k; h = shift h f c b; g = shift g d a b; e = on_circle e d g, on_circle e f h; a1 = midpoint a1 a c; b1 = midpoint b1 b d; c1 = midpoint c1 c e; d1 = midpoint d1 d f; e1 = midpoint e1 e a; f1 = midpoint f1 f b; x = on_line x a1 d1, on_line x b1 e1 ? coll x c1 f1

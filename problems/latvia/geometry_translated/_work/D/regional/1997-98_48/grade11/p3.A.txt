@@ -1,0 +1,2 @@
+same
+The acute-triangle condition is dropped and B on either ray from C is allowed (angle C = 45 or 135 degrees); the claim still holds (SM = SN = AB/2, and the angle MSN is 180 - 2C, which is 90 degrees mod 180 in both cases).

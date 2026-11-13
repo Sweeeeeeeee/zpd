@@ -1,0 +1,1 @@
+Let ABC be any triangle. Let D be a point such that BD is perpendicular to AC (D is any point on the line through B perpendicular to AC; it is a free choice on that line). Let M be the midpoint of AB and N the midpoint of AD. Let X be the intersection of the line through M perpendicular to CD and the line through N perpendicular to BC. Prove that X lies on line AC.

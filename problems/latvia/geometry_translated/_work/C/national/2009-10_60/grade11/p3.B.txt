@@ -1,0 +1,11 @@
+Free points: A and B, two distinct arbitrary points.
+
+Construction:
+- M: midpoint of AB.
+- Q: one of the two points where the perpendicular bisector of AB meets the circle with diameter AB. The two candidates are mirror images in line AB; the construction does not say which one is meant.
+- T: a point on the perpendicular bisector of AB such that the directed angle from line TB to line TA equals the directed angle from line QM to line QA. The locus of such T is a circle through A and B, so T is one of the two points where that circle meets the perpendicular bisector. The construction does not say which one is meant.
+- K: circumcenter of triangle AQT.
+- P: intersection of line AB with the circle with center K through A, other than A.
+- C: intersection of line AQ with the line through P perpendicular to AB.
+
+Goal: AB = AC.

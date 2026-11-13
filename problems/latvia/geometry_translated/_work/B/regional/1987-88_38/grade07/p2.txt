@@ -1,0 +1,4 @@
+# latvia/regional/1987-88_38/grade07/p2
+# dof: 4   (convex quadrilateral)
+# notes: M, N, P, K midpoints of AB, CD, AC, BD; parallelogram M P N K stated as two pairs of parallel sides. Convexity and 'no three collinear' not enforced (generic drawings).
+a b c d = quadrangle a b c d; m = midpoint m a b; n = midpoint n c d; p = midpoint p a c; k = midpoint k b d ? para m p n k; para m k p n

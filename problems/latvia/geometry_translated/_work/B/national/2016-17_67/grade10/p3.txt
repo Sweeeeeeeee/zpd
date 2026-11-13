@@ -1,0 +1,4 @@
+# latvia/national/2016-17_67/grade10/p3
+# dof: 2   (four points on ω1: 3; the four side midpoints concyclic: −1)
+# notes: The condition "midpoints of the sides lie on a circle" cannot be built directly (after placing A, B, C and a circle through two midpoints, the last midpoint on it is an extra condition). It is equivalent to AC ⟂ BD (the Varignon parallelogram is cyclic iff it is a rectangle), but that equivalence needs proof. Reformulation for review: cyclic ABCD with AC ⟂ BD (d = on_tline d b a c, on_circle d o a), prove ∠ABD + ∠BDC = 90°.
+# untranslatable: shape fixed by conditions

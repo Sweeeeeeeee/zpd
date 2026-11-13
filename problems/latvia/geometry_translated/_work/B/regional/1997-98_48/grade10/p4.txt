@@ -1,0 +1,4 @@
+# latvia/regional/1997-98_48/grade10/p4
+# dof: 2   (quadrilateral 4; rays AS, DS hit the two trisection points of BC: -2)
+# notes: Built backwards by direct restatement: P1, P2 trisection points of BC (P1 nearer B); S = AP2 n CM (ray AS through P2); D on line P1S and on the image of line BS under the homothety (C, 2), i.e. N = midpoint CD on BS. Branch choice: AS meets BC at the point nearer C, DS at the point nearer B (as in a parallelogram, rays cross); the other assignment is not considered. Convexity and 'segments' not enforced.
+b c = segment b c; p1 p2 = trisegment p1 p2 b c; a = free a; m = midpoint m a b; s = on_line s a p2, on_line s c m; g = mirror g c b; d = on_line d p1 s, on_pline d g b s; n = midpoint n c d ? para a b c d; para a d b c

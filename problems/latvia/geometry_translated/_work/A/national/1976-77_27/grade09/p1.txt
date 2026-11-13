@@ -1,0 +1,4 @@
+# latvia/national/1976-77_27/grade09/p1
+# dof: 4   (quadrilateral: 4)
+# notes: The circle touching side AB and the extensions of DA and CB is centred at the intersection of the external bisectors at A and B. Internal bisector at A = line A-(incenter of DAB); external = perpendicular to it at A. Convexity not imposed.
+a b c d = quadrangle a b c d; p = incenter p d a b; q = incenter q a b c; r = incenter r b c d; s = incenter s c d a; w = on_tline w a a p, on_tline w b b q; x = on_tline x b b q, on_tline x c c r; y = on_tline y c c r, on_tline y d d s; z = on_tline z d d s, on_tline z a a p ? cyclic w x y z

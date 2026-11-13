@@ -1,0 +1,4 @@
+# latvia/open/2008-09_36/grade11/p4
+# dof: 5   (hexagon: 12 - 4 = 8; AB = DE, BC = EF, CD = FA: -3)
+# notes: concurrency = X = A1D1 ∩ B1E1 lies on C1F1. Convexity and "no two sides/diagonals parallel" not imposed (F is either intersection of the two circles; goal held in all built drawings). 
+a b c = triangle a b c; d = free d; e = eqdistance e d a b; f = eqdistance f e b c, eqdistance f a c d; a1 = midpoint a1 a c; b1 = midpoint b1 b d; c1 = midpoint c1 c e; d1 = midpoint d1 d f; e1 = midpoint e1 e a; f1 = midpoint f1 f b; x = on_line x a1 d1, on_line x b1 e1 ? coll x c1 f1

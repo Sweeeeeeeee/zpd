@@ -1,0 +1,4 @@
+# latvia/national/1988-89_39/grade08/p3
+# dof: 3   (quadrilateral: 4; AC perpendicular BD: -1)
+# notes: Opposite sides: CD for AB, BC for AD. Convexity not imposed.
+a b c = triangle a b c; d = on_tline d b a c; m = midpoint m a b; n = midpoint n a d; x = on_tline x m c d, on_tline x n b c ? coll x a c

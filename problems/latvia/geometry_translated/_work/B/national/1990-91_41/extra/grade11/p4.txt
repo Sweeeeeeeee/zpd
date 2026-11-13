@@ -1,0 +1,4 @@
+# latvia/national/1990-91_41/extra/grade11/p4
+# dof: 2   (triangle: 2; concurrency point of AM, BK, CN: 2; A, N, L, M, K concyclic: −2)
+# notes: Converse-type problem: the hypotheses (cevians concurrent AND the five points concyclic) fix the shape and the claim (AM ⟂ BC) is what one would need to build it. One can build triangle, L, a circle through A and L (1 parameter), and M, N, K as second intersections, but concurrency of AM, BK, CN cannot then be imposed by a construction. Reformulation for review: circle through A, L meets AB, BC, CA again at N, M, K; if AM, BK, CN concur then AM ⟂ BC.
+# untranslatable: shape fixed by conditions

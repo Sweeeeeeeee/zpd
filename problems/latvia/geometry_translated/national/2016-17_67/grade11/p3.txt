@@ -1,0 +1,4 @@
+# latvia/national/2016-17_67/grade11/p3
+# dof: 5   (three circles through O: 4; A on omega1: 1)
+# notes: omega1 = (OPS), omega2 = (OPR), omega3 = (ORS). 'A on arc PS not containing O' not imposed. B, C are second intersections (on_line + on_circum through the known point P resp. S).
+o p r s = quadrangle o p r s; a = on_circum a o p s; b = on_line b a p, on_circum b o p r; c = on_line c a s, on_circum c o r s ? coll b r c

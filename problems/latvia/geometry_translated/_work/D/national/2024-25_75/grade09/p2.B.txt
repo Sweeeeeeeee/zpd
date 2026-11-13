@@ -1,0 +1,1 @@
+different: D is left as either trisection point of AB, but the statement fixes AD:DB=2:1 and BF=FE fails for the other choice

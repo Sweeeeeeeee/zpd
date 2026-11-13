@@ -1,0 +1,1 @@
+Let ABC be any triangle with circumcentre O. Let S be any point in the plane. Let A1, B1, C1 be the second intersections of lines SA, SB, SC with the circumcircle (other than A, B, C respectively). Let A2, B2, C2 be the feet of the perpendiculars from S to lines BC, AC, AB respectively. Prove that triangles A1B1C1 and A2B2C2 are similar, with vertices corresponding in that order.

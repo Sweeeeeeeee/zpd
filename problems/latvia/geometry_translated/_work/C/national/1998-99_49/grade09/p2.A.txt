@@ -1,0 +1,1 @@
+ABC is an equilateral triangle (either orientation). M is an arbitrary point on line AB. N is the point such that the directed angle (CN, CM) equals the directed angle (CB, CA) and the directed angle (MN, MC) equals the directed angle (AB, AC) (angles between lines, mod 180 degrees); N is the intersection of these two lines, so it is unique. Prove that BN is parallel to AC.

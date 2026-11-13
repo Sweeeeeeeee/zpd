@@ -1,0 +1,1 @@
+Take any triangle ABC with incenter I. M, N, K are the feet of the perpendiculars from I to lines AB, BC, CA respectively (the touch points of the incircle). i1 is the incenter of triangle AMK, i2 the incenter of triangle BNM, i3 the incenter of triangle CKN. Prove that Ii1 = IM, Ii2 = IM and Ii3 = IM.

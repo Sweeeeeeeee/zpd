@@ -1,0 +1,4 @@
+# latvia/national/2001-02_52/grade12/p4
+# dof: 1   (C on AB: 1)
+# notes: Each equilateral triangle is built from two directed 60°/120° angles, so ACB1 and CBA1 are on one side of AB and ABC1 on the other. C between A and B not imposed. a) ∠B1SA = 60° stated as ∠(SB1,SA) = ∠(AC,AB1).
+a b = segment a b; c = on_line c a b; b1 = s_angle c a b1 60o, s_angle a c b1 120o; a1 = s_angle b c a1 60o, s_angle c b a1 120o; c1 = s_angle b a c1 120o, s_angle a b c1 60o; s = on_line s a a1, on_line s b b1 ? eqangle s b1 s a a c a b1; coll s c c1

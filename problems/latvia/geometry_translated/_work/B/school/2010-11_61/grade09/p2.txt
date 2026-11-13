@@ -1,0 +1,4 @@
+# latvia/school/2010-11_61/grade09/p2
+# dof: 1   (triangle 2; median perpendicular to bisector: -1)
+# notes: Median from A and bisector from B (the same vertex is impossible; other choices are relabellings). BT = bisector line at B (T on circle (B, BC), free direction); A on the reflection of line BC over BT and on the perpendicular from M to BT. Goal BA = BM = BC/2. Internal vs external bisector not distinguished (T free).
+b c = segment b c; m = midpoint m b c; t = on_circle t b c; c2 = reflect c2 c b t; a = on_line a b c2, on_tline a m b t ? cong b a b m

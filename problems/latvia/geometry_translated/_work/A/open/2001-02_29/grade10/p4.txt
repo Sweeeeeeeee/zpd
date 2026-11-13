@@ -1,0 +1,4 @@
+# latvia/open/2001-02_29/grade10/p4
+# dof: 1   (triangle with angle B = 60: 1; M, N fixed by AM = MN = NC: 2 conditions on 2 unknowns)
+# notes: Built backwards from B, M, N with angle(BM,BN) = 60 (s_angle): A on ray BM beyond M with MA = MN is the reflection of N over the external bisector at M of triangle BMN, i.e. over line M E, E the excentre opposite B; C likewise over line N E. "Not vertices" = M, N interior to the sides, built in. N on the opposite ray (angle 120) is not excluded by s_angle, but the goal held in all drawings. O = circumcentre; goals O on AN and on CM.
+b m = segment b m; n = s_angle m b n 60o; e = excenter e b m n; a = reflect a n m e; c = reflect c m n e; o = circle o a b c ? coll a n o; coll c m o

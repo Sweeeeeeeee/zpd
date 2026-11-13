@@ -1,0 +1,6 @@
+# latvia/regional/2005-06_56/grade10/p4
+# dof: 4   (triangle: 2; P inside: 2; the "iff" has two directions: forward P = orthocenter gives 2, converse has two cyclic hypotheses giving 2)
+# notes: Forward direction (P orthocenter => both quadrilaterals cyclic) is statable and passes the check (6/6):
+# notes: a b c = acute_triangle a b c; p = orthocenter p a b c; a1 = foot a1 a b c; b1 = foot b1 b c a; c1 = foot c1 c a b ? cyclic a b a1 b1; cyclic a c a1 c1
+# notes: Converse: the hypotheses (ABA1B1 cyclic, ACA1C1 cyclic, with A1, B1, C1 the cevian feet through P) are two conditions on P; building A1 free on BC and B1, C1 from the two circles leaves "AA1, BB1, CC1 concurrent" as an unconstructed condition, and any other build order needs A1 = foot of the altitude, i.e. the conclusion.
+# untranslatable: "iff"; the converse direction has a hypothesis (concurrency of the cevians through the two circle points) that cannot be imposed by a construction

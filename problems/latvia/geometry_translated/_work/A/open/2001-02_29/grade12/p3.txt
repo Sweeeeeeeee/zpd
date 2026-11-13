@@ -1,0 +1,4 @@
+# latvia/open/2001-02_29/grade12/p3
+# dof: 3   (triangle: 2; apex angle of AMB: 1; N fixed by the angle sum)
+# notes: GOAL CHANGED: the statement says angle MNK = 90, which is false (checked numerically: MN is not perpendicular to NK); the true and standard claim is angle MKN = 90 (rotations about M and N compose to the half-turn about K). Probably a typo in the source; review. Angle sum: base angles satisfy angle MBA + angle NBC = 90; T = M rotated 90 deg about B, N on the perpendicular bisector of BC with directed angle(BN,BC) = angle(BT,BA). "Outside" not imposed for M (either side passes).
+a b c = triangle a b c; m = on_bline m a b; t = psquare t b m; n = on_bline n b c, on_aline n b c t b a; k = midpoint k a c ? perp k m k n

@@ -1,0 +1,4 @@
+# latvia/tst/2021_bw/p10
+# dof: 2   (A on the circle: 1; B on XM, C its mirror image: 1)
+# notes: the line through C parallel to AB passes through the antipode A' of A (ABA'C is a parallelogram, M the midpoint of BC and AA'); P = second intersection of line A'C with the circle (intersection_lc), Q likewise on A'B. "AX < AY", "B on segment XM", the arcs of P and Q are not enforced.
+m = free m; x = free x; y = mirror y m x; a = on_circle a m x; b = on_line b x m; c = mirror c b m; a1 = mirror a1 a m; p = intersection_lc p c m a1; q = intersection_lc q b m a1; s = on_line s p q, on_line s x y ? perp a s a m

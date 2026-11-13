@@ -1,0 +1,4 @@
+# latvia/national/2024-25_75/grade12/p2
+# dof: 2 (cyclic quadrilateral: 3; AB + CD = AD: -1)
+# notes: the sum condition is constructible (P on AD with AP = AB, PD = DC; B, C on the circle), attempt: o = free o; a = free a; d = on_circle d o a; p = on_line p a d; b = on_circle b o a, on_circle b a p; c = on_circle c o a, on_circle c d p; x = angle_bisector x a b c, angle_bisector x b c d ? coll x a d . It fails in 3-4 of 6 drawings: B and C each have two branches (reflections over OA, OD) and P may fall outside segment AD; convex order A,B,C,D cannot be imposed and no deterministic construction found (any rotation-free construction of a chord of given length from A has the two-fold ambiguity). Note: the bisector intersection is NOT P in general (checked numerically).
+# untranslatable: two-branch construction (chords AB = AP, DC = DP) whose correct branch (convex ABCD, P inside AD) cannot be imposed; goal fails in the other branches

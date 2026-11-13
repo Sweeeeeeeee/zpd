@@ -1,0 +1,4 @@
+# latvia/school/1999-00_50/grade10/p4
+# dof: 2   (acute triangle: 2)
+# notes: equal circumradii stated as O1A = O2A (O1, O2 circumcentres of ABC and ABH).
+a b c = acute_triangle a b c; h = orthocenter h a b c; o1 = circle o1 a b c; o2 = circle o2 a b h ? cong o1 a o2 a

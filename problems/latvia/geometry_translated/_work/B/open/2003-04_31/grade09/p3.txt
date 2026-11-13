@@ -1,0 +1,4 @@
+# latvia/open/2003-04_31/grade09/p3
+# dof: 1   (square: 0; circle through A and B: 1)
+# notes: E, F = second intersections of lines BD, BC with w. "C and D inside w" (so E, F are on the rays) not imposed; goal holds in all drawings.
+a b = segment a b; c = nsquare c b a; d = psquare d a b; o = on_bline o a b; e = on_line e b d, on_circle e o a; f = on_line f b c, on_circle f o b; m = midpoint m c f ? perp e m b c

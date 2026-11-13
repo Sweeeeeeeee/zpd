@@ -1,0 +1,4 @@
+# latvia/open/1979-80_07/grade07/p2
+# dof: 2   (trapezoid: 3; E on AD: 1; two perimeter equalities: -2)
+# notes: hypothesis is equality of perimeters (sums of lengths) of ABE, BEC, CED.
+# untranslatable: hypothesis is an equality of perimeters (sums of segments)

@@ -1,0 +1,16 @@
+Free points: B and C, arbitrary (two points).
+
+Construction:
+- M: midpoint of BC.
+- T: any point on the circle with center M through B (one free parameter).
+- U: a point with UT perpendicular to TM and UT = TM. The sketch takes the one obtained by rotating the vector TM by 90 degrees about T; the other choice is the mirror image of U in line TM. U is a vertex of the square with side TM, adjacent to T.
+- W: reflection of B in line TU.
+- A: intersection of line TU with line CW.
+- K: intersection of line BC with the line through A perpendicular to TU.
+- L: intersection of line AK with the circumcircle of ABC, other than A.
+- O1: circumcenter of triangle KML.
+- X: reflection of M in O1 (O1 is the midpoint of MX).
+
+Goal (two length equalities):
+- MX = MB
+- O1X = O1K

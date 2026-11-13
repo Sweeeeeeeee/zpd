@@ -1,0 +1,4 @@
+# latvia/school/1987-88_38/grade07/p2
+# dof: 2   (quadrilateral: 4; AB = BC: -1; AD = DC: -1)
+# notes: C on circle (B, BA), D on the perpendicular bisector of AC. Convexity not imposed.
+a b = segment a b; c = on_circle c b a; d = on_bline d a c ? perp a c b d

@@ -1,0 +1,4 @@
+# latvia/school/1993-94_44/grade11/p1
+# dof: 3   (quadrilateral: 4; angle ABD = angle ACD: -1)
+# notes: U on circle (B, BA) fixes the direction of BD; D on line BU and on the line through C with angle(CD,CA) = angle(BU,BA), i.e. angle ABD = angle ACD as directed angles. Convexity not imposed.
+a b c = triangle a b c; u = on_circle u b a; d = on_line d b u, on_aline d c a u b a ? eqangle c b c a d b d a

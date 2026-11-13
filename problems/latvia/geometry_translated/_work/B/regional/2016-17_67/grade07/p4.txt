@@ -1,0 +1,4 @@
+# latvia/regional/2016-17_67/grade07/p4
+# dof: 2   (triangle; F, E fixed)
+# notes: F on BD with angle AFD = angle ADF means AF = AD, F != D: F = reflection of D over the foot of A on BD (one point, no branch). AB < BC not enforced.
+a b c = triangle a b c; d = on_line d a c, angle_bisector d a b c; h = foot h a b d; f = mirror f d h; e = on_line e b c, on_pline e f a c ? eqangle a f a b e b e f

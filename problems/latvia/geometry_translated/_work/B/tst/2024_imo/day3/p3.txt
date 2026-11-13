@@ -1,0 +1,4 @@
+# latvia/tst/2024_imo/day3/p3
+# dof: 2   (triangle ABC with AC > BC: 2, the inequality is open; P, S, D, Q, E all determined)
+# notes: P = reflection of B over the bisector of angle C (on ray CA with CP = CB; on side AC because AC > BC). Q = P + (O - Y), Y the midpoint of arc AB not containing C: O->Y is the radius perpendicular to AB pointing away from C, so P + (O - Y) is at distance r from P on line SP, on the side away from S (S, P, Q in that order). D = second intersection of line BP with the circumcircle (beyond P, since P is inside the circle). AC > BC is not enforced in the figure.
+a b c = triangle a b c; o = circle o a b c; i = incenter i a b c; p = reflect p b c i; s = foot s p a b; d = on_line d b p, on_circum d a b c; y = on_line y c i, on_circum y a b c; q = parallelogram q p y o; e = on_tline e a c q, on_tline e b d q ? cyclic a b c e

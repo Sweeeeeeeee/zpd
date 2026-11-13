@@ -1,0 +1,1 @@
+A and D are two arbitrary distinct points and P is an arbitrary point strictly between A and D. B is an arbitrary point on the circle with center A through P. C is an arbitrary point on the circle with center D through P. I is the incenter of triangle ABD and J is the incenter of triangle ADC. M is the intersection of lines AI and DJ. Prove that BM = CM.

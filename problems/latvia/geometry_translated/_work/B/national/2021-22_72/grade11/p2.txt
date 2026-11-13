@@ -1,0 +1,4 @@
+# latvia/national/2021-22_72/grade11/p2
+# dof: 3   (quadrilateral ABCD: 4; the three perpendicular bisectors concur: -1)
+# notes: O = common point of the bisectors, so OA = OD, OB = OC, OM = ON. Built as: O, A, B free, D on circle (O, OA); N on circle (O, OM) and N = midpoint of CD with C on circle (O, OB), i.e. N on the circle centred at the midpoint of OD with radius OB/2 (homothety at D, ratio 1/2); C = reflection of D over N. Both intersections satisfy the hypotheses. Convexity not stated, not imposed.
+o = free o; a = free a; d = on_circle d o a; b = free b; m = midpoint m a b; e = midpoint e o d; f = midpoint f o b; n = on_circle n o m, eqdistance n e o f; c = mirror c d n ? cong a b c d

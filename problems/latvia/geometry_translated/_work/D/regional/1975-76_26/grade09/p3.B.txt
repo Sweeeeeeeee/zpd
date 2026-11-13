@@ -1,0 +1,2 @@
+same
+Same construction as the A variant (the non-degeneracy condition for C is stated loosely).

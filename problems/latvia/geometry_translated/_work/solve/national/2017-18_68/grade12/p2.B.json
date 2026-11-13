@@ -1,0 +1,9 @@
+{
+ "solved": false,
+ "wall_time": 3.7,
+ "depth": 0,
+ "failure": "problem could not be built: TypeError: unhashable type: 'LineMerge'",
+ "hash": "44c61bf71c2929b4",
+ "config": "pipeline/configs/domains/full.json",
+ "time_s": 60.0
+}

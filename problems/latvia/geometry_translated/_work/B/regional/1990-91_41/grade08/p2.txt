@@ -1,0 +1,4 @@
+# latvia/regional/1990-91_41/grade08/p2
+# dof: 3   (quadrilateral 4; midpoints of AB, AC, BD collinear: -1)
+# notes: K (midpoint of BD) placed on line MP, then D = reflection of B over K: a direct restatement of the collinearity hypothesis. Convexity not enforced.
+a b c = triangle a b c; m = midpoint m a b; p = midpoint p a c; k = on_line k m p; d = mirror d b k; n = midpoint n c d ? coll m p n

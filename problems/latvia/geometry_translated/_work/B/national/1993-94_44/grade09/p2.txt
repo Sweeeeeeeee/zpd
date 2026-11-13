@@ -1,0 +1,4 @@
+# latvia/national/1993-94_44/grade09/p2
+# dof: 7   (convex quadrilateral: 4; M, N, K, L on the sides: 4; the three circles concurrent: -1)
+# notes: O = second intersection of circles AML and BNM (both through M); K = second intersection of line CD with circle CNO, so circle CNK passes through O. Convexity and "O inside" are not enforced.
+a b c d = quadrangle a b c d; m = on_line m a b; n = on_line n b c; l = on_line l d a; o = on_circum o a m l, on_circum o b n m; k = on_line k c d, on_circum k c n o ? cyclic d l k o

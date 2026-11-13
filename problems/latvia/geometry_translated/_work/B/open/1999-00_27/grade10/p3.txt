@@ -1,0 +1,4 @@
+# latvia/open/1999-00_27/grade10/p3
+# dof: 3   (acute triangle ABC: 2; D on the circumcircle: 1)
+# notes: "D on arc BC not containing A" is not imposed (D anywhere on the circumcircle; the claim holds for every D). Nine-point circle = circle through the midpoints x, y, z of the sides.
+a b c = acute_triangle a b c; d = on_circum d a b c; e = reflect e d b c; m = midpoint m a e; x = midpoint x b c; y = midpoint y c a; z = midpoint z a b ? cyclic x y z m

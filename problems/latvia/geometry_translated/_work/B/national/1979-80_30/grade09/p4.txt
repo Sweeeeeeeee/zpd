@@ -1,0 +1,4 @@
+# latvia/national/1979-80_30/grade09/p4
+# dof: 2   (second square relative to the first: rotation and scale about C)
+# notes: TYPO IN THE SOURCE: the text says CM ⟂ CD and CM = CD/2, which is false in general (it would put M on line CB); the classical statement, translated here, is CM ⟂ DG and CM = DG/2. Both squares taken with the same orientation (ABCD and CEFG both counterclockwise or both clockwise): D = B rotated about C one way (psquare), G = E rotated the other way (nsquare); with opposite orientations the claim fails. A and F are not needed and not built. CM = DG/2 stated as CM = DK, K the midpoint of DG.
+c = free c; b = free b; d = psquare d c b; e = free e; g = nsquare g c e; m = midpoint m b e; k = midpoint k d g ? perp c m d g; cong c m d k

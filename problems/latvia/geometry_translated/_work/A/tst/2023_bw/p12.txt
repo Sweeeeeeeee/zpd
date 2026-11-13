@@ -1,0 +1,4 @@
+# latvia/tst/2023_bw/p12
+# dof: 1   (triangle ABC: 2; external bisector of A tangent to the circle on diameter BC: -1)
+# notes: built from the condition: B, C free, M midpoint, T free on the circle Omega (centre M through B), u = psquare u t m a second point of the tangent at T (TU perpendicular to TM); A on the tangent with the reflection of B over it on line AC, so the tangent is the external bisector of angle A (B, C on one side of the tangent makes it external, not internal). Tangency of circle KML and Omega: O1 centre of KML, X the reflection of M over O1 (on the line of centres); goals X on Omega and X on circle KML, i.e. both circles pass through a point of the line of centres.
+b c = segment b c; m = midpoint m b c; t = on_circle t m b; u = psquare u t m; w = reflect w b t u; a = on_line a t u, on_line a c w; k = on_tline k a t u, on_line k b c; l = on_line l a k, on_circum l a b c; o1 = circle o1 k m l; x = mirror x m o1 ? cong m x m b; cong o1 x o1 k

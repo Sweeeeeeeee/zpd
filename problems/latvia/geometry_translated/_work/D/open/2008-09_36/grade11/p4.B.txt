@@ -1,0 +1,2 @@
+same
+Convexity and non-parallelism dropped; equal opposite sides imposed via ED=AB, FE=BC, FA=CD.

@@ -1,0 +1,1 @@
+different: goal differs (possible typo fix): formal goal is MK perpendicular to KN (angle MKN = 90) while the statement says angle MNK = 90.

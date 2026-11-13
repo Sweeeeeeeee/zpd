@@ -1,0 +1,4 @@
+# latvia/tst/2023_imo/day3/p3
+# dof: 3   (triangle: 2; P on AF: 1)
+# notes: X = reflection of A over the line through D and the centre O1 of circle ABD (the point of that circle with DX = DA, X ≠ A); Y likewise. Scalene and acute, P strictly inside AF, not enforced.
+a b c = triangle a b c; f = foot f a b c; p = on_line p a f; d = on_pline d p a c, on_line d b c; e = on_pline e p a b, on_line e b c; o1 = circle o1 a b d; x = reflect x a d o1; o2 = circle o2 a c e; y = reflect y a e o2 ? cyclic b c x y

@@ -1,0 +1,4 @@
+# latvia/tst/2024_imo/day2/p1
+# dof: 5   (triangle: 2; D, E, F on the sides: 3; K and L each fixed by two angle conditions)
+# notes: Angles as directed angles mod 180, signs chosen to match the side conditions (checked numerically on a figure built with the stated sides): ∠(FK,FE) = ∠(DB,DE), ∠(KA,KF) = ∠(BA,BC), ∠(EL,EF) = ∠(DC,DF), ∠(LA,LE) = ∠(CA,CB). K is the second point of the line FK on the arc through A, F. Goal ∠AKB + ∠ALC = 180 becomes ∠(KA,KB) = ∠(LA,LC) (the two angles have opposite orientation). Points on the sides (not lines) and the half-plane conditions are not imposed.
+a b c = triangle a b c; d = on_line d b c; e = on_line e a c; f = on_line f a b; k = on_aline k f e b d e, eqangle3 k a f b a c; l = on_aline l e f c d f, eqangle3 l a e c a b ? eqangle k a k b l a l c

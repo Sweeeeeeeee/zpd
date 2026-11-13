@@ -1,0 +1,1 @@
+Take any circle with centre O and a point A on it (O, A free). Choose B, C, D on the circle (any positions). Let E = AC ∩ BD and F = AD ∩ BC. Let X be the midpoint of AD and Y the midpoint of BC. Let P be the circumcentre of triangle EXY. Prove that OF is parallel to PE.

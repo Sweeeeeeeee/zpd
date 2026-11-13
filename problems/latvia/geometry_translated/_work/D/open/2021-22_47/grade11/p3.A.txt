@@ -1,0 +1,2 @@
+same
+Convexity dropped; B on AE as foot of perpendicular from C encodes angle B=90 with AC bisector (E reflection of D).

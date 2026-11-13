@@ -1,0 +1,4 @@
+# latvia/regional/2001-02_52/grade12/p3
+# dof: 1   (rhombus with angle 60 deg: 0; Y on AC: 1; X, Z determined)
+# notes: rhombus ABCD with angle BAD = 60 deg built as equilateral ABD plus C = B + D - A. Y free on line AC, X on AD and Z on CD with YX || DC, YZ || DA (DXYZ parallelogram). Y on the segment (inside) not imposed. Regular triangle stated as BX = BZ and BX = XZ.
+a b = segment a b; d = eq_triangle d a b; c = parallelogram c b a d; y = on_line y a c; x = on_line x a d, on_pline x y c d; z = on_line z c d, on_pline z y a d ? cong b x b z; cong b x x z

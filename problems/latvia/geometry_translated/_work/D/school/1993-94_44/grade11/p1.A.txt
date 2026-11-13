@@ -1,0 +1,2 @@
+different: hypothesis (CD,CA)=(UB,UA) with U on circle centre B is not the condition angle ABD = angle ACD (it gives angle ACD related to half of ABD), and the conclusion fails numerically.
+Verified numerically; formalisation does not imply concyclicity.

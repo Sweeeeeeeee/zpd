@@ -1,0 +1,4 @@
+# latvia/national/2001-02_52/grade09/p2
+# dof: 2 (acute triangle)
+# notes: D = antipode of B on the circumcircle. Parallelogram AHCD as two parallel-side goals.
+a b c = acute_triangle a b c; o = circle o a b c; d = mirror d b o; h = orthocenter h a b c ? para a h c d; para a d h c

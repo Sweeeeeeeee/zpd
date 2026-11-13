@@ -1,0 +1,1 @@
+Take any triangle ABC. D is a point on the line through A parallel to BC. F is the reflection of C through B (F = 2B - C). E is the intersection of lines AB and DF. H is the foot of the perpendicular from D to line CE. Prove that AH = AD.

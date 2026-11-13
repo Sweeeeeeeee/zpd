@@ -1,0 +1,4 @@
+# latvia/regional/2015-16_66/grade11/p3
+# dof: 4   (convex quadrilateral)
+# notes: F = second intersection of circles ABE and CDE (both through E). Similarity with A->C, B->D, F->F. Convexity not enforced.
+a b c d = quadrangle a b c d; e = on_line e a c, on_line e b d; f = on_circum f a b e, on_circum f c d e ? simtri a b f c d f

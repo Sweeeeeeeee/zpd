@@ -1,0 +1,4 @@
+# latvia/open/2003-04_31/grade09/p3
+# dof: 1   (square: 0; circle through A, B: 1)
+# notes: centre O on the perpendicular bisector of AB; E, F = second intersections of lines BD, BC with w. "C, D inside w" (so E, F on the rays) not imposed.
+a b = segment a b; c = psquare c b a; d = parallelogram d a b c; o = on_bline o a b; e = intersection_lc e d o b; f = intersection_lc f c o b; m = midpoint m c f ? perp e m b c

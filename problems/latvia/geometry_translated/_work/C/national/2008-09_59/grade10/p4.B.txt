@@ -1,0 +1,16 @@
+Same statement as x02 (the only textual difference is that B1 is the foot from B to line AC instead of line CA, which is the same line).
+
+Free points: A, B, C, forming an arbitrary acute triangle (all three angles less than 90 degrees).
+
+Construction:
+- A1: foot of the perpendicular from A to line BC.
+- B1: foot of the perpendicular from B to line AC.
+- H: orthocenter of ABC.
+- M: midpoint of AB.
+- N: midpoint of AH.
+- K: midpoint of BH.
+
+Goal (three length equalities):
+- MK = B1N
+- KA1 = NM
+- A1M = MB1

@@ -1,0 +1,1 @@
+Take four arbitrary points A1, C1, A2, C2. Let B1 be the midpoint of A1C1 and B2 the midpoint of A2C2. Let M be the midpoint of A1A2, N the midpoint of B1B2 and K the midpoint of C1C2. Prove that M, N, K are collinear.

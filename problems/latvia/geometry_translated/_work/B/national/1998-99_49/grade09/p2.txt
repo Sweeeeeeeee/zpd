@@ -1,0 +1,4 @@
+# latvia/national/1998-99_49/grade09/p2
+# dof: 1   (equilateral ABC: 0; M on AB: 1; N fixed by CMN equilateral and the side condition)
+# notes: "N on the same side of CM as B" = N is the image of M under the rotation about C taking A to B: directed angle (CM, CN) = (CA, CB), N the second intersection of that line through C with the circle (M, MC). "M inside AB" not imposed.
+a b c = ieq_triangle a b c; m = on_line m a b; n = on_aline n c m b c a, on_circle n m c ? para b n a c

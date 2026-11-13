@@ -1,0 +1,3 @@
+# latvia/open/1978-79_06/grade08/p3
+# dof: 3   (two parallel lines cutting y = x^2)
+# untranslatable: mis-sorted, about the parabola y = x^2 and the Ox axis (coordinate geometry, no Newclid construction for a parabola)

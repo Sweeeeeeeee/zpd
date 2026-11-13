@@ -1,0 +1,4 @@
+# latvia/school/2007-08_58/grade11/p3
+# dof: 3   (trapezoid: 4 - 1 for AD || BC; E, H fixed)
+# notes: E with AE:EB = AD:BC built by the intercept construction: F = reflection of C over B, E = AB n DF (AD || BF, BF = BC). H = foot of D on CE ('H inside segment CE' not enforced). Trapezoid orientation (AD, BC same direction) not enforced.
+a b c = triangle a b c; d = on_pline d a b c; f = mirror f c b; e = on_line e a b, on_line e d f; h = foot h d c e ? cong a h a d

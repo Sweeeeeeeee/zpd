@@ -1,0 +1,4 @@
+# latvia/national/2020-21_71/grade09/p4
+# dof: 2   (any triangle ABC: 2; touch points and K determined)
+# notes: touch points = feet of the incenter on the sides; angle KB1A1 = 90 as perp k b1 b1 a1
+a b c = triangle a b c; i = incenter i a b c; c1 = foot c1 i a b; a1 = foot a1 i b c; b1 = foot b1 i a c; k = on_pline k a b c, on_line k a1 c1 ? perp k b1 b1 a1

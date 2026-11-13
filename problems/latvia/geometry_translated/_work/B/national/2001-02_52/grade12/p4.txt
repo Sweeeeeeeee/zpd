@@ -1,0 +1,4 @@
+# latvia/national/2001-02_52/grade12/p4
+# dof: 1   (C on segment AB)
+# notes: between c a b puts C strictly inside AB. Equilateral triangles built with s_angle at both base ends (60° at the left end, 120° = -60° at the right end) so the side is fixed: ACB1 and CBA1 on one side, ABC1 on the other. Part a) as the directed angle ∠(SB1,SA) = ∠(AC,AB1) (both 60°); part b) collinearity.
+c a b = between c a b; b1 = s_angle c a b1 60o, s_angle a c b1 120o; a1 = s_angle b c a1 60o, s_angle c b a1 120o; c1 = s_angle b a c1 120o, s_angle a b c1 60o; s = on_line s a a1, on_line s b b1 ? eqangle s b1 s a a c a b1; coll s c c1

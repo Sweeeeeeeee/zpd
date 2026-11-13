@@ -1,0 +1,2 @@
+same
+The external bisector tangent to the circle with diameter BC is encoded as A = TU intersect CW, with W the reflection of B in TU. Tangency of circle KML to the circle is encoded as MX = MB with X the antipode of M, which is equivalent; O1X = O1K is trivially true.

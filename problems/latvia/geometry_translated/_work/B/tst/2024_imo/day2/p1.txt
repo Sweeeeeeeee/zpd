@@ -1,0 +1,4 @@
+# latvia/tst/2024_imo/day2/p1
+# dof: 5   (triangle: 2; D, E, F on the sides: 3; K and L each fixed by two angle conditions)
+# notes: K = on_aline (∠KFE = ∠BDE) ∩ eqangle3 (∠AKF = ∠ABC), L likewise; the directed-angle signs were chosen so that K, L lie on A's side of FE, K and C on opposite sides of AB, B and L on opposite sides of AC (checked numerically on the drawings; the other sign choices put K or L elsewhere and the claim fails). Goal ∠AKB + ∠ALC = 180° as directed angles ∠(KA,KB) = ∠(LA,LC) (the triangles AKB, ALC have opposite orientation). D, E, F inside the sides not enforced.
+a b c = triangle a b c; d = on_line d b c; e = on_line e a c; f = on_line f a b; k = on_aline k f e b d e, eqangle3 k a f b a c; l = on_aline l e f c d f, eqangle3 l a e c a b ? eqangle k a k b l a l c

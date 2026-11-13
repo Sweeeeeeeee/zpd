@@ -1,0 +1,2 @@
+same
+Y defined as 2X-M (wrong position vs the statement) but unused; XY only used as line XM.

@@ -1,0 +1,4 @@
+# latvia/regional/1997-98_48/grade11/p3
+# dof: 1   (triangle: 2; angle BCA = 45 degrees: -1)
+# notes: C, A fixed; B on the line through C making 45 degrees with CA (s_angle, directed). "Acute" is not imposed. M, N feet of the altitudes from A and B. Two claims (equal and perpendicular) joined with ';'.
+c a = segment c a; b = s_angle a c b 45o; m = foot m a b c; n = foot n b c a; s = midpoint s a b ? cong s m s n; perp s m s n

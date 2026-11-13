@@ -1,0 +1,9 @@
+{
+ "solved": false,
+ "wall_time": 62.6,
+ "depth": 0,
+ "failure": "time limit (60s)",
+ "hash": "eeb5a960fd052067",
+ "config": "pipeline/configs/domains/full.json",
+ "time_s": 60.0
+}

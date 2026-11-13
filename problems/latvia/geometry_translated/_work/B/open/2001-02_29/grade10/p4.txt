@@ -1,0 +1,4 @@
+# latvia/open/2001-02_29/grade10/p4
+# dof: 1   (triangle with angle B = 60: 1; M, N: two unknowns, two equations AM = MN = NC)
+# notes: built from B, M, N: angle MBN = 60, I = incenter of BMN; A = point of ray from M away from B with MA = MN (reflect N over MI, then mirror through M); C likewise from N. O = AN ∩ CM; goal OA = OB = OC. Also holds with 120o (N on the other ray).
+b m = segment b m; n = s_angle m b n 60o; i = incenter i b m n; a0 = reflect a0 n m i; a = mirror a a0 m; c0 = reflect c0 m n i; c = mirror c c0 n; o = on_line o a n, on_line o c m ? cong o a o b; cong o b o c

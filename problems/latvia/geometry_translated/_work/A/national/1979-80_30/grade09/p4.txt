@@ -1,0 +1,4 @@
+# latvia/national/1979-80_30/grade09/p4
+# dof: 2   (C, B, E free: 2 up to similarity; the squares are fixed)
+# notes: The statement says 'CM perpendicular to CD and half as long'; that is a typo (false in general): the intended segment is DG. Both squares have the same orientation (ABCD and CEFG labelled the same way round): D = psquare from C B, G = nsquare from C E (checked). CM = DG/2 is stated as CM = DK, K the midpoint of DG.
+c = free c; b = free b; e = free e; d = psquare d c b; a = parallelogram a b c d; g = nsquare g c e; f = parallelogram f e c g; m = midpoint m b e; k = midpoint k d g ? perp c m d g; cong c m d k

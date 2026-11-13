@@ -1,0 +1,2 @@
+same
+Same construction as the A variant, with the clauses in a different order.

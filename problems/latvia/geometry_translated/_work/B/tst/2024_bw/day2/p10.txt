@@ -1,0 +1,4 @@
+# latvia/tst/2024_bw/day2/p10
+# dof: 1   (isosceles triangle)
+# notes: H, G = second intersections of the altitude BK and the median BL with ω (intersection_lc through B).
+a b c = iso_triangle a b c; k = foot k b a c; l = midpoint l a c; h = intersection_lc h k a b; g = intersection_lc g l a b; x = on_line x g h, on_line x a c ? midp c a x

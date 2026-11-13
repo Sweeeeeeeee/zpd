@@ -1,0 +1,2 @@
+different: goal differs (possible typo fix): statement says CM perpendicular to CD and CM = CD/2, formalisation proves CM perpendicular to DG and CM = DG/2
+CM perpendicular to CD is false in general; the statement presumably means DG.

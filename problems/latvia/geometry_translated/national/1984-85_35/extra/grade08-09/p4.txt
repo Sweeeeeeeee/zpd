@@ -1,0 +1,4 @@
+# latvia/national/1984-85_35/extra/grade08-09/p4
+# dof: 4   (pentagon: 6; AA1, BB1, CC1, DD1 concurrent: -2)
+# notes: O = BB1 x CC1 from the quadrangle ABCD. 'AA1 through O' (A1 midpoint of EB) is restated as E on the image of line AO under the homothety (B, 2), i.e. line through 2A-B and 2O-B; 'DD1 through O' (D1 midpoint of CE) as E on the image of line DO under (C, 2). Convexity not imposed.
+a b c d = quadrangle a b c d; b1 = midpoint b1 a c; c1 = midpoint c1 b d; o = on_line o b b1, on_line o c c1; p = mirror p b a; q = mirror q b o; r = mirror r c d; s = mirror s c o; e = on_line e p q, on_line e r s; e1 = midpoint e1 d a ? coll e e1 o

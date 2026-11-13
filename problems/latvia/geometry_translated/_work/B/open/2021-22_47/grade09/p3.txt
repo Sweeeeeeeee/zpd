@@ -1,0 +1,4 @@
+# latvia/open/2021-22_47/grade09/p3
+# dof: 4   (hexagon: 12 - 4 = 8; three pairs of parallel sides: -3; AB = DE: -1)
+# notes: AB || DE and AB = DE leave two positions of E; in a convex hexagon the opposite sides run in opposite directions (vector DE = vector BA), so ABDE is a parallelogram, E = A + D - B (parallelogram e a b d: ABDE with AB = ED as vectors). F = line through E parallel to BC meet line through A parallel to CD. Convexity is not imposed otherwise. Two claims joined with ';'.
+a b c d = quadrangle a b c d; e = parallelogram e a b d; f = on_pline f e b c, on_pline f a c d ? cong b c e f; cong c d a f

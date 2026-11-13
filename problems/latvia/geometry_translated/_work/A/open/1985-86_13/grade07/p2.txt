@@ -1,0 +1,5 @@
+# latvia/open/1985-86_13/grade07/p2
+# dof: 4   (hexagon: 8; AB||DE, BC||EF, CD||FA: -3; AD, BE, CF concurrent: -1)
+# notes: Building from O, A, B, C: D on line AO, E = BO n (line through D parallel to AB), F = CO n (line through E parallel to BC); the last hypothesis CD || FA is then an equation in D (its solution is OD = OA, the claim). Every build order tried leaves one parallel or the concurrency unconstructed.
+# notes: Reformulation for review (builds in the claim, NOT faithful): o a b c = free o; ... d = mirror d a o; e = mirror e b o; f = mirror f c o (then the hypotheses hold and the claim is trivial).
+# untranslatable: shape fixed by conditions

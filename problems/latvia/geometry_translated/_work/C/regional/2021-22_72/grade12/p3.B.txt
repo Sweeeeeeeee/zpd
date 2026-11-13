@@ -1,0 +1,1 @@
+Take two arbitrary points A and B. Let C be any point on the circle with center B through A. Let D be any point on the circle with center C through B. Let E be the intersection of lines AC and BD. Let I be the intersection of the bisector of angle BAD (vertex A) and the bisector of angle ADC (vertex D). Prove that A, D, E, I are concyclic.

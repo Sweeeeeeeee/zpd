@@ -1,0 +1,4 @@
+# latvia/regional/1997-98_48/grade11/p3
+# dof: 1   (triangle ABC: 2; angle BCA = 45 deg: -1)
+# notes: B on the line through C at a directed angle 45 deg to CA (s_angle); "acute" is not imposed (B may land where angle C is 135 deg or another angle is obtuse; the claims still hold). M, N feet of the altitudes from A and B. Two goals: SM = SN and SM perp SN.
+c = free c; a = free a; b = s_angle a c b 45o; m = foot m a b c; n = foot n b c a; s = midpoint s a b ? cong s m s n; perp s m s n

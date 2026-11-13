@@ -1,0 +1,4 @@
+# latvia/regional/2001-02_52/grade12/p3
+# dof: 1   (rhombus with angle 60: 0; Y on AC: 1)
+# notes: Rhombus with angle BAD = 60: ABD equilateral, C = B + D - A. X, Z from the parallelogram DXYZ (YX || CD, YZ || AD). Y on the diagonal, not forced inside the segment.
+a b d = ieq_triangle a b d; c = parallelogram c b a d; y = on_line y a c; x = on_line x a d, on_pline x y c d; z = on_line z c d, on_pline z y a d ? cong b x b z; cong b x x z

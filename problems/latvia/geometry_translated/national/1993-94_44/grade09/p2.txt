@@ -1,0 +1,4 @@
+# latvia/national/1993-94_44/grade09/p2
+# dof: 7   (quadrilateral: 4; M, N, K, L on the sides: 4; the three circles concurrent: -1)
+# notes: O is built as the second intersection of circles AML and BNM, then K as the second intersection of side CD with circle CNO, which encodes the concurrency. Convexity, points on the segments and O inside are not imposed (quadrangle, on_line).
+a b c d = quadrangle a b c d; m = on_line m a b; n = on_line n b c; l = on_line l d a; o = on_circum o a m l, on_circum o b n m; k = on_line k c d, on_circum k c n o ? cyclic d l k o

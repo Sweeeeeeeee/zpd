@@ -1,0 +1,11 @@
+Free points: O and A, arbitrary. Let omega be the circle with center O through A.
+
+Construction:
+- B: any point on omega (B is not required to differ from A beyond the usual non-degeneracy).
+- C: intersection of the tangent to omega at A (the line through A perpendicular to OA) with the tangent to omega at B (the line through B perpendicular to OB). These two tangents meet at C, which requires B not diametrically opposite A.
+- P: any point on omega (one free parameter).
+- D: foot of the perpendicular from P to line AB.
+- E: foot of the perpendicular from P to line AC.
+- F: foot of the perpendicular from P to line BC.
+
+Goal: PD / PE = PF / PD, i.e. PD squared = PE times PF.

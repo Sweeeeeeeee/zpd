@@ -1,0 +1,2 @@
+different: M and N are built on the wrong side (M = reflection of X+A-C over the bisector at X of X, 2B-X, so M lies on ray XB toward B, not beyond X on ray BX), and the construction of X, Y with CD+AY=BD+AX looks wrong (possible misreading)
+Could not fully verify the long construction of Y.

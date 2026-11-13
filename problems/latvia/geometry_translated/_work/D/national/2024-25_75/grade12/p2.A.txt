@@ -1,0 +1,2 @@
+same
+Convex-cyclic ABCD built via P with AP=AB, DP=DC; choice of C not imposed.

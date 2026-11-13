@@ -1,0 +1,4 @@
+# latvia/national/1990-91_41/extra/grade11/p4
+# dof: 0   (triangle: 2; N, M, K on the sides: 3; AM, BK, CN concurrent: -1; A, N, M, K concyclic: -1; L on that circle: -1; generically isolated shapes, i.e. the hypotheses overdetermine the figure)
+# notes: The hypotheses fix the figure with no point to build: a circle through A and L (1 parameter) gives M, N, K as second intersections with the sides, and the concurrency of AM, BK, CN is an equation on that parameter that no construction imposes. Building M as the foot of the altitude would build in the conclusion. Reformulation for review: 'triangle ABC, L foot of the bisector from A, M foot of the altitude, circle ALM meets AB, AC again at N, K; then AM, BK, CN concur' is the converse, not the same problem.
+# untranslatable: shape fixed by conditions (concurrency + concyclicity), conclusion would have to be built in

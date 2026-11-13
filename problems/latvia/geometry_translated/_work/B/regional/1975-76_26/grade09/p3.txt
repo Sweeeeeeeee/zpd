@@ -1,0 +1,4 @@
+# latvia/regional/1975-76_26/grade09/p3
+# dof: 2   (circle with chord AB: 1; P on the circle: 1)
+# notes: C = meet of the tangents at A and B (perpendiculars to the radii). D, E, F feet from P to AB, AC, BC. PD^2 = PE*PF stated as PD/PE = PF/PD.
+o = free o; a = free a; b = on_circle b o a; c = on_tline c a o a, on_tline c b o b; p = on_circle p o a; d = foot d p a b; e = foot e p a c; f = foot f p b c ? eqratio p d p e p f p d

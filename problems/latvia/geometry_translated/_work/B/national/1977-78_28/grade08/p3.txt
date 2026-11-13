@@ -1,0 +1,4 @@
+# latvia/national/1977-78_28/grade08/p3
+# dof: 2 (O, perpendicular lines a, b: direction; parallel lines: direction and two offsets; 6 - 4)
+# notes: X on a, Y on b: first parallel XY; second parallel through X2 on a, meeting b at Y2. "O between the parallels" not imposed (goal holds either way). The second question (does it hold for any two crossing lines a, b?) is not translated; answer yes (homothety at O), the perpendicularity is not needed.
+o = free o; x = free x; y = on_tline y o o x; x2 = on_line x2 o x; y2 = on_pline y2 x2 x y, on_line y2 o y; m = midpoint m x y; n = midpoint n x2 y2 ? coll o m n

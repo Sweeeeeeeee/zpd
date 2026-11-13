@@ -12,7 +12,7 @@ a b c = triangle a b c; h = orthocenter h a b c; d = reflect d h b c ? cyclic a 
 * One construction places a point on a locus (a line or a circle). Two constructions
   separated by `,` intersect two loci: `x = on_line x a b, on_circle x o a`.
 * Point names are lowercase: `a`, `b`, `h`, `a1`, ...
-* The goal comes after `?`. It is a predicate, or several separated by `,`.
+* The goal comes after `?`. It is a predicate, or several separated by `;`.
 
 ## Step by step
 
@@ -46,6 +46,64 @@ a b c = triangle a b c; h = orthocenter h a b c; d = reflect d h b c ? cyclic a 
 | reflection of A over point B | `x = mirror x a b` |
 | X with ∠XAB = ∠EDC | `on_aline x a b c d e` |
 | tangent from A to circle (O, B) | `x y = tangent x y a o b` |
+| X = A + B − C (move A by the vector C→B) | `x = shift x a b c` (gives XA = BC, XB = AC) |
+| X with ABCX a parallelogram (X = A + C − B) | `x = parallelogram x a b c` |
+| X with the directed angle ∠(BA, BX) = 45° | `x = s_angle a b x 45o` (new point **last**) |
+| X with ∠(XA, XB) = ∠(DE, DF) (arc through A, B) | `eqangle3 x a b d e f`; "XB tangent to circle XAQ" via the tangent-chord angle |
+| a second point on the tangent at T to circle (M) | `u = psquare u t m` (fixed point, no extra freedom) |
+| second intersection of line AB with circle (O, OB), other than B | `x = intersection_lc x a o b` |
+| isosceles trapezoid with AB ∥ CD, AD = BC | `a b c d = iso_trapezoid a b c d` (names left of `=` must be the new points in the same order) |
+| P on ray CA with CP = CB | `p = reflect p b c i`, I the incenter (one point, no branch) |
+| Q on line SP beyond P with PQ = r | move P by a radius vector with `shift` (no branch) |
+
+### Hard cases (lessons of the pilot, 2026-11-13)
+
+* **Two branches.** `on_line` + `on_circle`, `on_pline` + `on_circle` give two
+  points. Prefer a construction that gives one point: `shift`, `parallelogram`,
+  `reflect`, `mirror`, `foot`, a second intersection with a line through a known
+  point of the circle.
+* **Helper points carry no freedom.** A spare point used only to name a line
+  (`u = on_tline u t m t`) adds one free parameter and the dof check reports a
+  mismatch. Use a foot, an intersection, `psquare`, or a point already in the figure.
+* **Conditions that cannot be imposed** (convex, "inside", "on the arc not
+  containing A", AC > BC, acute when not built in): leave them out and write
+  them in `# notes:`. That is fine only if the goal still holds in every drawing;
+  if it fails in some, choose the construction that gives the right branch.
+* **Tangent circles as a goal.** There is no predicate. Build the touching point X
+  on the line of centres and prove it is on both circles (two `cong` goals).
+* **Hypotheses that fix the shape with no point to build** ("TB is tangent to ω
+  and AT = TB, prove ..."). Build backwards from a condition only by a direct
+  restatement of the same condition (tangent ⇔ tangent-chord angle, AT = TB ⇔ T
+  on the perpendicular bisector). If the figure can only be built from a fact
+  that needs proof, write `# untranslatable: shape fixed by conditions` and put
+  the reformulation in `# notes:`; it goes to the review queue.
+* **Allowed restatements** (one standard fact, not part of the problem's argument):
+  isosceles ⇔ equal base angles; tangent ⇔ tangent-chord angle ⇔ radius ⟂ tangent;
+  a ratio on a line ⇔ a parallel line (Thales); "midpoint of XY on line ℓ" ⇔ Y on
+  the image of ℓ under the homothety at X with ratio 2; AT = TB ⇔ T on the
+  perpendicular bisector. Anything that uses the claim, or needs a chain of facts,
+  is not allowed (default; the user may still change this rule).
+* **"Iff" problems.** Translate the direction that can be built as the problem
+  line; write the other direction in `# notes:` (as a second Newclid line if it
+  builds) and start the notes with `iff:`. Such problems go to review.
+* **Orientation of shapes.** `triangle`, `ieq_triangle`, `eq_triangle` come out
+  in either orientation from seed to seed, so a fixed `s_angle` sign fails in
+  about half the drawings. Copy the orientation from existing points with
+  `on_aline x a b c d e` (∠(AX, AB) = ∠(DC, DE)), or use `psquare` / `nsquare`.
+* **A point on a ray or a segment.** `on_line` may land on the other side; use
+  `reflect` / `mirror` tricks, or `between_bound` with a WLOG note.
+* **Typos in the statement.** If the claim is false numerically and a one-symbol
+  fix makes it true, translate the fixed claim, say so in `# notes:` starting with
+  `typo:`; it goes to review.
+* **Fixed angles and their supplements.** `s_angle ... 120o` also allows the 60° ray,
+  and the check cannot tell them apart; force the side (feet, reflections) and
+  confirm with the check.
+* **Long figures that rarely build** (many helper points, or hypotheses with no
+  solution in most drawings): if the goal holds in every drawing that builds but
+  fewer than 4 of 6 build, try `--seeds 12`; if still fewer than 4 build, it goes
+  to review with a note.
+* **NOT BUILT drawings.** Up to 2 of 6 drawings not built (points too close) is
+  acceptable when the goal holds in all the others.
 
 All 88 constructions and the hypotheses each one adds are listed by:
 

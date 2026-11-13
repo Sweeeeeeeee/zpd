@@ -1,0 +1,4 @@
+# latvia/national/1976-77_27/grade09/p1
+# dof: 4 (quadrilateral)
+# notes: the circle tangent to side AB and the extensions of DA, CB has its centre on the external bisectors at A (angle DAB) and B (angle ABC). External bisector at A = line through A perpendicular to AI1, I1 = incenter of DAB (on the internal bisector of angle DAB). Convexity dropped (goal holds in all drawings).
+a b c d = quadrangle a b c d; i1 = incenter i1 d a b; i2 = incenter i2 a b c; i3 = incenter i3 b c d; i4 = incenter i4 c d a; x1 = on_tline x1 a a i1, on_tline x1 b b i2; x2 = on_tline x2 b b i2, on_tline x2 c c i3; x3 = on_tline x3 c c i3, on_tline x3 d d i4; x4 = on_tline x4 d d i4, on_tline x4 a a i1 ? cyclic x1 x2 x3 x4

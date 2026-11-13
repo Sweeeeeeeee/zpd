@@ -1,0 +1,4 @@
+# latvia/national/2024-25_75/grade12/p2
+# dof: 2   (cyclic quadrilateral: 3; AB + CD = AD: -1)
+# notes: AB + CD = AD is built by laying off: P strictly between A and D (between_bound), B on the circle (A, AP), C on the circle (D, DP) and on circle ABD. C is an intersection of two circles with no known common point; one branch gives the convex cyclic ABCD, the other (mirror image of C in the line through D and the centre of circle ABD) does not, and the goal fails there (5 of 10 drawings). No one-point construction found. Convexity / order A, B, C, D on the circle cannot be imposed. Bisectors internal (angle_bisector). FAILING: branch of C.
+a d = segment a d; p = between_bound p a d; b = on_circle b a p; c = on_circle c d p, on_circum c a b d; x = angle_bisector x a b c, angle_bisector x b c d ? coll x a d

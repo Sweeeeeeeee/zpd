@@ -1,0 +1,2 @@
+same
+The arc restriction on D is dropped; the claim holds for every D on the circumcircle, since the image of the circumcircle under the reflection in BC and the homothety at A has the same centre (A + B + C) as the nine-point circle.

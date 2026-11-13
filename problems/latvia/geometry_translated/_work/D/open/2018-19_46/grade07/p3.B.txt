@@ -1,0 +1,2 @@
+same
+Incenter bisectors; P strictly between A and D gives AD=AB+CD.

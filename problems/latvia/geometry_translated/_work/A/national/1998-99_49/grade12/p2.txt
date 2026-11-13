@@ -1,0 +1,4 @@
+# latvia/national/1998-99_49/grade12/p2
+# dof: 3   (two intersecting circles: 2; M on AB: 1)
+# notes: X, Y and T, Z are each the two intersections of a line with a circle; Y and Z are built as the second intersection with the line through the known point (no branch choice, X/Y and T/Z symmetric). M interior to AB and not the midpoint are not imposed (on_line). Rectangle XTYZ (XY and TZ are diagonals through M): M is the midpoint of both and XY = TZ.
+o1 = free o1; o2 = free o2; a = free a; b = reflect b a o1 o2; m = on_line m a b; x = on_tline x m o1 m, on_circle x o1 a; y = intersection_lc y m o1 x; t = on_tline t m o2 m, on_circle t o2 a; z = intersection_lc z m o2 t ? midp m x y; midp m t z; cong x y t z

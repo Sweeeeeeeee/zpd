@@ -1,0 +1,4 @@
+# latvia/school/2015-16_66/grade07/p2
+# dof: 2   (angle AOB with points A, B on its sides: triangle 2; C on the ray opposite OA only names that ray)
+# notes: Adjacent angles AOB, BOC with C = reflection of A over O (distance OC irrelevant). Bisectors given by their points on AB and BC.
+a o b = triangle a o b; c = mirror c a o; x = angle_bisector x a o b, on_line x a b; y = angle_bisector y b o c, on_line y b c ? perp o x o y

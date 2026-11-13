@@ -1,0 +1,4 @@
+# latvia/tst/2025_bw/day2/p11
+# dof: 1   (triangle with ∠A = 120°: 1)
+# notes: Built on the circumcircle: M with OBM equilateral is on the circle, C the reflection of B over OM, so ∠BOC = 120° and M is the midpoint of the arc BC of 120° (the arc BAC). ∠BAC = 120° needs A on that arc (on the other arc ∠BAC = 60° and the claim fails), so A is parametrised to stay on it: V free on the circle with diameter BC, T its foot on BC (always inside segment BC), A the second intersection of line M'T with the circumcircle, M' the antipode of M. D is the second intersection of MN with the circle.
+o = free o; b = free b; m = eq_triangle m o b; c = reflect c b o m; z = mirror z m o; v = on_dia v b c; t = foot t v b c; a = intersection_lc a t o z; p = on_tline p a o a, on_tline p b o b; q = on_tline q a o a, on_tline q c o c; h = orthocenter h o p q; i = incenter i o p q; n = midpoint n o i; d = intersection_lc d n o m ? perp a d h i

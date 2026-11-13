@@ -1,0 +1,1 @@
+Take any triangle ABC with incenter I. M, N, K are the feet of the perpendiculars from I to lines AB, BC, CA respectively (the touch points of the incircle). P is the incenter of triangle AMK, Q the incenter of triangle BNM, R the incenter of triangle CKN. Prove that IP = IM, IQ = IM and IR = IM.

@@ -1,0 +1,1 @@
+Take a segment AC and a point B on line AC. Let M be an equilateral-triangle apex on AB (triangle AMB equilateral, either side) and N the apex of an equilateral triangle on BC (triangle BNC equilateral, either side, independent of M's side). Prove that AN = CM.

@@ -1,0 +1,1 @@
+Let ABC be any triangle. Let E and D be the two points that divide segment AB into three equal parts (E and D lie on AB, AB = 3 times each part; the order of E and D along AB is not stated by the construction). Let M be the midpoint of AC. Let F be the intersection of lines BM and CD. Prove that BF = FM.

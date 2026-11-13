@@ -1,0 +1,4 @@
+# latvia/national/2021-22_72/grade11/p2
+# dof: 3   (quadrilateral: 4; the three perpendicular bisectors concurrent: -1)
+# notes: O is the common point (OA = OD, OB = OC, OM = ON). N is built as the intersection of the circle (O, OM) with the locus of midpoints of CD for C on the circle (O, OB): the image of that circle under the homothety at D with ratio 1/2, centre midpoint of OD, through the midpoint of DB. C = reflection of D over N. Both branches of N pass. Convexity not imposed (not stated).
+a b = segment a b; m = midpoint m a b; o = free o; d = on_circle d o a; e = midpoint e o d; f = midpoint f d b; n = on_circle n o m, on_circle n e f; c = mirror c d n ? cong a b c d

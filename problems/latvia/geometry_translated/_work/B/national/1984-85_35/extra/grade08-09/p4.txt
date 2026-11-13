@@ -1,0 +1,4 @@
+# latvia/national/1984-85_35/extra/grade08-09/p4
+# dof: 4 (pentagon 10 - 4 = 6; AA1, BB1, CC1, DD1 concurrent: -2)
+# notes: A, B, C, E free; O = AA1 ∩ BB1; D from the two remaining hypotheses: "midpoint of BD on line CO" restated as D on the image of line CO under the homothety (B, 2), i.e. the line through mirror(B, O) and mirror(B, C); "D, O, D1 collinear" (D1 midpoint of CE) as D on line OD1. Convexity dropped.
+a b c e = quadrangle a b c e; a1 = midpoint a1 e b; b1 = midpoint b1 a c; o = on_line o a a1, on_line o b b1; b2 = mirror b2 b o; b3 = mirror b3 b c; d1 = midpoint d1 c e; d = on_line d b2 b3, on_line d o d1; e1 = midpoint e1 d a ? coll e e1 o

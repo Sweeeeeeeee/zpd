@@ -1,0 +1,4 @@
+# latvia/school/2001-02_52/grade08/p2
+# dof: 1   (A, C fixed up to similarity; B on segment AC: 1; M, N determined)
+# notes: both equilateral triangles built with the same orientation (same side of the line); the statement does not say, and the claim is also true with opposite sides. B between A and C not imposed.
+a c = segment a c; b = on_line b a c; m = eq_triangle m a b; n = eq_triangle n b c ? cong a n c m

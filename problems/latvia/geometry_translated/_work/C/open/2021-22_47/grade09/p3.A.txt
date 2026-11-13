@@ -1,0 +1,9 @@
+Free points: A, B, C, D, forming an arbitrary quadrilateral ABCD (no convexity assumed).
+
+Construction:
+- E: the fourth vertex of the parallelogram ABDE in that order, so AB is parallel to DE, AE is parallel to BD, and E = A + D - B.
+- F: intersection of the line through E parallel to BC with the line through A parallel to CD. These lines are not parallel for generic points.
+
+Goal (two length equalities):
+- BC = EF
+- CD = AF

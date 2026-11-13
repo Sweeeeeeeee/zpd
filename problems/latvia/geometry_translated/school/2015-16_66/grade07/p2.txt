@@ -1,0 +1,4 @@
+# latvia/school/2015-16_66/grade07/p2
+# dof: 1   (adjacent angles AOB, BOC with A, O, C collinear: the angle AOB)
+# notes: C = reflection of A over O (only the ray matters), B on circle (O, OA) (only the direction matters). The internal bisectors are named by their intersections X, Y with AB and BC.
+o a = segment o a; c = mirror c a o; b = on_circle b o a; x = angle_bisector x a o b, on_line x a b; y = angle_bisector y b o c, on_line y b c ? perp o x o y

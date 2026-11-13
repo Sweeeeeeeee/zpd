@@ -1,0 +1,4 @@
+# latvia/open/2015-16_43/grade09/p3
+# dof: 0   (rectangle: 1; existence of N with both angles 30: -1)
+# notes: N on the perpendicular to AB at B with angle BMN = 30; Q = point of line AD with NQ ∥ AB, so angle CDN = angle between ND and NQ; D on the perpendicular at A with that angle 30; C = D + B - A. The sign pair of the directed angles (30, 150) is the one with N between B and C (the other branch gives a rectangle on the other side of AB and the goal fails). Goal: CD = DM = MC.
+a b = segment a b; m = midpoint m a b; n = s_angle b m n 30o, on_tline n b a b; q = on_pline q n a b, on_tline q a a b; d = on_tline d a a b, s_angle q n d 150o; c = parallelogram c d a b ? cong c d d m; cong d m m c

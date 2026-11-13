@@ -1,0 +1,4 @@
+# latvia/national/2005-06_56/grade12/p4
+# dof: 2   (acute triangle: 2; omega through A, B: 1; AB diameter: -1)
+# notes: Iff; the problem line is the direction 'AB diameter => O is the circumcentre of CMN' (OM = OC and ON = OC). Converse (passes check_figure 6/6 and dof 2): hypothesis 'O centre of CMN' = OC = OM (OM = ON holds for tangents), built from omega: w = free w; m = free m; n = on_circle n w m; o = on_tline o m w m, on_tline o n w n; c = on_circle c o m; a = intersection_lc a c w m; b = intersection_lc b c w n ? midp w a b. Acute and M, N on the sides not imposed in either.
+a b c = acute_triangle a b c; w = midpoint w a b; m = intersection_lc m c w a; n = intersection_lc n c w b; o = on_tline o m w m, on_tline o n w n ? cong o m o c; cong o n o c

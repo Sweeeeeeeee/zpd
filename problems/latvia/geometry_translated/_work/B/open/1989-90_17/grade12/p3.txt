@@ -1,0 +1,3 @@
+# latvia/open/1989-90_17/grade12/p3
+# dof: 3   (four pairwise tangent circles as in the figure, quadrilateral tangent to them, tangential: roughly 3; depends on the figure)
+# untranslatable: configuration given only by a figure (which circles touch which, which sides touch which circles), and the conclusion "two of the four radii are equal" is a disjunction over pairs

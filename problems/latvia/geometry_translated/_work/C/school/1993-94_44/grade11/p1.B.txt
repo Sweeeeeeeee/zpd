@@ -1,0 +1,1 @@
+Let ABC be any triangle. Let X be a point on the circle with center B through A. Let D be the point on line BX such that directed angle (CD, CA) = directed angle (XB, XA). Prove that directed angle (CB, CA) = directed angle (DB, DA).

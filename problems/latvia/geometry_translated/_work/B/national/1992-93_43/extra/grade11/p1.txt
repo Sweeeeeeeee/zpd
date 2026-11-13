@@ -1,0 +1,4 @@
+# latvia/national/1992-93_43/extra/grade11/p1
+# dof: 2 (acute triangle)
+# notes: D on ray BA with BD = BC = reflection of C over the bisector BI; E on ray CA with CE = CB = reflection of B over CI. AC > AB > BC (which puts D, E on the sides) dropped: goal holds in all drawings. K = circumcentre of ADE, goal KA = OI.
+a b c = acute_triangle a b c; i = incenter i a b c; o = circle o a b c; d = reflect d c b i; e = reflect e b c i; k = circle k a d e ? cong k a o i

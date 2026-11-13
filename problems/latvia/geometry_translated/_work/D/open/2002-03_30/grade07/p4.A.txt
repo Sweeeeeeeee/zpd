@@ -1,0 +1,2 @@
+same
+Perpendicularity at midpoints encoded as equal distances (AC=AD, DA=DB, BD=BE, CE=CA); convexity dropped.

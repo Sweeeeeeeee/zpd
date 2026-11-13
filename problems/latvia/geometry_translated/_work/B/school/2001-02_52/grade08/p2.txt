@@ -1,0 +1,4 @@
+# latvia/school/2001-02_52/grade08/p2
+# dof: 1   (A, B, C collinear: B on AC)
+# notes: Side of the equilateral triangles not specified in the statement; eq_triangle picks one; claim holds for either side. 'B between A and C' not enforced.
+a c = segment a c; b = on_line b a c; m = eq_triangle m a b; n = eq_triangle n b c ? cong a n c m

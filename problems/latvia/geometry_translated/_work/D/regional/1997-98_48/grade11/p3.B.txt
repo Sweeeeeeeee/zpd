@@ -1,0 +1,2 @@
+same
+Same construction as the A variant (acute condition dropped; the claim holds for the 135-degree case too).

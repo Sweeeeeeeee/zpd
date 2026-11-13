@@ -1,0 +1,4 @@
+# latvia/national/1978-79_29/extra/grade10/p5
+# dof: 4   (A1, C1, A2, C2 arbitrary: 4; B1, B2 midpoints)
+# notes: The Latvian text drops a word in 'B1 ir nogriezna A1C1'; read as 'viduspunkts' (midpoint), as the parallel sentence ('aris ... viduspunkts') says.
+a1 c1 a2 c2 = quadrangle a1 c1 a2 c2; b1 = midpoint b1 a1 c1; b2 = midpoint b2 a2 c2; p = midpoint p a1 a2; q = midpoint q b1 b2; r = midpoint r c1 c2 ? coll p q r

@@ -107,7 +107,7 @@ so in `# notes:`.
 
 ## Agent prompts
 
-**Agent A / B (translator, stronger model; A and B do not see each other).**
+**Adam / Eve (translators A and B, stronger model; they do not see each other; files in `_work/A` = Adam, `_work/B` = Eve).**
 > Translate the Latvian problem in `<file>` into Newclid syntax, following
 > docs/translation_guide.md and the worked examples in docs/translation_kit.md.
 > First count the statement's free shape parameters and write `# dof: N (reasons)`.
@@ -117,7 +117,7 @@ so in `# notes:`.
 > Do not simplify the problem: no special shapes the statement does not require.
 
 **Agent C (back-translation, cheap model; sees only the Newclid file).**
-> Write in plain English what this Newclid problem says: which points are free,
+> Write in plain English what this Newclid problem says (careful: `reflect x a b c` is A reflected over line BC; `mirror x a b` is A reflected through point B; in `shift`, `parallelogram`, `s_angle` check the argument order in the guide): which points are free,
 > how each other point is constructed, and what is to be proved. Do not guess
 > what problem it came from.
 
@@ -127,6 +127,6 @@ so in `# notes:`.
 > `same` or `different: <what differs>`. Special cases, missing conditions and
 > extra conditions count as different.
 
-A problem is accepted automatically when A and B both pass the checks, D says
+A problem is accepted automatically when Adam and Eve both pass the checks, D says
 `same` for both, and the solver gives the same result for both; otherwise it
 goes to the review queue (`status.csv`).

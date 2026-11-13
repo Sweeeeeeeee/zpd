@@ -1,0 +1,4 @@
+# latvia/open/1976-77_04/grade10/p1
+# dof: 2   (first circle with A on it: 0; centres O2, O3 on it: 2)
+# notes: second intersection of circles 2 and 3 = reflection of A over O2O3; second intersection of circles 1 and 3 by intersection_cc (other than A).
+o1 = free o1; a = free a; o2 = on_circle o2 o1 a; o3 = on_circle o3 o1 a; p = reflect p a o2 o3; q = intersection_cc q o1 o3 a ? coll o2 p q

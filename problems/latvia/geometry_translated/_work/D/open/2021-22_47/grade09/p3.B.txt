@@ -1,0 +1,2 @@
+same
+Same construction as the A variant (convexity dropped).

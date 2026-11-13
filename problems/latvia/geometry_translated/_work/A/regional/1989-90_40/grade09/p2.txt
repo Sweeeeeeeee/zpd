@@ -1,0 +1,4 @@
+# latvia/regional/1989-90_40/grade09/p2
+# dof: 2   (quadrilateral: 4; two area equalities: -2)
+# notes: hypothesis is equality of areas of three of the four triangles cut by the diagonals; restating it as AO = OC etc. needs a (short) proof.
+# untranslatable: hypothesis is about areas

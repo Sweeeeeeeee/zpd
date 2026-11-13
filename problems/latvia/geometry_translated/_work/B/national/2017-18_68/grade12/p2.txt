@@ -1,0 +1,4 @@
+# latvia/national/2017-18_68/grade12/p2
+# dof: 2   (triangle)
+# notes: trisegment gives the trisection point nearer the first endpoint first: D nearer A, F nearer B, H nearer A (h2 unused).
+a b c = triangle a b c; d e = trisegment d e a b; f g = trisegment f g b c; h h2 = trisegment h h2 a c; p = on_line p d f, on_line p e h; r = on_line r d f, on_line r e g ? cong d p p r; cong p r r f

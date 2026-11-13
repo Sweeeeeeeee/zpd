@@ -1,0 +1,1 @@
+Let ABCD be an isosceles trapezoid with AB ∥ CD and equal legs DA = BC (shape otherwise arbitrary; generated as a proper trapezoid). Let X = AC ∩ BD (intersection of diagonals), M the midpoint of AD, and Y the point on line AD such that XY is parallel to AB. Prove that B, C, M, Y are concyclic.

@@ -1,0 +1,14 @@
+Free points: B and C, arbitrary (two points).
+
+Construction:
+- M: midpoint of BC.
+- T: any point on the circle with center M through B (one free parameter), so MT = MB.
+- F: intersection of the line through T perpendicular to MT with the line through B parallel to MT.
+- B2: reflection of B in point F (F is the midpoint of BB2).
+- A: intersection of the line through T perpendicular to MT with the line CB2.
+- K: intersection of line BC with the line through A parallel to MT.
+- L: intersection of line AK with the circumcircle of ABC, other than A.
+- O1: circumcenter of triangle KML.
+- M2: reflection of M in O1 (O1 is the midpoint of MM2).
+
+Goal: MM2 = MB.

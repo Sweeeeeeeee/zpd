@@ -1,0 +1,6 @@
+# latvia/national/2009-10_60/grade11/p3
+# dof: 0   (acute triangle ABC: 2; TB tangent to omega: -1; AT = TB: -1)
+# notes: The hypotheses are two equations on the triangle (TB tangent to omega, AT = TB) that fix its shape; neither defines a point. Building the figure point by point always leaves one of them as an unconstructed condition (checked three build orders: from the triangle; from A, B and T on the perpendicular bisector of AB; from omega, T and B on the tangent at T). The only way to fix T by a construction is to solve part of the problem first: AT = TB and QT perp AB put Q on the perpendicular bisector of AB (so angle A = 45 deg), and tangency (tangent-chord angle) then gives QT = QA.
+# notes: Reformulation for review (passes the numerical check, 6/6, both branches of t; NOT faithful, it builds in derived facts):
+# notes: a b = segment a b; q = on_bline q a b, on_dia q a b; s = midpoint s a b; t = on_line t s q, on_circle t q a; w = circle w a q t; p = intersection_lc p b w a; c = on_line c a q, on_tline c p a b ? cong a b a c
+# untranslatable: the hypotheses "TB tangent to omega" and "AT = TB" are conditions on the shape of the triangle, not constructions of a point; stating them in Newclid requires deriving QA = QT (part of the solution) first

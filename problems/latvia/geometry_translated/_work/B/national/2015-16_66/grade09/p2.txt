@@ -1,0 +1,4 @@
+# latvia/national/2015-16_66/grade09/p2
+# dof: 1 (triangle: 2; condition BD = BF: -1)
+# notes: built from B, F: C = mirror of B over F (F midpoint of BC), D on circle (B, BF) (the hypothesis BD = BF), A = mirror of F over D (D midpoint of AF). All are restatements of the hypotheses.
+b f = segment b f; c = mirror c b f; d = on_circle d b f; a = mirror a f d; e = on_line e c d, on_line e a b ? cong a e d e

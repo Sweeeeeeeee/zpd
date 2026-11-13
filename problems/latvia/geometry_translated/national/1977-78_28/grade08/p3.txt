@@ -1,0 +1,4 @@
+# latvia/national/1977-78_28/grade08/p3
+# dof: 2   (direction of the parallels relative to a: 1; ratio of their distances from O: 1)
+# notes: A1, B1 on the first parallel (on a, b); A2 on a, B2 = parallel through A2 meets b. 'O between the parallels' not imposed (the claim holds either way). The second question (does it hold for non-perpendicular a, b? answer no) is not a proof goal and is dropped.
+o a1 b1 = r_triangle o a1 b1; a2 = on_line a2 o a1; b2 = on_pline b2 a2 a1 b1, on_line b2 o b1; m1 = midpoint m1 a1 b1; m2 = midpoint m2 a2 b2 ? coll o m1 m2

@@ -1,0 +1,4 @@
+# latvia/national/2016-17_67/grade10/p3
+# dof: 2   (four points on a circle: 3; the midpoints of the sides concyclic: -1)
+# notes: The hypothesis 'the midpoints of the sides lie on a circle' cannot be built directly (the circle depends on D). Its useful form, AC ⟂ BD (the Varignon parallelogram is cyclic iff it is a rectangle), needs proof. Reformulation for review: o = free o; a = free a; b = on_circle b o a; c = on_circle c o a; e = foot e b a c; d = intersection_lc d e o b (D the second intersection of the perpendicular from B to AC with the circle). The goal ∠ABD + ∠BDC = 90° is also a sum of angles; in directed form ∠(BA,BD) + ∠(DC,DB) = 90°, which needs an auxiliary perpendicular to state.
+# untranslatable: shape fixed by conditions (midpoints concyclic only usable as AC ⟂ BD, which needs proof)

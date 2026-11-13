@@ -1,0 +1,1 @@
+Take any triangle ABC. D is a point on the line through A parallel to BC. K is the intersection of lines AC and BD. E is the point on line AB such that KE is parallel to BC. H is the foot of the perpendicular from D to line CE. Prove that AH = AD.

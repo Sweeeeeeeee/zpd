@@ -1,0 +1,2 @@
+same
+Excenter/reflection construction of A and C gives AM=MN, NC=MN on the extensions; claim both lines through circumcenter.

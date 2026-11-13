@@ -1,0 +1,4 @@
+# latvia/national/1992-93_43/extra/grade11/p1
+# dof: 2   (acute triangle: 2; D, E fixed)
+# notes: D on ray BA with BD = BC is the reflection of C over the bisector BI; E on ray CA with CE = CB the reflection of B over CI (I incenter). AC > AB > BC (which puts D, E on the sides) not imposed. Radius of ADE = OI stated as WA = OI, W circumcentre of ADE.
+a b c = acute_triangle a b c; i = incenter i a b c; o = circle o a b c; d = reflect d c b i; e = reflect e b c i; w = circle w a d e ? cong w a o i

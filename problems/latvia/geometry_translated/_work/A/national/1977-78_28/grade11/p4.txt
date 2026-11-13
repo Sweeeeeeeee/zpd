@@ -1,0 +1,4 @@
+# latvia/national/1977-78_28/grade11/p4
+# dof: 0   (equilateral triangle; D, E fixed)
+# notes: Same problem as national/2021-22_72/grade10/p2. D, E: arc AD = DE = EB = 60 deg; D is the reflection over AB of the midpoint K of AC (AMK is equilateral, M midpoint of AB), E likewise from the midpoint L of BC (as in the kit; eq_triangle has a random orientation, it is a two-circle intersection).
+a b c = ieq_triangle a b c; k = midpoint k a c; l = midpoint l b c; d = reflect d k a b; e = reflect e l a b; p = on_line p a b, on_line p c d; q = on_line q a b, on_line q c e ? cong a p p q; cong p q q b

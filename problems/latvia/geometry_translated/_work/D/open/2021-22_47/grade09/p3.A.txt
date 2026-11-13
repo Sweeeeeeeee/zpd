@@ -1,0 +1,2 @@
+same
+Convexity is dropped; E = A + D - B is forced by AB = DE with opposite sides antiparallel, and F is the intersection of the two parallels through E and A.

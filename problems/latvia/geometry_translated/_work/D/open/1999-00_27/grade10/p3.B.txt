@@ -1,0 +1,2 @@
+same
+Same construction as the A variant (the arc restriction is dropped, and the claim holds for all D on the circumcircle).

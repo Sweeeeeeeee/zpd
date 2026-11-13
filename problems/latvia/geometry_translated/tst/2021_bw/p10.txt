@@ -1,0 +1,4 @@
+# latvia/tst/2021_bw/p10
+# dof: 2   (circle with diameter XY and A on it: 1; B on XM (C fixed by BM = CM): 1)
+# notes: A' (named z) is the antipode of A. ABA'C is a parallelogram (diagonals AA', BC bisected at M), so the parallel through C to AB is the line CA'; it meets ω at A' and at P. P is built as the second intersection of CA' with ω, Q of BA' with ω (this uses the parallelogram fact to choose the branch other than A'). AX < AY, B on the segment XM and the arcs of P, Q are not imposed.
+m = free m; x = free x; y = mirror y x m; a = on_circle a m x; b = on_line b x m; c = mirror c b m; z = mirror z a m; p = intersection_lc p c m z; q = intersection_lc q b m z; s = on_line s p q, on_line s x y ? perp a s a m

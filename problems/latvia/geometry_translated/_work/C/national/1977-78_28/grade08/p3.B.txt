@@ -1,0 +1,1 @@
+Take two arbitrary points O and X. Let Y be a point on the line through O perpendicular to OX (any such point, free on that line). Let X2 be any point on line OX. Let Y2 be the point on line OY such that X2Y2 is parallel to XY. Let M be the midpoint of XY and N the midpoint of X2Y2. Prove that O, M, N are collinear.

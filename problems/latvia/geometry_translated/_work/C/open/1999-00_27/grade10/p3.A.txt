@@ -1,0 +1,11 @@
+Free points: A, B, C, forming an acute triangle.
+
+Construction:
+- D: any point on the circumcircle of ABC (one free parameter).
+- E: reflection of D in line BC.
+- M: midpoint of AE.
+- P: midpoint of BC.
+- Q: midpoint of CA.
+- R: midpoint of AB.
+
+Goal: P, Q, R, M lie on one circle (cyclic P Q R M).

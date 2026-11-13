@@ -1,0 +1,2 @@
+same
+The non-degeneracy needed for C (B not diametrically opposite A, B not equal to A) is stated only loosely. Checked numerically on one example: PD^2 = 2 = PE * PF.

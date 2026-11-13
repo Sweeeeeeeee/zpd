@@ -1,0 +1,1 @@
+Let ABC be an isosceles triangle with AB = AC. Let H be the midpoint of BC, E the foot of the perpendicular from H to AC, and O the midpoint of HE. Prove that AO is perpendicular to BE.

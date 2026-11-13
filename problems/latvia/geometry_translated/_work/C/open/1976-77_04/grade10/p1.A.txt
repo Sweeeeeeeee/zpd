@@ -1,0 +1,1 @@
+O1 is an arbitrary point and A another arbitrary point. O2 and O3 are two arbitrary points on the circle with center O1 through A. P is the reflection of A over the line O2O3. Q is the second intersection point (other than A) of the circle with center O1 through A and the circle with center O3 through A. Prove that O2, P, Q are collinear.

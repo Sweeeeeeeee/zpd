@@ -1,0 +1,1 @@
+Take an arbitrary quadrilateral ABCD. Let E be the intersection of lines AC and BD. Let F be the second common point (besides E) of the circumcircle of ABE and the circumcircle of CDE (the construction could also give E itself). Prove that triangles ABF and CDF are similar (A->C, B->D, F->F).

@@ -1,0 +1,12 @@
+Same statement as x03 (the clauses are listed in a different order).
+
+Free points: A, B, C, forming an arbitrary triangle (non-degenerate).
+
+Construction:
+- I: incenter of ABC.
+- C1: foot of the perpendicular from I to line AB.
+- A1: foot of the perpendicular from I to line BC.
+- B1: foot of the perpendicular from I to line AC.
+- K: intersection of the line through A parallel to BC with the line A1C1.
+
+Goal: line KB1 is perpendicular to line B1A1 (perp K B1 B1 A1).

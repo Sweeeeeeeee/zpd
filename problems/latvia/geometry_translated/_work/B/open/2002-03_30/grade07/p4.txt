@@ -1,0 +1,4 @@
+# latvia/open/2002-03_30/grade07/p4
+# dof: 2   (pentagon: 10 - 4 = 6; four perpendicular-bisector conditions: -4)
+# notes: AA1 ⟂ CD with A1 the midpoint <=> AC = AD; likewise BD = BE, CE = CA, DA = DB. E is either intersection of its two circles; convexity not imposed.
+a c = segment a c; d = on_circle d a c; b = on_circle b d a; e = on_circle e b d, on_circle e c a; e1 = midpoint e1 b c ? perp e e1 b c

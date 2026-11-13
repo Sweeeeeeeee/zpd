@@ -1,0 +1,4 @@
+# latvia/open/2001-02_29/grade12/p3
+# dof: 3   (triangle: 2; M on the bisector of AB: 1; N fixed by the angle sum)
+# notes: STATEMENT TYPO: as written (angle MNK = 90) it is false numerically; the true claim is angle MKN = 90 (MK ⟂ KN), translated that way. Angle condition restated as base angles: angle NCB = 90 - angle BNC/2 = angle AMB/2 = angle AMP, P the midpoint of AB (directed). "Outside the triangle" not imposed; goal holds in all drawings.
+a b c = triangle a b c; m = on_bline m a b; p = midpoint p a b; n = on_bline n b c, on_aline n c b a m p; k = midpoint k a c ? perp m k k n

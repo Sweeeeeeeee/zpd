@@ -1,0 +1,1 @@
+A and C are two arbitrary distinct points. D is an arbitrary point on the circle with center A through C. E is the reflection of D over the line AC. B is the foot of the perpendicular from C to line AE. H is the foot of the perpendicular from D to line AC. N is the midpoint of CD. Prove that B, H, N are collinear.

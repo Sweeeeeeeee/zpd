@@ -1,0 +1,4 @@
+# latvia/open/2021-22_47/grade09/p3
+# dof: 4   (hexagon: 12 - 4 = 8; three pairs of parallel opposite sides: -3; AB = DE: -1)
+# notes: A,B,C,D general; E from DE || AB and DE = AB taken as the parallelogram A B D E (vector DE = BA), the branch that a convex hexagon ABCDEF needs (the other branch, vector DE = AB, makes ABDE self-crossing); F = intersection of the parallels to BC through E and to CD through A. Convexity itself is not imposed (the quadrangle may be non-convex); the claims hold anyway. Two goals for the two claims.
+a b c d = quadrangle a b c d; e = parallelogram e a b d; f = on_pline f e b c, on_pline f a c d ? cong b c e f; cong c d a f

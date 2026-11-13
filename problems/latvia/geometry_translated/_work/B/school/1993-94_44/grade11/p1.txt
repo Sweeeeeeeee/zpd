@@ -1,0 +1,4 @@
+# latvia/school/1993-94_44/grade11/p1
+# dof: 3   (quadrilateral 4; angle ABD = angle ACD: -1)
+# notes: X on circle (B, BA) gives the direction of ray BD; D on BX with angle(CD, CA) = angle(BX, BA) (directed restatement of the hypothesis for convex ABCD, B and C on the same side of AD). Convexity not enforced.
+a b c = triangle a b c; x = on_circle x b a; d = on_line d b x, on_aline d c a x b a ? eqangle c b c a d b d a

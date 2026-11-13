@@ -1,0 +1,4 @@
+# latvia/regional/2021-22_72/grade12/p3
+# dof: 2   (quadrilateral: 4; AB = BC: -1; BC = CD: -1)
+# notes: C on circle (B, BA), D on circle (C, CB). X = intersection of the internal bisectors of angles BAD and ADC. Convexity not imposed; the goal holds in all drawings.
+a b = segment a b; c = on_circle c b a; d = on_circle d c b; e = on_line e a c, on_line e b d; x = angle_bisector x b a d, angle_bisector x a d c ? cyclic a d e x

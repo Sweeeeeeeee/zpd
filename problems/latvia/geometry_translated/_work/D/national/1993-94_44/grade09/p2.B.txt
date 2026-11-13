@@ -1,0 +1,2 @@
+same
+Same construction as the A variant; side restrictions are dropped as in the A variant.

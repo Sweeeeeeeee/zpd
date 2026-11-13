@@ -1,0 +1,4 @@
+# latvia/national/2017-18_68/grade11/p2
+# dof: 1   (isosceles triangle: 1)
+# notes:
+a b c = iso_triangle a b c; h = midpoint h b c; e = foot e h a c; o = midpoint o h e ? perp a o b e

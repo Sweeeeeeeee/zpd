@@ -1,0 +1,2 @@
+same
+Inside condition on C,D dropped.

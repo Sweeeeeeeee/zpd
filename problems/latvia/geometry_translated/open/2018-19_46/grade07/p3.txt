@@ -1,0 +1,4 @@
+# latvia/open/2018-19_46/grade07/p3
+# dof: 3   (quadrilateral: 4; AD = AB + CD: -1)
+# notes: AD = AB + CD built with P on segment AD (between), AB = AP, DC = DP. Bisectors through the incenters of ABD and ADC. Convexity not imposed.
+p a d = between p a d; b = on_circle b a p; c = on_circle c d p; i = incenter i a b d; j = incenter j a d c; m = on_line m a i, on_line m d j ? cong b m c m

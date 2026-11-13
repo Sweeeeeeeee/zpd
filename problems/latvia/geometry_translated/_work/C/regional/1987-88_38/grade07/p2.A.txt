@@ -1,0 +1,1 @@
+Take an arbitrary quadrilateral ABCD. Let M be the midpoint of AB, N the midpoint of CD, P the midpoint of AC, K the midpoint of BD. Prove that MP is parallel to KN and MK is parallel to PN (so MPNK is a parallelogram).

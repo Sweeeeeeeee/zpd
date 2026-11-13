@@ -1,0 +1,4 @@
+# latvia/national/1982-83_33/grade11/p5
+# dof: 2   (two internally tangent circles: 1 (ratio of radii); A on the smaller: 1)
+# notes: The smaller centre W is free on line PO; internal tangency (W between P and O) is not imposed, and for external tangency the tangent at A may miss the big circle (NOT BUILT). B, C are the two intersections of the tangent at A with the larger circle (B either one, C the other). The goal as directed angles ∠(PB,PA) = ∠(PA,PC) says PA bisects angle BPC (internal or external bisector).
+p = free p; o = free o; w = on_line w p o; a = on_circle a w p; b = on_tline b a w a, on_circle b o p; c = intersection_lc c a o b ? eqangle p b p a p a p c

@@ -1,0 +1,4 @@
+# latvia/open/1978-79_06/grade08/p3
+# dof: n/a
+# notes: parabola y = x^2 and the Ox axis; not expressible with Newclid constructions (mis-sorted as plane geometry).
+# untranslatable: about the parabola y = x^2 in coordinates (no conics in Newclid)

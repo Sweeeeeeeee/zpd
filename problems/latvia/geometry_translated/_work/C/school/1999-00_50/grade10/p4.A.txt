@@ -1,0 +1,1 @@
+Let ABC be an acute triangle with orthocenter H. Let O1 be the circumcenter of ABC and O2 the circumcenter of ABH. Prove that O1A = O2A.

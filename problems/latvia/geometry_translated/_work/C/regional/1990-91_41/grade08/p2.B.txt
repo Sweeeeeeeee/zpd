@@ -1,0 +1,1 @@
+Let ABC be any triangle. Let M be the midpoint of AB and P the midpoint of AC. Let K be any point on line MP. Let D be the reflection of B through K. Let N be the midpoint of CD. Prove that M, P, N are collinear.

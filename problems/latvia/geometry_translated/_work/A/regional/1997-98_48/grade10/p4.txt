@@ -1,0 +1,4 @@
+# latvia/regional/1997-98_48/grade10/p4
+# dof: 2   (quadrilateral: 4; ray AS through a trisection point of BC: -1; ray DS through the other: -1)
+# notes: built backwards from the hypotheses: P, Q trisection points of BC (P nearer B), A free; S = AQ ∩ CM (M midpoint of AB); "N = midpoint of CD lies on BS" restated as D on the line through B2 = 2B - C parallel to BS (homothety at C, ratio 2), and D on line SP. Branch choice: AS goes through the trisection point nearer C, DS through the one nearer B (this is the assignment in a parallelogram; the statement does not say which). Convexity not imposed.
+b c = segment b c; p q = trisegment p q b c; a = free a; m = midpoint m a b; s = on_line s a q, on_line s c m; b2 = mirror b2 c b; d = on_line d s p, on_pline d b2 b s; n = midpoint n c d ? para a b c d; para a d b c

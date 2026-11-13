@@ -1,0 +1,1 @@
+Take three free points C, B, E. Let D be obtained from B by rotating about C by +90 degrees (counterclockwise assumed; CD = CB, CD ⟂ CB). Let G be obtained from E by rotating about C by -90 degrees (clockwise assumed; CG = CE, CG ⟂ CE). M = midpoint of BE, K = midpoint of DG. Prove that CM is perpendicular to DG and CM = DK.

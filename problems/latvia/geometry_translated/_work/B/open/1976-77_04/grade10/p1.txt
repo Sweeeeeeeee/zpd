@@ -1,0 +1,4 @@
+# latvia/open/1976-77_04/grade10/p1
+# dof: 2   (first circle (O1, A): 0 up to similarity; centres O2, O3 on it: 2)
+# notes: P = second intersection of circles 2 and 3, Q = second intersection of circles 1 and 3 (intersections other than A).
+o1 = free o1; a = free a; o2 = on_circle o2 o1 a; o3 = on_circle o3 o1 a; p = on_circle p o2 a, on_circle p o3 a; q = on_circle q o1 a, on_circle q o3 a ? coll o2 p q

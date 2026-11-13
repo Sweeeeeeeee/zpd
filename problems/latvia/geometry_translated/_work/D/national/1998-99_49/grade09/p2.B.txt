@@ -1,0 +1,2 @@
+same
+N unique via two directed angle conditions; N=C degenerate allowed in the circle construction (goal would fail then), orientation/side of N dropped.

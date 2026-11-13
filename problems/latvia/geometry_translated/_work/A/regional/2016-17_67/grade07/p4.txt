@@ -1,0 +1,4 @@
+# latvia/regional/2016-17_67/grade07/p4
+# dof: 2   (triangle: 2; D, F, E determined)
+# notes: angle AFD = angle ADF means AF = AD with F != D on BD; F is built as the reflection of D over the foot X of A on BD (one point, no branch). AB < BC not imposed (it only keeps F between B and D); the goal holds in all drawings. Goal as directed angles: angle(AB,AF) = angle(EF,EB).
+a b c = triangle a b c; d = on_line d a c, angle_bisector d a b c; x = foot x a b d; f = mirror f d x; e = on_line e b c, on_pline e f a c ? eqangle a b a f e f e b

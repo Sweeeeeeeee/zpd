@@ -1,0 +1,4 @@
+# latvia/open/1985-86_13/grade07/p2
+# dof: 4   (hexagon: 8; three pairs of parallel sides: -3; AD, BE, CF concurrent: -1)
+# notes: with O the origin, D, E, F on lines OA, OB, OC, DE ∥ AB and EF ∥ BC force D = kA, E = kB, F = kC (homothety at O), and FA ∥ CD gives k^2 = 1, i.e. the conclusion. Reformulation for review: "o, a, b, c free; d on line ao; e = on_line e b o, on_pline e d a b; f = on_line f c o, on_pline f e b c; prove: if FA ∥ CD then O is the midpoint of AD" needs the last hypothesis imposed, which only the conclusion does.
+# untranslatable: shape fixed by conditions (the last parallel condition can only be imposed by building the central symmetry, which is the conclusion)

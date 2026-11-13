@@ -1,0 +1,4 @@
+# latvia/open/2021-22_47/grade11/p3
+# dof: 1   (half-angle at A: 1; AC = AD fixes D; angle B = 90 with B on the reflected side fixes B)
+# notes: AC bisects angle A <=> B on the reflection of line AD over AC; B = foot of C on that line. Convexity (angle A < 180) not imposed. Goal: midpoint N of CD lies on BH.
+a c = segment a c; d = on_circle d a c; e = reflect e d a c; b = foot b c a e; h = foot h d a c; n = midpoint n c d ? coll b h n

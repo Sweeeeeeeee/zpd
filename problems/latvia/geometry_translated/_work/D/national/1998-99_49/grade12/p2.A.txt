@@ -1,0 +1,2 @@
+same
+Goal via common midpoint M and equal diagonals gives rectangle; M-not-midpoint and interior dropped.

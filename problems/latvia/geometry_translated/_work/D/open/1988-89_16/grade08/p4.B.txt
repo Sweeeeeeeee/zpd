@@ -1,0 +1,1 @@
+different: B2,B3 and C_i are allowed anywhere on the line OB1 instead of the ray from the angle vertex, and the claim fails when some B is on the opposite ray (numerically checked: incenters not collinear).

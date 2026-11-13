@@ -1,0 +1,4 @@
+# latvia/tst/2022_imo/day4/p4
+# dof: 3   (four points on a circle)
+# notes:
+o = free o; a = free a; b = on_circle b o a; c = on_circle c o a; d = on_circle d o a; e = on_line e a c, on_line e b d; f = on_line f a d, on_line f b c; x = midpoint x a d; y = midpoint y b c; q = circle q e x y ? para o f q e

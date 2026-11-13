@@ -1,0 +1,4 @@
+# latvia/open/1989-90_17/grade12/p3
+# dof: unknown (configuration given only by Figure 39, not available)
+# notes: Four pairwise tangent circles "as in Figure 39", a convex quadrilateral each side tangent to two circles, with an incircle; prove two radii equal. Tangency of circles and an inscribed circle are conditions that fix the shape with no point to build, and the arrangement depends on the missing figure.
+# untranslatable: configuration given by a missing figure; tangency/incircle hypotheses fix the shape with no construction

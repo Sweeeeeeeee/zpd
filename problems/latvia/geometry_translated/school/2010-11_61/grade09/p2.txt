@@ -1,0 +1,4 @@
+# latvia/school/2010-11_61/grade09/p2
+# dof: 1   (triangle: 2; a median perpendicular to a bisector: -1)
+# notes: a median and a bisector from the same vertex cannot be perpendicular, so they come from different vertices; up to relabelling: median AM (M midpoint of BC), bisector from B. L on circle (B, BC) gives the bisector direction BL; A is on the reflection of line BC over BL (definition of the bisector) and on the line through M perpendicular to BL. Goal BC = 2 AB stated as AB = BM.
+b c = segment b c; m = midpoint m b c; l = on_circle l b c; c1 = reflect c1 c b l; a = on_line a b c1, on_tline a m b l ? cong a b b m

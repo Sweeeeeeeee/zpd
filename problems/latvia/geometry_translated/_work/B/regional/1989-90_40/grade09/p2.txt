@@ -1,0 +1,3 @@
+# latvia/regional/1989-90_40/grade09/p2
+# dof: 2   (quadrilateral: 4; three of the four triangle areas equal: -2)
+# untranslatable: hypothesis is an equality of triangle areas

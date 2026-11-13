@@ -1,0 +1,4 @@
+# latvia/tst/2022_bw/p9
+# dof: 3   (four points on a circle: 3 up to similarity)
+# notes: R is the second intersection of the circles (O) and (W) = circle APQ. 'CR meets PQ at its midpoint' = C, R and the midpoint K of PQ collinear. Convexity not imposed.
+o = free o; a = free a; b = on_circle b o a; c = on_circle c o a; d = on_circle d o a; p = on_line p a b, on_line p c d; q = on_line q a d, on_line q b c; w = circle w a p q; r = intersection_cc r o w a; k = midpoint k p q ? coll c r k

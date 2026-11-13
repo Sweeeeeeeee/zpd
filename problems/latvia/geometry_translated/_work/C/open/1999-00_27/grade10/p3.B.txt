@@ -1,0 +1,13 @@
+Same statement as x04, with the midpoints named differently: X is the midpoint of BC, Y of CA, Z of AB.
+
+Free points: A, B, C, forming an acute triangle.
+
+Construction:
+- D: any point on the circumcircle of ABC (one free parameter).
+- E: reflection of D in line BC.
+- M: midpoint of AE.
+- X: midpoint of BC.
+- Y: midpoint of CA.
+- Z: midpoint of AB.
+
+Goal: X, Y, Z, M lie on one circle (cyclic X Y Z M).

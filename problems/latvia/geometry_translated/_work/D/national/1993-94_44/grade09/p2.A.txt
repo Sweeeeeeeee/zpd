@@ -1,0 +1,2 @@
+same
+Side restrictions (M, N, K, L on the sides, O inside the quadrilateral) are dropped; K is the second intersection of CD with circle CNO, which encodes the concurrency of the three circles.

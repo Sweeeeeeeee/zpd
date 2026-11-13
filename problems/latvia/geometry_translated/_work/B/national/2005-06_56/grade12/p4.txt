@@ -1,0 +1,4 @@
+# latvia/national/2005-06_56/grade12/p4
+# dof: 2 (acute triangle 2; omega through A, B: 1; the "iff" condition: -1 in each direction)
+# notes: "iff" problem: only the direction "AB diameter => O centre of (CMN)" is the problem line (K = midpoint of AB, M, N second intersections of AC, BC with the circle on diameter AB, O = meet of tangents; goal OM = OC = ON). Converse, checked separately (OK in 5 of 6 drawings, 1 NOT BUILT, dof 2): "c m n = triangle c m n; o = circle o c m n; k = on_tline k m o m, on_tline k n o n; a = on_line a c m, on_circle a k m; b = on_line b c n, on_circle b k m ? midp k a b" (built backwards: O circumcentre of CMN, omega the circle tangent to OM at M and ON at N, A, B its second intersections with CM, CN). Acute ABC not imposed in the converse.
+a b c = acute_triangle a b c; k = midpoint k a b; m = on_line m a c, on_dia m a b; n = on_line n b c, on_dia n a b; o = on_tline o m k m, on_tline o n k n ? cong o m o c; cong o n o c

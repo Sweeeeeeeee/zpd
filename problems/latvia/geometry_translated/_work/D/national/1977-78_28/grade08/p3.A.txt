@@ -1,0 +1,1 @@
+different: omits the follow-up question whether the claim holds for arbitrary intersecting lines a, b (only the perpendicular case is formalised)

@@ -1,0 +1,4 @@
+# latvia/national/1985-86_36/grade10/p3
+# dof: 2   (triangle: 2; the hypotheses are inequalities)
+# notes: 'Every two circles have a common point' means distance of centres <= sum of radii, i.e. 2c <= a + b for each side (inequalities); the goal is a shape (equilateral) forced by them. Mis-sorted as statable.
+# untranslatable: hypotheses are inequalities (circles intersect iff 2c <= a + b), not constructions

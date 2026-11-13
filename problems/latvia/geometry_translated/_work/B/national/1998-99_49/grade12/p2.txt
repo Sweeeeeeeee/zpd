@@ -1,0 +1,4 @@
+# latvia/national/1998-99_49/grade12/p2
+# dof: 3 (two intersecting circles up to similarity: 2; M on AB: 1)
+# notes: M is the midpoint of chord XY (resp. TZ) since the chord is perpendicular to O1M, so Y = mirror of X over M, Z = mirror of T; "rectangle XTYZ" stated as equal diagonals XY = TZ (bisecting each other at M by construction) plus a right angle at X. "M inside AB, not the midpoint" not imposed (non-degeneracy only).
+o = free o; a = free a; o2 = free o2; b = reflect b a o o2; m = on_line m a b; x = on_tline x m o m, on_circle x o a; y = mirror y x m; t = on_tline t m o2 m, on_circle t o2 a; z = mirror z t m ? cong x y t z; perp x t x z

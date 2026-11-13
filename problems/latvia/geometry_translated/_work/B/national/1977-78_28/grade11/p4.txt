@@ -1,0 +1,4 @@
+# latvia/national/1977-78_28/grade11/p4
+# dof: 0 (equilateral triangle, D and E fixed)
+# notes: orientation fixed with s_angle: C at directed angle 60 from AB, D, E at -60 (outside the triangle). M = midpoint of AB (centre); D: angle BAD = 60 and angle AMD = 60 (arc AD = 60 degrees, triangle AMD equilateral), E symmetric at B. D, E on the semicircle checked numerically (MD = MA, ME = MB).
+a b = segment a b; c = s_angle b a c 60o, s_angle a b c -60o; m = midpoint m a b; d = s_angle b a d -60o, s_angle a m d 60o; e = s_angle a b e 60o, s_angle b m e -60o; p = on_line p a b, on_line p c d; q = on_line q a b, on_line q c e ? cong a p p q; cong p q q b

@@ -1,0 +1,4 @@
+# latvia/regional/2015-16_66/grade11/p3
+# dof: 4   (quadrilateral: 4; E and F determined)
+# notes: F is the second intersection of circles ABE and CDE (Newclid picks the point other than E). Convexity not imposed. Similarity ABF ~ CDF with A->C, B->D, F->F.
+a b c d = quadrangle a b c d; e = on_line e a c, on_line e b d; f = on_circum f a b e, on_circum f c d e ? simtri a b f c d f

@@ -1,0 +1,9 @@
+Free points: C and A, arbitrary.
+
+Construction:
+- B: a point on the line through C such that the directed angle from line CA to line CB is 45 degrees (counterclockwise). This fixes only the line CB, so B is any point of that line other than C. The undirected angle ACB is then 45 degrees or 135 degrees, depending on the side of C on which B lies.
+- M: foot of the perpendicular from A to line BC.
+- N: foot of the perpendicular from B to line CA.
+- S: midpoint of AB.
+
+Goal: SM = SN and SM is perpendicular to SN.

@@ -1,0 +1,1 @@
+Take a segment AB. C is an arbitrary point on the circle centered at B through A. D is an arbitrary point on the perpendicular bisector of AC. Prove that AC is perpendicular to BD.

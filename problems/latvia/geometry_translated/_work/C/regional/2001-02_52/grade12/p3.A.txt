@@ -1,0 +1,1 @@
+Take a segment AB and an equilateral triangle ABD built on it (either side). Let C be the point such that ABCD is a parallelogram (C = B + D - A). Let Y be any point on line AC. Let X be the point on line AD such that YX is parallel to CD. Let Z be the point on line CD such that YZ is parallel to AD. Prove that BX = BZ and BX = XZ.

@@ -1,0 +1,1 @@
+Let ABC be an equilateral triangle (either orientation). Let K be the midpoint of AC and L the midpoint of BC. Let D be the reflection of K over line AB and E the reflection of L over line AB. Let P be the intersection of lines AB and CD, and Q the intersection of lines AB and CE. Prove that AP = PQ and PQ = QB.

@@ -1,0 +1,1 @@
+ABC is an arbitrary triangle. M is an arbitrary point on the perpendicular bisector of AB, and P is the midpoint of AB. N is the point on the perpendicular bisector of BC such that the directed angle (CN, CB) equals the directed angle (MA, MP) (angles between lines, mod 180 degrees). K is the midpoint of AC. Prove that MK is perpendicular to KN.

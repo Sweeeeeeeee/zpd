@@ -1,0 +1,4 @@
+# latvia/national/1985-86_36/extra/grade08-09/p2
+# dof: 4   (triangle: 2; S: 2)
+# notes: A1 is the second intersection of line AS with the circumcircle (intersection_lc), likewise B1, C1. S inside the triangle is not imposed (for S outside, 'ray AS' would need the other intersection; the line version is used).
+o = free o; a = free a; b = on_circle b o a; c = on_circle c o a; s = free s; a1 = intersection_lc a1 s o a; b1 = intersection_lc b1 s o b; c1 = intersection_lc c1 s o c; a2 = foot a2 s b c; b2 = foot b2 s a c; c2 = foot c2 s a b ? simtri a1 b1 c1 a2 b2 c2

@@ -1,0 +1,1 @@
+Let ABC be any triangle. On AB take the two trisection points D (nearer A) and E (nearer B); on BC take F (nearer B) and G (nearer C); on AC take H (nearer A) and H2 (nearer C). Let P = DF ∩ EH and R = DF ∩ EG. Prove that DP = PR and PR = RF (P and R trisect segment DF).

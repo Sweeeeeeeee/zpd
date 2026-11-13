@@ -1,0 +1,4 @@
+# latvia/open/2015-16_43/grade09/p3
+# dof: 0   (rectangle: 1; existence of N with both angles 30: -1)
+# notes: Built from M, B: N on the perpendicular to AB at B with directed angle(MB,MN) = 30; D on the perpendicular to AB at A and on the line through N with angle(DC,DN) = -30 (parallel to M N2, N2 = reflection of N over AB); C = B + D - A. All direct restatements of the hypotheses. N on side BC is then automatic (N on line BC). Equilateral = MC = CD and MD = CD.
+m b = segment m b; a = mirror a b m; n = on_tline n b b m, s_angle b m n 30o; n2 = reflect n2 n a b; d = on_tline d a a b, on_pline d n m n2; c = parallelogram c b a d ? cong m c c d; cong m d c d

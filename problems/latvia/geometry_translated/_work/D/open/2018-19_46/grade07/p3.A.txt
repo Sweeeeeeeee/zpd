@@ -1,0 +1,1 @@
+different: P is an arbitrary point on line AD (not required between A and D), so AD=AB+CD is not imposed; the claim is false when P is outside segment AD (numerically checked).

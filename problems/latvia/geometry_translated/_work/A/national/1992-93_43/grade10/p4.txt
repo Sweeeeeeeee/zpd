@@ -1,0 +1,4 @@
+# latvia/national/1992-93_43/grade10/p4
+# dof: 2   (acute triangle: 2)
+# notes: P, Q (and M, N) are the two intersections of the altitude line with the circle; Q, N built as the second intersection through the known point (symmetric, no branch choice).
+a b c = acute_triangle a b c; k = midpoint k a c; b1 = foot b1 b a c; p = on_line p b b1, on_circle p k a; q = intersection_lc q b k p; l = midpoint l a b; c1 = foot c1 c a b; m = on_line m c c1, on_circle m l a; n = intersection_lc n c l m ? cyclic p q m n

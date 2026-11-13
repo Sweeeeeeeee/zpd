@@ -1,0 +1,4 @@
+# latvia/regional/2005-06_56/grade10/p4
+# dof: 0   (acute triangle 2; P inside 2; for the converse the two concyclicities fix P: -2)
+# notes: iff. Forward direction (P = orthocenter => ABA1B1, ACA1C1 cyclic) would be: a b c = acute_triangle a b c; p = orthocenter p a b c; a1 = on_line a1 a p, on_line a1 b c; b1 = on_line b1 b p, on_line b1 a c; c1 = on_line c1 c p, on_line c1 a b ? cyclic a b a1 b1; cyclic a c a1 c1. The converse (the real content) needs P fixed by two concyclicity hypotheses with concurrent cevians; the only constructions (A1 on BC, B1, C1 as second intersections of circles ABA1, ACA1 with the sides) leave the concurrency AA1, BB1, CC1 as an extra hypothesis that cannot be imposed.
+# untranslatable: iff; converse has P fixed by conditions (shape fixed by conditions)

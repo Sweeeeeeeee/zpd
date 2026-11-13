@@ -1,0 +1,4 @@
+# latvia/national/1982-83_33/grade11/p5
+# dof: 2   (two internally tangent circles: ratio of radii 1; A on ω: 1)
+# notes: big circle centre O through P, small centre W on line OP through P (internal tangency at P); B on the tangent at A and the big circle, C = second intersection of line BA with it. "Smaller inside" (W between O and P) not enforced.
+o = free o; p = free p; w = on_line w o p; a = on_circle a w p; b = on_tline b a w a, on_circle b o p; c = intersection_lc c a o b ? eqangle p b p a p a p c

@@ -1,0 +1,4 @@
+# latvia/national/2008-09_59/grade10/p4
+# dof: 2   (acute triangle ABC: 2; everything else determined)
+# notes: congruence MKA1 = B1NM in the given vertex order, as three equal sides: MK = B1N, KA1 = NM, A1M = MB1
+a b c = acute_triangle a b c; a1 = foot a1 a b c; b1 = foot b1 b a c; h = orthocenter h a b c; m = midpoint m a b; n = midpoint n a h; k = midpoint k b h ? cong m k b1 n; cong k a1 n m; cong a1 m m b1

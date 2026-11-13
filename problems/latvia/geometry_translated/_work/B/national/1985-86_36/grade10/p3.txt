@@ -1,0 +1,4 @@
+# latvia/national/1985-86_36/grade10/p3
+# dof: 0 (triangle 2; the hypotheses are three inequalities that force equality)
+# notes: "each two circles have a common point" means distance of centres <= sum of radii, i.e. 2c <= a + b etc.
+# untranslatable: hypothesis is a system of inequalities (circles intersect), not a construction

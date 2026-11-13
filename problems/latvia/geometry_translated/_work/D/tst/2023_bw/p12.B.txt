@@ -1,0 +1,2 @@
+same
+F is the foot of B on the tangent at T and B2 is the reflection of B in that tangent, so this is the same construction as the A variant; the goal MM2 = MB is the same tangency condition.

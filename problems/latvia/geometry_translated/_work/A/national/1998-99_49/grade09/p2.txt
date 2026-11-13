@@ -1,0 +1,4 @@
+# latvia/national/1998-99_49/grade09/p2
+# dof: 1   (equilateral ABC: 0; M on AB: 1; N fixed by the side condition)
+# notes: "B and N on the same side of CM" = CMN has the same orientation as CAB (N is the image of M under the rotation about C taking A to B); imposed with two directed angles: angle(CN,CM) = angle(CB,CA) and angle(MN,MC) = angle(AB,AC). M interior to AB not imposed (on_line).
+a b c = ieq_triangle a b c; m = on_line m a b; n = on_aline n c m b c a, on_aline n m c b a c ? para b n a c

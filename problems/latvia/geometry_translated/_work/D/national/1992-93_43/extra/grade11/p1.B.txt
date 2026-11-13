@@ -1,0 +1,2 @@
+different: goal is WA=OI but W is never defined (circumcenter is named K)
+Possibly just a typo in the description.

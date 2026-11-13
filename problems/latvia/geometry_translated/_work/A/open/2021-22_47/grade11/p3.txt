@@ -1,0 +1,4 @@
+# latvia/open/2021-22_47/grade11/p3
+# dof: 1   (A, C fixed up to similarity; half-angle at A: 1; D fixed by AD = AC; B fixed by angle B = 90)
+# notes: D on the circle (A, AC); B = foot from C to the reflection of line AD over AC (AC bisects angle A, B on the other side). Convexity not imposed (B on the ray needs angle CAD < 90).
+a c = segment a c; d = on_circle d a c; e = reflect e d a c; b = foot b c a e; h = foot h d a c; m = midpoint m c d ? coll b h m

@@ -1,0 +1,4 @@
+# latvia/regional/2024-25_75/grade07/p3
+# dof: 1   (x free; triangle 2 + M, N 2 + x 1 - 4 angle conditions)
+# notes: U on circle (B, BC) gives angle x = angle(BC, BU); U2..U6 by successive reflections give angles 2x..6x (no freedom). M: on line B U5 (angle CBM = 5x) and on the arc angle BMC = 5x (second intersection, other than B). N: line through C with angle BCN = 6x, and arc angle BNC = 4x (other than C). A = BN n CM. Goal: angle ABC = angle BCA. Sides/positions (M on side AC etc.) not enforced.
+b c = segment b c; u = on_circle u b c; u2 = reflect u2 c b u; u3 = reflect u3 u b u2; u4 = reflect u4 u2 b u3; u5 = reflect u5 u3 b u4; u6 = reflect u6 u4 b u5; m = on_line m b u5, eqangle3 m b c b c u5; n = on_aline n c b c b u6, eqangle3 n b c b c u4; a = on_line a b n, on_line a c m ? eqangle b a b c c b c a
