@@ -1,6 +1,6 @@
 # State
 
-Updated: 2026-11-12 ~21:00 UTC (session 51d9920c)
+Updated: 2026-11-13 (tasks.md regrouped: no section with a single child)
 
 Claude's own notes: overwrite this file at the end of every session so it is
 true *now*. History goes to [LOG.md](LOG.md), not here. Facts that a command can
@@ -12,12 +12,12 @@ holds what a command cannot tell.
 | | |
 |---|---|
 | Our models | `mid` **finished, 9000 steps** (`geo-lm/runs/mid/best.pt`, 5.1M): val 0.235, exact 39% / 53.5%, JGEX +5/26, IMO 2015 P3 (first IMO-AG-30 gain over DDAR), imo_102 6/101. Step-7500 results kept as `results/*/mid_7500_model.jsonl`. `docs/rezultati.md` and the paper report all three models; `default.json` still uses `mini_long` (switching it to `mid` is open) |
-| Done | tasks 1-6, 7.1, 8.2, 8.2a, 12.1-12.3 ([docs/tasks.md](../docs/tasks.md)) |
+| Done | tasks 1-6, 7.1-7.3, 8.2, 8.2a, 12.1-12.3 ([docs/tasks.md](../docs/tasks.md)) |
 | Proposer comparison | held-out evaluation done 11-12 for all models (`results/proposers/`, table `bench/proposer_table.py`; big models on small samples, AG1 skipped: killed). Domain comparison: only `full` partly (DDAR 5/60 at 60 s, Python engine too slow; heuristics 0/31). Rest open; resumable with `claude/jobs/stream_b.sh` / `pre_translation.sh` |
 | HF models | in `models/hf/` (gitignored, 6.5 GB). Measured 11-12: float32 for SmolLM2 (bf16 2x slower here), bf16 from 0.6B; s/problem 13 / 25 / 28 (GenesisGeo) / 89 (Qwen3) / 464 (Qwen2.5) |
 | AG1 | works (`pipeline/ag1_tool.py` + `ag1_server.py`, env `.venv-ag1`, weights `models/ag1/ag_ckpt_vocab/params_only.npz`), verified against the README example. On this Codespace: 40 s load + 75 s JIT + ~23 s/call (beam 2), 2.7 GB, and SIGTERMed in 2 of 5 runs. Not usable within the 60 s budget here; for Kaggle |
 | Paper | `zpd_darbs/preliminary` 14 pages: three models, benchmarks with heuristics column vs AG1, proposer comparison, literature comparison, problem-set sorting. Red placeholders left: personal data, rest of 8.4, translation and scan, final conclusions |
-| Blocker | the problem set (7.2-7.6): the scan (9-11) cannot start without it. Translation scheme agreed with the user 11-12 and written into docs/tasks.md task 7 (prefilter + agent sorting, pilot of 10 together, two translations + numeric/free-point checks + back-translation, user reviews flagged ones and a 10% audit) |
+| Blocker | the problem set (7.4-7.6): the scan (9-11) cannot start without it. Translation scheme agreed with the user 11-12 and written into docs/tasks.md task 7 (prefilter + agent sorting, pilot of 10 together, two translations + numeric/free-point checks + back-translation, user reviews flagged ones and a 10% audit) |
 | Codespace budget | user 11-10: 35 h of 2-core time left this month; ~6 h used since (11-10 evening + 11-12 ~2 h). Free plan 120 core-h/month |
 | Disk | ~3.5 GB free after AG1 (env 2.4 GB, checkpoint 1.8 GB incl. npz). `.git` holds 566 MB of unreachable old backup objects |
 | Machine | Codespace `glowing-barnacle-69499rgp76525wvr`, 2 cores, 8 GB, idle timeout 240 min |

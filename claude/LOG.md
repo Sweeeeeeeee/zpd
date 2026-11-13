@@ -6,6 +6,9 @@ verified. Newest first. Times are UTC. The current state and next steps are in
 
 ---
 
+## 2026-11-13
+- docs/tasks.md regrouped at the user's request: no heading with only one child (Paper + Report -> "Write-up" with 11 and 12; task 6 no longer a heading over one bullet). 7.2 ticked (7.2a-c done). Numbering unchanged.
+
 ## 2026-11-12 (session 51d9920c)
 
 - Evening (user away 19:10-21:20; 2-hour budget, runs 19:11-20:45 in two

@@ -10,16 +10,16 @@
 
 ## Research setup
 
-### 6. Domains
-- [x] 6. Define domains. Three domains, each with and without AR: full (Newclid's default rules plus the circle rules it leaves out and the midline theorem), circles (circles and inscribed angles only) and no_similarity (full without similar triangles). Each comes with the "easy" setting: search depth at most 1, auxiliary points from the heuristics, budget 60 s and 2 GB, stored in the config. (docs/domains.md, ddar/configs/domains/, pipeline/configs/domains/)
+### 6. Domains (done)
+Three domains, each with and without AR: full (Newclid's default rules plus the circle rules it leaves out and the midline theorem), circles (circles and inscribed angles only) and no_similarity (full without similar triangles). Each comes with the "easy" setting: search depth at most 1, auxiliary points from the heuristics, budget 60 s and 2 GB, stored in the config. (docs/domains.md, ddar/configs/domains/, pipeline/configs/domains/)
 
 ### 7. Problem set
 Scheme agreed with the user 2026-11-12: agents do the bulk work, automatic checks catch errors, the user reviews only flagged problems, a pilot and a random audit. Scripts write a tracking CSV (problems/latvia/geometry_translated/status.csv: problem, stage, translations A/B, check results, flags, reviewer, decision).
 - [x] 7.1. Collect Latvian olympiad problems. Pull every problem (all topics) from the NMS archive (nms.lu.lv: national, regional, school and open olympiads since 1973/74, and the Baltic Way and IMO selection tests) into problems/latvia/: all/ holds every problem, one file per problem, under <competition>/<season>_<olympiad>/grade<NN>/; geometry/ holds the geometry problems with the same paths; geometry_translated/ is ready for the translations. AoPS (Latvia contests) blocks automated downloads and draws on the same olympiads, so it is not used. 6333 problems, 1499 of them geometry. (problems/latvia/README.md, bench/latvia/)
-- [ ] 7.2. Sort the 1499 geometry problems (no translation yet): can Newclid state it? Plane geometry with a provable goal (yes), or solid geometry, computing a length or angle, inequality, construction, "find all", locus (no).
+- [x] 7.2. Sort the 1499 geometry problems (no translation yet): can Newclid state it? Plane geometry with a provable goal (yes), or solid geometry, computing a length or angle, inequality, construction, "find all", locus (no).
   - [x] 7.2a. Keyword prefilter (script; done 2026-11-12 as hints only, because "plaknē" = in the plane makes keyword rules unsafe; sorting/prefilter.csv): Latvian markers such as telpā, tetraedrs, aprēķini, atrast visus, nevienādība, konstruē remove the obvious "no" cases.
   - [x] 7.2b. Agent classification (cheap model, 8 batches, all 1499; done 2026-11-12): category, reason, confidence; problems that depend on a drawing are flagged. Result: 422 prove (statable), 209 prove_other, 182 compute, 63 inequality, 41 construction, 27 find_all, 76 existence, 302 combinatorial, 140 solid, 37 unreadable; 68 low confidence. (bench/latvia/sort_geometry.py, problems/latvia/geometry_translated/sorting/)
-  - [x] 7.2c. Check of the sorting (the user delegated it to Claude, 2026-11-12): 60 problems read; 19/20 random right, prove 17/20 clearly right (2 borderline, 1 wrong), prove_other 20/20 right. Errors lean to generous `prove`, caught at translation. Also found a split error and cross-year duplicates (handle in 7.3). (sorting/REVIEW.md): error rate of the sorting. Untranslatable ones with the reason in geometry_translated/untranslatable.csv.
+  - [x] 7.2c. Check of the sorting (the user delegated it to Claude, 2026-11-12): 60 problems read; 19/20 random right, prove 17/20 clearly right (2 borderline, 1 wrong), prove_other 20/20 right. Errors lean to generous `prove`, caught at translation. Also found a split error and cross-year duplicates (handle in 7.3). (sorting/REVIEW.md; untranslatable ones with the reason in geometry_translated/untranslatable.csv)
 - [x] 7.3. Working set (2026-11-12, bench/latvia/working_set.py, seed 20261112): duplicates merged, not deleted (55 groups, 116 files, problems/latvia/geometry_translated/duplicates.csv; one entry keeps every id, title, season and source); glued statements (10), missing formulas (53) and low-confidence sorting (14) left out until fixed; 80 problems (tst 12, national 32, open 16, regional 12, school 8) spread over decades and grades, pilot of 10 marked (geometry_translated/working_set.csv).
 - [ ] 7.4. Pilot, about 10 problems, done together with the user (~1 h): run the whole pipeline of 7.5 on them, scan in the full domain, fix the translation guide and its worked examples (about 10 tricky constructions) before scaling.
 - [ ] 7.5. Translate the rest in batches of ~10 problems from one competition. Per problem:
@@ -51,12 +51,12 @@ Scheme agreed with the user 2026-11-12: agents do the bulk work, automatic check
 - [ ] 10.4. Compare with official difficulty and, for a sample, with the official solutions (same key construction or not).
 - [ ] 10.5. Problems with no easy solution found: why (missing rule, needs depth 2, budget, translation).
 
+## Write-up
+
 ### 11. Report
 - [ ] 11.1. Write up the method and results (docs/apraksts.md, docs/rezultati.md) with the tables and examples of easy solutions.
 - [ ] 11.2. Write the presentation with real numbers.
 - [ ] 11.3. Final check: tests pass, the scan can be reproduced from the README, results committed.
-
-## Paper
 
 ### 12. ZPD paper in LaTeX (zpd_darbs/)
 - [x] 12.1. Template matching the VIAA guidelines (zpd_darbs/vadlinijas/): A4, 2.5 cm margins, Times 12 pt, 16/14 pt headings, title page from appendix 3, abstracts, contents, unnumbered introduction and conclusions, captions, references and sources list from appendices 4-5, appendices; guidelines logo on the title page. (zpd_darbs/template/)
