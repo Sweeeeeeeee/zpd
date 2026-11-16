@@ -5,7 +5,14 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 PY=${PYTHON:-python3.13}
-"$PY" -m venv .venv-newclid
+VENV_ARGS=()
+for a in "$@"; do
+  case "$a" in
+    --system-site-packages) VENV_ARGS+=(--system-site-packages) ;;
+    *) echo "unknown option: $a" >&2; exit 2 ;;
+  esac
+done
+"$PY" -m venv "${VENV_ARGS[@]}" .venv-newclid
 .venv-newclid/bin/pip install --upgrade pip
 # py-yuclid ships the C++ `yuclid` DDAR binary as a prebuilt wheel.
 # pyyaml is imported by newclid but missing from its 3.0.1 metadata.

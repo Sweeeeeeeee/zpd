@@ -1,11 +1,17 @@
 # State
 
-Updated: 2026-11-13 (tasks.md regrouped: no section with a single child)
+Updated: 2026-11-16 (21:45 UTC; Codespace kept running at user's request)
 
 Claude's own notes: overwrite this file at the end of every session so it is
 true *now*. History goes to [LOG.md](LOG.md), not here. Facts that a command can
 tell (git status, running jobs, timeout) come from `claude/check.sh`; this file
 holds what a command cannot tell.
+
+User pause: the translation workflow was intentionally left at 7.4 pending user verification; it is not to be resumed automatically.
+
+Kaggle handoff (2026-11-16): the user wants GPU training/tests. `kaggle/train_and_test.sh` and `docs/training_setup.md` are prepared locally, but are uncommitted/unpublished and Kaggle execution has not started. Local verification: 90 tests passed and the 11M model completed a 2-step CPU smoke run. To proceed on Kaggle, publish or upload the local changes, select a GPU accelerator, run `PYTHON="$(which python)" bash setup.sh --no-tex --system-site-packages`, then `bash kaggle/train_and_test.sh`. It checks CUDA before long work, trains/resumes `small`, evaluates 200 held-out examples, runs tests, and copies artifacts to `/kaggle/working/zpd-artifacts`. The API key pasted into chat was not stored or used; user should revoke/rotate it and must not send a replacement through chat. The translation workflow remains paused.
+
+Codespace and disk (2026-11-16 21:43 UTC): user explicitly reversed the earlier stop request and asked to keep this Codespace running. `gh codespace list` reports `glowing-barnacle-69499rgp76525wvr` as Available; do not stop it. Health check found no active jobs and no unaccounted warnings. Workspace disk had 1.4 GB free of 32 GB (96% used); `/tmp` is a separate filesystem with 40 GB free. Inspected sizes: `models/` 8.1 GB (including 6.4 GB HF weights and 1.8 GB AG1 checkpoint), `.venv-newclid` 1.8 GB, `.venv-ag1` 2.6 GB, `.git` 972 MB. Pip/HF caches ~2.2 MB and `.pytest_cache` 36 KB; these are the only obvious caches and too small to materially help, so no files were deleted. Git has ~906 MiB loose objects; prior notes mention unreachable history, but no GC/pruning was run because it may discard recoverable history. Recheck disk before any large downloads or training.
 
 ## Where things are
 
@@ -19,8 +25,8 @@ holds what a command cannot tell.
 | Paper | `zpd_darbs/preliminary` 14 pages: three models, benchmarks with heuristics column vs AG1, proposer comparison, literature comparison, problem-set sorting. Red placeholders left: personal data, rest of 8.4, translation and scan, final conclusions |
 | Blocker | the problem set (7.4-7.6): the scan (9-11) cannot start without it. Translation scheme agreed with the user 11-12 and written into docs/tasks.md task 7 (prefilter + agent sorting, pilot of 10 together, two translations + numeric/free-point checks + back-translation, user reviews flagged ones and a 10% audit) |
 | Codespace budget | user 11-10: 35 h of 2-core time left this month; ~6 h used since (11-10 evening + 11-12 ~2 h). Free plan 120 core-h/month |
-| Disk | ~3.5 GB free after AG1 (env 2.4 GB, checkpoint 1.8 GB incl. npz). `.git` holds 566 MB of unreachable old backup objects |
-| Machine | Codespace `glowing-barnacle-69499rgp76525wvr`, 2 cores, 8 GB, idle timeout 240 min |
+| Disk | 1.4 GB free at the 2026-11-16 21:43 UTC check (96% used); large consumers are model weights, Python environments, and Git objects. Do not remove those without inspecting/approval |
+| Machine | Codespace `glowing-barnacle-69499rgp76525wvr`, 2 cores, 7 GB available RAM, idle timeout 240 min |
 
 ## Open problems
 
@@ -57,9 +63,8 @@ holds what a command cannot tell.
    timeouts of 60 in `full`). Decide with the user: bigger budget (e.g. 180 s)
    for domains, fewer problems, or a faster machine. Resume: `DOMAINS=... bench/run_compare.sh`.
 3. Heuristics on imo_102 (`LLM=heuristics_only bench/run_benchmarks.sh imo_102_requires_aux`, ~1 h).
-4. AG1, Qwen2.5-1.5B and the full 200 for GenesisGeo / Qwen3: Kaggle (GPU). User asked Claude to do it;
-   waiting for the user's Kaggle token (~/.kaggle/kaggle.json, phone-verified account) and OK to push a
-   private notebook (plan in the 11-12 transcript: clone the public repo, HF models, AG1 from the HF mirror).
+4. Kaggle GPU training of the 11M `small` model: see the handoff above. The
+   runner/setup changes are local and uncommitted; Kaggle execution not started.
 5. Folder restructure from `docs/models.md` (geo-lm -> models/...), full tests.
 6. User: personal data for the paper (12.4); 11-09 stop reason; whether
    `default.json` should use `mid`.

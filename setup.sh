@@ -10,11 +10,12 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 
-TEX=1; EXTRACT=0
+TEX=1; EXTRACT=0; SYSTEM_SITE_PACKAGES=0
 for a in "$@"; do
   case "$a" in
     --no-tex) TEX=0 ;;
     --extract) EXTRACT=1 ;;
+    --system-site-packages) SYSTEM_SITE_PACKAGES=1 ;;
     *) echo "unknown option: $a" >&2; exit 2 ;;
   esac
 done
@@ -31,7 +32,11 @@ fi
 
 step "Newclid venv (.venv-newclid) with $PY, Newclid repo in third_party/"
 if [ ! -x .venv-newclid/bin/python ]; then
-  PYTHON="$PY" bash ddar/setup_newclid.sh
+  if [ "$SYSTEM_SITE_PACKAGES" = 1 ]; then
+    PYTHON="$PY" bash ddar/setup_newclid.sh --system-site-packages
+  else
+    PYTHON="$PY" bash ddar/setup_newclid.sh
+  fi
 else
   [ -d third_party/Newclid ] || git clone https://github.com/LMCRC/Newclid.git third_party/Newclid
 fi

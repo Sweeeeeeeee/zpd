@@ -16,5 +16,7 @@ human heuristics and a small transformer trained from scratch on CPU.
 
 ```bash
 bash setup.sh                             # fresh machine: env, data, TeX, tests (runs by itself in a new Codespace)
-.venv-newclid/bin/python -m pytest -q     # 86 tests
+.venv-newclid/bin/python -m pytest -q     # 90 tests
 ```
+
+For a stronger local machine or a Kaggle GPU notebook, use the training setup notes in [docs/training_setup.md](docs/training_setup.md). The translation workflow remains paused at task 7.4 pending user verification.

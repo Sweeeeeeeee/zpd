@@ -6,6 +6,16 @@ verified. Newest first. Times are UTC. The current state and next steps are in
 
 ---
 
+## 2026-11-16
+- Recorded that the translation workflow is paused at 7.4 pending user verification.
+- Added a stronger-machine and Kaggle training setup note in [docs/training_setup.md](../docs/training_setup.md), with repo-verified commands and a no-start guard for the pending translation batch.
+- Added `kaggle/train_and_test.sh` and `setup.sh --system-site-packages` so Kaggle can retain its CUDA PyTorch; runner checks CUDA, smoke-trains, runs tests, trains `small`, evaluates 200 held-out examples, and exports outputs.
+- Full tests initially exposed a speed-sensitive watchdog test; changed its budget to zero to test immediate timeout deterministically. Verified 90 tests pass and a two-step CPU smoke run succeeds. Kaggle GPU execution was not started; the API key supplied in chat was not stored or used.
+- User first asked to stop the Codespace, then explicitly reversed that request before any stop was confirmed and asked to keep it running. Verified it remains Available and updated STATE.md with the handoff. No jobs active.
+- Checked storage before considering cleanup: 1.4 GB available on the workspace filesystem (96% used); `/tmp` is separate with 40 GB available. Large consumers are needed models/environments and Git history; obvious caches total only ~2.2 MB plus 36 KB pytest cache. Deleted nothing; no Git GC/pruning or shutdown.
+
+---
+
 ## 2026-11-13
 - docs/tasks.md regrouped at the user's request: no heading with only one child (Paper + Report -> "Write-up" with 11 and 12; task 6 no longer a heading over one bullet). 7.2 ticked (7.2a-c done). Numbering unchanged.
 

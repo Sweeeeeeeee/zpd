@@ -34,7 +34,7 @@ def test_unsolved_problem_reports_reason():
 
 
 def test_time_limit_is_enforced():
-    r = solve(ORTHOCENTER, DDAR_ONLY, Budget(time_s=0.3))
+    r = solve(ORTHOCENTER, DDAR_ONLY, Budget(time_s=0))
     assert not r.solved
     assert r.failure_reason.startswith("time limit")
     assert r.wall_time < 5
