@@ -13,6 +13,7 @@ verified. Newest first. Times are UTC. The current state and next steps are in
 - Full tests initially exposed a speed-sensitive watchdog test; changed its budget to zero to test immediate timeout deterministically. Verified 90 tests pass and a two-step CPU smoke run succeeds. Kaggle GPU execution was not started; the API key supplied in chat was not stored or used.
 - User first asked to stop the Codespace, then explicitly reversed that request before any stop was confirmed and asked to keep it running. Verified it remains Available and updated STATE.md with the handoff. No jobs active.
 - Checked storage before considering cleanup: 1.4 GB available on the workspace filesystem (96% used); `/tmp` is separate with 40 GB available. Large consumers are needed models/environments and Git history; obvious caches total only ~2.2 MB plus 36 KB pytest cache. Deleted nothing; no Git GC/pruning or shutdown.
+- Committed the Kaggle training setup, runner, docs, deterministic timeout test, and handoff updates as `d52a8c3` (`Prepare Kaggle training and test workflow`). Re-ran tests: 90 passed. Commit is local only; branch was three commits ahead of `origin/main`. Codespace remains Available.
 
 ---
 
