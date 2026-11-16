@@ -14,6 +14,7 @@ verified. Newest first. Times are UTC. The current state and next steps are in
 - User first asked to stop the Codespace, then explicitly reversed that request before any stop was confirmed and asked to keep it running. Verified it remains Available and updated STATE.md with the handoff. No jobs active.
 - Checked storage before considering cleanup: 1.4 GB available on the workspace filesystem (96% used); `/tmp` is separate with 40 GB available. Large consumers are needed models/environments and Git history; obvious caches total only ~2.2 MB plus 36 KB pytest cache. Deleted nothing; no Git GC/pruning or shutdown.
 - Committed the Kaggle training setup, runner, docs, deterministic timeout test, and handoff updates as `d52a8c3` (`Prepare Kaggle training and test workflow`). Re-ran tests: 90 passed. Commit is local only; branch was three commits ahead of `origin/main`. Codespace remains Available.
+- Reviewed Kaggle's official CLI docs for datasets/models: public sharing is documented, model assets default private and private models are owner-visible; organization ownership is supported. Per-friend private dataset access and current storage quotas were not verified. Updated training notes to reflect these limits, warn about third-party weight licenses, and require transfer verification before local deletion. The earlier Kaggle run was never started and no key was used.
 
 ---
 

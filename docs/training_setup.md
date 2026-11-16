@@ -78,8 +78,12 @@ The repo is already set up for Kaggle usage, and the relevant notes from the pro
 
 - A phone-verified Kaggle account.
 - A Kaggle notebook with a GPU runtime.
-- A working `kaggle.json` in `~/.kaggle/`.
 - The repo cloned into the notebook or mounted via the workspace.
+
+Kaggle API credentials are not needed just to run a notebook. They are needed
+only if you use the Kaggle CLI to publish or download resources; configure them
+through Kaggle's current authentication options or notebook secrets, not in
+notebook source, Git, or chat.
 
 ### Kaggle setup
 
@@ -110,6 +114,27 @@ comparison.
 Do not put Kaggle API keys in the notebook or repository. If notebook upload or
 artifact transfer via the Kaggle API is later needed, configure credentials
 through Kaggle's own secret mechanism on a trusted machine.
+
+### Sharing model weights
+
+Kaggle can host the project's trained checkpoints as a Kaggle Model or a
+Dataset. Kaggle's current model metadata docs say models are private by default
+and private models are visible only to their owners; setting a model public is
+the documented route for friends to access it. Model ownership can be a user or
+an organization slug if the owner belongs to that organization. Dataset
+creation is private by default, with a documented `--public` option. The CLI
+docs do not establish that private datasets can be shared with arbitrary
+friend accounts, so confirm that in the Kaggle UI before relying on private
+sharing.
+
+Before publishing, check the per-file and account storage limits in Kaggle and
+the license/redistribution terms for every checkpoint. The downloaded models
+in `models/hf/` and `models/ag1/` are third-party weights: prefer having each
+notebook download them from their official source rather than rehosting them
+unless their respective licenses clearly permit redistribution. The project's
+own trained checkpoints are the simplest assets to share. Do not remove local
+copies until upload integrity and at least one download/use from Kaggle have
+been verified.
 
 ## Verified repo facts
 
