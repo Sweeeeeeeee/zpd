@@ -41,7 +41,7 @@ Scheme agreed with the user 2026-11-12: agents do the bulk work, automatic check
 
 ### 9. Scan
 - [x] 9.1. Freeze six rule/AR settings × three proposer policies, the search budget, checkpoint and engine version. See `results/latvia-domain-plan.json` and the reproduction instructions in `docs/domains.md`.
-- [ ] 9.2. Run every working-set problem in every config and store the results.
+- [ ] 9.2. Run every working-set problem in every config and store the results. The full domain with algebraic reasoning has all 195 original measurements on the 65 accepted translations. See [the per-problem records](../results/latvia-domains/).
 - [ ] 9.3. Rerun crashes and timeouts; classify the remaining failures (engine bug, translation error, budget) and fix what can be fixed.
 
 ### 10. Analysis

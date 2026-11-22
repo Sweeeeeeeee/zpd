@@ -1,0 +1,260 @@
+{
+  "original_revision": "c5ae501",
+  "revised_solver_sources": {
+    "ddar/__init__.py": "54a273116089d1dd4e474f94217262e16c8c99a6d649ecc723b85a82228f7910",
+    "ddar/compare_rules.py": "1e99f6283a382bcbcf9fde5868159c9c345ff6a535320bd9c7da2c4dc92c34d8",
+    "ddar/engine.py": "646057aea0bcd11a67facd684bd483bef448145202c794ba5d32c06dfe9b70f0",
+    "ddar/incidence.py": "f93f6f8a39b824a0c4e54e590dc0a9284c20a8d056cd37e353fd324213c5fdfa",
+    "ddar/list_rules.py": "b445b82d92c96a542441d5abf9cd1f85e9e41f239207a62f100693b425e505e4",
+    "ddar/rule_config.py": "63f057d0aeb998cbcb95cb998f3a1ff319e3b4e3e6c3a137c182c9309d132f7d",
+    "ddar/run_examples.py": "3312931931e78c8decc6e1980952d0346598ebd5b4f131b0fe28be5cb5b98456",
+    "ddar/runner.py": "0f6b598bb3d3862ebd63c8f65e1bbe27b9ea532a643090570675f17f99da7988",
+    "geo-lm/geo_lm/__init__.py": "304b6f56fa7ecaa9b73ee491c9431360ff6857d1d56d9715c2fa87a1f8515004",
+    "geo-lm/geo_lm/checkpoint.py": "d6c4c820059f05b87b31ed800ec33981565cea0e57b98c787b701f3dda598ed3",
+    "geo-lm/geo_lm/config.py": "2b8b730a87a98f96cfd1613506d27d0d32e9a726810d19a74109a8cf5f6385da",
+    "geo-lm/geo_lm/model.py": "76c4a982790265ee5d9554d08d5f6dba2af5a75769b6eb3917a9036bde0371ca",
+    "geo-lm/geo_lm/tokenizer.py": "f5406077389356667e2dbfb8a2747c9420024e1cc7711f84bec1aa141d9e1c72",
+    "geo-lm/geo_lm/train.py": "535d33594b48908e3017dbe593f82cd97fc0978059933b472031910291562d8b",
+    "pipeline/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "pipeline/ag1_server.py": "bcd2a126e1399d1f07b33cd7b7f4a6a5109d50b8682ccfabd0dcf70b1d59ef1d",
+    "pipeline/ag1_slim_ckpt.py": "7e367a7552c9d63952b233ba09e195afcbd48791c839655077809e9454912a99",
+    "pipeline/ag1_tool.py": "8ef2238575a6327842d6fc1f54fee07b831a25c5b6ae35f32adb3119201036bf",
+    "pipeline/check_figure.py": "4420581652295f8651e84fc6b0d01ff62b1be6e80458c55c65a690d1d2ee622b",
+    "pipeline/dof.py": "093308cdbe8a3c5801f0ce09ab00296db2a26010eda8a745cefe53a4ccf21464",
+    "pipeline/hf_tool.py": "07f2e637659e40ad3b587b39ab43a714ce7212e8a107717f7363f3b5dc47f63b",
+    "pipeline/run_folder.py": "28ba5c9c070a0a404f28294c3c826291e58d5fad1f1b3dbedbe071404f9fb78e",
+    "pipeline/search.py": "4dbbad9e1dd82b78019726426b41cf5a593d335fbd0d2550341303670abfb746",
+    "pipeline/solve.py": "ff1eabb935ace7597aabafb3615a9a9e4ab34b6d37ae92717df03ebe07d22380",
+    "pipeline/tools.py": "07bf2c39d0b0b169b85bd5c3aa3a979a84fafa1f0a92277d77d784e238492baa",
+    "pipeline/transformer_tool.py": "18e7b6bc149d6f0ea8ef2b6fe5c49d82f4e08e794327063472b4328a39f02351",
+    "pipeline/translate.py": "329593988d2413aa245c87f83b7231107c3c7405e9f3d42711c04c9b081626ed",
+    "bench/latvia/scan.py": "4d79787b479e05ffa6911affdf7112edd171048387a724881387cbc7973816e1",
+    "bench/latvia/scan_plan.py": "dcf5fa4ae7cea08074a020810d8da7895ae16b5f793e4f98546b0df9f93ba8aa"
+  },
+  "configuration": "full-deduction",
+  "latvia": [
+    {
+      "original": {
+        "name": "latvia/national/2008-09_59/grade10/p4",
+        "config": "full-deduction",
+        "solved": false,
+        "proof": null,
+        "wall_time": 54.158,
+        "peak_memory_mb": 197.7,
+        "cpu_time": 54.08,
+        "depth": 0,
+        "rules_fired": {},
+        "rules_in_proof": {},
+        "tools_used": [
+          "ddar"
+        ],
+        "tool_calls": {
+          "ddar": 1
+        },
+        "aux": [],
+        "ddar_calls": 1,
+        "failure_reason": "deduction engine failed: TypeError: unhashable type: 'LineMerge'",
+        "load_time": 0.752
+      },
+      "revised": {
+        "name": "latvia/national/2008-09_59/grade10/p4",
+        "config": "full-deduction",
+        "solved": false,
+        "proof": null,
+        "wall_time": 61.133,
+        "peak_memory_mb": 197.3,
+        "cpu_time": 60.9,
+        "depth": 0,
+        "rules_fired": {},
+        "rules_in_proof": {},
+        "tools_used": [],
+        "tool_calls": {},
+        "aux": [],
+        "ddar_calls": 0,
+        "failure_reason": "time limit (60s)",
+        "load_time": 1.055,
+        "baseline_record_sha256": "1f3a1288146c8f5be656759ac3f11a77a5b15c7e5af91f0b6f45373dcc58f36f"
+      }
+    },
+    {
+      "original": {
+        "name": "latvia/national/2017-18_68/grade12/p2",
+        "config": "full-deduction",
+        "solved": false,
+        "proof": null,
+        "wall_time": 1.208,
+        "peak_memory_mb": 188.5,
+        "cpu_time": 1.18,
+        "depth": 0,
+        "rules_fired": {},
+        "rules_in_proof": {},
+        "tools_used": [
+          "ddar"
+        ],
+        "tool_calls": {
+          "ddar": 1
+        },
+        "aux": [],
+        "ddar_calls": 1,
+        "failure_reason": "deduction engine failed: TypeError: unhashable type: 'LineMerge'",
+        "load_time": 0.761
+      },
+      "revised": {
+        "name": "latvia/national/2017-18_68/grade12/p2",
+        "config": "full-deduction",
+        "solved": false,
+        "proof": null,
+        "wall_time": 61.081,
+        "peak_memory_mb": 190.8,
+        "cpu_time": 60.87,
+        "depth": 0,
+        "rules_fired": {},
+        "rules_in_proof": {},
+        "tools_used": [],
+        "tool_calls": {},
+        "aux": [],
+        "ddar_calls": 0,
+        "failure_reason": "time limit (60s)",
+        "load_time": 1.028,
+        "baseline_record_sha256": "97c946dacd522ec18bafd9096dd24575193b71b9ec5c9015850d527d96066116"
+      }
+    },
+    {
+      "original": {
+        "name": "latvia/national/2022-23_73/grade11/p3",
+        "config": "full-deduction",
+        "solved": false,
+        "proof": null,
+        "wall_time": 5.53,
+        "peak_memory_mb": 187.3,
+        "cpu_time": 5.51,
+        "depth": 0,
+        "rules_fired": {},
+        "rules_in_proof": {},
+        "tools_used": [
+          "ddar"
+        ],
+        "tool_calls": {
+          "ddar": 1
+        },
+        "aux": [],
+        "ddar_calls": 1,
+        "failure_reason": "deduction engine failed: TypeError: unhashable type: 'LineMerge'",
+        "load_time": 0.756
+      },
+      "revised": {
+        "name": "latvia/national/2022-23_73/grade11/p3",
+        "config": "full-deduction",
+        "solved": false,
+        "proof": null,
+        "wall_time": 61.166,
+        "peak_memory_mb": 213.9,
+        "cpu_time": 60.92,
+        "depth": 0,
+        "rules_fired": {},
+        "rules_in_proof": {},
+        "tools_used": [],
+        "tool_calls": {},
+        "aux": [],
+        "ddar_calls": 0,
+        "failure_reason": "time limit (60s)",
+        "load_time": 1.068,
+        "baseline_record_sha256": "e9856ddeb5fcac6eb109da7f8dcff628421a46d39bc3af4e9fbc4abaca6476c5"
+      }
+    },
+    {
+      "original": {
+        "name": "latvia/national/2024-25_75/grade09/p2",
+        "config": "full-deduction",
+        "solved": false,
+        "proof": null,
+        "wall_time": 1.056,
+        "peak_memory_mb": 185.6,
+        "cpu_time": 1.03,
+        "depth": 0,
+        "rules_fired": {},
+        "rules_in_proof": {},
+        "tools_used": [
+          "ddar"
+        ],
+        "tool_calls": {
+          "ddar": 1
+        },
+        "aux": [],
+        "ddar_calls": 1,
+        "failure_reason": "deduction engine failed: TypeError: unhashable type: 'LineMerge'",
+        "load_time": 0.762
+      },
+      "revised": {
+        "name": "latvia/national/2024-25_75/grade09/p2",
+        "config": "full-deduction",
+        "solved": true,
+        "proof": "# Problem setup:\n\n## Points\n\n- A(0.4127, 0.5303)\n- B(0.9202, 0.6639)\n- C(0.5468, 1.2823)\n- D(0.7510, 0.6194)\n- E(0.5818, 0.5749)\n- F(0.6999, 0.7851)\n- M(0.4797, 0.9063)\n\n## Assumptions:\n\n[C0] : A, B, E are collinear\n[C1] : A, B, D are collinear\n[C2] : B, F, M are collinear\n[C3] : C, D, F are collinear\n[C4] : DE = AE\n[C5] : M is the midpoint of AC\n\n## Numerical checks\n\n[N0] : A ≠ B\n[N1] : B, E, M are not collinear\n\n\n# Goals\n\nBF = FM : Proved [7]\n\n\n# Proof:\n\n000. | A, B, E are collinear, A, B, D are collinear, A ≠ B =(Direct consequence)> B, D, E are collinear [0]\n001. | C, D, F are collinear [C3] =(r82 Parallel from collinear)> DF ∥ CD [1]\n002. | A, B, E are collinear, A, B, D are collinear, A ≠ B =(Direct consequence)> A, D, E are collinear [2]\n003. | A, D, E are collinear [2], DE = AE [C4] =(r54 Definition of midpoint)> E is the midpoint of AD [3]\n004. | E is the midpoint of AD [3], M is the midpoint of AC [C5] =(r06 Base of half triangle)> EM ∥ CD [4]\n005. | DF ∥ CD [1], EM ∥ CD [4] =(AR Deduction)> EM ∥ DF [5]\n006. | B, D, E are collinear [0], B, F, M are collinear [C2], B, E, M are not collinear [N1], EM ∥ DF [5] =(r07 Thales Theorem I)> BD:BF = DE:FM [6]\n007. | BD:BF = DE:FM [6] =(AR Deduction)> BF = FM [7]\n\n\n# Appendix: AR deductions:\n\n\n\n005. | Angle Chasing to prove EM ∥ DF:\n| Premise DF ∥ CD gives a linear equation with coefficients {}\n| Premise EM ∥ CD gives a linear equation with coefficients {}\nWe are left with a linear equation with coefficients {} that gives EM ∥ DF\n\n\n\n007. | Ratio Chasing to prove BF = FM:\n| Premise BD:BF = DE:FM gives a linear equation with coefficients {}\nWe are left with a linear equation with coefficients {} that gives BF = FM\n\nEnd of proof.",
+        "wall_time": 50.821,
+        "peak_memory_mb": 204.3,
+        "cpu_time": 50.68,
+        "depth": 0,
+        "rules_fired": {
+          "AR:ratio": 71,
+          "r54": 2,
+          "r55": 1,
+          "r56": 1,
+          "r79": 90,
+          "r82": 21,
+          "AR:angle": 861,
+          "r06": 1,
+          "r07": 5,
+          "r52": 5,
+          "r71": 2
+        },
+        "rules_in_proof": {
+          "r82": 1,
+          "r54": 1,
+          "r06": 1,
+          "AR:angle": 1,
+          "r07": 1,
+          "AR:ratio": 1
+        },
+        "tools_used": [
+          "ddar"
+        ],
+        "tool_calls": {
+          "ddar": 1
+        },
+        "aux": [],
+        "ddar_calls": 1,
+        "failure_reason": null,
+        "load_time": 1.083,
+        "baseline_record_sha256": "f91a8c8cdc198dd133aac7dd940a39fc95915c6ff724395094a0e8bc6a88c94b"
+      }
+    }
+  ],
+  "independent_replay": {
+    "config": "full-deduction",
+    "name": "latvia/national/2024-25_75/grade09/p2",
+    "solved": true,
+    "depth": 0,
+    "wall_time": 49.931,
+    "exact_transcript_match": true
+  },
+  "newclid_examples": {
+    "rule_r29_not_found_disguise": {
+      "solved": false,
+      "failure_reason": "DDAR saturated and no proposer tools are enabled",
+      "wall": 2.918,
+      "proof": null
+    },
+    "ar_example_paper_ratio_chasing": {
+      "solved": true,
+      "failure_reason": null,
+      "wall": 10.669,
+      "proof": "# Problem setup:\n\n## Points\n\n- A(0.4127, 0.5303)\n- B(0.9202, 0.6639)\n- C(0.5468, 1.2823)\n- D(0.4797, 0.9063)\n- E(0.6652, 0.8042)\n- F(0.6389, 1.7989)\n\n## Assumptions:\n\n[C0] : B, D, E are collinear\n[C1] : ∠(AB,AE) = ∠(AE,AC)\n[C2] : D is the midpoint of AC\n[C3] : A, C, F are collinear\n\n## Numerical checks\n\n[N0] : A ≠ C\n[N1] : A, B, D are not collinear\n\n\n# Goals\n\nAB = CF : Proved [5]\n\n\n# Proof:\n\n000. | D is the midpoint of AC [C2] =(r56 Properties of midpoint (coll))> A, C, D are collinear [0]\n001. | A, C, D are collinear, A, C, F are collinear, A ≠ C =(Direct consequence)> A, D, F are collinear [1]\n002. | A, D, F are collinear [1] =(r82 Parallel from collinear)> AD ∥ AF [2]\n003. | ∠(AB,AE) = ∠(AE,AC) [C1], AD ∥ AF [2] =(AR Deduction)> ∠(AB,AE) = ∠(AE,AD) [3]\n004. | B, D, E are collinear [C0], ∠(AB,AE) = ∠(AE,AD) [3], A, B, D are not collinear [N1] =(r12 Bisector theorem II)> AB:AD = BE:DE [4]\n005. | AB:AD = BE:DE [4] =(AR Deduction)> AB = CF [5]\n\n\n# Appendix: AR deductions:\n\n\n\n003. | Angle Chasing to prove ∠(AB,AE) = ∠(AE,AD):\n| Premise ∠(AB,AE) = ∠(AE,AC) gives a linear equation with coefficients {}\n| Premise AD ∥ AF gives a linear equation with coefficients {}\nWe are left with a linear equation with coefficients {} that gives ∠(AB,AE) = ∠(AE,AD)\n\n\n\n005. | Ratio Chasing to prove AB = CF:\n| Premise AB:AD = BE:DE gives a linear equation with coefficients {}\nWe are left with a linear equation with coefficients {} that gives AB = CF\n\nEnd of proof."
+    },
+    "b23_may_need_BUILT_IN_FNS": {
+      "solved": false,
+      "failure_reason": "time limit (60s)",
+      "wall": 61.98,
+      "proof": null
+    }
+  }
+}

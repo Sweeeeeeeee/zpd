@@ -11,6 +11,7 @@ from statistics import median
 from string import Template
 
 from bench.eval_proposers import problems
+from bench.latvia.domain_results import POLICIES, complete_coverage, full_domain_results
 from pipeline.hf_tool import normalize_preds
 from zpd_darbs.scripts.make_figures import BENCH_MODELS, SETS, bench_records
 
@@ -176,7 +177,8 @@ def main():
     translations = Counter(row["stage"] for row in corpus)
     accepted_by_decision = sum(r["stage"] == "accepted" and bool(r["decision"].strip()) for r in corpus)
     accepted_automatically = translations["accepted"] - accepted_by_decision
-    result = dict(common50=common, full=full, completed_training=run, paired_mid_mini_long=paired, proofs=benchmarks, ag1_smoke=ag1,
+    latvia = full_domain_results(RESULTS / "latvia-domains")
+    result = dict(latvia_full_domain=latvia, common50=common, full=full, completed_training=run, paired_mid_mini_long=paired, proofs=benchmarks, ag1_smoke=ag1,
                   training_prompt_overlaps=overlaps, training_split_audit=split_audit,
                   paired_small_checkpoints=paired_checkpoints, translations=translations,
                   accepted_automatically=accepted_automatically, accepted_by_decision=accepted_by_decision)
@@ -217,6 +219,20 @@ def main():
         pair = benchmarks[suite]["paired_checkpoint_proofs"]
         data[label + "_lost"] = len(pair["interim_only"])
         data[label + "_gained"] = len(pair["final_only"])
+    data.update(latvia_cases=latvia["cases"], latvia_common=latvia["proved_by_all"],
+                latvia_any=latvia["proved_by_any"])
+    data["latvia_rows"] = "\n".join(
+        f'<tr><th scope="row">{POLICIES[key]}</th><td>{counts["proved"]}</td>'
+        f'<td>{counts["with_aux"]}</td><td>{counts["timeouts"]}</td><td>{counts["errors"]}</td>'
+        f'<td>{counts["saturated"]}</td><td>{counts["other"]}</td></tr>'
+        for key, counts in latvia["policies"].items()
+    )
+    finished_path = RESULTS / "latvia-domains/completed/summary.json"
+    data["complete_domain_table"] = ""
+    complete_paper = ""
+    if finished_path.is_file():
+        finished = json.loads(finished_path.read_text())
+        data["complete_domain_table"], complete_paper = complete_coverage(finished, latvia["cases"])
     data["checkpoint_proofs"] = "\n".join(proof_table)
     data.update(final_step=f'{run["step"]:,}', final_top1=run["top1"], final_top4=run["top4"],
                 aux_local=aux["repeat_union"], aux_models=aux["local_two_model_union"],
@@ -230,6 +246,23 @@ def main():
     data["changed"] = sum(len(b["changed"]) for b in benchmarks.values())
     template = Template((ROOT / "bench/results-template.html").read_text())
     (page / "index.html").write_text(template.substitute(data))
+    full_deduction = latvia["policies"]["deduction"]
+    full_heuristics = latvia["policies"]["heuristics"]
+    full_combined = latvia["policies"]["combined"]
+    paragraph = (
+        f"Pilnajā 70 likumu jomā ar algebrisko spriešanu pārbaudīti {latvia['cases']} pieņemtie "
+        f"Latvijas olimpiāžu uzdevumu tulkojumi. Visas trīs meklēšanas stratēģijas pierādīja "
+        f"vienus un tos pašus {latvia['proved_by_all']} uzdevumus. Visos šajos pierādījumos pietika "
+        "ar formalizācijā dotajiem punktiem. Vienā mēģinājumā meklēšanai atvēlēja 60~s. "
+        f"Dedukcija vien laika limitu sasniedza {full_deduction['timeouts']} reizi, "
+        f"meklēšana ar heiristikām -- {full_heuristics['timeouts']} reizes, bet ar modeli un "
+        f"heiristikām -- {full_combined['timeouts']} reizes. Katrā stratēģijā "
+        f"{full_deduction['errors']} mēģinājumi apstājās dzinēja kļūdas dēļ, apvienojot taisnes. "
+        "Atsevišķā pārbaudē ar laboto dzinēju no četriem šādiem gadījumiem pierādīts viens "
+        "-- 2024./25.~gada valsts olimpiādes 9.~klases 2.~uzdevums. Tajā mediānas viduspunktu "
+        "iegūst ar trijstūra viduslīnijas teorēmu. Pārējos trīs mēģinājumos sasniegts laika limits.\n"
+    )
+    (ROOT / "zpd_darbs/tables/latvia_full.tex").write_text(paragraph.rstrip() + complete_paper + "\n")
     imo = benchmarks["imo"]
     s = full["mid"]
     report = (

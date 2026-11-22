@@ -1,4 +1,35 @@
 {
+  "latvia_full_domain": {
+    "cases": 65,
+    "policies": {
+      "deduction": {
+        "with_aux": 0,
+        "timeouts": 31,
+        "errors": 10,
+        "saturated": 4,
+        "other": 0,
+        "proved": 20
+      },
+      "heuristics": {
+        "with_aux": 0,
+        "timeouts": 35,
+        "errors": 10,
+        "saturated": 0,
+        "other": 0,
+        "proved": 20
+      },
+      "combined": {
+        "with_aux": 0,
+        "timeouts": 35,
+        "errors": 10,
+        "saturated": 0,
+        "other": 0,
+        "proved": 20
+      }
+    },
+    "proved_by_all": 20,
+    "proved_by_any": 20
+  },
   "common50": {
     "mini": {
       "n": 50,
