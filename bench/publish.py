@@ -277,6 +277,25 @@ def main():
     if finished_path.is_file():
         finished = json.loads(finished_path.read_text())
         data["complete_domain_table"], complete_paper = complete_coverage(finished, latvia["cases"])
+        schedule_path = RESULTS / "latvia-domains/execution/baseline.json"
+        if schedule_path.is_file():
+            schedule = json.loads(schedule_path.read_text())
+            initial = sum(len(names) for names in schedule["completed_before_parallel"].values())
+            workers = schedule["workers"]
+            if initial + len(schedule["scheduled_cases"]) != finished["runs"]:
+                raise ValueError("The execution schedule does not cover the completed study")
+            data["complete_domain_table"] += (
+                f"<p>The first {initial} cases ran one at a time. Later, up to {workers} independent cases ran "
+                "on separate physical cores while the laptop had external power. Contention can affect elapsed times "
+                "and outcomes near the 60-second limit. "
+                '<a href="https://github.com/Sweeeeeeeee/zpd/tree/main/results/latvia-domains/execution">'
+                "Execution intervals for each case</a>.</p>"
+            )
+            complete_paper += (
+                f" Pirmos {initial} mēģinājumus izpildīja secīgi. Turpmāk, kad dators bija pievienots "
+                f"elektrotīklam, vienlaikus izpildīja līdz {workers} mēģinājumiem uz atsevišķiem procesora kodoliem. "
+                "Vienlaicīga slodze var ietekmēt izpildes laiku un iznākumu pie 60~s robežas."
+            )
     data["checkpoint_proofs"] = "\n".join(proof_table)
     data.update(final_step=f'{run["step"]:,}', final_top1=run["top1"], final_top4=run["top4"],
                 aux_local=aux["repeat_union"], aux_models=aux["local_two_model_union"],
