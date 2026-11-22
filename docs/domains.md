@@ -115,8 +115,7 @@ No problem solved by the old Python run is lost. `full` loses one problem
 that the default rules solve (`ar_example_paper_angle_chasing`): with 12 more
 rules it hits the 60 s limit. The remaining crashes are the 4 intended
 unbuildable figures (`breaking_cc_*`), 3–4 problems that hit another Newclid
-bug (`unhashable type: 'LineMerge'` when a proof step is a line merge; not
-fixed), `acompute_test` (a goal type the Python AR cannot justify), and
+line-merge bug (see the recovery checks below), `acompute_test` (a goal type the Python AR cannot justify), and
 timeouts.
 
 ## Frozen Latvian scan design
@@ -137,3 +136,18 @@ PYTHONHASHSEED=0 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
 ```
 
 Only rows marked `accepted` in the translation review table enter the scan. The 22 November working set has 65 such rows, giving 1,170 solves across 18 configurations. Add `--prepare-only` to check the installed solver, weights and inputs before starting. Each completed run writes its proof or failure reason, rule counts, auxiliary constructions and measured resource use into `records/<configuration>/<problem ID>.json`. The same command resumes after interruption. If the corpus, solver sources, numerical package versions or frozen settings change, start a new output directory to keep the measurements comparable. The final `summary.json` counts proved, unproved and crashed runs by configuration. A timed-out search has an unknown mathematical outcome.
+
+### Checking line and circle merges
+
+The frozen 22 November scan used commit `c5ae501`. Newclid 3.0.1 can raise `TypeError: unhashable type: 'LineMerge'` while matching a rule or checking a goal. Its proof writer can also cite only the last incidence fact when several facts established that two lines or two circles coincide. For example, knowing that A, B and D are collinear and that A, D and E are collinear establishes that B, D and E are collinear. Both premises and the condition that A and D are distinct belong in the proof.
+
+The project’s Python solver now constructs a proof from the established incidence facts. Two distinct common points suffice to merge lines. For circles, the solver checks for three noncollinear common points. The witness and every supporting fact appear in the proof transcript. The regression tests cover both geometries and attempted merges with too few shared points.
+
+To revisit affected records, run the following from the corrected checkout. Use the original scan as the first argument and a separate persistent directory for the paired results.
+
+```sh
+PYTHONHASHSEED=0 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
+  python -m bench.latvia.retry_merges /path/to/original-scan /path/to/merge-retries
+```
+
+The runner selects the recorded line-merge exceptions and proofs whose transcripts use the original line or circle merge step. It verifies the corpus, configuration, model and runtime fingerprints before running. Each retry retains the SHA-256 of its source record. Add `--limit 4` for up to four new solves. Rerunning the command picks up additional completed baseline cells. The derived `report.json` identifies the number of original measurements available and the number of affected cases retried.

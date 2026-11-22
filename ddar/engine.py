@@ -2,7 +2,7 @@
 
 engine "yuclid": Newclid's C++ engine (stock rules, AR on).
 engine "python": Newclid's DDARN + SymPy AR with the configured rules. Newclid
-3.0.1's Python engine has three bugs; they are handled here, without
+3.0.1's Python engine needs several compatibility fixes here, without
 modifying or monkeypatching Newclid:
 
 1. Rules r34-r37, r52, r53, r60-r63 have premises like `diff A B C`, but
@@ -23,7 +23,8 @@ from __future__ import annotations
 import itertools
 
 import sympy as sp
-from newclid.api import GeometricSolverBuilder, PythonDefault
+from newclid.agent.ddarn import DDARN
+from newclid.api import GeometricSolver, GeometricSolverBuilder
 from newclid.deductors.sympy_ar import ar_predicates
 from newclid.deductors.sympy_ar.algebraic_manipulator import SympyARDeductor
 from newclid.numerical import close_enough
@@ -33,6 +34,7 @@ from newclid.problem import PredicateConstruction
 from newclid.rule import Rule
 from newclid.rule_matching.mapping_matcher import FilterMapper, MappingMatcher
 
+from ddar.incidence import IncidenceProofState
 from ddar.rule_config import DDARConfig
 
 
@@ -167,10 +169,10 @@ def build_solver(problem_setup, config: DDARConfig, seed: int = 0):
 
         builder = GeometricSolverBuilder(rng=seed, api_default=HEDefault())
         return builder.with_rules(config.rules()).build(problem_setup)
-    builder = GeometricSolverBuilder(rng=seed, api_default=PythonDefault(use_sympy_ar=config.ar))
-    return (
-        builder.with_rules([prepare_rule(r) for r in config.rules()])
-        .with_rule_matcher(MappingMatcher(SkipDegenerateMapper()))
-        .with_deductors([ARDeductor()] if config.ar else [])
-        .build(problem_setup)
+    proof = IncidenceProofState(
+        problem=problem_setup,
+        rule_matcher=MappingMatcher(SkipDegenerateMapper()),
+        deductors=[ARDeductor()] if config.ar else [],
+        rng=seed,
     )
+    return GeometricSolver(proof, [prepare_rule(r) for r in config.rules()], DDARN())
