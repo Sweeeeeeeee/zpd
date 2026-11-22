@@ -12,7 +12,7 @@ The three Geo-LM checkpoints each saw the first 200 GenesisGeo validation cases 
 
 **Strict top 4** counts a case when at least one prediction matches the declared point and the reference predicates, keeping argument order and multiplicity. Predicate order and formatting are normalized. Empty reference predicates count as misses. This can undercount geometrically equivalent proposals. **Legacy top 4** uses the original evaluator’s unordered argument sets and ignores the declared point. Neither score tests whether a construction yields a proof.
 
-[Prediction rows](../proposers/local-cpu/) include all four beams. [summary.json](summary.json) contains the numerator, denominator, timing median and baseline agreement for the published tables. Model source and weight locations are listed in the [registry](../../models/registry.json).
+[Prediction rows](../proposers/local-cpu/) include all four beams. [summary.json](summary.json) contains the numerator, denominator, timing median and baseline agreement for the published tables. The paired mid and mini_long counts use the same 200 case IDs and the strict top-four criterion for each model. Model source and weight locations are listed in the [registry](../../models/registry.json).
 
 The separate AlphaGeometry smoke run completed the first three cases under a 4 GiB memory limit and two cores of CPU quota. An initial attempt stopped before the third prediction when the adapter encountered the reverse-congruence predicate `contrir`. After the adapter fix, the first two prompt strings were checked against the original code and the third case resumed. The stored rows include the model-loading time for each part. This sample checks compatibility only.
 

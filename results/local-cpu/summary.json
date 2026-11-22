@@ -83,6 +83,12 @@
       "seconds": 13.64
     }
   },
+  "paired_mid_mini_long": {
+    "both": 113,
+    "mid_only": 16,
+    "mini_long_only": 12,
+    "neither": 59
+  },
   "proofs": {
     "jgex_ag_231": {
       "n": 231,

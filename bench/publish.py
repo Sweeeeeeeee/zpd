@@ -33,14 +33,14 @@ def construction(text):
     return None
 
 
+def strict_hits(row):
+    reference = construction(row["gold"])
+    return [reference is not None and construction(beam) == reference for beam in row["beams"]]
+
+
 def score(rows):
-    strict = []
-    relaxed = 0
-    for row in rows:
-        reference = construction(row["gold"])
-        hits = [reference is not None and construction(beam) == reference for beam in row["beams"]]
-        strict.append(hits)
-        relaxed += any(row["exact"])
+    strict = [strict_hits(row) for row in rows]
+    relaxed = sum(any(row["exact"]) for row in rows)
     return dict(n=len(rows), top1=sum(bool(h) and h[0] for h in strict),
                 top4=sum(any(h) for h in strict), relaxed=relaxed,
                 empty=sum(construction(r["gold"]) is None for r in rows),
@@ -101,13 +101,19 @@ def main():
     with (ROOT / "data/genesisgeo/train.txt").open() as stream:
         train = {line.partition("<aux>")[0].strip() for line in stream}
     overlaps = sum(problem in train for problem, _, _ in source)
-    common, full = {}, {}
+    common, full, matched = {}, {}, {}
     for name, n in MODELS.items():
         rows = read_rows(RESULTS / "proposers/local-cpu" / f"{name}.jsonl")
         if ([r["i"] for r in rows] != list(range(n)) or
                 [r["gold"] for r in rows] != references[:n]):
             raise ValueError(f"Incomplete or inconsistent sample for {name}")
         common[name], full[name] = score(rows[:50]), score(rows)
+        matched[name] = {row["i"] for row in rows if any(strict_hits(row))}
+
+    mid_hits, long_hits = matched["mid"], matched["mini_long"]
+    paired = dict(both=len(mid_hits & long_hits), mid_only=len(mid_hits - long_hits),
+                  mini_long_only=len(long_hits - mid_hits),
+                  neither=len(source) - len(mid_hits | long_hits))
 
     smoke_rows = read_rows(RESULTS / "proposers/local-cpu/ag1-smoke.jsonl")
     if [r["gold"] for r in smoke_rows] != references[:3] or [r["i"] for r in smoke_rows] != [0, 1, 2]:
@@ -118,7 +124,7 @@ def main():
     gains = jgex["gains"]
     with (ROOT / "problems/latvia/geometry_translated/status.csv").open() as f:
         translations = Counter(row["stage"] for row in csv.DictReader(f))
-    result = dict(common50=common, full=full, proofs=benchmarks, ag1_smoke=ag1,
+    result = dict(common50=common, full=full, paired_mid_mini_long=paired, proofs=benchmarks, ag1_smoke=ag1,
                   training_prompt_overlaps=overlaps, translations=translations)
     (RESULTS / "local-cpu/summary.json").write_text(json.dumps(result, indent=2) + "\n")
 
@@ -132,7 +138,7 @@ def main():
                            for k, b in benchmarks.items())
     page = ROOT / "docs/results"
     page.mkdir(exist_ok=True)
-    data = dict(proofs=proof_rows, common=model_rows(common),
+    data = dict(proofs=proof_rows, common=model_rows(common), **paired,
                 full=model_rows({k:v for k, v in full.items() if v["n"] == 200}),
                 empty50=common["mid"]["empty"], empty200=full["mid"]["empty"], overlaps=overlaps,
                 mid=full["mid"]["top4"], ag1=ag1["top4"], agseconds=ag1["seconds"], union=jgex["repeat_union"],
@@ -155,6 +161,9 @@ def main():
         rf"Modelim \texttt{{mid}} pirmais piedāvājums sakrita {s['top1']} gadījumos, vismaz viens "
         f"no četriem -- {s['top4']} gadījumos. Iepriekš lietotais brīvākais kritērijs tajās pašās "
         f"prognozēs deva {s['relaxed']} sakritības no 200. "
+        rf"Salīdzinot ar \texttt{{mini\_long}}, abiem modeļiem sakritība pirmajos četros "
+        rf"piedāvājumos bija {paired['both']} piemēros, tikai \texttt{{mid}} -- {paired['mid_only']}, "
+        rf"tikai \texttt{{mini\_long}} -- {paired['mini_long_only']}, bet nevienam -- {paired['neither']}. "
         f"Pirmajos 50 piemēros stingrais četru piedāvājumu rādītājs bija {common['mid']['top4']}/50 "
         rf"modelim \texttt{{mid}}, {common['GenesisGeo']['top4']}/50 modelim GenesisGeo un "
         f"{common['SmolLM2-360M-Instruct']['top4']}/50 modelim SmolLM2-360M. "
