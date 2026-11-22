@@ -28,8 +28,10 @@ import csv
 import hashlib
 import json
 import shutil
+import stat
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -37,6 +39,7 @@ GT = ROOT / "problems/latvia/geometry_translated"
 WORK = GT / "_work"
 PY = sys.executable
 VERSIONS = ("A", "B")
+DEFAULT_CONFIG = "pipeline/configs/domains/full.json"
 
 
 def working_set() -> list[dict]:
@@ -68,6 +71,14 @@ def cached(out: Path, h: str) -> dict | None:
         d = json.loads(out.read_text())
         if d.get("hash") == h:
             return d
+    return None
+
+
+def cached_solve(out: Path, source_hash: str, config: str, time_s: float) -> dict | None:
+    result = cached(out, source_hash)
+    if result and result.get("config") == config and result.get("time_s") == time_s:
+        if isinstance(result.get("solved"), bool) and "crash" not in str(result.get("failure")).lower():
+            return result
     return None
 
 
@@ -104,7 +115,7 @@ def run_solve(rows: list[dict], config: str, time_s: float) -> None:
             out = WORK / "solve" / f"{r['rel']}.{v}.json"
             h = digest(p)
             problem = problem_line(p)
-            if cached(out, h) or problem is None:
+            if cached_solve(out, h, config, time_s) or problem is None:
                 continue
             try:
                 res = solve(problem, config, Budget(time_s=time_s, memory_mb=2048))
@@ -123,7 +134,8 @@ def verdict(rel: str, v: str) -> str:
     return p.read_text().strip().splitlines()[0].strip() if p.exists() and p.read_text().strip() else ""
 
 
-def write_status(rows: list[dict]) -> None:
+def write_status(rows: list[dict], config: str = DEFAULT_CONFIG, time_s: float = 60,
+                 *, partial: bool = False) -> None:
     out = GT / "status.csv"
     old = {}
     if out.exists():
@@ -150,7 +162,7 @@ def write_status(rows: list[dict]) -> None:
                 flags.append(f"{v} untranslatable: {why}")
                 continue
             c = cached(WORK / "checks" / f"{rel}.{v}.json", digest(p)) or {}
-            s = cached(WORK / "solve" / f"{rel}.{v}.json", digest(p)) or {}
+            s = cached_solve(WORK / "solve" / f"{rel}.{v}.json", digest(p), config, time_s) or {}
             row[f"dof_{v}"] = c.get("dof", "").split(": ", 1)[-1]
             row[f"solved_{v}"] = s.get("solved", "")
             row[f"D_{v}"] = verdict(rel, v)
@@ -185,10 +197,21 @@ def write_status(rows: list[dict]) -> None:
         else:
             row["stage"] = "review" if row["auto"] == "review" else "accepted"
         table.append(row)
-    with open(out, "w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=fields)
-        w.writeheader()
-        w.writerows(table)
+    if partial:
+        old.update((r["id"], r) for r in table)
+        table = list(old.values())
+    with tempfile.NamedTemporaryFile("w", dir=out.parent, newline="", delete=False) as f:
+        temp_path = Path(f.name)
+        try:
+            writer = csv.DictWriter(f, fieldnames=fields)
+            writer.writeheader()
+            writer.writerows(table)
+            f.flush()
+            if out.exists():
+                temp_path.chmod(stat.S_IMODE(out.stat().st_mode))
+            temp_path.replace(out)
+        finally:
+            temp_path.unlink(missing_ok=True)
     n = {}
     for row in table:
         n[row["stage"]] = n.get(row["stage"], 0) + 1
@@ -198,7 +221,7 @@ def write_status(rows: list[dict]) -> None:
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("what", choices=["checks", "solve", "status"])
-    ap.add_argument("--config", default="pipeline/configs/domains/full.json")
+    ap.add_argument("--config", default=DEFAULT_CONFIG)
     ap.add_argument("--time", type=float, default=60.0)
     ap.add_argument("--only", help="ids containing this text")
     ap.add_argument("--shard", default="0/1", help="i/n: only every n-th problem, starting at i (parallel workers)")
@@ -212,7 +235,10 @@ def main() -> None:
     elif a.what == "solve":
         run_solve(rows, a.config, a.time)
     else:
-        write_status(rows)
+        partial = bool(a.only)
+        if partial and not (GT / "status.csv").exists():
+            rows = working_set()
+        write_status(rows, a.config, a.time, partial=partial)
 
 
 if __name__ == "__main__":
