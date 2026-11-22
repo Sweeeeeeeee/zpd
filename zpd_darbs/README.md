@@ -39,6 +39,17 @@ docker run --rm --network none --user "$(id -u):$(id -g)" -e HOME=/tmp \
   latexmk -pdf -interaction=nonstopmode -halt-on-error template_preliminary.tex
 ```
 
+To build the presentation with the same image, run these commands from `zpd_darbs/` with the project environment activated:
+
+```sh
+make PY="$(command -v python)" publication
+python scripts/presentation_data.py
+docker run --rm --network none --user "$(id -u):$(id -g)" -e HOME=/tmp \
+  -e SOURCE_DATE_EPOCH=1795305600 -e FORCE_SOURCE_DATE=1 \
+  -v "$PWD:/paper" -w /paper/prezentacija zpd-paper-local \
+  latexmk -lualatex -interaction=nonstopmode -halt-on-error prezentacija.tex
+```
+
 ## Public research draft
 
 The paper uses the class’s `nolabels` option to hide editorial annotations. Unknown author and supervisor names are explicitly left unspecified for this public draft. The blank template retains its teaching annotations. The local replication paragraph comes from `tables/local_eval.tex`; regenerate it with `python -m bench.publish` at the repository root before rebuilding the PDF.

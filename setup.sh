@@ -63,6 +63,15 @@ if [ "$TEX" = 1 ] && ! command -v latexmk >/dev/null; then
   PKGS+=(latexmk lmodern texlive-latex-base texlive-latex-recommended texlive-latex-extra
          texlive-fonts-recommended texlive-lang-european texlive-pictures texlive-xetex)
 fi
+if [ "$TEX" = 1 ]; then
+  # Some TeX installations include the Lua engine but omit its font loader.
+  if ! command -v lualatex >/dev/null || ! kpsewhich luaotfload-main.lua >/dev/null 2>&1; then
+    PKGS+=(texlive-luatex)
+  fi
+  if ! dpkg-query -W -f='${db:Status-Abbrev}\n' 'fonts-liberation*' 2>/dev/null | grep -q '^ii '; then
+    PKGS+=(fonts-liberation)
+  fi
+fi
 if [ "$EXTRACT" = 1 ] && ! command -v pdftotext >/dev/null; then
   PKGS+=(poppler-utils antiword catdoc libreoffice-core libreoffice-writer)
 fi
