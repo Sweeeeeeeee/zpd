@@ -1,0 +1,89 @@
+{
+  "revised_inputs_sha256": "0614211e6be01253f71e3e7b4da44a8aec0a2e3d89cf05a0ac617416da007ad9",
+  "selection": "Every revised AR-on timeout",
+  "time_s": 180,
+  "memory_mib": 2048,
+  "rows": [
+    {
+      "name": "latvia/open/2001-02_29/grade10/p4",
+      "config": "full-deduction",
+      "prior_record_sha256": "5385bfbf6e879632ab7d65ac05fbc19ac2b7316c31c44ee9bebd30a6d06ec0f2",
+      "solved": true,
+      "proof": "# Problem setup:\n\n## Points\n\n- A(-2.0081, -1.4301)\n- B(0.2739, -0.4604)\n- C(0.0976, -1.9013)\n- E(-0.6800, -1.7273)\n- M(-0.9181, -0.9669)\n- N(0.2415, -0.7257)\n- O(-0.8192, -1.0579)\n\n## Assumptions:\n\n[C0] : EN = AE\n[C1] : EM = CE\n[C2] : AM = MN\n[C3] : ∠(BM,BN) = 1pi/3\n[C4] : CN = MN\n[C5] : AN ⟂ EM\n[C6] : CM ⟂ EN\n\n## Numerical checks\n\n[N0] : A, E, N are not collinear\n[N1] : C, E, M are not collinear\n[N2] : A, M, N are not collinear\n[N3] : C, M, N are not collinear\n\n\n# Goals\n\nA, N, O are collinear : Proved [14]\nC, M, O are collinear : Proved [16]\n\n\n# Proof:\n\n000. | EN = AE [C0], A, E, N are not collinear [N0] =(r13 Isosceles triangle equal angles)> ∠(AE,AN) = ∠(AN,EN) [0]\n001. | EM = CE [C1], C, E, M are not collinear [N1] =(r13 Isosceles triangle equal angles)> ∠(CE,CM) = ∠(CM,EM) [1]\n002. | ∠(AE,AN) = ∠(AN,EN) [0], ∠(CE,CM) = ∠(CM,EM) [1] =(AR Deduction)> AE ∥ CE [2]\n003. | AE ∥ CE [2] =(r28 Overlapping parallels)> A, C, E are collinear [3]\n004. | A, C, E are collinear [3] =(r82 Parallel from collinear)> AC ∥ AE [4]\n005. | AM = MN [C2], A, M, N are not collinear [N2] =(r13 Isosceles triangle equal angles)> ∠(AM,AN) = ∠(AN,MN) [5]\n006. | ∠(AM,AN) = ∠(AN,MN) [5] =(AR Deduction)> AM ∥ BM [6]\n007. | AM ∥ BM [6] =(r28 Overlapping parallels)> A, B, M are collinear [7]\n008. | A, B, M are collinear [7] =(r82 Parallel from collinear)> AM ∥ AB [8]\n009. | CN = MN [C4], C, M, N are not collinear [N3] =(r13 Isosceles triangle equal angles)> ∠(CM,CN) = ∠(MN,CM) [9]\n010. | ∠(BM,BN) = 1pi/3 [C3], ∠(CM,CN) = ∠(MN,CM) [9] =(AR Deduction)> CN ∥ BN [10]\n011. | CN ∥ BN [10] =(r28 Overlapping parallels)> B, C, N are collinear [11]\n012. | B, C, N are collinear [11] =(r82 Parallel from collinear)> BN ∥ BC [12]\n013. | AC ∥ AE [4], AM ∥ AB [8], BN ∥ BC [12], AN ⟂ EM [C5] =(AR Deduction)> AN ∥ AO [13]\n014. | AN ∥ AO [13] =(r28 Overlapping parallels)> A, N, O are collinear [14]\n015. | AC ∥ AE [4], BN ∥ BC [12], CM ⟂ EN [C6] =(AR Deduction)> CO ∥ CM [15]\n016. | CO ∥ CM [15] =(r28 Overlapping parallels)> C, M, O are collinear [16]\n\n\n# Appendix: AR deductions:\n\n\n\n002. | Angle Chasing to prove AE ∥ CE:\n| Premise ∠(AE,AN) = ∠(AN,EN) gives a linear equation with coefficients {}\n| Premise ∠(CE,CM) = ∠(CM,EM) gives a linear equation with coefficients {}\nWe are left with a linear equation with coefficients {} that gives AE ∥ CE\n\n\n\n006. | Angle Chasing to prove AM ∥ BM:\n| Premise ∠(AM,AN) = ∠(AN,MN) gives a linear equation with coefficients {}\nWe are left with a linear equation with coefficients {} that gives AM ∥ BM\n\n\n\n010. | Angle Chasing to prove CN ∥ BN:\n| Premise ∠(BM,BN) = 1pi/3 gives a linear equation with coefficients {}\n| Premise ∠(CM,CN) = ∠(MN,CM) gives a linear equation with coefficients {}\nWe are left with a linear equation with coefficients {} that gives CN ∥ BN\n\n\n\n013. | Angle Chasing to prove AN ∥ AO:\n| Premise AC ∥ AE gives a linear equation with coefficients {}\n| Premise AM ∥ AB gives a linear equation with coefficients {}\n| Premise BN ∥ BC gives a linear equation with coefficients {}\n| Premise AN ⟂ EM gives a linear equation with coefficients {}\nWe are left with a linear equation with coefficients {} that gives AN ∥ AO\n\n\n\n015. | Angle Chasing to prove CO ∥ CM:\n| Premise AC ∥ AE gives a linear equation with coefficients {}\n| Premise BN ∥ BC gives a linear equation with coefficients {}\n| Premise CM ⟂ EN gives a linear equation with coefficients {}\nWe are left with a linear equation with coefficients {} that gives CO ∥ CM\n\nEnd of proof.",
+      "wall_time": 69.792,
+      "peak_memory_mb": 204.9,
+      "cpu_time": 69.61,
+      "depth": 0,
+      "rules_fired": {
+        "AR:angle": 1138,
+        "AR:ratio": 84,
+        "r13": 7,
+        "r35": 8,
+        "r37": 7,
+        "r53": 21,
+        "r60": 1,
+        "r61": 2,
+        "r64": 1,
+        "r69": 2,
+        "r72": 3,
+        "r78": 7,
+        "r79": 316,
+        "r04": 2,
+        "r28": 5,
+        "r34": 1,
+        "r52": 2,
+        "r82": 6,
+        "r12": 1
+      },
+      "rules_in_proof": {
+        "r13": 4,
+        "AR:angle": 5,
+        "r28": 5,
+        "r82": 3
+      },
+      "tools_used": [
+        "ddar"
+      ],
+      "tool_calls": {
+        "ddar": 1
+      },
+      "aux": [],
+      "ddar_calls": 1,
+      "failure_reason": null,
+      "load_time": 1.111
+    },
+    {
+      "name": "latvia/open/2001-02_29/grade10/p4",
+      "config": "full_no_ar-deduction",
+      "prior_record_sha256": "ae9235e2ce3ead7e8f3ab2cfff9537c1d71cb26214868b1c2a47a6e8a197768b",
+      "solved": false,
+      "proof": null,
+      "wall_time": 116.18,
+      "peak_memory_mb": 197.7,
+      "cpu_time": 115.9,
+      "depth": 0,
+      "rules_fired": {
+        "r13": 7,
+        "r35": 7,
+        "r37": 7,
+        "r53": 23,
+        "r72": 3,
+        "r78": 6,
+        "r79": 302,
+        "r61": 1,
+        "r69": 1
+      },
+      "rules_in_proof": {},
+      "tools_used": [
+        "ddar"
+      ],
+      "tool_calls": {
+        "ddar": 1
+      },
+      "aux": [],
+      "ddar_calls": 1,
+      "failure_reason": "DDAR saturated and no proposer tools are enabled",
+      "load_time": 1.019
+    }
+  ]
+}

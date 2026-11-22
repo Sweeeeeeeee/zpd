@@ -1,0 +1,60 @@
+{
+  "cases": 65,
+  "selected": 20,
+  "outcomes": {
+    "original": {
+      "full-deduction": {
+        "errors": 10,
+        "proved": 20,
+        "saturated": 4,
+        "timeouts": 31
+      },
+      "full_no_ar-deduction": {
+        "errors": 9,
+        "saturated": 32,
+        "timeouts": 24
+      }
+    },
+    "original_wins": {
+      "full-deduction": {
+        "proved": 20
+      },
+      "full_no_ar-deduction": {
+        "saturated": 16,
+        "timeouts": 4
+      }
+    },
+    "revised_wins": {
+      "full-deduction": {
+        "proved": 19,
+        "timeouts": 1
+      },
+      "full_no_ar-deduction": {
+        "saturated": 14,
+        "timeouts": 6
+      }
+    }
+  },
+  "rule_cases": {
+    "Angle": 20,
+    "Ratio": 9
+  },
+  "identical_revised_transcripts": 19,
+  "restored_by_construction_equations": {
+    "Ratio": 8,
+    "Angle": 2
+  },
+  "original_wins_needing_context": 19,
+  "original_appendix_steps": {
+    "Angle": {
+      "follows": 11,
+      "needs_context": 25,
+      "inconsistent_premises": 0
+    },
+    "Ratio": {
+      "follows": 3,
+      "needs_context": 9,
+      "inconsistent_premises": 0
+    }
+  }
+}

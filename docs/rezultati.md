@@ -2,6 +2,8 @@
 
 **Atkārtotā CPU pārbaude, 2026. gada 22. novembris:** [rezultātu lapa](results/index.html), [izejas dati un metode](../results/local-cpu/README.md).
 
+**Latvijas olimpiāžu uzdevumi.** Ar 70 likumiem un algebrisko spriešanu sākotnējā dedukcija 60 sekundēs pierādīja 20 no 65 uzdevumiem. Bez algebriskās spriešanas tā šajā budžetā nepierādīja nevienu. No 48 izdrukātajiem algebriskajiem soļiem 14 seko no pašā solī norādītajiem vienādojumiem. Vēl 10 pamatojami, pievienojot vienādojumus no sākotnējās konstrukcijas. [Mērījumi un piecu oficiālo risinājumu salīdzinājums](../results/latvia-domains/paired-ar/)
+
 Tālāk sniegti 2026. gada 12. novembra eksperimentu rezultāti. Visi skaitļi ņemti no repozitorija
 failiem (`results/`, `geo-lm/runs/`); avots norādīts katras sadaļas beigās.
 

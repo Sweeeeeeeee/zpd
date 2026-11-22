@@ -15,7 +15,7 @@ Three domains, each with and without AR: full (Newclid's default rules plus the 
 
 ### 7. Problem set
 Scheme agreed with the user 2026-11-12: agents do the bulk work, automatic checks catch errors, the user reviews only flagged problems, a pilot and a random audit. Scripts write a tracking CSV (problems/latvia/geometry_translated/status.csv: problem, stage, translations A/B, check results, flags, reviewer, decision).
-- [x] 7.1. Collect Latvian olympiad problems. Pull every problem (all topics) from the NMS archive (nms.lu.lv: national, regional, school and open olympiads since 1973/74, and the Baltic Way and IMO selection tests) into problems/latvia/: all/ holds every problem, one file per problem, under <competition>/<season>_<olympiad>/grade<NN>/; geometry/ holds the geometry problems with the same paths; geometry_translated/ is ready for the translations. AoPS (Latvia contests) blocks automated downloads and draws on the same olympiads, so it is not used. 6333 problems, 1499 of them geometry. (problems/latvia/README.md, bench/latvia/)
+- [x] 7.1. Collect Latvian olympiad problems. Pull every problem (all topics) from the NMS archive (nms.lu.lv: national, regional, school and open olympiads since 1973/74, and the Baltic Way and IMO selection tests) into problems/latvia/: all/ holds every problem, one file per problem, under <competition>/<season>_<olympiad>/grade<NN>/; geometry/ holds the geometry problems with the same paths; geometry_translated/ is ready for the translations. AoPS (Latvia contests) blocks automated downloads and draws on the same olympiads, so it is not used. 6333 problems, initially 1499 tagged geometry and 1498 after the source audit. (problems/latvia/README.md, bench/latvia/)
 - [x] 7.2. Sort the 1499 geometry problems (no translation yet): can Newclid state it? Plane geometry with a provable goal (yes), or solid geometry, computing a length or angle, inequality, construction, "find all", locus (no).
   - [x] 7.2a. Keyword prefilter (script; done 2026-11-12 as hints only, because "plaknē" = in the plane makes keyword rules unsafe; sorting/prefilter.csv): Latvian markers such as telpā, tetraedrs, aprēķini, atrast visus, nevienādība, konstruē remove the obvious "no" cases.
   - [x] 7.2b. Agent classification (cheap model, 8 batches, all 1499; done 2026-11-12): category, reason, confidence; problems that depend on a drawing are flagged. Result: 422 prove (statable), 209 prove_other, 182 compute, 63 inequality, 41 construction, 27 find_all, 76 existence, 302 combinatorial, 140 solid, 37 unreadable; 68 low confidence. (bench/latvia/sort_geometry.py, problems/latvia/geometry_translated/sorting/)
@@ -28,6 +28,7 @@ Scheme agreed with the user 2026-11-12: agents do the bulk work, automatic check
   - [ ] back-translation: a third agent writes the Newclid text back in plain words without the original; a fourth compares it with the Latvian statement (same hypotheses, same goal);
   - [ ] accepted automatically if both translations pass, agree after back-translation and give the same solver result; otherwise flagged for review (expected 15-25%, ~3 min each for the user). Claude settles disagreements and fixes recurring errors in the guide;
   - [ ] random audit: the user checks 10% of the automatically accepted ones; the paper reports the measured translation error rate with its confidence bound.
+- [x] 7.5f. [Audit the six preselected translations](../problems/latvia/geometry_translated/REVIEW.md#findings-for-the-six-selected-translations) against the official sources and replay 32 goal-blind drawings per case. This is an AI-assisted review.
 - [ ] 7.6. Metadata, filled by the same agents in the same pass: source, year, grade, problem number, topic (tags), official difficulty (grade and problem number as a proxy, plus scores where published), whether an official solution exists.
 
 ### 8. Transformer (independent of 7; can run in the background meanwhile)
@@ -46,9 +47,10 @@ Scheme agreed with the user 2026-11-12: agents do the bulk work, automatic check
 
 ### 10. Analysis
 - [ ] 10.1. Per domain: which problems have an easy solution, the key auxiliary point, and how easy it is (proof steps, rules used, time, memory).
-- [ ] 10.2. Compare domains: which theorem or AR makes which problems easy.
+- [ ] 10.2. Compare domains: which theorem or AR makes which problems easy. The [paired 70-rule comparison and transcript audit](../results/latvia-domains/paired-ar/) cover the full domain with and without AR.
 - [ ] 10.3. Compare sources of auxiliary points: none, heuristics, transformer.
-- [ ] 10.4. Compare with official difficulty and, for a sample, with the official solutions (same key construction or not).
+- [x] 10.4a. [Compare five solver transcripts with the official solutions](../results/latvia-domains/paired-ar/#comparison-with-official-solutions), recording when a helper was introduced and which geometric argument each proof used.
+- [ ] 10.4b. Obtain comparable official difficulty or item-level scoring data and test its relationship with solver coverage.
 - [ ] 10.5. Problems with no easy solution found: why (missing rule, needs depth 2, budget, translation).
 
 ## Write-up

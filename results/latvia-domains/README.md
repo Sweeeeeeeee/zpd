@@ -12,6 +12,8 @@ Each JSONL file has one row per accepted problem, including every proof transcri
 
 All three policies proved the same 20 problem IDs without adding a point. All three encountered the line-merge exception on the same ten IDs. The remaining outcomes apply to the configured time and search budget. A translation can already contain auxiliary points in its initial construction.
 
+The [paired AR comparison](paired-ar/) adds the matching 65 deduction-only records with algebraic reasoning off, a targeted revised-solver repeat, an audit of the printed algebra and a comparison with five official solutions.
+
 ## Reproduce and check
 
 At the baseline revision, follow the scan command in [the domain guide](../../docs/domains.md). The three configuration names are `full-deduction`, `full-heuristics` and `full-combined`. To regenerate the published comparison from the JSONL records in this directory, run `python -m bench.publish` at the current revision.

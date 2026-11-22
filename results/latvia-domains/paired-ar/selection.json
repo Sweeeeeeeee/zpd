@@ -1,0 +1,26 @@
+{
+  "baseline_sha256": "8504db27c94eef512ac2c7dca050d9f6388e9550b4eeb146d7dcc432bbbb1f0d",
+  "names": [
+    "latvia/national/1976-77_27/grade09/p1",
+    "latvia/national/1978-79_29/extra/grade10/p5",
+    "latvia/national/1982-83_33/grade11/p5",
+    "latvia/national/1993-94_44/grade09/p2",
+    "latvia/national/2001-02_52/grade09/p2",
+    "latvia/national/2015-16_66/grade09/p2",
+    "latvia/national/2016-17_67/grade11/p3",
+    "latvia/open/1976-77_04/grade10/p1",
+    "latvia/open/1999-00_27/grade10/p3",
+    "latvia/open/2001-02_29/grade10/p4",
+    "latvia/open/2002-03_30/grade07/p4",
+    "latvia/open/2021-22_47/grade09/p3",
+    "latvia/regional/1987-88_38/grade07/p2",
+    "latvia/regional/1990-91_41/grade08/p2",
+    "latvia/regional/2015-16_66/grade11/p3",
+    "latvia/regional/2021-22_72/grade12/p3",
+    "latvia/school/1987-88_38/grade07/p2",
+    "latvia/school/1999-00_50/grade10/p4",
+    "latvia/school/2001-02_52/grade08/p2",
+    "latvia/school/2010-11_61/grade09/p2"
+  ],
+  "order": "Lexical problem ID, alternating which configuration runs first."
+}

@@ -11,6 +11,10 @@ from statistics import median
 from string import Template
 
 from bench.eval_proposers import problems
+from bench.latvia.case_table import render_cases
+from bench.latvia.sample_audit import summarize as summarize_drawings
+from bench.latvia.paired_results import budget_followup
+from bench.latvia.paired_results import analyze as analyze_paired_ar
 from bench.latvia.domain_results import POLICIES, complete_coverage, full_domain_results
 from pipeline.hf_tool import normalize_preds
 from zpd_darbs.scripts.make_figures import BENCH_MODELS, SETS, bench_records
@@ -178,7 +182,15 @@ def main():
     accepted_by_decision = sum(r["stage"] == "accepted" and bool(r["decision"].strip()) for r in corpus)
     accepted_automatically = translations["accepted"] - accepted_by_decision
     latvia = full_domain_results(RESULTS / "latvia-domains")
-    result = dict(latvia_full_domain=latvia, common50=common, full=full, completed_training=run, paired_mid_mini_long=paired, proofs=benchmarks, ag1_smoke=ag1,
+    pair_folder = RESULTS / "latvia-domains/paired-ar"
+    ar_study, checked_steps = analyze_paired_ar(pair_folder)
+    if ar_study != json.loads((pair_folder / "summary.json").read_text()) or checked_steps != [
+        json.loads(line) for line in (pair_folder / "ar-steps.jsonl").read_text().splitlines()
+    ]:
+        raise ValueError("Published AR evidence differs from the independently recomputed step audit")
+    extra_budget = budget_followup(pair_folder)
+    drawings = summarize_drawings(json.loads((RESULTS / "latvia-audit/drawings.json").read_text()))
+    result = dict(latvia_translation_audit=drawings, latvia_budget_followup=extra_budget, latvia_paired_ar=ar_study, latvia_full_domain=latvia, common50=common, full=full, completed_training=run, paired_mid_mini_long=paired, proofs=benchmarks, ag1_smoke=ag1,
                   training_prompt_overlaps=overlaps, training_split_audit=split_audit,
                   paired_small_checkpoints=paired_checkpoints, translations=translations,
                   accepted_automatically=accepted_automatically, accepted_by_decision=accepted_by_decision)
@@ -221,12 +233,28 @@ def main():
         data[label + "_gained"] = len(pair["final_only"])
     data.update(latvia_cases=latvia["cases"], latvia_common=latvia["proved_by_all"],
                 latvia_any=latvia["proved_by_any"])
+    data.update(long_budget=extra_budget["time_s"], timed_repeats=extra_budget["cases"],
+                long_on=extra_budget["outcomes"]["full-deduction"].get("proved", 0),
+                long_off=extra_budget["outcomes"]["full_no_ar-deduction"].get("proved", 0))
+    data.update(drawings_ok=drawings["outcomes"]["all_goals_hold"], drawings_attempted=drawings["attempts"])
+    data["case_rows"] = render_cases(ROOT)
     data["latvia_rows"] = "\n".join(
         f'<tr><th scope="row">{POLICIES[key]}</th><td>{counts["proved"]}</td>'
         f'<td>{counts["with_aux"]}</td><td>{counts["timeouts"]}</td><td>{counts["errors"]}</td>'
         f'<td>{counts["saturated"]}</td><td>{counts["other"]}</td></tr>'
         for key, counts in latvia["policies"].items()
     )
+    on, off = "full-deduction", "full_no_ar-deduction"
+    original = ar_study["outcomes"]["original"]
+    revised = ar_study["outcomes"]["revised_wins"]
+    step_counts = ar_study["original_appendix_steps"]
+    total_steps = sum(sum(counts.values()) for counts in step_counts.values())
+    self_contained = sum(counts["follows"] for counts in step_counts.values())
+    recovered = sum(ar_study["restored_by_construction_equations"].values())
+    data.update(ar_on=original[on].get("proved", 0), ar_off=original[off].get("proved", 0),
+                paired_cases=ar_study["selected"], paired_on=revised[on].get("proved", 0),
+                paired_off=revised[off].get("proved", 0), ar_total=total_steps, ar_follow=self_contained,
+                ar_recovered=recovered, ar_remaining=total_steps-self_contained-recovered)
     finished_path = RESULTS / "latvia-domains/completed/summary.json"
     data["complete_domain_table"] = ""
     complete_paper = ""
@@ -262,7 +290,25 @@ def main():
         "-- 2024./25.~gada valsts olimpiādes 9.~klases 2.~uzdevums. Tajā mediānas viduspunktu "
         "iegūst ar trijstūra viduslīnijas teorēmu. Pārējos trīs mēģinājumos sasniegts laika limits.\n"
     )
-    (ROOT / "zpd_darbs/tables/latvia_full.tex").write_text(paragraph.rstrip() + complete_paper + "\n")
+    ar_paper = (
+        f"Bez algebriskās spriešanas ar tiem pašiem 70 likumiem dedukcija pierādīja "
+        f"{data['ar_off']} no {latvia['cases']} uzdevumiem, ar to -- {data['ar_on']}. "
+        f"Ar laboto dzinēju atkārtoti pārbaudīja visus {data['paired_cases']} sākotnēji pierādītos "
+        f"uzdevumus abos režīmos. Ar algebrisko spriešanu pierādīti {data['paired_on']}, "
+        f"bez tās -- {data['paired_off']}. Vienīgajā ieilgušajā mēģinājumā, palielinot limitu līdz {extra_budget['time_s']}~s, "
+        "ar algebrisko spriešanu pierādījumu atrada, bez tās dedukcija izsmēla likumus.\n\n"
+        f"Sākotnējo pierādījumu izdrukās pārbaudīti {total_steps} algebriskie soļi. "
+        f"No konkrētajā solī norādītajiem vienādojumiem izrietēja {self_contained} secinājumi. "
+        f"Vēl {recovered} soļus varēja pamatot, pievienojot formalizācijas sākotnējos vienādojumus. "
+        "Piemēram, 2021./22.~gada atklātās olimpiādes 9.~klases 3.~uzdevumā no trijstūru "
+        "līdzības iegūst $AE/BD=EF/BC$. Lai secinātu $EF=BC$, vajadzīga arī "
+        "vienādība $AE=BD$. Oficiālajā risinājumā to pierāda ar paralelograma īpašību, "
+        "savukārt formalizācijā tā izriet no punkta $E$ konstrukcijas. "
+        "Izdrukātajā soļa pamatojumā šī vienādība izlaista. "
+        r"\href{https://www.nms.lu.lv/fileadmin/user_upload/lu_portal/projekti/nms.lu.lv/Arhivs/Olimpiades/AMO/2020-2030/2022_AMO_uzd_atr.pdf\#page=8}"
+        r"{(LU NMS, 2022, 8.~lpp.)}"
+    )
+    (ROOT / "zpd_darbs/tables/latvia_full.tex").write_text(paragraph.rstrip() + complete_paper + "\n\n" + ar_paper + "\n")
     imo = benchmarks["imo"]
     s = full["mid"]
     report = (

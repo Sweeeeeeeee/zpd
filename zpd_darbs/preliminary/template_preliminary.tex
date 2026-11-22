@@ -19,13 +19,13 @@
 % ==================================================================== anotācijas
 \anotacijulapa
 \begin{anotacija}{Anotācija}
-Cik daudzus olimpiāžu ģeometrijas uzdevumus var pierādīt ar dotajiem punktiem, un cik palīdz jauna punkta ieviešana? Sākotnējā pārbaudē palīgpunktus Newclid dzinējam piedāvāja heiristikas un divi uz CPU apmācīti transformeri. JGEX kopā deduktīvais dzinējs atrisināja \jgexSolved{} no \jgexTotal{} uzdevumiem. Apvienojot katrā konfigurācijā atrastos pierādījumus, atrisināto uzdevumu skaits pieauga līdz \jgexBest{}. Šajā etalonpārbaudē bija atļauti līdz diviem palīgpunktu līmeņiem. Turpmākā eksperimentā 11,2 miljonu parametru modelim vērtēta gan pirmā palīgpunkta prognoze, gan spēja palīdzēt pierādīt ar dedukciju vien neatrisinātos uzdevumus. Latvijas uzdevumu tulkojumu kopa ir sagatavota daļēji; saistība ar oficiālo grūtību vēl jānovērtē.
+Cik daudzus olimpiāžu ģeometrijas uzdevumus var pierādīt ar dotajiem punktiem, un cik palīdz jauna punkta ieviešana? Sākotnējā pārbaudē palīgpunktus Newclid dzinējam piedāvāja heiristikas un divi uz CPU apmācīti transformeri. JGEX kopā deduktīvais dzinējs atrisināja \jgexSolved{} no \jgexTotal{} uzdevumiem. Apvienojot katrā konfigurācijā atrastos pierādījumus, atrisināto uzdevumu skaits pieauga līdz \jgexBest{}. Šajā etalonpārbaudē bija atļauti līdz diviem palīgpunktu līmeņiem. Turpmākā eksperimentā 11,2 miljonu parametru modelim vērtēta gan pirmā palīgpunkta prognoze, gan spēja palīdzēt pierādīt ar dedukciju vien neatrisinātos uzdevumus. No 65 Latvijas uzdevumiem ar algebrisko spriešanu 60 sekunžu limitā pierādīti 20, bez tās neviens. Oficiālā grūtība vēl jānovērtē.
 
 \atslegvardi{automātiskā teorēmu pierādīšana, deduktīvā datubāze, palīgkonstrukcija, transformeris, olimpiāžu matemātika}
 \end{anotacija}
 
 \begin{anotacija}{Abstract}
-How often can a geometry solver prove an olympiad problem using the given points, and when does an auxiliary point help? The initial comparison paired Newclid deduction with heuristic constructions and two CPU-trained transformers. Deduction alone solved \jgexSolved{} of \jgexTotal{} JGEX problems. Across the separate configurations, \jgexBest{} distinct problems had a proof. These benchmark runs allowed up to two auxiliary levels. A follow-up evaluated an 11.2M-parameter checkpoint on first-point prediction and tested whether its constructions led to proofs on baseline failures. The Latvian translation corpus is partly ready. The relationship between a restricted proof and official problem difficulty remains untested.
+How often can a geometry solver prove an olympiad problem using the given points, and when does an auxiliary point help? The initial comparison paired Newclid deduction with heuristic constructions and two CPU-trained transformers. Deduction alone solved \jgexSolved{} of \jgexTotal{} JGEX problems. Across the separate configurations, \jgexBest{} distinct problems had a proof. These benchmark runs allowed up to two auxiliary levels. A follow-up evaluated an 11.2M-parameter checkpoint on first-point prediction and tested whether its constructions led to proofs on baseline failures. With a 60-second search limit, deduction proved 20 of 65 Latvian problems with algebraic reasoning enabled and zero with it disabled. Official problem difficulty remains untested.
 
 \atslegvardi[Keywords]{automated theorem proving, deductive database, auxiliary construction, transformer, olympiad mathematics}
 \end{anotacija}
@@ -138,8 +138,7 @@ valodas modelis \atsauce{Trinh u.c., 2024} un mazi vispārīgi valodas modeļi.
 Palīgpunkta ģenerēšana un pierādīšana vērtētas atsevišķi. Pirmajā gadījumā modelim ir zināma uzdevuma formalizācija, un vērtē pirmo punktu. Otrajā dzinējam pēc punkta pievienošanas jāpierāda mērķis.
 
 \subsection{Uzdevumu kopa}
-No Neklātienes matemātikas skolas arhīva savākti 6333 Latvijas olimpiāžu uzdevumi, no tiem 1499
-ģeometrijā. Ne katru no tiem var uzrakstīt Newclid valodā: tai vajag plaknes zīmējumu, ko var
+Sākotnējā 6333 uzdevumu katalogā par ģeometrijas uzdevumiem atzīti 1499. Pēc klašu un uzdevumu avotu pārbaudes labotajā katalogā ir 1498 ģeometrijas ieraksti. Ne katru no tiem var uzrakstīt Newclid valodā: tai vajag plaknes zīmējumu, ko var
 uzbūvēt punktu pa punktam, un pierādāmu apgalvojumu, kas ir viens no tās predikātiem (\ref{tab:sorting}~tabula).
 Uzdevumus sašķiroja valodas modeļa aģenti pēc vienotas instrukcijas; pārbaudē 60 uzdevumus izlasīja
 pilnībā: 19 no 20 nejauši izvēlētiem bija sašķiroti pareizi, un starp 20 ,,citādi pierādāmajiem''
@@ -301,7 +300,7 @@ Pārējām jomām pilns salīdzinājums nav pabeigts.
   \item DD-AR vienatnē pierādīja \jgexSolved{} no \jgexTotal{} JGEX uzdevumiem. Heiristikas palīdzēja astoņos no atlikušajiem 26 uzdevumiem. Abu modeļu rezultāti daļēji pārklājās ar heiristiku rezultātiem; kopā iegūti 12 papildu pierādījumi.
   \item Palīgpunkta izvēle un pierādījuma pabeigšana ir atsevišķi uzdevumi. Referenču sakritības biežums ļauj salīdzināt prognozes vienā izlasē, taču alternatīvs punkts arī var būt derīgs.
   \item Piecu piemēru pārbaudē ar pilno likumu kopu atrisināti četri, ar riņķa līniju likumiem -- trīs uzdevumi. Šī mazā izlase parāda atšķirību konkrētos piemēros; vispārinājumam vajadzīga lielāka pārbaudītu uzdevumu kopa.
-  \item Latvijas izlasē turpmāk jāpārbauda formalizāciju atbilstība oriģināliem un pēc tam jāsalīdzina pierādījumi pa jomām. Pašreizējie rezultāti neļauj novērtēt hipotēzi par oficiālo grūtību.
+  \item Latvijas izlasē algebriskā spriešana palielināja pierādīto uzdevumu skaitu no 0 līdz 20. Salīdzinājums ar oficiālajiem risinājumiem parādīja, ka formalizācijā jau dotie punkti un sakarības var aizstāt daļu skolēna argumentācijas. Hipotēzes pārbaudei vēl vajadzīgi salīdzināmi dati par uzdevumu grūtību.
 \end{secinajumi}
 
 \begin{avoti}

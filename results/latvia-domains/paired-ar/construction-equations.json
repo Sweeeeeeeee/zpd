@@ -1,0 +1,462 @@
+{
+  "latvia/national/1976-77_27/grade09/p1": [
+    {
+      "construction_fact": "eqangle a b a p a p a d",
+      "equation": "∠(AB,AP) = ∠(AP,AD)",
+      "kind": "Angle"
+    },
+    {
+      "construction_fact": "eqangle a b a q a q a c",
+      "equation": "∠(AB,AQ) = ∠(AQ,AC)",
+      "kind": "Angle"
+    },
+    {
+      "construction_fact": "eqangle a b b p b p b d",
+      "equation": "∠(AB,BP) = ∠(BP,BD)",
+      "kind": "Angle"
+    },
+    {
+      "construction_fact": "eqangle a b b q b q b c",
+      "equation": "∠(AB,BQ) = ∠(BQ,BC)",
+      "kind": "Angle"
+    },
+    {
+      "construction_fact": "eqangle a c a s a s a d",
+      "equation": "∠(AC,AS) = ∠(AS,AD)",
+      "kind": "Angle"
+    },
+    {
+      "construction_fact": "eqangle a c c q c q b c",
+      "equation": "∠(AC,CQ) = ∠(CQ,BC)",
+      "kind": "Angle"
+    },
+    {
+      "construction_fact": "eqangle a c c s c s c d",
+      "equation": "∠(AC,CS) = ∠(CS,CD)",
+      "kind": "Angle"
+    },
+    {
+      "construction_fact": "eqangle a d d p d p b d",
+      "equation": "∠(AD,DP) = ∠(DP,BD)",
+      "kind": "Angle"
+    },
+    {
+      "construction_fact": "eqangle a d d s d s c d",
+      "equation": "∠(AD,DS) = ∠(DS,CD)",
+      "kind": "Angle"
+    },
+    {
+      "construction_fact": "eqangle b c b r b r b d",
+      "equation": "∠(BC,BR) = ∠(BR,BD)",
+      "kind": "Angle"
+    },
+    {
+      "construction_fact": "eqangle b c c r c r c d",
+      "equation": "∠(BC,CR) = ∠(CR,CD)",
+      "kind": "Angle"
+    },
+    {
+      "construction_fact": "eqangle b d d r d r c d",
+      "equation": "∠(BD,DR) = ∠(DR,CD)",
+      "kind": "Angle"
+    },
+    {
+      "construction_fact": "perp a p a w",
+      "equation": "AP ⟂ AW",
+      "kind": "Angle"
+    },
+    {
+      "construction_fact": "perp a p a z",
+      "equation": "AP ⟂ AZ",
+      "kind": "Angle"
+    },
+    {
+      "construction_fact": "perp b q b w",
+      "equation": "BQ ⟂ BW",
+      "kind": "Angle"
+    },
+    {
+      "construction_fact": "perp b q b x",
+      "equation": "BQ ⟂ BX",
+      "kind": "Angle"
+    },
+    {
+      "construction_fact": "perp c r c x",
+      "equation": "CR ⟂ CX",
+      "kind": "Angle"
+    },
+    {
+      "construction_fact": "perp c r c y",
+      "equation": "CR ⟂ CY",
+      "kind": "Angle"
+    },
+    {
+      "construction_fact": "perp d s d y",
+      "equation": "DS ⟂ DY",
+      "kind": "Angle"
+    },
+    {
+      "construction_fact": "perp d s d z",
+      "equation": "DS ⟂ DZ",
+      "kind": "Angle"
+    }
+  ],
+  "latvia/national/1978-79_29/extra/grade10/p5": [],
+  "latvia/national/1982-83_33/grade11/p5": [
+    {
+      "construction_fact": "cong a w p w",
+      "equation": "AW = PW",
+      "kind": "Ratio"
+    },
+    {
+      "construction_fact": "cong c o b o",
+      "equation": "CO = BO",
+      "kind": "Ratio"
+    },
+    {
+      "construction_fact": "cong o p b o",
+      "equation": "OP = BO",
+      "kind": "Ratio"
+    },
+    {
+      "construction_fact": "perp a b a w",
+      "equation": "AB ⟂ AW",
+      "kind": "Angle"
+    }
+  ],
+  "latvia/national/1993-94_44/grade09/p2": [],
+  "latvia/national/2001-02_52/grade09/p2": [
+    {
+      "construction_fact": "cong b o d o",
+      "equation": "BO = DO",
+      "kind": "Ratio"
+    },
+    {
+      "construction_fact": "perp a b c h",
+      "equation": "AB ⟂ CH",
+      "kind": "Angle"
+    },
+    {
+      "construction_fact": "perp a c b h",
+      "equation": "AC ⟂ BH",
+      "kind": "Angle"
+    },
+    {
+      "construction_fact": "perp a h b c",
+      "equation": "AH ⟂ BC",
+      "kind": "Angle"
+    }
+  ],
+  "latvia/national/2015-16_66/grade09/p2": [
+    {
+      "construction_fact": "cong b f b d",
+      "equation": "BF = BD",
+      "kind": "Ratio"
+    },
+    {
+      "construction_fact": "cong b f c f",
+      "equation": "BF = CF",
+      "kind": "Ratio"
+    },
+    {
+      "construction_fact": "cong d f a d",
+      "equation": "DF = AD",
+      "kind": "Ratio"
+    }
+  ],
+  "latvia/national/2016-17_67/grade11/p3": [],
+  "latvia/open/1976-77_04/grade10/p1": [
+    {
+      "construction_fact": "cong a o1 o1 o2",
+      "equation": "AO₁ = O₁O₂",
+      "kind": "Ratio"
+    },
+    {
+      "construction_fact": "cong a o1 o1 o3",
+      "equation": "AO₁ = O₁O₃",
+      "kind": "Ratio"
+    },
+    {
+      "construction_fact": "cong a o1 o1 q",
+      "equation": "AO₁ = O₁Q",
+      "kind": "Ratio"
+    },
+    {
+      "construction_fact": "cong a o3 o3 p",
+      "equation": "AO₃ = O₃P",
+      "kind": "Ratio"
+    },
+    {
+      "construction_fact": "cong a o3 o3 q",
+      "equation": "AO₃ = O₃Q",
+      "kind": "Ratio"
+    },
+    {
+      "construction_fact": "cong o2 p a o2",
+      "equation": "O₂P = AO₂",
+      "kind": "Ratio"
+    },
+    {
+      "construction_fact": "perp a p o2 o3",
+      "equation": "AP ⟂ O₂O₃",
+      "kind": "Angle"
+    }
+  ],
+  "latvia/open/1999-00_27/grade10/p3": [
+    {
+      "construction_fact": "cong b e b d",
+      "equation": "BE = BD",
+      "kind": "Ratio"
+    },
+    {
+      "construction_fact": "cong c d c e",
+      "equation": "CD = CE",
+      "kind": "Ratio"
+    },
+    {
+      "construction_fact": "perp b c d e",
+      "equation": "BC ⟂ DE",
+      "kind": "Angle"
+    }
+  ],
+  "latvia/open/2001-02_29/grade10/p4": [
+    {
+      "construction_fact": "aconst b m b n 1pi/3",
+      "equation": "∠(BM,BN) = 1pi/3",
+      "kind": "Angle"
+    },
+    {
+      "construction_fact": "cong a m m n",
+      "equation": "AM = MN",
+      "kind": "Ratio"
+    },
+    {
+      "construction_fact": "cong c n m n",
+      "equation": "CN = MN",
+      "kind": "Ratio"
+    },
+    {
+      "construction_fact": "cong e m c e",
+      "equation": "EM = CE",
+      "kind": "Ratio"
+    },
+    {
+      "construction_fact": "cong e n a e",
+      "equation": "EN = AE",
+      "kind": "Ratio"
+    },
+    {
+      "construction_fact": "eqangle b e b m b n b e",
+      "equation": "∠(BE,BM) = ∠(BN,BE)",
+      "kind": "Angle"
+    },
+    {
+      "construction_fact": "eqangle b m e m e m m n",
+      "equation": "∠(BM,EM) = ∠(EM,MN)",
+      "kind": "Angle"
+    },
+    {
+      "construction_fact": "eqangle b n e n e n m n",
+      "equation": "∠(BN,EN) = ∠(EN,MN)",
+      "kind": "Angle"
+    },
+    {
+      "construction_fact": "perp a n e m",
+      "equation": "AN ⟂ EM",
+      "kind": "Angle"
+    },
+    {
+      "construction_fact": "perp c m e n",
+      "equation": "CM ⟂ EN",
+      "kind": "Angle"
+    }
+  ],
+  "latvia/open/2002-03_30/grade07/p4": [
+    {
+      "construction_fact": "cong a c a d",
+      "equation": "AC = AD",
+      "kind": "Ratio"
+    },
+    {
+      "construction_fact": "cong a c c e",
+      "equation": "AC = CE",
+      "kind": "Ratio"
+    },
+    {
+      "construction_fact": "cong a d b d",
+      "equation": "AD = BD",
+      "kind": "Ratio"
+    },
+    {
+      "construction_fact": "cong b e b d",
+      "equation": "BE = BD",
+      "kind": "Ratio"
+    }
+  ],
+  "latvia/open/2021-22_47/grade09/p3": [
+    {
+      "construction_fact": "cong a e b d",
+      "equation": "AE = BD",
+      "kind": "Ratio"
+    },
+    {
+      "construction_fact": "cong d e a b",
+      "equation": "DE = AB",
+      "kind": "Ratio"
+    },
+    {
+      "construction_fact": "para a e b d",
+      "equation": "AE ∥ BD",
+      "kind": "Angle"
+    },
+    {
+      "construction_fact": "para a f c d",
+      "equation": "AF ∥ CD",
+      "kind": "Angle"
+    },
+    {
+      "construction_fact": "para b c e f",
+      "equation": "BC ∥ EF",
+      "kind": "Angle"
+    },
+    {
+      "construction_fact": "para d e a b",
+      "equation": "DE ∥ AB",
+      "kind": "Angle"
+    }
+  ],
+  "latvia/regional/1987-88_38/grade07/p2": [],
+  "latvia/regional/1990-91_41/grade08/p2": [
+    {
+      "construction_fact": "cong b k d k",
+      "equation": "BK = DK",
+      "kind": "Ratio"
+    }
+  ],
+  "latvia/regional/2015-16_66/grade11/p3": [],
+  "latvia/regional/2021-22_72/grade12/p3": [
+    {
+      "construction_fact": "cong a b b c",
+      "equation": "AB = BC",
+      "kind": "Ratio"
+    },
+    {
+      "construction_fact": "cong b c c d",
+      "equation": "BC = CD",
+      "kind": "Ratio"
+    },
+    {
+      "construction_fact": "eqangle a b a x a x a d",
+      "equation": "∠(AB,AX) = ∠(AX,AD)",
+      "kind": "Angle"
+    },
+    {
+      "construction_fact": "eqangle a d d x d x c d",
+      "equation": "∠(AD,DX) = ∠(DX,CD)",
+      "kind": "Angle"
+    }
+  ],
+  "latvia/school/1987-88_38/grade07/p2": [
+    {
+      "construction_fact": "cong a b b c",
+      "equation": "AB = BC",
+      "kind": "Ratio"
+    },
+    {
+      "construction_fact": "cong a d c d",
+      "equation": "AD = CD",
+      "kind": "Ratio"
+    },
+    {
+      "construction_fact": "eqangle a c a d c d a c",
+      "equation": "∠(AC,AD) = ∠(CD,AC)",
+      "kind": "Angle"
+    }
+  ],
+  "latvia/school/1999-00_50/grade10/p4": [
+    {
+      "construction_fact": "perp a b c h",
+      "equation": "AB ⟂ CH",
+      "kind": "Angle"
+    },
+    {
+      "construction_fact": "perp a c b h",
+      "equation": "AC ⟂ BH",
+      "kind": "Angle"
+    },
+    {
+      "construction_fact": "perp a h b c",
+      "equation": "AH ⟂ BC",
+      "kind": "Angle"
+    }
+  ],
+  "latvia/school/2001-02_52/grade08/p2": [
+    {
+      "construction_fact": "cong a m a b",
+      "equation": "AM = AB",
+      "kind": "Ratio"
+    },
+    {
+      "construction_fact": "cong b m a b",
+      "equation": "BM = AB",
+      "kind": "Ratio"
+    },
+    {
+      "construction_fact": "cong b n b c",
+      "equation": "BN = BC",
+      "kind": "Ratio"
+    },
+    {
+      "construction_fact": "cong c n b c",
+      "equation": "CN = BC",
+      "kind": "Ratio"
+    },
+    {
+      "construction_fact": "eqangle a b a m a m b m",
+      "equation": "∠(AB,AM) = ∠(AM,BM)",
+      "kind": "Angle"
+    },
+    {
+      "construction_fact": "eqangle a b a m b m a b",
+      "equation": "∠(AB,AM) = ∠(BM,AB)",
+      "kind": "Angle"
+    },
+    {
+      "construction_fact": "eqangle b c b n b n c n",
+      "equation": "∠(BC,BN) = ∠(BN,CN)",
+      "kind": "Angle"
+    },
+    {
+      "construction_fact": "eqangle b c b n c n b c",
+      "equation": "∠(BC,BN) = ∠(CN,BC)",
+      "kind": "Angle"
+    }
+  ],
+  "latvia/school/2010-11_61/grade09/p2": [
+    {
+      "construction_fact": "cong b c1 b c",
+      "equation": "BC₁ = BC",
+      "kind": "Ratio"
+    },
+    {
+      "construction_fact": "cong b l b c",
+      "equation": "BL = BC",
+      "kind": "Ratio"
+    },
+    {
+      "construction_fact": "cong c l c1 l",
+      "equation": "CL = C₁L",
+      "kind": "Ratio"
+    },
+    {
+      "construction_fact": "perp a m b l",
+      "equation": "AM ⟂ BL",
+      "kind": "Angle"
+    },
+    {
+      "construction_fact": "perp b l c c1",
+      "equation": "BL ⟂ CC₁",
+      "kind": "Angle"
+    }
+  ]
+}
