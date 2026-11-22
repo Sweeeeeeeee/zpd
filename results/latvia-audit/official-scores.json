@@ -1,0 +1,33 @@
+{
+  "title": "Matemātikas sacensības 4.–9. klasēm 2015./2016. mācību gadā",
+  "authors": ["Maruta Avotiņa", "Agnese Šuste"],
+  "publisher": "Latvijas Universitāte",
+  "year": 2016,
+  "isbn": "978-9934-556-18-0",
+  "source": "https://www.nms.lu.lv/fileadmin/user_upload/lu_portal/projekti/nms.lu.lv/Gramatas/Uzd_krajumi/Mat_Sac_4-9_15-16_2016.pdf",
+  "max_points": 10,
+  "cases": [
+    {
+      "name": "latvia/national/2015-16_66/grade09/p2",
+      "label": "National final · problem 2",
+      "problem_number": 2,
+      "statement_page": 55,
+      "scores_page": 147,
+      "participants": 81,
+      "item_means": [2.38, 3.92, 6.01, 1.15, 1.36],
+      "full_marks_percent": 21,
+      "unattempted_percent": 12
+    },
+    {
+      "name": "latvia/open/2015-16_43/grade09/p3",
+      "label": "Open olympiad · problem 3",
+      "problem_number": 3,
+      "statement_page": 58,
+      "scores_page": 148,
+      "participants": 395,
+      "item_means": [4.76, 3.17, 5.69, 0.84, 3.23],
+      "full_marks_percent": 16,
+      "unattempted_percent": 5
+    }
+  ]
+}

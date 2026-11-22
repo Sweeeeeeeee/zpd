@@ -12,6 +12,9 @@ from string import Template
 
 from bench.eval_proposers import problems
 from bench.latvia.case_table import render_cases
+from bench.latvia import student_scores
+from bench.latvia.fresh_drawings import frozen_hashes, summarize as summarize_fresh_drawings
+from bench.latvia.segment_study import NAME as SEGMENT_CASE, summarize as summarize_segment
 from bench.latvia.sample_audit import summarize as summarize_drawings
 from bench.latvia.paired_results import budget_followup
 from bench.latvia.paired_results import analyze as analyze_paired_ar
@@ -190,7 +193,13 @@ def main():
         raise ValueError("Published AR evidence differs from the independently recomputed step audit")
     extra_budget = budget_followup(pair_folder)
     drawings = summarize_drawings(json.loads((RESULTS / "latvia-audit/drawings.json").read_text()))
-    result = dict(latvia_translation_audit=drawings, latvia_budget_followup=extra_budget, latvia_paired_ar=ar_study, latvia_full_domain=latvia, common50=common, full=full, completed_training=run, paired_mid_mini_long=paired, proofs=benchmarks, ag1_smoke=ag1,
+    fresh_evidence = json.loads((RESULTS / "latvia-audit/fresh-drawings.json").read_text())
+    fresh_drawings = summarize_fresh_drawings(fresh_evidence, frozen_hashes())
+    segment_evidence = json.loads((RESULTS / "latvia-audit/segment-study.json").read_text())
+    segment_case = next(row for row in fresh_evidence["records"] if row["name"] == SEGMENT_CASE)
+    segment_blocks = summarize_segment(segment_evidence, segment_case)
+    score_comparisons = student_scores.compare(ROOT)
+    result = dict(latvia_official_scores=score_comparisons, latvia_segment_comparison=segment_blocks, latvia_fresh_drawings=fresh_drawings, latvia_translation_audit=drawings, latvia_budget_followup=extra_budget, latvia_paired_ar=ar_study, latvia_full_domain=latvia, common50=common, full=full, completed_training=run, paired_mid_mini_long=paired, proofs=benchmarks, ag1_smoke=ag1,
                   training_prompt_overlaps=overlaps, training_split_audit=split_audit,
                   paired_small_checkpoints=paired_checkpoints, translations=translations,
                   accepted_automatically=accepted_automatically, accepted_by_decision=accepted_by_decision)
@@ -237,7 +246,14 @@ def main():
                 long_on=extra_budget["outcomes"]["full-deduction"].get("proved", 0),
                 long_off=extra_budget["outcomes"]["full_no_ar-deduction"].get("proved", 0))
     data.update(drawings_ok=drawings["outcomes"]["all_goals_hold"], drawings_attempted=drawings["attempts"])
-    data["case_rows"] = render_cases(ROOT)
+    data.update(fresh_attempts=f"{fresh_drawings['attempts']:,}", fresh_passed=f"{fresh_drawings['all_goals_hold']:,}",
+                fresh_unbuilt=fresh_drawings["unbuilt"], fresh_failed=fresh_drawings["failed_goals"],
+                fresh_degenerate=fresh_drawings["degenerate"], fresh_seeds=fresh_drawings["seeds_per_case"],
+                segment_original=segment_blocks[1]["original"]["all_goals_hold"],
+                segment_bounded=segment_blocks[1]["bounded"]["all_goals_hold"])
+    passed_by_case = {row["name"]: row["all_goals_hold"] for row in fresh_evidence["records"]}
+    data["case_rows"] = render_cases(ROOT, passed_by_case)
+    data["student_score_rows"] = student_scores.render(score_comparisons)
     data["latvia_rows"] = "\n".join(
         f'<tr><th scope="row">{POLICIES[key]}</th><td>{counts["proved"]}</td>'
         f'<td>{counts["with_aux"]}</td><td>{counts["timeouts"]}</td><td>{counts["errors"]}</td>'
@@ -290,6 +306,28 @@ def main():
         "-- 2024./25.~gada valsts olimpiādes 9.~klases 2.~uzdevums. Tajā mediānas viduspunktu "
         "iegūst ar trijstūra viduslīnijas teorēmu. Pārējos trīs mēģinājumos sasniegts laika limits.\n"
     )
+    drawing_paper = (
+        f"Katram tulkojumam figūru konstruēja ar {fresh_drawings['seeds_per_case']} jaunām nejaušo skaitļu "
+        f"ģeneratora sākumvērtībām. Konstruktoram mērķi nebija pieejami. No {fresh_drawings['attempts']} "
+        f"mēģinājumiem {fresh_drawings['unbuilt']} gadījumos figūru neizdevās uzbūvēt. "
+        f"Visi mērķi izpildījās {fresh_drawings['all_goals_hold']} zīmējumos. "
+        "Šī pārbaude raksturo tulkojumu skaitlisko saderību ar mērķiem. "
+        "Atbilstība olimpiādes uzdevuma nosacījumiem jāpārbauda pēc pirmavota."
+    )
+    national, open_contest = score_comparisons
+    if [(r["original"], r["revised"]) for r in score_comparisons] != [("proved", "proved"), ("errors", "timeouts")]:
+        raise ValueError("The solver outcomes no longer match the text of the score comparison")
+    national_mean = f"{national['mean']:.2f}".replace(".", ",")
+    open_mean = f"{open_contest['mean']:.2f}".replace(".", ",")
+    scores_paper = (
+        "Divos 2015./16.~gada 9.~klases uzdevumos salīdzinājām skolēnu rezultātus ar dedukcijas iznākumu. "
+        f"Valsts olimpiādes 2.~uzdevumā {national['participants']} dalībnieka vidējais vērtējums bija {national_mean} no 10 punktiem, "
+        f"atklātās olimpiādes 3.~uzdevumā {open_contest['participants']} dalībnieku vidējais bija {open_mean}. Pirmo uzdevumu pierādīja "
+        "abi dzinēja varianti. Otrajā sākotnējais dzinējs apstājās ar kļūdu, labotais dzinējs sasniedza laika limitu. "
+        "Atšķirīgās dalībnieku grupas un mazā izlase neļauj novērtēt sakarību starp skolēnu un risinātāja rezultātiem. "
+        r"\href{https://www.nms.lu.lv/fileadmin/user_upload/lu_portal/projekti/nms.lu.lv/Gramatas/Uzd_krajumi/Mat_Sac_4-9_15-16_2016.pdf\#page=147}"
+        r"{(Avotiņa un Šuste, 2016, 147.--148.~lpp.)}"
+    )
     ar_paper = (
         f"Bez algebriskās spriešanas ar tiem pašiem 70 likumiem dedukcija pierādīja "
         f"{data['ar_off']} no {latvia['cases']} uzdevumiem, ar to -- {data['ar_on']}. "
@@ -308,7 +346,7 @@ def main():
         r"\href{https://www.nms.lu.lv/fileadmin/user_upload/lu_portal/projekti/nms.lu.lv/Arhivs/Olimpiades/AMO/2020-2030/2022_AMO_uzd_atr.pdf\#page=8}"
         r"{(LU NMS, 2022, 8.~lpp.)}"
     )
-    (ROOT / "zpd_darbs/tables/latvia_full.tex").write_text(paragraph.rstrip() + complete_paper + "\n\n" + ar_paper + "\n")
+    (ROOT / "zpd_darbs/tables/latvia_full.tex").write_text(paragraph.rstrip() + complete_paper + "\n\n" + drawing_paper + "\n\n" + ar_paper + "\n\n" + scores_paper + "\n")
     imo = benchmarks["imo"]
     s = full["mid"]
     report = (

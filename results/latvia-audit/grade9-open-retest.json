@@ -1,0 +1,18 @@
+{
+  "name": "latvia/open/2015-16_43/grade09/p3",
+  "config": "full-deduction",
+  "solved": false,
+  "proof": null,
+  "wall_time": 61.14,
+  "peak_memory_mb": 228.7,
+  "cpu_time": 60.94,
+  "depth": 0,
+  "rules_fired": {},
+  "rules_in_proof": {},
+  "tools_used": [],
+  "tool_calls": {},
+  "aux": [],
+  "ddar_calls": 0,
+  "failure_reason": "time limit (60s)",
+  "load_time": 1.084
+}

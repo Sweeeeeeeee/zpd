@@ -1,0 +1,42 @@
+{
+  "name": "latvia/national/1998-99_49/grade12/p2",
+  "configuration_sha256": "6b9c1e2754a9c200f2191bcae043010ff907d18c3f8f898728aa39dcd510d9b8",
+  "runs": [
+    {
+      "construction": "original",
+      "formalization_sha256": "8eda6614307f7a4e016fbc5e8f8b502951874d59dd6db09c07110698cf4479c7",
+      "solved": false,
+      "proof": null,
+      "wall_time": 61.132,
+      "peak_memory_mb": 199.8,
+      "cpu_time": 60.89,
+      "depth": 0,
+      "rules_fired": {},
+      "rules_in_proof": {},
+      "tools_used": [],
+      "tool_calls": {},
+      "aux": [],
+      "ddar_calls": 0,
+      "failure_reason": "time limit (60s)",
+      "load_time": 1.046
+    },
+    {
+      "construction": "bounded",
+      "formalization_sha256": "398e00c139b30b9e521114127dc1a6df117e08898e071c0718d681ccbd780607",
+      "solved": false,
+      "proof": null,
+      "wall_time": 61.983,
+      "peak_memory_mb": 200.0,
+      "cpu_time": 61.7,
+      "depth": 0,
+      "rules_fired": {},
+      "rules_in_proof": {},
+      "tools_used": [],
+      "tool_calls": {},
+      "aux": [],
+      "ddar_calls": 0,
+      "failure_reason": "time limit (60s)",
+      "load_time": 1.912
+    }
+  ]
+}

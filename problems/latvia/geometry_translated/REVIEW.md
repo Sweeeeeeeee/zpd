@@ -60,3 +60,7 @@ Each original is a one-direction proof problem. We compared its hypotheses, cons
 | 2015–16 regional, grade 11, no. 3 | 32 | E and F are already statement points. The two circumcircles select their intersection other than E. Triangle similarity uses the correspondence A↔C, B↔D and F↔F. The translation omits convexity of ABCD and allows the diagonals to meet outside their segments. [Official problem, p. 7](https://www.nms.lu.lv/fileadmin/user_upload/lu_portal/projekti/nms.lu.lv/Arhivs/Olimpiades/NOL/NOV_66_uzd.pdf#page=7) |
 
 To repeat the numerical check, run `PYTHONHASHSEED=0 python -m bench.latvia.sample_audit /tmp/latvia-drawings.json` at the repository root with the project environment active.
+
+### Fresh drawings for all accepted translations
+
+All 65 frozen translations were checked with seeds 32–95. Of 4,160 attempts, 3,940 constructed figures satisfied every goal. The builder could not construct the other 220. National problem 49.17 had the most construction failures. Testing its explicit segment-interior condition on a further 64 seeds raised successful drawings from 32 to 62. [Per-problem records and targeted comparison](../../../results/latvia-audit)

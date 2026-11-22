@@ -1,4 +1,61 @@
 {
+  "latvia_official_scores": [
+    {
+      "name": "latvia/national/2015-16_66/grade09/p2",
+      "label": "National final \u00b7 problem 2",
+      "participants": 81,
+      "mean": 3.92,
+      "rank_by_mean": 2,
+      "full_marks_percent": 21,
+      "unattempted_percent": 12,
+      "original": "proved",
+      "revised": "proved",
+      "source": "https://www.nms.lu.lv/fileadmin/user_upload/lu_portal/projekti/nms.lu.lv/Gramatas/Uzd_krajumi/Mat_Sac_4-9_15-16_2016.pdf#page=147"
+    },
+    {
+      "name": "latvia/open/2015-16_43/grade09/p3",
+      "label": "Open olympiad \u00b7 problem 3",
+      "participants": 395,
+      "mean": 5.69,
+      "rank_by_mean": 1,
+      "full_marks_percent": 16,
+      "unattempted_percent": 5,
+      "original": "errors",
+      "revised": "timeouts",
+      "source": "https://www.nms.lu.lv/fileadmin/user_upload/lu_portal/projekti/nms.lu.lv/Gramatas/Uzd_krajumi/Mat_Sac_4-9_15-16_2016.pdf#page=148"
+    }
+  ],
+  "latvia_segment_comparison": [
+    {
+      "original": {
+        "all_goals_hold": 34,
+        "unbuilt": 30
+      },
+      "bounded": {
+        "all_goals_hold": 56,
+        "unbuilt": 8
+      }
+    },
+    {
+      "original": {
+        "all_goals_hold": 32,
+        "unbuilt": 32
+      },
+      "bounded": {
+        "all_goals_hold": 62,
+        "unbuilt": 2
+      }
+    }
+  ],
+  "latvia_fresh_drawings": {
+    "cases": 65,
+    "seeds_per_case": 64,
+    "attempts": 4160,
+    "all_goals_hold": 3940,
+    "unbuilt": 220,
+    "degenerate": 0,
+    "failed_goals": 0
+  },
   "latvia_translation_audit": {
     "cases": 6,
     "attempts": 192,

@@ -1,0 +1,775 @@
+{
+  "name": "latvia/national/1998-99_49/grade12/p2",
+  "original_clause": "m = on_line m a b",
+  "replacement_clause": "m = between_bound m a b",
+  "records": [
+    {
+      "seed": 32,
+      "original_segment_parameter": 0.6836964452226939,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 33,
+      "original_segment_parameter": -0.4765339128061282,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 34,
+      "original_segment_parameter": 0.4768482528847291,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 35,
+      "original_segment_parameter": 2.154691069995801,
+      "original": "unbuilt",
+      "bounded": "unbuilt"
+    },
+    {
+      "seed": 36,
+      "original_segment_parameter": -0.9774771731983115,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 37,
+      "original_segment_parameter": 1.2014621145572193,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 38,
+      "original_segment_parameter": 0.8402105431429454,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 39,
+      "original_segment_parameter": -0.5965899884701621,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 40,
+      "original_segment_parameter": 7.265785484047681,
+      "original": "unbuilt",
+      "bounded": "unbuilt"
+    },
+    {
+      "seed": 41,
+      "original_segment_parameter": 0.27786748271057354,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 42,
+      "original_segment_parameter": 0.23755872452380447,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 43,
+      "original_segment_parameter": -4.461521789596731,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 44,
+      "original_segment_parameter": -0.674505676877866,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 45,
+      "original_segment_parameter": 0.5914236790043416,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 46,
+      "original_segment_parameter": -9.399331947890184,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 47,
+      "original_segment_parameter": 0.5131674675513449,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 48,
+      "original_segment_parameter": 2.3934550552947296,
+      "original": "unbuilt",
+      "bounded": "unbuilt"
+    },
+    {
+      "seed": 49,
+      "original_segment_parameter": 0.7815119268745023,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 50,
+      "original_segment_parameter": 0.25717806905714985,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 51,
+      "original_segment_parameter": 3.026829516200794,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 52,
+      "original_segment_parameter": 2.80495481363483,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 53,
+      "original_segment_parameter": 1.8766362663797118,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 54,
+      "original_segment_parameter": 0.6687311327564294,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 55,
+      "original_segment_parameter": -0.8793665732485295,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 56,
+      "original_segment_parameter": 1.4417644253530546,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 57,
+      "original_segment_parameter": 0.728943963953281,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 58,
+      "original_segment_parameter": 0.29756929858277864,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 59,
+      "original_segment_parameter": -0.7957141782069664,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 60,
+      "original_segment_parameter": 0.31993314387439775,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 61,
+      "original_segment_parameter": 0.30631636816652696,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 62,
+      "original_segment_parameter": -0.6598592302665872,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 63,
+      "original_segment_parameter": 1.924285329634077,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 64,
+      "original_segment_parameter": 0.679706245375056,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 65,
+      "original_segment_parameter": 0.7314405245880067,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 66,
+      "original_segment_parameter": -0.42004640121878367,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 67,
+      "original_segment_parameter": 19.77717895610276,
+      "original": "unbuilt",
+      "bounded": "unbuilt"
+    },
+    {
+      "seed": 68,
+      "original_segment_parameter": 0.37290230379877515,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 69,
+      "original_segment_parameter": 0.3195086144469022,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 70,
+      "original_segment_parameter": 0.8440682428235289,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 71,
+      "original_segment_parameter": 0.6008887567227271,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 72,
+      "original_segment_parameter": 0.4009814168884931,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 73,
+      "original_segment_parameter": -0.2643650296306743,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 74,
+      "original_segment_parameter": 0.7767264696692735,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 75,
+      "original_segment_parameter": -1.4165889013325397,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 76,
+      "original_segment_parameter": 0.4108962443612925,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 77,
+      "original_segment_parameter": 7.2103308863291815,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 78,
+      "original_segment_parameter": 0.3210136848464178,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 79,
+      "original_segment_parameter": 0.3744630020702646,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 80,
+      "original_segment_parameter": 3.5580593914349787,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 81,
+      "original_segment_parameter": 0.558940054658526,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 82,
+      "original_segment_parameter": 22.31591471951678,
+      "original": "unbuilt",
+      "bounded": "unbuilt"
+    },
+    {
+      "seed": 83,
+      "original_segment_parameter": 0.5164918768248876,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 84,
+      "original_segment_parameter": 0.6546677253214455,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 85,
+      "original_segment_parameter": 0.45681243990951936,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 86,
+      "original_segment_parameter": 0.6390980936432523,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 87,
+      "original_segment_parameter": 0.7402864498239158,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 88,
+      "original_segment_parameter": 0.20005895305618862,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 89,
+      "original_segment_parameter": -24.284924807820165,
+      "original": "unbuilt",
+      "bounded": "unbuilt"
+    },
+    {
+      "seed": 90,
+      "original_segment_parameter": 15.358138097468032,
+      "original": "unbuilt",
+      "bounded": "unbuilt"
+    },
+    {
+      "seed": 91,
+      "original_segment_parameter": 0.42306577372493753,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 92,
+      "original_segment_parameter": 2.4949523950739776,
+      "original": "unbuilt",
+      "bounded": "unbuilt"
+    },
+    {
+      "seed": 93,
+      "original_segment_parameter": 0.768303508964079,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 94,
+      "original_segment_parameter": 1.542022595698662,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 95,
+      "original_segment_parameter": -0.6607461455066442,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 96,
+      "original_segment_parameter": 0.8191389743640882,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 97,
+      "original_segment_parameter": 0.6906238084185655,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 98,
+      "original_segment_parameter": 8.748193687877494,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 99,
+      "original_segment_parameter": 1.6984685025701785,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 100,
+      "original_segment_parameter": 3.580028543116162,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 101,
+      "original_segment_parameter": 1.557406573813366,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 102,
+      "original_segment_parameter": -1.7584529498697639,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 103,
+      "original_segment_parameter": 0.3094233053402795,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 104,
+      "original_segment_parameter": 0.6170891419508702,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 105,
+      "original_segment_parameter": 0.22978895704462565,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 106,
+      "original_segment_parameter": 4.31580444940966,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 107,
+      "original_segment_parameter": 0.4004329531459549,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 108,
+      "original_segment_parameter": 1.2663322143182505,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 109,
+      "original_segment_parameter": 1.6691034202790245,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 110,
+      "original_segment_parameter": 0.4697299848539407,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 111,
+      "original_segment_parameter": 0.3382698442697574,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 112,
+      "original_segment_parameter": -0.721226575562498,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 113,
+      "original_segment_parameter": -0.5342164671474485,
+      "original": "unbuilt",
+      "bounded": "unbuilt"
+    },
+    {
+      "seed": 114,
+      "original_segment_parameter": -0.758560781992652,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 115,
+      "original_segment_parameter": 0.21666548725002305,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 116,
+      "original_segment_parameter": 0.5025769155248176,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 117,
+      "original_segment_parameter": 1.4791968650676675,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 118,
+      "original_segment_parameter": 1.4911264724652715,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 119,
+      "original_segment_parameter": 7.965232031617336,
+      "original": "unbuilt",
+      "bounded": "unbuilt"
+    },
+    {
+      "seed": 120,
+      "original_segment_parameter": -0.9186193217756251,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 121,
+      "original_segment_parameter": 0.20411303859880622,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 122,
+      "original_segment_parameter": 0.21551329359703192,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 123,
+      "original_segment_parameter": 0.7392563782459776,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 124,
+      "original_segment_parameter": 0.601542597913327,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 125,
+      "original_segment_parameter": 0.21098049590849105,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 126,
+      "original_segment_parameter": 0.5314484720730502,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 127,
+      "original_segment_parameter": 2.0428326929971736,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 128,
+      "original_segment_parameter": 0.4868331799499496,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 129,
+      "original_segment_parameter": -6.123434507280174,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 130,
+      "original_segment_parameter": 0.28467715366643437,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 131,
+      "original_segment_parameter": 0.35650179612556504,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 132,
+      "original_segment_parameter": 1.3346969628832572,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 133,
+      "original_segment_parameter": 0.578170605799973,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 134,
+      "original_segment_parameter": -0.7289356635720521,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 135,
+      "original_segment_parameter": -0.6684897263311362,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 136,
+      "original_segment_parameter": 0.7906658483185847,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 137,
+      "original_segment_parameter": -1.1855773232096518,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 138,
+      "original_segment_parameter": 0.6603516527334454,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 139,
+      "original_segment_parameter": 0.7596744655479415,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 140,
+      "original_segment_parameter": 2.415625040736145,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 141,
+      "original_segment_parameter": 1.9164591262288968,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 142,
+      "original_segment_parameter": -1.1949529573528859,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 143,
+      "original_segment_parameter": 0.6502056273976142,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 144,
+      "original_segment_parameter": 8.697265745871832,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 145,
+      "original_segment_parameter": 0.7365711539832392,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 146,
+      "original_segment_parameter": 0.8145916447735557,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 147,
+      "original_segment_parameter": 0.7148590213662287,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 148,
+      "original_segment_parameter": 0.7811481489303996,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 149,
+      "original_segment_parameter": 0.7009954561842477,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 150,
+      "original_segment_parameter": 1.3826215490715237,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 151,
+      "original_segment_parameter": 2.019159389520151,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 152,
+      "original_segment_parameter": 0.6752664810090696,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 153,
+      "original_segment_parameter": 1.9772004244447023,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 154,
+      "original_segment_parameter": 0.22053774568971546,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 155,
+      "original_segment_parameter": 0.39550877817341007,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 156,
+      "original_segment_parameter": 0.2308439974882461,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 157,
+      "original_segment_parameter": 3.814351166752022,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 158,
+      "original_segment_parameter": 0.6552156765796079,
+      "original": "all_goals_hold",
+      "bounded": "all_goals_hold"
+    },
+    {
+      "seed": 159,
+      "original_segment_parameter": 1.314279323237859,
+      "original": "unbuilt",
+      "bounded": "all_goals_hold"
+    }
+  ]
+}

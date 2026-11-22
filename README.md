@@ -12,7 +12,7 @@ At step 6,300, the 11.2M-parameter Geo-LM small model matched the first auxiliar
 
 The completed 20,000-step run selected step 20,000 by validation loss. It matched 113 of 200 first proposals and 143 within four proposals. On baseline failures it proved 6/26 JGEX and 0/14 IMO problems. Across the separate 101-problem auxiliary set, heuristics, mini_long and mid together proved 11 distinct problems.
 
-For the Latvian corpus, automatic checks accepted 57 of 80 candidates. Recorded Claude decisions accepted eight more and rejected five. [Ten cases and a six-case audit sample await review](problems/latvia/geometry_translated/REVIEW.md). The relationship between restricted proofs and official difficulty remains open.
+For the Latvian corpus, automatic checks accepted 57 of 80 candidates. Recorded Claude decisions accepted eight more and rejected five. Ten translations await decisions. [Six official sources were compared with their translations](problems/latvia/geometry_translated/REVIEW.md#findings-for-the-six-selected-translations). All 3,940 figures constructed on fresh seeds satisfied their goals, and 220 attempts failed during construction. [Drawing records and the two-problem student score comparison](results/latvia-audit/)
 
 ## Run locally
 

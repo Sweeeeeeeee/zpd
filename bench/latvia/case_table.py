@@ -11,7 +11,7 @@ COMPETITIONS = {"national": "National", "regional": "Regional", "open": "Open", 
 LABELS = {"proved": "Proved", "saturated": "Exhausted", "timeouts": "Time limit", "errors": "Engine error"}
 
 
-def render_cases(root):
+def render_cases(root, passed_drawings):
     research = root / "results/latvia-domains"
     with (root / "problems/latvia/geometry_translated/working_set.csv").open(newline="") as stream:
         selection = {r["id"]: r for r in csv.DictReader(stream)}
@@ -19,8 +19,8 @@ def render_cases(root):
         sources = {r["id"]: r for r in csv.DictReader(stream)}
     on = records(research / "full-deduction.jsonl", CONFIGS[0])
     off = records(research / "paired-ar/original-full_no_ar-deduction.jsonl", CONFIGS[1])
-    if set(on) != set(off):
-        raise ValueError("The configurations have different problem sets")
+    if set(on) != set(off) or set(on) != set(passed_drawings):
+        raise ValueError("The deduction and drawing records have different problem sets")
     rows = []
     for name, row in on.items():
         path = selection[name]["path"]
@@ -46,6 +46,6 @@ def render_cases(root):
         rows.append(
             f'<tr data-outcome="{result}"><th scope="row"><a href="https://github.com/Sweeeeeeeee/zpd/blob/main/{quote(path)}">'
             f'{escape(label)}</a></th><td>{LABELS[result]}</td><td>{LABELS[outcome(off[name])]}</td>'
-            f'<td>{steps or "—"}</td><td>{row["wall_time"]:.1f}</td><td>{row["peak_memory_mb"]:.0f}</td></tr>'
+            f'<td>{steps or "—"}</td><td>{row["wall_time"]:.1f}</td><td>{row["peak_memory_mb"]:.0f}</td><td>{passed_drawings[name]}</td></tr>'
         )
     return "\n".join(rows)
