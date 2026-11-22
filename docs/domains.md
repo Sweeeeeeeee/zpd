@@ -126,3 +126,14 @@ From the project root, run `python -m bench.latvia.scan_plan /tmp/zpd-domain-pla
 Each of the three rule sets is tested with algebraic reasoning enabled and disabled. Within each of the six settings, run deduction alone, heuristic proposals, and the combined transformer-plus-heuristic search. The combined policy tries the transformer first. The latter two policies allow one auxiliary level and up to eight branches. Every configuration uses seed 0, a 60-second search budget after loading and 2,048 MiB of memory. The mixed policy uses the existing mid checkpoint so the choice of model is fixed before observing the Latvian scan results.
 
 For a reviewed dataset in the alternating ID/problem format, pass a generated configuration directly to `bench/sweep.py`. Omit the command-line time override to use the configuration's budget. Keep a separate result file per configuration. The manifest fixes the experiment design. Corpus review and measurements are tracked separately.
+
+### Scan the accepted Latvian translations
+
+In the solver environment, run the command below from the repository root. Choose an output directory on persistent storage.
+
+```sh
+PYTHONHASHSEED=0 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
+  python -m bench.latvia.scan /path/to/latvia-domain-scan
+```
+
+Only rows marked `accepted` in the translation review table enter the scan. The 22 November working set has 65 such rows, giving 1,170 solves across 18 configurations. Add `--prepare-only` to check the installed solver, weights and inputs before starting. Each completed run writes its proof or failure reason, rule counts, auxiliary constructions and measured resource use into `records/<configuration>/<problem ID>.json`. The same command resumes after interruption. If the corpus, solver sources, numerical package versions or frozen settings change, start a new output directory to keep the measurements comparable. The final `summary.json` counts proved, unproved and crashed runs by configuration. A timed-out search has an unknown mathematical outcome.
