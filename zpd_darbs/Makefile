@@ -2,7 +2,7 @@
 PY ?= ../.venv-newclid/bin/python
 LATEXMK = latexmk -pdf -interaction=nonstopmode -halt-on-error
 
-.PHONY: all figures template preliminary clean
+.PHONY: all figures publication template preliminary clean
 all: figures template preliminary
 
 figures:            ## attēli un tabulas no ../results/
@@ -11,7 +11,10 @@ figures:            ## attēli un tabulas no ../results/
 template:           ## tukšā veidne
 	cd template && $(LATEXMK) template.tex
 
-preliminary: figures ## priekšvariants ar projekta saturu
+publication:          ## HTML rezultāti un CPU pārbaudes teksts no saglabātajiem datiem
+	PYTHONPATH=.. $(PY) -m bench.publish
+
+preliminary: figures publication ## priekšvariants ar projekta saturu
 	cd preliminary && $(LATEXMK) template_preliminary.tex
 
 clean:

@@ -105,7 +105,7 @@ def domains_table(ex: dict[str, dict[str, dict]]) -> None:
     ax.set_ylim(0, len(ex))
     ax.grid(axis="x", visible=False)
     ax.legend(frameon=False, loc="upper right", ncols=2)
-    fig.savefig(FIG / "domains_examples.pdf")
+    fig.savefig(FIG / "domains_examples.pdf", metadata={"CreationDate": None})
     plt.close(fig)
 
 
@@ -210,7 +210,7 @@ def training_figure() -> None:
     ax.set_ylabel("Validācijas zudums")
     ax.set_ylim(0, 1.3)
     ax.legend(frameon=False)
-    fig.savefig(FIG / "training_loss.pdf")
+    fig.savefig(FIG / "training_loss.pdf", metadata={"CreationDate": None})
     plt.close(fig)
     (TAB / "training_models.tex").write_text("\n".join(rows) + "\n")
     (TAB / "training_meta.tex").write_text(
@@ -248,7 +248,7 @@ def proposers_tables() -> None:
         if c["proposer"] == "ddar":
             rows.append(rf"{dom} & {names['ddar']} & {c['solved']} / {c['n']} & {lv(c['sec'])} & -- & -- \\")
         else:
-            of = f"{c['solved']} / {c['of']}" + ("" if c["n"] == c["of"] else rf"$^*$")
+            of = f"{c['solved']} / {c['n']}" + ("" if c["n"] == c["of"] else rf"$^*$")
             rows.append(rf"{dom} & {names.get(c['proposer'], tex_escape(c['proposer']))} & {of} & {lv(c['sec'])} & "
                         rf"{lv(c['load'])} & {c['timeouts']} \\")
     (TAB / "proposers_compare.tex").write_text("\n".join(rows) + "\n")

@@ -8,6 +8,8 @@ each problem, the tool stores the proof, the key auxiliary point, the rules
 used, and the resources used. The project description is in
 [apraksts.md](apraksts.md).
 
+The [results page](results/index.html) and [replication records](../results/local-cpu/README.md) cover the November 2026 local CPU evaluation. The [research paper](../zpd_darbs/preliminary/template_preliminary.pdf) presents the methods and findings in Latvian.
+
 Under the hood it is a small, CPU-friendly reimplementation of the
 AlphaGeometry idea. A deductive engine (Newclid's DDAR) proves everything it
 can. When it gets stuck, other tools propose auxiliary points (a transformer

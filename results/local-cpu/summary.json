@@ -1,0 +1,159 @@
+{
+  "common50": {
+    "mini": {
+      "n": 50,
+      "top1": 3,
+      "top4": 12,
+      "relaxed": 12,
+      "empty": 5,
+      "seconds": 0.08
+    },
+    "mini_long": {
+      "n": 50,
+      "top1": 17,
+      "top4": 33,
+      "relaxed": 36,
+      "empty": 5,
+      "seconds": 0.12
+    },
+    "mid": {
+      "n": 50,
+      "top1": 23,
+      "top4": 32,
+      "relaxed": 36,
+      "empty": 5,
+      "seconds": 0.84
+    },
+    "GenesisGeo": {
+      "n": 50,
+      "top1": 28,
+      "top4": 33,
+      "relaxed": 35,
+      "empty": 5,
+      "seconds": 9.88
+    },
+    "SmolLM2-360M-Instruct": {
+      "n": 50,
+      "top1": 1,
+      "top4": 4,
+      "relaxed": 6,
+      "empty": 5,
+      "seconds": 13.64
+    }
+  },
+  "full": {
+    "mini": {
+      "n": 200,
+      "top1": 15,
+      "top4": 57,
+      "relaxed": 57,
+      "empty": 13,
+      "seconds": 0.09
+    },
+    "mini_long": {
+      "n": 200,
+      "top1": 81,
+      "top4": 125,
+      "relaxed": 130,
+      "empty": 13,
+      "seconds": 0.13
+    },
+    "mid": {
+      "n": 200,
+      "top1": 99,
+      "top4": 129,
+      "relaxed": 136,
+      "empty": 13,
+      "seconds": 0.93
+    },
+    "GenesisGeo": {
+      "n": 50,
+      "top1": 28,
+      "top4": 33,
+      "relaxed": 35,
+      "empty": 5,
+      "seconds": 9.88
+    },
+    "SmolLM2-360M-Instruct": {
+      "n": 50,
+      "top1": 1,
+      "top4": 4,
+      "relaxed": 6,
+      "empty": 5,
+      "seconds": 13.64
+    }
+  },
+  "proofs": {
+    "jgex_ag_231": {
+      "n": 231,
+      "baseline": 205,
+      "current": 205,
+      "build_failures": 1,
+      "union": 217,
+      "changed": [],
+      "repeat_union": 217,
+      "gains": {
+        "heuristics_only": 8,
+        "mini_long_model": 5,
+        "mid_model": 5
+      },
+      "followup_cases": 26,
+      "one_aux_gain": 7,
+      "additional_proofs": [
+        "examples/complete2/014/complete_007_7_Book_LLL_L058-9.gex",
+        "examples/complete2/014/complete_008_7_Book_LLL_L053-1.gex",
+        "examples/complete2/unsolved/complete_015_7_Book_00EE_08_E061-61.gex",
+        "examples/complete2/unsolved1/complete_010_Other_gao_Y_yL157-1.gex",
+        "examples/complete2/unsolved1/complete_012_7_Book_00EE_05_E051-14-1.gex",
+        "examples/complete2/unsolved2/complete_002_6_GDD_FULL_41-60_42.gex",
+        "examples/complete2/unsolved2/complete_010_Other_Auxiliary_aux2_22.gex",
+        "examples/complete2/unsolved2/complete_010_Other_Auxiliary_ye_aux_ll43.gex",
+        "examples/complete2/unsolved2/complete_010_Other_Auxiliary_ye_aux_think.gex",
+        "examples/complete2/unsolved2/complete_010_Other_Auxiliary_ye_aux_think2.gex",
+        "examples/complete2/unsolved2/complete_010_Other_Auxiliary_ye_aux_y1.gex",
+        "examples/complete2/unsolved2/complete_011_7_Book_00EE_04_E051-9.gex"
+      ]
+    },
+    "imo": {
+      "n": 29,
+      "baseline": 15,
+      "current": 15,
+      "build_failures": 0,
+      "union": 16,
+      "changed": [],
+      "repeat_union": 16,
+      "gains": {
+        "heuristics_only": 0,
+        "mini_long_model": 0,
+        "mid_model": 1
+      },
+      "followup_cases": 14,
+      "one_aux_gain": 0,
+      "additional_proofs": [
+        "2015_p3"
+      ]
+    },
+    "imo_102_requires_aux": {
+      "n": 101,
+      "baseline": 0,
+      "current": 0,
+      "build_failures": 1,
+      "union": 7,
+      "changed": []
+    }
+  },
+  "ag1_smoke": {
+    "n": 3,
+    "top1": 1,
+    "top4": 1,
+    "relaxed": 1,
+    "empty": 1,
+    "seconds": 79.87
+  },
+  "training_prompt_overlaps": 0,
+  "translations": {
+    "accepted": 65,
+    "review": 10,
+    "rejected": 5
+  }
+}

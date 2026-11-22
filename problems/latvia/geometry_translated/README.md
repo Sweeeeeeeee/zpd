@@ -1,6 +1,6 @@
 # Newclid translations of the Latvian geometry problems
 
-Tasks 7.2–7.5. Empty for now.
+The [status register](status.csv) records 80 candidates. The automated workflow accepted 65, rejected five and flagged ten for [review](REVIEW.md). Human audit and domain scanning remain open.
 
 Each translation goes at the same path as its problem in `../geometry/`, with
 `.txt` in place of `.md`:

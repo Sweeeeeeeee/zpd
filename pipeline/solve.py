@@ -87,7 +87,7 @@ def solve(problem: str, config: str | Path | dict, budget: Budget | None = None)
     with tempfile.TemporaryDirectory() as tmp:
         out_path = Path(tmp) / "result.json"
         err_path = Path(tmp) / "stderr.txt"
-        t0 = time.time()
+        t0 = time.monotonic()
         with open(err_path, "w") as err:
             proc = subprocess.Popen(
                 [sys.executable, "-m", "pipeline.solve", "--_child", str(out_path)],
@@ -99,7 +99,7 @@ def solve(problem: str, config: str | Path | dict, budget: Budget | None = None)
             proc.stdin.close()
             loaded = Path(str(out_path) + ".loaded")
             killed, peak_kb, usage, tree_cpu = _watch(proc.pid, budget, cpu_limit, t0, loaded)
-        wall = time.time() - t0
+        wall = time.monotonic() - t0
         load_time = (float(loaded.read_text()) - t0) if loaded.exists() else wall
         peak_mb = max(peak_kb, usage.ru_maxrss) / 1024
         cpu = max(tree_cpu, usage.ru_utime + usage.ru_stime)
@@ -154,7 +154,7 @@ def _watch(pid: int, budget: Budget, cpu_limit: float, t0: float, loaded: Path):
             except ValueError:  # being written
                 pass
         if killed is None:
-            now = time.time()
+            now = time.monotonic()
             if t_solve is None and now - t0 > budget.load_s:
                 killed = f"load limit ({budget.load_s:.0f}s)"
             elif t_solve is not None and now - t_solve > budget.time_s:
@@ -199,7 +199,7 @@ def _child(out_path: str) -> None:
     config = request["config"]
     ddar, proposers = load_tools(config)
     tmp = Path(out_path + ".loaded.tmp")
-    tmp.write_text(repr(time.time()))
+    tmp.write_text(repr(time.monotonic()))
     tmp.rename(out_path + ".loaded")  # atomic: the watchdog never reads half a number
     result = search(request["problem"], ddar, proposers, SearchLimits(**config.get("search", {})))
     Path(out_path).write_text(json.dumps(asdict(result)))

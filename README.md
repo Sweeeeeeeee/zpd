@@ -1,22 +1,31 @@
-# Olympiad geometry scanner
+# Olympiad Geometry Scanner
 
-Finds olympiad geometry problems that have an easy solution in one geometry
-domain (a set of theorems): provable by Newclid's DDAR with that domain's
-rules, at most one auxiliary point, 60 s and 2 GB. Auxiliary points come from
-human heuristics and a small transformer trained from scratch on CPU.
+Which geometry problems can a deduction engine prove with the points already in the diagram? When it stalls, this project tests whether a heuristic or a small transformer can supply a useful auxiliary point. The solver records the construction, proof outcome, search depth and resource use for each problem.
 
-| where | what |
-|---|---|
-| [docs/README.md](docs/README.md) | overview, installation, usage, folder map |
-| [docs/apraksts.md](docs/apraksts.md) | project description (Latvian) |
-| [docs/tasks.md](docs/tasks.md) | task list and progress |
-| [docs/rezultati.md](docs/rezultati.md) | current results (Latvian) |
-| [zpd_darbs/](zpd_darbs/README.md) | the written ZPD paper (LaTeX) |
-| [claude/LOG.md](claude/LOG.md) | work log: what was done in each session, where to continue |
+**[View the live results](https://zpd.aniwe.me/)**, open the [self-contained HTML](docs/results/index.html) locally, or read the [Latvian research paper (PDF)](zpd_darbs/preliminary/template_preliminary.pdf). The [local replication](results/local-cpu/README.md) links predictions, per-problem proofs and scoring definitions.
 
-```bash
-bash setup.sh                             # fresh machine: env, data, TeX, tests (runs by itself in a new Codespace)
-.venv-newclid/bin/python -m pytest -q     # 90 tests
+## Findings
+
+In the archived JGEX benchmark, DD-AR solved 205 of 231 problems. Across independent searches with heuristics and two trained models, 217 distinct problems had proofs. Those searches allowed up to two auxiliary levels. The restricted-domain experiment uses a separate limit of one auxiliary point.
+
+For the Latvian corpus, the translation pipeline automatically accepted 65 of 80 candidates. Five were rejected and ten require review. The relationship between restricted proofs and official difficulty remains open.
+
+## Run locally
+
+On a fresh Debian or Ubuntu machine with Python 3.11–3.13:
+
+```sh
+bash setup.sh --no-tex
+.venv-newclid/bin/python -m pytest -q
+.venv-newclid/bin/python -m bench show problems/examples/varignon
 ```
 
-For a stronger local machine or a Kaggle GPU notebook, use the training setup notes in [docs/training_setup.md](docs/training_setup.md). The translation workflow remains paused at task 7.4 pending user verification.
+To regenerate the HTML from saved runs, execute `python -m bench.publish` in the project environment. To build the paper, see [the LaTeX instructions](zpd_darbs/README.md). Serve the published HTML from any static web server.
+
+| Directory | Contents |
+|---|---|
+| [ddar](ddar/) and [pipeline](pipeline/) | Deduction rules, auxiliary-point tools, search and budgets |
+| [geo-lm](geo-lm/) and [models](models/registry.json) | Trained geometry models and external weight references |
+| [bench](bench/) and [results](results/) | Runners, raw records and publication code |
+| [problems/latvia](problems/latvia/) | Source problems, translations and review status |
+| [docs](docs/README.md) | Methods, installation, CLI usage and [training](docs/training_setup.md) |

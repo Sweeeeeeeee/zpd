@@ -1,12 +1,12 @@
 """Every proposer model on the same held-out problems, scored the same way.
 
-The first N problems with an auxiliary point in data/genesisgeo/val.txt (never
-in geo-lm's training data or in the few-shot prompts). Each model proposes the
-first auxiliary point with beam search; per problem we record its beams and:
+The first N validation problems containing an auxiliary marker. Each model
+proposes the first auxiliary point with beam search. The historical scores are:
 
-  exact@1 / exact@k   the top / any beam's first point has exactly the
-                      reference's predicates (as a set, arguments sorted:
-                      order does not change the point)
+  exact@1 / exact@k   legacy match ignoring the point declaration and sorting
+                      all arguments in each predicate. This can equate distinct
+                      constructions. bench.publish also scores the saved beams
+                      with argument positions and the point name preserved.
   translatable        the beam maps onto Newclid constructions
                       (pipeline.translate, the same check the solver uses)
   seconds             time of the call (after loading)
@@ -32,11 +32,13 @@ import resource
 import sys
 import time
 from pathlib import Path
+from statistics import median
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "geo-lm"))
 
+from bench.jsonl import resume_rows
 from pipeline.hf_tool import normalize_preds  # noqa: E402
 from pipeline.translate import UntranslatableAux, aux_to_clauses  # noqa: E402
 
@@ -67,7 +69,7 @@ def problems(n: int) -> list[tuple[str, str, str]]:
 # ---------------------------------------------------------------- AG1 format
 AG_CODE = {"coll": "C", "cong": "D", "perp": "T", "para": "P", "cyclic": "O", "midp": "M",
            "eqangle": "^", "aconst": "^", "eqratio": "/", "rconst": "/", "circle": "I",
-           "simtri": "S", "contri": "="}
+           "simtri": "S", "simtrir": "S", "contri": "=", "contrir": "="}
 AG_NAME = {"C": "coll", "D": "cong", "T": "perp", "P": "para", "O": "cyclic", "M": "midp",
            "I": "circle", "S": "simtri", "=": "contri", "F": "foot"}
 
@@ -80,12 +82,19 @@ def _pretty2(a, b, c, d):  # AG1 pretty.pretty2a / pretty2r
     return [a, b, c, d]
 
 
-def _ag_pred(name: str, args: list[str]) -> str:
+def _ag_pred(name: str, args: list[str], *, goal: bool = False) -> str:
+    # AG1 pretty.pretty uses one triangle symbol for either orientation.
+    if name == "eqratio3":
+        a, b, c, d, _, o = args
+        return f"S {o} {a} {b} {o} {c} {d}"
     if name in ("eqangle", "eqratio") and len(args) == 8:
         args = _pretty2(*args[:4]) + _pretty2(*args[4:])
     elif name in ("aconst", "rconst"):
         m, _, n = args[4].partition("/")
-        return f"{AG_CODE[name]} {' '.join(_pretty2(*args[:4]))} {m}. pi / {n or 1}."
+        value = args[4]
+        if name == "aconst":
+            value = f"{m}pi/{n or 1}" if goal else f"{m}. pi / {n or 1}."
+        return f"{AG_CODE[name]} {' '.join(_pretty2(*args[:4]))} {value}"
     return f"{AG_CODE[name]} {' '.join(args)}"
 
 
@@ -104,7 +113,7 @@ def ag1_prompt(problem: str) -> str:
                 ref += 1
         parts.append(f"{pts.strip()} : {' '.join(deps)}".strip())
     g = goal.split()
-    return "{S} " + " ; ".join(parts) + " ? " + _ag_pred(g[0], g[1:]) + " {F1} x00"
+    return "{S} " + " ; ".join(parts) + " ? " + _ag_pred(g[0], g[1:], goal=True) + " {F1} x00"
 
 
 def from_ag1(raw: str) -> str:
@@ -128,6 +137,8 @@ def from_ag1(raw: str) -> str:
                 i = args.index("pi")
                 m, n = args[i - 1].rstrip("."), args[i + 2].rstrip(".") if len(args) > i + 2 else "1"
                 out.append(f"{'aconst' if code == '^' else 'rconst'} {' '.join(args[:4])} {m}/{n}")
+            elif code == "/" and len(args) == 5:
+                out.append("rconst " + " ".join(args))
             else:
                 out.append(f"{'eqangle' if code == '^' else 'eqratio'} {' '.join(args)}")
         else:
@@ -187,23 +198,30 @@ def main() -> None:
     out = Path(a.out)
     out.parent.mkdir(parents=True, exist_ok=True)
     rows_path = out.with_suffix(".jsonl")
-    done = [json.loads(l) for l in rows_path.read_text().splitlines()] if rows_path.exists() else []
+    done = resume_rows(rows_path)
     probs = problems(a.n)
 
-    t0 = time.time()
+    if len(done) > len(probs):
+        ap.error("existing run is longer than the requested sample; choose a different output")
+    for i, row in enumerate(done):
+        _, point, gold = probs[i]
+        if row["i"] != i or row["gold"] != f"{point} : {gold}":
+            ap.error(f"saved row {i} does not match the requested validation sample")
+
+    t0 = time.monotonic()
     if len(done) < len(probs):
         model = {"geolm": lambda: GeoLM(a.model, a.beam), "hf": lambda: HF(a.model, a.beam, a.prompt, a.dtype),
                  "ag1": lambda: AG1(a.model, a.beam)}[a.kind]()
-        load_s = time.time() - t0
+        load_s = time.monotonic() - t0
         print(f"loaded {a.model} in {load_s:.1f} s; {len(done)} of {len(probs)} done", flush=True)
         with rows_path.open("a") as f:
             for i in range(len(done), len(probs)):
                 problem, point, gold = probs[i]
                 names = {c.split(":")[0].strip(): c.split(":")[0].strip()
                          for c in problem.split("?")[0].split(";") if c.split(":")[0].strip()}
-                t = time.time()
+                t = time.monotonic()
                 beams = model(problem, point)
-                dt = time.time() - t
+                dt = time.monotonic() - t
                 ok, hit = [], []
                 for raw in beams:
                     try:
@@ -234,7 +252,7 @@ def main() -> None:
         "problems_with_translatable": round(sum(any(r["translatable"]) for r in done) / max(n, 1), 3),
         "exact_at_1": round(sum(bool(r["exact"]) and r["exact"][0] for r in done) / max(n, 1), 3),
         f"exact_at_{a.beam}": round(sum(any(r["exact"]) for r in done) / max(n, 1), 3),
-        "seconds_median": secs[n // 2] if secs else None,
+        "seconds_median": median(secs) if secs else None,
         "seconds_total": round(sum(secs), 1),
         "load_s": done[-1]["load_s"] if done else None,
         "peak_rss_gb_last_part": round(rss, 2),

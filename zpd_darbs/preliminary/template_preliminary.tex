@@ -1,8 +1,4 @@
-% ZPD priekšvariants: veidne (../template/zpd.cls), aizpildīta ar šī projekta saturu.
-% Sarkanās piezīmes paskaidro, kas ir katra daļa; [sarkanā iekavās] -- vēl jāaizpilda.
-% Skaitļi tabulās un attēlos nāk no ../scripts/make_figures.py (results/ mapē).
-% Kompilē: make preliminary  (no mapes zpd_darbs/)
-\documentclass{../template/zpd}
+\documentclass[nolabels]{../template/zpd}
 \graphicspath{{../template/}{../figures/}}
 \input{../tables/bench_meta.tex}
 \input{../tables/training_meta.tex}
@@ -10,8 +6,8 @@
 \skola{RTU Inženierzinātņu vidusskola}
 \nosaukums{Vieglu ģeometrijas risinājumu skeneris}
 \nozaru{dabaszinātņu nozaru grupas datorzinātnes un informātikas nozarē}
-\autors[Darba autors]{\aizpildit{Vārds Uzvārds}}
-\vaditajs[Darba vadītājs]{\aizpildit{Vārds Uzvārds}}
+\autors[Darba autors]{Publiskajā versijā nav norādīts}
+\vaditajs[Darba vadītājs]{Publiskajā versijā nav norādīts}
 \pilseta{Rīga}
 \gads{2026}
 \logotips{../template/logo_rtu_izv.png}
@@ -23,33 +19,13 @@
 % ==================================================================== anotācijas
 \anotacijulapa
 \begin{anotacija}{Anotācija}
-\zpdlabel{Autors un nosaukums}\aizpildit{Vārds Uzvārds}. Vieglu ģeometrijas risinājumu skeneris.
-
-\zpdlabel{Mērķis, metode, rezultāti}Darbā izstrādāts rīks, kas olimpiāžu ģeometrijas uzdevumu kopā
-izvēlētai ģeometrijas jomai (likumu kopai) atrod uzdevumus ar vieglu risinājumu: tādu, kas pierādāms
-tikai ar jomas likumiem, ne vairāk kā vienu palīgkonstrukciju, 60~s un 2~GB atmiņas. Rīks balstās uz
-AlphaGeometry pieeju: determinēts DD-AR dzinējs (Newclid) pierāda faktus, bet palīgpunktus piedāvā
-cilvēka heiristikas un paša apmācīts mazs transformeris. Definētas trīs jomas, katra ar algebrisko
-spriešanu un bez tās. Uz \jgexTotal{} JGEX uzdevumiem DD-AR vienatnē atrisina \jgexSolved{},
-vairāk nekā AlphaGeometry DD+AR (198); ar heiristikām un 5,1 milj. parametru transformeri, kas apmācīts
-3,4 stundas uz diviem CPU kodoliem, -- \jgexBest{}, un IMO-AG-30 etalonā \imoBest{} no \imoTotal{}.
-Mazais modelis piedāvā palīgpunktus precīzāk nekā vispārīgi valodas modeļi ar līdz 1,5 miljardiem parametru. \aizpildit{Galvenie secinājumi pēc skenēšanas.}
+Cik daudzus olimpiāžu ģeometrijas uzdevumus var pierādīt ar dotajiem punktiem, un cik palīdz jauna punkta ieviešana? Pētījumā salīdzināts Newclid deduktīvais dzinējs ar trim palīgpunktu avotiem: heiristikām un diviem uz CPU apmācītiem transformeriem. JGEX kopā deduktīvais dzinējs atrisināja \jgexSolved{} no \jgexTotal{} uzdevumiem. Apvienojot katrā konfigurācijā atrastos pierādījumus, atrisināto uzdevumu skaits pieauga līdz \jgexBest{}. Šajā etalonpārbaudē bija atļauti līdz diviem palīgpunktu līmeņiem. Atsevišķi mērīta pirmā piedāvājuma sakritība ar paraugu, kas raksturo modeļa prognozi, bet vēl neapliecina pierādījumu. Latvijas uzdevumu tulkojumu kopa ir sagatavota daļēji; saistība ar oficiālo grūtību vēl jānovērtē.
 
 \atslegvardi{automātiskā teorēmu pierādīšana, deduktīvā datubāze, palīgkonstrukcija, transformeris, olimpiāžu matemātika}
 \end{anotacija}
 
 \begin{anotacija}{Abstract}
-\zpdlabel{Tulkojums angļu valodā}\aizpildit{Name Surname}. A Scanner for Easy Geometry Solutions.
-
-The work develops a tool that, for a chosen geometry domain (a set of deduction rules), finds the
-olympiad geometry problems that have an easy solution: one provable with the domain's rules only,
-at most one auxiliary construction, 60~s and 2~GB of memory. It follows the AlphaGeometry approach:
-a deterministic DD-AR engine (Newclid) proves facts, while auxiliary points come from human
-heuristics and a small transformer trained from scratch. Three domains are defined, each with and
-without algebraic reasoning. On \jgexTotal{} JGEX problems DD-AR alone solves \jgexSolved{}, more
-than AlphaGeometry's DD+AR (198); with heuristics and a 5.1M-parameter transformer trained for 3.4 hours
-on two CPU cores it solves \jgexBest{}, and \imoBest{} of \imoTotal{} on the IMO-AG-30 benchmark. The small
-model proposes auxiliary points more accurately than general language models of up to 1.5 billion parameters. \aizpildit{Main conclusions after the scan.}
+How often can a geometry solver prove an olympiad problem using the given points, and when does an auxiliary point help? We compared Newclid deduction with heuristic constructions and two CPU-trained transformers. Deduction alone solved \jgexSolved{} of \jgexTotal{} JGEX problems. Across the separate configurations, \jgexBest{} distinct problems had a proof. These benchmark runs allowed up to two auxiliary levels. A second experiment scored first-point predictions against a reference construction; matching that reference does not establish a proof. The Latvian translation corpus is partly ready. The relationship between a restricted proof and official problem difficulty remains untested.
 
 \atslegvardi[Keywords]{automated theorem proving, deductive database, auxiliary construction, transformer, olympiad mathematics}
 \end{anotacija}
@@ -100,15 +76,14 @@ un statistiskā analīze.
 Deduktīvās datubāzes (DD) metode \atsauce{Chou u.c., 2000} no uzdevuma pieņēmumiem atkārtoti
 pielieto ģeometrijas likumus (piemēram, ,,ja četri punkti atrodas uz vienas riņķa līnijas, tad
 ievilktie leņķi ir vienādi``), līdz jauni fakti vairs nerodas. Algebriskā spriešana (AR) to papildina
-ar leņķu un attiecību vienādojumu risināšanu. Kopā tās veido DD-AR, kas pierāda faktus bez kļūdām,
+ar leņķu un attiecību vienādojumu risināšanu. Kopā tās veido DD-AR, kas izvada faktus no formalizētajiem pieņēmumiem,
 bet nevar ieviest jaunus punktus. Darbā izmantota atvērtā pirmkoda Newclid realizācija
 \atsauce{Sicca u.c., 2024}.
 
 Algebriskās metodes -- Wu metode \atsauce{Wu, 1986} un Gröbnera bāzes \atsauce{Kapur, 1986} --
-pārvērš pieņēmumus un mērķi polinomu vienādojumos un pierāda ļoti plašu teorēmu klasi. Taču to
-pierādījums ir polinomu aprēķins: cilvēks to nevar izsekot, un no tā nevar nolasīt, kuras
-ģeometrijas teorēmas izmantotas. Šim darbam jautājums ir tieši par izmantoto teorēmu kopu, tāpēc
-der tikai sintētiska metode, kurā katrs solis ir nosaukts likums. DD-AR tāda ir, un tās likumus var
+pārvērš pieņēmumus un mērķi polinomu vienādojumos un pierāda ļoti plašu teorēmu klasi. Šo metožu
+rezultāts parasti izteikts ar algebriskām darbībām. Lai noteiktu, kuras skolas ģeometrijas teorēmas atbilst šīm darbībām, nepieciešama papildu interpretācija. Šim darbam jautājums ir tieši par izmantoto teorēmu kopu, tāpēc
+izvēlēta sintētiska metode, kurā katrs solis ir nosaukts likums. DD-AR tāda ir, un tās likumus var
 ieslēgt un izslēgt atsevišķi; tās trūkums ir, ka tā neatrisina uzdevumus, kuriem vajag jaunu punktu.
 
 \subsection{Valodas modeļi palīgkonstrukcijām}
@@ -153,7 +128,7 @@ Newclid konstrukcijās; tos, kas neatbilst zīmējumam, risinātājs atmet.
 
 Salīdzinājumam sagatavoti arī gatavi modeļi: GenesisGeo \atsauce{Zhu u.c., 2025}, AlphaGeometry
 valodas modelis \atsauce{Trinh u.c., 2024} un mazi vispārīgi valodas modeļi.
-\aizpildit{Salīdzinājuma rezultāti (8.4. uzdevums): kurš modelis jomā visātrāk atrod vienu palīgpunktu.}
+Palīgpunkta ģenerēšana un pierādīšana vērtētas atsevišķi. Pirmajā gadījumā modelim ir zināma uzdevuma formalizācija, un vērtē pirmo punktu. Otrajā dzinējam pēc punkta pievienošanas jāpierāda mērķis.
 
 \subsection{Uzdevumu kopa}
 No Neklātienes matemātikas skolas arhīva savākti 6333 Latvijas olimpiāžu uzdevumi, no tiem 1499
@@ -161,8 +136,7 @@ No Neklātienes matemātikas skolas arhīva savākti 6333 Latvijas olimpiāžu u
 uzbūvēt punktu pa punktam, un pierādāmu apgalvojumu, kas ir viens no tās predikātiem (\ref{tab:sorting}~tabula).
 Uzdevumus sašķiroja valodas modeļa aģenti pēc vienotas instrukcijas; pārbaudē 60 uzdevumus izlasīja
 pilnībā: 19 no 20 nejauši izvēlētiem bija sašķiroti pareizi, un starp 20 ,,citādi pierādāmajiem''
-netika atrasts neviens, ko var uzrakstīt. Kļūdas ir drošajā virzienā: dažus uzdevumus aģenti
-uzskata par uzrakstāmiem, lai gan tos nevar uzbūvēt, un tie atkrīt tulkošanā.
+netika atrasts neviens, ko var uzrakstīt. Šī pārbaude ir par mazu, lai noteiktu kopējo kļūdu biežumu. Daļa par tulkojamiem atzīto uzdevumu vēlāk jāatmet, ja zīmējumu nevar uzbūvēt.
 
 \begin{table}[H]
   \caption{1499 Latvijas olimpiāžu ģeometrijas uzdevumu šķirojums}\label{tab:sorting}
@@ -176,8 +150,7 @@ uzskata par uzrakstāmiem, lai gan tos nevar uzbūvēt, un tie atkrīt tulkošan
   \end{tabular}
 \end{table}
 
-\aizpildit{Darba kopas izvēle (60--80 uzdevumi), tulkošana ar diviem neatkarīgiem tulkojumiem,
-skaitliskā pārbaude, atpakaļtulkošana un izlases pārbaude (7.3.--7.6. uzdevums).}
+No atlasītajiem 80 uzdevumiem automātiskā procedūra pieņēma 65 tulkojumus, noraidīja piecus un desmit atstāja pārskatīšanai. Skaits iegūts no tulkojumu statusa reģistra. Automātiski pieņemta formalizācija vēl jāapstiprina, salīdzinot to ar sākotnējo uzdevumu. Tāpēc šajā darbā nav izdarīti secinājumi par visas Latvijas izlases grūtību.
 
 % ==================================================================== 3. nodaļa
 \section{Rezultāti un analīze}
@@ -209,12 +182,11 @@ teorēma, un bez AR izkrīt uzdevumi, kuros vajag leņķu skaitīšanu.
 \subsection{Standarta uzdevumu kopas}
 Risinātājs pārbaudīts uz trim Newclid publicētām kopām ar 60~s un 2~GB uz uzdevumu
 (\ref{tab:bench}~tabula). DD-AR vienatnē atrisina \jgexSolved{} no \jgexTotal{} JGEX uzdevumiem
-(mediāna \jgexMedian~s) un \imoSolved{} no \imoTotal{} IMO-AG-30 uzdevumiem, vairāk nekā
-AlphaGeometry DD+AR \atsauce{Trinh u.c., 2024}. Modeļi palaisti tikai uzdevumos, kuros DD-AR
+(mediāna \jgexMedian~s) un \imoSolved{} no \imoTotal{} IMO-AG-30 uzdevumiem. Tabulā atsevišķi sniegti publicētie AlphaGeometry rezultāti \atsauce{Trinh u.c., 2024}. Modeļi palaisti tikai uzdevumos, kuros DD-AR
 iestrēgst (ar līdz diviem palīgpunktu līmeņiem).
 
 \begin{table}[H]
-  \caption{Atrisināto uzdevumu skaits standarta kopās; AlphaGeometry skaitļi no \atsauce{Trinh u.c., 2024}}\label{tab:bench}
+  \caption{Atrisināto uzdevumu skaits standarta kopās; AlphaGeometry etalonu rezultāti no autoru koda repozitorija}\label{tab:bench}
   \centering\small\setlength{\tabcolsep}{3.5pt}
   \begin{tabular}{@{}lcccccccc@{}}
     \toprule
@@ -226,7 +198,7 @@ iestrēgst (ar līdz diviem palīgpunktu līmeņiem).
     \bottomrule
   \end{tabular}\\[3pt]
   {\footnotesize Kopā: uzdevumi, ko atrisina DD-AR vai kāds no avotiem; -- nav palaists.
-  IMO-AG-30: 29 no 30 uzdevumiem (Newclid kopā trūkst \texttt{2000\_p1}).
+  AlphaGeometry: \url{https://github.com/google-deepmind/alphageometry#results}. IMO-AG-30: 29 no 30 uzdevumiem (Newclid kopā trūkst \texttt{2000\_p1}).
   IMO, vajag palīgpunktu: uzdevumi, ko Newclid DD-AR vienatnē neatrisina.}
 \end{table}
 
@@ -235,8 +207,9 @@ Heiristikas un modeļi kopā atrisina \stuckSolved{} uzdevumus, kuros DD-AR iest
 augstumu pamati) atrisina 8 no 26, vairāk nekā katrs modelis (5), bet tās atrisina citus uzdevumus,
 tāpēc kopā 12. IMO uzdevumos heiristikas nepalīdz nevienā; \texttt{mid} pirmo reizi pievieno IMO-AG-30
 uzdevumu (2015.~gada 3.~uzdevums). Vieglā risinājuma
-definīcijai (viens palīgpunkts) atbilst \midOneAux{} no \texttt{mid} risinājumiem. Laika limits
-netika sasniegts nevienā uzdevumā: ierobežo piedāvājumu kvalitāte, nevis laiks.
+definīcijai (viens palīgpunkts) atbilst \midOneAux{} no \texttt{mid} risinājumiem. Šie skaitļi rāda atrastos pierādījumus. Neveiksme noteiktajā budžetā neizslēdz cita pierādījuma esamību.
+
+Piemēram, JGEX uzdevumā \texttt{L058-9} jāpierāda $EC=CD$. Modelis \texttt{mini\_long} ieviesa $F$ uz taisnes $AB$ tā, ka $AF=BF$. Punkti $F$ un $C$ atrodas uz nogriežņa $AB$ vidusperpendikula. Paralēlās taisnes $AE$, $FC$ un $BD$ uz vienas šķērsenes atšķeļ vienādus nogriežņus $AF$ un $FB$, tātad arī uz otras šķērsenes $EC=CD$. Šeit pietiek ar vienu palīgpunktu.
 
 \begin{table}[H]
   \caption{Uzdevumi, kuros DD-AR vienatnē iestrēgst, bet modelis atrod pierādījumu: palīgpunktu skaits (p.) un laiks}\label{tab:solved}
@@ -252,7 +225,7 @@ netika sasniegts nevienā uzdevumā: ierobežo piedāvājumu kvalitāte, nevis l
 
 \subsection{Transformera novērtējums}
 Uz \evalProblems{} neredzētiem GenesisGeo uzdevumiem (\ref{tab:models}~tabula) ap 90~\% piedāvājumu
-ir pārvēršami Newclid konstrukcijās visiem modeļiem, bet precīza sakritība ar atsauces palīgpunktu
+ir pārvēršami Newclid konstrukcijās visiem trim pašu apmācītajiem modeļiem, bet precīza sakritība ar atsauces palīgpunktu
 aug ar apmācības ilgumu un modeļa izmēru: no 21~\% līdz 53,5~\%, ja skaita jebkuru no četriem
 piedāvājumiem. Validācijas zudums lielākajam modelim ir zemāks katrā apmācības solī
 (\ref{fig:training}~attēls).
@@ -278,22 +251,18 @@ piedāvājumiem. Validācijas zudums lielākajam modelim ir zemāks katrā apmā
 \subsection{Palīgpunktu modeļu salīdzinājums}
 Lai salīdzinātu palīgpunktu avotus vienādos apstākļos, katram modelim uzdots viens un tas pats
 uzdevums: piedāvāt pirmo palīgpunktu neredzētiem GenesisGeo uzdevumiem (\ref{tab:proposers}~tabula).
-Mazie, šim uzdevumam apmācītie modeļi ir gan precīzākie, gan ātrākie: \texttt{mid} pirmajā
-piedāvājumā trāpa 51,5~\% uzdevumu 0,7~s laikā. Vispārīgi valodas modeļi ar dažiem piemēriem
-uzvednē (SmolLM2, Qwen) gandrīz nekad netrāpa un uz CPU prasa 13--460~s uz uzdevumu. Specializētais
-GenesisGeo (0,6 mljrd. parametru) ir līdzīgi precīzs kā \texttt{mid}, bet 40 reizes lēnāks, turklāt tas
-apmācīts uz tās pašas datu kopas, tāpēc tā rezultāts var būt pārvērtēts. AlphaGeometry modelis šajā
-datorā netika palaists: to apturēja atmiņas ierobežojums visos trijos mēģinājumos. Lielajiem modeļiem
-laika dēļ izmantota mazāka izlase (iekavās ticamības intervāls).
+Vēsturiskajā eksperimentā \texttt{mid} pirmais piedāvājums sakrita ar paraugu 103 no 200 gadījumiem pēc vērtētāja normalizācijas. Tas katrā predikātā sakārto argumentus, tādēļ divas atšķirīgas punktu atbilstības var saņemt vienādu vērtējumu. Apmācības tabulā prasīta pilnas ģenerētās konstrukcijas teksta sakritība. Šajā eksperimentā vērtēts tikai pirmais punkts ar normalizētiem predikātiem. Lielajiem modeļiem izlašu apjomi atšķiras, un nav zināms, vai GenesisGeo apmācībā izmantoti tie paši piemēri.
+
+\input{../tables/local_eval.tex}
 
 Jomas eksperimentā (\ref{tab:compare}~tabula) DD-AR ar jomas likumiem jāizpilda Newclid Python
 dzinējā, kas ir daudz lēnāks par noklusēto: \texttt{full} jomā 60~s laikā tas atrisina tikai 5 no 60
-JGEX uzdevumiem un 32 reizes sasniedz laika limitu, un heiristikas neko nepievieno. Tātad jomu
+JGEX uzdevumiem un 32 reizes sasniedz laika limitu, un heiristikas nepievieno pierādījumu 31 pārbaudītajā gadījumā no 55 neveiksmēm. Tātad jomu
 skenēšanai uz šī datora 60~s budžets ir par mazu, un tas jāpalielina vai jāizmanto ātrāks dzinējs.
-\aizpildit{Pārējās jomas un modeļi salīdzinājumā (8.4. uzdevums).}
+Pārējām jomām pilns salīdzinājums nav pabeigts.
 
 \begin{table}[H]
-  \caption{Modeļu pirmais palīgpunkts uz neredzētiem GenesisGeo uzdevumiem (4 stari); iekavās 95\,\% ticamības intervāls}\label{tab:proposers}
+  \caption{Modeļu pirmais palīgpunkts uz neredzētiem GenesisGeo uzdevumiem (4 stari, vēsturiskais normalizētais kritērijs); iekavās 95\,\% ticamības intervāls}\label{tab:proposers}
   \centering\small
   \begin{tabular}{@{}lcccccc@{}}
     \toprule
@@ -314,27 +283,17 @@ skenēšanai uz šī datora 60~s budžets ir par mazu, un tas jāpalielina vai j
     \csname @@input\endcsname ../tables/proposers_compare.tex 
     \bottomrule
   \end{tabular}\\[3pt]
-  {\footnotesize $^*$ palaists tikai uz daļas neveiksmju (laika dēļ).}
+  {\footnotesize $^*$ pārbaudīts 31 no 55 sākotnēji neatrisinātajiem uzdevumiem.}
 \end{table}
 
-\zpdlabel{Nodaļas kopsavilkums}\aizpildit{Pēc Latvijas uzdevumu skenēšanas: cik uzdevumu katrā jomā ir viegli, kuras teorēmas tos padara vieglus, salīdzinājums ar oficiālo grūtību.}
-
-% ==================================================================== secinājumi
 \nenumuretanodala{Secinājumi}
-\zpdnote{Priekšvarianta secinājumi; galīgajā darbā -- ne vairāk kā uzdevumu (5), katrs atbilst uzdevumam.}
 \begin{secinajumi}
-  \item Risinātājs DD-AR + palīgpunkti darbojas uz CPU 60~s un 2~GB budžetā; DD-AR vienatnē
-        atrisina \jgexSolved{} no \jgexTotal{} JGEX uzdevumiem, vairāk nekā AlphaGeometry DD+AR.
-  \item Jomas kā likumu kopas atšķir uzdevumus: šaurākā \texttt{circles} jomā atrisināti 3 no 5
-        parauga uzdevumiem, \texttt{full} jomā -- 4 no 5.
-  \item Uz CPU apmācīts mazs transformeris piedāvā derīgas konstrukcijas (ap 90~\%), precīzāk un
-        simtiem reižu ātrāk nekā vispārīgi valodas modeļi, un kopā ar heiristikām atrisina
-        \stuckSolved{} uzdevumus, kuros DD-AR iestrēgst, arī vienu IMO-AG-30 uzdevumu.
-  \item \aizpildit{Secinājums par Latvijas uzdevumu skenēšanu.}
-  \item \aizpildit{Secinājums par saistību ar oficiālo grūtību (hipotēzes pārbaude).}
+  \item DD-AR vienatnē pierādīja \jgexSolved{} no \jgexTotal{} JGEX uzdevumiem. Heiristikas palīdzēja astoņos no atlikušajiem 26 uzdevumiem. Abu modeļu rezultāti daļēji pārklājās ar heiristiku rezultātiem; kopā iegūti 12 papildu pierādījumi.
+  \item Palīgpunkta izvēle un pierādījuma pabeigšana ir atsevišķi uzdevumi. Referenču sakritības biežums ļauj salīdzināt prognozes vienā izlasē, taču alternatīvs punkts arī var būt derīgs.
+  \item Piecu piemēru pārbaudē ar pilno likumu kopu atrisināti četri, ar riņķa līniju likumiem -- trīs uzdevumi. Šī mazā izlase parāda atšķirību konkrētos piemēros; vispārinājumam vajadzīga lielāka pārbaudītu uzdevumu kopa.
+  \item Latvijas izlasē turpmāk jāpārbauda formalizāciju atbilstība oriģināliem un pēc tam jāsalīdzina pierādījumi pa jomām. Pašreizējie rezultāti neļauj novērtēt hipotēzi par oficiālo grūtību.
 \end{secinajumi}
 
-% ==================================================================== avoti
 \begin{avoti}
   \avots Chervonyi, Y., Trinh, T. H., Olšák, M. u.c. (2025). \textit{Gold-medalist Performance in Solving Olympiad Geometry with AlphaGeometry2} [tiešsaiste]. arXiv:2502.03544 [skatīts 2026. gada 5. novembrī]. Pieejams: \url{https://arxiv.org/abs/2502.03544}
   \avots Chou, S.-C., Gao, X.-S., Zhang, J.-Z. (2000). A Deductive Database Approach to Automated Geometry Theorem Proving and Discovering. \textit{Journal of Automated Reasoning}, Vol. 25, pp. 219--246.
@@ -346,10 +305,11 @@ skenēšanai uz šī datora 60~s budžets ir par mazu, un tas jāpalielina vai j
   \avots Wu, W.-T. (1986). Basic Principles of Mechanical Theorem Proving in Elementary Geometries. \textit{Journal of Automated Reasoning}, Vol. 2, pp. 221--252.
   \avots Zhu, M., Wang, Z. u.c. (2025). \textit{GenesisGeo: Technical Report} [tiešsaiste]. arXiv:2509.21896 [skatīts 2026. gada 5. novembrī]. Pieejams: \url{https://arxiv.org/abs/2509.21896}
   \avots \textit{Olimpiāžu uzdevumu arhīvs} [tiešsaiste]. LU Neklātienes matemātikas skola [skatīts 2026. gada 4. novembrī]. Pieejams: \url{https://www.nms.lu.lv/arhivs-un-materali/uzdevumu-arhivs/}
-  \avots \aizpildit{Izmantotie mākslīgā intelekta rīki, ja tādi lietoti: Izstrādātājs. (Gads, datums). \textit{Rīks, versija un sarunas nosaukums} [tiešsaiste]. [skatīts ...]. Pieejams: ... (vadlīnijas, 1.2. un 5. pielikums)}
 \end{avoti}
 
 % ==================================================================== pielikumi
+\noindent\textbf{Mākslīgā intelekta rīku izmantošana.} Claude Code un Codex izmantoti programmēšanas, eksperimentu dokumentēšanas un rediģēšanas darbā. Uzdevumu šķirošanā un tulkošanā izmantoti valodas modeļi. Automātiskie vērtējumi apzīmēti atsevišķi no cilvēka pārbaudes.
+
 \pielikums{Uzdevuma pieraksts Newclid sintaksē}
 \zpdnote{Piemērs, kā olimpiāžu uzdevums tiek pārtulkots (sk. docs/translation\_guide.md).}
 {\footnotesize\begin{verbatim}

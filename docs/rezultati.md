@@ -1,6 +1,8 @@
 # ZPD ģeometrijas risinātājs: rezultāti
 
-Stāvoklis uz 2026. gada 12. novembri. Visi skaitļi ņemti no repozitorija
+**Atkārtotā CPU pārbaude, 2026. gada 22. novembris:** [rezultātu lapa](results/index.html), [izejas dati un metode](../results/local-cpu/README.md).
+
+Tālāk sniegti 2026. gada 12. novembra eksperimentu rezultāti. Visi skaitļi ņemti no repozitorija
 failiem (`results/`, `geo-lm/runs/`); avots norādīts katras sadaļas beigās.
 
 ## Galvenais īsumā

@@ -1,0 +1,17 @@
+{
+ "kind": "ag1",
+ "model": "models/ag1/ag_ckpt_vocab",
+ "prompt": null,
+ "dtype": null,
+ "beam": 4,
+ "problems": 3,
+ "beams": 12,
+ "translatable_rate": 0.917,
+ "problems_with_translatable": 1.0,
+ "exact_at_1": 0.333,
+ "exact_at_4": 0.333,
+ "seconds_median": 79.87,
+ "seconds_total": 298.8,
+ "load_s": 29.4,
+ "peak_rss_gb_last_part": 3.95
+}

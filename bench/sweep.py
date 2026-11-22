@@ -7,6 +7,7 @@ import argparse, json, sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from bench.jsonl import resume_rows
 from pipeline.solve import Budget, config_budget, solve
 
 ap = argparse.ArgumentParser()
@@ -19,16 +20,7 @@ problems = list(zip(lines[0::2], lines[1::2]))
 if a.only:
     keep = set(Path(a.only).read_text().split())
     problems = [p for p in problems if p[0] in keep]
-done = set()
-if Path(a.out).exists():
-    text = Path(a.out).read_text()
-    for l in text.splitlines():
-        try:
-            done.add(json.loads(l)["name"])
-        except (json.JSONDecodeError, KeyError):
-            pass  # a line cut off by a killed job: that problem is rerun
-    if text and not text.endswith("\n"):
-        Path(a.out).write_text(text[: text.rfind("\n") + 1])  # drop the partial line
+done = {row["name"] for row in resume_rows(Path(a.out))}
 
 budget = Budget(time_s=a.time, memory_mb=2048, cpu_s=0) if a.time else config_budget(a.config)
 with open(a.out, "a") as f:

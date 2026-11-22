@@ -11,7 +11,7 @@ content, and the scripts that build its figures and tables from `results/`.
 | `template/zpd.cls` | document class: A4, 2.5 cm margins, Times 12 pt, single spacing, 16/14 pt bold headings, indented justified paragraphs, page numbers bottom centre from the introduction |
 | `template/template.tex` | empty template in the structure of guidelines section 2 (title page, both abstracts, contents, introduction, chapters, conclusions, sources, appendices) |
 | `template/logo_rtu_izv.png` | RTU Inženierzinātņu vidusskola logo, taken from `zpd_darbs/vadlinijas/example_rtu_izv.pdf` (the reference for the look: title page, captions); change with `\logotips{...}` |
-| `preliminary/template_preliminary.tex` | preliminary paper: the template filled with the project's aim, tasks, method and current results (status 2026-11-12) |
+| `preliminary/template_preliminary.tex` | preliminary paper: the template filled with the project's aim, tasks, method and current results (revised 2026-11-22 with a local CPU replication) |
 | `scripts/make_figures.py` | builds `figures/*.pdf` and `tables/*.tex` from `results/` |
 | `figures/`, `tables/` | generated; rebuild with `make figures` |
 
@@ -27,17 +27,19 @@ Needs TeX Live (`pdflatex`, `latexmk`, `texlive-lang-european` for Latvian)
 and `../.venv-newclid` with matplotlib. With XeLaTeX the class uses Times New
 Roman when the font is installed.
 
-## Red labels
+To use an activated local Python environment, pass `make PY="$(command -v python)" preliminary`. For a host without TeX, rebuild the tables and HTML with that interpreter, then compile the existing TeX source in a container. From this directory:
 
-`\zpdlabel{...}` prints a small red label saying what each part is (title,
-supervisor, aim, hypothesis, ...). `\zpdnote{...}` is a red note on what a
-chapter must contain. `\aizpildit{...}` marks red text that still has to be
-filled in: the school, names, city, and results that need the scan (tasks 7 and 9–10).
-For the version to submit, switch them all off with:
-
-```latex
-\documentclass[nolabels]{../template/zpd}   % nologo hides the logo
+```sh
+make PY="$(command -v python)" figures publication
+docker build -t zpd-paper-local - < Dockerfile
+docker run --rm --network none --user "$(id -u):$(id -g)" -e HOME=/tmp \
+  -v "$PWD:/paper" -w /paper/preliminary zpd-paper-local \
+  latexmk -pdf -interaction=nonstopmode -halt-on-error template_preliminary.tex
 ```
+
+## Public research draft
+
+The paper uses the class’s `nolabels` option to hide editorial annotations. Unknown author and supervisor names are explicitly left unspecified for this public draft. The blank template retains its teaching annotations. The local replication paragraph comes from `tables/local_eval.tex`; regenerate it with `python -m bench.publish` at the repository root before rebuilding the PDF.
 
 ## What the class implements
 
@@ -52,8 +54,3 @@ For the version to submit, switch them all off with:
 | in-text references, variant 1 (appendix 4) | `\atsauce{Trinh u.c., 2024, 478}` → (Trinh u.c., 2024, 478) |
 | sources list, alphabetical, not justified (appendix 5) | `avoti` environment with `\avots` |
 | appendices numbered, in the contents | `\pielikums{Title}` |
-
-The page limit is 16 pages including the title page; the preliminary version
-has 12. It reports the three trained models (`mini`, `mini_long`, `mid`) and the
-full JGEX-AG-231 / IMO-AG-30 / IMO-aux benchmarks; the Latvian scan and the
-proposer comparison are red placeholders.
