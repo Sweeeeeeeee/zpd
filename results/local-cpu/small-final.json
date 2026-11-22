@@ -1,0 +1,12 @@
+{
+  "step": 20000,
+  "checkpoint_sha256": "baddb194e940dc9ef6270305c8c4c26e36df1ada5c2c7845a49b9d8f6d1a31e7",
+  "top1": 113,
+  "top4": 143,
+  "n": 200,
+  "training_steps": 20000,
+  "best_val_loss": 0.15242504788646788,
+  "validation_cases": 1992,
+  "model_parameters": 11211648,
+  "inference_sha256": "069beee5488cb0fb876121248f4de2f51811f24e39e6d7ca9579621a8afdd089"
+}

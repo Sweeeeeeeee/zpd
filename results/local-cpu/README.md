@@ -8,7 +8,7 @@ Each JSONL row is one input problem. In build-failure messages, the local execut
 
 ## First-point prediction
 
-The four Geo-LM checkpoints each saw the first 200 GenesisGeo validation cases with an auxiliary marker. GenesisGeo and SmolLM2-360M each saw the first 50 of those cases, using their respective geometry and few-shot prompts. All used beam width four. HF generation was capped at 20 new tokens and Geo-LM at 64; timings and match rates depend on these settings.
+The five Geo-LM checkpoints each saw the first 200 GenesisGeo validation cases with an auxiliary marker. GenesisGeo and SmolLM2-360M each saw the first 50 of those cases, using their respective geometry and few-shot prompts. All used beam width four. HF generation was capped at 20 new tokens and Geo-LM at 64; timings and match rates depend on these settings.
 
 **Strict top 4** counts a case when at least one prediction matches the declared point and the reference predicates, keeping argument order and multiplicity. Predicate order and formatting are normalized. Empty reference predicates count as misses. This can undercount geometrically equivalent proposals. **Legacy top 4** uses the original evaluator’s unordered argument sets and ignores the declared point. Neither score tests whether a construction yields a proof.
 
@@ -69,3 +69,11 @@ python -m bench.replay_proofs "$sets/jgex_ag_231.txt" /tmp/zpd-repeat/jgex-small
 ```
 
 The [Python hash-seed reruns](hash-order/) cover the two extra mini_long proofs relative to the archive. The numerical seed and 60-second search budget were held constant. File names identify the Python hash seed, and the prompt audit records each exact root input.
+
+## Python hash-seed sensitivity
+
+With geometry seed 0, mini_long found depth-one proofs on 2015 G3 at Python hash seeds 0, 1 and 2. On 2022 G3 it succeeded at 0 and 1 and missed at 2. The recorded prompts show that Newclid can serialize equal segments in a different order. The first 101-case local sweep and the historical runs did not fix Python hash seeding. The paired interim and final searches on JGEX and IMO both use `PYTHONHASHSEED=0`. Raw outcomes and complete prompts are in [hash-order](hash-order/). A failure under a search budget is specific to that run.
+
+## Completed training run
+
+The completed 20,000-step run selected step 20,000 by validation loss. It matched 113 of 200 first proposals and 143 within four proposals. On baseline failures it proved 6/26 JGEX and 0/14 IMO problems. Across the separate 101-problem auxiliary set, heuristics, mini_long and mid together proved 11 distinct problems. The frozen weights are in [final-best.pt](../../geo-lm/runs/small/final-best.pt). [Training events](small-training.jsonl) record all validation-loss checks. The 200 prediction cases are drawn from that validation set. The solver used [the final configuration](../../pipeline/configs/small_final_model.json) and the same 60-second search budget as the interim run.

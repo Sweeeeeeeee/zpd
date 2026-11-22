@@ -409,7 +409,7 @@ Avoti: `results/proposers/val200/*.jsonl` (rindas), `results/proposers/table.md`
 Nākamie soļi:
 
 - [x] Lielāks modelis: `mid` (5,1 milj.), 9000 soļi (8.1)
-- [ ] Vēl lielāks modelis (11 milj., `small`) uz GPU (Kaggle) (8.1)
+- [x] Modeļa `small` (11,2 milj. parametru) apmācība pabeigta uz CPU pēc 20 000 soļiem. Mazākais validācijas zudums (0.1524) iegūts 20000. solī. Izvēlētais modelis sakrita ar atsauces pirmo palīgpunktu 113 no 200 piemēriem ar pirmo piedāvājumu un 143 no 200 ar kādu no četriem piedāvājumiem. [Mērījumi](../results/local-cpu/small-final.json)
 - [ ] Palīgpunktu modeļu salīdzinājums: mūsu modeļi, heiristikas, GenesisGeo,
       AlphaGeometry, SmolLM2, Qwen (8.4, [models.md](models.md))
 - [ ] Tas pats etalons ar `heuristics_only` un `mini_model` (1600 soļi), lai salīdzinātu

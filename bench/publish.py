@@ -16,7 +16,7 @@ from zpd_darbs.scripts.make_figures import BENCH_MODELS, SETS, bench_records
 
 ROOT = Path(__file__).resolve().parents[1]
 RESULTS = ROOT / "results"
-MODELS = {"mini": 200, "mini_long": 200, "mid": 200, "small-6300": 200, "GenesisGeo": 50, "SmolLM2-360M-Instruct": 50}
+MODELS = {"mini": 200, "mini_long": 200, "mid": 200, "small-6300": 200, "small-final": 200, "GenesisGeo": 50, "SmolLM2-360M-Instruct": 50}
 SUITES = {"jgex_ag_231": "JGEX-AG-231", "imo": "IMO-AG-30", "imo_102_requires_aux": "IMO auxiliary set"}
 
 
@@ -110,7 +110,8 @@ def proof_counts(suite):
         counts["unique_heuristic_gains"] = sorted(union - baseline - model_winners)
         counts["model_union_changed_ids"] = sorted((baseline | model_winners) ^ original_union)
     else:
-        for name in ("small_6300",):
+        paired_interim_winners = set()
+        for name in ("small_6300", "small_paired_interim", "small_final"):
             records = checked_rows(folder / f"{name}_model.jsonl", failures)
             winners = {row["name"] for row in records if row["solved"]}
             check_replays(folder / f"{name}_proofs.jsonl", winners)
@@ -118,6 +119,14 @@ def proof_counts(suite):
                 "tested": len(records), "proved": len(winners),
                 "new_problems": sorted(winners - union), "combined_union": len(union | winners),
             }
+            if name == "small_paired_interim":
+                paired_interim_winners = winners
+            elif name == "small_final":
+                counts["paired_checkpoint_proofs"] = {
+                    "both": sorted(winners & paired_interim_winners),
+                    "interim_only": sorted(paired_interim_winners - winners),
+                    "final_only": sorted(winners - paired_interim_winners),
+                }
             union.update(winners)
     return counts
 
@@ -128,6 +137,11 @@ def main():
     with (ROOT / "data/genesisgeo/train.txt").open() as stream:
         train = {line.partition("<aux>")[0].strip() for line in stream}
     overlaps = sum(problem in train for problem, _, _ in source)
+    training_setups = {prompt.partition("?")[0].strip() for prompt in train}
+    with (ROOT / "data/genesisgeo/val.txt").open() as stream:
+        val_setups = [line.partition("<aux>")[0].partition("?")[0].strip() for line in stream if line.strip()]
+    split_audit = {"validation_rows": len(val_setups),
+                   "setup_overlaps": sum(setup in training_setups for setup in val_setups)}
     common, full, matched = {}, {}, {}
     for name, n in MODELS.items():
         rows = read_rows(RESULTS / "proposers/local-cpu" / f"{name}.jsonl")
@@ -142,6 +156,10 @@ def main():
                   mini_long_only=len(long_hits - mid_hits),
                   neither=len(source) - len(mid_hits | long_hits))
 
+    early, final = matched["small-6300"], matched["small-final"]
+    paired_checkpoints = dict(both=len(early & final), interim_only=len(early - final),
+                              final_only=len(final - early), neither=len(source) - len(early | final))
+
     smoke_rows = read_rows(RESULTS / "proposers/local-cpu/ag1-smoke.jsonl")
     if [r["gold"] for r in smoke_rows] != references[:3] or [r["i"] for r in smoke_rows] != [0, 1, 2]:
         raise ValueError("Incomplete AlphaGeometry smoke sample")
@@ -150,13 +168,17 @@ def main():
     jgex = benchmarks["jgex_ag_231"]
     gains = jgex["gains"]
     aux = benchmarks["imo_102_requires_aux"]
+    run = json.loads((RESULTS / "local-cpu/small-final.json").read_text())
+    if any(run[key] != full["small-final"][key] for key in ("n", "top1", "top4")):
+        raise ValueError("Final prediction counts disagree with the frozen evaluation")
     with (ROOT / "problems/latvia/geometry_translated/status.csv").open() as f:
         corpus = list(csv.DictReader(f))
     translations = Counter(row["stage"] for row in corpus)
     accepted_by_decision = sum(r["stage"] == "accepted" and bool(r["decision"].strip()) for r in corpus)
     accepted_automatically = translations["accepted"] - accepted_by_decision
-    result = dict(common50=common, full=full, paired_mid_mini_long=paired, proofs=benchmarks, ag1_smoke=ag1,
-                  training_prompt_overlaps=overlaps, translations=translations,
+    result = dict(common50=common, full=full, completed_training=run, paired_mid_mini_long=paired, proofs=benchmarks, ag1_smoke=ag1,
+                  training_prompt_overlaps=overlaps, training_split_audit=split_audit,
+                  paired_small_checkpoints=paired_checkpoints, translations=translations,
                   accepted_automatically=accepted_automatically, accepted_by_decision=accepted_by_decision)
     (RESULTS / "local-cpu/summary.json").write_text(json.dumps(result, indent=2) + "\n")
 
@@ -182,17 +204,24 @@ def main():
                 review=translations["review"], candidates=sum(translations.values()))
     proof_table = []
     for key in ("jgex_ag_231", "imo"):
-        run = benchmarks[key]["small_6300"]
-        proof_table.append(
-            f'<tr><th scope="row">{SUITES[key]}</th><td>{run["tested"]}</td>'
-            f'<td>{run["proved"]}</td><td>{len(run["new_problems"])}</td>'
-            f'<td>{run["combined_union"]}/{benchmarks[key]["n"]}</td></tr>'
-        )
-    data.update(aux_local=aux["repeat_union"], aux_models=aux["local_two_model_union"],
-                aux_unique=len(aux["unique_heuristic_gains"]), aux_arch=aux["union"],
-                aux_heur=aux["gains"]["heuristics_only"], aux_long=aux["gains"]["mini_long_model"],
-                aux_mid=aux["gains"]["mid_model"])
-    data["interim_proofs"] = "\n".join(proof_table)
+        for name, label in (("small_6300", "Interim (original)"), ("small_paired_interim", "Interim (fixed seed)"), ("small_final", "Final (fixed seed)")):
+            proof = benchmarks[key][name]
+            proof_table.append(
+                f'<tr><th scope="row">{SUITES[key]}</th><td>{label}</td><td>{proof["tested"]}</td>'
+                f'<td>{proof["proved"]}</td><td>{len(proof["new_problems"])}</td>'
+                f'<td>{proof["combined_union"]}/{benchmarks[key]["n"]}</td></tr>'
+            )
+    data.update(final_only=paired_checkpoints["final_only"], interim_only=paired_checkpoints["interim_only"],
+                validation_rows=f'{split_audit["validation_rows"]:,}', setup_overlaps=split_audit["setup_overlaps"])
+    for suite, label in (("jgex_ag_231", "jgex"), ("imo", "imo")):
+        pair = benchmarks[suite]["paired_checkpoint_proofs"]
+        data[label + "_lost"] = len(pair["interim_only"])
+        data[label + "_gained"] = len(pair["final_only"])
+    data["checkpoint_proofs"] = "\n".join(proof_table)
+    data.update(final_step=f'{run["step"]:,}', final_top1=run["top1"], final_top4=run["top4"],
+                aux_local=aux["repeat_union"], aux_models=aux["local_two_model_union"],
+                aux_unique=len(aux["unique_heuristic_gains"]), aux_arch=aux["union"], aux_heur=aux["gains"]["heuristics_only"],
+                aux_long=aux["gains"]["mini_long_model"], aux_mid=aux["gains"]["mid_model"])
     data["small_matches"] = full["small-6300"]["top4"]
     data["small_first"] = full["small-6300"]["top1"]
     data["mid_first"] = full["mid"]["top1"]
@@ -230,6 +259,11 @@ def main():
         f"{imo['small_6300']['proved']} no {imo['small_6300']['tested']} IMO uzdevumiem. "
         f"Kopā ar iepriekšējiem meklējumiem pierādīti {jgex['small_6300']['combined_union']}/{jgex['n']} "
         f"JGEX un {imo['small_6300']['combined_union']}/{imo['n']} IMO uzdevumi. "
+        f"Pēc 20~000 apmācības soļiem zemākais validācijas zudums bija {run['step']}. solī. "
+        f"Izvēlētajam modelim pirmā prognoze sakrita ar etalonu {run['top1']} no 200 gadījumiem, "
+        f"bet vismaz viena no četrām -- {run['top4']}. Ar to pierādīti "
+        f"{jgex['small_final']['proved']} no 26 sākotnēji neatrisinātajiem JGEX un "
+        f"{imo['small_final']['proved']} no 14 IMO uzdevumiem. "
         f"Atsevišķajā 101 uzdevuma palīgkonstrukciju kopā dedukcija vien pierādīja "
         f"{aux['current']} uzdevumus, bet trīs papildu meklējumu rezultātu apvienojums -- "
         f"{aux['repeat_union']}. "
