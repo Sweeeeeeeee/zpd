@@ -219,12 +219,33 @@ def train(cfg: TrainConfig) -> dict:
         opt.load_state_dict(ckpt["optimizer_state"])
 
     use_amp = device.type == "cuda" and torch.cuda.is_bf16_supported()
-    stream = batches(train_ex, cfg.batch_size, random.Random(cfg.seed + step))
+    # Older checkpoints started a new shuffle at seed + step on resume.
+    saved = ckpt["extra"] if ckpt else {}
+    batch_seed = saved.get("batch_seed", cfg.seed + step)
+    consumed = saved.get("batches_consumed", 0)
+    stream = batches(train_ex, cfg.batch_size, random.Random(batch_seed))
+    for _ in range(consumed):
+        next(stream)
+    if "torch_rng" in saved:
+        torch.set_rng_state(saved["torch_rng"].cpu())
+    if device.type == "cuda" and "cuda_rng" in saved:
+        torch.cuda.set_rng_state(saved["cuda_rng"].cpu(), device)
+    if device.type == "mps" and "mps_rng" in saved:
+        torch.mps.set_rng_state(saved["mps_rng"].cpu())
     model.train()
-    t0, seen_tokens, running = time.time(), 0, 0.0
+    t0, seen_tokens, running = time.monotonic(), 0, saved.get("loss_avg")
 
     def checkpoint(path: Path) -> None:
-        save_checkpoint(path, model, tok, opt, step=step, extra={"best_val_loss": best, "train_config": dataclasses.asdict(cfg)})
+        state = {
+            "best_val_loss": best, "train_config": dataclasses.asdict(cfg),
+            "batch_seed": batch_seed, "batches_consumed": consumed,
+            "torch_rng": torch.get_rng_state(), "loss_avg": running,
+        }
+        if device.type == "cuda":
+            state["cuda_rng"] = torch.cuda.get_rng_state(device)
+        if device.type == "mps":
+            state["mps_rng"] = torch.mps.get_rng_state()
+        save_checkpoint(path, model, tok, opt, step=step, extra=state)
 
     while step < cfg.max_steps:
         for group in opt.param_groups:
@@ -232,6 +253,7 @@ def train(cfg: TrainConfig) -> dict:
         loss_sum = 0.0
         for _ in range(cfg.grad_accum):
             x, y = make_batch(next(stream), tok.pad_id, device)
+            consumed += 1
             with torch.autocast(device.type, dtype=torch.bfloat16, enabled=use_amp):
                 _, loss = model(x, y)
             (loss / cfg.grad_accum).backward()
@@ -242,13 +264,13 @@ def train(cfg: TrainConfig) -> dict:
         opt.step()
         opt.zero_grad(set_to_none=True)
         step += 1
-        running = loss_sum if step == 1 else 0.9 * running + 0.1 * loss_sum
+        running = loss_sum if running is None else 0.9 * running + 0.1 * loss_sum
 
         if step % cfg.log_every == 0 or step == cfg.max_steps:
-            dt = time.time() - t0
+            dt = time.monotonic() - t0
             log({"event": "train", "step": step, "loss": loss_sum, "loss_avg": running,
                  "lr": lr_at(step, cfg), "target_tok_per_s": seen_tokens / max(dt, 1e-9)})
-            t0, seen_tokens = time.time(), 0
+            t0, seen_tokens = time.monotonic(), 0
         if step % cfg.eval_every == 0 or step == cfg.max_steps:
             result = evaluate(model, tok, val_ex, val_pairs, cfg, device)
             if result["val_loss"] < best:

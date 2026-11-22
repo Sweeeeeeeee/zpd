@@ -38,7 +38,7 @@ python -m geo_lm.train --config geo-lm/configs/train_mid.json
 python -m geo_lm.train --config geo-lm/configs/train_small.json
 ```
 
-The training script resumes automatically from `last.pt` when you rerun the same config in the same output directory.
+The training script resumes automatically from `last.pt` when you rerun the same config in the same output directory. New checkpoints retain the batch position, dropout generator state and smoothed loss. With unchanged data, training configuration and hardware, the CPU regression test reproduces the uninterrupted model weights after a restart. Older checkpoints still load and start a new shuffle.
 
 ### 3) Faster local runs on a GPU
 
