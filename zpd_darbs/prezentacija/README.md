@@ -47,6 +47,6 @@ Vai pēc risinātāja iznākuma varam spriest, cik grūti bija skolēniem? Salī
 
 ## Būvēšana
 
-No repozitorija saknes palaid `make -C zpd_darbs PY="$(command -v python)" presentation` pēc projekta Python vides aktivizēšanas. Komanda atjauno [skaitliskos datus](dati.tex) no saglabātajiem mērījumiem un kompilē [rediģējamo avotu](prezentacija.tex) ar LuaLaTeX. Vajadzīgs fonts Liberation Sans. [TeX konteinera instrukcija](../README.md#build)
+No repozitorija saknes palaid `make -C zpd_darbs PY="$(command -v python)" presentation` pēc projekta Python vides aktivizēšanas. Komanda atjauno [skaitliskos datus](dati.tex) no saglabātajiem mērījumiem un kompilē [rediģējamo avotu](prezentacija.tex) ar LuaLaTeX. Trijstūra [vektoru zīmējuma avots](../figures/median-diagram.tex) ir kopīgs slaidiem un darba pielikumam. Vajadzīgs fonts Liberation Sans. [TeX konteinera instrukcija](../README.md#build)
 
 Lai pirms uzstāšanās pievienotu vārdu un darba vadītāju, blakus avotam izveido lokālu failu `tituldati.local.tex` ar komandām `\renewcommand{\autors}{...}` un `\renewcommand{\vaditajs}{...}`, pēc tam vēlreiz būvē PDF. Publicētā versija ietver skolu, pilsētu un gadu.

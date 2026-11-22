@@ -39,29 +39,7 @@
   \type{48}{504}{814}{#2}{\sizef{14.5}{17}}{#3}
   \node[anchor=north east,inner sep=0pt,text=#2] at (912,504) {\sizef{14.5}{17}#4\,/\,8};}
 \newcommand{\source}[2]{\href{#1}{\underline{#2}}}
-% Local triangle coordinates have AB=360 and C=(102,216) above AB.
-% E=(A+C)/2, D=(A+2B)/3, T=(2A+B)/3, F=(B+E)/2=BE intersect CD.
-\newcommand{\trianglefig}[5]{% origin x, origin y, scale, palette (light/dark), show helper (0/1)
-\begin{scope}[shift={(#1,#2)},scale=#3,transform shape]
-\ifnum#4=1\colorlet{gline}{soft}\colorlet{gtext}{cream}\colorlet{gmedian}{cream}\colorlet{ghelper}{sand}\colorlet{gbase}{deep}
-\else\colorlet{gline}{dim}\colorlet{gtext}{ink}\colorlet{gmedian}{sea}\colorlet{ghelper}{clay}\colorlet{gbase}{paper}\fi
-\coordinate (A) at (0,0);\coordinate (B) at (360,0);\coordinate (C) at (102,-216);
-\coordinate (D) at (240,0);\coordinate (T) at (120,0);\coordinate (E) at (51,-108);\coordinate (F) at (205.5,-54);
-\ifnum#5=1\fill[ghelper,opacity=.11] (B)--(T)--(E)--cycle;\fi
-\draw[gline,line width=2.5bp,line join=round] (A)--(B)--(C)--cycle;
-\draw[gline,line width=2.1bp] (C)--(D);
-\draw[gmedian,line width=3.1bp] (B)--(E);
-\ifnum#5=1
-  \draw[ghelper,line width=3.1bp,dash pattern=on 7bp off 3bp] (T)--(E);
-  \foreach \x in {60,180,300}{\draw[ghelper,line width=2bp] (\x-2,5)--(\x+2,-5);}
-\fi
-\foreach \p/\dx/\dy in {A/-12/14,B/12/14,C/0/-17,D/0/17,E/-14/-1,F/9/-17}{
-  \fill[gtext] (\p) circle[radius=2.9bp];
-  \node[inner sep=0pt,text=gtext] at ([xshift=\dx bp,yshift=-\dy bp]\p) {\sizef{20}{22}$\p$};
-}
-\fill[gmedian] (F) circle[radius=3.6bp];
-\ifnum#5=1\fill[ghelper] (T) circle[radius=4bp];\node[inner sep=0pt,text=ghelper] at (120,18) {\sizef{20}{22}$T$};\fi
-\end{scope}}
+\input{../figures/median-diagram}
 \begin{document}
 % 1. Title and research question.
 \begin{tikzpicture}[canvas]

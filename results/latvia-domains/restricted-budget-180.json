@@ -1,0 +1,88 @@
+{
+  "input_sha256": "b8dbc80c6356ba613108593cdd92f5fdbfb3608e13221f82136969169ec711f7",
+  "config": "no_similarity-deduction",
+  "time_s": 180,
+  "memory_mib": 2048,
+  "cpu_affinity": [
+    6
+  ],
+  "rows": [
+    {
+      "name": "latvia/open/2001-02_29/grade10/p4",
+      "config": "no_similarity-deduction",
+      "prior_sha256": "2a38e2748925720812cbc1cb4811e5a3202e5cd415b8680824151df6f30295b4",
+      "solved": true,
+      "proof": "# Problem setup:\n\n## Points\n\n- A(-2.0081, -1.4301)\n- B(0.2739, -0.4604)\n- C(0.0976, -1.9013)\n- E(-0.6800, -1.7273)\n- M(-0.9181, -0.9669)\n- N(0.2415, -0.7257)\n- O(-0.8192, -1.0579)\n\n## Assumptions:\n\n[C0] : O is the circumcenter of the circle ●ABC\n[C1] : EN = AE\n[C2] : EM = CE\n[C3] : ∠(BM,BN) = 1pi/3\n[C4] : AM = MN\n[C5] : CN = MN\n[C6] : AN ⟂ EM\n[C7] : CM ⟂ EN\n\n## Numerical checks\n\n[N0] : A, B, O are not collinear\n[N1] : A, E, N are not collinear\n[N2] : C, E, M are not collinear\n[N3] : A, M, N are not collinear\n[N4] : C, M, N are not collinear\n[N5] : B, C, O are not collinear\n\n\n# Goals\n\nA, N, O are collinear : Proved [16]\nC, M, O are collinear : Proved [20]\n\n\n# Proof:\n\n000. | O is the circumcenter of the circle ●ABC [C0] =(r72 Disassembling a circle)> BO = AO [0]\n001. | BO = AO [0], A, B, O are not collinear [N0] =(r13 Isosceles triangle equal angles)> ∠(AB,AO) = ∠(BO,AB) [1]\n002. | EN = AE [C1], A, E, N are not collinear [N1] =(r13 Isosceles triangle equal angles)> ∠(AE,AN) = ∠(AN,EN) [2]\n003. | EM = CE [C2], C, E, M are not collinear [N2] =(r13 Isosceles triangle equal angles)> ∠(CE,CM) = ∠(CM,EM) [3]\n004. | ∠(AE,AN) = ∠(AN,EN) [2], ∠(CE,CM) = ∠(CM,EM) [3] =(AR Deduction)> AE ∥ CE [4]\n005. | AE ∥ CE [4] =(r28 Overlapping parallels)> A, C, E are collinear [5]\n006. | A, C, E are collinear [5] =(r82 Parallel from collinear)> AC ∥ AE [6]\n007. | AM = MN [C4], A, M, N are not collinear [N3] =(r13 Isosceles triangle equal angles)> ∠(AM,AN) = ∠(AN,MN) [7]\n008. | ∠(BM,BN) = 1pi/3 [C3], ∠(AM,AN) = ∠(AN,MN) [7] =(AR Deduction)> AM ∥ BM [8]\n009. | AM ∥ BM [8] =(r28 Overlapping parallels)> A, B, M are collinear [9]\n010. | A, B, M are collinear [9] =(r82 Parallel from collinear)> AM ∥ AB [10]\n011. | CN = MN [C5], C, M, N are not collinear [N4] =(r13 Isosceles triangle equal angles)> ∠(CM,CN) = ∠(MN,CM) [11]\n012. | ∠(CM,CN) = ∠(MN,CM) [11] =(AR Deduction)> CN ∥ BN [12]\n013. | CN ∥ BN [12] =(r28 Overlapping parallels)> B, C, N are collinear [13]\n014. | B, C, N are collinear [13] =(r82 Parallel from collinear)> BN ∥ BC [14]\n015. | ∠(AB,AO) = ∠(BO,AB) [1], AC ∥ AE [6], AM ∥ AB [10], BN ∥ BC [14], AN ⟂ EM [C6] =(AR Deduction)> AN ∥ AO [15]\n016. | AN ∥ AO [15] =(r28 Overlapping parallels)> A, N, O are collinear [16]\n017. | O is the circumcenter of the circle ●ABC [C0] =(r72 Disassembling a circle)> CO = BO [17]\n018. | CO = BO [17], B, C, O are not collinear [N5] =(r13 Isosceles triangle equal angles)> ∠(BC,BO) = ∠(CO,BC) [18]\n019. | ∠(BC,BO) = ∠(CO,BC) [18], AC ∥ AE [6], BN ∥ BC [14], CM ⟂ EN [C7] =(AR Deduction)> CO ∥ CM [19]\n020. | CO ∥ CM [19] =(r28 Overlapping parallels)> C, M, O are collinear [20]\n\n\n# Appendix: AR deductions:\n\n\n\n004. | Angle Chasing to prove AE ∥ CE:\n| Premise ∠(AE,AN) = ∠(AN,EN) gives a linear equation with coefficients {}\n| Premise ∠(CE,CM) = ∠(CM,EM) gives a linear equation with coefficients {}\nWe are left with a linear equation with coefficients {} that gives AE ∥ CE\n\n\n\n008. | Angle Chasing to prove AM ∥ BM:\n| Premise ∠(BM,BN) = 1pi/3 gives a linear equation with coefficients {}\n| Premise ∠(AM,AN) = ∠(AN,MN) gives a linear equation with coefficients {}\nWe are left with a linear equation with coefficients {} that gives AM ∥ BM\n\n\n\n012. | Angle Chasing to prove CN ∥ BN:\n| Premise ∠(CM,CN) = ∠(MN,CM) gives a linear equation with coefficients {}\nWe are left with a linear equation with coefficients {} that gives CN ∥ BN\n\n\n\n015. | Angle Chasing to prove AN ∥ AO:\n| Premise ∠(AB,AO) = ∠(BO,AB) gives a linear equation with coefficients {}\n| Premise AC ∥ AE gives a linear equation with coefficients {}\n| Premise AM ∥ AB gives a linear equation with coefficients {}\n| Premise BN ∥ BC gives a linear equation with coefficients {}\n| Premise AN ⟂ EM gives a linear equation with coefficients {}\nWe are left with a linear equation with coefficients {} that gives AN ∥ AO\n\n\n\n019. | Angle Chasing to prove CO ∥ CM:\n| Premise ∠(BC,BO) = ∠(CO,BC) gives a linear equation with coefficients {}\n| Premise AC ∥ AE gives a linear equation with coefficients {}\n| Premise BN ∥ BC gives a linear equation with coefficients {}\n| Premise CM ⟂ EN gives a linear equation with coefficients {}\nWe are left with a linear equation with coefficients {} that gives CO ∥ CM\n\nEnd of proof.",
+      "wall_time": 147.322,
+      "peak_memory_mb": 204.7,
+      "cpu_time": 146.23,
+      "depth": 0,
+      "rules_fired": {
+        "AR:angle": 1142,
+        "AR:ratio": 84,
+        "r13": 7,
+        "r37": 9,
+        "r64": 1,
+        "r72": 3,
+        "r77": 1,
+        "r78": 16,
+        "r79": 321,
+        "r04": 2,
+        "r28": 5,
+        "r82": 6,
+        "r12": 1
+      },
+      "rules_in_proof": {
+        "r72": 2,
+        "r13": 6,
+        "AR:angle": 5,
+        "r28": 5,
+        "r82": 3
+      },
+      "tools_used": [
+        "ddar"
+      ],
+      "tool_calls": {
+        "ddar": 1
+      },
+      "aux": [],
+      "ddar_calls": 1,
+      "failure_reason": null,
+      "load_time": 1.884
+    },
+    {
+      "name": "latvia/open/2002-03_30/grade07/p4",
+      "config": "no_similarity-deduction",
+      "prior_sha256": "bce5f52183d0d0bf999a2f541237a266daf36ffe2dbe70e7ad7322c1eb6af62d",
+      "solved": false,
+      "proof": null,
+      "wall_time": 153.127,
+      "peak_memory_mb": 195.5,
+      "cpu_time": 151.99,
+      "depth": 0,
+      "rules_fired": {
+        "AR:ratio": 112,
+        "r13": 5,
+        "r37": 5,
+        "r55": 1,
+        "r56": 1,
+        "r78": 12,
+        "r79": 247,
+        "r82": 3,
+        "AR:angle": 71,
+        "r67": 1
+      },
+      "rules_in_proof": {},
+      "tools_used": [
+        "ddar"
+      ],
+      "tool_calls": {
+        "ddar": 1
+      },
+      "aux": [],
+      "ddar_calls": 1,
+      "failure_reason": "DDAR saturated and no proposer tools are enabled",
+      "load_time": 1.964
+    }
+  ]
+}

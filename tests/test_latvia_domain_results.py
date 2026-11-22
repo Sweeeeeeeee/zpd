@@ -133,3 +133,59 @@ def test_rule_removal_preserves_alternate_proofs_and_resource_outcomes():
     budget = results["proof_cases"]["latvia/open/2001-02_29/grade10/p4"]
     assert budget["removed_rules"] == [] and budget["reduced"] == "timeouts"
     assert sum(r["cases"] for r in results["outcomes"]) == 65
+
+    from bench.latvia.restricted_deduction import alternate_proofs
+    alternates = alternate_proofs(ROOT / "results/latvia-domains", results)
+    assert len(alternates) == 3
+    problem = alternates["latvia/open/2021-22_47/grade09/p3"]
+    checked = [step["audit"] for step in problem["steps"].values() if step["audit"]]
+    assert [step["outcome"] for step in checked] == ["follows", "follows"]
+
+
+def test_final_policy_overlap_counts_each_id_once_and_distinguishes_added_points(tmp_path):
+    from collections import Counter
+    from bench.latvia.completed_policies import RULES, analyze, render
+    from bench.latvia.finalize import category
+
+    names = {"a": "hash-a", "b": "hash-b", "c": "hash-c"}
+    (tmp_path / "original-inputs.json").write_text(json.dumps({"problems": names}))
+    expected = {"deduction": {"a"}, "heuristics": {"b"}, "combined": {"a", "b", "c"}}
+    summary = dict(configurations={}, runs=54, problems=3, proved_by_any=3)
+    for domain in RULES:
+        for ar in ("", "_no_ar"):
+            for policy in POLICIES:
+                config = domain + ar + "-" + policy
+                rows = []
+                for name in names:
+                    solved = name in expected[policy]
+                    rows.append(dict(name=name, config=config, solved=solved, proof="QED" if solved else None,
+                                     failure_reason=None if solved else "time limit (60s)",
+                                     aux=["X"] if policy == "combined" and name == "c" else []))
+                (tmp_path / (config + ".jsonl")).write_text("".join(json.dumps(r) + "\n" for r in rows))
+                summary["configurations"][config] = {"baseline": dict(Counter(category(r) for r in rows))}
+    report = analyze(tmp_path, summary, names)
+    group = report["no_similarity_no_ar"]
+    assert group == {"deduction": ["a"], "any_policy": ["a","b","c"], "all_policies": [],
+                     "beyond_deduction": ["b","c"], "with_added_point": ["c"], "combined_only": ["c"]}
+    assert render(report).count('<tr><th scope="row">') == 6
+    summary["configurations"]["circles-deduction"]["baseline"]["proved"] += 1
+    with pytest.raises(ValueError, match="Original outcomes"):
+        analyze(tmp_path, summary, names)
+
+
+def test_restricted_budget_retains_all_eligible_pairs_and_checks_frozen_digests():
+    from bench.latvia.restricted_budget import archive_rows, check
+    from bench.latvia.scan_plan import ROOT
+
+    folder = ROOT / "results/latvia-domains"
+    report = json.loads((folder / "restricted-budget-180.json").read_text())
+    rows = check(folder, report)
+    assert len(rows) == 2
+    winner = next(row for row in rows if row["solved"])
+    assert winner["proof"] == archive_rows(folder / "full-deduction.jsonl")[winner["name"]]["proof"]
+    assert sum(winner["rules_in_proof"].values()) == 21
+    assert next(row for row in rows if not row["solved"])["failure_reason"].startswith("DDAR saturated")
+    with pytest.raises(ValueError, match="selection"):
+        check(folder, {**report, "rows": rows[:1]})
+    with pytest.raises(ValueError, match="paired original"):
+        check(folder, {**report, "rows": [{**rows[0], "prior_sha256": "wrong"}, rows[1]]})

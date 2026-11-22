@@ -1,4 +1,23 @@
 {
+  "latvia_restricted_budget": {
+    "time_s": 180,
+    "cases": 2,
+    "proved": 1,
+    "outcomes": [
+      {
+        "name": "latvia/open/2001-02_29/grade10/p4",
+        "reason": null,
+        "wall_time": 147.322,
+        "same_as_full": true
+      },
+      {
+        "name": "latvia/open/2002-03_30/grade07/p4",
+        "reason": "DDAR saturated and no proposer tools are enabled",
+        "wall_time": 153.127,
+        "same_as_full": false
+      }
+    ]
+  },
   "latvia_restricted_deduction": {
     "cases": 65,
     "full_rules": 70,

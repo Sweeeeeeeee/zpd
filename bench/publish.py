@@ -13,7 +13,7 @@ from string import Template
 from bench.eval_proposers import problems
 from bench import imo_student_scores
 from bench.latvia.case_table import problem_labels, render_cases
-from bench.latvia import policy_comparison, proof_catalog, restricted_deduction, student_scores
+from bench.latvia import completed_policies, policy_comparison, proof_catalog, restricted_budget, restricted_deduction, student_scores
 from bench.latvia.fresh_drawings import frozen_hashes, summarize as summarize_fresh_drawings
 from bench.latvia.segment_study import NAME as SEGMENT_CASE, summarize as summarize_segment
 from bench.latvia.sample_audit import summarize as summarize_drawings
@@ -202,13 +202,20 @@ def main():
     score_comparisons = student_scores.compare(ROOT)
     policy_study = policy_comparison.compare(RESULTS / "latvia-domains")
     restricted = restricted_deduction.compare(ROOT)
+    restricted_folder = RESULTS / "latvia-domains"
+    retest = json.loads((restricted_folder / "restricted-budget-180.json").read_text())
+    retest_rows = restricted_budget.check(restricted_folder, retest)
+    old_full = restricted_budget.archive_rows(restricted_folder / "full-deduction.jsonl")
+    retest_summary = dict(time_s=retest["time_s"], cases=len(retest_rows), proved=sum(r["solved"] for r in retest_rows),
+                          outcomes=[dict(name=r["name"], reason=r["failure_reason"], wall_time=r["wall_time"],
+                                         same_as_full=bool(r["proof"] and r["proof"] == old_full[r["name"]]["proof"]))
+                                    for r in retest_rows])
     imo_cohorts = imo_student_scores.compare(RESULTS / "local-cpu/imo")
     proofs, catalog_summary = proof_catalog.catalog(pair_folder.parent / "full-deduction.jsonl", checked_steps)
-    result = dict(latvia_restricted_deduction=restricted, imo_student_scores=imo_cohorts, latvia_proof_catalog=catalog_summary, latvia_policy_comparison=policy_study, latvia_official_scores=score_comparisons, latvia_segment_comparison=segment_blocks, latvia_fresh_drawings=fresh_drawings, latvia_translation_audit=drawings, latvia_budget_followup=extra_budget, latvia_paired_ar=ar_study, latvia_full_domain=latvia, common50=common, full=full, completed_training=run, paired_mid_mini_long=paired, proofs=benchmarks, ag1_smoke=ag1,
+    result = dict(latvia_restricted_budget=retest_summary, latvia_restricted_deduction=restricted, imo_student_scores=imo_cohorts, latvia_proof_catalog=catalog_summary, latvia_policy_comparison=policy_study, latvia_official_scores=score_comparisons, latvia_segment_comparison=segment_blocks, latvia_fresh_drawings=fresh_drawings, latvia_translation_audit=drawings, latvia_budget_followup=extra_budget, latvia_paired_ar=ar_study, latvia_full_domain=latvia, common50=common, full=full, completed_training=run, paired_mid_mini_long=paired, proofs=benchmarks, ag1_smoke=ag1,
                   training_prompt_overlaps=overlaps, training_split_audit=split_audit,
                   paired_small_checkpoints=paired_checkpoints, translations=translations,
                   accepted_automatically=accepted_automatically, accepted_by_decision=accepted_by_decision)
-    (RESULTS / "local-cpu/summary.json").write_text(json.dumps(result, indent=2) + "\n")
 
     def model_rows(scores):
         return "\n".join(f'<tr><th scope="row">{escape(name)}</th><td>{s["n"]}</td>'
@@ -262,7 +269,11 @@ def main():
                 imo_same_outcome=imo_cohorts["comparisons"]["same_solver_outcome"])
     data.update(reduced_rules=restricted["reduced_rules"], reduced_wins=restricted["reduced_wins"],
                 same_transcripts=restricted["identical"], alternate_routes=restricted["regained_with_different_rules"])
+    data["restricted_budget_s"] = retest_summary["time_s"]
     labels = problem_labels(ROOT)
+    alternates = restricted_deduction.alternate_proofs(RESULTS / "latvia-domains", restricted)
+    data["alternate_cards"] = "\n".join(proof_catalog.render(name, proof, *labels[name], restricted=True)
+                                        for name, proof in alternates.items())
     data["case_rows"] = render_cases(ROOT, passed_by_case, labels=labels, proofs=proofs)
     data["proof_cards"] = "\n".join(proof_catalog.render(name, proof, *labels[name])
                                      for name, proof in proofs.items())
@@ -293,6 +304,10 @@ def main():
     if finished_path.is_file():
         finished = json.loads(finished_path.read_text())
         data["complete_domain_table"], complete_paper = complete_coverage(finished, latvia["cases"])
+        frozen_problems = json.loads((finished_path.parent.parent / "inputs.json").read_text())["problems"]
+        policy_overlaps = completed_policies.analyze(finished_path.parent, finished, frozen_problems)
+        result["latvia_completed_policy_overlap"] = policy_overlaps
+        data["complete_domain_table"] += completed_policies.render(policy_overlaps)
         schedule_path = RESULTS / "latvia-domains/execution/baseline.json"
         if schedule_path.is_file():
             schedule = json.loads(schedule_path.read_text())
@@ -312,6 +327,7 @@ def main():
                 f"elektrotīklam, vienlaikus izpildīja līdz {workers} mēģinājumiem uz atsevišķiem procesora kodoliem. "
                 "Vienlaicīga slodze var ietekmēt izpildes laiku un iznākumu pie 60~s robežas."
             )
+    (RESULTS / "local-cpu/summary.json").write_text(json.dumps(result, indent=2) + "\n")
     data["checkpoint_proofs"] = "\n".join(proof_table)
     data.update(final_step=f'{run["step"]:,}', final_top1=run["top1"], final_top4=run["top4"],
                 aux_local=aux["repeat_union"], aux_models=aux["local_two_model_union"],
@@ -399,6 +415,11 @@ def main():
         f"uzdevumiem. Visi bija pierādīti arī pilnajā jomā. {restricted['identical']} pierādījumu izdrukas "
         f"sakrita, bet trijos iegūta cita pierādījuma gaita. Piemēram, 2021./22.~gada atklātās olimpiādes "
         f"9.~klases 3.~uzdevumā divu trijstūru līdzību aizstāja to vienādība pēc malas un diviem pieleņķiem."
+    )
+    restricted_note += (
+        f" Abus sašaurinātās jomas laika limitus no pilnajā jomā pierādītajiem uzdevumiem pārbaudīja "
+        f"atsevišķi ar {retest['time_s']}~s budžetu. Vienā gadījumā atguva to pašu 21 soļa "
+        f"pierādījumu, otrā dzinējs izsmēla likumus."
     )
     (ROOT / "zpd_darbs/tables/latvia_full.tex").write_text(paragraph.rstrip() + restricted_note + complete_paper + "\n\n" + drawing_paper + "\n\n" + ar_paper.rstrip() + transcript_note + "\n\n" + scores_paper + "\n")
     imo = benchmarks["imo"]

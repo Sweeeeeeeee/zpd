@@ -4,7 +4,10 @@ from collections import Counter
 import json
 from pathlib import Path
 
+from bench.latvia.ar_audit import audit_proof
+from bench.latvia.ar_context import supplement
 from bench.latvia.paired_ar import records
+from bench.latvia.proof_catalog import parse_proof
 from bench.latvia.policy_comparison import export_configs, search_outcome
 from bench.latvia.scan_plan import ROOT, sha256
 
@@ -59,6 +62,24 @@ def compare(root):
                 regained_with_different_rules=sum(bool(c["removed_rules"]) and c["reduced"] == "proved" for c in proof_cases.values()),
                 outcomes=[dict(full=a, reduced=b, cases=n) for (a,b), n in sorted(transition.items())],
                 proof_cases=proof_cases)
+
+
+def alternate_proofs(folder, comparison):
+    """Audit every changed transcript for a problem proved under both configurations."""
+    reduced = records(folder / "no_similarity-deduction.jsonl", "no_similarity-deduction")
+    equations = json.loads((folder / "paired-ar/construction-equations.json").read_text())
+    alternates = {}
+    for name, case in comparison["proof_cases"].items():
+        if case["full"] != "proved" or case["reduced"] != "proved" or case["same_transcript"]:
+            continue
+        row = reduced[name]
+        checked = audit_proof(row)
+        for step in checked:
+            recovered = supplement(step, equations[name])
+            if recovered:
+                step["additional_construction_equations"] = recovered
+        alternates[name] = parse_proof(row, checked)
+    return alternates
 
 
 if __name__ == "__main__":

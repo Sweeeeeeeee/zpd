@@ -54,7 +54,7 @@ Scheme agreed with the user 2026-11-12: agents do the bulk work, automatic check
 - [ ] 10.3b. Extend the matched comparison to the two restricted rule sets after their runs finish.
 - [x] 10.4a. [Compare five solver transcripts with the official solutions](../results/latvia-domains/paired-ar/#comparison-with-official-solutions), recording when a helper was introduced and which geometric argument each proof used.
 - [ ] 10.4b. Test whether student scores relate to solver coverage. [Two grade 9 problems have matched official item scores and revised solver runs](../results/latvia-audit/#official-item-scores-for-two-grade-9-problems). The [six within-edition IMO comparisons](../results/local-cpu/imo/score-comparison.md) cover all 12 eligible official problems. Broader matched coverage in Latvia remains open.
-- [ ] 10.5. Problems with no easy solution found: why (missing rule, needs depth 2, budget, translation).
+- [ ] 10.5. Problems with no easy solution found: why (missing rule, needs depth 2, budget, translation). The [180-second restricted-domain retests](../results/latvia-domains/#removing-similarity-rules) recovered a previously timed-out 21-step proof and recorded deduction exhaustion on the other matched timeout.
 
 ## Write-up
 

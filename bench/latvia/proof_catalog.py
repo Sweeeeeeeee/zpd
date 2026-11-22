@@ -96,8 +96,11 @@ def catalog(path, checked_steps):
     return proofs, summary
 
 
-def render(name, proof, label, path):
-    slug = escape(anchor(name), quote=True)
+def render(name, proof, label, path, *, restricted=False):
+    original = escape(anchor(name), quote=True)
+    slug = "restricted-" + original if restricted else original
+    counterpart = f' · <a href="#{original}">Full-rule proof</a>' if restricted else ""
+    css = "proof alternate" if restricted else "proof"
     def ref(key):
         return f'<a href="#{slug}-{key}">[{key}]</a>'
     def fact(key, content):
@@ -126,9 +129,9 @@ def render(name, proof, label, path):
                           f'<span class="proof-reason">{escape(rule)} · {links}</span>{audit_note(step)}'))
     rules = " · ".join(f'{escape(k)} × {v}' for k, v in sorted(proof["rules"].items()))
     return (
-        f'<details class="proof" id="{slug}"><summary>{escape(label)}</summary>'
+        f'<details class="{css}" id="{slug}"><summary>{escape(label)}</summary>'
         f'<p><strong>Goal</strong> {goals}</p><p class="note">{len(steps)} numbered steps · '
-        f'{proof["chain"]} on the longest cited chain · <a href="#{slug}">Link to proof</a> · '
+        f'{proof["chain"]} on the longest cited chain · <a href="#{slug}">Link to proof</a>{counterpart} · '
         f'<a href="https://github.com/Sweeeeeeeee/zpd/blob/main/{escape(path, quote=True)}">Problem statement</a></p>'
         f'<h4>Assumptions and numerical checks</h4><ul class="facts">{facts}</ul>'
         f'<h4>Recorded deductions</h4><ol class="facts">{"".join(steps)}</ol>'

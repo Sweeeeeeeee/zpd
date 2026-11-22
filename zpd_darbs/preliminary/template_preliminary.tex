@@ -1,4 +1,6 @@
 \documentclass[nolabels]{../template/zpd}
+\usepackage{tikz}
+\input{../figures/median-diagram}
 \graphicspath{{../template/}{../figures/}}
 \input{../tables/bench_meta.tex}
 \input{../tables/training_meta.tex}
@@ -313,4 +315,30 @@ a b c = triangle a b c; h = orthocenter h a b c; d = reflect d h b c ? cyclic a 
 \end{verbatim}}
 Trijstūra $ABC$ ortocentra $H$ atspoguļojums pāri $BC$ atrodas uz $ABC$ apvilktās riņķa līnijas.
 
+
+\medskip
+\noindent\textbf{Palīgpunkts formalizācijā.}
+Latvijas 75.~matemātikas olimpiādes 9.~klases 2.~uzdevumā punkts $D$ sadala malu $AB$ attiecībā $2:1$.
+Punkts $E$ ir $AC$ viduspunkts, un $F$ ir mediānas $BE$ un taisnes $CD$ krustpunkts.
+Jāpierāda $BF=FE$. Attēlā punkts $T$ apzīmē $AD$ viduspunktu.
+
+\begin{center}
+\begin{tikzpicture}[x=1bp,y=-1bp]
+  \trianglefig{0}{0}{0.65}{0}{1}
+\end{tikzpicture}\\[3pt]
+{\small 1.~pielikuma attēls. Viduslīnijas mediānas viduspunkta pierādījumā.}
+\end{center}
+
+No $AT=TD=DB$ izriet, ka $D$ ir $BT$ viduspunkts. Trijstūrī $ADC$ punktus $T$ un $E$ savieno viduslīnija, tāpēc $TE\parallel CD$.
+Trijstūrī $BTE$ caur $D$ novilktā taisne $DF$ ir paralēla $TE$, tādēļ $F$ ir $BE$ viduspunkts.
+
+Formalizācijā burts \texttt{m} atbilst attēla punktam $E$, bet \texttt{e} -- punktam $T$.
+Komanda \texttt{trisegment} jau sākumā dod abus malas trešdaļu punktus.
+Labotais dzinējs secināja nogriežņu vienādību ar šiem dotajiem punktiem.
+\href{https://www.nms.lu.lv/fileadmin/user_upload/lu_portal/projekti/nms.lu.lv/Arhivs/Olimpiades/VOL/2020-2030/VOL_75_uzd_ATR_9_12_klase.pdf\#page=1}{(LU NMS, 2025, 1.--2.~lpp.)}
+
+{\footnotesize\begin{verbatim}
+a b c = triangle a b c; e d = trisegment e d a b;
+m = midpoint m a c; f = on_line f b m, on_line f c d ? cong b f f m
+\end{verbatim}}
 \end{document}
