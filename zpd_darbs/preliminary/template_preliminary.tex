@@ -19,13 +19,13 @@
 % ==================================================================== anotācijas
 \anotacijulapa
 \begin{anotacija}{Anotācija}
-Cik daudzus olimpiāžu ģeometrijas uzdevumus var pierādīt ar dotajiem punktiem, un cik palīdz jauna punkta ieviešana? Sākotnējā pārbaudē palīgpunktus Newclid dzinējam piedāvāja heiristikas un divi uz CPU apmācīti transformeri. JGEX kopā deduktīvais dzinējs atrisināja \jgexSolved{} no \jgexTotal{} uzdevumiem. Apvienojot katrā konfigurācijā atrastos pierādījumus, atrisināto uzdevumu skaits pieauga līdz \jgexBest{}. Šajā etalonpārbaudē bija atļauti līdz diviem palīgpunktu līmeņiem. Turpmākā eksperimentā 11,2 miljonu parametru modelim vērtēta gan pirmā palīgpunkta prognoze, gan spēja palīdzēt pierādīt ar dedukciju vien neatrisinātos uzdevumus. No 65 Latvijas uzdevumiem ar algebrisko spriešanu 60 sekunžu limitā pierādīti 20, bez tās neviens. Oficiālā grūtība vēl jānovērtē.
+Ģeometrijas skeneris pārbauda, kurus olimpiāžu uzdevumus ar noteiktu laika budžetu var pierādīt, izmantojot dotās konstrukcijas. JGEX kopā Newclid dedukcija pierādīja \jgexSolved{} no \jgexTotal{} uzdevumiem. Pievienojot heiristiku un divu transformera modeļu meklējumos atrastos pierādījumus, kopā pierādīti \jgexBest{} uzdevumi. Latvijas olimpiāžu izlasē trīs stratēģijas ar 70 likumiem un algebrisko spriešanu pierādīja vienus un tos pašus 20 no 65 uzdevumiem. Bez algebriskās spriešanas tās 60 sekunžu limitā pierādīja nulli. Izslēdzot 11 ar līdzību saistītus likumus, dedukcija pierādīja 15 uzdevumus. Sešos vienas olimpiādes uzdevumu pāros salīdzināti dalībnieku vidējie punkti un dedukcijas iznākums. Trijos pāros dedukcija pierādīja tieši vienu uzdevumu. Katrreiz par to dalībnieki vidēji ieguva vairāk punktu.
 
 \atslegvardi{automātiskā teorēmu pierādīšana, deduktīvā datubāze, palīgkonstrukcija, transformeris, olimpiāžu matemātika}
 \end{anotacija}
 
 \begin{anotacija}{Abstract}
-How often can a geometry solver prove an olympiad problem using the given points, and when does an auxiliary point help? The initial comparison paired Newclid deduction with heuristic constructions and two CPU-trained transformers. Deduction alone solved \jgexSolved{} of \jgexTotal{} JGEX problems. Across the separate configurations, \jgexBest{} distinct problems had a proof. These benchmark runs allowed up to two auxiliary levels. A follow-up evaluated an 11.2M-parameter checkpoint on first-point prediction and tested whether its constructions led to proofs on baseline failures. With a 60-second search limit, deduction proved 20 of 65 Latvian problems with algebraic reasoning enabled and zero with it disabled. Official problem difficulty remains untested.
+This study tests which olympiad geometry problems a solver can prove from the supplied construction within a fixed search budget. Newclid deduction proved \jgexSolved{} of \jgexTotal{} JGEX problems. Adding proofs found by heuristics and two transformer models brought coverage to \jgexBest{}. On 65 Latvian problems, all three search policies proved the same 20 with 70 rules and algebraic reasoning. With algebraic reasoning disabled, all three proved zero within 60 seconds. Removing 11 similarity-related rules while retaining algebraic reasoning reduced deduction coverage to 15. We also compared contestant scores on six within-edition IMO problem pairs. In the three pairs where deduction proved exactly one problem, contestants scored higher on the proved problem.
 
 \atslegvardi[Keywords]{automated theorem proving, deductive database, auxiliary construction, transformer, olympiad mathematics}
 \end{anotacija}
@@ -40,11 +40,7 @@ subjektīvi, pēc autora vai žūrijas vērtējuma, un nav redzams, kuri uzdevum
 vienas tēmas zināšanām. Skolotājiem un skolēniem būtu noderīgi zināt, kuri uzdevumi atrisināmi tikai
 ar konkrētas jomas teorēmām, kuriem nepieciešama viena ,,atslēgas`` palīgkonstrukcija un kura tieši.
 
-\zpdlabel{Problēma un aktualitāte}Ar roku šādu analīzi veikt simtiem uzdevumu ir lēni un neprecīzi.
-AlphaGeometry tipa sistēmas \atsauce{Trinh u.c., 2024} ļauj to automatizēt, jo to pierādījumi ir
-pārbaudāmi soli pa solim, un katra rīka ieguldījumu var kontrolēt atsevišķi. Šādu sistēmu mērķis
-līdz šim ir bijis atrisināt pēc iespējas vairāk uzdevumu, nevis noteikt, cik viegls ir risinājums
-noteiktā jomā.
+\zpdlabel{Problēma un aktualitāte}Lai salīdzinātu risinājumus simtiem uzdevumu, katram solim jāzina izmantotais likums un pieņēmumi. AlphaGeometry tipa sistēmas \atsauce{Trinh u.c., 2024} ļauj reģistrēt atrasto konstrukciju un dedukcijas gaitu. Šajā darbā papildus pārbauda, vai secinājumu var atjaunot no izdrukā minētajiem faktiem, un kā rezultātu maina pieejamie likumi un palīgpunkti.
 
 \zpdlabel{Darba mērķis}Izveidot un pārbaudīt rīku, kas olimpiāžu ģeometrijas uzdevumu kopā izvēlētai
 ģeometrijas jomai atrod uzdevumus ar vieglu risinājumu, parāda šos risinājumus un izmērāmi raksturo
@@ -121,7 +117,7 @@ Joma ir DD-AR likumu kopa ar AR vai bez tā. Definētas trīs jomas: \texttt{ful
 \texttt{circles} (29 likumi: riņķa līnijas un ievilktie leņķi) un \texttt{no\_similarity}
 (59 likumi: \texttt{full} bez līdzīgajiem trijstūriem). Risinājums ir viegls jomā $J$, ja
 \begin{equation}
-  \text{likumi} \subseteq J, \qquad \text{dziļums} \le 1, \qquad t \le 60~\text{s}, \qquad m \le 2~\text{GB}.
+  \text{likumi} \subseteq J, \qquad \text{dziļums} \le 1, \qquad t \le 60~\text{s}, \qquad m \le 2048~\text{MiB}.
   \label{eq:viegls}
 \end{equation}
 
@@ -131,7 +127,9 @@ No nulles uzrakstīts transformeris \atsauce{Vaswani u.c., 2017} (GPT tipa dekod
 pieņēmumi un mērķis $\to$ palīgpunkts. Apmācīti trīs modeļi uz 2 CPU kodoliem: \texttt{mini}
 (2,1 milj. parametru, 1600 soļi), tas pats modelis ilgāk (\texttt{mini\_long}, 9000 soļi) un
 lielāks \texttt{mid} (5,1 milj. parametru, 6 slāņi, 9000 soļi). Modeļa piedāvājumi tiek pārvērsti
-Newclid konstrukcijās; tos, kas neatbilst zīmējumam, risinātājs atmet.
+Newclid konstrukcijās. Risinātājs atmet zīmējumam neatbilstošos piedāvājumus.
+Papildu eksperimentā 11,2 miljonu parametru modelis \texttt{small} apmācīts 20~000 soļus.
+Kontrolpunktu izvēlējās pēc mazākā validācijas zuduma.
 
 Salīdzinājumam sagatavoti arī gatavi modeļi: GenesisGeo \atsauce{Zhu u.c., 2025}, AlphaGeometry
 valodas modelis \atsauce{Trinh u.c., 2024} un mazi vispārīgi valodas modeļi.
@@ -189,7 +187,7 @@ teorēma, un bez AR izkrīt uzdevumi, kuros vajag leņķu skaitīšanu.
 \input{../tables/latvia_full.tex}
 
 \subsection{Standarta uzdevumu kopas}
-Risinātājs pārbaudīts uz trim Newclid publicētām kopām ar 60~s un 2~GB uz uzdevumu
+Risinātājs pārbaudīts uz trim Newclid publicētām kopām ar 60~s meklēšanas laiku un 2048~MiB atmiņas ierobežojumu
 (\ref{tab:bench}~tabula). DD-AR vienatnē atrisina \jgexSolved{} no \jgexTotal{} JGEX uzdevumiem
 (mediāna \jgexMedian~s) un \imoSolved{} no \imoTotal{} IMO-AG-30 uzdevumiem. Tabulā atsevišķi sniegti publicētie AlphaGeometry rezultāti \atsauce{Trinh u.c., 2024}. Modeļi palaisti tikai uzdevumos, kuros DD-AR
 iestrēgst (ar līdz diviem palīgpunktu līmeņiem).
@@ -264,11 +262,7 @@ Vēsturiskajā eksperimentā \texttt{mid} pirmais piedāvājums sakrita ar parau
 
 \input{../tables/local_eval.tex}
 
-Jomas eksperimentā (\ref{tab:compare}~tabula) DD-AR ar jomas likumiem jāizpilda Newclid Python
-dzinējā, kas ir daudz lēnāks par noklusēto: \texttt{full} jomā 60~s laikā tas atrisina tikai 5 no 60
-JGEX uzdevumiem un 32 reizes sasniedz laika limitu, un heiristikas nepievieno pierādījumu 31 pārbaudītajā gadījumā no 55 neveiksmēm. Tātad jomu
-skenēšanai uz šī datora 60~s budžets ir par mazu, un tas jāpalielina vai jāizmanto ātrāks dzinējs.
-Pārējām jomām pilns salīdzinājums nav pabeigts.
+Atsevišķā 60 JGEX uzdevumu izlasē Newclid Python dzinējs ar pilno likumu kopu pierādīja piecus uzdevumus un 32 reizes sasniedza 60~s meklēšanas limitu. No 55 sākotnējām neveiksmēm 31 pārbaudīja ar heiristikām. Papildu pierādījumu nebija, un 26 mēģinājumos beidzās laiks. Kopējā ilguma mediāna bija 62,7~s dedukcijai un 61,7~s meklēšanai ar heiristikām. Laika mērījumā ietilpst dzinēja ielāde.
 
 \begin{table}[H]
   \caption{Modeļu pirmais palīgpunkts uz neredzētiem GenesisGeo uzdevumiem (4 stari, vēsturiskais normalizētais kritērijs); iekavās 95\,\% ticamības intervāls}\label{tab:proposers}
@@ -282,30 +276,22 @@ Pārējām jomām pilns salīdzinājums nav pabeigts.
   \end{tabular}
 \end{table}
 
-\begin{table}[H]
-  \caption{Jomas DD-AR neveiksmes, atrisinātas ar vienu palīgpunktu 60~s laikā pēc modeļa ielādes (60 JGEX uzdevumu izlase)}\label{tab:compare}
-  \centering\small
-  \begin{tabular}{@{}llcccc@{}}
-    \toprule
-    Joma & Avots & Atrisināti & Mediāna, s & Ielāde, s & Laika limits \\
-    \midrule
-    \csname @@input\endcsname ../tables/proposers_compare.tex 
-    \bottomrule
-  \end{tabular}\\[3pt]
-  {\footnotesize $^*$ pārbaudīts 31 no 55 sākotnēji neatrisinātajiem uzdevumiem.}
-\end{table}
+
 
 \nenumuretanodala{Secinājumi}
 \begin{secinajumi}
-  \item DD-AR vienatnē pierādīja \jgexSolved{} no \jgexTotal{} JGEX uzdevumiem. Heiristikas palīdzēja astoņos no atlikušajiem 26 uzdevumiem. Abu modeļu rezultāti daļēji pārklājās ar heiristiku rezultātiem; kopā iegūti 12 papildu pierādījumi.
-  \item Palīgpunkta izvēle un pierādījuma pabeigšana ir atsevišķi uzdevumi. Referenču sakritības biežums ļauj salīdzināt prognozes vienā izlasē, taču alternatīvs punkts arī var būt derīgs.
-  \item Piecu piemēru pārbaudē ar pilno likumu kopu atrisināti četri, ar riņķa līniju likumiem -- trīs uzdevumi. Šī mazā izlase parāda atšķirību konkrētos piemēros; vispārinājumam vajadzīga lielāka pārbaudītu uzdevumu kopa.
-  \item Latvijas izlasē algebriskā spriešana palielināja pierādīto uzdevumu skaitu no 0 līdz 20. Salīdzinājums ar oficiālajiem risinājumiem parādīja, ka formalizācijā jau dotie punkti un sakarības var aizstāt daļu skolēna argumentācijas. Hipotēzes pārbaudei vēl vajadzīgi salīdzināmi dati par uzdevumu grūtību.
+  \item Sākotnējā JGEX etalonpārbaudē dedukcija ar dotajiem punktiem pierādīja \jgexSolved{} no \jgexTotal{} uzdevumiem. Ar heiristikām un diviem apmācītiem modeļiem vismaz vienā meklējumā atrasti pierādījumi vēl 12 uzdevumiem.
+  \item Latvijas izlasē ar 70 likumiem un algebrisko spriešanu visas trīs stratēģijas 60~s limitā pierādīja vienus un tos pašus 20 no 65 uzdevumiem. Atslēdzot algebrisko spriešanu, šajās konfigurācijās pierādījumu skaits bija nulle.
+  \item Atslēdzot 11 ar trijstūru līdzību saistītus likumus, ar dedukciju joprojām pierādīti 15 uzdevumi. Trijos gadījumos risinātājs atrada citu likumu secību. Vienā no tiem līdzības argumentu aizstāja trijstūru vienādība.
+  \item Pēc 20~000 apmācības soļiem modeļa \texttt{small} pirmajos četros piedāvājumos atsauces konstrukcija bija 143 no 200 piemēriem. Ar tā piedāvājumiem izdevās pierādīt 6 no 26 atlikušajiem JGEX un 0 no 14 atlikušajiem IMO uzdevumiem.
+  \item Sešos IMO uzdevumu pāros no vienām un tām pašām sacensībām dedukcijas iznākums atšķīrās trīs reizes. Visos trijos pāros skolēniem augstāks vidējais bija pierādītajā uzdevumā. Izlase ir par mazu, lai pēc risinātāja iznākuma prognozētu skolēnu rezultātus citos uzdevumos. Latvijas uzdevumos interpretāciju ietekmē arī formalizācijā iepriekš pievienotie punkti.
 \end{secinajumi}
 
 \begin{avoti}
+  \avots Avotiņa, M., Šuste, A. (2016). \textit{Matemātikas sacensības 4.--9. klasēm 2015./2016. mācību gadā}. Rīga: Latvijas Universitāte, 147.--148.~lpp.
   \avots Chervonyi, Y., Trinh, T. H., Olšák, M. u.c. (2025). \textit{Gold-medalist Performance in Solving Olympiad Geometry with AlphaGeometry2} [tiešsaiste]. arXiv:2502.03544 [skatīts 2026. gada 5. novembrī]. Pieejams: \url{https://arxiv.org/abs/2502.03544}
   \avots Chou, S.-C., Gao, X.-S., Zhang, J.-Z. (2000). A Deductive Database Approach to Automated Geometry Theorem Proving and Discovering. \textit{Journal of Automated Reasoning}, Vol. 25, pp. 219--246.
+  \avots International Mathematical Olympiad. \textit{Official results by edition and problem} [tiešsaiste]. 2004, 2008, 2010, 2012, 2015, 2019 [skatīts 2026. gada 22. novembrī]. \url{https://www.imo-official.org/results/}
   \avots Kapur, D. (1986). Using Gröbner Bases to Reason About Geometry Problems. \textit{Journal of Symbolic Computation}, Vol. 2, No. 4, pp. 399--408.
   \avots Paszke, A. u.c. (2019). PyTorch: An Imperative Style, High-Performance Deep Learning Library. \textit{Advances in Neural Information Processing Systems 32 (NeurIPS 2019)}, pp. 8024--8035.
   \avots Sicca, V. u.c. (2024). \textit{Newclid: A User-Friendly Replacement for AlphaGeometry} [tiešsaiste]. arXiv:2411.11938 [skatīts 2026. gada 5. novembrī]. Pieejams: \url{https://arxiv.org/abs/2411.11938}

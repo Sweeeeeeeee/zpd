@@ -11,14 +11,15 @@ from statistics import median
 from string import Template
 
 from bench.eval_proposers import problems
-from bench.latvia.case_table import render_cases
-from bench.latvia import student_scores
+from bench import imo_student_scores
+from bench.latvia.case_table import problem_labels, render_cases
+from bench.latvia import policy_comparison, proof_catalog, restricted_deduction, student_scores
 from bench.latvia.fresh_drawings import frozen_hashes, summarize as summarize_fresh_drawings
 from bench.latvia.segment_study import NAME as SEGMENT_CASE, summarize as summarize_segment
 from bench.latvia.sample_audit import summarize as summarize_drawings
 from bench.latvia.paired_results import budget_followup
 from bench.latvia.paired_results import analyze as analyze_paired_ar
-from bench.latvia.domain_results import POLICIES, complete_coverage, full_domain_results
+from bench.latvia.domain_results import complete_coverage, full_domain_results
 from pipeline.hf_tool import normalize_preds
 from zpd_darbs.scripts.make_figures import BENCH_MODELS, SETS, bench_records
 
@@ -199,7 +200,11 @@ def main():
     segment_case = next(row for row in fresh_evidence["records"] if row["name"] == SEGMENT_CASE)
     segment_blocks = summarize_segment(segment_evidence, segment_case)
     score_comparisons = student_scores.compare(ROOT)
-    result = dict(latvia_official_scores=score_comparisons, latvia_segment_comparison=segment_blocks, latvia_fresh_drawings=fresh_drawings, latvia_translation_audit=drawings, latvia_budget_followup=extra_budget, latvia_paired_ar=ar_study, latvia_full_domain=latvia, common50=common, full=full, completed_training=run, paired_mid_mini_long=paired, proofs=benchmarks, ag1_smoke=ag1,
+    policy_study = policy_comparison.compare(RESULTS / "latvia-domains")
+    restricted = restricted_deduction.compare(ROOT)
+    imo_cohorts = imo_student_scores.compare(RESULTS / "local-cpu/imo")
+    proofs, catalog_summary = proof_catalog.catalog(pair_folder.parent / "full-deduction.jsonl", checked_steps)
+    result = dict(latvia_restricted_deduction=restricted, imo_student_scores=imo_cohorts, latvia_proof_catalog=catalog_summary, latvia_policy_comparison=policy_study, latvia_official_scores=score_comparisons, latvia_segment_comparison=segment_blocks, latvia_fresh_drawings=fresh_drawings, latvia_translation_audit=drawings, latvia_budget_followup=extra_budget, latvia_paired_ar=ar_study, latvia_full_domain=latvia, common50=common, full=full, completed_training=run, paired_mid_mini_long=paired, proofs=benchmarks, ag1_smoke=ag1,
                   training_prompt_overlaps=overlaps, training_split_audit=split_audit,
                   paired_small_checkpoints=paired_checkpoints, translations=translations,
                   accepted_automatically=accepted_automatically, accepted_by_decision=accepted_by_decision)
@@ -252,14 +257,25 @@ def main():
                 segment_original=segment_blocks[1]["original"]["all_goals_hold"],
                 segment_bounded=segment_blocks[1]["bounded"]["all_goals_hold"])
     passed_by_case = {row["name"]: row["all_goals_hold"] for row in fresh_evidence["records"]}
-    data["case_rows"] = render_cases(ROOT, passed_by_case)
+    data.update(imo_cohort_rows=imo_student_scores.render(imo_cohorts), imo_cohort_years=len(imo_cohorts["editions"]),
+                imo_cohort_items=imo_cohorts["matched_items"], imo_proved_higher=imo_cohorts["comparisons"]["proved_higher"],
+                imo_same_outcome=imo_cohorts["comparisons"]["same_solver_outcome"])
+    data.update(reduced_rules=restricted["reduced_rules"], reduced_wins=restricted["reduced_wins"],
+                same_transcripts=restricted["identical"], alternate_routes=restricted["regained_with_different_rules"])
+    labels = problem_labels(ROOT)
+    data["case_rows"] = render_cases(ROOT, passed_by_case, labels=labels, proofs=proofs)
+    data["proof_cards"] = "\n".join(proof_catalog.render(name, proof, *labels[name])
+                                     for name, proof in proofs.items())
+    data.update(proof_total=catalog_summary["proofs"], proof_goals=catalog_summary["goals"],
+                printed_steps=catalog_summary["steps"], linked_steps=catalog_summary["steps_reaching_goals"],
+                longest_chain=catalog_summary["longest_chain"])
     data["student_score_rows"] = student_scores.render(score_comparisons)
-    data["latvia_rows"] = "\n".join(
-        f'<tr><th scope="row">{POLICIES[key]}</th><td>{counts["proved"]}</td>'
-        f'<td>{counts["with_aux"]}</td><td>{counts["timeouts"]}</td><td>{counts["errors"]}</td>'
-        f'<td>{counts["saturated"]}</td><td>{counts["other"]}</td></tr>'
-        for key, counts in latvia["policies"].items()
-    )
+    data["latvia_rows"] = policy_comparison.table(policy_study)
+    policy_off = policy_study["domains"]["full_no_ar"]
+    off_counts = {k: v["outcomes"] for k, v in policy_off["policies"].items()}
+    data.update(policy_runs=policy_study["runs"], off_wins=len(policy_off["any_wins"]),
+                off_heur_timeouts=off_counts["heuristics"]["timeouts"], off_comb_timeouts=off_counts["combined"]["timeouts"],
+                off_ded_timeouts=off_counts["deduction"]["timeouts"])
     on, off = "full-deduction", "full_no_ar-deduction"
     original = ar_study["outcomes"]["original"]
     revised = ar_study["outcomes"]["revised_wins"]
@@ -325,6 +341,12 @@ def main():
         "-- 2024./25.~gada valsts olimpiādes 9.~klases 2.~uzdevums. Tajā mediānas viduspunktu "
         "iegūst ar trijstūra viduslīnijas teorēmu. Pārējos trīs mēģinājumos sasniegts laika limits.\n"
     )
+    paragraph += (
+        f"Bez algebriskās spriešanas trīs stratēģijas kopā pierādīja {len(policy_off['any_wins'])} uzdevumus. "
+        f"Laika limitu dedukcija sasniedza {off_counts['deduction']['timeouts']} gadījumos, "
+        f"meklēšana ar heiristikām -- {off_counts['heuristics']['timeouts']}, ar modeli un heiristikām -- "
+        f"{off_counts['combined']['timeouts']}. Šie rezultāti attiecas uz konkrēto meklēšanas budžetu.\n"
+    )
     drawing_paper = (
         f"Katram tulkojumam figūru konstruēja ar {fresh_drawings['seeds_per_case']} jaunām nejaušo skaitļu "
         f"ģeneratora sākumvērtībām. Konstruktoram mērķi nebija pieejami. No {fresh_drawings['attempts']} "
@@ -365,20 +387,30 @@ def main():
         r"\href{https://www.nms.lu.lv/fileadmin/user_upload/lu_portal/projekti/nms.lu.lv/Arhivs/Olimpiades/AMO/2020-2030/2022_AMO_uzd_atr.pdf\#page=8}"
         r"{(LU NMS, 2022, 8.~lpp.)}"
     )
-    (ROOT / "zpd_darbs/tables/latvia_full.tex").write_text(paragraph.rstrip() + complete_paper + "\n\n" + drawing_paper + "\n\n" + ar_paper + "\n\n" + scores_paper + "\n")
+    transcript_note = (
+        f" Izdrukātie {catalog_summary['proofs']} pierādījumi aptver {catalog_summary['goals']} mērķus un "
+        f"{catalog_summary['steps']} numurētu secinājumu. Vienā pierādījumā bija no "
+        f"{catalog_summary['minimum_steps']} līdz {catalog_summary['maximum_steps']} soļiem "
+        f"(mediāna {catalog_summary['median_steps']:g})."
+    )
+    restricted_note = (
+        f" Izslēdzot {len(restricted['removed_rules'])} ar trijstūru līdzību saistītus likumus un saglabājot "
+        f"algebrisko spriešanu, dedukcija pierādīja {restricted['reduced_wins']} no {restricted['cases']} "
+        f"uzdevumiem. Visi bija pierādīti arī pilnajā jomā. {restricted['identical']} pierādījumu izdrukas "
+        f"sakrita, bet trijos iegūta cita pierādījuma gaita. Piemēram, 2021./22.~gada atklātās olimpiādes "
+        f"9.~klases 3.~uzdevumā divu trijstūru līdzību aizstāja to vienādība pēc malas un diviem pieleņķiem."
+    )
+    (ROOT / "zpd_darbs/tables/latvia_full.tex").write_text(paragraph.rstrip() + restricted_note + complete_paper + "\n\n" + drawing_paper + "\n\n" + ar_paper.rstrip() + transcript_note + "\n\n" + scores_paper + "\n")
     imo = benchmarks["imo"]
     s = full["mid"]
     report = (
         r"Atkārtotajā CPU eksperimentā (Intel Core i7-1355U) vērtēti pirmie 200 validācijas piemēri "
         r"ar palīgpunktu. Stingrajā salīdzinājumā saglabāts jaunā punkta vārds un predikātu argumentu "
-        r"secība; predikātu savstarpējā secība neietekmē rezultātu. "
-        f"No 200 piemēriem {s['empty']} atsauces bija bez predikātiem; tās ieskaitītas kā nesakritības. "
+        r"secība. Predikātu savstarpējā secība rezultātu neietekmē. "
+        f"No 200 piemēriem {s['empty']} atsauces bija bez predikātiem. Tās ieskaitītas kā nesakritības. "
         rf"Modelim \texttt{{mid}} pirmais piedāvājums sakrita {s['top1']} gadījumos, vismaz viens "
         f"no četriem -- {s['top4']} gadījumos. Iepriekš lietotais brīvākais kritērijs tajās pašās "
         f"prognozēs deva {s['relaxed']} sakritības no 200. "
-        rf"Salīdzinot ar \texttt{{mini\_long}}, abiem modeļiem sakritība pirmajos četros "
-        rf"piedāvājumos bija {paired['both']} piemēros, tikai \texttt{{mid}} -- {paired['mid_only']}, "
-        rf"tikai \texttt{{mini\_long}} -- {paired['mini_long_only']}, bet nevienam -- {paired['neither']}. "
         f"Pirmajos 50 piemēros stingrais četru piedāvājumu rādītājs bija {common['mid']['top4']}/50 "
         rf"modelim \texttt{{mid}}, {common['GenesisGeo']['top4']}/50 modelim GenesisGeo un "
         f"{common['SmolLM2-360M-Instruct']['top4']}/50 modelim SmolLM2-360M. "
@@ -393,11 +425,8 @@ def main():
         f"Uzdevumos, kurus sākotnējā dedukcija neatrisināja, ar šo modeli pierādīti "
         f"{jgex['small_6300']['proved']} no {jgex['small_6300']['tested']} JGEX un "
         f"{imo['small_6300']['proved']} no {imo['small_6300']['tested']} IMO uzdevumiem. "
-        f"Kopā ar iepriekšējiem meklējumiem pierādīti {jgex['small_6300']['combined_union']}/{jgex['n']} "
-        f"JGEX un {imo['small_6300']['combined_union']}/{imo['n']} IMO uzdevumi. "
-        f"Pēc 20~000 apmācības soļiem zemākais validācijas zudums bija {run['step']}. solī. "
-        f"Izvēlētajam modelim pirmā prognoze sakrita ar etalonu {run['top1']} no 200 gadījumiem, "
-        f"bet vismaz viena no četrām -- {run['top4']}. Ar to pierādīti "
+        f"Kontrolpunktam ar zemāko validācijas zudumu ({run['step']} soļi) pirmā prognoze sakrita "
+        f"ar etalonu {run['top1']} no {run['n']} gadījumiem, bet vismaz viena no četrām -- {run['top4']}. Ar to pierādīti "
         f"{jgex['small_final']['proved']} no 26 sākotnēji neatrisinātajiem JGEX un "
         f"{imo['small_final']['proved']} no 14 IMO uzdevumiem. "
         f"Atsevišķajā 101 uzdevuma palīgkonstrukciju kopā dedukcija vien pierādīja "
@@ -407,9 +436,21 @@ def main():
         "$ABC$ apvilktās riņķa līnijas centru $E$. No rādiusu vienādības $AE=CE$ un "
         "leņķu sakarībām iegūst $\\angle AEP=\\angle PEC$. Trijstūriem ir kopīga mala $EP$. Trijstūri $AEP$ un "
         "$CEP$ ir vienādi pēc divām malām un leņķa starp tām, tātad $AP=CP$. "
-        f"AlphaGeometry lokāli pabeidza trīs pārbaudes piemērus (stingrā sakritība četros piedāvājumos: "
-        f"{ag1['top4']}/3); šī izlase ir par mazu modeļu salīdzināšanai. "
-        "Katrā palīgpunkta prognozes uzdevumā bija dota viena etalonkonstrukcija; iespējami arī citi derīgi risinājumi.\n"
+        f"AlphaGeometry lokāli pabeidza trīs pārbaudes piemērus (sakritība četros piedāvājumos "
+        f"{ag1['top4']}/3). Šī izlase ir par mazu modeļu salīdzināšanai. "
+        "Katrā palīgpunkta prognozes uzdevumā bija dota viena etalonkonstrukcija. Iespējami arī citi derīgi risinājumi.\n"
+    )
+    pair_counts = imo_cohorts["comparisons"]
+    report += (
+        f"\nStarptautiskās matemātikas olimpiādes dalībnieku rezultātus ar dedukciju salīdzināja "
+        f"{len(imo_cohorts['editions'])} gados, kuros vietējā kopā bija vismaz divi dažādi tās pašas olimpiādes "
+        f"uzdevumi (kopā {imo_cohorts['matched_items']}). Vidējo vērtējumu aprēķināja visiem dalībniekiem, "
+        f"ieskaitot nulles. Trijos pāros dedukcija pierādīja vienu no "
+        f"abiem uzdevumiem. Visos {pair_counts['proved_higher']} gadījumos šim uzdevumam dalībnieku vidējais "
+        f"vērtējums bija augstāks. Pārējos {pair_counts['same_solver_outcome']} pāros abu uzdevumu "
+        r"iznākums sakrita. Piemēram, 2015. gada 3. un 4.~uzdevuma vidējie vērtējumi bija 0,65 un 4,79 "
+        r"no septiņiem punktiem, un dedukcija pierādīja otro no šīm formalizācijām. "
+        r"\href{https://www.imo-official.org/results/individual/year/2015/}{(Starptautiskā matemātikas olimpiāde, 2015)}."
     )
     (ROOT / "zpd_darbs/tables/local_eval.tex").write_text(report)
 

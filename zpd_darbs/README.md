@@ -13,6 +13,7 @@ content, and the scripts that build its figures and tables from `results/`.
 | `template/logo_rtu_izv.png` | RTU Inženierzinātņu vidusskola logo, taken from `zpd_darbs/vadlinijas/example_rtu_izv.pdf` (the reference for the look: title page, captions); change with `\logotips{...}` |
 | `preliminary/template_preliminary.tex` | preliminary paper: the template filled with the project's aim, tasks, method and current results (revised 2026-11-22 with a local CPU replication) |
 | `scripts/make_figures.py` | builds `figures/*.pdf` and `tables/*.tex` from `results/` |
+| [prezentacija/](prezentacija/) | eight-slide Latvian talk, timed notes, editable diagrams and generated data |
 | `figures/`, `tables/` | generated; rebuild with `make figures` |
 
 ## Build
@@ -21,6 +22,7 @@ content, and the scripts that build its figures and tables from `results/`.
 cd zpd_darbs
 make            # figures + template.pdf + template_preliminary.pdf
 make preliminary
+make presentation  # LuaLaTeX and Liberation Sans
 ```
 
 Needs TeX Live (`pdflatex`, `latexmk`, `texlive-lang-european` for Latvian)

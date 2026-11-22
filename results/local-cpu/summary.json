@@ -1,4 +1,737 @@
 {
+  "latvia_restricted_deduction": {
+    "cases": 65,
+    "full_rules": 70,
+    "reduced_rules": 59,
+    "removed_rules": [
+      "r07",
+      "r34",
+      "r35",
+      "r52",
+      "r53",
+      "r60",
+      "r61",
+      "r62",
+      "r63",
+      "r68",
+      "r69"
+    ],
+    "full_wins": 20,
+    "reduced_wins": 15,
+    "retained": 15,
+    "identical": 12,
+    "regained_with_different_rules": 3,
+    "outcomes": [
+      {
+        "full": "errors",
+        "reduced": "errors",
+        "cases": 7
+      },
+      {
+        "full": "errors",
+        "reduced": "saturated",
+        "cases": 1
+      },
+      {
+        "full": "errors",
+        "reduced": "timeouts",
+        "cases": 2
+      },
+      {
+        "full": "proved",
+        "reduced": "proved",
+        "cases": 15
+      },
+      {
+        "full": "proved",
+        "reduced": "saturated",
+        "cases": 3
+      },
+      {
+        "full": "proved",
+        "reduced": "timeouts",
+        "cases": 2
+      },
+      {
+        "full": "saturated",
+        "reduced": "saturated",
+        "cases": 4
+      },
+      {
+        "full": "timeouts",
+        "reduced": "timeouts",
+        "cases": 31
+      }
+    ],
+    "proof_cases": {
+      "latvia/national/1976-77_27/grade09/p1": {
+        "full": "proved",
+        "reduced": "proved",
+        "removed_rules": [],
+        "full_steps": 14,
+        "reduced_steps": 14,
+        "same_transcript": true
+      },
+      "latvia/national/1978-79_29/extra/grade10/p5": {
+        "full": "proved",
+        "reduced": "proved",
+        "removed_rules": [],
+        "full_steps": 7,
+        "reduced_steps": 7,
+        "same_transcript": true
+      },
+      "latvia/national/1982-83_33/grade11/p5": {
+        "full": "proved",
+        "reduced": "proved",
+        "removed_rules": [],
+        "full_steps": 4,
+        "reduced_steps": 4,
+        "same_transcript": true
+      },
+      "latvia/national/1993-94_44/grade09/p2": {
+        "full": "proved",
+        "reduced": "proved",
+        "removed_rules": [],
+        "full_steps": 6,
+        "reduced_steps": 6,
+        "same_transcript": true
+      },
+      "latvia/national/2001-02_52/grade09/p2": {
+        "full": "proved",
+        "reduced": "proved",
+        "removed_rules": [],
+        "full_steps": 7,
+        "reduced_steps": 7,
+        "same_transcript": true
+      },
+      "latvia/national/2015-16_66/grade09/p2": {
+        "full": "proved",
+        "reduced": "saturated",
+        "removed_rules": [
+          "r53",
+          "r63"
+        ],
+        "full_steps": 10,
+        "reduced_steps": 0,
+        "same_transcript": false
+      },
+      "latvia/national/2016-17_67/grade11/p3": {
+        "full": "proved",
+        "reduced": "proved",
+        "removed_rules": [],
+        "full_steps": 6,
+        "reduced_steps": 6,
+        "same_transcript": true
+      },
+      "latvia/open/1976-77_04/grade10/p1": {
+        "full": "proved",
+        "reduced": "proved",
+        "removed_rules": [],
+        "full_steps": 7,
+        "reduced_steps": 7,
+        "same_transcript": true
+      },
+      "latvia/open/1999-00_27/grade10/p3": {
+        "full": "proved",
+        "reduced": "proved",
+        "removed_rules": [],
+        "full_steps": 7,
+        "reduced_steps": 7,
+        "same_transcript": true
+      },
+      "latvia/open/2001-02_29/grade10/p4": {
+        "full": "proved",
+        "reduced": "timeouts",
+        "removed_rules": [],
+        "full_steps": 21,
+        "reduced_steps": 0,
+        "same_transcript": false
+      },
+      "latvia/open/2002-03_30/grade07/p4": {
+        "full": "proved",
+        "reduced": "timeouts",
+        "removed_rules": [
+          "r53",
+          "r63"
+        ],
+        "full_steps": 11,
+        "reduced_steps": 0,
+        "same_transcript": false
+      },
+      "latvia/open/2021-22_47/grade09/p3": {
+        "full": "proved",
+        "reduced": "proved",
+        "removed_rules": [
+          "r34",
+          "r52"
+        ],
+        "full_steps": 7,
+        "reduced_steps": 5,
+        "same_transcript": false
+      },
+      "latvia/regional/1987-88_38/grade07/p2": {
+        "full": "proved",
+        "reduced": "proved",
+        "removed_rules": [],
+        "full_steps": 6,
+        "reduced_steps": 6,
+        "same_transcript": true
+      },
+      "latvia/regional/1990-91_41/grade08/p2": {
+        "full": "proved",
+        "reduced": "proved",
+        "removed_rules": [],
+        "full_steps": 6,
+        "reduced_steps": 6,
+        "same_transcript": true
+      },
+      "latvia/regional/2015-16_66/grade11/p3": {
+        "full": "proved",
+        "reduced": "saturated",
+        "removed_rules": [
+          "r34"
+        ],
+        "full_steps": 8,
+        "reduced_steps": 0,
+        "same_transcript": false
+      },
+      "latvia/regional/2021-22_72/grade12/p3": {
+        "full": "proved",
+        "reduced": "proved",
+        "removed_rules": [],
+        "full_steps": 5,
+        "reduced_steps": 5,
+        "same_transcript": true
+      },
+      "latvia/school/1987-88_38/grade07/p2": {
+        "full": "proved",
+        "reduced": "saturated",
+        "removed_rules": [
+          "r53",
+          "r61"
+        ],
+        "full_steps": 5,
+        "reduced_steps": 0,
+        "same_transcript": false
+      },
+      "latvia/school/1999-00_50/grade10/p4": {
+        "full": "proved",
+        "reduced": "proved",
+        "removed_rules": [
+          "r34",
+          "r52"
+        ],
+        "full_steps": 15,
+        "reduced_steps": 17,
+        "same_transcript": false
+      },
+      "latvia/school/2001-02_52/grade08/p2": {
+        "full": "proved",
+        "reduced": "proved",
+        "removed_rules": [],
+        "full_steps": 3,
+        "reduced_steps": 3,
+        "same_transcript": true
+      },
+      "latvia/school/2010-11_61/grade09/p2": {
+        "full": "proved",
+        "reduced": "proved",
+        "removed_rules": [
+          "r07"
+        ],
+        "full_steps": 6,
+        "reduced_steps": 5,
+        "same_transcript": false
+      }
+    }
+  },
+  "imo_student_scores": {
+    "formalizations": 29,
+    "official_items": 27,
+    "matched_items": 12,
+    "matched_encodings": 13,
+    "comparisons": {
+      "proved_higher": 3,
+      "same_solver_outcome": 3
+    },
+    "editions": [
+      {
+        "year": 2004,
+        "contestants": 486,
+        "team_results": "https://www.imo-official.org/results/team/year/2004/",
+        "individual_results": "https://www.imo-official.org/results/individual/year/2004/",
+        "items": [
+          {
+            "number": 1,
+            "total": 2237,
+            "mean": 4.6029,
+            "full_marks": 191,
+            "outcome": "proved",
+            "ids": [
+              "2004_p1"
+            ]
+          },
+          {
+            "number": 5,
+            "total": 1221,
+            "mean": 2.5123,
+            "full_marks": 64,
+            "outcome": "proved",
+            "ids": [
+              "2004_p5"
+            ]
+          }
+        ]
+      },
+      {
+        "year": 2008,
+        "contestants": 535,
+        "team_results": "https://www.imo-official.org/results/team/year/2008/",
+        "individual_results": "https://www.imo-official.org/results/individual/year/2008/",
+        "items": [
+          {
+            "number": 1,
+            "total": 2664,
+            "mean": 4.9794,
+            "full_marks": 321,
+            "outcome": "exhausted",
+            "ids": [
+              "2008_p1a",
+              "2008_p1b"
+            ]
+          },
+          {
+            "number": 6,
+            "total": 139,
+            "mean": 0.2598,
+            "full_marks": 12,
+            "outcome": "exhausted",
+            "ids": [
+              "2008_p6"
+            ]
+          }
+        ]
+      },
+      {
+        "year": 2010,
+        "contestants": 516,
+        "team_results": "https://www.imo-official.org/results/team/year/2010/",
+        "individual_results": "https://www.imo-official.org/results/individual/year/2010/",
+        "items": [
+          {
+            "number": 2,
+            "total": 1330,
+            "mean": 2.5775,
+            "full_marks": 161,
+            "outcome": "exhausted",
+            "ids": [
+              "2010_p2"
+            ]
+          },
+          {
+            "number": 4,
+            "total": 2758,
+            "mean": 5.345,
+            "full_marks": 365,
+            "outcome": "proved",
+            "ids": [
+              "2010_p4"
+            ]
+          }
+        ]
+      },
+      {
+        "year": 2012,
+        "contestants": 547,
+        "team_results": "https://www.imo-official.org/results/team/year/2012/",
+        "individual_results": "https://www.imo-official.org/results/individual/year/2012/",
+        "items": [
+          {
+            "number": 1,
+            "total": 3077,
+            "mean": 5.6252,
+            "full_marks": 401,
+            "outcome": "proved",
+            "ids": [
+              "2012_p1"
+            ]
+          },
+          {
+            "number": 5,
+            "total": 910,
+            "mean": 1.6636,
+            "full_marks": 86,
+            "outcome": "exhausted",
+            "ids": [
+              "2012_p5"
+            ]
+          }
+        ]
+      },
+      {
+        "year": 2015,
+        "contestants": 577,
+        "team_results": "https://www.imo-official.org/results/team/year/2015/",
+        "individual_results": "https://www.imo-official.org/results/individual/year/2015/",
+        "items": [
+          {
+            "number": 3,
+            "total": 377,
+            "mean": 0.6534,
+            "full_marks": 30,
+            "outcome": "exhausted",
+            "ids": [
+              "2015_p3"
+            ]
+          },
+          {
+            "number": 4,
+            "total": 2766,
+            "mean": 4.7938,
+            "full_marks": 351,
+            "outcome": "proved",
+            "ids": [
+              "2015_p4"
+            ]
+          }
+        ]
+      },
+      {
+        "year": 2019,
+        "contestants": 621,
+        "team_results": "https://www.imo-official.org/results/team/year/2019/",
+        "individual_results": "https://www.imo-official.org/results/individual/year/2019/",
+        "items": [
+          {
+            "number": 2,
+            "total": 1490,
+            "mean": 2.3994,
+            "full_marks": 98,
+            "outcome": "exhausted",
+            "ids": [
+              "2019_p2"
+            ]
+          },
+          {
+            "number": 6,
+            "total": 250,
+            "mean": 0.4026,
+            "full_marks": 27,
+            "outcome": "exhausted",
+            "ids": [
+              "2019_p6"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "latvia_proof_catalog": {
+    "proofs": 20,
+    "goals": 24,
+    "steps": 161,
+    "steps_reaching_goals": 161,
+    "minimum_steps": 3,
+    "median_steps": 7.0,
+    "maximum_steps": 21,
+    "longest_chain": 6,
+    "rules": {
+      "AR:angle": {
+        "steps": 36,
+        "proofs": 20
+      },
+      "AR:ratio": {
+        "steps": 12,
+        "proofs": 9
+      },
+      "r03": {
+        "steps": 5,
+        "proofs": 2
+      },
+      "r04": {
+        "steps": 4,
+        "proofs": 4
+      },
+      "r06": {
+        "steps": 13,
+        "proofs": 4
+      },
+      "r07": {
+        "steps": 2,
+        "proofs": 1
+      },
+      "r13": {
+        "steps": 20,
+        "proofs": 7
+      },
+      "r14": {
+        "steps": 1,
+        "proofs": 1
+      },
+      "r26": {
+        "steps": 1,
+        "proofs": 1
+      },
+      "r28": {
+        "steps": 12,
+        "proofs": 5
+      },
+      "r34": {
+        "steps": 3,
+        "proofs": 3
+      },
+      "r52": {
+        "steps": 3,
+        "proofs": 2
+      },
+      "r53": {
+        "steps": 3,
+        "proofs": 3
+      },
+      "r54": {
+        "steps": 1,
+        "proofs": 1
+      },
+      "r55": {
+        "steps": 2,
+        "proofs": 2
+      },
+      "r56": {
+        "steps": 3,
+        "proofs": 3
+      },
+      "r61": {
+        "steps": 1,
+        "proofs": 1
+      },
+      "r63": {
+        "steps": 2,
+        "proofs": 2
+      },
+      "r66": {
+        "steps": 1,
+        "proofs": 1
+      },
+      "r72": {
+        "steps": 9,
+        "proofs": 3
+      },
+      "r77": {
+        "steps": 1,
+        "proofs": 1
+      },
+      "r79": {
+        "steps": 1,
+        "proofs": 1
+      },
+      "r82": {
+        "steps": 25,
+        "proofs": 9
+      }
+    }
+  },
+  "latvia_policy_comparison": {
+    "cases": 65,
+    "runs": 390,
+    "domains": {
+      "full": {
+        "policies": {
+          "deduction": {
+            "outcomes": {
+              "proved": 20,
+              "timeouts": 31,
+              "errors": 10,
+              "saturated": 4,
+              "depth_limit": 0
+            },
+            "proved_with_added_point": 0,
+            "median_peak_mib": 198.8,
+            "elapsed_seconds_total": 2439.369,
+            "source": "full-deduction.jsonl",
+            "sha256": "8504db27c94eef512ac2c7dca050d9f6388e9550b4eeb146d7dcc432bbbb1f0d"
+          },
+          "heuristics": {
+            "outcomes": {
+              "proved": 20,
+              "timeouts": 35,
+              "errors": 10,
+              "saturated": 0,
+              "depth_limit": 0
+            },
+            "proved_with_added_point": 0,
+            "median_peak_mib": 198.9,
+            "elapsed_seconds_total": 2649.831,
+            "source": "full-heuristics.jsonl",
+            "sha256": "6cd9f3e71083b436351fb4ad101c76440d23366d60a1df1f36d60f3c1f3fcde5"
+          },
+          "combined": {
+            "outcomes": {
+              "proved": 20,
+              "timeouts": 35,
+              "errors": 10,
+              "saturated": 0,
+              "depth_limit": 0
+            },
+            "proved_with_added_point": 0,
+            "median_peak_mib": 462.3,
+            "elapsed_seconds_total": 2727.109,
+            "source": "full-combined.jsonl",
+            "sha256": "a2f91804090181ec7327e2f8f4ed0a7aa5d95bb0e87648bb94d8f1c5c9ba8938"
+          }
+        },
+        "common_wins": [
+          "latvia/national/1976-77_27/grade09/p1",
+          "latvia/national/1978-79_29/extra/grade10/p5",
+          "latvia/national/1982-83_33/grade11/p5",
+          "latvia/national/1993-94_44/grade09/p2",
+          "latvia/national/2001-02_52/grade09/p2",
+          "latvia/national/2015-16_66/grade09/p2",
+          "latvia/national/2016-17_67/grade11/p3",
+          "latvia/open/1976-77_04/grade10/p1",
+          "latvia/open/1999-00_27/grade10/p3",
+          "latvia/open/2001-02_29/grade10/p4",
+          "latvia/open/2002-03_30/grade07/p4",
+          "latvia/open/2021-22_47/grade09/p3",
+          "latvia/regional/1987-88_38/grade07/p2",
+          "latvia/regional/1990-91_41/grade08/p2",
+          "latvia/regional/2015-16_66/grade11/p3",
+          "latvia/regional/2021-22_72/grade12/p3",
+          "latvia/school/1987-88_38/grade07/p2",
+          "latvia/school/1999-00_50/grade10/p4",
+          "latvia/school/2001-02_52/grade08/p2",
+          "latvia/school/2010-11_61/grade09/p2"
+        ],
+        "any_wins": [
+          "latvia/national/1976-77_27/grade09/p1",
+          "latvia/national/1978-79_29/extra/grade10/p5",
+          "latvia/national/1982-83_33/grade11/p5",
+          "latvia/national/1993-94_44/grade09/p2",
+          "latvia/national/2001-02_52/grade09/p2",
+          "latvia/national/2015-16_66/grade09/p2",
+          "latvia/national/2016-17_67/grade11/p3",
+          "latvia/open/1976-77_04/grade10/p1",
+          "latvia/open/1999-00_27/grade10/p3",
+          "latvia/open/2001-02_29/grade10/p4",
+          "latvia/open/2002-03_30/grade07/p4",
+          "latvia/open/2021-22_47/grade09/p3",
+          "latvia/regional/1987-88_38/grade07/p2",
+          "latvia/regional/1990-91_41/grade08/p2",
+          "latvia/regional/2015-16_66/grade11/p3",
+          "latvia/regional/2021-22_72/grade12/p3",
+          "latvia/school/1987-88_38/grade07/p2",
+          "latvia/school/1999-00_50/grade10/p4",
+          "latvia/school/2001-02_52/grade08/p2",
+          "latvia/school/2010-11_61/grade09/p2"
+        ],
+        "profiles": [
+          {
+            "deduction": "errors",
+            "heuristics": "errors",
+            "combined": "errors",
+            "cases": 10
+          },
+          {
+            "deduction": "proved",
+            "heuristics": "proved",
+            "combined": "proved",
+            "cases": 20
+          },
+          {
+            "deduction": "saturated",
+            "heuristics": "timeouts",
+            "combined": "timeouts",
+            "cases": 4
+          },
+          {
+            "deduction": "timeouts",
+            "heuristics": "timeouts",
+            "combined": "timeouts",
+            "cases": 31
+          }
+        ]
+      },
+      "full_no_ar": {
+        "policies": {
+          "deduction": {
+            "outcomes": {
+              "proved": 0,
+              "timeouts": 24,
+              "errors": 9,
+              "saturated": 32,
+              "depth_limit": 0
+            },
+            "proved_with_added_point": 0,
+            "median_peak_mib": 184.3,
+            "elapsed_seconds_total": 2061.119,
+            "source": "paired-ar/original-full_no_ar-deduction.jsonl",
+            "sha256": "a19daffd84dbc7af9ebe2f4957eb221702ad112d02c2b6755cda82cf0a65da60"
+          },
+          "heuristics": {
+            "outcomes": {
+              "proved": 0,
+              "timeouts": 55,
+              "errors": 9,
+              "saturated": 0,
+              "depth_limit": 1
+            },
+            "proved_with_added_point": 0,
+            "median_peak_mib": 188.7,
+            "elapsed_seconds_total": 3483.25,
+            "source": "full_no_ar-heuristics.jsonl",
+            "sha256": "a3d9700bb096fd49b83400b8c5dac08de38c031b289bdfa8eb50d6fe9302db37"
+          },
+          "combined": {
+            "outcomes": {
+              "proved": 0,
+              "timeouts": 54,
+              "errors": 9,
+              "saturated": 0,
+              "depth_limit": 2
+            },
+            "proved_with_added_point": 0,
+            "median_peak_mib": 463.8,
+            "elapsed_seconds_total": 3544.981,
+            "source": "full_no_ar-combined.jsonl",
+            "sha256": "00b698b423404e3a46994e7f217c7fbd08cb1c42344f845f516c1f83e092f1ea"
+          }
+        },
+        "common_wins": [],
+        "any_wins": [],
+        "profiles": [
+          {
+            "deduction": "errors",
+            "heuristics": "errors",
+            "combined": "errors",
+            "cases": 9
+          },
+          {
+            "deduction": "saturated",
+            "heuristics": "depth_limit",
+            "combined": "depth_limit",
+            "cases": 1
+          },
+          {
+            "deduction": "saturated",
+            "heuristics": "timeouts",
+            "combined": "depth_limit",
+            "cases": 1
+          },
+          {
+            "deduction": "saturated",
+            "heuristics": "timeouts",
+            "combined": "timeouts",
+            "cases": 30
+          },
+          {
+            "deduction": "timeouts",
+            "heuristics": "timeouts",
+            "combined": "timeouts",
+            "cases": 24
+          }
+        ]
+      }
+    }
+  },
   "latvia_official_scores": [
     {
       "name": "latvia/national/2015-16_66/grade09/p2",

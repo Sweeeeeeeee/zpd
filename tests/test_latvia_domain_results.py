@@ -85,3 +85,51 @@ def test_solver_limits_are_resource_outcomes(reason):
     from bench.latvia.finalize import category
 
     assert category({"solved": False, "failure_reason": reason}) == "resource_limit"
+
+
+def test_policy_comparison_counts_by_problem_and_rejects_duplicate_or_missing_rows(tmp_path):
+    from bench.latvia.policy_comparison import DOMAINS, compare, record_path
+
+    (tmp_path / "inputs.json").write_text(json.dumps({"problems": {"p": "a", "q": "b"}}))
+    for domain in DOMAINS:
+        for policy in POLICIES:
+            cfg = domain + "-" + policy
+            winning = "p" if policy == "deduction" else "q"
+            rows = []
+            for name in ("p", "q"):
+                solved = name == winning and domain == "full"
+                reason = "time limit (60s)" if policy == "deduction" else "not solved within depth 1"
+                rows.append(dict(config=cfg, name=name, solved=solved, proof="A = B" if solved else None,
+                                 failure_reason=None if solved else reason, aux=[], wall_time=0.5, peak_memory_mb=10))
+            path = record_path(tmp_path, domain, policy)
+            path.parent.mkdir(exist_ok=True)
+            path.write_text("".join(json.dumps(row) + "\n" for row in rows))
+
+    report = compare(tmp_path)
+    assert report["runs"] == 12
+    assert report["domains"]["full"]["common_wins"] == []
+    assert report["domains"]["full"]["any_wins"] == ["p", "q"]
+    assert report["domains"]["full_no_ar"]["policies"]["combined"]["outcomes"]["depth_limit"] == 2
+    path = record_path(tmp_path, "full_no_ar", "combined")
+    row = path.read_text().splitlines()[0] + "\n"
+    path.write_text(row * 2)
+    with pytest.raises(ValueError, match="Duplicate"):
+        compare(tmp_path)
+    path.write_text(row)
+    with pytest.raises(ValueError, match="Problem IDs"):
+        compare(tmp_path)
+
+
+def test_rule_removal_preserves_alternate_proofs_and_resource_outcomes():
+    from bench.latvia.restricted_deduction import compare
+    from bench.latvia.scan_plan import ROOT
+
+    results = compare(ROOT)
+    assert (results["full_rules"], results["reduced_rules"], results["cases"]) == (70, 59, 65)
+    assert (results["full_wins"], results["retained"], results["identical"]) == (20, 15, 12)
+    hexagon = results["proof_cases"]["latvia/open/2021-22_47/grade09/p3"]
+    assert hexagon["removed_rules"] == ["r34", "r52"] and hexagon["reduced"] == "proved"
+    assert (hexagon["full_steps"], hexagon["reduced_steps"]) == (7, 5)
+    budget = results["proof_cases"]["latvia/open/2001-02_29/grade10/p4"]
+    assert budget["removed_rules"] == [] and budget["reduced"] == "timeouts"
+    assert sum(r["cases"] for r in results["outcomes"]) == 65

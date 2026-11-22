@@ -4,6 +4,10 @@
 
 **Latvijas olimpiāžu uzdevumi.** Ar 70 likumiem un algebrisko spriešanu sākotnējā dedukcija 60 sekundēs pierādīja 20 no 65 uzdevumiem. Bez algebriskās spriešanas tā šajā budžetā nepierādīja nevienu. No 48 izdrukātajiem algebriskajiem soļiem 14 seko no pašā solī norādītajiem vienādojumiem. Vēl 10 pamatojami, pievienojot vienādojumus no sākotnējās konstrukcijas. [Mērījumi un piecu oficiālo risinājumu salīdzinājums](../results/latvia-domains/paired-ar/)
 
+Atstājot algebrisko spriešanu un noņemot 11 ar trijstūru līdzību saistītus likumus, dedukcija pierādīja 15 no 65 uzdevumiem. Trijos gadījumos pilnajā pierādījumā bija izmantots izņemts likums, un sašaurinātajā jomā dzinējs atrada citu pierādījumu. [65 pāru dati un alternatīvo pierādījumu piemēri](../results/latvia-domains/#removing-similarity-rules)
+
+Sešās starptautiskās olimpiādes pārbaudēs salīdzināti divi vienas un tās pašas olimpiādes uzdevumi. No 12 uzdevumiem trijos pāros dedukcija pierādīja vienu no abiem. Visos trijos skolēniem augstāks vidējais vērtējums bija pierādītajam uzdevumam. [Visi pāri un oficiālās punktu tabulas](../results/local-cpu/imo/score-comparison.md)
+
 Tālāk sniegti 2026. gada 12. novembra eksperimentu rezultāti. Visi skaitļi ņemti no repozitorija
 failiem (`results/`, `geo-lm/runs/`); avots norādīts katras sadaļas beigās.
 

@@ -1,14 +1,14 @@
 Tēma: Olimpiāžu ģeometrijas uzdevumu skeneris vieglu risinājumu atrašanai vienā ģeometrijas jomā
 
 Anotācija:
-Darbā tiek izstrādāts rīks, kas automātiski pārskata olimpiāžu ģeometrijas uzdevumu kopu un katram uzdevumam nosaka, vai tam eksistē viegls risinājums noteiktā ģeometrijas jomā. Joma tiek definēta kā izvēlēta teorēmu (deduktīvo likumu) un konstrukciju kopa, piemēram, "trijstūri un riņķa līnijas bez līdzību teorēmām". Rīka pamatā ir AlphaGeometry pieeja: determinēts DD-AR dzinējs (Newclid) pierāda faktus, nekļūdoties, bet, ja tas apstājas, palīgpunktus piedāvā cilvēka heiristikas (viduspunkti, apvilktās riņķa līnijas centri, augstumu pamati) un paša apmācīts mazs transformeris. Risinājums tiek uzskatīts par vieglu, ja tas atrodams ar jomas likumiem, ne vairāk kā vienu palīgkonstrukciju un nelieliem resursiem. Rezultāts ir tabula, kurā katram uzdevumam norādīts, vai viegls risinājums atrasts, kāds tas ir, kuri likumi tajā izmantoti un cik daudz laika, atmiņas un deduktīvo soļu tas prasīja.
+Darbā tiek izstrādāts rīks, kas automātiski pārskata olimpiāžu ģeometrijas uzdevumu kopu un katram uzdevumam meklē pierādījumu ar izvēlētās jomas likumiem un noteiktu resursu budžetu. Joma tiek definēta kā izvēlēta teorēmu (deduktīvo likumu) un konstrukciju kopa, piemēram, "trijstūri un riņķa līnijas bez līdzību teorēmām". Rīka pamatā ir AlphaGeometry pieeja: DD-AR dzinējs (Newclid) atvasina un reģistrē faktus no formalizācijas, bet, ja tas apstājas, palīgpunktus piedāvā cilvēka heiristikas (viduspunkti, apvilktās riņķa līnijas centri, augstumu pamati) un paša apmācīts mazs transformeris. Risinājums tiek uzskatīts par vieglu, ja tas atrodams ar jomas likumiem, ne vairāk kā vienu palīgkonstrukciju un nelieliem resursiem. Rezultāts ir tabula, kurā katram uzdevumam norādīts, vai viegls risinājums atrasts, kāds tas ir, kuri likumi tajā izmantoti un cik daudz laika, atmiņas un deduktīvo soļu tas prasīja.
 
 Ievads:
 Olimpiāžu ģeometrijas uzdevumu krājumos grūtība parasti ir norādīta subjektīvi (pēc autora vai žūrijas vērtējuma), un nav redzams, kuri uzdevumi patiesībā atrisināmi ar vienas tēmas zināšanām. Skolotājiem un skolēniem būtu noderīgi zināt:
 	- kuri uzdevumi atrisināmi tikai ar konkrētas jomas teorēmām (piemēram, tikai ar ievilktajiem leņķiem);
 	- kuriem uzdevumiem nepieciešama viena "atslēgas" palīgkonstrukcija un kura tieši;
 	- kuri uzdevumi šajā jomā nav viegli risināmi un prasa plašākas zināšanas.
-Ar roku šādu analīzi veikt simtiem uzdevumu ir lēni un neprecīzi. AlphaGeometry tipa sistēmas ļauj to automatizēt, jo to pierādījumi ir pārbaudāmi soli pa solim un katra rīka (likumi, algebriskā spriešana, palīgpunktu ģenerators) ieguldījumu var kontrolēt atsevišķi.
+Ar roku šādu analīzi veikt simtiem uzdevumu ir lēni un neprecīzi. AlphaGeometry tipa sistēmas ļauj to automatizēt, jo tās reģistrē izmantotos likumus un pierādījuma soļus un katra rīka (likumi, algebriskā spriešana, palīgpunktu ģenerators) ieguldījumu var kontrolēt atsevišķi.
 
 Mērķis:
 Izveidot un pārbaudīt rīku, kas olimpiāžu ģeometrijas uzdevumu kopā izvēlētai ģeometrijas jomai atrod uzdevumus ar vieglu risinājumu, parāda šos risinājumus un izmērāmi raksturo to vieglumu.

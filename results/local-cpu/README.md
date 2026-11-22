@@ -77,3 +77,5 @@ With geometry seed 0, mini_long found depth-one proofs on 2015 G3 at Python hash
 ## Completed training run
 
 The completed 20,000-step run selected step 20,000 by validation loss. It matched 113 of 200 first proposals and 143 within four proposals. On baseline failures it proved 6/26 JGEX and 0/14 IMO problems. Across the separate 101-problem auxiliary set, heuristics, mini_long and mid together proved 11 distinct problems. The frozen weights are in [final-best.pt](../../geo-lm/runs/small/final-best.pt). [Training events](small-training.jsonl) record all validation-loss checks. The 200 prediction cases are drawn from that validation set. The solver used [the final configuration](../../pipeline/configs/small_final_model.json) and the same 60-second search budget as the interim run.
+
+The [within-edition IMO comparison](imo/score-comparison.md) matches the local deduction baseline to official item scores for six editions with two benchmark problems each.

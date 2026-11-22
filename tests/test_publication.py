@@ -56,3 +56,51 @@ def test_student_score_columns_are_joined_to_the_correct_problem_and_solver():
     assert [(r["mean"], r["rank_by_mean"], r["revised"]) for r in matches] == [
         (3.92, 2, "proved"), (5.69, 1, "timeouts"),
     ]
+
+
+def test_proof_reader_checks_exact_statements_shared_dependencies_and_audit():
+    from bench.latvia.proof_catalog import parse_proof
+
+    text = """# Problem setup:
+[C0] : A = B
+# Goals
+B = C : Proved [1]
+B = D : Proved [2]
+# Proof:
+000. | A = B [C0] =(r01 Rule)> A = C [0]
+001. | A = C [0] =(AR Deduction)> B = C [1]
+002. | A = C [0] =(r02 Rule)> B = D [2]
+# Appendix:
+"""
+    row = dict(name="example", proof=text, rules_in_proof={"r01": 1, "AR:ratio": 1, "r02": 1})
+    audit = [dict(step=1, kind="Ratio", goal="B = C", outcome="needs_context")]
+    result = parse_proof(row, audit)
+    assert result["chain"] == 2 and result["used_steps"] == 3
+    assert result["goals"] == ["1", "2"]
+    for before, after, message in (("A = C [0] =(AR", "A = B [0] =(AR", "Incorrect cited fact"),
+                                   ("A = B [C0]", "A = B [2]", "Incorrect cited fact"),
+                                   ("B = D : Proved [2]", "B = C : Proved [2]", "Goal differs")):
+        with pytest.raises(ValueError, match=message):
+            parse_proof({**row, "proof": text.replace(before, after)}, audit)
+    with pytest.raises(ValueError, match="AR audit"):
+        parse_proof(row, [])
+
+
+def test_imo_pairs_deduplicate_encodings_and_check_both_official_score_sources(tmp_path):
+    from bench.imo_student_scores import compare
+    from bench.publish import ROOT
+
+    source = ROOT / "results/local-cpu/imo"
+    for name in ("problems.txt", "ddar_only.jsonl", "official-paired-scores.json"):
+        (tmp_path / name).write_bytes((source / name).read_bytes())
+    result = compare(tmp_path)
+    assert (result["formalizations"], result["official_items"], result["matched_encodings"], result["matched_items"]) == (29, 27, 13, 12)
+    assert result["comparisons"] == {"proved_higher": 3, "same_solver_outcome": 3}
+    madrid = next(e for e in result["editions"] if e["year"] == 2008)
+    assert madrid["items"][0]["ids"] == ["2008_p1a", "2008_p1b"]
+    path = tmp_path / "official-paired-scores.json"
+    archive = json.loads(path.read_text())
+    archive["editions"][0]["score_counts_0_to_7"][0][1] += 1
+    path.write_text(json.dumps(archive))
+    with pytest.raises(ValueError, match="Individual and team"):
+        compare(tmp_path)
