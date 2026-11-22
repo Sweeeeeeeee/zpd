@@ -1,6 +1,6 @@
 # Local CPU replication · 22 November 2026
 
-The replication used an Intel Core i7-1355U on Linux x86-64, Python 3.12.1, PyTorch 2.15.0+cpu, Transformers 4.52.4, Newclid 3.0.1 and py-yuclid 3.0.0. The Newclid dataset checkout was at `ac6550732a95`. The original comparison used migrated local weights. Geo-LM small was subsequently trained on the same host. Timings were collected with concurrent low-priority jobs on a live host.
+The replication used an Intel Core i7-1355U on Linux x86-64, Python 3.12.1, PyTorch 2.15.0+cpu, Transformers 4.52.4, Newclid 3.0.1 and py-yuclid 3.0.0. A fresh setup checks out the Newclid dataset revision used here, `ac6550732a95`. The original comparison used migrated local weights. Geo-LM small was subsequently trained on the same host. Timings were collected with concurrent low-priority jobs on a live host.
 
 ## Proof outcomes
 

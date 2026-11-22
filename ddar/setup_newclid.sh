@@ -17,5 +17,5 @@ done
 # py-yuclid ships the C++ `yuclid` DDAR binary as a prebuilt wheel.
 # pyyaml is imported by newclid but missing from its 3.0.1 metadata.
 .venv-newclid/bin/pip install "newclid[yuclid]==3.0.1" pyyaml
-[ -d third_party/Newclid ] || git clone https://github.com/LMCRC/Newclid.git third_party/Newclid
+bash ddar/fetch_datasets.sh
 echo "Done. Run: source .venv-newclid/bin/activate && python -m ddar.run_examples"

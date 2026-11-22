@@ -38,7 +38,7 @@ if [ ! -x .venv-newclid/bin/python ]; then
     PYTHON="$PY" bash ddar/setup_newclid.sh
   fi
 else
-  [ -d third_party/Newclid ] || git clone https://github.com/LMCRC/Newclid.git third_party/Newclid
+  bash ddar/fetch_datasets.sh
 fi
 
 step "torch (CPU), geo-lm, pyarrow, pytest, matplotlib"
