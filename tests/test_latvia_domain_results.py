@@ -78,3 +78,10 @@ def test_only_the_full_study_renders_the_final_table():
     assert "18 mēģinājumi" in paragraph
     with pytest.raises(ValueError, match="Incomplete"):
         complete_coverage({**study, "runs": 17}, 1)
+
+
+@pytest.mark.parametrize("reason", ["time limit (60s)", "load limit (120s)", "memory limit (2048 MB)", "CPU limit (60s)"])
+def test_solver_limits_are_resource_outcomes(reason):
+    from bench.latvia.finalize import category
+
+    assert category({"solved": False, "failure_reason": reason}) == "resource_limit"

@@ -15,7 +15,7 @@ def category(row):
             raise ValueError(f"Missing or inconsistent proof for {row['name']}")
         return "proved"
     reason = row["failure_reason"] or ""
-    if reason.startswith(("time limit", "CPU limit", "load time limit", "memory limit")):
+    if reason.startswith(("time limit", "CPU limit", "load limit", "memory limit")):
         return "resource_limit"
     if reason.startswith(("deduction engine failed:", "crashed:", "problem could not be built:")):
         return "errors"
