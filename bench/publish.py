@@ -56,6 +56,13 @@ def checked_rows(path, expected_names):
     return rows
 
 
+def check_replays(path, winners):
+    proofs = read_rows(path)
+    if (len(proofs) != len(winners) or {r["name"] for r in proofs} != winners
+            or any(not r["proof"] for r in proofs)):
+        raise ValueError(f"Missing or duplicate proof replay in {path}")
+
+
 def proof_counts(suite):
     archived = bench_records(suite, "ddar_only")
     original = {name for name, row in archived.items() if row["solved"]}
@@ -79,33 +86,39 @@ def proof_counts(suite):
         "union": len(original_union),
         "changed": sorted(baseline ^ original),
     }
-    if suite == "imo_102_requires_aux":
-        return counts
-
     failures = set(archived) - baseline
     if suite == "jgex_ag_231":
         failures = set((RESULTS / suite / "ddar_unsolved.txt").read_text().splitlines())
     union = baseline.copy()
     one_point = set()
     gains = {}
+    model_winners = set()
     for config, _ in BENCH_MODELS:
         followup = checked_rows(folder / f"{config}.jsonl", failures)
         winners = {row["name"] for row in followup if row["solved"]}
+        if suite == "imo_102_requires_aux":
+            check_replays(folder / f"{config}_proofs.jsonl", winners)
+        if config in ("mini_long_model", "mid_model"):
+            model_winners.update(winners)
         gains[config] = len(winners - baseline)
         one_point.update(row["name"] for row in followup if row["solved"] and row["depth"] == 1)
         union.update(winners)
     counts.update(repeat_union=len(union), gains=gains, followup_cases=len(failures),
                   one_aux_gain=len(one_point - baseline), additional_proofs=sorted(union - baseline))
-    interim = checked_rows(folder / "small_6300_model.jsonl", failures)
-    winners = {row["name"] for row in interim if row["solved"]}
-    replayed = read_rows(folder / "small_6300_proofs.jsonl")
-    if (len(replayed) != len(winners) or {r["name"] for r in replayed} != winners
-            or any(not r["proof"] for r in replayed)):
-        raise ValueError(f"Missing proof replay for {suite}")
-    counts["small_6300"] = {
-        "tested": len(interim), "proved": len(winners),
-        "new_problems": sorted(winners - union), "combined_union": len(union | winners),
-    }
+    if suite == "imo_102_requires_aux":
+        counts["local_two_model_union"] = len(baseline | model_winners)
+        counts["unique_heuristic_gains"] = sorted(union - baseline - model_winners)
+        counts["model_union_changed_ids"] = sorted((baseline | model_winners) ^ original_union)
+    else:
+        for name in ("small_6300",):
+            records = checked_rows(folder / f"{name}_model.jsonl", failures)
+            winners = {row["name"] for row in records if row["solved"]}
+            check_replays(folder / f"{name}_proofs.jsonl", winners)
+            counts[name] = {
+                "tested": len(records), "proved": len(winners),
+                "new_problems": sorted(winners - union), "combined_union": len(union | winners),
+            }
+            union.update(winners)
     return counts
 
 
@@ -136,6 +149,7 @@ def main():
     benchmarks = {suite: proof_counts(suite) for suite, _ in SETS}
     jgex = benchmarks["jgex_ag_231"]
     gains = jgex["gains"]
+    aux = benchmarks["imo_102_requires_aux"]
     with (ROOT / "problems/latvia/geometry_translated/status.csv").open() as f:
         translations = Counter(row["stage"] for row in csv.DictReader(f))
     result = dict(common50=common, full=full, paired_mid_mini_long=paired, proofs=benchmarks, ag1_smoke=ag1,
@@ -169,6 +183,10 @@ def main():
             f'<td>{run["proved"]}</td><td>{len(run["new_problems"])}</td>'
             f'<td>{run["combined_union"]}/{benchmarks[key]["n"]}</td></tr>'
         )
+    data.update(aux_local=aux["repeat_union"], aux_models=aux["local_two_model_union"],
+                aux_unique=len(aux["unique_heuristic_gains"]), aux_arch=aux["union"],
+                aux_heur=aux["gains"]["heuristics_only"], aux_long=aux["gains"]["mini_long_model"],
+                aux_mid=aux["gains"]["mid_model"])
     data["interim_proofs"] = "\n".join(proof_table)
     data["small_matches"] = full["small-6300"]["top4"]
     data["small_first"] = full["small-6300"]["top1"]
@@ -207,6 +225,13 @@ def main():
         f"{imo['small_6300']['proved']} no {imo['small_6300']['tested']} IMO uzdevumiem. "
         f"Kopā ar iepriekšējiem meklējumiem pierādīti {jgex['small_6300']['combined_union']}/{jgex['n']} "
         f"JGEX un {imo['small_6300']['combined_union']}/{imo['n']} IMO uzdevumi. "
+        f"Atsevišķajā 101 uzdevuma palīgkonstrukciju kopā dedukcija vien pierādīja "
+        f"{aux['current']} uzdevumus, bet trīs papildu meklējumu rezultātu apvienojums -- "
+        f"{aux['repeat_union']}. "
+        "Piemēram, 2004. gada atlases kopas uzdevumā G4a heiristika pievienoja trijstūrim "
+        "$ABC$ apvilktās riņķa līnijas centru $E$. No rādiusu vienādības $AE=CE$ un "
+        "leņķu sakarībām iegūst $\\angle AEP=\\angle PEC$. Trijstūriem ir kopīga mala $EP$. Trijstūri $AEP$ un "
+        "$CEP$ ir vienādi pēc divām malām un leņķa starp tām, tātad $AP=CP$. "
         f"AlphaGeometry lokāli pabeidza trīs pārbaudes piemērus (stingrā sakritība četros piedāvājumos: "
         f"{ag1['top4']}/3); šī izlase ir par mazu modeļu salīdzināšanai. "
         "Katrā palīgpunkta prognozes uzdevumā bija dota viena etalonkonstrukcija; iespējami arī citi derīgi risinājumi.\n"

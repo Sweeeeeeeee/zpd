@@ -176,7 +176,39 @@
       "build_failures": 1,
       "engine_errors": 0,
       "union": 7,
-      "changed": []
+      "changed": [],
+      "repeat_union": 11,
+      "gains": {
+        "heuristics_only": 4,
+        "mini_long_model": 5,
+        "mid_model": 5
+      },
+      "followup_cases": 101,
+      "one_aux_gain": 6,
+      "additional_proofs": [
+        "imo_sl_2004_g4a",
+        "imo_sl_2006_g6",
+        "imo_sl_2015_g3",
+        "imo_sl_2015_g3_variant",
+        "imo_sl_2015_g6",
+        "imo_sl_2016_g4",
+        "imo_sl_2016_g4_variant",
+        "imo_sl_2017_g3",
+        "imo_sl_2018_g2",
+        "imo_sl_2022_g3",
+        "imo_sl_2022_g4"
+      ],
+      "local_two_model_union": 7,
+      "unique_heuristic_gains": [
+        "imo_sl_2004_g4a",
+        "imo_sl_2006_g6",
+        "imo_sl_2018_g2",
+        "imo_sl_2022_g4"
+      ],
+      "model_union_changed_ids": [
+        "imo_sl_2022_g3",
+        "imo_sl_2022_g3_variant"
+      ]
     }
   },
   "ag1_smoke": {

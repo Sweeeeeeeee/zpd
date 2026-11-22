@@ -1,0 +1,56 @@
+[
+  {
+    "case": "imo_sl_2015_g3",
+    "python_hash_seed": 0,
+    "geometry_seed": 0,
+    "prompt": "a b c : perp b a c a; d : perp b c a d, coll b c d; e : coll a d e; f : coll b f e, cong f e b e; g : coll c f g, coll a d g; h : coll c f h, cong c h f h; i j : cong c h h i, perp h i g i, cong h j c h, perp h j g j; k : coll a i k, coll b f k ? cong h k c h",
+    "prompt_sha256": "53b695f0f61f21ef6f2dca8b672cfb31f774d1b4182a0cd1cae938063e92ee9a",
+    "solved": true,
+    "depth": 1
+  },
+  {
+    "case": "imo_sl_2022_g3",
+    "python_hash_seed": 0,
+    "geometry_seed": 0,
+    "prompt": "a :; b :; c :; d : cyclic a b c d; e : perp a c a e, cong a e d e, eqangle a d a e d e a d; f : perp b d b f, cong c f b f, eqangle b c b f c f b c; g : cong a e e g, coll a b g; h : cong f h b f, coll a b h; i : coll b c i, cong b i c i; j : coll a d j, cong a j d j; k : cong k a k j, cong k a k g; l : coll c d l, perp a k a l; m : cong m b m i, cong m b m h ? perp b m b l",
+    "prompt_sha256": "df64294faa6574d970528d21b16bd4a6565b3becd9a0f2e63a17b8add6e2f38e",
+    "solved": true,
+    "depth": 1
+  },
+  {
+    "case": "imo_sl_2015_g3",
+    "python_hash_seed": 1,
+    "geometry_seed": 0,
+    "prompt": "a b c : perp b a c a; d : perp b c a d, coll b c d; e : coll a d e; f : coll b f e, cong b e f e; g : coll c f g, coll a d g; h : coll c f h, cong c h f h; i j : cong h i c h, perp h i g i, cong h j c h, perp h j g j; k : coll a i k, coll b f k ? cong c h h k",
+    "prompt_sha256": "206aa7c5aecc6920c6e22f748dd04789e922889a37c1d693d23c33b3dcc36c7a",
+    "solved": true,
+    "depth": 1
+  },
+  {
+    "case": "imo_sl_2022_g3",
+    "python_hash_seed": 1,
+    "geometry_seed": 0,
+    "prompt": "a :; b :; c :; d : cyclic a b c d; e : perp a c a e, cong a e d e, eqangle a d a e d e a d; f : perp b d b f, cong c f b f, eqangle b c b f c f b c; g : cong e g a e, coll a b g; h : cong f h b f, coll a b h; i : coll b c i, cong b i c i; j : coll a d j, cong a j d j; k : cong k a k j, cong k a k g; l : coll c d l, perp a k a l; m : cong m b m i, cong m b m h ? perp b m b l",
+    "prompt_sha256": "dcbfd1aea7ff65a0160588940cd3b0b023d45e21651bb251d758196729b3e122",
+    "solved": true,
+    "depth": 1
+  },
+  {
+    "case": "imo_sl_2015_g3",
+    "python_hash_seed": 2,
+    "geometry_seed": 0,
+    "prompt": "a b c : perp b a c a; d : perp b c a d, coll b c d; e : coll a d e; f : coll b f e, cong f e b e; g : coll c f g, coll a d g; h : coll c f h, cong c h f h; i j : cong c h h i, perp h i g i, cong c h h j, perp h j g j; k : coll a i k, coll b f k ? cong c h h k",
+    "prompt_sha256": "800c86908454fbe5377010030445de0c46f0ce5a96095a5e57ea2e10112b215a",
+    "solved": true,
+    "depth": 1
+  },
+  {
+    "case": "imo_sl_2022_g3",
+    "python_hash_seed": 2,
+    "geometry_seed": 0,
+    "prompt": "a :; b :; c :; d : cyclic a b c d; e : perp a c a e, cong d e a e, eqangle a d a e d e a d; f : perp b d b f, cong b f c f, eqangle b c b f c f b c; g : cong a e e g, coll a b g; h : cong f h b f, coll a b h; i : coll b c i, cong b i c i; j : coll a d j, cong a j d j; k : cong k a k j, cong k a k g; l : coll c d l, perp a k a l; m : cong m b m i, cong m b m h ? perp b m b l",
+    "prompt_sha256": "a012580bf71fb77a8bb4236c75a5fc7ff6862e022e12e0223209a0701e74bdbb",
+    "solved": false,
+    "depth": 2
+  }
+]

@@ -1,0 +1,2 @@
+{"name": "imo_sl_2015_g3", "solved": true, "wall": 4.378, "load": 2.262, "mem": 434.1, "depth": 1, "aux": [{"clauses": ["e = on_line e a b, on_bline e a b"], "source": "transformer", "note": "l : coll b c l, cong b l c l"}], "ddar_calls": 4, "tool_calls": {"ddar": 4, "transformer": 1}, "reason": null, "n_rules": 116}
+{"name": "imo_sl_2022_g3", "solved": false, "wall": 16.366, "load": 4.204, "mem": 432.7, "depth": 2, "aux": [], "ddar_calls": 5, "tool_calls": {"ddar": 5, "transformer": 4}, "reason": "no usable proposals", "n_rules": 0}

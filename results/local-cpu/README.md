@@ -4,7 +4,7 @@ The replication used an Intel Core i7-1355U on Linux x86-64, Python 3.12.1, PyTo
 
 ## Proof outcomes
 
-Each JSONL row is one input problem. In build-failure messages, the local executable path is abbreviated to `yuclid`. The baseline used the project's seed-0 Yuclid configuration, a 60-second limit and a 2,048 MiB budget. The IMO experiment used the 29 available IDs in [problems.txt](imo/problems.txt). The other two suites used their complete dataset files. The JGEX follow-up evaluated heuristics, mini_long and mid separately on the 26 archived baseline failures. For IMO, the same three configurations ran on the 14 local baseline failures. The 101-problem auxiliary set received a fresh baseline only. Deduplicate by problem ID when combining wins. A depth-two proof can contribute to the combined benchmark even though the restricted-domain definition of an easy proof permits at most one auxiliary point.
+Each JSONL row is one input problem. In build-failure messages, the local executable path is abbreviated to `yuclid`. The baseline used the project's seed-0 Yuclid configuration, a 60-second limit and a 2,048 MiB budget. The IMO experiment used the 29 available IDs in [problems.txt](imo/problems.txt). The other two suites used their complete dataset files. The JGEX follow-up evaluated heuristics, mini_long and mid separately on the 26 archived baseline failures. For IMO, the same three configurations ran on the 14 local baseline failures. All three configurations also ran on the 101 baseline failures of the auxiliary set. Winning constructions were replayed with deduction alone. The archived auxiliary-set union covers the two learned proposers only. Deduplicate by problem ID when combining wins. A depth-two proof can contribute to the combined benchmark even though the restricted-domain definition of an easy proof permits at most one auxiliary point.
 
 ## First-point prediction
 
@@ -67,3 +67,5 @@ python bench/sweep.py "$sets/jgex_ag_231.txt" pipeline/configs/small_6300_model.
 python -m bench.replay_proofs "$sets/jgex_ag_231.txt" /tmp/zpd-repeat/jgex-small.jsonl \
   /tmp/zpd-repeat/jgex-small-proofs.jsonl
 ```
+
+The [Python hash-seed reruns](hash-order/) cover the two extra mini_long proofs relative to the archive. The numerical seed and 60-second search budget were held constant. File names identify the Python hash seed, and the prompt audit records each exact root input.
