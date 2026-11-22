@@ -7,6 +7,7 @@ import argparse, json, sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from bench.dataset import read_problems
 from bench.jsonl import resume_rows
 from pipeline.solve import Budget, config_budget, solve
 
@@ -15,16 +16,18 @@ ap.add_argument("dataset"); ap.add_argument("config"); ap.add_argument("out")
 ap.add_argument("--only"); ap.add_argument("--time", type=float, default=None, help="seconds, 2 GB; default: the config's own budget")
 a = ap.parse_args()
 
-lines = [l.strip() for l in Path(a.dataset).read_text().splitlines() if l.strip()]
-problems = list(zip(lines[0::2], lines[1::2]))
+problems = read_problems(Path(a.dataset))
 if a.only:
     keep = set(Path(a.only).read_text().split())
-    problems = [p for p in problems if p[0] in keep]
+    missing = keep - problems.keys()
+    if missing:
+        ap.error(f"unknown IDs in {a.only}: {', '.join(sorted(missing))}")
+    problems = {name: text for name, text in problems.items() if name in keep}
 done = {row["name"] for row in resume_rows(Path(a.out))}
 
-budget = Budget(time_s=a.time, memory_mb=2048, cpu_s=0) if a.time else config_budget(a.config)
+budget = Budget(time_s=a.time, memory_mb=2048, cpu_s=0) if a.time is not None else config_budget(a.config)
 with open(a.out, "a") as f:
-    for i, (name, text) in enumerate(problems):
+    for i, (name, text) in enumerate(problems.items()):
         if name in done:
             continue
         r = solve(text, a.config, budget)

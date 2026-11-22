@@ -6,13 +6,13 @@ import argparse
 import json
 from pathlib import Path
 
+from bench.dataset import read_problems
 from pipeline.solve import Budget, solve
 from pipeline.tools import AuxConstruction, ProofState
 
 
 def replay(dataset, records):
-    lines = [line.strip() for line in dataset.read_text().splitlines() if line.strip()]
-    problems = dict(zip(lines[::2], lines[1::2], strict=True))
+    problems = read_problems(dataset)
     for line in records.read_text().splitlines():
         row = json.loads(line)
         if not row["solved"]:
