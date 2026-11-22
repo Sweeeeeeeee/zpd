@@ -40,7 +40,7 @@ Scheme agreed with the user 2026-11-12: agents do the bulk work, automatic check
 ## Research
 
 ### 9. Scan
-- [ ] 9.1. Freeze the scan: list the configs (6 domains x aux sources: none, heuristics, heuristics + transformer), the budget and the engine version.
+- [x] 9.1. Freeze six rule/AR settings × three proposer policies, the search budget, checkpoint and engine version. See `results/latvia-domain-plan.json` and the reproduction instructions in `docs/domains.md`.
 - [ ] 9.2. Run every working-set problem in every config and store the results.
 - [ ] 9.3. Rerun crashes and timeouts; classify the remaining failures (engine bug, translation error, budget) and fix what can be fixed.
 

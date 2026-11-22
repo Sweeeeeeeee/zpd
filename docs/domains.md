@@ -118,3 +118,11 @@ unbuildable figures (`breaking_cc_*`), 3–4 problems that hit another Newclid
 bug (`unhashable type: 'LineMerge'` when a proof step is a line merge; not
 fixed), `acompute_test` (a goal type the Python AR cannot justify), and
 timeouts.
+
+## Frozen Latvian scan design
+
+From the project root, run `python -m bench.latvia.scan_plan /tmp/zpd-domain-plan` in the solver environment. Compare the resulting `manifest.json` with [the frozen manifest](../results/latvia-domain-plan.json). It records the Python engine’s Newclid version and SHA-256 digests of all 18 executable configurations, the six rule files and the mid-model weights.
+
+Each of the three rule sets is tested with algebraic reasoning enabled and disabled. Within each of the six settings, run deduction alone, heuristic proposals, and the combined transformer-plus-heuristic search. The combined policy tries the transformer first. The latter two policies allow one auxiliary level and up to eight branches. Every configuration uses seed 0, a 60-second search budget after loading and 2,048 MiB of memory. The mixed policy uses the existing mid checkpoint so the choice of model is fixed before observing the Latvian scan results.
+
+For a reviewed dataset in the alternating ID/problem format, pass a generated configuration directly to `bench/sweep.py`. Omit the command-line time override to use the configuration's budget. Keep a separate result file per configuration. The manifest fixes the experiment design. Corpus review and measurements are tracked separately.

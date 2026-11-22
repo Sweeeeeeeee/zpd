@@ -1,0 +1,33 @@
+{
+  "engine": "python",
+  "newclid": "3.0.1",
+  "sources": {
+    "ddar/configs/domains/full.json": "78080052fd7b1354f13f49f29f72544765941458d68bba6f3f6b4b0d20a3d492",
+    "geo-lm/runs/mid/best.pt": "5a03d8ecb072f3188a28af284515f55f556d639ec03ff818789c3b3c271678de",
+    "ddar/configs/domains/full_no_ar.json": "8c1e378b01bef84ec12a52ecdd13246f7f41e2c628f60e8ac65425845d0d71e5",
+    "ddar/configs/domains/no_similarity.json": "3fa2e5d32c9b0b9cb8869c7826f6fa713256599d0360ef7e166a665f4d985bd9",
+    "ddar/configs/domains/no_similarity_no_ar.json": "bd54a0b536ee785e79e632b43affd9ed5441970ab4656b7b8868275d05152d38",
+    "ddar/configs/domains/circles.json": "be3c10e3677e5514faba62ac532473b3a9dfb906e6a13b1a3ea23d8c2abaec39",
+    "ddar/configs/domains/circles_no_ar.json": "bef8fe740f4a3ba7920be15c010300283a994ee2d9970036f1d0fd1edbdac139"
+  },
+  "configs": {
+    "full-deduction.json": "6b9c1e2754a9c200f2191bcae043010ff907d18c3f8f898728aa39dcd510d9b8",
+    "full-heuristics.json": "c4489bed394a109cd45830958ccd7568110760d522fc79e40efe4a8c7bc05067",
+    "full-combined.json": "60a51af66d2df1d131840e748008ad2b799eb5997150eb0ae32e3e4b7fad497e",
+    "full_no_ar-deduction.json": "65923072ee6d1a8b42396f439757ac7f263718d39c906c89d1cf6b47378d356b",
+    "full_no_ar-heuristics.json": "fe4801be117b9edea4f12824274b5c61f8361ee3da5f9e0b16f3265413c4df6a",
+    "full_no_ar-combined.json": "41370d0df5e36eb42a19c5b7b89d140bed201de3fea04f2db88f58ac7cfd4675",
+    "no_similarity-deduction.json": "95e0a07f06d7e1dbbfdd615238ca2b2c92471e89d9ea842a507862ab9c649872",
+    "no_similarity-heuristics.json": "e14e9810656824cf35b653a31538d52573c1444d4e4c011f048a6d91514a493a",
+    "no_similarity-combined.json": "b07b9a6cd0250478be5e1a2729eb4b37fc419250fec24c4f0d5816e03ed1d2ba",
+    "no_similarity_no_ar-deduction.json": "13e4669d4cb71b6fdc63a9276911c2efac6d7a90965808c4ec395e5f0bfdb537",
+    "no_similarity_no_ar-heuristics.json": "36d95b1c3ee794fd3723391bc4d24551c3269fb3c06a80ccf03d33b14754a7be",
+    "no_similarity_no_ar-combined.json": "0ab5afc60dcb561e05bbcd10705069a1fba097d91d4790f84d482ecbc02e08e6",
+    "circles-deduction.json": "f31cd484827b4cc6868f157afa96c01a297ba176abad6a4d2a90989a2f0eb7c4",
+    "circles-heuristics.json": "b55d207ea35be2101747a4b6c14cc0a6a8b68dba886a7a89356587b3f28aaaaa",
+    "circles-combined.json": "4cc2fa58f16f991c07e081ee0ae44116cad7580670da5388065c30da4e41debf",
+    "circles_no_ar-deduction.json": "d631ce73b7cd2e6237347071fc9f522ddac0c75380a7063f16b303710beea60e",
+    "circles_no_ar-heuristics.json": "23c490c973184dd1d35c3d2116d9826b7718db50af88db001b27aee1791e67e9",
+    "circles_no_ar-combined.json": "983276dfa6102017785befebf0359437b2c2ab6f419bea016052cce4d3ce15c0"
+  }
+}
