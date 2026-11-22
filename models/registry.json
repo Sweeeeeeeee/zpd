@@ -70,5 +70,13 @@
   "source": "AlphaGeometry (google-deepmind/alphageometry), checkpoint_10999999 from the official Google Drive folder; sha256 02d6728b... = HF mirror Wauplin/alphageometry",
   "env": ".venv-ag1 (Python 3.10.9, pipeline/setup_ag1.sh)",
   "note": "weights-only params_only.npz from pipeline/ag1_slim_ckpt.py"
+ },
+ "small_6300": {
+  "group": "light, ours",
+  "params": "11.2M",
+  "kind": "geo-lm",
+  "path": "geo-lm/runs/small/step-6300.pt",
+  "note": "Frozen interim inference weights, step 6300 of a planned 20000.",
+  "sha256": "318b5bbe52418822ed1ef0f9c63a47639bf528bda8277c0337b95eb140761ef7"
  }
 }

@@ -8,8 +8,8 @@ The translation workflow is intentionally paused at 7.4 pending user verificatio
 
 The training assets already in the repo are:
 
-- `geo-lm/configs/train_mid.json` — 5.1M model, 9000 steps, the best-performing CPU run already produced in this repo.
-- `geo-lm/configs/train_small.json` — 11M model, intended for GPU / stronger machine.
+- `geo-lm/configs/train_mid.json` — 5.1M model trained for 9,000 steps.
+- `geo-lm/configs/train_small.json` — 11.2M model with a 20,000-step schedule. The [step-6,300 inference checkpoint](../geo-lm/runs/small/step-6300.pt) was trained on a CPU.
 - `geo-lm/runs/mid/best.pt` — committed checkpoint from the completed run.
 - `geo-lm/runs/mini_long/best.pt` — the default model used by the pipeline.
 
@@ -29,7 +29,7 @@ bash setup.sh --no-tex
 
 ### 2) Pick a training target
 
-Use the smaller `mid` model for a good balance of quality and runtime, or the `small` model if your machine has a GPU and you want the larger checkpoint.
+The configurations train the 5.1M-parameter `mid` or the 11.2M-parameter `small` model. Both run on CPU.
 
 ```bash
 source .venv-newclid/bin/activate
@@ -45,10 +45,10 @@ The training script resumes automatically from `last.pt` when you rerun the same
 If the machine has CUDA, first confirm it is available with `python -c "import torch; print(torch.cuda.is_available())"`, then use an explicit device override and a short smoke run:
 
 ```bash
-python -m geo_lm.train --config geo-lm/configs/train_small.json --device cuda --max_steps 50 --eval_generate 0 --resume false
+python -m geo_lm.train --config geo-lm/configs/train_small.json --device cuda --max_steps 50 --eval_generate 0 --out_dir "$(mktemp -d)"
 ```
 
-Then continue with the full run:
+Start or resume the full run in its configured output directory:
 
 ```bash
 python -m geo_lm.train --config geo-lm/configs/train_small.json --device cuda
@@ -141,7 +141,7 @@ been verified.
 The repo has already been checked for the following:
 
 - `setup.sh` installs the Newclid environment and training dependencies.
-- `geo-lm/train.py` supports resuming from `last.pt` automatically.
+- `geo-lm/geo_lm/train.py` supports resuming from `last.pt` automatically.
 - The training configs are present and consistent with the repo paths.
 - The project already has a working `mid` checkpoint and a default mini-long checkpoint.
 - The local one-step validation command succeeds with the repo's existing environment.

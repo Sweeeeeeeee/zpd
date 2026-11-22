@@ -16,7 +16,7 @@ from zpd_darbs.scripts.make_figures import BENCH_MODELS, SETS, bench_records
 
 ROOT = Path(__file__).resolve().parents[1]
 RESULTS = ROOT / "results"
-MODELS = {"mini": 200, "mini_long": 200, "mid": 200, "GenesisGeo": 50, "SmolLM2-360M-Instruct": 50}
+MODELS = {"mini": 200, "mini_long": 200, "mid": 200, "small-6300": 200, "GenesisGeo": 50, "SmolLM2-360M-Instruct": 50}
 SUITES = {"jgex_ag_231": "JGEX-AG-231", "imo": "IMO-AG-30", "imo_102_requires_aux": "IMO auxiliary set"}
 
 
@@ -92,6 +92,16 @@ def proof_counts(suite):
         union.update(winners)
     counts.update(repeat_union=len(union), gains=gains, followup_cases=len(failures),
                   one_aux_gain=len(one_point - baseline), additional_proofs=sorted(union - baseline))
+    interim = checked_rows(folder / "small_6300_model.jsonl", failures)
+    winners = {row["name"] for row in interim if row["solved"]}
+    replayed = read_rows(folder / "small_6300_proofs.jsonl")
+    if (len(replayed) != len(winners) or {r["name"] for r in replayed} != winners
+            or any(not r["proof"] for r in replayed)):
+        raise ValueError(f"Missing proof replay for {suite}")
+    counts["small_6300"] = {
+        "tested": len(interim), "proved": len(winners),
+        "new_problems": sorted(winners - union), "combined_union": len(union | winners),
+    }
     return counts
 
 
@@ -147,6 +157,18 @@ def main():
                 extra=jgex["repeat_union"] - jgex["current"],
                 accepted=translations["accepted"], rejected=translations["rejected"],
                 review=translations["review"], candidates=sum(translations.values()))
+    proof_table = []
+    for key in ("jgex_ag_231", "imo"):
+        run = benchmarks[key]["small_6300"]
+        proof_table.append(
+            f'<tr><th scope="row">{SUITES[key]}</th><td>{run["tested"]}</td>'
+            f'<td>{run["proved"]}</td><td>{len(run["new_problems"])}</td>'
+            f'<td>{run["combined_union"]}/{benchmarks[key]["n"]}</td></tr>'
+        )
+    data["interim_proofs"] = "\n".join(proof_table)
+    data["small_matches"] = full["small-6300"]["top4"]
+    data["small_first"] = full["small-6300"]["top1"]
+    data["mid_first"] = full["mid"]["top1"]
     data["build_failures"] = sum(b["build_failures"] for b in benchmarks.values())
     data["changed"] = sum(len(b["changed"]) for b in benchmarks.values())
     template = Template((ROOT / "bench/results-template.html").read_text())
@@ -170,7 +192,16 @@ def main():
         f"Atkārtotajā JGEX pārbaudē DD-AR atrisināja {jgex['current']} uzdevumus, bet kopā ar "
         f"atsevišķo palīgpunktu meklējumu rezultātiem pierādīti {jgex['repeat_union']} no {jgex['n']}. "
         f"IMO-AG-30 pieejamajā daļā ar dedukciju pierādīti {imo['current']}, bet pēc papildu "
-        f"meklējumiem -- {imo['repeat_union']} no {imo['n']} uzdevumiem. "
+        f"meklējumiem -- {imo['repeat_union']} no {imo['n']} uzdevumiem."
+        "\n\n"
+        rf"Modeļa \texttt{{small}} 6300. apmācības solī pirmā prognoze sakrita ar etalonu "
+        f"{full['small-6300']['top1']} no 200 piemēriem. Vērtējot visus četrus piedāvājumus, "
+        f"sakritību skaits pieauga līdz {full['small-6300']['top4']}. "
+        f"Uzdevumos, kurus sākotnējā dedukcija neatrisināja, ar šo modeli pierādīti "
+        f"{jgex['small_6300']['proved']} no {jgex['small_6300']['tested']} JGEX un "
+        f"{imo['small_6300']['proved']} no {imo['small_6300']['tested']} IMO uzdevumiem. "
+        f"Kopā ar iepriekšējiem meklējumiem pierādīti {jgex['small_6300']['combined_union']}/{jgex['n']} "
+        f"JGEX un {imo['small_6300']['combined_union']}/{imo['n']} IMO uzdevumi. "
         f"AlphaGeometry lokāli pabeidza trīs pārbaudes piemērus (stingrā sakritība četros piedāvājumos: "
         f"{ag1['top4']}/3); šī izlase ir par mazu modeļu salīdzināšanai. "
         "Katrā palīgpunkta prognozes uzdevumā bija dota viena etalonkonstrukcija; iespējami arī citi derīgi risinājumi.\n"

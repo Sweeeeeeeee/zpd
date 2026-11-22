@@ -1,6 +1,6 @@
 # Local CPU replication · 22 November 2026
 
-The replication used an Intel Core i7-1355U on Linux x86-64, Python 3.12.1, PyTorch 2.15.0+cpu, Transformers 4.52.4, Newclid 3.0.1 and py-yuclid 3.0.0. The Newclid dataset checkout was at `ac6550732a95`. All weights came from the migrated local files. Timings were collected with concurrent low-priority jobs on a live host.
+The replication used an Intel Core i7-1355U on Linux x86-64, Python 3.12.1, PyTorch 2.15.0+cpu, Transformers 4.52.4, Newclid 3.0.1 and py-yuclid 3.0.0. The Newclid dataset checkout was at `ac6550732a95`. The original comparison used migrated local weights. Geo-LM small was subsequently trained on the same host. Timings were collected with concurrent low-priority jobs on a live host.
 
 ## Proof outcomes
 
@@ -8,7 +8,7 @@ Each JSONL row is one input problem. In build-failure messages, the local execut
 
 ## First-point prediction
 
-The three Geo-LM checkpoints each saw the first 200 GenesisGeo validation cases with an auxiliary marker. GenesisGeo and SmolLM2-360M each saw the first 50 of those cases, using their respective geometry and few-shot prompts. All used beam width four. HF generation was capped at 20 new tokens and Geo-LM at 64; timings and match rates depend on these settings.
+The four Geo-LM checkpoints each saw the first 200 GenesisGeo validation cases with an auxiliary marker. GenesisGeo and SmolLM2-360M each saw the first 50 of those cases, using their respective geometry and few-shot prompts. All used beam width four. HF generation was capped at 20 new tokens and Geo-LM at 64; timings and match rates depend on these settings.
 
 **Strict top 4** counts a case when at least one prediction matches the declared point and the reference predicates, keeping argument order and multiplicity. Predicate order and formatting are normalized. Empty reference predicates count as misses. This can undercount geometrically equivalent proposals. **Legacy top 4** uses the original evaluator’s unordered argument sets and ignores the declared point. Neither score tests whether a construction yields a proof.
 
@@ -48,4 +48,22 @@ python bench/sweep.py "$sets/imo.txt" pipeline/configs/ddar_only.json \
   /tmp/zpd-repeat/imo.jsonl --only results/local-cpu/imo/problems.txt --time 60
 python bench/sweep.py "$sets/jgex_ag_231.txt" pipeline/configs/mid_model.json \
   /tmp/zpd-repeat/jgex-mid.jsonl --only results/jgex_ag_231/ddar_unsolved.txt --time 60
+```
+
+## Frozen Geo-LM small checkpoint
+
+The inference weights in [step-6300.pt](../../geo-lm/runs/small/step-6300.pt) contain the 11,211,648-parameter model and its tokenizer. The checkpoint was frozen at the scheduled three-hour evaluation of a 20,000-step run. Its SHA-256 is in the [model registry](../../models/registry.json). We verified every model tensor and the tokenizer against the training checkpoint before exporting. Training used seed 0, two CPU threads, the existing small configuration, and a batch size of 32. First-point prediction used one CPU thread.
+
+The proof searches used the same settings as the mid comparison, including a 60-second search budget after loading. Every previously unsolved problem in the JGEX and IMO baseline runs was eligible. Each winning record has a companion deduction-only replay with the proposed points already added to the problem. A replay checks the recorded construction with the same engine and seed. The per-problem records retain the search depth and observed resource use.
+
+To repeat the JGEX portion and regenerate the deduction transcripts:
+
+```sh
+export OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1
+sets=third_party/Newclid/newclid/problems_datasets
+mkdir -p /tmp/zpd-repeat
+python bench/sweep.py "$sets/jgex_ag_231.txt" pipeline/configs/small_6300_model.json \
+  /tmp/zpd-repeat/jgex-small.jsonl --only results/jgex_ag_231/ddar_unsolved.txt --time 60
+python -m bench.replay_proofs "$sets/jgex_ag_231.txt" /tmp/zpd-repeat/jgex-small.jsonl \
+  /tmp/zpd-repeat/jgex-small-proofs.jsonl
 ```

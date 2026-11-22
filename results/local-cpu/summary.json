@@ -24,6 +24,14 @@
       "empty": 5,
       "seconds": 0.84
     },
+    "small-6300": {
+      "n": 50,
+      "top1": 19,
+      "top4": 34,
+      "relaxed": 36,
+      "empty": 5,
+      "seconds": 1.15
+    },
     "GenesisGeo": {
       "n": 50,
       "top1": 28,
@@ -65,6 +73,14 @@
       "relaxed": 136,
       "empty": 13,
       "seconds": 0.93
+    },
+    "small-6300": {
+      "n": 200,
+      "top1": 92,
+      "top4": 137,
+      "relaxed": 140,
+      "empty": 13,
+      "seconds": 1.14
     },
     "GenesisGeo": {
       "n": 50,
@@ -118,7 +134,13 @@
         "examples/complete2/unsolved2/complete_010_Other_Auxiliary_ye_aux_think2.gex",
         "examples/complete2/unsolved2/complete_010_Other_Auxiliary_ye_aux_y1.gex",
         "examples/complete2/unsolved2/complete_011_7_Book_00EE_04_E051-9.gex"
-      ]
+      ],
+      "small_6300": {
+        "tested": 26,
+        "proved": 6,
+        "new_problems": [],
+        "combined_union": 217
+      }
     },
     "imo": {
       "n": 29,
@@ -137,7 +159,13 @@
       "one_aux_gain": 0,
       "additional_proofs": [
         "2015_p3"
-      ]
+      ],
+      "small_6300": {
+        "tested": 14,
+        "proved": 1,
+        "new_problems": [],
+        "combined_union": 16
+      }
     },
     "imo_102_requires_aux": {
       "n": 101,
