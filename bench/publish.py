@@ -151,9 +151,13 @@ def main():
     gains = jgex["gains"]
     aux = benchmarks["imo_102_requires_aux"]
     with (ROOT / "problems/latvia/geometry_translated/status.csv").open() as f:
-        translations = Counter(row["stage"] for row in csv.DictReader(f))
+        corpus = list(csv.DictReader(f))
+    translations = Counter(row["stage"] for row in corpus)
+    accepted_by_decision = sum(r["stage"] == "accepted" and bool(r["decision"].strip()) for r in corpus)
+    accepted_automatically = translations["accepted"] - accepted_by_decision
     result = dict(common50=common, full=full, paired_mid_mini_long=paired, proofs=benchmarks, ag1_smoke=ag1,
-                  training_prompt_overlaps=overlaps, translations=translations)
+                  training_prompt_overlaps=overlaps, translations=translations,
+                  accepted_automatically=accepted_automatically, accepted_by_decision=accepted_by_decision)
     (RESULTS / "local-cpu/summary.json").write_text(json.dumps(result, indent=2) + "\n")
 
     def model_rows(scores):
@@ -173,7 +177,8 @@ def main():
                 heuristic=gains["heuristics_only"], longgain=gains["mini_long_model"],
                 midgain=gains["mid_model"], failures=jgex["followup_cases"], onepoint=jgex["one_aux_gain"],
                 extra=jgex["repeat_union"] - jgex["current"],
-                accepted=translations["accepted"], rejected=translations["rejected"],
+                accepted=translations["accepted"], accepted_auto=accepted_automatically,
+                accepted_by_decision=accepted_by_decision, rejected=translations["rejected"],
                 review=translations["review"], candidates=sum(translations.values()))
     proof_table = []
     for key in ("jgex_ag_231", "imo"):

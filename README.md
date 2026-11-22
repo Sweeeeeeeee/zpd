@@ -10,7 +10,7 @@ In the archived JGEX benchmark, DD-AR solved 205 of 231 problems. Across indepen
 
 At step 6,300, the 11.2M-parameter Geo-LM small model matched the first auxiliary point in 137 of 200 cases within four proposals, compared with 129 for mid. It recovered six JGEX and one IMO proof on baseline failures. All seven constructions replayed with deduction alone. Earlier configurations had already proved those seven problems.
 
-For the Latvian corpus, the translation pipeline automatically accepted 65 of 80 candidates. Five were rejected and ten require review. The relationship between restricted proofs and official difficulty remains open.
+For the Latvian corpus, automatic checks accepted 57 of 80 candidates. Recorded Claude decisions accepted eight more and rejected five. [Ten cases and a six-case audit sample await review](problems/latvia/geometry_translated/REVIEW.md). The relationship between restricted proofs and official difficulty remains open.
 
 ## Run locally
 

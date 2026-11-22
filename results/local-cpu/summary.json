@@ -224,5 +224,7 @@
     "accepted": 65,
     "review": 10,
     "rejected": 5
-  }
+  },
+  "accepted_automatically": 57,
+  "accepted_by_decision": 8
 }
