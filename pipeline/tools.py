@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import itertools
 import logging
+import shutil
 import math
 import string
 import time
@@ -138,17 +139,24 @@ class DDARTool(Tool):
 
         self.calls += 1
         logging.disable(logging.WARNING)
-        t0 = time.time()
+        t0 = time.monotonic()
         state.checked = True
+        stage = "problem could not be built"
         try:
             builder = JGEXProblemBuilder(rng=self.seed).with_problem_from_txt(state.text())
             setup = builder.build()
+            stage = "deduction engine failed"
             solver = build_solver(setup, self.ddar_config, self.seed)
             state.solved = solver.run()
             complete_ar_traceback(solver)
         except Exception as e:  # unbuildable figure, engine error, ...
-            state.error = f"{type(e).__name__}: {str(e)[:200]}"
-            state.ddar_time = time.time() - t0
+            message = str(e)
+            executable = shutil.which("yuclid")
+            if executable:
+                message = message.replace(executable, "yuclid")
+            state.solved = False
+            state.error = f"{stage}: {type(e).__name__}: {message[:200]}"
+            state.ddar_time = time.monotonic() - t0
             return None
         state.builder, state.problem_setup = builder, setup
         proof = solver.proof_state
@@ -161,7 +169,7 @@ class DDARTool(Tool):
                 if lbl := justification_label(step.justification):
                     state.rules_in_proof[lbl] += 1
             state.proof = solver.proof()
-        state.ddar_time = time.time() - t0
+        state.ddar_time = time.monotonic() - t0
         return None
 
 

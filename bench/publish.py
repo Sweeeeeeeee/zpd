@@ -67,11 +67,15 @@ def proof_counts(suite):
     folder = RESULTS / "local-cpu" / suite
     rows = checked_rows(folder / "ddar_only.jsonl", set(archived))
     baseline = {row["name"] for row in rows if row["solved"]}
+    # Historical logs used the same prefix for builder and Yuclid exceptions.
+    errors = [row["reason"] or "" for row in rows]
+    legacy_engine = "problem could not be built: YuclidError:"
     counts = {
         "n": len(rows),
         "baseline": len(original),
         "current": len(baseline),
-        "build_failures": sum((r["reason"] or "").startswith("problem could not be built") for r in rows),
+        "build_failures": sum(r.startswith("problem could not be built") and not r.startswith(legacy_engine) for r in errors),
+        "engine_errors": sum(r.startswith((legacy_engine, "deduction engine failed:")) for r in errors),
         "union": len(original_union),
         "changed": sorted(baseline ^ original),
     }
@@ -170,6 +174,7 @@ def main():
     data["small_first"] = full["small-6300"]["top1"]
     data["mid_first"] = full["mid"]["top1"]
     data["build_failures"] = sum(b["build_failures"] for b in benchmarks.values())
+    data["engine_errors"] = sum(b["engine_errors"] for b in benchmarks.values())
     data["changed"] = sum(len(b["changed"]) for b in benchmarks.values())
     template = Template((ROOT / "bench/results-template.html").read_text())
     (page / "index.html").write_text(template.substitute(data))

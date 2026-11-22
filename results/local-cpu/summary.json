@@ -110,7 +110,8 @@
       "n": 231,
       "baseline": 205,
       "current": 205,
-      "build_failures": 1,
+      "build_failures": 0,
+      "engine_errors": 1,
       "union": 217,
       "changed": [],
       "repeat_union": 217,
@@ -147,6 +148,7 @@
       "baseline": 15,
       "current": 15,
       "build_failures": 0,
+      "engine_errors": 0,
       "union": 16,
       "changed": [],
       "repeat_union": 16,
@@ -172,6 +174,7 @@
       "baseline": 0,
       "current": 0,
       "build_failures": 1,
+      "engine_errors": 0,
       "union": 7,
       "changed": []
     }

@@ -105,7 +105,7 @@ def load_tools(config: dict) -> tuple[Tool | None, list[Tool]]:
 
 
 def search(problem: str, ddar: Tool | None, proposers: list[Tool], limits: SearchLimits) -> SearchResult:
-    t0 = time.time()
+    t0 = time.monotonic()
     rejected: Counter = Counter()
 
     explored = 0  # deepest search level that was run
@@ -124,7 +124,7 @@ def search(problem: str, ddar: Tool | None, proposers: list[Tool], limits: Searc
             rules_fired=dict(state.rules_fired), rules_in_proof=dict(state.rules_in_proof),
             tool_calls={t.name: t.calls for t in tools},
             tools_used=used, ddar_calls=ddar.calls if ddar else 0,
-            wall_time=round(time.time() - t0, 3), failure_reason=None if state.solved else reason,
+            wall_time=round(time.monotonic() - t0, 3), failure_reason=None if state.solved else reason,
             rejected=dict(rejected),
         )
 
@@ -133,7 +133,7 @@ def search(problem: str, ddar: Tool | None, proposers: list[Tool], limits: Searc
         return finish(root, "DDAR tool disabled: nothing can be proven")
     ddar.run(root)
     if root.error:
-        return finish(root, f"problem could not be built: {root.error}")
+        return finish(root, root.error)
     if root.solved:
         return finish(root, None)
     if not proposers:
@@ -144,7 +144,7 @@ def search(problem: str, ddar: Tool | None, proposers: list[Tool], limits: Searc
     def out_of_budget() -> str | None:
         if limits.max_ddar_calls and ddar.calls >= limits.max_ddar_calls:
             return f"budget: {limits.max_ddar_calls} DDAR calls"
-        if limits.time_limit and time.time() - t0 >= limits.time_limit:
+        if limits.time_limit and time.monotonic() - t0 >= limits.time_limit:
             return f"budget: {limits.time_limit:.0f}s"
         return None
 

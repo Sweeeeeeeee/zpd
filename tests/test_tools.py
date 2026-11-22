@@ -32,7 +32,20 @@ def test_ddar_solves_orthocenter_and_records_rules(ddar):
 def test_ddar_reports_unbuildable_figure(ddar):
     state = ProofState.from_text("a b = segment a b; c = on_line c a b, on_line c a b ? cong a c b c")
     ddar.run(state)
-    assert not state.solved and state.error
+    assert not state.solved and state.error.startswith("problem could not be built:")
+
+
+def test_failed_proof_extraction_cannot_count_as_solved(ddar, monkeypatch):
+    from ddar import runner
+
+    def fail_traceback(solver):
+        raise ValueError("traceback unavailable")
+
+    monkeypatch.setattr(runner, "complete_ar_traceback", fail_traceback)
+    state = ProofState.from_text(TRIANGLE_WITH_MIDPOINT)
+    ddar.run(state)
+    assert not state.solved and state.proof is None
+    assert state.error.startswith("deduction engine failed:")
 
 
 def test_ddar_python_engine_respects_disabled_rule():
