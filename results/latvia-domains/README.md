@@ -76,6 +76,8 @@ To repeat the follow-up, activate the project environment, check out the frozen 
 
 For the three alternate proofs, the [restricted proof reader](https://zpd.aniwe.me/#alternate-proofs) runs the same equation check as the original catalog. On the hexagon, both angle-chasing steps follow from the displayed equations. The ASA step cites the supplied side equality directly. On the 1999–2000 preparatory problem, all three algebraic steps still require more context. On the 2010–11 preparatory problem, the shorter transcript’s one algebraic step requires more context. A shorter derivation can therefore be harder to verify from its printed premises.
 
+We then changed only the numerical drawing seed to 1 and 2 and reran all 3 alternate cases with the original 60-second budget. Of 6 new measurements, 6 produced a proof. In 6 successful runs the printed coordinates changed. The numbered deductions and algebra appendix matched the seed-zero transcript verbatim in 6 runs. In 6 runs everything from the initial assumptions through the end of the transcript matched. These repeats ran sequentially on efficiency core 6 with the same aggregate memory limit per case. The choice of problems was conditional on their original alternate proofs. [Six measurements](alternate-seeds.json) · [Reproduction and configuration checks](../../bench/latvia/restricted_seeds.py)
+
 Run `python -m bench.latvia.restricted_deduction` to reproduce the ID-matched transition counts, allowed rule IDs and proof-specific differences. The command verifies both rule files against the frozen configuration manifest.
 
 ### Complete scan

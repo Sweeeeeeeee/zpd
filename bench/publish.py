@@ -13,7 +13,7 @@ from string import Template
 from bench.eval_proposers import problems
 from bench import imo_student_scores
 from bench.latvia.case_table import problem_labels, render_cases
-from bench.latvia import completed_policies, policy_comparison, proof_catalog, restricted_budget, restricted_deduction, student_scores
+from bench.latvia import completed_policies, policy_comparison, proof_catalog, restricted_budget, restricted_deduction, restricted_seeds, student_scores
 from bench.latvia.fresh_drawings import frozen_hashes, summarize as summarize_fresh_drawings
 from bench.latvia.segment_study import NAME as SEGMENT_CASE, summarize as summarize_segment
 from bench.latvia.sample_audit import summarize as summarize_drawings
@@ -203,6 +203,7 @@ def main():
     policy_study = policy_comparison.compare(RESULTS / "latvia-domains")
     restricted = restricted_deduction.compare(ROOT)
     restricted_folder = RESULTS / "latvia-domains"
+    seed_study = restricted_seeds.verify(restricted_folder, json.loads((restricted_folder / "alternate-seeds.json").read_text()))
     retest = json.loads((restricted_folder / "restricted-budget-180.json").read_text())
     retest_rows = restricted_budget.check(restricted_folder, retest)
     old_full = restricted_budget.archive_rows(restricted_folder / "full-deduction.jsonl")
@@ -212,7 +213,7 @@ def main():
                                     for r in retest_rows])
     imo_cohorts = imo_student_scores.compare(RESULTS / "local-cpu/imo")
     proofs, catalog_summary = proof_catalog.catalog(pair_folder.parent / "full-deduction.jsonl", checked_steps)
-    result = dict(latvia_restricted_budget=retest_summary, latvia_restricted_deduction=restricted, imo_student_scores=imo_cohorts, latvia_proof_catalog=catalog_summary, latvia_policy_comparison=policy_study, latvia_official_scores=score_comparisons, latvia_segment_comparison=segment_blocks, latvia_fresh_drawings=fresh_drawings, latvia_translation_audit=drawings, latvia_budget_followup=extra_budget, latvia_paired_ar=ar_study, latvia_full_domain=latvia, common50=common, full=full, completed_training=run, paired_mid_mini_long=paired, proofs=benchmarks, ag1_smoke=ag1,
+    result = dict(latvia_alternate_seeds=seed_study, latvia_restricted_budget=retest_summary, latvia_restricted_deduction=restricted, imo_student_scores=imo_cohorts, latvia_proof_catalog=catalog_summary, latvia_policy_comparison=policy_study, latvia_official_scores=score_comparisons, latvia_segment_comparison=segment_blocks, latvia_fresh_drawings=fresh_drawings, latvia_translation_audit=drawings, latvia_budget_followup=extra_budget, latvia_paired_ar=ar_study, latvia_full_domain=latvia, common50=common, full=full, completed_training=run, paired_mid_mini_long=paired, proofs=benchmarks, ag1_smoke=ag1,
                   training_prompt_overlaps=overlaps, training_split_audit=split_audit,
                   paired_small_checkpoints=paired_checkpoints, translations=translations,
                   accepted_automatically=accepted_automatically, accepted_by_decision=accepted_by_decision)
@@ -269,6 +270,8 @@ def main():
                 imo_same_outcome=imo_cohorts["comparisons"]["same_solver_outcome"])
     data.update(reduced_rules=restricted["reduced_rules"], reduced_wins=restricted["reduced_wins"],
                 same_transcripts=restricted["identical"], alternate_routes=restricted["regained_with_different_rules"])
+    data.update(seed_cases=seed_study["problems"], seed_runs=seed_study["runs"], seed_proofs=seed_study["proved"],
+                seed_matches=seed_study["same_deductions"], seed_redraws=seed_study["changed_drawings"])
     data["restricted_budget_s"] = retest_summary["time_s"]
     labels = problem_labels(ROOT)
     alternates = restricted_deduction.alternate_proofs(RESULTS / "latvia-domains", restricted)
@@ -420,6 +423,11 @@ def main():
         f" Abus sašaurinātās jomas laika limitus no pilnajā jomā pierādītajiem uzdevumiem pārbaudīja "
         f"atsevišķi ar {retest['time_s']}~s budžetu. Vienā gadījumā atguva to pašu 21 soļa "
         f"pierādījumu, otrā dzinējs izsmēla likumus."
+    )
+    restricted_note += (
+        f" Trīs uzdevumus ar alternatīvu pierādījumu atkārtoja ar divām jaunām zīmējuma sēklām. "
+        f"No {seed_study['runs']} mēģinājumiem {seed_study['proved']} beidzās ar pierādījumu, "
+        f"un {seed_study['same_deductions']} gadījumos sakrita arī izdrukātie secinājumi un algebriskais pielikums."
     )
     (ROOT / "zpd_darbs/tables/latvia_full.tex").write_text(paragraph.rstrip() + restricted_note + complete_paper + "\n\n" + drawing_paper + "\n\n" + ar_paper.rstrip() + transcript_note + "\n\n" + scores_paper + "\n")
     imo = benchmarks["imo"]

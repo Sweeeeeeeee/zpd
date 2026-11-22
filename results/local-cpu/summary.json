@@ -1,4 +1,12 @@
 {
+  "latvia_alternate_seeds": {
+    "problems": 3,
+    "runs": 6,
+    "proved": 6,
+    "same_deductions": 6,
+    "same_including_assumptions": 6,
+    "changed_drawings": 6
+  },
   "latvia_restricted_budget": {
     "time_s": 180,
     "cases": 2,

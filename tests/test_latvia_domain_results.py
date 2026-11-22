@@ -189,3 +189,21 @@ def test_restricted_budget_retains_all_eligible_pairs_and_checks_frozen_digests(
         check(folder, {**report, "rows": rows[:1]})
     with pytest.raises(ValueError, match="paired original"):
         check(folder, {**report, "rows": [{**rows[0], "prior_sha256": "wrong"}, rows[1]]})
+
+
+def test_alternate_proof_seed_repeats_bind_each_draw_to_its_configuration_and_transcript():
+    from bench.latvia.restricted_seeds import verify
+    from bench.latvia.scan_plan import ROOT
+
+    folder = ROOT / "results/latvia-domains"
+    data = json.loads((folder / "alternate-seeds.json").read_text())
+    report = verify(folder, data)
+    assert report["problems"] == 3 and report["runs"] == 6
+    assert report["same_including_assumptions"] <= report["same_deductions"] <= report["proved"]
+    assert report["changed_drawings"] <= report["proved"]
+    rows = data["measurements"]
+    with pytest.raises(ValueError, match="Missing or repeated"):
+        verify(folder, {**data, "measurements": rows[:-1]})
+    bad = {**rows[0], "same_printed_deductions": not rows[0]["same_printed_deductions"]}
+    with pytest.raises(ValueError, match="transcripts"):
+        verify(folder, {**data, "measurements": [bad, *rows[1:]]})
