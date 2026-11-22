@@ -62,6 +62,7 @@ Scheme agreed with the user 2026-11-12: agents do the bulk work, automatic check
 - [x] 12.1. Template matching the VIAA guidelines (zpd_darbs/vadlinijas/): A4, 2.5 cm margins, Times 12 pt, 16/14 pt headings, title page from appendix 3, abstracts, contents, unnumbered introduction and conclusions, captions, references and sources list from appendices 4-5, appendices; guidelines logo on the title page. (zpd_darbs/template/)
 - [x] 12.2. Preliminary paper filled with the project's content, red labels saying what each part is, red placeholders for what is still missing. (zpd_darbs/preliminary/)
 - [x] 12.3. Scripts that build the paper's figures and tables from results/. (zpd_darbs/scripts/make_figures.py, make)
-- [ ] 12.4. Fill in personal data (school, author, supervisor, city) and the literature comparison in chapter 1.
+- [x] 12.4a. Compare published proof coverage and benchmark definitions in chapter 1, including the original 0.6B GenesisGeo report.
+- [ ] 12.4b. Fill in the author-provided school, author, supervisor and city before submission.
 - [ ] 12.5. After tasks 9-10: replace the placeholders with the scan results, write the final conclusions (one per task), check the 16-page limit, build with nolabels.
 

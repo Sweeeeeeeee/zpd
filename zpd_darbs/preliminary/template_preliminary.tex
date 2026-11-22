@@ -87,19 +87,26 @@ izvēlēta sintētiska metode, kurā katrs solis ir nosaukts likums. DD-AR tāda
 ieslēgt un izslēgt atsevišķi; tās trūkums ir, ka tā neatrisina uzdevumus, kuriem vajag jaunu punktu.
 
 \subsection{Valodas modeļi palīgkonstrukcijām}
-AlphaGeometry \atsauce{Trinh u.c., 2024} parādīja, ka transformeris \atsauce{Vaswani u.c., 2017},
-apmācīts uz sintētiskiem pierādījumiem, var piedāvāt palīgpunktus, kas DD-AR ļauj pabeigt
-pierādījumu; AlphaGeometry2 \atsauce{Chervonyi u.c., 2025} sasniedza zelta medaļas līmeni
-IMO uzdevumos. Abu sistēmu modeļi ir lieli un apmācīti uz GPU. GenesisGeo \atsauce{Zhu u.c., 2025}
-publicēja atvērtu sintētisku datu kopu, kas ļauj apmācīt mazu modeli uz CPU.
-Visi šie darbi mēra, cik uzdevumu atrisināts (piemēram, 25 no 30 IMO-AG-30 uzdevumiem), ar plašu
-meklēšanu un lieliem skaitļošanas resursiem. Tie nemēra, cik viegls ir atrastais risinājums: cik
-palīgpunktu un kuras teorēmas tam vajag, cik laika un atmiņas tas prasa un vai tas iespējams šaurākā
-likumu kopā. Arī to uzdevumu kopas (JGEX, IMO) atšķiras no Latvijas olimpiāžu uzdevumiem.
+AlphaGeometry apmācīja transformeri uz sintētiskiem piemēriem, lai pēc nesekmīgas dedukcijas
+tas piedāvātu palīgkonstrukciju. IMO-AG-30 kopā šī sistēma pierādīja 25 no 30 uzdevumiem,
+bet tās pašas publikācijas DD-AR variants ar heiristikām -- 18 no 30
+\atsauce{Trinh u.c., 2024}. TongGeometry ar vadītu meklēšanu kokā vēlāk pierādīja visus
+30 šīs kopas uzdevumus \atsauce{Zhang u.c., 2026}. AlphaGeometry2 autoru ziņotajiem
+84\,\% ir cits saucējs -- visi 2000.--2024. gada IMO ģeometrijas uzdevumi.
+Viņi paplašināja arī formalizācijas valodu, palielinot tajā izsakāmo uzdevumu īpatsvaru
+no 66\,\% līdz 88\,\% \atsauce{Chervonyi u.c., 2025}.
 
-\zpdlabel{Nodaļas kopsavilkums}DD-AR dod pārbaudāmus pierādījumus, bet tam vajag palīgpunktus no
-ārpuses. Neviens no apskatītajiem darbiem nemēra, vai risinājums ir viegls noteiktā likumu kopā;
-to dara šis darbs.
+GenesisGeo sākotnējā versijā ar vienu 0,6 miljardu parametru modeli tika pierādīti
+24 no 30 IMO-AG-30 uzdevumiem, bet ar divu modeļu kombināciju -- 26
+\atsauce{Zhu u.c., 2025}. Šajā darbā tās pašas modeļu saimes prognozi vērtē arī
+atsevišķi no pierādījuma: vai starp četriem piedāvājumiem ir etalonā dotā pirmā konstrukcija?
+Vienam uzdevumam var būt vairāki derīgi palīgpunkti, tāpēc tikai dedukcijas pārbaude parāda,
+vai konkrētais piedāvājums ļauj sasniegt mērķi.
+
+\zpdlabel{Nodaļas kopsavilkums}Salīdzinot rezultātus, jānorāda gan pieejamo formalizāciju skaits,
+gan atļautie likumi, meklēšanas dziļums un laika budžets. Vietējā IMO eksperimentā ir pieejamas
+29 no 30 formalizācijām. Ierobežotas jomas eksperimentā papildus pārbaudām, vai pietiek ar
+attiecīgās jomas teorēmām un vienu palīgpunktu.
 
 % ==================================================================== 2. nodaļa
 \section{Metodes}
@@ -303,7 +310,8 @@ Pārējām jomām pilns salīdzinājums nav pabeigts.
   \avots Trinh, T. H., Wu, Y., Le, Q. V., He, H., Luong, T. (2024). Solving olympiad geometry without human demonstrations. \textit{Nature}, Vol. 625, pp. 476--482.
   \avots Vaswani, A., Shazeer, N., Parmar, N. u.c. (2017). Attention Is All You Need. \textit{Advances in Neural Information Processing Systems 30 (NIPS 2017)}, pp. 5998--6008.
   \avots Wu, W.-T. (1986). Basic Principles of Mechanical Theorem Proving in Elementary Geometries. \textit{Journal of Automated Reasoning}, Vol. 2, pp. 221--252.
-  \avots Zhu, M., Wang, Z. u.c. (2025). \textit{GenesisGeo: Technical Report} [tiešsaiste]. arXiv:2509.21896 [skatīts 2026. gada 5. novembrī]. Pieejams: \url{https://arxiv.org/abs/2509.21896}
+  \avots Zhang, C., Song, J., Li, S. u.c. (2026). Proposing and solving olympiad geometry with guided tree search. \textit{Nature Machine Intelligence}, Vol. 8, pp. 84--95. \url{https://doi.org/10.1038/s42256-025-01164-x}
+  \avots Zhu, M., Wang, Z. u.c. (2025). \textit{GenesisGeo: Technical Report} [tiešsaiste]. arXiv:2509.21896v1 [skatīts 2026. gada 22. novembrī]. Pieejams: \url{https://arxiv.org/abs/2509.21896v1}
   \avots \textit{Olimpiāžu uzdevumu arhīvs} [tiešsaiste]. LU Neklātienes matemātikas skola [skatīts 2026. gada 4. novembrī]. Pieejams: \url{https://www.nms.lu.lv/arhivs-un-materali/uzdevumu-arhivs/}
 \end{avoti}
 
