@@ -1,4 +1,5 @@
 # latvia/national/2008-09_59/grade10/p4
+# source: 2008/09 national olympiad, grade 9, problem 4. The grade10 path is the frozen study ID.
 # dof: 2   (acute triangle: 2; everything else fixed)
 # notes: congruence MKA1 = B1NM (M->B1, K->N, A1->M) stated as three equal sides
 a b c = acute_triangle a b c; a1 = foot a1 a b c; b1 = foot b1 b c a; h = orthocenter h a b c; m = midpoint m a b; n = midpoint n a h; k = midpoint k b h ? cong m k b1 n; cong k a1 n m; cong m a1 b1 m

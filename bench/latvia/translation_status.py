@@ -27,6 +27,7 @@ import argparse
 import csv
 import hashlib
 import json
+import re
 import shutil
 import stat
 import subprocess
@@ -46,7 +47,9 @@ def working_set() -> list[dict]:
     with open(GT / "working_set.csv", newline="") as f:
         rows = list(csv.DictReader(f))
     for r in rows:
-        r["rel"] = str(Path(r["path"]).relative_to("problems/latvia/geometry").with_suffix(""))
+        # The study ID identifies the frozen translation. The linked original
+        # can move when an official source corrects a catalog attribution.
+        r["rel"] = str(Path(r["id"]).relative_to("latvia"))
     return rows
 
 
@@ -89,19 +92,49 @@ def versions(rel: str):
             yield v, p
 
 
+def enough_drawings(record: dict) -> bool:
+    """Older successful caches counted any number of built figures as a pass."""
+    if not record.get("figure_ok"):
+        return True
+    if "built" in record:
+        return record["built"] >= 4
+    count = re.search(r"goal holds in all (\d+) drawings?", record.get("figure", ""))
+    return bool(count and int(count[1]) >= 4)
+
+
+def cached_figure(path, source_hash):
+    record = cached(path, source_hash)
+    return record if record and enough_drawings(record) else None
+
+
+def check_drawings(path):
+    for seeds in (6, 12):
+        fig = subprocess.run([PY, "-m", "pipeline.check_figure", "-f", str(path), "--seeds", str(seeds)],
+                             cwd=ROOT, capture_output=True, text=True, timeout=600)
+        lines = fig.stdout.strip().splitlines()
+        last = lines[-1] if lines else "CHECK no numerical result"
+        built = sum(bool(re.match(r"^seed \d+: min point distance ", line)) for line in lines)
+        ok = fig.returncode == 0 and last.startswith("OK")
+        if seeds == 6 and fig.returncode == 0 and built == 0 and "figure could not be built" in last:
+            continue
+        if not ok or built >= 4:
+            return {"figure_ok": ok, "figure": last, "seeds": seeds, "built": built}
+    return {"figure_ok": False, "figure": f"CHECK only {built} of {seeds} drawings built; four required",
+            "seeds": seeds, "built": built}
+
+
 def run_checks(rows: list[dict]) -> None:
     for r in rows:
         for v, p in versions(r["rel"]):
             out = WORK / "checks" / f"{r['rel']}.{v}.json"
             h = digest(p)
-            if cached(out, h) or problem_line(p) is None:
+            if cached_figure(out, h) or problem_line(p) is None:
                 continue
-            fig = subprocess.run([PY, "-m", "pipeline.check_figure", "-f", str(p), "--seeds", "6"],
-                                 cwd=ROOT, capture_output=True, text=True, timeout=600)
-            dof = subprocess.run([PY, "-m", "pipeline.dof", str(p)], cwd=ROOT, capture_output=True, text=True)
-            last = (fig.stdout.strip().splitlines() or ["CHECK no output " + fig.stderr[-200:]])[-1]
-            d = {"hash": h, "figure_ok": last.startswith("OK"), "figure": last,
-                 "dof_ok": dof.returncode == 0 and dof.stdout.startswith("OK"), "dof": dof.stdout.strip()}
+            drawing = check_drawings(p)
+            dof = subprocess.run([PY, "-m", "pipeline.dof", str(p.relative_to(ROOT))],
+                                 cwd=ROOT, capture_output=True, text=True)
+            d = {"hash": h, **drawing, "dof_ok": dof.returncode == 0 and dof.stdout.startswith("OK"),
+                 "dof": dof.stdout.strip()}
             out.parent.mkdir(parents=True, exist_ok=True)
             out.write_text(json.dumps(d, indent=1))
             print(f"{r['rel']} {v}: figure {'ok' if d['figure_ok'] else 'FAIL'}, dof {'ok' if d['dof_ok'] else 'FAIL'}", flush=True)
@@ -161,7 +194,7 @@ def write_status(rows: list[dict], config: str = DEFAULT_CONFIG, time_s: float =
             if (why := untranslatable(p)) is not None:
                 flags.append(f"{v} untranslatable: {why}")
                 continue
-            c = cached(WORK / "checks" / f"{rel}.{v}.json", digest(p)) or {}
+            c = cached_figure(WORK / "checks" / f"{rel}.{v}.json", digest(p)) or {}
             s = cached_solve(WORK / "solve" / f"{rel}.{v}.json", digest(p), config, time_s) or {}
             row[f"dof_{v}"] = c.get("dof", "").split(": ", 1)[-1]
             row[f"solved_{v}"] = s.get("solved", "")

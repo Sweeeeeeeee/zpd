@@ -25,12 +25,12 @@ all/tst/<year>_<bw|imo>/[day<N>/]p<k>.md
 
 | competition | Latvian name | grades | seasons | problems | geometry |
 |---|---|---|---|---|---|
-| `national` | Valsts olimpiāde: 3. posms (3. kārta) of the Latvian olympiad | 8/9–12 | 1975/76–2024/25 | 1275 | 375 |
+| `national` | Valsts olimpiāde: 3. posms (3. kārta) of the Latvian olympiad | 8/9–12 | 1975/76–2024/25 | 1275 | 374 |
 | `regional` | Novada (earlier rajona) olimpiāde: 2. posms | 5–12 | 1974/75–2025/26 | 1847 | 425 |
 | `school` | Skolas olimpiāde: 1. posms (earlier "sagatavošanās olimpiāde") | 4/5–12 | 1987/88–2019/20 | 1125 | 227 |
 | `open` | Atklātā matemātikas olimpiāde (AMO) | 5–12 | 1973/74–2025/26 | 1956 | 432 |
 | `tst` | Atlases sacensības: Baltic Way and IMO selection tests | – | 2021–2025 | 130 | 40 |
-| | | | | **6333** | **1499** |
+| | | | | **6333** | **1498** |
 
 Example: `all/national/2004-05_55/grade10/p4.md` is problem 4 for grade 10 at
 the 55th national olympiad (season 2004/05).
@@ -73,6 +73,8 @@ Uz riņķa līnijas w ar centru O izvēlēti divi punkti A un B tā, ka AB nav d
 `year` is the calendar year the round was most likely held. `season` is the
 school year the archive lists it under, and it is authoritative.
 
+The November 2026 source audit corrected column mixing in the 2008–09 national contest and restored the perpendicular sign in the 2007–08 preparatory trapezoid problem. The initial classification study used 1,499 geometry entries. The corrected catalog contains 1,498. [Source comparisons](geometry_translated/REVIEW.md#findings-for-the-six-selected-translations)
+
 ## Text quality: what to check
 
 The statements are extracted automatically from Word and PDF files written
@@ -82,7 +84,7 @@ taken from whichever one reads better. Known limits:
 * **Formulas.** Old Word files store formulas as Equation Editor pictures,
   which cannot be read. They appear as `[formula]`. PDFs keep the formula text
   but often split it over several lines. `needs_review` marks such problems
-  (1393 of 6333; 282 of the geometry ones). Open the `originals` link to read
+  (1392 of 6333, including 283 geometry records). Open the `originals` link to read
   the formula.
 * **Figures** are not copied. `needs_review: [has a figure]` marks statements
   that refer to a drawing ("skat. 1. zīm.").

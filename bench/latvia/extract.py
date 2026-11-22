@@ -272,8 +272,9 @@ def doc_to_docx(path: Path, out_dir: Path) -> Path:
     return target
 
 
-def pdf_text(path: Path) -> str:
-    return subprocess.run(["pdftotext", "-enc", "UTF-8", str(path), "-"], check=True,
+def pdf_text(path: Path, *, raw: bool = False) -> str:
+    options = ["-raw"] if raw else []
+    return subprocess.run(["pdftotext", *options, "-enc", "UTF-8", str(path), "-"], check=True,
                           capture_output=True, timeout=300).stdout.decode("utf-8", "replace")
 
 

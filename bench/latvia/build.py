@@ -24,7 +24,7 @@ from collections import Counter
 from pathlib import Path
 
 from bench.latvia.catalog import ARCHIVE_PAGES, COMPETITIONS, SITE, Instance, Source, classify, group
-from bench.latvia.extract import file_text
+from bench.latvia.extract import file_text, normalize, pdf_text
 from bench.latvia.split import Problem, merge, quality, split, split_tst
 from bench.latvia.topics import geometry_kind
 
@@ -98,6 +98,29 @@ def sources() -> list[Source]:
     return out
 
 
+_ADJACENT_GRADES = re.compile(r"(?mi)^\s*\d{1,2}\.\s*klase\s*\n\s*\d{1,2}\.\s*klase\s*$")
+
+
+def _split_source(source, instance):
+    text = _text(source)
+    combined = source.role == "combined"
+    if instance.competition == "tst":
+        return split_tst(text, combined=combined)
+    problems = split(text, olympiad=instance.number, combined=combined)
+    # Some two-column PDFs give both grade headers before either set of
+    # problems. Poppler's content-stream order can recover the two columns.
+    if source.file.lower().endswith(".pdf") and _ADJACENT_GRADES.search(text):
+        raw = pdf_text(CACHE / "raw" / source.file, raw=True)
+        alternate = split(normalize(raw), olympiad=instance.number, combined=combined)
+
+        def keys(rows):
+            return {(p.grade, p.day, p.number) for p in rows}
+
+        if keys(problems) < keys(alternate):
+            return alternate
+    return problems
+
+
 def _read(inst: Instance) -> tuple[list[Problem], Source | None, float]:
     """Parse every problem-bearing source of an instance; keep the best reading.
 
@@ -109,10 +132,7 @@ def _read(inst: Instance) -> tuple[list[Problem], Source | None, float]:
     for s in inst.sources:
         if s.role == "solutions" or (s.lang != "lv" and lv):
             continue
-        if inst.competition == "tst":
-            problems = split_tst(_text(s), combined=s.role == "combined")
-        else:
-            problems = split(_text(s), olympiad=inst.number, combined=s.role == "combined")
+        problems = _split_source(s, inst)
         scored.append((quality(problems) + (0.5 if s.role == "problems" else 0), len(problems), s, problems))
     if not scored:
         return [], None, 0.0

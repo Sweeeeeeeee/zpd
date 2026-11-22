@@ -28,3 +28,22 @@ def test_filtered_status_preserves_other_records_and_decisions(tmp_path, monkeyp
         a, b = csv.DictReader(stream)
     assert a["id"] == "a" and b["id"] == "b"
     assert (b["stage"], b["decision"], b["reviewer"]) == ("rejected", "reject", "owner")
+
+
+def test_sparse_translation_retries_twelve_seeds_and_requires_four_built(monkeypatch):
+    from types import SimpleNamespace
+    calls = []
+
+    def simulate(argv, **kwargs):
+        seeds = int(argv[-1])
+        calls.append(seeds)
+        built = 1 if seeds == 6 else 3
+        text = "\n".join(f"seed {i}: min point distance 2  goal: ok" for i in range(built))
+        return SimpleNamespace(stdout=text + f"\nOK    goal holds in all {built} drawings", returncode=0)
+
+    monkeypatch.setattr(status.subprocess, "run", simulate)
+    result = status.check_drawings("figure.txt")
+    assert calls == [6, 12]
+    assert result["built"] == 3 and not result["figure_ok"]
+    assert not status.enough_drawings({"figure_ok": True, "figure": "OK    goal holds in all 1 drawings"})
+    assert status.enough_drawings({"figure_ok": True, "figure": "OK    goal holds in all 4 drawings"})

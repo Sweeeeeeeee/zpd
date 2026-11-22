@@ -1,4 +1,4 @@
 # latvia/school/2007-08_58/grade11/p3
 # dof: 3   (trapezoid AD || BC: 3; E fixed by the ratio; H the foot)
-# notes: the perpendicular sign is lost in the source ("DH CE"); read as DH ⟂ CE. E on AB with AE:EB = AD:BC is built as AB ∩ (line through K = AC ∩ BD parallel to BC), since AK:KC = AD:BC (eqratio6 is more literal but 3 of 6 drawings were not built). H inside segment CE not imposed.
+# notes: the official PDF (p. 8) and Word file explicitly give DH ⟂ CE. E on AB with AE:EB = AD:BC is built as AB ∩ (line through K = AC ∩ BD parallel to BC), since AK:KC = AD:BC (eqratio6 is more literal but 3 of 6 drawings were not built). H inside segment CE not imposed.
 a b c = triangle a b c; d = on_pline d a b c; k = on_line k a c, on_line k b d; e = on_line e a b, on_pline e k b c; h = foot h d c e ? cong a h a d

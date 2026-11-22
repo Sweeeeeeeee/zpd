@@ -1,7 +1,9 @@
 {
  "hash": "e0f2fa6becb4ab3c",
- "figure_ok": true,
- "figure": "OK    goal holds in all 1 drawings",
+ "figure_ok": false,
+ "figure": "CHECK only 2 of 12 drawings built; four required",
+ "seeds": 12,
+ "built": 2,
  "dof_ok": true,
- "dof": "OK  /workspaces/zpd/problems/latvia/geometry_translated/_work/A/tst/2024_bw/day2/p9.txt: statement 3, translation 3"
+ "dof": "OK  problems/latvia/geometry_translated/_work/A/tst/2024_bw/day2/p9.txt: statement 3, translation 3"
 }

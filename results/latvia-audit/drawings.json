@@ -1,0 +1,1500 @@
+{
+  "pool": 57,
+  "sampling_salt": "zpd-20261122-audit/",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "cases": [
+    {
+      "name": "latvia/national/2021-22_72/grade11/p2",
+      "formalization_sha256": "cb887ea7ac459c1bee41fd396f0165e069b29f874e13a313b053b6913fbd9c5a",
+      "drawings": [
+        {
+          "seed": 0,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a b c d": true
+          }
+        },
+        {
+          "seed": 1,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a b c d": true
+          }
+        },
+        {
+          "seed": 2,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a b c d": true
+          }
+        },
+        {
+          "seed": 3,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a b c d": true
+          }
+        },
+        {
+          "seed": 4,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a b c d": true
+          }
+        },
+        {
+          "seed": 5,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a b c d": true
+          }
+        },
+        {
+          "seed": 6,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a b c d": true
+          }
+        },
+        {
+          "seed": 7,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a b c d": true
+          }
+        },
+        {
+          "seed": 8,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a b c d": true
+          }
+        },
+        {
+          "seed": 9,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a b c d": true
+          }
+        },
+        {
+          "seed": 10,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a b c d": true
+          }
+        },
+        {
+          "seed": 11,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a b c d": true
+          }
+        },
+        {
+          "seed": 12,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a b c d": true
+          }
+        },
+        {
+          "seed": 13,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a b c d": true
+          }
+        },
+        {
+          "seed": 14,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a b c d": true
+          }
+        },
+        {
+          "seed": 15,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a b c d": true
+          }
+        },
+        {
+          "seed": 16,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a b c d": true
+          }
+        },
+        {
+          "seed": 17,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a b c d": true
+          }
+        },
+        {
+          "seed": 18,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a b c d": true
+          }
+        },
+        {
+          "seed": 19,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a b c d": true
+          }
+        },
+        {
+          "seed": 20,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a b c d": true
+          }
+        },
+        {
+          "seed": 21,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a b c d": true
+          }
+        },
+        {
+          "seed": 22,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a b c d": true
+          }
+        },
+        {
+          "seed": 23,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a b c d": true
+          }
+        },
+        {
+          "seed": 24,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a b c d": true
+          }
+        },
+        {
+          "seed": 25,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a b c d": true
+          }
+        },
+        {
+          "seed": 26,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a b c d": true
+          }
+        },
+        {
+          "seed": 27,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a b c d": true
+          }
+        },
+        {
+          "seed": 28,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a b c d": true
+          }
+        },
+        {
+          "seed": 29,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a b c d": true
+          }
+        },
+        {
+          "seed": 30,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a b c d": true
+          }
+        },
+        {
+          "seed": 31,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a b c d": true
+          }
+        }
+      ]
+    },
+    {
+      "name": "latvia/regional/1987-88_38/grade07/p2",
+      "formalization_sha256": "169af2b2173d10e24c809ba3f494f07c673189de8559898d63d6584d7d41f158",
+      "drawings": [
+        {
+          "seed": 0,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "para k n m p": true,
+            "para k m n p": true
+          }
+        },
+        {
+          "seed": 1,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "para k n m p": true,
+            "para k m n p": true
+          }
+        },
+        {
+          "seed": 2,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "para k n m p": true,
+            "para k m n p": true
+          }
+        },
+        {
+          "seed": 3,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "para k n m p": true,
+            "para k m n p": true
+          }
+        },
+        {
+          "seed": 4,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "para k n m p": true,
+            "para k m n p": true
+          }
+        },
+        {
+          "seed": 5,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "para k n m p": true,
+            "para k m n p": true
+          }
+        },
+        {
+          "seed": 6,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "para k n m p": true,
+            "para k m n p": true
+          }
+        },
+        {
+          "seed": 7,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "para k n m p": true,
+            "para k m n p": true
+          }
+        },
+        {
+          "seed": 8,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "para k n m p": true,
+            "para k m n p": true
+          }
+        },
+        {
+          "seed": 9,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "para k n m p": true,
+            "para k m n p": true
+          }
+        },
+        {
+          "seed": 10,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "para k n m p": true,
+            "para k m n p": true
+          }
+        },
+        {
+          "seed": 11,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "para k n m p": true,
+            "para k m n p": true
+          }
+        },
+        {
+          "seed": 12,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "para k n m p": true,
+            "para k m n p": true
+          }
+        },
+        {
+          "seed": 13,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "para k n m p": true,
+            "para k m n p": true
+          }
+        },
+        {
+          "seed": 14,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "para k n m p": true,
+            "para k m n p": true
+          }
+        },
+        {
+          "seed": 15,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "para k n m p": true,
+            "para k m n p": true
+          }
+        },
+        {
+          "seed": 16,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "para k n m p": true,
+            "para k m n p": true
+          }
+        },
+        {
+          "seed": 17,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "para k n m p": true,
+            "para k m n p": true
+          }
+        },
+        {
+          "seed": 18,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "para k n m p": true,
+            "para k m n p": true
+          }
+        },
+        {
+          "seed": 19,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "para k n m p": true,
+            "para k m n p": true
+          }
+        },
+        {
+          "seed": 20,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "para k n m p": true,
+            "para k m n p": true
+          }
+        },
+        {
+          "seed": 21,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "para k n m p": true,
+            "para k m n p": true
+          }
+        },
+        {
+          "seed": 22,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "para k n m p": true,
+            "para k m n p": true
+          }
+        },
+        {
+          "seed": 23,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "para k n m p": true,
+            "para k m n p": true
+          }
+        },
+        {
+          "seed": 24,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "para k n m p": true,
+            "para k m n p": true
+          }
+        },
+        {
+          "seed": 25,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "para k n m p": true,
+            "para k m n p": true
+          }
+        },
+        {
+          "seed": 26,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "para k n m p": true,
+            "para k m n p": true
+          }
+        },
+        {
+          "seed": 27,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "para k n m p": true,
+            "para k m n p": true
+          }
+        },
+        {
+          "seed": 28,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "para k n m p": true,
+            "para k m n p": true
+          }
+        },
+        {
+          "seed": 29,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "para k n m p": true,
+            "para k m n p": true
+          }
+        },
+        {
+          "seed": 30,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "para k n m p": true,
+            "para k m n p": true
+          }
+        },
+        {
+          "seed": 31,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "para k n m p": true,
+            "para k m n p": true
+          }
+        }
+      ]
+    },
+    {
+      "name": "latvia/national/2008-09_59/grade10/p4",
+      "formalization_sha256": "28997617083cb917b2e5e8c439087dadc4c602690f32ff1605f423b99373a192",
+      "drawings": [
+        {
+          "seed": 0,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong k m b1 n": true,
+            "cong m n a1 k": true,
+            "cong a1 m b1 m": true
+          }
+        },
+        {
+          "seed": 1,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong k m b1 n": true,
+            "cong m n a1 k": true,
+            "cong a1 m b1 m": true
+          }
+        },
+        {
+          "seed": 2,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong k m b1 n": true,
+            "cong m n a1 k": true,
+            "cong a1 m b1 m": true
+          }
+        },
+        {
+          "seed": 3,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong k m b1 n": true,
+            "cong m n a1 k": true,
+            "cong a1 m b1 m": true
+          }
+        },
+        {
+          "seed": 4,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong k m b1 n": true,
+            "cong m n a1 k": true,
+            "cong a1 m b1 m": true
+          }
+        },
+        {
+          "seed": 5,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong k m b1 n": true,
+            "cong m n a1 k": true,
+            "cong a1 m b1 m": true
+          }
+        },
+        {
+          "seed": 6,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong k m b1 n": true,
+            "cong m n a1 k": true,
+            "cong a1 m b1 m": true
+          }
+        },
+        {
+          "seed": 7,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong k m b1 n": true,
+            "cong m n a1 k": true,
+            "cong a1 m b1 m": true
+          }
+        },
+        {
+          "seed": 8,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong k m b1 n": true,
+            "cong m n a1 k": true,
+            "cong a1 m b1 m": true
+          }
+        },
+        {
+          "seed": 9,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong k m b1 n": true,
+            "cong m n a1 k": true,
+            "cong a1 m b1 m": true
+          }
+        },
+        {
+          "seed": 10,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong k m b1 n": true,
+            "cong m n a1 k": true,
+            "cong a1 m b1 m": true
+          }
+        },
+        {
+          "seed": 11,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong k m b1 n": true,
+            "cong m n a1 k": true,
+            "cong a1 m b1 m": true
+          }
+        },
+        {
+          "seed": 12,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong k m b1 n": true,
+            "cong m n a1 k": true,
+            "cong a1 m b1 m": true
+          }
+        },
+        {
+          "seed": 13,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong k m b1 n": true,
+            "cong m n a1 k": true,
+            "cong a1 m b1 m": true
+          }
+        },
+        {
+          "seed": 14,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong k m b1 n": true,
+            "cong m n a1 k": true,
+            "cong a1 m b1 m": true
+          }
+        },
+        {
+          "seed": 15,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong k m b1 n": true,
+            "cong m n a1 k": true,
+            "cong a1 m b1 m": true
+          }
+        },
+        {
+          "seed": 16,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong k m b1 n": true,
+            "cong m n a1 k": true,
+            "cong a1 m b1 m": true
+          }
+        },
+        {
+          "seed": 17,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong k m b1 n": true,
+            "cong m n a1 k": true,
+            "cong a1 m b1 m": true
+          }
+        },
+        {
+          "seed": 18,
+          "outcome": "unbuilt",
+          "goals": null
+        },
+        {
+          "seed": 19,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong k m b1 n": true,
+            "cong m n a1 k": true,
+            "cong a1 m b1 m": true
+          }
+        },
+        {
+          "seed": 20,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong k m b1 n": true,
+            "cong m n a1 k": true,
+            "cong a1 m b1 m": true
+          }
+        },
+        {
+          "seed": 21,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong k m b1 n": true,
+            "cong m n a1 k": true,
+            "cong a1 m b1 m": true
+          }
+        },
+        {
+          "seed": 22,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong k m b1 n": true,
+            "cong m n a1 k": true,
+            "cong a1 m b1 m": true
+          }
+        },
+        {
+          "seed": 23,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong k m b1 n": true,
+            "cong m n a1 k": true,
+            "cong a1 m b1 m": true
+          }
+        },
+        {
+          "seed": 24,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong k m b1 n": true,
+            "cong m n a1 k": true,
+            "cong a1 m b1 m": true
+          }
+        },
+        {
+          "seed": 25,
+          "outcome": "unbuilt",
+          "goals": null
+        },
+        {
+          "seed": 26,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong k m b1 n": true,
+            "cong m n a1 k": true,
+            "cong a1 m b1 m": true
+          }
+        },
+        {
+          "seed": 27,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong k m b1 n": true,
+            "cong m n a1 k": true,
+            "cong a1 m b1 m": true
+          }
+        },
+        {
+          "seed": 28,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong k m b1 n": true,
+            "cong m n a1 k": true,
+            "cong a1 m b1 m": true
+          }
+        },
+        {
+          "seed": 29,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong k m b1 n": true,
+            "cong m n a1 k": true,
+            "cong a1 m b1 m": true
+          }
+        },
+        {
+          "seed": 30,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong k m b1 n": true,
+            "cong m n a1 k": true,
+            "cong a1 m b1 m": true
+          }
+        },
+        {
+          "seed": 31,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong k m b1 n": true,
+            "cong m n a1 k": true,
+            "cong a1 m b1 m": true
+          }
+        }
+      ]
+    },
+    {
+      "name": "latvia/school/2007-08_58/grade11/p3",
+      "formalization_sha256": "a29e325e103bac7d1c8ecaf93dbbf35b4be59c12a5e1c654e0a732eeb9a011d3",
+      "drawings": [
+        {
+          "seed": 0,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a d a h": true
+          }
+        },
+        {
+          "seed": 1,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a d a h": true
+          }
+        },
+        {
+          "seed": 2,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a d a h": true
+          }
+        },
+        {
+          "seed": 3,
+          "outcome": "unbuilt",
+          "goals": null
+        },
+        {
+          "seed": 4,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a d a h": true
+          }
+        },
+        {
+          "seed": 5,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a d a h": true
+          }
+        },
+        {
+          "seed": 6,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a d a h": true
+          }
+        },
+        {
+          "seed": 7,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a d a h": true
+          }
+        },
+        {
+          "seed": 8,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a d a h": true
+          }
+        },
+        {
+          "seed": 9,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a d a h": true
+          }
+        },
+        {
+          "seed": 10,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a d a h": true
+          }
+        },
+        {
+          "seed": 11,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a d a h": true
+          }
+        },
+        {
+          "seed": 12,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a d a h": true
+          }
+        },
+        {
+          "seed": 13,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a d a h": true
+          }
+        },
+        {
+          "seed": 14,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a d a h": true
+          }
+        },
+        {
+          "seed": 15,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a d a h": true
+          }
+        },
+        {
+          "seed": 16,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a d a h": true
+          }
+        },
+        {
+          "seed": 17,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a d a h": true
+          }
+        },
+        {
+          "seed": 18,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a d a h": true
+          }
+        },
+        {
+          "seed": 19,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a d a h": true
+          }
+        },
+        {
+          "seed": 20,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a d a h": true
+          }
+        },
+        {
+          "seed": 21,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a d a h": true
+          }
+        },
+        {
+          "seed": 22,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a d a h": true
+          }
+        },
+        {
+          "seed": 23,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a d a h": true
+          }
+        },
+        {
+          "seed": 24,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a d a h": true
+          }
+        },
+        {
+          "seed": 25,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a d a h": true
+          }
+        },
+        {
+          "seed": 26,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a d a h": true
+          }
+        },
+        {
+          "seed": 27,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a d a h": true
+          }
+        },
+        {
+          "seed": 28,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a d a h": true
+          }
+        },
+        {
+          "seed": 29,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a d a h": true
+          }
+        },
+        {
+          "seed": 30,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a d a h": true
+          }
+        },
+        {
+          "seed": 31,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "cong a d a h": true
+          }
+        }
+      ]
+    },
+    {
+      "name": "latvia/tst/2025_bw/day2/p11",
+      "formalization_sha256": "9086ce720b99aaf2fd8d2b793361daf530e40058343e3b3ce9c7ce3bf324ea3a",
+      "drawings": [
+        {
+          "seed": 0,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "perp a d h i": true
+          }
+        },
+        {
+          "seed": 1,
+          "outcome": "unbuilt",
+          "goals": null
+        },
+        {
+          "seed": 2,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "perp a d h i": true
+          }
+        },
+        {
+          "seed": 3,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "perp a d h i": true
+          }
+        },
+        {
+          "seed": 4,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "perp a d h i": true
+          }
+        },
+        {
+          "seed": 5,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "perp a d h i": true
+          }
+        },
+        {
+          "seed": 6,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "perp a d h i": true
+          }
+        },
+        {
+          "seed": 7,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "perp a d h i": true
+          }
+        },
+        {
+          "seed": 8,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "perp a d h i": true
+          }
+        },
+        {
+          "seed": 9,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "perp a d h i": true
+          }
+        },
+        {
+          "seed": 10,
+          "outcome": "unbuilt",
+          "goals": null
+        },
+        {
+          "seed": 11,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "perp a d h i": true
+          }
+        },
+        {
+          "seed": 12,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "perp a d h i": true
+          }
+        },
+        {
+          "seed": 13,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "perp a d h i": true
+          }
+        },
+        {
+          "seed": 14,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "perp a d h i": true
+          }
+        },
+        {
+          "seed": 15,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "perp a d h i": true
+          }
+        },
+        {
+          "seed": 16,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "perp a d h i": true
+          }
+        },
+        {
+          "seed": 17,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "perp a d h i": true
+          }
+        },
+        {
+          "seed": 18,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "perp a d h i": true
+          }
+        },
+        {
+          "seed": 19,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "perp a d h i": true
+          }
+        },
+        {
+          "seed": 20,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "perp a d h i": true
+          }
+        },
+        {
+          "seed": 21,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "perp a d h i": true
+          }
+        },
+        {
+          "seed": 22,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "perp a d h i": true
+          }
+        },
+        {
+          "seed": 23,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "perp a d h i": true
+          }
+        },
+        {
+          "seed": 24,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "perp a d h i": true
+          }
+        },
+        {
+          "seed": 25,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "perp a d h i": true
+          }
+        },
+        {
+          "seed": 26,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "perp a d h i": true
+          }
+        },
+        {
+          "seed": 27,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "perp a d h i": true
+          }
+        },
+        {
+          "seed": 28,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "perp a d h i": true
+          }
+        },
+        {
+          "seed": 29,
+          "outcome": "unbuilt",
+          "goals": null
+        },
+        {
+          "seed": 30,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "perp a d h i": true
+          }
+        },
+        {
+          "seed": 31,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "perp a d h i": true
+          }
+        }
+      ]
+    },
+    {
+      "name": "latvia/regional/2015-16_66/grade11/p3",
+      "formalization_sha256": "8ba30588d5b19007cfac6710b7740276117154b75d3412007dae4c29c17e98db",
+      "drawings": [
+        {
+          "seed": 0,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "simtri a b f c d f": true
+          }
+        },
+        {
+          "seed": 1,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "simtri a b f c d f": true
+          }
+        },
+        {
+          "seed": 2,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "simtri a b f c d f": true
+          }
+        },
+        {
+          "seed": 3,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "simtri a b f c d f": true
+          }
+        },
+        {
+          "seed": 4,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "simtri a b f c d f": true
+          }
+        },
+        {
+          "seed": 5,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "simtri a b f c d f": true
+          }
+        },
+        {
+          "seed": 6,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "simtri a b f c d f": true
+          }
+        },
+        {
+          "seed": 7,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "simtri a b f c d f": true
+          }
+        },
+        {
+          "seed": 8,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "simtri a b f c d f": true
+          }
+        },
+        {
+          "seed": 9,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "simtri a b f c d f": true
+          }
+        },
+        {
+          "seed": 10,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "simtri a b f c d f": true
+          }
+        },
+        {
+          "seed": 11,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "simtri a b f c d f": true
+          }
+        },
+        {
+          "seed": 12,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "simtri a b f c d f": true
+          }
+        },
+        {
+          "seed": 13,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "simtri a b f c d f": true
+          }
+        },
+        {
+          "seed": 14,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "simtri a b f c d f": true
+          }
+        },
+        {
+          "seed": 15,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "simtri a b f c d f": true
+          }
+        },
+        {
+          "seed": 16,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "simtri a b f c d f": true
+          }
+        },
+        {
+          "seed": 17,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "simtri a b f c d f": true
+          }
+        },
+        {
+          "seed": 18,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "simtri a b f c d f": true
+          }
+        },
+        {
+          "seed": 19,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "simtri a b f c d f": true
+          }
+        },
+        {
+          "seed": 20,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "simtri a b f c d f": true
+          }
+        },
+        {
+          "seed": 21,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "simtri a b f c d f": true
+          }
+        },
+        {
+          "seed": 22,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "simtri a b f c d f": true
+          }
+        },
+        {
+          "seed": 23,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "simtri a b f c d f": true
+          }
+        },
+        {
+          "seed": 24,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "simtri a b f c d f": true
+          }
+        },
+        {
+          "seed": 25,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "simtri a b f c d f": true
+          }
+        },
+        {
+          "seed": 26,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "simtri a b f c d f": true
+          }
+        },
+        {
+          "seed": 27,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "simtri a b f c d f": true
+          }
+        },
+        {
+          "seed": 28,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "simtri a b f c d f": true
+          }
+        },
+        {
+          "seed": 29,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "simtri a b f c d f": true
+          }
+        },
+        {
+          "seed": 30,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "simtri a b f c d f": true
+          }
+        },
+        {
+          "seed": 31,
+          "outcome": "all_goals_hold",
+          "goals": {
+            "simtri a b f c d f": true
+          }
+        }
+      ]
+    }
+  ]
+}

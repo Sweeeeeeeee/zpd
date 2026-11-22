@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import re
 import unicodedata
+from difflib import SequenceMatcher
 from collections import Counter
 from dataclasses import dataclass
 
@@ -221,7 +222,22 @@ def problem_score(text: str) -> float:
     short_lines = sum(1 for l in text.split("\n") if 0 < len(l.strip()) <= 3)
     long_lines = [l.strip() for l in text.split("\n") if len(l.strip()) > 25]
     repeated = len(long_lines) - len(set(long_lines))   # a page printed twice runs into the next copy
-    return len(text) - 20 * text.count("[formula]") - 10 * odd - 8 * short_lines - 200 * repeated
+    broken_math = sum(bool(re.fullmatch(r"(?:[^\w\s]|[A-Za-z0-9])(?:\s+(?:[^\w\s]|[A-Za-z0-9])){3,}", line.strip()))
+                      for line in text.splitlines())
+    detached_figures = len(re.findall(r"(?mi)^\s*\d+\.\s*(?:zīm|att)\.\s*$", text))
+    return len(text) - 40 * detached_figures - 20 * text.count("[formula]") - 10 * odd - 12 * short_lines - 200 * repeated - 45 * broken_math
+
+
+def same_statement(first: str, second: str) -> bool:
+    # Formatting and equation objects vary between PDF and Word. Match the
+    # surrounding prose before using an alternative for the same grade/key.
+    def words(statement):
+        return re.findall(r"[^\W\d_]{3,}", statement.casefold().replace("[formula]", ""))
+    shorter, longer = sorted((" ".join(first.split()), " ".join(second.split())), key=len)
+    if longer.startswith(shorter) and re.match(r"\s+\d+\.\s*(zīm|att)\.", longer[len(shorter):]):
+        return True
+    a, b = words(first), words(second)
+    return bool(a and b) and SequenceMatcher(None, a, b, autojunk=False).ratio() >= 0.65
 
 
 def merge(readings: list[list[Problem]]) -> list[Problem]:
@@ -230,12 +246,18 @@ def merge(readings: list[list[Problem]]) -> list[Problem]:
     The first reading fixes which problems exist; others only replace a
     statement when they hold the same problem in a more readable form.
     """
+    def score(text):
+        relations = sum(text.count(symbol) for symbol in ("⊥", "∥", "∠", "≠", "≤", "≥"))
+        return problem_score(text), relations
+
     base = readings[0]
     for other in readings[1:]:
         by_key = {(p.grade, p.day, p.number): p for p in other}
         for i, p in enumerate(base):
             q = by_key.get((p.grade, p.day, p.number))
-            if q is not None and problem_score(q.text) > problem_score(p.text):
+            if q is None or not same_statement(p.text, q.text):
+                continue
+            if score(q.text) > score(p.text):
                 base[i] = Problem(p.grade, p.day, p.number, p.label, q.text)
     return base
 

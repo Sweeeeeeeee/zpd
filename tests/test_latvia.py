@@ -145,3 +145,31 @@ def test_catalog_classifies_archive_files():
     assert (tst.competition, tst.year, tst.part) == ("tst", 2024, "bw/day1")
     insts = group([s, classify("VOL/2000-2010/55repol_atr.pdf", URL, "2004/05")])
     assert len(insts) == 1 and insts[0].key == "2004-05_55"
+
+
+def test_column_interleaving_cannot_replace_an_unrelated_problem():
+    doc = split("10. klase\n1. Kādas vērtības var pieņemt izteiksme?\n")
+    pdf = split("10. klase\n1. Šaurleņķu trijstūrī novilktas mediānas un augstumi. Pierādīt trijstūru vienādību.\n")
+    assert merge([doc, pdf])[0].text == "Kādas vērtības var pieņemt izteiksme?"
+
+
+def test_equivalent_readings_keep_the_perpendicular_sign():
+    text = "Trapecē atzīmēts punkts H un DH CE."
+    pdf = split("11. klase\n1. " + text)
+    doc = split("11. klase\n1. " + text.replace("DH CE", "DH⊥CE"))
+    assert "DH⊥CE" in merge([pdf, doc])[0].text
+
+
+def test_adjacent_grade_headers_recover_two_pdf_columns(monkeypatch):
+    from types import SimpleNamespace
+    from bench.latvia import build
+
+    default = "9. klase\n10. klase\n1. Kreisās slejas uzdevums."
+    raw = "9. klase\n1. Kreisās slejas uzdevums.\n10. klase\n1. Labās slejas uzdevums."
+    monkeypatch.setattr(build, "_text", lambda source: default)
+    monkeypatch.setattr(build, "pdf_text", lambda path, raw=False: texts[raw])
+    texts = {True: raw}
+    source = SimpleNamespace(file="grade.pdf", role="problems")
+    instance = SimpleNamespace(competition="national", number=59)
+    result = build._split_source(source, instance)
+    assert [(p.grade, p.text) for p in result] == [("9", "Kreisās slejas uzdevums."), ("10", "Labās slejas uzdevums.")]
