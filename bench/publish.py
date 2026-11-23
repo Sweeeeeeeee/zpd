@@ -12,6 +12,7 @@ from string import Template
 
 from bench.eval_proposers import problems
 from bench import imo_student_scores
+from bench.latvia.scanner_records import browser_records
 from bench.latvia.case_table import problem_labels, render_cases
 from bench.latvia import completed_policies, policy_comparison, proof_catalog, restricted_budget, restricted_deduction, restricted_seeds, student_scores
 from bench.latvia.fresh_drawings import frozen_hashes, summarize as summarize_fresh_drawings
@@ -277,6 +278,8 @@ def main():
     alternates = restricted_deduction.alternate_proofs(RESULTS / "latvia-domains", restricted)
     data["alternate_cards"] = "\n".join(proof_catalog.render(name, proof, *labels[name], restricted=True)
                                         for name, proof in alternates.items())
+    hexagon = "latvia/open/2021-22_47/grade09/p3"
+    data.update(hex_full=len(proofs[hexagon]["steps"]), hex_short=len(alternates[hexagon]["steps"]))
     data["case_rows"] = render_cases(ROOT, passed_by_case, labels=labels, proofs=proofs)
     data["proof_cards"] = "\n".join(proof_catalog.render(name, proof, *labels[name])
                                      for name, proof in proofs.items())
@@ -305,6 +308,7 @@ def main():
     data.update(overview_runs=f"{policy_study['runs']:,}", overview_configs=6, overview_distinct=latvia["proved_by_any"],
                 overview_scope="in the six full-rule configurations", policy_chart="",
                 coverage_anchor="search-policies", coverage_explanation="The results below cover the recorded full-rule runs.")
+    data.update(circle_finding="", retry_finding="")
     data["complete_domain_table"] = ""
     complete_paper = ""
     if finished_path.is_file():
@@ -316,6 +320,7 @@ def main():
         data["complete_domain_table"] += completed_policies.render(policy_overlaps)
         coverage = completed_policies.retry_coverage(finished_path.parent, finished, policy_overlaps)
         result["latvia_retry_coverage"] = coverage
+        data["retry_finding"] = f"A later solver fix brought overall coverage to {coverage['across_versions']}."
         extra = len(coverage["additional_problems"])
         added = "one more problem" if extra == 1 else f"{extra} additional problems"
         data.update(overview_runs=f"{finished['runs']:,}", overview_configs=len(finished["configurations"]),
@@ -340,6 +345,16 @@ def main():
 
             replays = verify(finished_path.parent, json.loads(replay_path.read_text()))
             result["latvia_circle_replays"] = replays
+            circle = policy_overlaps["circles"]
+            data["circle_finding"] = (
+                f'<article><div class="measure">{len(circle["deduction"])} <span>→</span> '
+                f'{len(circle["any_policy"])} <small>problems</small></div>'
+                '<h3>Two useful auxiliary points</h3><p>With circle rules and algebra, '
+                'a heuristic found a circumcenter and the model proposed a midpoint. '
+                'Each point let deduction solve one more problem. Both proofs could be repeated '
+                'by giving the solver the point at the start.</p>'
+                '<a href="#circle-point-replays">Inspect the constructions</a></article>'
+            )
             complete_paper += (
                 " Riņķa līniju likumu kopā heiristika vienā uzdevumā atrada apvilktās riņķa līnijas centru, "
                 "modelis otrā -- nogriežņa viduspunktu. Ievadot katru punktu sākumā, dedukcija atkārtoja pierādījumu."
@@ -386,6 +401,11 @@ def main():
     data["build_failures"] = sum(b["build_failures"] for b in benchmarks.values())
     data["engine_errors"] = sum(b["engine_errors"] for b in benchmarks.values())
     data["changed"] = sum(len(b["changed"]) for b in benchmarks.values())
+    assets = ROOT / "bench/scanner"
+    data["scanner_css"] = (assets / "scanner.css").read_text()
+    data["scanner_js"] = (assets / "scanner.js").read_text()
+    data["scanner_records"] = json.dumps(browser_records(finished_path.parent, labels),
+                                         ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c")
     template = Template((ROOT / "bench/results-template.html").read_text())
     (page / "index.html").write_text(template.substitute(data))
     full_deduction = latvia["policies"]["deduction"]
