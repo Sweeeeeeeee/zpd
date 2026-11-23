@@ -1240,5 +1240,208 @@
     "rejected": 5
   },
   "accepted_automatically": 57,
-  "accepted_by_decision": 8
+  "accepted_by_decision": 8,
+  "latvia_completed_policy_overlap": {
+    "full": {
+      "deduction": [
+        "latvia/national/1976-77_27/grade09/p1",
+        "latvia/national/1978-79_29/extra/grade10/p5",
+        "latvia/national/1982-83_33/grade11/p5",
+        "latvia/national/1993-94_44/grade09/p2",
+        "latvia/national/2001-02_52/grade09/p2",
+        "latvia/national/2015-16_66/grade09/p2",
+        "latvia/national/2016-17_67/grade11/p3",
+        "latvia/open/1976-77_04/grade10/p1",
+        "latvia/open/1999-00_27/grade10/p3",
+        "latvia/open/2001-02_29/grade10/p4",
+        "latvia/open/2002-03_30/grade07/p4",
+        "latvia/open/2021-22_47/grade09/p3",
+        "latvia/regional/1987-88_38/grade07/p2",
+        "latvia/regional/1990-91_41/grade08/p2",
+        "latvia/regional/2015-16_66/grade11/p3",
+        "latvia/regional/2021-22_72/grade12/p3",
+        "latvia/school/1987-88_38/grade07/p2",
+        "latvia/school/1999-00_50/grade10/p4",
+        "latvia/school/2001-02_52/grade08/p2",
+        "latvia/school/2010-11_61/grade09/p2"
+      ],
+      "any_policy": [
+        "latvia/national/1976-77_27/grade09/p1",
+        "latvia/national/1978-79_29/extra/grade10/p5",
+        "latvia/national/1982-83_33/grade11/p5",
+        "latvia/national/1993-94_44/grade09/p2",
+        "latvia/national/2001-02_52/grade09/p2",
+        "latvia/national/2015-16_66/grade09/p2",
+        "latvia/national/2016-17_67/grade11/p3",
+        "latvia/open/1976-77_04/grade10/p1",
+        "latvia/open/1999-00_27/grade10/p3",
+        "latvia/open/2001-02_29/grade10/p4",
+        "latvia/open/2002-03_30/grade07/p4",
+        "latvia/open/2021-22_47/grade09/p3",
+        "latvia/regional/1987-88_38/grade07/p2",
+        "latvia/regional/1990-91_41/grade08/p2",
+        "latvia/regional/2015-16_66/grade11/p3",
+        "latvia/regional/2021-22_72/grade12/p3",
+        "latvia/school/1987-88_38/grade07/p2",
+        "latvia/school/1999-00_50/grade10/p4",
+        "latvia/school/2001-02_52/grade08/p2",
+        "latvia/school/2010-11_61/grade09/p2"
+      ],
+      "all_policies": [
+        "latvia/national/1976-77_27/grade09/p1",
+        "latvia/national/1978-79_29/extra/grade10/p5",
+        "latvia/national/1982-83_33/grade11/p5",
+        "latvia/national/1993-94_44/grade09/p2",
+        "latvia/national/2001-02_52/grade09/p2",
+        "latvia/national/2015-16_66/grade09/p2",
+        "latvia/national/2016-17_67/grade11/p3",
+        "latvia/open/1976-77_04/grade10/p1",
+        "latvia/open/1999-00_27/grade10/p3",
+        "latvia/open/2001-02_29/grade10/p4",
+        "latvia/open/2002-03_30/grade07/p4",
+        "latvia/open/2021-22_47/grade09/p3",
+        "latvia/regional/1987-88_38/grade07/p2",
+        "latvia/regional/1990-91_41/grade08/p2",
+        "latvia/regional/2015-16_66/grade11/p3",
+        "latvia/regional/2021-22_72/grade12/p3",
+        "latvia/school/1987-88_38/grade07/p2",
+        "latvia/school/1999-00_50/grade10/p4",
+        "latvia/school/2001-02_52/grade08/p2",
+        "latvia/school/2010-11_61/grade09/p2"
+      ],
+      "beyond_deduction": [],
+      "with_added_point": [],
+      "combined_only": []
+    },
+    "full_no_ar": {
+      "deduction": [],
+      "any_policy": [],
+      "all_policies": [],
+      "beyond_deduction": [],
+      "with_added_point": [],
+      "combined_only": []
+    },
+    "no_similarity": {
+      "deduction": [
+        "latvia/national/1976-77_27/grade09/p1",
+        "latvia/national/1978-79_29/extra/grade10/p5",
+        "latvia/national/1982-83_33/grade11/p5",
+        "latvia/national/1993-94_44/grade09/p2",
+        "latvia/national/2001-02_52/grade09/p2",
+        "latvia/national/2016-17_67/grade11/p3",
+        "latvia/open/1976-77_04/grade10/p1",
+        "latvia/open/1999-00_27/grade10/p3",
+        "latvia/open/2021-22_47/grade09/p3",
+        "latvia/regional/1987-88_38/grade07/p2",
+        "latvia/regional/1990-91_41/grade08/p2",
+        "latvia/regional/2021-22_72/grade12/p3",
+        "latvia/school/1999-00_50/grade10/p4",
+        "latvia/school/2001-02_52/grade08/p2",
+        "latvia/school/2010-11_61/grade09/p2"
+      ],
+      "any_policy": [
+        "latvia/national/1976-77_27/grade09/p1",
+        "latvia/national/1978-79_29/extra/grade10/p5",
+        "latvia/national/1982-83_33/grade11/p5",
+        "latvia/national/1993-94_44/grade09/p2",
+        "latvia/national/2001-02_52/grade09/p2",
+        "latvia/national/2016-17_67/grade11/p3",
+        "latvia/open/1976-77_04/grade10/p1",
+        "latvia/open/1999-00_27/grade10/p3",
+        "latvia/open/2021-22_47/grade09/p3",
+        "latvia/regional/1987-88_38/grade07/p2",
+        "latvia/regional/1990-91_41/grade08/p2",
+        "latvia/regional/2021-22_72/grade12/p3",
+        "latvia/school/1999-00_50/grade10/p4",
+        "latvia/school/2001-02_52/grade08/p2",
+        "latvia/school/2010-11_61/grade09/p2"
+      ],
+      "all_policies": [
+        "latvia/national/1976-77_27/grade09/p1",
+        "latvia/national/1978-79_29/extra/grade10/p5",
+        "latvia/national/1982-83_33/grade11/p5",
+        "latvia/national/1993-94_44/grade09/p2",
+        "latvia/national/2001-02_52/grade09/p2",
+        "latvia/national/2016-17_67/grade11/p3",
+        "latvia/open/1976-77_04/grade10/p1",
+        "latvia/open/2021-22_47/grade09/p3",
+        "latvia/regional/1987-88_38/grade07/p2",
+        "latvia/regional/1990-91_41/grade08/p2",
+        "latvia/regional/2021-22_72/grade12/p3",
+        "latvia/school/1999-00_50/grade10/p4",
+        "latvia/school/2001-02_52/grade08/p2",
+        "latvia/school/2010-11_61/grade09/p2"
+      ],
+      "beyond_deduction": [],
+      "with_added_point": [],
+      "combined_only": []
+    },
+    "no_similarity_no_ar": {
+      "deduction": [],
+      "any_policy": [],
+      "all_policies": [],
+      "beyond_deduction": [],
+      "with_added_point": [],
+      "combined_only": []
+    },
+    "circles": {
+      "deduction": [
+        "latvia/national/1976-77_27/grade09/p1",
+        "latvia/national/1982-83_33/grade11/p5",
+        "latvia/national/1993-94_44/grade09/p2",
+        "latvia/national/2001-02_52/grade09/p2",
+        "latvia/national/2016-17_67/grade11/p3",
+        "latvia/open/1976-77_04/grade10/p1",
+        "latvia/open/2001-02_29/grade10/p4",
+        "latvia/regional/2021-22_72/grade12/p3",
+        "latvia/school/2010-11_61/grade09/p2",
+        "latvia/tst/2021_bw/p9"
+      ],
+      "any_policy": [
+        "latvia/national/1976-77_27/grade09/p1",
+        "latvia/national/1982-83_33/grade11/p5",
+        "latvia/national/1993-94_44/grade09/p2",
+        "latvia/national/2001-02_52/grade09/p2",
+        "latvia/national/2016-17_67/grade11/p3",
+        "latvia/open/1976-77_04/grade10/p1",
+        "latvia/open/2001-02_29/grade10/p4",
+        "latvia/open/2002-03_30/grade07/p4",
+        "latvia/regional/2021-22_72/grade12/p3",
+        "latvia/school/1999-00_50/grade10/p4",
+        "latvia/school/2010-11_61/grade09/p2",
+        "latvia/tst/2021_bw/p9"
+      ],
+      "all_policies": [
+        "latvia/national/1976-77_27/grade09/p1",
+        "latvia/national/1982-83_33/grade11/p5",
+        "latvia/national/1993-94_44/grade09/p2",
+        "latvia/national/2001-02_52/grade09/p2",
+        "latvia/national/2016-17_67/grade11/p3",
+        "latvia/open/1976-77_04/grade10/p1",
+        "latvia/open/2001-02_29/grade10/p4",
+        "latvia/regional/2021-22_72/grade12/p3",
+        "latvia/school/2010-11_61/grade09/p2",
+        "latvia/tst/2021_bw/p9"
+      ],
+      "beyond_deduction": [
+        "latvia/open/2002-03_30/grade07/p4",
+        "latvia/school/1999-00_50/grade10/p4"
+      ],
+      "with_added_point": [
+        "latvia/open/2002-03_30/grade07/p4",
+        "latvia/school/1999-00_50/grade10/p4"
+      ],
+      "combined_only": [
+        "latvia/school/1999-00_50/grade10/p4"
+      ]
+    },
+    "circles_no_ar": {
+      "deduction": [],
+      "any_policy": [],
+      "all_policies": [],
+      "beyond_deduction": [],
+      "with_added_point": [],
+      "combined_only": []
+    }
+  }
 }

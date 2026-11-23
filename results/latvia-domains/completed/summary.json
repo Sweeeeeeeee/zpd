@@ -1,0 +1,197 @@
+{
+  "problems": 65,
+  "runs": 1170,
+  "proved_by_any": 21,
+  "retried": 190,
+  "configurations": {
+    "full-deduction": {
+      "baseline": {
+        "proved": 20,
+        "resource_limit": 31,
+        "other_unproved": 4,
+        "errors": 10
+      },
+      "retries": {
+        "resource_limit": 8,
+        "proved": 1,
+        "other_unproved": 1
+      }
+    },
+    "full-heuristics": {
+      "baseline": {
+        "proved": 20,
+        "resource_limit": 35,
+        "errors": 10
+      },
+      "retries": {
+        "resource_limit": 9,
+        "proved": 1
+      }
+    },
+    "full-combined": {
+      "baseline": {
+        "proved": 20,
+        "resource_limit": 35,
+        "errors": 10
+      },
+      "retries": {
+        "resource_limit": 9,
+        "proved": 1
+      }
+    },
+    "full_no_ar-deduction": {
+      "baseline": {
+        "other_unproved": 32,
+        "resource_limit": 24,
+        "errors": 9
+      },
+      "retries": {
+        "resource_limit": 6,
+        "other_unproved": 3
+      }
+    },
+    "full_no_ar-heuristics": {
+      "baseline": {
+        "resource_limit": 55,
+        "errors": 9,
+        "other_unproved": 1
+      },
+      "retries": {
+        "resource_limit": 9
+      }
+    },
+    "full_no_ar-combined": {
+      "baseline": {
+        "resource_limit": 54,
+        "errors": 9,
+        "other_unproved": 2
+      },
+      "retries": {
+        "resource_limit": 9
+      }
+    },
+    "no_similarity-deduction": {
+      "baseline": {
+        "proved": 15,
+        "resource_limit": 35,
+        "other_unproved": 8,
+        "errors": 7
+      },
+      "retries": {
+        "resource_limit": 7
+      }
+    },
+    "no_similarity-heuristics": {
+      "baseline": {
+        "proved": 14,
+        "resource_limit": 45,
+        "errors": 6
+      },
+      "retries": {
+        "resource_limit": 6
+      }
+    },
+    "no_similarity-combined": {
+      "baseline": {
+        "proved": 14,
+        "resource_limit": 45,
+        "errors": 6
+      },
+      "retries": {
+        "resource_limit": 6
+      }
+    },
+    "no_similarity_no_ar-deduction": {
+      "baseline": {
+        "other_unproved": 32,
+        "resource_limit": 25,
+        "errors": 8
+      },
+      "retries": {
+        "resource_limit": 5,
+        "other_unproved": 3
+      }
+    },
+    "no_similarity_no_ar-heuristics": {
+      "baseline": {
+        "resource_limit": 56,
+        "errors": 8,
+        "other_unproved": 1
+      },
+      "retries": {
+        "resource_limit": 8
+      }
+    },
+    "no_similarity_no_ar-combined": {
+      "baseline": {
+        "resource_limit": 56,
+        "errors": 8,
+        "other_unproved": 1
+      },
+      "retries": {
+        "resource_limit": 8
+      }
+    },
+    "circles-deduction": {
+      "baseline": {
+        "proved": 10,
+        "resource_limit": 15,
+        "other_unproved": 27,
+        "errors": 13
+      },
+      "retries": {
+        "resource_limit": 9,
+        "other_unproved": 4
+      }
+    },
+    "circles-heuristics": {
+      "baseline": {
+        "proved": 11,
+        "resource_limit": 29,
+        "errors": 13,
+        "other_unproved": 12
+      },
+      "retries": {
+        "resource_limit": 13
+      }
+    },
+    "circles-combined": {
+      "baseline": {
+        "proved": 12,
+        "resource_limit": 29,
+        "errors": 13,
+        "other_unproved": 11
+      },
+      "retries": {
+        "resource_limit": 13
+      }
+    },
+    "circles_no_ar-deduction": {
+      "baseline": {
+        "other_unproved": 48,
+        "errors": 17
+      },
+      "retries": {
+        "other_unproved": 17
+      }
+    },
+    "circles_no_ar-heuristics": {
+      "baseline": {
+        "other_unproved": 48,
+        "errors": 17
+      },
+      "retries": {
+        "other_unproved": 17
+      }
+    },
+    "circles_no_ar-combined": {
+      "baseline": {
+        "other_unproved": 48,
+        "errors": 17
+      },
+      "retries": {
+        "other_unproved": 17
+      }
+    }
+  }
+}

@@ -1,0 +1,1314 @@
+{
+  "phase": "retries",
+  "solver_commit": "e2cf28f01ce4f42f6b7ea7a2f24bd398d06bed80",
+  "input_sha256": "0614211e6be01253f71e3e7b4da44a8aec0a2e3d89cf05a0ac617416da007ad9",
+  "workers": 2,
+  "logical_cpus": [
+    0,
+    2
+  ],
+  "cpu_model": "13th Gen Intel(R) Core(TM) i7-1355U",
+  "omp_threads": "1",
+  "python_hash_seed": "0",
+  "parallel_start_unix": 1795393767.6583786,
+  "completed_before_parallel": {
+    "full-deduction": [
+      "latvia/tst/2023_imo/day3/p3",
+      "latvia/national/2017-18_68/grade12/p2",
+      "latvia/national/2022-23_73/grade11/p3",
+      "latvia/national/2008-09_59/grade10/p4",
+      "latvia/national/2024-25_75/grade09/p2",
+      "latvia/open/2015-16_43/grade09/p3",
+      "latvia/regional/2016-17_67/grade07/p4",
+      "latvia/regional/1997-98_48/grade10/p4",
+      "latvia/regional/2024-25_75/grade07/p3"
+    ],
+    "full-heuristics": [],
+    "full-combined": [],
+    "full_no_ar-deduction": [],
+    "full_no_ar-heuristics": [],
+    "full_no_ar-combined": [],
+    "no_similarity-deduction": [],
+    "no_similarity-heuristics": [],
+    "no_similarity-combined": [],
+    "no_similarity_no_ar-deduction": [],
+    "no_similarity_no_ar-heuristics": [],
+    "no_similarity_no_ar-combined": [],
+    "circles-deduction": [],
+    "circles-heuristics": [],
+    "circles-combined": [],
+    "circles_no_ar-deduction": [],
+    "circles_no_ar-heuristics": [],
+    "circles_no_ar-combined": []
+  },
+  "timing_note": "Listed cells predate the new scheduler. Subsequent independent cases could overlap on mains power. On battery the scheduler admitted one at a time. Each case kept its own wall-time and memory limits. Elapsed times and near-limit outcomes can depend on contention.",
+  "scheduled_cases": [
+    {
+      "config": "circles-combined",
+      "name": "latvia/national/1984-85_35/extra/grade08-09/p4",
+      "start_unix": 1795397377.0925033,
+      "external_power_at_start": true,
+      "finish_unix": 1795397439.1291788
+    },
+    {
+      "config": "circles-combined",
+      "name": "latvia/national/2008-09_59/grade10/p4",
+      "start_unix": 1795397315.0655713,
+      "external_power_at_start": true,
+      "finish_unix": 1795397377.0922127
+    },
+    {
+      "config": "circles-combined",
+      "name": "latvia/national/2017-18_68/grade12/p2",
+      "start_unix": 1795397253.0315385,
+      "external_power_at_start": true,
+      "finish_unix": 1795397315.0653036
+    },
+    {
+      "config": "circles-combined",
+      "name": "latvia/national/2022-23_73/grade11/p3",
+      "start_unix": 1795397274.9001224,
+      "external_power_at_start": true,
+      "finish_unix": 1795397336.9316297
+    },
+    {
+      "config": "circles-combined",
+      "name": "latvia/national/2024-25_75/grade09/p2",
+      "start_unix": 1795397336.9319065,
+      "external_power_at_start": true,
+      "finish_unix": 1795397398.9616647
+    },
+    {
+      "config": "circles-combined",
+      "name": "latvia/open/1988-89_16/grade08/p4",
+      "start_unix": 1795397398.9619417,
+      "external_power_at_start": true,
+      "finish_unix": 1795397461.0019593
+    },
+    {
+      "config": "circles-combined",
+      "name": "latvia/open/2003-04_31/grade09/p3",
+      "start_unix": 1795397461.0023298,
+      "external_power_at_start": true,
+      "finish_unix": 1795397523.0464308
+    },
+    {
+      "config": "circles-combined",
+      "name": "latvia/open/2015-16_43/grade09/p3",
+      "start_unix": 1795397439.129523,
+      "external_power_at_start": true,
+      "finish_unix": 1795397501.1775362
+    },
+    {
+      "config": "circles-combined",
+      "name": "latvia/regional/1997-98_48/grade10/p4",
+      "start_unix": 1795397501.1778011,
+      "external_power_at_start": true,
+      "finish_unix": 1795397563.2116354
+    },
+    {
+      "config": "circles-combined",
+      "name": "latvia/tst/2021_bw/p10",
+      "start_unix": 1795397150.82038,
+      "external_power_at_start": true,
+      "finish_unix": 1795397212.8575213
+    },
+    {
+      "config": "circles-combined",
+      "name": "latvia/tst/2022_imo/day4/p4",
+      "start_unix": 1795397128.9029808,
+      "external_power_at_start": true,
+      "finish_unix": 1795397190.9863696
+    },
+    {
+      "config": "circles-combined",
+      "name": "latvia/tst/2023_bw/p12",
+      "start_unix": 1795397190.986635,
+      "external_power_at_start": true,
+      "finish_unix": 1795397253.0312297
+    },
+    {
+      "config": "circles-combined",
+      "name": "latvia/tst/2024_bw/day2/p10",
+      "start_unix": 1795397212.8579814,
+      "external_power_at_start": true,
+      "finish_unix": 1795397274.899831
+    },
+    {
+      "config": "circles-deduction",
+      "name": "latvia/national/1984-85_35/extra/grade08-09/p4",
+      "start_unix": 1795396607.6637633,
+      "external_power_at_start": true,
+      "finish_unix": 1795396668.7423193
+    },
+    {
+      "config": "circles-deduction",
+      "name": "latvia/national/2008-09_59/grade10/p4",
+      "start_unix": 1795396579.1665306,
+      "external_power_at_start": true,
+      "finish_unix": 1795396640.2331052
+    },
+    {
+      "config": "circles-deduction",
+      "name": "latvia/national/2017-18_68/grade12/p2",
+      "start_unix": 1795396518.0880642,
+      "external_power_at_start": true,
+      "finish_unix": 1795396579.1662052
+    },
+    {
+      "config": "circles-deduction",
+      "name": "latvia/national/2022-23_73/grade11/p3",
+      "start_unix": 1795396557.1526458,
+      "external_power_at_start": true,
+      "finish_unix": 1795396583.8456397
+    },
+    {
+      "config": "circles-deduction",
+      "name": "latvia/national/2024-25_75/grade09/p2",
+      "start_unix": 1795396583.8458936,
+      "external_power_at_start": true,
+      "finish_unix": 1795396607.6634912
+    },
+    {
+      "config": "circles-deduction",
+      "name": "latvia/open/1988-89_16/grade08/p4",
+      "start_unix": 1795396640.2334049,
+      "external_power_at_start": true,
+      "finish_unix": 1795396701.3250105
+    },
+    {
+      "config": "circles-deduction",
+      "name": "latvia/open/2003-04_31/grade09/p3",
+      "start_unix": 1795396686.3370445,
+      "external_power_at_start": true,
+      "finish_unix": 1795396723.251482
+    },
+    {
+      "config": "circles-deduction",
+      "name": "latvia/open/2015-16_43/grade09/p3",
+      "start_unix": 1795396668.742622,
+      "external_power_at_start": true,
+      "finish_unix": 1795396686.336779
+    },
+    {
+      "config": "circles-deduction",
+      "name": "latvia/regional/1997-98_48/grade10/p4",
+      "start_unix": 1795396701.3255088,
+      "external_power_at_start": true,
+      "finish_unix": 1795396762.4142487
+    },
+    {
+      "config": "circles-deduction",
+      "name": "latvia/tst/2021_bw/p10",
+      "start_unix": 1795396435.0033195,
+      "external_power_at_start": true,
+      "finish_unix": 1795396496.074666
+    },
+    {
+      "config": "circles-deduction",
+      "name": "latvia/tst/2022_imo/day4/p4",
+      "start_unix": 1795396395.9529555,
+      "external_power_at_start": true,
+      "finish_unix": 1795396457.0210617
+    },
+    {
+      "config": "circles-deduction",
+      "name": "latvia/tst/2023_bw/p12",
+      "start_unix": 1795396457.021375,
+      "external_power_at_start": true,
+      "finish_unix": 1795396518.087764
+    },
+    {
+      "config": "circles-deduction",
+      "name": "latvia/tst/2024_bw/day2/p10",
+      "start_unix": 1795396496.0749223,
+      "external_power_at_start": true,
+      "finish_unix": 1795396557.1523843
+    },
+    {
+      "config": "circles-heuristics",
+      "name": "latvia/national/1984-85_35/extra/grade08-09/p4",
+      "start_unix": 1795396967.553472,
+      "external_power_at_start": true,
+      "finish_unix": 1795397028.6262195
+    },
+    {
+      "config": "circles-heuristics",
+      "name": "latvia/national/2008-09_59/grade10/p4",
+      "start_unix": 1795396906.4721556,
+      "external_power_at_start": true,
+      "finish_unix": 1795396967.5526385
+    },
+    {
+      "config": "circles-heuristics",
+      "name": "latvia/national/2017-18_68/grade12/p2",
+      "start_unix": 1795396845.403516,
+      "external_power_at_start": true,
+      "finish_unix": 1795396906.4718807
+    },
+    {
+      "config": "circles-heuristics",
+      "name": "latvia/national/2022-23_73/grade11/p3",
+      "start_unix": 1795396884.5589447,
+      "external_power_at_start": true,
+      "finish_unix": 1795396945.6345818
+    },
+    {
+      "config": "circles-heuristics",
+      "name": "latvia/national/2024-25_75/grade09/p2",
+      "start_unix": 1795396945.634924,
+      "external_power_at_start": true,
+      "finish_unix": 1795397006.7572908
+    },
+    {
+      "config": "circles-heuristics",
+      "name": "latvia/open/1988-89_16/grade08/p4",
+      "start_unix": 1795397006.757601,
+      "external_power_at_start": true,
+      "finish_unix": 1795397067.8468301
+    },
+    {
+      "config": "circles-heuristics",
+      "name": "latvia/open/2003-04_31/grade09/p3",
+      "start_unix": 1795397067.8471253,
+      "external_power_at_start": true,
+      "finish_unix": 1795397128.9026499
+    },
+    {
+      "config": "circles-heuristics",
+      "name": "latvia/open/2015-16_43/grade09/p3",
+      "start_unix": 1795397028.6264834,
+      "external_power_at_start": true,
+      "finish_unix": 1795397089.7277775
+    },
+    {
+      "config": "circles-heuristics",
+      "name": "latvia/regional/1997-98_48/grade10/p4",
+      "start_unix": 1795397089.7280862,
+      "external_power_at_start": true,
+      "finish_unix": 1795397150.8201106
+    },
+    {
+      "config": "circles-heuristics",
+      "name": "latvia/tst/2021_bw/p10",
+      "start_unix": 1795396762.4145164,
+      "external_power_at_start": true,
+      "finish_unix": 1795396823.4779494
+    },
+    {
+      "config": "circles-heuristics",
+      "name": "latvia/tst/2022_imo/day4/p4",
+      "start_unix": 1795396723.2517564,
+      "external_power_at_start": true,
+      "finish_unix": 1795396784.3239248
+    },
+    {
+      "config": "circles-heuristics",
+      "name": "latvia/tst/2023_bw/p12",
+      "start_unix": 1795396784.3242614,
+      "external_power_at_start": true,
+      "finish_unix": 1795396845.4032369
+    },
+    {
+      "config": "circles-heuristics",
+      "name": "latvia/tst/2024_bw/day2/p10",
+      "start_unix": 1795396823.478249,
+      "external_power_at_start": true,
+      "finish_unix": 1795396884.558596
+    },
+    {
+      "config": "circles_no_ar-combined",
+      "name": "latvia/national/1977-78_28/grade11/p4",
+      "start_unix": 1795397599.26251,
+      "external_power_at_start": true,
+      "finish_unix": 1795397603.7436547
+    },
+    {
+      "config": "circles_no_ar-combined",
+      "name": "latvia/national/1984-85_35/extra/grade08-09/p4",
+      "start_unix": 1795397603.743902,
+      "external_power_at_start": true,
+      "finish_unix": 1795397608.2265968
+    },
+    {
+      "config": "circles_no_ar-combined",
+      "name": "latvia/national/1992-93_43/grade10/p4",
+      "start_unix": 1795397594.3284936,
+      "external_power_at_start": true,
+      "finish_unix": 1795397600.2693
+    },
+    {
+      "config": "circles_no_ar-combined",
+      "name": "latvia/national/2017-18_68/grade12/p2",
+      "start_unix": 1795397590.6519713,
+      "external_power_at_start": true,
+      "finish_unix": 1795397594.7820034
+    },
+    {
+      "config": "circles_no_ar-combined",
+      "name": "latvia/national/2021-22_72/grade10/p2",
+      "start_unix": 1795397594.7822652,
+      "external_power_at_start": true,
+      "finish_unix": 1795397599.2621987
+    },
+    {
+      "config": "circles_no_ar-combined",
+      "name": "latvia/national/2022-23_73/grade11/p3",
+      "start_unix": 1795397591.4069078,
+      "external_power_at_start": true,
+      "finish_unix": 1795397594.3281538
+    },
+    {
+      "config": "circles_no_ar-combined",
+      "name": "latvia/national/2024-25_75/grade09/p2",
+      "start_unix": 1795397600.269548,
+      "external_power_at_start": true,
+      "finish_unix": 1795397603.7937155
+    },
+    {
+      "config": "circles_no_ar-combined",
+      "name": "latvia/open/1988-89_16/grade08/p4",
+      "start_unix": 1795397603.7939568,
+      "external_power_at_start": true,
+      "finish_unix": 1795397610.7422323
+    },
+    {
+      "config": "circles_no_ar-combined",
+      "name": "latvia/open/2003-04_31/grade09/p3",
+      "start_unix": 1795397608.2269125,
+      "external_power_at_start": true,
+      "finish_unix": 1795397612.4546864
+    },
+    {
+      "config": "circles_no_ar-combined",
+      "name": "latvia/regional/1997-98_48/grade10/p4",
+      "start_unix": 1795397612.4549246,
+      "external_power_at_start": true,
+      "finish_unix": 1795397616.684054
+    },
+    {
+      "config": "circles_no_ar-combined",
+      "name": "latvia/regional/2016-17_67/grade07/p4",
+      "start_unix": 1795397610.742607,
+      "external_power_at_start": true,
+      "finish_unix": 1795397613.7631416
+    },
+    {
+      "config": "circles_no_ar-combined",
+      "name": "latvia/regional/2024-25_75/grade07/p3",
+      "start_unix": 1795397613.7634304,
+      "external_power_at_start": true,
+      "finish_unix": 1795397617.6401732
+    },
+    {
+      "config": "circles_no_ar-combined",
+      "name": "latvia/tst/2021_bw/p10",
+      "start_unix": 1795397577.8651934,
+      "external_power_at_start": true,
+      "finish_unix": 1795397585.1655626
+    },
+    {
+      "config": "circles_no_ar-combined",
+      "name": "latvia/tst/2022_imo/day4/p4",
+      "start_unix": 1795397577.0593922,
+      "external_power_at_start": true,
+      "finish_unix": 1795397581.8416393
+    },
+    {
+      "config": "circles_no_ar-combined",
+      "name": "latvia/tst/2023_bw/p12",
+      "start_unix": 1795397585.1658158,
+      "external_power_at_start": true,
+      "finish_unix": 1795397590.651669
+    },
+    {
+      "config": "circles_no_ar-combined",
+      "name": "latvia/tst/2023_imo/day3/p3",
+      "start_unix": 1795397581.841897,
+      "external_power_at_start": true,
+      "finish_unix": 1795397586.9273357
+    },
+    {
+      "config": "circles_no_ar-combined",
+      "name": "latvia/tst/2024_bw/day2/p10",
+      "start_unix": 1795397586.9275725,
+      "external_power_at_start": true,
+      "finish_unix": 1795397591.4066617
+    },
+    {
+      "config": "circles_no_ar-deduction",
+      "name": "latvia/national/1977-78_28/grade11/p4",
+      "start_unix": 1795397535.6838474,
+      "external_power_at_start": true,
+      "finish_unix": 1795397536.991975
+    },
+    {
+      "config": "circles_no_ar-deduction",
+      "name": "latvia/national/1984-85_35/extra/grade08-09/p4",
+      "start_unix": 1795397538.250563,
+      "external_power_at_start": true,
+      "finish_unix": 1795397539.5599818
+    },
+    {
+      "config": "circles_no_ar-deduction",
+      "name": "latvia/national/1992-93_43/grade10/p4",
+      "start_unix": 1795397532.9145324,
+      "external_power_at_start": true,
+      "finish_unix": 1795397534.4236617
+    },
+    {
+      "config": "circles_no_ar-deduction",
+      "name": "latvia/national/2017-18_68/grade12/p2",
+      "start_unix": 1795397530.3470032,
+      "external_power_at_start": true,
+      "finish_unix": 1795397531.655135
+    },
+    {
+      "config": "circles_no_ar-deduction",
+      "name": "latvia/national/2021-22_72/grade10/p2",
+      "start_unix": 1795397534.423915,
+      "external_power_at_start": true,
+      "finish_unix": 1795397535.683511
+    },
+    {
+      "config": "circles_no_ar-deduction",
+      "name": "latvia/national/2022-23_73/grade11/p3",
+      "start_unix": 1795397531.6553748,
+      "external_power_at_start": true,
+      "finish_unix": 1795397532.9140058
+    },
+    {
+      "config": "circles_no_ar-deduction",
+      "name": "latvia/national/2024-25_75/grade09/p2",
+      "start_unix": 1795397536.9922748,
+      "external_power_at_start": true,
+      "finish_unix": 1795397538.250315
+    },
+    {
+      "config": "circles_no_ar-deduction",
+      "name": "latvia/open/1988-89_16/grade08/p4",
+      "start_unix": 1795397539.5602956,
+      "external_power_at_start": true,
+      "finish_unix": 1795397541.070866
+    },
+    {
+      "config": "circles_no_ar-deduction",
+      "name": "latvia/open/2003-04_31/grade09/p3",
+      "start_unix": 1795397541.071131,
+      "external_power_at_start": true,
+      "finish_unix": 1795397542.3789663
+    },
+    {
+      "config": "circles_no_ar-deduction",
+      "name": "latvia/regional/1997-98_48/grade10/p4",
+      "start_unix": 1795397543.6375093,
+      "external_power_at_start": true,
+      "finish_unix": 1795397544.8968756
+    },
+    {
+      "config": "circles_no_ar-deduction",
+      "name": "latvia/regional/2016-17_67/grade07/p4",
+      "start_unix": 1795397542.3792317,
+      "external_power_at_start": true,
+      "finish_unix": 1795397543.637255
+    },
+    {
+      "config": "circles_no_ar-deduction",
+      "name": "latvia/regional/2024-25_75/grade07/p3",
+      "start_unix": 1795397544.8971343,
+      "external_power_at_start": true,
+      "finish_unix": 1795397546.2045226
+    },
+    {
+      "config": "circles_no_ar-deduction",
+      "name": "latvia/tst/2021_bw/p10",
+      "start_unix": 1795397524.456259,
+      "external_power_at_start": true,
+      "finish_unix": 1795397526.066115
+    },
+    {
+      "config": "circles_no_ar-deduction",
+      "name": "latvia/tst/2022_imo/day4/p4",
+      "start_unix": 1795397523.0467298,
+      "external_power_at_start": true,
+      "finish_unix": 1795397524.455999
+    },
+    {
+      "config": "circles_no_ar-deduction",
+      "name": "latvia/tst/2023_bw/p12",
+      "start_unix": 1795397527.52674,
+      "external_power_at_start": true,
+      "finish_unix": 1795397528.9869113
+    },
+    {
+      "config": "circles_no_ar-deduction",
+      "name": "latvia/tst/2023_imo/day3/p3",
+      "start_unix": 1795397526.0663996,
+      "external_power_at_start": true,
+      "finish_unix": 1795397527.5264993
+    },
+    {
+      "config": "circles_no_ar-deduction",
+      "name": "latvia/tst/2024_bw/day2/p10",
+      "start_unix": 1795397528.987162,
+      "external_power_at_start": true,
+      "finish_unix": 1795397530.346707
+    },
+    {
+      "config": "circles_no_ar-heuristics",
+      "name": "latvia/national/1977-78_28/grade11/p4",
+      "start_unix": 1795397567.5435765,
+      "external_power_at_start": true,
+      "finish_unix": 1795397569.657527
+    },
+    {
+      "config": "circles_no_ar-heuristics",
+      "name": "latvia/national/1984-85_35/extra/grade08-09/p4",
+      "start_unix": 1795397569.6577682,
+      "external_power_at_start": true,
+      "finish_unix": 1795397571.874459
+    },
+    {
+      "config": "circles_no_ar-heuristics",
+      "name": "latvia/national/1992-93_43/grade10/p4",
+      "start_unix": 1795397565.1757574,
+      "external_power_at_start": true,
+      "finish_unix": 1795397569.003608
+    },
+    {
+      "config": "circles_no_ar-heuristics",
+      "name": "latvia/national/2017-18_68/grade12/p2",
+      "start_unix": 1795397563.2119074,
+      "external_power_at_start": true,
+      "finish_unix": 1795397565.4776433
+    },
+    {
+      "config": "circles_no_ar-heuristics",
+      "name": "latvia/national/2021-22_72/grade10/p2",
+      "start_unix": 1795397565.4780045,
+      "external_power_at_start": true,
+      "finish_unix": 1795397567.5429196
+    },
+    {
+      "config": "circles_no_ar-heuristics",
+      "name": "latvia/national/2022-23_73/grade11/p3",
+      "start_unix": 1795397563.6660416,
+      "external_power_at_start": true,
+      "finish_unix": 1795397565.1754334
+    },
+    {
+      "config": "circles_no_ar-heuristics",
+      "name": "latvia/national/2024-25_75/grade09/p2",
+      "start_unix": 1795397569.00388,
+      "external_power_at_start": true,
+      "finish_unix": 1795397570.7656124
+    },
+    {
+      "config": "circles_no_ar-heuristics",
+      "name": "latvia/open/1988-89_16/grade08/p4",
+      "start_unix": 1795397570.7658584,
+      "external_power_at_start": true,
+      "finish_unix": 1795397575.094904
+    },
+    {
+      "config": "circles_no_ar-heuristics",
+      "name": "latvia/open/2003-04_31/grade09/p3",
+      "start_unix": 1795397571.874711,
+      "external_power_at_start": true,
+      "finish_unix": 1795397574.1892834
+    },
+    {
+      "config": "circles_no_ar-heuristics",
+      "name": "latvia/regional/1997-98_48/grade10/p4",
+      "start_unix": 1795397575.0952623,
+      "external_power_at_start": true,
+      "finish_unix": 1795397577.0591285
+    },
+    {
+      "config": "circles_no_ar-heuristics",
+      "name": "latvia/regional/2016-17_67/grade07/p4",
+      "start_unix": 1795397574.1895368,
+      "external_power_at_start": true,
+      "finish_unix": 1795397575.801267
+    },
+    {
+      "config": "circles_no_ar-heuristics",
+      "name": "latvia/regional/2024-25_75/grade07/p3",
+      "start_unix": 1795397575.8015895,
+      "external_power_at_start": true,
+      "finish_unix": 1795397577.86494
+    },
+    {
+      "config": "circles_no_ar-heuristics",
+      "name": "latvia/tst/2021_bw/p10",
+      "start_unix": 1795397549.2260942,
+      "external_power_at_start": true,
+      "finish_unix": 1795397554.4577565
+    },
+    {
+      "config": "circles_no_ar-heuristics",
+      "name": "latvia/tst/2022_imo/day4/p4",
+      "start_unix": 1795397546.2047677,
+      "external_power_at_start": true,
+      "finish_unix": 1795397549.225815
+    },
+    {
+      "config": "circles_no_ar-heuristics",
+      "name": "latvia/tst/2023_bw/p12",
+      "start_unix": 1795397557.526855,
+      "external_power_at_start": true,
+      "finish_unix": 1795397560.9970489
+    },
+    {
+      "config": "circles_no_ar-heuristics",
+      "name": "latvia/tst/2023_imo/day3/p3",
+      "start_unix": 1795397554.4580135,
+      "external_power_at_start": true,
+      "finish_unix": 1795397557.5264528
+    },
+    {
+      "config": "circles_no_ar-heuristics",
+      "name": "latvia/tst/2024_bw/day2/p10",
+      "start_unix": 1795397560.9973664,
+      "external_power_at_start": true,
+      "finish_unix": 1795397563.6638076
+    },
+    {
+      "config": "full-combined",
+      "name": "latvia/national/2008-09_59/grade10/p4",
+      "start_unix": 1795394196.999786,
+      "external_power_at_start": true,
+      "finish_unix": 1795394259.0208626
+    },
+    {
+      "config": "full-combined",
+      "name": "latvia/national/2017-18_68/grade12/p2",
+      "start_unix": 1795394134.9795554,
+      "external_power_at_start": true,
+      "finish_unix": 1795394196.9995222
+    },
+    {
+      "config": "full-combined",
+      "name": "latvia/national/2022-23_73/grade11/p3",
+      "start_unix": 1795394184.8349416,
+      "external_power_at_start": true,
+      "finish_unix": 1795394246.8576102
+    },
+    {
+      "config": "full-combined",
+      "name": "latvia/national/2024-25_75/grade09/p2",
+      "start_unix": 1795394246.857926,
+      "external_power_at_start": true,
+      "finish_unix": 1795394297.972023
+    },
+    {
+      "config": "full-combined",
+      "name": "latvia/open/2015-16_43/grade09/p3",
+      "start_unix": 1795394259.0212386,
+      "external_power_at_start": true,
+      "finish_unix": 1795394321.0445642
+    },
+    {
+      "config": "full-combined",
+      "name": "latvia/regional/1997-98_48/grade10/p4",
+      "start_unix": 1795394321.0448883,
+      "external_power_at_start": true,
+      "finish_unix": 1795394383.0522833
+    },
+    {
+      "config": "full-combined",
+      "name": "latvia/regional/2016-17_67/grade07/p4",
+      "start_unix": 1795394297.9723022,
+      "external_power_at_start": true,
+      "finish_unix": 1795394359.994979
+    },
+    {
+      "config": "full-combined",
+      "name": "latvia/regional/2024-25_75/grade07/p3",
+      "start_unix": 1795394359.9952767,
+      "external_power_at_start": true,
+      "finish_unix": 1795394422.0419853
+    },
+    {
+      "config": "full-combined",
+      "name": "latvia/tst/2023_imo/day3/p3",
+      "start_unix": 1795394072.9649928,
+      "external_power_at_start": true,
+      "finish_unix": 1795394134.979285
+    },
+    {
+      "config": "full-combined",
+      "name": "latvia/tst/2024_bw/day2/p10",
+      "start_unix": 1795394122.8253684,
+      "external_power_at_start": true,
+      "finish_unix": 1795394184.8346493
+    },
+    {
+      "config": "full-deduction",
+      "name": "latvia/tst/2024_bw/day2/p10",
+      "start_unix": 1795393767.6586978,
+      "external_power_at_start": true,
+      "finish_unix": 1795393828.6621392
+    },
+    {
+      "config": "full-heuristics",
+      "name": "latvia/national/2008-09_59/grade10/p4",
+      "start_unix": 1795393889.7711735,
+      "external_power_at_start": true,
+      "finish_unix": 1795393950.8369167
+    },
+    {
+      "config": "full-heuristics",
+      "name": "latvia/national/2017-18_68/grade12/p2",
+      "start_unix": 1795393828.6627443,
+      "external_power_at_start": true,
+      "finish_unix": 1795393889.7708657
+    },
+    {
+      "config": "full-heuristics",
+      "name": "latvia/national/2022-23_73/grade11/p3",
+      "start_unix": 1795393889.7705245,
+      "external_power_at_start": true,
+      "finish_unix": 1795393950.83609
+    },
+    {
+      "config": "full-heuristics",
+      "name": "latvia/national/2024-25_75/grade09/p2",
+      "start_unix": 1795393950.8368232,
+      "external_power_at_start": true,
+      "finish_unix": 1795394000.7010498
+    },
+    {
+      "config": "full-heuristics",
+      "name": "latvia/open/2015-16_43/grade09/p3",
+      "start_unix": 1795393950.8373492,
+      "external_power_at_start": true,
+      "finish_unix": 1795394011.9100282
+    },
+    {
+      "config": "full-heuristics",
+      "name": "latvia/regional/1997-98_48/grade10/p4",
+      "start_unix": 1795394011.9103966,
+      "external_power_at_start": true,
+      "finish_unix": 1795394072.964697
+    },
+    {
+      "config": "full-heuristics",
+      "name": "latvia/regional/2016-17_67/grade07/p4",
+      "start_unix": 1795394000.7012994,
+      "external_power_at_start": true,
+      "finish_unix": 1795394061.7642338
+    },
+    {
+      "config": "full-heuristics",
+      "name": "latvia/regional/2024-25_75/grade07/p3",
+      "start_unix": 1795394061.7645726,
+      "external_power_at_start": true,
+      "finish_unix": 1795394122.8251045
+    },
+    {
+      "config": "full-heuristics",
+      "name": "latvia/tst/2023_imo/day3/p3",
+      "start_unix": 1795393767.66007,
+      "external_power_at_start": true,
+      "finish_unix": 1795393828.6622918
+    },
+    {
+      "config": "full-heuristics",
+      "name": "latvia/tst/2024_bw/day2/p10",
+      "start_unix": 1795393828.662543,
+      "external_power_at_start": true,
+      "finish_unix": 1795393889.7699103
+    },
+    {
+      "config": "full_no_ar-combined",
+      "name": "latvia/national/2017-18_68/grade12/p2",
+      "start_unix": 1795394933.6813443,
+      "external_power_at_start": true,
+      "finish_unix": 1795394995.6929224
+    },
+    {
+      "config": "full_no_ar-combined",
+      "name": "latvia/national/2022-23_73/grade11/p3",
+      "start_unix": 1795394959.5133684,
+      "external_power_at_start": true,
+      "finish_unix": 1795395021.5233355
+    },
+    {
+      "config": "full_no_ar-combined",
+      "name": "latvia/national/2024-25_75/grade09/p2",
+      "start_unix": 1795394995.6931894,
+      "external_power_at_start": true,
+      "finish_unix": 1795395057.707691
+    },
+    {
+      "config": "full_no_ar-combined",
+      "name": "latvia/open/2003-04_31/grade09/p3",
+      "start_unix": 1795395021.5237076,
+      "external_power_at_start": true,
+      "finish_unix": 1795395083.5398438
+    },
+    {
+      "config": "full_no_ar-combined",
+      "name": "latvia/regional/1997-98_48/grade10/p4",
+      "start_unix": 1795395083.540116,
+      "external_power_at_start": true,
+      "finish_unix": 1795395145.5549228
+    },
+    {
+      "config": "full_no_ar-combined",
+      "name": "latvia/regional/2016-17_67/grade07/p4",
+      "start_unix": 1795395057.7079647,
+      "external_power_at_start": true,
+      "finish_unix": 1795395119.7208211
+    },
+    {
+      "config": "full_no_ar-combined",
+      "name": "latvia/regional/2024-25_75/grade07/p3",
+      "start_unix": 1795395119.721093,
+      "external_power_at_start": true,
+      "finish_unix": 1795395181.7419188
+    },
+    {
+      "config": "full_no_ar-combined",
+      "name": "latvia/tst/2023_imo/day3/p3",
+      "start_unix": 1795394871.6134872,
+      "external_power_at_start": true,
+      "finish_unix": 1795394933.6809628
+    },
+    {
+      "config": "full_no_ar-combined",
+      "name": "latvia/tst/2024_bw/day2/p10",
+      "start_unix": 1795394897.4999394,
+      "external_power_at_start": true,
+      "finish_unix": 1795394959.5130973
+    },
+    {
+      "config": "full_no_ar-deduction",
+      "name": "latvia/national/2017-18_68/grade12/p2",
+      "start_unix": 1795394444.11814,
+      "external_power_at_start": true,
+      "finish_unix": 1795394505.1825447
+    },
+    {
+      "config": "full_no_ar-deduction",
+      "name": "latvia/national/2022-23_73/grade11/p3",
+      "start_unix": 1795394483.1189291,
+      "external_power_at_start": true,
+      "finish_unix": 1795394496.3874295
+    },
+    {
+      "config": "full_no_ar-deduction",
+      "name": "latvia/national/2024-25_75/grade09/p2",
+      "start_unix": 1795394496.387698,
+      "external_power_at_start": true,
+      "finish_unix": 1795394523.9315863
+    },
+    {
+      "config": "full_no_ar-deduction",
+      "name": "latvia/open/2003-04_31/grade09/p3",
+      "start_unix": 1795394505.1828465,
+      "external_power_at_start": true,
+      "finish_unix": 1795394566.2488945
+    },
+    {
+      "config": "full_no_ar-deduction",
+      "name": "latvia/regional/1997-98_48/grade10/p4",
+      "start_unix": 1795394531.1200583,
+      "external_power_at_start": true,
+      "finish_unix": 1795394592.1765895
+    },
+    {
+      "config": "full_no_ar-deduction",
+      "name": "latvia/regional/2016-17_67/grade07/p4",
+      "start_unix": 1795394523.9318473,
+      "external_power_at_start": true,
+      "finish_unix": 1795394531.1197617
+    },
+    {
+      "config": "full_no_ar-deduction",
+      "name": "latvia/regional/2024-25_75/grade07/p3",
+      "start_unix": 1795394566.2492645,
+      "external_power_at_start": true,
+      "finish_unix": 1795394627.3008873
+    },
+    {
+      "config": "full_no_ar-deduction",
+      "name": "latvia/tst/2023_imo/day3/p3",
+      "start_unix": 1795394383.0525644,
+      "external_power_at_start": true,
+      "finish_unix": 1795394444.1178029
+    },
+    {
+      "config": "full_no_ar-deduction",
+      "name": "latvia/tst/2024_bw/day2/p10",
+      "start_unix": 1795394422.0422678,
+      "external_power_at_start": true,
+      "finish_unix": 1795394483.1185358
+    },
+    {
+      "config": "full_no_ar-heuristics",
+      "name": "latvia/national/2017-18_68/grade12/p2",
+      "start_unix": 1795394653.2259781,
+      "external_power_at_start": true,
+      "finish_unix": 1795394714.2767947
+    },
+    {
+      "config": "full_no_ar-heuristics",
+      "name": "latvia/national/2022-23_73/grade11/p3",
+      "start_unix": 1795394688.3973858,
+      "external_power_at_start": true,
+      "finish_unix": 1795394749.502987
+    },
+    {
+      "config": "full_no_ar-heuristics",
+      "name": "latvia/national/2024-25_75/grade09/p2",
+      "start_unix": 1795394714.2770698,
+      "external_power_at_start": true,
+      "finish_unix": 1795394775.3375413
+    },
+    {
+      "config": "full_no_ar-heuristics",
+      "name": "latvia/open/2003-04_31/grade09/p3",
+      "start_unix": 1795394749.5032816,
+      "external_power_at_start": true,
+      "finish_unix": 1795394810.557431
+    },
+    {
+      "config": "full_no_ar-heuristics",
+      "name": "latvia/regional/1997-98_48/grade10/p4",
+      "start_unix": 1795394810.5577552,
+      "external_power_at_start": true,
+      "finish_unix": 1795394871.6131313
+    },
+    {
+      "config": "full_no_ar-heuristics",
+      "name": "latvia/regional/2016-17_67/grade07/p4",
+      "start_unix": 1795394775.337807,
+      "external_power_at_start": true,
+      "finish_unix": 1795394836.4369571
+    },
+    {
+      "config": "full_no_ar-heuristics",
+      "name": "latvia/regional/2024-25_75/grade07/p3",
+      "start_unix": 1795394836.4372237,
+      "external_power_at_start": true,
+      "finish_unix": 1795394897.4995873
+    },
+    {
+      "config": "full_no_ar-heuristics",
+      "name": "latvia/tst/2023_imo/day3/p3",
+      "start_unix": 1795394592.176856,
+      "external_power_at_start": true,
+      "finish_unix": 1795394653.22571
+    },
+    {
+      "config": "full_no_ar-heuristics",
+      "name": "latvia/tst/2024_bw/day2/p10",
+      "start_unix": 1795394627.3011682,
+      "external_power_at_start": true,
+      "finish_unix": 1795394688.397059
+    },
+    {
+      "config": "no_similarity-combined",
+      "name": "latvia/national/2017-18_68/grade12/p2",
+      "start_unix": 1795395548.166609,
+      "external_power_at_start": true,
+      "finish_unix": 1795395610.2533627
+    },
+    {
+      "config": "no_similarity-combined",
+      "name": "latvia/national/2022-23_73/grade11/p3",
+      "start_unix": 1795395573.1631038,
+      "external_power_at_start": true,
+      "finish_unix": 1795395635.1832826
+    },
+    {
+      "config": "no_similarity-combined",
+      "name": "latvia/national/2024-25_75/grade09/p2",
+      "start_unix": 1795395610.2536507,
+      "external_power_at_start": true,
+      "finish_unix": 1795395672.3359845
+    },
+    {
+      "config": "no_similarity-combined",
+      "name": "latvia/open/2015-16_43/grade09/p3",
+      "start_unix": 1795395635.183609,
+      "external_power_at_start": true,
+      "finish_unix": 1795395697.212762
+    },
+    {
+      "config": "no_similarity-combined",
+      "name": "latvia/regional/1997-98_48/grade10/p4",
+      "start_unix": 1795395672.336276,
+      "external_power_at_start": true,
+      "finish_unix": 1795395734.4191637
+    },
+    {
+      "config": "no_similarity-combined",
+      "name": "latvia/regional/2024-25_75/grade07/p3",
+      "start_unix": 1795395697.2130568,
+      "external_power_at_start": true,
+      "finish_unix": 1795395759.2485638
+    },
+    {
+      "config": "no_similarity-deduction",
+      "name": "latvia/national/2017-18_68/grade12/p2",
+      "start_unix": 1795395181.7421918,
+      "external_power_at_start": true,
+      "finish_unix": 1795395242.8016925
+    },
+    {
+      "config": "no_similarity-deduction",
+      "name": "latvia/national/2022-23_73/grade11/p3",
+      "start_unix": 1795395206.616573,
+      "external_power_at_start": true,
+      "finish_unix": 1795395267.7780368
+    },
+    {
+      "config": "no_similarity-deduction",
+      "name": "latvia/national/2024-25_75/grade09/p2",
+      "start_unix": 1795395242.8019583,
+      "external_power_at_start": true,
+      "finish_unix": 1795395303.864689
+    },
+    {
+      "config": "no_similarity-deduction",
+      "name": "latvia/open/2015-16_43/grade09/p3",
+      "start_unix": 1795395267.7783935,
+      "external_power_at_start": true,
+      "finish_unix": 1795395328.8908706
+    },
+    {
+      "config": "no_similarity-deduction",
+      "name": "latvia/regional/1997-98_48/grade10/p4",
+      "start_unix": 1795395303.8649533,
+      "external_power_at_start": true,
+      "finish_unix": 1795395364.9495265
+    },
+    {
+      "config": "no_similarity-deduction",
+      "name": "latvia/regional/2024-25_75/grade07/p3",
+      "start_unix": 1795395328.8911364,
+      "external_power_at_start": true,
+      "finish_unix": 1795395389.9495168
+    },
+    {
+      "config": "no_similarity-deduction",
+      "name": "latvia/tst/2024_bw/day2/p10",
+      "start_unix": 1795395145.555193,
+      "external_power_at_start": true,
+      "finish_unix": 1795395206.616284
+    },
+    {
+      "config": "no_similarity-heuristics",
+      "name": "latvia/national/2017-18_68/grade12/p2",
+      "start_unix": 1795395364.9497967,
+      "external_power_at_start": true,
+      "finish_unix": 1795395426.0326645
+    },
+    {
+      "config": "no_similarity-heuristics",
+      "name": "latvia/national/2022-23_73/grade11/p3",
+      "start_unix": 1795395389.949786,
+      "external_power_at_start": true,
+      "finish_unix": 1795395451.0135207
+    },
+    {
+      "config": "no_similarity-heuristics",
+      "name": "latvia/national/2024-25_75/grade09/p2",
+      "start_unix": 1795395426.03295,
+      "external_power_at_start": true,
+      "finish_unix": 1795395487.092794
+    },
+    {
+      "config": "no_similarity-heuristics",
+      "name": "latvia/open/2015-16_43/grade09/p3",
+      "start_unix": 1795395451.013933,
+      "external_power_at_start": true,
+      "finish_unix": 1795395512.0729253
+    },
+    {
+      "config": "no_similarity-heuristics",
+      "name": "latvia/regional/1997-98_48/grade10/p4",
+      "start_unix": 1795395487.093055,
+      "external_power_at_start": true,
+      "finish_unix": 1795395548.1663375
+    },
+    {
+      "config": "no_similarity-heuristics",
+      "name": "latvia/regional/2024-25_75/grade07/p3",
+      "start_unix": 1795395512.0732205,
+      "external_power_at_start": true,
+      "finish_unix": 1795395573.1628227
+    },
+    {
+      "config": "no_similarity_no_ar-combined",
+      "name": "latvia/national/2017-18_68/grade12/p2",
+      "start_unix": 1795396186.842252,
+      "external_power_at_start": true,
+      "finish_unix": 1795396248.9121306
+    },
+    {
+      "config": "no_similarity_no_ar-combined",
+      "name": "latvia/national/2022-23_73/grade11/p3",
+      "start_unix": 1795396209.760433,
+      "external_power_at_start": true,
+      "finish_unix": 1795396271.8294935
+    },
+    {
+      "config": "no_similarity_no_ar-combined",
+      "name": "latvia/national/2024-25_75/grade09/p2",
+      "start_unix": 1795396248.9125075,
+      "external_power_at_start": true,
+      "finish_unix": 1795396310.9700098
+    },
+    {
+      "config": "no_similarity_no_ar-combined",
+      "name": "latvia/open/2003-04_31/grade09/p3",
+      "start_unix": 1795396271.8297591,
+      "external_power_at_start": true,
+      "finish_unix": 1795396333.8848283
+    },
+    {
+      "config": "no_similarity_no_ar-combined",
+      "name": "latvia/regional/1997-98_48/grade10/p4",
+      "start_unix": 1795396333.8851008,
+      "external_power_at_start": true,
+      "finish_unix": 1795396395.9526713
+    },
+    {
+      "config": "no_similarity_no_ar-combined",
+      "name": "latvia/regional/2016-17_67/grade07/p4",
+      "start_unix": 1795396310.9702978,
+      "external_power_at_start": true,
+      "finish_unix": 1795396372.9833837
+    },
+    {
+      "config": "no_similarity_no_ar-combined",
+      "name": "latvia/regional/2024-25_75/grade07/p3",
+      "start_unix": 1795396372.9836707,
+      "external_power_at_start": true,
+      "finish_unix": 1795396435.0030544
+    },
+    {
+      "config": "no_similarity_no_ar-combined",
+      "name": "latvia/tst/2024_bw/day2/p10",
+      "start_unix": 1795396147.7008374,
+      "external_power_at_start": true,
+      "finish_unix": 1795396209.7600486
+    },
+    {
+      "config": "no_similarity_no_ar-deduction",
+      "name": "latvia/national/2017-18_68/grade12/p2",
+      "start_unix": 1795395759.2488327,
+      "external_power_at_start": true,
+      "finish_unix": 1795395820.302909
+    },
+    {
+      "config": "no_similarity_no_ar-deduction",
+      "name": "latvia/national/2022-23_73/grade11/p3",
+      "start_unix": 1795395795.5257373,
+      "external_power_at_start": true,
+      "finish_unix": 1795395808.4420137
+    },
+    {
+      "config": "no_similarity_no_ar-deduction",
+      "name": "latvia/national/2024-25_75/grade09/p2",
+      "start_unix": 1795395808.4422781,
+      "external_power_at_start": true,
+      "finish_unix": 1795395835.2248738
+    },
+    {
+      "config": "no_similarity_no_ar-deduction",
+      "name": "latvia/open/2003-04_31/grade09/p3",
+      "start_unix": 1795395820.3032153,
+      "external_power_at_start": true,
+      "finish_unix": 1795395881.3557758
+    },
+    {
+      "config": "no_similarity_no_ar-deduction",
+      "name": "latvia/regional/1997-98_48/grade10/p4",
+      "start_unix": 1795395842.2626145,
+      "external_power_at_start": true,
+      "finish_unix": 1795395903.3132508
+    },
+    {
+      "config": "no_similarity_no_ar-deduction",
+      "name": "latvia/regional/2016-17_67/grade07/p4",
+      "start_unix": 1795395835.2251413,
+      "external_power_at_start": true,
+      "finish_unix": 1795395842.2623434
+    },
+    {
+      "config": "no_similarity_no_ar-deduction",
+      "name": "latvia/regional/2024-25_75/grade07/p3",
+      "start_unix": 1795395881.3561115,
+      "external_power_at_start": true,
+      "finish_unix": 1795395942.4504843
+    },
+    {
+      "config": "no_similarity_no_ar-deduction",
+      "name": "latvia/tst/2024_bw/day2/p10",
+      "start_unix": 1795395734.4194353,
+      "external_power_at_start": true,
+      "finish_unix": 1795395795.5254097
+    },
+    {
+      "config": "no_similarity_no_ar-heuristics",
+      "name": "latvia/national/2017-18_68/grade12/p2",
+      "start_unix": 1795395942.4507487,
+      "external_power_at_start": true,
+      "finish_unix": 1795396003.5503807
+    },
+    {
+      "config": "no_similarity_no_ar-heuristics",
+      "name": "latvia/national/2022-23_73/grade11/p3",
+      "start_unix": 1795395964.4080029,
+      "external_power_at_start": true,
+      "finish_unix": 1795396025.5084867
+    },
+    {
+      "config": "no_similarity_no_ar-heuristics",
+      "name": "latvia/national/2024-25_75/grade09/p2",
+      "start_unix": 1795396003.550751,
+      "external_power_at_start": true,
+      "finish_unix": 1795396064.6433737
+    },
+    {
+      "config": "no_similarity_no_ar-heuristics",
+      "name": "latvia/open/2003-04_31/grade09/p3",
+      "start_unix": 1795396025.5087433,
+      "external_power_at_start": true,
+      "finish_unix": 1795396086.603852
+    },
+    {
+      "config": "no_similarity_no_ar-heuristics",
+      "name": "latvia/regional/1997-98_48/grade10/p4",
+      "start_unix": 1795396086.6041284,
+      "external_power_at_start": true,
+      "finish_unix": 1795396147.700543
+    },
+    {
+      "config": "no_similarity_no_ar-heuristics",
+      "name": "latvia/regional/2016-17_67/grade07/p4",
+      "start_unix": 1795396064.6437051,
+      "external_power_at_start": true,
+      "finish_unix": 1795396125.7433257
+    },
+    {
+      "config": "no_similarity_no_ar-heuristics",
+      "name": "latvia/regional/2024-25_75/grade07/p3",
+      "start_unix": 1795396125.7436914,
+      "external_power_at_start": true,
+      "finish_unix": 1795396186.8419523
+    },
+    {
+      "config": "no_similarity_no_ar-heuristics",
+      "name": "latvia/tst/2024_bw/day2/p10",
+      "start_unix": 1795395903.3137522,
+      "external_power_at_start": true,
+      "finish_unix": 1795395964.4076538
+    }
+  ]
+}
