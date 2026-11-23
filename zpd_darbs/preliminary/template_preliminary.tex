@@ -21,13 +21,13 @@
 % ==================================================================== anotācijas
 \anotacijulapa
 \begin{anotacija}{Anotācija}
-Ģeometrijas skeneris pārbauda, kurus olimpiāžu uzdevumus ar noteiktu laika budžetu var pierādīt, izmantojot dotās konstrukcijas. JGEX kopā Newclid dedukcija pierādīja \jgexSolved{} no \jgexTotal{} uzdevumiem. Pievienojot heiristiku un divu transformera modeļu meklējumos atrastos pierādījumus, kopā pierādīti \jgexBest{} uzdevumi. Latvijas olimpiāžu izlasē trīs stratēģijas ar 70 likumiem un algebrisko spriešanu pierādīja vienus un tos pašus 20 no 65 uzdevumiem. Bez algebriskās spriešanas tās 60 sekunžu limitā pierādīja nulli. Izslēdzot 11 ar līdzību saistītus likumus, dedukcija pierādīja 15 uzdevumus. Sešos vienas olimpiādes uzdevumu pāros salīdzināti dalībnieku vidējie punkti un dedukcijas iznākums. Trijos pāros dedukcija pierādīja tieši vienu uzdevumu. Katrreiz par to dalībnieki vidēji ieguva vairāk punktu.
+Ģeometrijas skeneris pārbauda, kurus olimpiāžu uzdevumus ar noteiktu laika budžetu var pierādīt, izmantojot dotās konstrukcijas. JGEX kopā Newclid dedukcija pierādīja \jgexSolved{} no \jgexTotal{} uzdevumiem. Pievienojot heiristiku un divu transformera modeļu meklējumos atrastos pierādījumus, kopā pierādīti \jgexBest{} uzdevumi. Latvijas izlasē 1170 mēģinājumos sākotnējais dzinējs pierādīja 21 no 65 uzdevumiem. Pēc dzinēja labojuma 190 atkārtojumos izdevās pierādīt vēl vienu uzdevumu. Bez algebriskās spriešanas 60 sekunžu limitā pierādījumu nebija. Ar riņķa līniju likumiem dedukcija pierādīja 10 uzdevumus, ar heiristikām – 11, ar modeli un heiristikām – 12. Sešos vienas olimpiādes uzdevumu pāros salīdzināti dalībnieku vidējie punkti un dedukcijas iznākums. Trijos pāros dedukcija pierādīja tieši vienu uzdevumu. Katrreiz par to dalībnieki vidēji ieguva vairāk punktu.
 
 \atslegvardi{automātiskā teorēmu pierādīšana, deduktīvā datubāze, palīgkonstrukcija, transformeris, olimpiāžu matemātika}
 \end{anotacija}
 
 \begin{anotacija}{Abstract}
-This study tests which olympiad geometry problems a solver can prove from the supplied construction within a fixed search budget. Newclid deduction proved \jgexSolved{} of \jgexTotal{} JGEX problems. Adding proofs found by heuristics and two transformer models brought coverage to \jgexBest{}. On 65 Latvian problems, all three search policies proved the same 20 with 70 rules and algebraic reasoning. With algebraic reasoning disabled, all three proved zero within 60 seconds. Removing 11 similarity-related rules while retaining algebraic reasoning reduced deduction coverage to 15. We also compared contestant scores on six within-edition IMO problem pairs. In the three pairs where deduction proved exactly one problem, contestants scored higher on the proved problem.
+This study tests which olympiad geometry problems a solver can prove from the supplied construction within a fixed search budget. Newclid deduction proved \jgexSolved{} of \jgexTotal{} JGEX problems. Adding proofs found by heuristics and two transformer models brought coverage to \jgexBest{}. In 1,170 runs, the original solver proved 21 of 65 Latvian problems. A further 190 targeted runs after an engine repair added one distinct problem. With algebraic reasoning disabled, no configuration produced a proof within 60 seconds. With circle rules and algebraic reasoning, deduction proved 10 problems, heuristics proved 11, and the model with heuristics proved 12. We also compared contestant scores on six within-edition IMO problem pairs. In the three pairs where deduction proved exactly one problem, contestants scored higher on the proved problem.
 
 \atslegvardi[Keywords]{automated theorem proving, deductive database, auxiliary construction, transformer, olympiad mathematics}
 \end{anotacija}
@@ -160,7 +160,7 @@ No 80 kandidātiem 57 tulkojumi atbilda automātiskās pieņemšanas kritērijie
 
 % ==================================================================== 3. nodaļa
 \section{Rezultāti un analīze}
-\zpdnote{Priekšvarianta rezultāti: parauga uzdevumi un JGEX. Pabeigts pirmais Latvijas uzdevumu salīdzinājums pilnajā jomā ar algebrisko spriešanu.}
+\zpdnote{Parauga uzdevumi, JGEX un Latvijas uzdevumu pārbaude visās 18 konfigurācijās.}
 \subsection{Jomas uz parauga uzdevumiem}
 Uz pieciem parauga uzdevumiem jomas atšķir uzdevumus, kā gaidīts (\ref{tab:domains}~tabula,
 \ref{fig:domains}~attēls): Varinjona teorēmai vajag viduslīnijas teorēmu, kas nav riņķa līniju
@@ -185,7 +185,7 @@ teorēma, un bez AR izkrīt uzdevumi, kuros vajag leņķu skaitīšanu.
   \caption{Atrisināto parauga uzdevumu skaits katrā jomā ar AR un bez tā}\label{fig:domains}
 \end{figure}
 
-\subsection{Latvijas uzdevumi pilnajā jomā}
+\subsection{Latvijas uzdevumi trīs likumu kopās}
 \input{../tables/latvia_full.tex}
 
 \subsection{Standarta uzdevumu kopas}
@@ -283,8 +283,8 @@ Atsevišķā 60 JGEX uzdevumu izlasē Newclid Python dzinējs ar pilno likumu ko
 \nenumuretanodala{Secinājumi}
 \begin{secinajumi}
   \item Sākotnējā JGEX etalonpārbaudē dedukcija ar dotajiem punktiem pierādīja \jgexSolved{} no \jgexTotal{} uzdevumiem. Ar heiristikām un diviem apmācītiem modeļiem vismaz vienā meklējumā atrasti pierādījumi vēl 12 uzdevumiem.
-  \item Latvijas izlasē ar 70 likumiem un algebrisko spriešanu visas trīs stratēģijas 60~s limitā pierādīja vienus un tos pašus 20 no 65 uzdevumiem. Atslēdzot algebrisko spriešanu, šajās konfigurācijās pierādījumu skaits bija nulle.
-  \item Atslēdzot 11 ar trijstūru līdzību saistītus likumus, ar dedukciju joprojām pierādīti 15 uzdevumi. Trijos gadījumos risinātājs atrada citu likumu secību. Vienā no tiem līdzības argumentu aizstāja trijstūru vienādība.
+  \item Latvijas izlasē ar 70 likumiem un algebrisko spriešanu visas trīs stratēģijas 60~s limitā pierādīja vienus un tos pašus 20 no 65 uzdevumiem. Bez algebriskās spriešanas visās trīs likumu kopās pierādījumu skaits bija nulle.
+  \item Atslēdzot 11 ar trijstūru līdzību saistītus likumus, ar dedukciju joprojām pierādīti 15 uzdevumi. Trijos gadījumos risinātājs atrada citu likumu secību. Ar riņķa līniju likumiem palīgpunkti deva divus papildu pierādījumus. Vienā palīdzēja heiristikas atrasts apvilktās riņķa līnijas centrs, otrā – modeļa piedāvāts nogriežņa viduspunkts.
   \item Pēc 20~000 apmācības soļiem modeļa \texttt{small} pirmajos četros piedāvājumos atsauces konstrukcija bija 143 no 200 piemēriem. Ar tā piedāvājumiem izdevās pierādīt 6 no 26 atlikušajiem JGEX un 0 no 14 atlikušajiem IMO uzdevumiem.
   \item Sešos IMO uzdevumu pāros no vienām un tām pašām sacensībām dedukcijas iznākums atšķīrās trīs reizes. Visos trijos pāros skolēniem augstāks vidējais bija pierādītajā uzdevumā. Izlase ir par mazu, lai pēc risinātāja iznākuma prognozētu skolēnu rezultātus citos uzdevumos. Latvijas uzdevumos interpretāciju ietekmē arī formalizācijā iepriekš pievienotie punkti.
 \end{secinajumi}

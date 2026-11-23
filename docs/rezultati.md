@@ -1,6 +1,6 @@
 # ZPD ģeometrijas risinātājs: rezultāti
 
-**Atkārtotā CPU pārbaude, 2026. gada 22. novembris:** [rezultātu lapa](results/index.html), [izejas dati un metode](../results/local-cpu/README.md).
+**Latvijas pilnā pārbaude, 2026. gada 23. novembris.** Sākotnējais dzinējs 18 konfigurācijās pierādīja 21 no 65 uzdevumiem. Labotais dzinējs 190 atlasītajos atkārtojumos trīsreiz pierādīja vienu un to pašu jaunu uzdevumu. Abu versiju rezultātos kopā ir 22 dažādi pierādīti uzdevumi. Ar riņķa līniju likumiem dedukcija pierādīja 10 uzdevumus, ar heiristikām – 11, ar modeli un heiristikām – 12. Vienā uzdevumā heiristika atrada trijstūra apvilktās riņķa līnijas centru, otrā modelis piedāvāja nogriežņa viduspunktu. Abus pierādījumus atkārtoja ar dedukciju, jau sākumā ievadot atrasto punktu. [Visi mērījumi](../results/latvia-domains/completed/) · [Abu konstrukciju pārbaude](../results/latvia-domains/circle-replays.json)
 
 **Latvijas olimpiāžu uzdevumi.** Ar 70 likumiem un algebrisko spriešanu sākotnējā dedukcija 60 sekundēs pierādīja 20 no 65 uzdevumiem. Bez algebriskās spriešanas tā šajā budžetā nepierādīja nevienu. No 48 izdrukātajiem algebriskajiem soļiem 14 seko no pašā solī norādītajiem vienādojumiem. Vēl 10 pamatojami, pievienojot vienādojumus no sākotnējās konstrukcijas. [Mērījumi un piecu oficiālo risinājumu salīdzinājums](../results/latvia-domains/paired-ar/)
 

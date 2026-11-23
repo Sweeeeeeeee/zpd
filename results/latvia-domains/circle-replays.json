@@ -1,0 +1,113 @@
+{
+  "input_sha256": "b8dbc80c6356ba613108593cdd92f5fdbfb3608e13221f82136969169ec711f7",
+  "config_sha256": "f31cd484827b4cc6868f157afa96c01a297ba176abad6a4d2a90989a2f0eb7c4",
+  "measurements": [
+    {
+      "name": "latvia/open/2002-03_30/grade07/p4",
+      "original_policies": [
+        "heuristics",
+        "combined"
+      ],
+      "source": "heuristics",
+      "clauses": [
+        "f = circle f b c e"
+      ],
+      "problem_with_point": "a c = segment a c; d = on_circle d a c; b = on_circle b d a; e = on_circle e b d, on_circle e c a; e1 = midpoint e1 b c; f = circle f b c e ? perp e e1 b c",
+      "same_transcript": {
+        "heuristics": true,
+        "combined": true
+      },
+      "result": {
+        "solved": true,
+        "proof": "# Problem setup:\n\n## Points\n\n- A(0.7148, -0.9328)\n- B(0.5950, -1.3208)\n- C(0.4593, -0.6487)\n- D(0.9642, -1.2223)\n- E(0.6926, -0.9513)\n- F(0.2687, -1.0369)\n- E₁(0.5271, -0.9847)\n\n## Assumptions:\n\n[C0] : AC = CE\n[C1] : BE = BD\n[C2] : F is the circumcenter of the circle ●BCE\n[C3] : E₁ is the midpoint of BC\n\n## Numerical checks\n\n[N0] : B, C, E are not collinear\n[N1] : B, C, F are not collinear\n[N2] : B, E, F are not collinear\n\n\n# Goals\n\nBC ⟂ EE₁ : Proved [10]\n\n\n# Proof:\n\n000. | AC = CE [C0], BE = BD [C1] =(AR Deduction)> CE = BE [0]\n001. | CE = BE [0], B, C, E are not collinear [N0] =(r13 Isosceles triangle equal angles)> ∠(BC,BE) = ∠(CE,BC) [1]\n002. | F is the circumcenter of the circle ●BCE [C2] =(r72 Disassembling a circle)> BF = CF [2]\n003. | BF = CF [2], B, C, F are not collinear [N1] =(r13 Isosceles triangle equal angles)> ∠(BC,BF) = ∠(CF,BC) [3]\n004. | F is the circumcenter of the circle ●BCE [C2] =(r72 Disassembling a circle)> BF = EF [4]\n005. | BF = EF [4], B, E, F are not collinear [N2] =(r13 Isosceles triangle equal angles)> ∠(BE,BF) = ∠(EF,BE) [5]\n006. | F is the circumcenter of the circle ●BCE [C2], E₁ is the midpoint of BC [C3] =(r17 Central angle vs inscribed angle I)> ∠(BE,CE) = ∠(E₁F,CF) [6]\n007. | ∠(BC,BF) = ∠(CF,BC) [3], ∠(BE,BF) = ∠(EF,BE) [5], ∠(BE,CE) = ∠(E₁F,CF) [6] =(AR Deduction)> E₁F ∥ EF [7]\n008. | E₁F ∥ EF [7] =(r28 Overlapping parallels)> E, E₁, F are collinear [8]\n009. | E, E₁, F are collinear [8] =(r82 Parallel from collinear)> EE₁ ∥ EF [9]\n010. | ∠(BC,BE) = ∠(CE,BC) [1], EE₁ ∥ EF [9] =(AR Deduction)> BC ⟂ EE₁ [10]\n\n\n# Appendix: AR deductions:\n\n\n\n000. | Ratio Chasing to prove CE = BE:\n| Premise AC = CE gives a linear equation with coefficients {}\n| Premise BE = BD gives a linear equation with coefficients {}\nWe are left with a linear equation with coefficients {} that gives CE = BE\n\n\n\n007. | Angle Chasing to prove E₁F ∥ EF:\n| Premise ∠(BC,BF) = ∠(CF,BC) gives a linear equation with coefficients {}\n| Premise ∠(BE,BF) = ∠(EF,BE) gives a linear equation with coefficients {}\n| Premise ∠(BE,CE) = ∠(E₁F,CF) gives a linear equation with coefficients {}\nWe are left with a linear equation with coefficients {} that gives E₁F ∥ EF\n\n\n\n010. | Angle Chasing to prove BC ⟂ EE₁:\n| Premise ∠(BC,BE) = ∠(CE,BC) gives a linear equation with coefficients {}\n| Premise EE₁ ∥ EF gives a linear equation with coefficients {}\nWe are left with a linear equation with coefficients {} that gives BC ⟂ EE₁\n\nEnd of proof.",
+        "wall_time": 1.612,
+        "peak_memory_mb": 190.6,
+        "cpu_time": 1.58,
+        "depth": 0,
+        "rules_fired": {
+          "AR:ratio": 266,
+          "r13": 8,
+          "r17": 2,
+          "r55": 1,
+          "r56": 1,
+          "r72": 3,
+          "r82": 5,
+          "AR:angle": 169,
+          "r28": 1
+        },
+        "rules_in_proof": {
+          "AR:ratio": 1,
+          "r13": 3,
+          "r72": 2,
+          "r17": 1,
+          "AR:angle": 2,
+          "r28": 1,
+          "r82": 1
+        },
+        "tools_used": [
+          "ddar"
+        ],
+        "tool_calls": {
+          "ddar": 1
+        },
+        "aux": [],
+        "ddar_calls": 1,
+        "failure_reason": null,
+        "load_time": 0.808
+      }
+    },
+    {
+      "name": "latvia/school/1999-00_50/grade10/p4",
+      "original_policies": [
+        "combined"
+      ],
+      "source": "transformer",
+      "clauses": [
+        "d = on_line d a b, on_bline d a b"
+      ],
+      "problem_with_point": "a b c = acute_triangle a b c; h = orthocenter h a b c; o1 = circle o1 a b c; o2 = circle o2 a b h; d = on_line d a b, on_bline d a b ? cong o1 a o2 a",
+      "same_transcript": {
+        "combined": true
+      },
+      "result": {
+        "solved": true,
+        "proof": "# Problem setup:\n\n## Points\n\n- A(1.2510, -1.1853)\n- B(2.2391, 0.6277)\n- C(-3.2284, 3.1681)\n- D(1.7451, -0.2788)\n- H(1.9601, 0.3406)\n- O₁(-0.8492, 1.1349)\n- O₂(4.3393, -1.6926)\n\n## Assumptions:\n\n[C0] : O₂ is the circumcenter of the circle ●ABH\n[C1] : O₁ is the circumcenter of the circle ●ABC\n[C2] : A, B, D are collinear\n[C3] : AD = BD\n\n## Numerical checks\n\n[N0] : A, B, O₂ are not collinear\n[N1] : A, C, O₁ are not collinear\n[N2] : A, H, O₂ are not collinear\n[N3] : B, C, O₁ are not collinear\n[N4] : A, O₁, O₂ are not collinear\n\n\n# Goals\n\nAO₁ = AO₂ : Proved [15]\n\n\n# Proof:\n\n000. | O₂ is the circumcenter of the circle ●ABH [C0] =(r72 Disassembling a circle)> AO₂ = BO₂ [0]\n001. | AO₂ = BO₂ [0], A, B, O₂ are not collinear [N0] =(r13 Isosceles triangle equal angles)> ∠(AB,AO₂) = ∠(BO₂,AB) [1]\n002. | O₁ is the circumcenter of the circle ●ABC [C1] =(r72 Disassembling a circle)> AO₁ = CO₁ [2]\n003. | AO₁ = CO₁ [2], A, C, O₁ are not collinear [N1] =(r13 Isosceles triangle equal angles)> ∠(AC,AO₁) = ∠(CO₁,AC) [3]\n004. | O₂ is the circumcenter of the circle ●ABH [C0] =(r72 Disassembling a circle)> AO₂ = HO₂ [4]\n005. | AO₂ = HO₂ [4], A, H, O₂ are not collinear [N2] =(r13 Isosceles triangle equal angles)> ∠(AH,AO₂) = ∠(HO₂,AH) [5]\n006. | O₁ is the circumcenter of the circle ●ABC [C1] =(r72 Disassembling a circle)> CO₁ = BO₁ [6]\n007. | CO₁ = BO₁ [6], B, C, O₁ are not collinear [N3] =(r13 Isosceles triangle equal angles)> ∠(BC,BO₁) = ∠(CO₁,BC) [7]\n008. | A, B, D are collinear [C2], AD = BD [C3] =(r54 Definition of midpoint)> D is the midpoint of AB [8]\n009. | O₁ is the circumcenter of the circle ●ABC [C1], D is the midpoint of AB [8] =(r17 Central angle vs inscribed angle I)> ∠(AC,BC) = ∠(AO₁,DO₁) [9]\n010. | O₂ is the circumcenter of the circle ●ABH [C0], D is the midpoint of AB [8] =(r17 Central angle vs inscribed angle I)> ∠(AH,BH) = ∠(DO₂,BO₂) [10]\n011. | ∠(AC,BC) = ∠(AO₁,DO₁) [9], ∠(AH,BH) = ∠(DO₂,BO₂) [10] =(AR Deduction)> DO₁ ∥ DO₂ [11]\n012. | DO₁ ∥ DO₂ [11] =(r28 Overlapping parallels)> D, O₁, O₂ are collinear [12]\n013. | D, O₁, O₂ are collinear [12] =(r82 Parallel from collinear)> O₁O₂ ∥ DO₁ [13]\n014. | ∠(AB,AO₂) = ∠(BO₂,AB) [1], ∠(AC,AO₁) = ∠(CO₁,AC) [3], ∠(AH,AO₂) = ∠(HO₂,AH) [5], ∠(BC,BO₁) = ∠(CO₁,BC) [7], O₁O₂ ∥ DO₁ [13] =(AR Deduction)> ∠(AO₁,O₁O₂) = ∠(O₁O₂,AO₂) [14]\n015. | ∠(AO₁,O₁O₂) = ∠(O₁O₂,AO₂) [14], A, O₁, O₂ are not collinear [N4] =(r14 Equal base angles imply isosceles)> AO₁ = AO₂ [15]\n\n\n# Appendix: AR deductions:\n\n\n\n011. | Angle Chasing to prove DO₁ ∥ DO₂:\n| Premise ∠(AC,BC) = ∠(AO₁,DO₁) gives a linear equation with coefficients {}\n| Premise ∠(AH,BH) = ∠(DO₂,BO₂) gives a linear equation with coefficients {}\nWe are left with a linear equation with coefficients {} that gives DO₁ ∥ DO₂\n\n\n\n014. | Angle Chasing to prove ∠(AO₁,O₁O₂) = ∠(O₁O₂,AO₂):\n| Premise ∠(AB,AO₂) = ∠(BO₂,AB) gives a linear equation with coefficients {}\n| Premise ∠(AC,AO₁) = ∠(CO₁,AC) gives a linear equation with coefficients {}\n| Premise ∠(AH,AO₂) = ∠(HO₂,AH) gives a linear equation with coefficients {}\n| Premise ∠(BC,BO₁) = ∠(CO₁,BC) gives a linear equation with coefficients {}\n| Premise O₁O₂ ∥ DO₁ gives a linear equation with coefficients {}\nWe are left with a linear equation with coefficients {} that gives ∠(AO₁,O₁O₂) = ∠(O₁O₂,AO₂)\n\nEnd of proof.",
+        "wall_time": 2.771,
+        "peak_memory_mb": 199.2,
+        "cpu_time": 2.74,
+        "depth": 0,
+        "rules_fired": {
+          "AR:angle": 812,
+          "AR:ratio": 85,
+          "r54": 1,
+          "r72": 6,
+          "r13": 6,
+          "r17": 4,
+          "r28": 1,
+          "r82": 2,
+          "r14": 2
+        },
+        "rules_in_proof": {
+          "r72": 4,
+          "r13": 4,
+          "r54": 1,
+          "r17": 2,
+          "AR:angle": 2,
+          "r28": 1,
+          "r82": 1,
+          "r14": 1
+        },
+        "tools_used": [
+          "ddar"
+        ],
+        "tool_calls": {
+          "ddar": 1
+        },
+        "aux": [],
+        "ddar_calls": 1,
+        "failure_reason": null,
+        "load_time": 0.773
+      }
+    }
+  ]
+}

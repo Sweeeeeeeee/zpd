@@ -14,7 +14,7 @@ No 80 Latvijas olimpiāžu kandidātiem eksperimentā iekļāvu 65 ar pieņemtu 
 
 ### 3. Tie paši 65 uzdevumi · 1:20–2:05
 
-Katra tabulas šūna aptver vienus un tos pašus uzdevumus. Katrā rindā atšķiras palīgpunktu meklēšanas stratēģija, bet starp abām kolonnām mainās algebriskā spriešana. Ieslēdzot to, katrā rindā izdevās iegūt 20 pierādījumus. Pārbaudot uzdevumu identifikatorus, redzams, ka sakrīt arī visi 20 uzdevumi. Ikreiz pietika ar sākotnēji ievadītajiem punktiem. Izslēdzot algebrisko spriešanu, pierādījumu skaits visās rindās bija nulle. Vēl vienā pārbaudē atstāju algebrisko spriešanu ieslēgtu, bet izslēdzu vienpadsmit ar trijstūru līdzību saistītus likumus. Ar atlikušajiem 59 likumiem dedukcija pierādīja 15 no tiem pašiem 65 uzdevumiem.
+Katrā šūnā risināja tos pašus 65 uzdevumus ar ieslēgtu algebrisko spriešanu. Ar pilno likumu kopu visas stratēģijas pierādīja tos pašus 20 uzdevumus. Bez līdzības likumiem ar dedukciju izdevās pierādīt 15, ar abām pārējām stratēģijām – 14. Palīgpunkti palīdzēja riņķa līniju likumu kopā. Heiristika atrada trijstūra apvilktās riņķa līnijas centru, bet modelis citā uzdevumā piedāvāja nogriežņa viduspunktu. Abi punkti ļāva pabeigt pierādījumu. Visās 18 konfigurācijās kopā sākotnējais risinātājs pierādīja 21 atšķirīgu uzdevumu. Ar izslēgtu algebrisko spriešanu pierādījumu nebija. [Pilnā salīdzinājuma dati](../../results/latvia-domains/completed/)
 
 ### 4. Olimpiādes uzdevums · 2:05–2:40
 
@@ -38,11 +38,11 @@ Vai pēc risinātāja iznākuma varam spriest, cik grūti bija skolēniem? Salī
 
 ## Iespējamie jautājumi
 
-- **Kāpēc 390 mēģinājumi un tikai 65 uzdevumi?** Katru uzdevumu risināja ar trim stratēģijām un diviem algebriskās spriešanas iestatījumiem. Tas dod 65 × 3 × 2. Citās eksperimenta sērijās maina arī pieejamos ģeometrijas likumus.
+- **Kāpēc 1170 mēģinājumi un 65 uzdevumi?** Katram uzdevumam pārbaudīja trīs likumu kopas, divus algebriskās spriešanas režīmus un trīs meklēšanas stratēģijas. Tas dod 65 × 3 × 2 × 3. Atsevišķi atkārtoja 190 mēģinājumus, kuros sākotnējam dzinējam radās kļūda. Labotais dzinējs trīs konfigurācijās pierādīja vienu un to pašu jaunu uzdevumu. Abu versiju rezultātos kopā ir 22 atšķirīgi pierādīti uzdevumi.
 - **Ko nozīmē nulle?** Šajos uzdevumos ar dotajiem punktiem, noteikumiem, dziļumu un laiku nevienā mēģinājumā pierādījums netika atrasts. Citi pierādīšanas paņēmieni un ilgāks meklēšanas laiks jāpārbauda atsevišķi.
 - **Vai ir arī Latvijas skolēnu vērtējumi?** Diviem 2015./16. gada 9. klases uzdevumiem tie ir zināmi. Valsts olimpiādē vidējais bija 3,92 no desmit un risinātājs ieguva pierādījumu. Atklātajā olimpiādē vidējais bija 5,69, bet labotajam risinātājam beidzās laiks. Šīm sacensībām bija atšķirīgas dalībnieku grupas. [Avoti un mērījumi](../../results/latvia-audit/#official-item-scores-for-two-grade-9-problems)
 - **Kurš atrada T?** Tas bija ietverts formalizācijas sākotnējā konstrukcijā. Mediānas galapunkts slaidā nosaukts par E un palīgpunkts par T, lai zīmējumu varētu lasīt kopā ar olimpiādes tekstu. Oficiālā pirmā risinājuma autori izvēlas citu palīgpunktu – nogriežņa CD viduspunktu G.
-- **Vai Latvijā ar modeļa palīdzību ieguva papildu pierādījumus?** Pilno 70 likumu sākotnējā eksperimentā trīs stratēģiju atrasto uzdevumu kopas pilnīgi sakrita. Kombinētajā konfigurācijā 5,1 miljona parametru modelis `mid` darbojās kopā ar heiristikām. Sestā slaida atsevišķajos testos izmantots 11,2 miljonu parametru modelis `small`.
+- **Kur modelis deva papildu pierādījumu?** Riņķa līniju likumu kopā tikai kombinētā stratēģija pierādīja 1999./2000. gada skolas olimpiādes 10. klases 4. uzdevumu. Modelis `mid` piedāvāja nogriežņa AB viduspunktu. Ievadot šo punktu sākumā, dedukcija viena pati atkārtoja to pašu pierādījumu. Ar pilno likumu kopu uzdevumu varēja pierādīt jau no sākotnējiem punktiem. Sestajā slaidā vērtēts cits modelis – `small`. [Abu palīgpunktu pārbaudes](../../results/latvia-domains/circle-replays.json)
 - **Kā pārbaudīta formalizācija?** Katrā no 65 uzdevumiem mēģināja uzbūvēt 64 zīmējumus ar jaunām nejaušības sēklām. Visos 3 940 sekmīgi uzbūvētajos zīmējumos mērķis izpildījās. Vēl 220 gadījumos konstrukciju neizdevās uzbūvēt. Atbilstība oficiālajam tekstam padziļināti pārbaudīta sešu uzdevumu izlasē. [Pārbaudes un atlases apraksts](../../results/latvia-audit/)
 
 ## Būvēšana

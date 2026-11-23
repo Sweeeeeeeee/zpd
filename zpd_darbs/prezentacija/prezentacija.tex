@@ -62,25 +62,27 @@
 \draw[linec,line width=1bp] (468,151)--(468,382);
 \type{500}{155}{407}{ink}{\sizef{27}{35}\bfseries}{Dedukcija pārbauda, ko dod zināmie fakti.}
 \type{500}{255}{405}{dim}{\sizef{27}{34}}{Ja tā apstājas, meklētājs drīkst pievienot vienu jaunu palīgpunktu.}
-\type{48}{419}{870}{ink}{\sizef{26}{32}}{70 ģeometrijas likumi\quad·\quad 60 sekundes mēģinājumam}
+\type{48}{419}{870}{ink}{\sizef{26}{32}}{\talkConfigs{} konfigurācijas\quad·\quad 60 sekundes meklēšanai}
 \foot{linec}{dim}{\source{\repo/blob/main/results/latvia-domain-plan.json}{Eksperimenta iestatījumi} \quad·\quad \source{\repo/tree/main/problems/latvia/geometry_translated}{Uzdevumu formalizācijas}}{2}
 \end{tikzpicture}
-% 3. Matched outcomes for the six completed policy configurations.
+% 3. All three rule sets, with the nine AR-off configurations summarized below.
 \begin{tikzpicture}[canvas]
 \bg{paper}
 \labelt{48}{30}{sea}{LATVIJAS UZDEVUMI}
-\head{ink}{Ko mainīja algebriskā spriešana?}
-\type{48}{135}{845}{dim}{\sizef{24}{30}}{Pierādītie uzdevumi no \talkCases{} katrā konfigurācijā}
-\node[anchor=east,text=sea,inner sep=0] at (680,212) {\sizef{24}{28}\bfseries Ieslēgta};
-\node[anchor=east,text=dim,inner sep=0] at (880,212) {\sizef{24}{28}\bfseries Izslēgta};
-\foreach \y/\name/\yes/\no in {259/Dedukcija/\talkDedOn/\talkDedOff,320/Ar heiristikām/\talkHeurOn/\talkHeurOff,381/Ar modeli un heiristikām/\talkModelOn/\talkModelOff}{
-    \draw[linec,line width=.8bp] (48,\y-28)--(912,\y-28);
-    \node[anchor=west,inner sep=0,text=ink] at (49,\y) {\sizef{27}{32}\name};
-    \node[anchor=east,inner sep=0,text=sea] at (680,\y) {\sizef{34}{38}\bfseries\yes};
-    \node[anchor=east,inner sep=0,text=dim] at (880,\y) {\sizef{34}{38}\bfseries\no};
+\head{ink}{Kad palīdzēja palīgpunktu meklēšana?}
+\type{48}{135}{860}{dim}{\sizef{23}{28}}{Pierādīto uzdevumu skaits no \talkCases{}. Algebriskā spriešana ieslēgta.}
+\foreach \x/\name in {456/Dedukcija,640/Ar heiristikām,907/Ar modeli un heiristikām}{
+    \node[anchor=east,text=dim,inner sep=0] at (\x,205) {\sizef{21}{26}\bfseries \name};
 }
-\type{48}{424}{864}{ink}{\sizef{23}{28}}{Tie paši \talkProvedOn{} uzdevumi visās trīs stratēģijās. Ar \talkReducedRules{} likumiem un algebrisko spriešanu dedukcija pierādīja \talkReducedWins{} no \talkCases{}.}
-\foot{linec}{dim}{\source{\repo/tree/main/results/latvia-domains}{\talkRuns{} sākotnējie mēģinājumi ar pilno likumu kopu}}{3}
+\foreach \y/\name/\a/\b/\c in {252/Pilnā kopa/\talkDedFull/\talkHeurFull/\talkModelFull,312/Bez līdzības likumiem/\talkDedReduced/\talkHeurReduced/\talkModelReduced,372/Riņķa līniju likumi/\talkDedCircle/\talkHeurCircle/\talkModelCircle}{
+    \draw[linec,line width=.8bp] (48,\y-27)--(912,\y-27);
+    \node[anchor=west,inner sep=0,text=ink] at (49,\y) {\sizef{25}{30}\name};
+    \foreach \x/\n in {456/\a,640/\b,907/\c}{
+        \node[anchor=east,inner sep=0,text=sea] at (\x,\y) {\sizef{32}{37}\bfseries\n};
+    }
+}
+\type{48}{424}{865}{ink}{\sizef{22}{28}}{Visās konfigurācijās kopā pierādīts \talkCovered{} uzdevums. Izslēdzot algebrisko spriešanu, pierādīto uzdevumu skaits bija \talkOffWins{}.}
+\foot{linec}{dim}{\source{\repo/tree/main/results/latvia-domains/completed}{\talkRuns{} sākotnējie mēģinājumi ar trim likumu kopām}}{3}
 \end{tikzpicture}
 % 4. The original geometry problem, before introducing the extra point.
 \begin{tikzpicture}[canvas]

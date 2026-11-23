@@ -74,7 +74,7 @@ def complete_coverage(finished, cases):
     )
     complete_paper = (
         f" Kopā sešās jomās un trīs meklēšanas stratēģijās veikti {finished['runs']} mēģinājumi. "
-        f"Vismaz vienā no sākotnējām konfigurācijām pierādīti {finished['proved_by_any']} dažādi uzdevumi. "
+        f"Sākotnējā skenējumā dažādu pierādīto uzdevumu skaits bija {finished['proved_by_any']}. "
         f"Ar laboto dzinēju atsevišķi atkārtoti {finished['retried']} skartie mēģinājumi."
     )
     return table, complete_paper

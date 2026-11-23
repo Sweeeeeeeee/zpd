@@ -1443,5 +1443,18 @@
       "with_added_point": [],
       "combined_only": []
     }
+  },
+  "latvia_retry_coverage": {
+    "runs": 190,
+    "proved_runs": 3,
+    "additional_problems": [
+      "latvia/national/2024-25_75/grade09/p2"
+    ],
+    "original_problems": 21,
+    "across_versions": 22
+  },
+  "latvia_circle_replays": {
+    "constructions": 2,
+    "matching_transcripts": 3
   }
 }

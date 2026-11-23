@@ -1,6 +1,18 @@
-# Latvian full-domain benchmark
+# Latvian geometry benchmark
 
-This is the first complete three-policy comparison in the 18-configuration scan. The 22 November 2026 baseline used revision `c5ae501`, Newclid 3.0.1, numerical seed 0 and Python hash seed 0 on the local Intel Core i7-1355U. The 65 accepted translations are drawn from an 80-problem working set. Ten still await a review decision and five were rejected.
+The completed scan ran 65 problems in 18 configurations. The original solver proved 21 distinct problems. The revised solver retried 190 failed runs and proved one additional problem in three configurations. Together the records contain proofs of 22 distinct problems. [1,170 original runs and 190 paired retries](completed/)
+
+With algebraic reasoning enabled, the three circle-rule policies proved 10, 11 and 12 problems. The heuristic introduced the circumcenter of BCE on the 2002–03 open grade 7 problem. Geo-LM mid proposed the midpoint of AB on the 1999–2000 school grade 10 problem. Both also have proofs with no new point under the full rules. Supplying each recorded point to frozen circle-rule deduction reproduced its complete original transcript. The circumcenter was used by both search policies. Each replay made one deduction call with both proposers disabled. [Two replays with their proofs](circle-replays.json)
+
+To reproduce the two replays, use the original `c5ae501` checkout and environment from the [domain guide](../../docs/domains.md), with the reporting checkout in `ZPD_REPORT`. From the original checkout run:
+
+```sh
+PYTHONPATH="$PWD:$PWD/geo-lm" PYTHONHASHSEED=0 python "$ZPD_REPORT/bench/latvia/replay_circle_gains.py" "$ZPD_REPORT/results/latvia-domains/completed" /tmp/circle-replays.json
+```
+
+## Full rule set
+
+The 22 November 2026 baseline used revision `c5ae501`, Newclid 3.0.1, numerical seed 0 and Python hash seed 0 on the local Intel Core i7-1355U. The 65 accepted translations are drawn from an 80-problem working set. Ten still await a review decision and five were rejected.
 
 Each JSONL file has one row per accepted problem, including every proof transcript, failure reason, auxiliary construction, rule count and measured resource use. The input manifest binds the problem IDs and texts, solver sources, environment and the [frozen settings](../latvia-domain-plan.json) to their hashes. Each run allowed 60 seconds after loading and 2,048 MiB. A search could add at most one point after the initial formalization. The combined policy tried the 5.1M-parameter mid checkpoint ahead of heuristics.
 

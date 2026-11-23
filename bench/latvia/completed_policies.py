@@ -68,3 +68,19 @@ def render(comparisons):
         '<th>Gains over deduction</th><th>Gains with added point</th><th>Combined only</th></tr></thead>'
         '<tbody>' + "".join(rows) + '</tbody></table></div>'
     )
+
+
+def retry_coverage(folder, summary, comparisons):
+    originals = {name for group in comparisons.values() for name in group["any_policy"]}
+    rows = [json.loads(line) for line in (folder / "retries.jsonl").read_text().splitlines()]
+    keys = {(row["config"], row["name"]) for row in rows}
+    if len(keys) != len(rows) or len(rows) != summary["retried"]:
+        raise ValueError("Incomplete or duplicate retry evidence")
+    counts = Counter((row["config"], category(row)) for row in rows)
+    expected = Counter({(config, outcome): n for config, group in summary["configurations"].items()
+                        for outcome, n in group["retries"].items()})
+    if counts != expected:
+        raise ValueError("Retry outcomes differ from the completed summary")
+    proved = [row["name"] for row in rows if row["solved"]]
+    return {"runs": len(rows), "proved_runs": len(proved), "additional_problems": sorted(set(proved) - originals),
+            "original_problems": len(originals), "across_versions": len(originals.union(proved))}

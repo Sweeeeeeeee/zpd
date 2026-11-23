@@ -43,15 +43,15 @@ Scheme agreed with the user 2026-11-12: agents do the bulk work, automatic check
 
 ### 9. Scan
 - [x] 9.1. Freeze six rule/AR settings × three proposer policies, the search budget, checkpoint and engine version. See `results/latvia-domain-plan.json` and the reproduction instructions in `docs/domains.md`.
-- [ ] 9.2. Run every working-set problem in every config and store the results. The full domain with algebraic reasoning on and off has all 390 original measurements on the 65 accepted translations. See [the per-problem records](../results/latvia-domains/).
-- [ ] 9.3. Rerun crashes and timeouts; classify the remaining failures (engine bug, translation error, budget) and fix what can be fixed.
+- [x] 9.2. [Run and publish every accepted problem in all 18 frozen configurations](../results/latvia-domains/completed/). The archive contains 1,170 original measurements on 65 problems.
+- [ ] 9.3. All 190 line-merge failures received [paired reruns](../results/latvia-domains/completed/retries.jsonl). Broader timeout diagnosis and classification of the remaining failures are open.
 
 ### 10. Analysis
 - [x] 10.1a. [Trace all 20 frozen full-rule proofs](https://zpd.aniwe.me/#proof-records), count the rules and dependencies used, and publish the per-problem time, memory and added points.
 - [ ] 10.1b. For the remaining domains: which problems have an easy solution, the key auxiliary point, and how easy it is (proof steps, rules used, time, memory).
 - [ ] 10.2. Compare domains: which theorem or AR makes which problems easy. The [paired 70-rule comparison and transcript audit](../results/latvia-domains/paired-ar/) cover the full domain with and without AR. [Removing the 11 similarity-related rules](../results/latvia-domains/#removing-similarity-rules) leaves 15 deduction wins, including three alternate proof routes.
 - [x] 10.3a. [Compare deduction, heuristics and model plus heuristics across the 390 original full-rule runs](../results/latvia-domains/#auxiliary-point-search-in-the-full-rule-set).
-- [ ] 10.3b. Extend the matched comparison to the two restricted rule sets after their runs finish.
+- [x] 10.3b. [Compare the search policies across all rule sets](https://zpd.aniwe.me/#complete-search-overlap). The two gains from a new point in the circle domain were independently replayed with deduction alone.
 - [x] 10.4a. [Compare five solver transcripts with the official solutions](../results/latvia-domains/paired-ar/#comparison-with-official-solutions), recording when a helper was introduced and which geometric argument each proof used.
 - [ ] 10.4b. Test whether student scores relate to solver coverage. [Two grade 9 problems have matched official item scores and revised solver runs](../results/latvia-audit/#official-item-scores-for-two-grade-9-problems). The [six within-edition IMO comparisons](../results/local-cpu/imo/score-comparison.md) cover all 12 eligible official problems. Broader matched coverage in Latvia remains open.
 - [ ] 10.5. Problems with no easy solution found: why (missing rule, needs depth 2, budget, translation). The [180-second restricted-domain retests](../results/latvia-domains/#removing-similarity-rules) recovered a previously timed-out 21-step proof and recorded deduction exhaustion on the other matched timeout.
@@ -60,7 +60,7 @@ Scheme agreed with the user 2026-11-12: agents do the bulk work, automatic check
 
 ### 11. Report
 - [ ] 11.1. Write up the method and results (docs/apraksts.md, docs/rezultati.md) with the tables and examples of easy solutions.
-- [x] 11.2. [Eight-slide Latvian oral presentation](../zpd_darbs/prezentacija/prezentacija.pdf) with a worked proof, the 390-run comparison and [timed speaker notes](../zpd_darbs/prezentacija/README.md).
+- [x] 11.2. [Eight-slide Latvian oral presentation](../zpd_darbs/prezentacija/prezentacija.pdf) with a worked proof, the 1,170-run comparison and [timed speaker notes](../zpd_darbs/prezentacija/README.md).
 - [ ] 11.3. Final check: tests pass, the scan can be reproduced from the README, results committed.
 
 ### 12. ZPD paper in LaTeX (zpd_darbs/)

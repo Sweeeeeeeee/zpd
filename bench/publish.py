@@ -311,6 +311,39 @@ def main():
         policy_overlaps = completed_policies.analyze(finished_path.parent, finished, frozen_problems)
         result["latvia_completed_policy_overlap"] = policy_overlaps
         data["complete_domain_table"] += completed_policies.render(policy_overlaps)
+        coverage = completed_policies.retry_coverage(finished_path.parent, finished, policy_overlaps)
+        result["latvia_retry_coverage"] = coverage
+        data["complete_domain_table"] += (
+            f"<p>The original solver proved {coverage['original_problems']} distinct problems. "
+            f"Of {coverage['runs']} targeted reruns, {coverage['proved_runs']} produced a proof, adding "
+            f"{len(coverage['additional_problems'])} distinct problem to the original set. Across both solver "
+            f"versions, {coverage['across_versions']} of {finished['problems']} problems have a recorded proof.</p>"
+        )
+        complete_paper += (
+            f" Pierādījumu ieguva {coverage['proved_runs']} atkārtojumos. "
+            f"Abu dzinēja versiju rezultātos dažādu pierādīto uzdevumu skaits sasniedza {coverage['across_versions']}."
+        )
+        replay_path = finished_path.parent.parent / "circle-replays.json"
+        if replay_path.is_file():
+            from bench.latvia.replay_circle_gains import verify
+
+            replays = verify(finished_path.parent, json.loads(replay_path.read_text()))
+            result["latvia_circle_replays"] = replays
+            complete_paper += (
+                " Riņķa līniju likumu kopā heiristika vienā uzdevumā atrada apvilktās riņķa līnijas centru, "
+                "modelis otrā -- nogriežņa viduspunktu. Ievadot katru punktu sākumā, dedukcija atkārtoja pierādījumu."
+            )
+            data["complete_domain_table"] += (
+                '<h3 id="circle-point-replays">What did the two extra points do?</h3>'
+                '<p>Under the circle rules, the heuristic constructed the circumcenter of triangle BCE '
+                'on the 2002–03 grade 7 problem. On the 1999–2000 grade 10 problem, Geo-LM mid proposed '
+                'the midpoint of AB. Both problems also have full-rule proofs using the original points.</p>'
+                f'<p>We supplied each point to circle-rule deduction with both proposers disabled. '
+                f'It proved both goals, reproducing all {replays["matching_transcripts"]} original winning transcripts '
+                '(the circumcenter appeared under two policies). '
+                '<a href="https://github.com/Sweeeeeeeee/zpd/blob/main/results/latvia-domains/circle-replays.json">'
+                'Constructions and replayed proofs</a>.</p>'
+            )
         schedule_path = RESULTS / "latvia-domains/execution/baseline.json"
         if schedule_path.is_file():
             schedule = json.loads(schedule_path.read_text())
@@ -348,23 +381,16 @@ def main():
     full_heuristics = latvia["policies"]["heuristics"]
     full_combined = latvia["policies"]["combined"]
     paragraph = (
-        f"Pilnajā 70 likumu jomā ar algebrisko spriešanu pārbaudīti {latvia['cases']} pieņemtie "
-        f"Latvijas olimpiāžu uzdevumu tulkojumi. Visas trīs meklēšanas stratēģijas pierādīja "
-        f"vienus un tos pašus {latvia['proved_by_all']} uzdevumus. Visos šajos pierādījumos pietika "
-        "ar formalizācijā dotajiem punktiem. Vienā mēģinājumā meklēšanai atvēlēja 60~s. "
-        f"Dedukcija vien laika limitu sasniedza {full_deduction['timeouts']} reizi, "
-        f"meklēšana ar heiristikām -- {full_heuristics['timeouts']} reizes, bet ar modeli un "
-        f"heiristikām -- {full_combined['timeouts']} reizes. Katrā stratēģijā "
-        f"{full_deduction['errors']} mēģinājumi apstājās dzinēja kļūdas dēļ, apvienojot taisnes. "
-        "Atsevišķā pārbaudē ar laboto dzinēju no četriem šādiem gadījumiem pierādīts viens "
-        "-- 2024./25.~gada valsts olimpiādes 9.~klases 2.~uzdevums. Tajā mediānas viduspunktu "
-        "iegūst ar trijstūra viduslīnijas teorēmu. Pārējos trīs mēģinājumos sasniegts laika limits.\n"
-    )
-    paragraph += (
-        f"Bez algebriskās spriešanas trīs stratēģijas kopā pierādīja {len(policy_off['any_wins'])} uzdevumus. "
-        f"Laika limitu dedukcija sasniedza {off_counts['deduction']['timeouts']} gadījumos, "
-        f"meklēšana ar heiristikām -- {off_counts['heuristics']['timeouts']}, ar modeli un heiristikām -- "
-        f"{off_counts['combined']['timeouts']}. Šie rezultāti attiecas uz konkrēto meklēšanas budžetu.\n"
+        f"Pilnajā 70 likumu jomā ar algebrisko spriešanu visas trīs stratēģijas 60~s limitā "
+        f"pierādīja tos pašus {latvia['proved_by_all']} no {latvia['cases']} uzdevumiem ar sākotnēji dotajiem punktiem. "
+        f"Dedukcija sasniedza laika limitu {full_deduction['timeouts']} reizi, heiristikas -- "
+        f"{full_heuristics['timeouts']}, modelis ar heiristikām -- {full_combined['timeouts']}. "
+        f"Katrā stratēģijā {full_deduction['errors']} reizes radās kļūda, apvienojot taisnes. "
+        "Pēc labojuma izdevās pierādīt 2024./25.~gada valsts olimpiādes 9.~klases 2.~uzdevumu "
+        "par mediānas viduspunktu (1.~pielikums). "
+        f"Bez algebriskās spriešanas pierādīto uzdevumu skaits bija {len(policy_off['any_wins'])}. "
+        f"Laika limitu šajās stratēģijās sasniedza attiecīgi {off_counts['deduction']['timeouts']}, "
+        f"{off_counts['heuristics']['timeouts']} un {off_counts['combined']['timeouts']} reizes."
     )
     drawing_paper = (
         f"Katram tulkojumam figūru konstruēja ar {fresh_drawings['seeds_per_case']} jaunām nejaušo skaitļu "

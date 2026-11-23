@@ -207,3 +207,28 @@ def test_alternate_proof_seed_repeats_bind_each_draw_to_its_configuration_and_tr
     bad = {**rows[0], "same_printed_deductions": not rows[0]["same_printed_deductions"]}
     with pytest.raises(ValueError, match="transcripts"):
         verify(folder, {**data, "measurements": [bad, *rows[1:]]})
+
+
+def test_circle_replay_preserves_the_winning_construction_and_retry_count():
+    from bench.latvia.completed_policies import retry_coverage
+    from bench.latvia.replay_circle_gains import verify
+    from bench.latvia.scan_plan import ROOT
+
+    base = ROOT / "results/latvia-domains"
+    folder = base / "completed"
+    replay = json.loads((base / "circle-replays.json").read_text())
+    assert verify(folder, replay) == {"constructions": 2, "matching_transcripts": 3}
+    assert [(r["source"], r["clauses"]) for r in replay["measurements"]] == [
+        ("heuristics", ["f = circle f b c e"]),
+        ("transformer", ["d = on_line d a b, on_bline d a b"]),
+    ]
+    replay["measurements"][0]["result"]["aux"].append("unexpected second construction")
+    with pytest.raises(ValueError, match="deduction alone"):
+        verify(folder, replay)
+
+    summary = json.loads((folder / "summary.json").read_text())
+    paired = json.loads((ROOT / "results/local-cpu/summary.json").read_text())["latvia_completed_policy_overlap"]
+    assert retry_coverage(folder, summary, paired) == {
+        "runs": 190, "proved_runs": 3, "additional_problems": ["latvia/national/2024-25_75/grade09/p2"],
+        "original_problems": 21, "across_versions": 22,
+    }
