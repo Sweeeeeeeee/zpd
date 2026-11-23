@@ -84,3 +84,40 @@ def retry_coverage(folder, summary, comparisons):
     proved = [row["name"] for row in rows if row["solved"]]
     return {"runs": len(rows), "proved_runs": len(proved), "additional_problems": sorted(set(proved) - originals),
             "original_problems": len(originals), "across_versions": len(originals.union(proved))}
+
+
+def render_policy_chart(study):
+    """Show the initial circle-rule outcome in HTML and embed the other measured settings."""
+    labels = {"full": "Full rules", "no_similarity": "Without similarity", "circles": "Circle rules"}
+    policies = ("deduction", "heuristics", "combined")
+    counts = study["configurations"]
+
+    def wins(domain):
+        return [counts[f"{domain}-{policy}"]["baseline"].get("proved", 0) for policy in policies]
+
+    controls = []
+    for domain, title in labels.items():
+        on = ",".join(map(str, wins(domain)))
+        off = ",".join(map(str, wins(domain + "_no_ar")))
+        active = "true" if domain == "circles" else "false"
+        controls.append(f'<button type="button" aria-pressed="{active}" data-rules="{domain}" '
+                        f'data-on="{on}" data-off="{off}">{title}</button>')
+    maximum = max(1, *(max(wins(domain + suffix)) for domain in labels for suffix in ("", "_no_ar")))
+    rows = []
+    for label, count in zip(("Deduction alone", "With heuristics", "With model + heuristics"), wins("circles")):
+        rows.append(f'<li><span>{label}</span><div class="track" aria-hidden="true">'
+                    f'<i style="width:{100*count/maximum:g}%"></i></div><strong>{count}</strong></li>')
+    return (
+        '<div class="experiment" id="policy-chart">'
+        '<div class="chart-settings" hidden><div class="rule-choices" role="group" aria-label="Rule set">'
+        + "".join(controls) + '</div><label class="ar-switch"><input type="checkbox" checked id="chart-ar">'
+        'Algebraic reasoning</label></div><div class="chart-layout"><div class="chart" '
+        f'data-maximum="{maximum}"><h3 id="chart-title">Circle rules · algebra on</h3>'
+        f'<p>Problems proved out of {study["problems"]} per strategy</p><ul>'
+        + "".join(rows) + f'</ul><div class="axis" aria-hidden="true"><span><i>0</i><i>{maximum/2:g}</i>'
+        f'<i>{maximum}</i></span></div></div><div class="chart-reading" aria-live="polite" aria-atomic="true">'
+        '<h3 id="chart-headline">Two constructions made a difference.</h3>'
+        '<p id="chart-reading">A heuristic found a circumcenter on one problem. On another, '
+        'Geo-LM mid proposed a midpoint. Supplying each point to deduction reproduced its original proof.</p>'
+        '<a href="#circle-point-replays">Inspect the replays</a></div></div></div>'
+    )

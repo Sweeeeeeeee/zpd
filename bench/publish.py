@@ -302,6 +302,9 @@ def main():
                 paired_off=revised[off].get("proved", 0), ar_total=total_steps, ar_follow=self_contained,
                 ar_recovered=recovered, ar_remaining=total_steps-self_contained-recovered)
     finished_path = RESULTS / "latvia-domains/completed/summary.json"
+    data.update(overview_runs=f"{policy_study['runs']:,}", overview_configs=6, overview_distinct=latvia["proved_by_any"],
+                overview_scope="in the six full-rule configurations", policy_chart="",
+                coverage_anchor="search-policies", coverage_explanation="The results below cover the recorded full-rule runs.")
     data["complete_domain_table"] = ""
     complete_paper = ""
     if finished_path.is_file():
@@ -313,6 +316,14 @@ def main():
         data["complete_domain_table"] += completed_policies.render(policy_overlaps)
         coverage = completed_policies.retry_coverage(finished_path.parent, finished, policy_overlaps)
         result["latvia_retry_coverage"] = coverage
+        extra = len(coverage["additional_problems"])
+        added = "one more problem" if extra == 1 else f"{extra} additional problems"
+        data.update(overview_runs=f"{finished['runs']:,}", overview_configs=len(finished["configurations"]),
+                    overview_distinct=coverage["original_problems"], overview_scope="across all original runs",
+                    policy_chart=completed_policies.render_policy_chart(finished), coverage_anchor="complete-search-overlap",
+                    coverage_explanation=(f"After we fixed a line-merge error, {coverage['runs']} targeted reruns proved "
+                                          f"{added}. Across both engine versions, we have proofs for "
+                                          f"{coverage['across_versions']} of {finished['problems']} problems."))
         data["complete_domain_table"] += (
             f"<p>The original solver proved {coverage['original_problems']} distinct problems. "
             f"Of {coverage['runs']} targeted reruns, {coverage['proved_runs']} produced a proof, adding "
